@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
-
+import json
 from EntityTypeDefinitions.index import format_all_entity_definitions
 from Core.Agent import Agent
 from EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
 from ExampleText.index import ExampleText
+from ChatLLM.index import ChatLLM
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -28,6 +29,7 @@ class EntityExtractionAgent(Agent):
         relation_focus: Optional[List[Any]] = None,
         priority: int = 1,
         metadata: Optional[Dict[str, Any]] = None,
+        THRESH: float = 0.6
     ) -> None:
         super().__init__(
             template_id="entity_extractor",
@@ -38,6 +40,7 @@ class EntityExtractionAgent(Agent):
             priority=priority,
             metadata=dict(metadata or {}),
         )
+        self.THRESH = THRESH
     
     def build_type_detection_prompt(
         self,
@@ -73,10 +76,7 @@ class EntityExtractionAgent(Agent):
         scores_template_items = ", ".join([f'"{t}": 0.0' for t in closed_set])
         scores_template = "{ " + scores_template_items + " }"
 
-        sys_desc = (
-            "You are a rigorous biomedical type detector. Return STRICT JSON only; "
-            "no explanations, prefixes/suffixes, or Markdown."
-        )
+        
         task_desc = (
             "Task: Decide which ENTITY TYPES (closed set) appear in the text. "
             "Do NOT list mentions. Do NOT extrapolate or use world knowledge."
@@ -104,7 +104,6 @@ class EntityExtractionAgent(Agent):
             f"Closed set (allowed lowercase values only): {closed_set}"
         )
         prompt = (
-            f"System:\n{sys_desc}\n\n"
             f"User:\n{task_desc}\n\n"
             + "\n".join(f"- {r}" for r in rules) + "\n\n"
             f"{boundary}\n"
@@ -115,14 +114,44 @@ class EntityExtractionAgent(Agent):
         )
 
         return prompt
+    def validate_and_fix_type_result(self,raw_json_text: str, closed_set: List[str]) -> Dict:
+        """
+        - 解析 JSON；present 强制为闭集子集；
+        - 为闭集中每个类型补全 score；将分数裁剪到 [0,1]；
+        - 如果 present 为空但部分分数>0，也不自动加入 present（保持“由模型判定”的语义）。
+        """
+        data = json.loads(raw_json_text)
+
+        present = data.get("present", [])
+        scores = data.get("scores", {})
+
+        # present 只保留闭集合法项
+        present = [t for t in present if t in closed_set]
+
+        # 闭集每个类型都有分，且裁剪到 [0,1]
+        fixed_scores = {}
+        for t in closed_set:
+            v = float(scores.get(t, 0.0))
+            if v < 0.0: v = 0.0
+            if v > 1.0: v = 1.0
+            fixed_scores[t] = v
+
+        return {"present": present, "scores": fixed_scores}
     def step1(self, text: str) -> str:
         """
         Step 1: 在候选实体类型中检查存在的实体类型
         """
-        
+        sys_desc = (
+            "You are a rigorous biomedical type detector. Return STRICT JSON only; "
+            "no explanations, prefixes/suffixes, or Markdown."
+        )
+        llm = ChatLLM(system=sys_desc)
         step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
-        print(step1_prompt)
-        return text
+        response = llm.single(step1_prompt)
+        closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
+        result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
+        selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
+        return selected
     def step2(self, text: str) -> str:
         """
         Step 2: Classify the entities into the appropriate ontology
