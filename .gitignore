@@ -1,0 +1,59 @@
+# ---- project outputs ----
+# 忽略下载的PDF
+downloaded_pdfs/
+markdown/
+models/
+# 如果你想保留空目录但忽略其中所有文件，请改为下面两行并在目录里放一个 .gitkeep
+# downloaded_pdfs/*
+# !downloaded_pdfs/.gitkeep
+
+# ---- python basics ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# 包/构建产物
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# 缓存与工具
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+.ipynb_checkpoints/
+
+# 日志 / 临时文件
+*.log
+*.tmp
+*.temp
+
+# ---- 可选：常见大文件与数据（按需保留或删除这一段）----
+*.npy
+*.npz
+*.pkl
+*.pt
+*.bin
+*.h5
+# *.csv
+# *.tsv
+# data/
+# cache/
+# tmp/
+# downloads/
+
+# ---- IDE / OS ----
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db
