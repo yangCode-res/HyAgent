@@ -4,6 +4,8 @@ from typing import Any, Dict, List, Optional
 
 from EntityTypeDefinitions.index import format_all_entity_definitions
 from Core.Agent import Agent
+from EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
+from ExampleText.index import ExampleText
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -19,6 +21,7 @@ class EntityExtractionAgent(Agent):
         self,
         *,
         name: str = "Entity Extraction Agent",
+        system: str = "You are a careful biomedical classifier. Return STRICT JSON only.",
         responsibility: str = '''You are a specialized Entity Extraction Agent for biomedical literature. 
         Your task is to identify and classify all biomedical entities with high precision and appropriate ontological mapping''',
         entity_focus: Optional[List[Any]] = None,
@@ -35,10 +38,90 @@ class EntityExtractionAgent(Agent):
             priority=priority,
             metadata=dict(metadata or {}),
         )
+    
+    def build_type_detection_prompt(
+        self,
+        text: str,
+        entity_definitions: Dict[EntityType, EntityDefinition] = ENTITY_DEFINITIONS,
+        order: Optional[List[EntityType]] = None,
+    ) -> str:
+        """
+        构造用于“实体类型判定（仅判类型，不抽实体）”的生产级提示词。
+        - 闭集 = 由 entity_definitions / order 决定，类型键一律使用 Enum 的 value（你的枚举是小写：'disease','drug',...）
+        - 输出必须严格 JSON：
+        {
+            "present": ["disease","drug", ...],        # 只允许出现在闭集里
+            "scores": {"disease": 0.0, "drug": 0.0, ...}  # 闭集每个类型都给分，范围 [0,1]
+        }
+        - 若无命中：present=[] 且 scores 全 0.0
+        """
+        # 输出顺序：若未指定则按你的 EntityType 枚举顺序
+        if order is None:
+            order = list(EntityType)
+
+        # 闭集类型：使用枚举的 value（小写），与你下游统一
+        closed_set: List[str] = [et.value for et in order if et in entity_definitions]
+
+        # 详细类型说明：直接用你已有的 formatter
+        detailed_defs = format_all_entity_definitions(
+            entity_definitions=entity_definitions,
+            order=order,
+            # labels 不传：保留你定义里的 name（如 "DRUG","DISEASE"...）
+        )
+
+        # 组装一个 scores 模板示意（仅作展示，模型仍需返回全量 scores）
+        scores_template_items = ", ".join([f'"{t}": 0.0' for t in closed_set])
+        scores_template = "{ " + scores_template_items + " }"
+
+        sys_desc = (
+            "You are a rigorous biomedical type detector. Return STRICT JSON only; "
+            "no explanations, prefixes/suffixes, or Markdown."
+        )
+        task_desc = (
+            "Task: Decide which ENTITY TYPES (closed set) appear in the text. "
+            "Do NOT list mentions. Do NOT extrapolate or use world knowledge."
+        )
+        rules = [
+            "Base your decision ONLY on the provided text; avoid hallucinations.",
+            "If there is explicit, text-grounded evidence (incl. local synonym/abbreviation), mark that type as present.",
+            "If no direct evidence, mark as absent.",
+            "Output has two parts:",
+            "  (1) present: list of type names (subset of the closed set; use lowercase keys, e.g., 'disease').",
+            "  (2) scores: confidence in [0,1] for EACH type in the closed set; 0.0 when absent; ≥0.6 when present; ≥0.8 when strongly evident.",
+            "If none present: present = [] and all scores = 0.0.",
+            "Return STRICT JSON only.",
+        ]
+        boundary = (
+            "Closed-set and detailed definitions (for boundary alignment; do NOT restate in output):\n\n"
+            f"{detailed_defs}\n"
+        )
+        schema = (
+            "Output (STRICT JSON):\n"
+            "{\n"
+            '  "present": ["disease","drug"],\n'
+            f'  "scores": {scores_template}\n'
+            "}\n"
+            f"Closed set (allowed lowercase values only): {closed_set}"
+        )
+        prompt = (
+            f"System:\n{sys_desc}\n\n"
+            f"User:\n{task_desc}\n\n"
+            + "\n".join(f"- {r}" for r in rules) + "\n\n"
+            f"{boundary}\n"
+            f"{schema}\n\n"
+            "Text (decide ONLY from this text):\n<<<\n"
+            f"{text}\n"
+            ">>>\n"
+        )
+
+        return prompt
     def step1(self, text: str) -> str:
         """
-        Step 1: Extract all entities from the text
+        Step 1: 在候选实体类型中检查存在的实体类型
         """
+        
+        step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
+        print(step1_prompt)
         return text
     def step2(self, text: str) -> str:
         """
@@ -52,6 +135,8 @@ class EntityExtractionAgent(Agent):
         入参格式示例：[{"id": "doc1", "text": "..."}, ...]
         返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
         """
+        text = ExampleText().get_text()
+        self.step1(text)
         results: List[Dict[str, Any]] = []
         for doc in documents:
             doc_id = doc.get("id") or ""
@@ -72,4 +157,21 @@ class EntityExtractionAgent(Agent):
         """
         return []
 
+        # INSERT_YOUR_CODE
+def main():
+    # 示例文档列表
+    documents = [
+        {"id": "doc1", "text": "Aspirin is commonly used to treat fever and pain."},
+        {"id": "doc2", "text": "BRCA1 mutations are associated with breast cancer."},
+    ]
+
+    # 实例化你的类（假设名为 EntityExtractor，实际请用相应类名替换）
+    extractor = EntityExtractionAgent()
+    results = extractor.run(documents)
+    for result in results:
+        print(result)
+
+# 如果直接运行此脚本，则执行 main
+if __name__ == "__main__":
+    main()
 
