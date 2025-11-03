@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-
+from EntityTypeDefinitions.index import format_all_entity_definitions
 from Core.Agent import Agent
 class EntityExtractionAgent(Agent):
     """
@@ -19,7 +19,8 @@ class EntityExtractionAgent(Agent):
         self,
         *,
         name: str = "Entity Extraction Agent",
-        responsibility: str = "Extract medical entities from provided texts",
+        responsibility: str = '''You are a specialized Entity Extraction Agent for biomedical literature. 
+        Your task is to identify and classify all biomedical entities with high precision and appropriate ontological mapping''',
         entity_focus: Optional[List[Any]] = None,
         relation_focus: Optional[List[Any]] = None,
         priority: int = 1,
@@ -34,7 +35,16 @@ class EntityExtractionAgent(Agent):
             priority=priority,
             metadata=dict(metadata or {}),
         )
-
+    def step1(self, text: str) -> str:
+        """
+        Step 1: Extract all entities from the text
+        """
+        return text
+    def step2(self, text: str) -> str:
+        """
+        Step 2: Classify the entities into the appropriate ontology
+        """
+        return text
     def run(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
         执行实体抽取主流程。
