@@ -1,4 +1,5 @@
 from calendar import c
+from html import entities
 from typing import Optional, Any, Dict, List
 
 from openai import OpenAI
@@ -51,6 +52,11 @@ REQUIRED CONDITIONS:
 - Evidence must be present within the analyzed text segment
 - Relationship direction must be determinable from context
 
+TEMPORAL ASPECTS:
+- Note any temporal information indicating when the relationship occurs
+- Capture if the relationship is transient or permanent
+- Include timing phrases (e.g., "after treatment", "over time")
+- Include the frequency if mentioned (e.g., "daily", "weekly")
 CONFIDENCE SCORING:
 HIGH CONFIDENCE (0.8-1.0):
 - Direct experimental evidence stated
@@ -86,8 +92,8 @@ Return only valid JSON array:
     "tail": "exact_entity_name",
     "confidence": 0.85,
     "evidence": "direct quote supporting relationship",
-    "temporal_info": "时间信息(if any)",
-    "mechanism": "机制描述(50-100词)"
+    "temporal_info": "the temporal_info of the relationship(if any)",
+    "mechanism": "To describe the mechanism of the cause(50-100 words)"
   }
 ]
 
@@ -96,14 +102,27 @@ Text: "Aspirin significantly inhibited COX-2 activity (p<0.001), reducing PGE2 p
 Entities: ["aspirin", "COX-2", "PGE2"]
 Output:
 [
-  {"head": "aspirin", "relation": "INHIBITS", "tail": "COX-2", "confidence": 0.95, "evidence": "Aspirin significantly inhibited COX-2 activity (p<0.001)"},
-  {"head": "aspirin", "relation": "DECREASES", "tail": "PGE2", "confidence": 0.90, "evidence": "reducing PGE2 production by 60%"}
+  {"head": "aspirin", "relation": "INHIBITS", "tail": "COX-2", "confidence": 0.95, "temporal_info":None,"evidence": "Aspirin significantly inhibited COX-2 activity (p<0.001),mechanism: Aspirin exerts its inhibitory effect on COX-2 by acetylating a serine residue in the enzyme's active site, which prevents the conversion of arachidonic acid to prostaglandins. This reduction in prostaglandin synthesis leads to decreased inflammation and pain. The significant p-value (p<0.001) indicates strong statistical support for this effect."}
 ]"""
         super().__init__(client,model_name,self.system_prompt)
         
 
-    def extract_relationships(self, text,causal_type:Optional[List[str]]=None) -> List[Dict[str, Any]]:
+    def extract_relationships(self, text,entities:List[str],causal_type:Optional[List[str]]=None) -> List[Dict[str, Any]]:
         # Placeholder for relationship extraction logic
-        prompt="" \
-        ""
+        if len(entities)<2:
+            return []
+        entity_bullets = "\n".join(f"- {entity}" for entity in entities)
+        prompt = f"""
+        Entities of interest:
+        {entity_bullets}
+
+        From the text below, identify direct relationships between these entities.
+        Only extract relationships that are explicitly stated or clearly implied in the text.
+
+        Text to analyze:
+        {text}
+
+        Return only a JSON array of relationships:
+        """
+
         return relationships

@@ -2,7 +2,7 @@ from dataclasses import asdict, dataclass
 
 
 @dataclass
-class Triple:
+class KGTriple:
     """三元组定义信息。
 
     - head: 头实体名称
@@ -29,5 +29,5 @@ class Triple:
         return f"({self.head}, -[{self.relation}]->, {self.tail})"
     
     @classmethod
-    def from_dict(cls, data: dict) -> "Triple":
+    def from_dict(cls, data: dict) -> "KGTriple":
         return cls(**data)
