@@ -41,6 +41,10 @@ class EntityExtractionAgent(Agent):
             metadata=dict(metadata or {}),
         )
         self.THRESH = THRESH
+        self.sys_desc = (
+            "You are a rigorous biomedical type detector. Return STRICT JSON only; "
+            "no explanations, prefixes/suffixes, or Markdown."
+        )
     
     def build_type_detection_prompt(
         self,
@@ -137,15 +141,68 @@ class EntityExtractionAgent(Agent):
             fixed_scores[t] = v
 
         return {"present": present, "scores": fixed_scores}
+
+    def build_single_type_extraction_prompt(
+        self,
+        text: str,
+        definition: EntityDefinition,
+        max_entities: int = 50,
+    ) -> str:
+        """
+         Step-2 prompt: extract ONLY the given entity type from `text`.
+        Uses `format_entity_definition(definition, index=1)` to provide the boundary.
+        """
+        type_key = (definition.name or "").strip().lower()
+        boundary = format_entity_definition(definition, index=1)  # e.g., "1. DRUG: ...\n\n   - Examples: ..."
+
+        rules = [
+            "Use ONLY the provided text; no world knowledge or extrapolation.",
+            "Extract entities of this single type ONLY.",
+            "Match local synonyms/abbreviations/case variants when evidenced in text.",
+            "Deduplicate (case-insensitive): keep one entry per entity, prefer first occurrence; sort by first offset.",
+            "Character spans use 0-based, half-open [start, end) over the raw text (including spaces/newlines).",
+            f"Return at most {max_entities} entities.",
+            "If none found, return an empty array.",
+            "Return STRICT JSON only; no explanations or extra text.",
+        ]
+
+        schema = (
+            "Output (STRICT JSON):\n"
+            "{\n"
+            f'  "type": "{type_key}",\n'
+            '  "entities": [\n'
+            "    {\n"
+            '      "mention": "verbatim mention from text",\n'
+            '      "span": [start, end],\n'
+            '      "confidence": 0.0,\n'
+            '      "normalized_id": "ontology:ID or N/A",\n'
+            '      "aliases": ["optional1","optional2"]\n'
+            "    }\n"
+            "  ]\n"
+            "}"
+        )
+
+        return (
+            "System:\n"
+            "You are a rigorous biomedical entity extractor. Return STRICT JSON only; "
+            "no explanations, prefixes/suffixes, or Markdown.\n\n"
+            "User:\n"
+            f"Task: Extract entities of type [{definition.name}] only (closed set = this single type). Do not output other types.\n"
+            + "\n".join(f"- {r}" for r in rules)
+            + "\n\n"
+            "Type boundary for disambiguation (DO NOT restate in output):\n"
+            f"{boundary}\n\n"
+            f"{schema}\n\n"
+            "Text (extract ONLY from this text):\n<<<\n"
+            f"{text}\n"
+            ">>>\n"
+        )
     def step1(self, text: str) -> str:
         """
         Step 1: 在候选实体类型中检查存在的实体类型
         """
-        sys_desc = (
-            "You are a rigorous biomedical type detector. Return STRICT JSON only; "
-            "no explanations, prefixes/suffixes, or Markdown."
-        )
-        llm = ChatLLM(system=sys_desc)
+        
+        llm = ChatLLM(system=self.sys_desc)
         step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
         response = llm.single(step1_prompt)
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
@@ -154,12 +211,20 @@ class EntityExtractionAgent(Agent):
         allowed = {e.value: e for e in EntityType}
         def defs_from_selected(selected, defs=ENTITY_DEFINITIONS):
             return [defs[allowed[t]] for t in selected if t in allowed]
-        return selected
+        result=defs_from_selected(selected)
+        return result
     
     def step2(self, text: str, type_list: List[EntityDefinition]) -> str:
         """
         Step 2: Classify the entities into the appropriate ontology
         """
+        llm = ChatLLM(system=self.sys_desc)
+        for i in range(len(type_list)):
+            prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
+            print(prompt)
+            break
+            # response = llm.single(prompt)
+            # print(response)
         return text
     def run(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
@@ -169,7 +234,8 @@ class EntityExtractionAgent(Agent):
         返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
         """
         text = ExampleText().get_text()
-        self.step1(text)
+        type_list = self.step1(text)
+        self.step2(text, type_list)
         results: List[Dict[str, Any]] = []
         for doc in documents:
             doc_id = doc.get("id") or ""
