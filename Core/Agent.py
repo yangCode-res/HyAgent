@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field, asdict
 from typing import Any, Dict, List, Optional
 
+from openai import OpenAI
+
 
 @dataclass
 class Agent:
@@ -54,6 +56,17 @@ class Agent:
             self.priority = int(priority)
         if metadata is not None:
             self.metadata.update(metadata)
+    
+    def __init__(self,client:OpenAI,model_name:str,system_prompt:str):
+        """初始化 Agent 基类。
+        Args:
+            client (OpenAI): OpenAI 客户端实例。
+            model_name (str): 使用的模型名称。
+            system_prompt (str): Agent提示语。
+        """
+        self.client=client
+        self.model_name=model_name
+        self.system_prompt=system_prompt
 
     def to_dict(self) -> Dict[str, Any]:
         """导出为字典，便于日志/序列化。"""
