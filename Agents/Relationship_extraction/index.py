@@ -6,8 +6,8 @@ from typing import Optional, Any, Dict, List
 from openai import OpenAI
 from Core.Agent import Agent
 from HyAgent.Logger.index import get_global_logger
-from HyAgent.TypeDefinitinons.EntityTypeDefinitions.index import KGEntity
-from HyAgent.TypeDefinitinons.TripleDefinitions.KGTriple import KGTriple
+from HyAgent.TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from HyAgent.TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
 class RelationshipExtractionAgent(Agent):

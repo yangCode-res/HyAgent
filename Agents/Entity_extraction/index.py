@@ -3,12 +3,12 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional
 import json
 from unittest.case import doModuleCleanups
-from TypeDefinitinons.EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
+from TypeDefinitions.EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
 from Core.Agent import Agent
-from TypeDefinitinons.EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
+from TypeDefinitions.EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
 from ExampleText.index import ExampleText
 from ChatLLM.index import ChatLLM
-from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from tqdm import tqdm
 class EntityExtractionAgent(Agent):
     """
