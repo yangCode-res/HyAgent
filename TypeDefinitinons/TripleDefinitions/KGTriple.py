@@ -21,12 +21,12 @@ class KGTriple:
     temporal_info: str="unknown"
     mechanism: str="unknown"
     evidence: str="unknown"
-
+    source:str="unknown"
     def to_dict(self) -> dict:
         return asdict(self)
     
     def __str__(self) -> str:
-        return f"({self.head}, -[{self.relation}]->, {self.tail})"
+        return f"({self.head.lower()}, -[{self.relation.lower()}]->, {self.tail.lower())"
     
     @classmethod
     def from_dict(cls, data: dict) -> "KGTriple":

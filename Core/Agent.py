@@ -123,6 +123,19 @@ class Agent:
         """导出为字典，便于日志/序列化。"""
         return asdict(self)
 
+    def parse_json(self,response:str)->List[Dict]: # type: ignore
+        import json
+        
+        try:
+            if "[" in response and "]" in response:
+                json_str=response[response.find("[]"):response.rfind("]")+1]
+                return json.loads(json_str)
+            return json.loads(response)
+        except Exception as e:
+            logger=get_global_logger()
+            logger.info(f"Failed to parse JSON response {e}")
+            return []
+        
     # 预留的运行接口，子类按需实现
     def run(self, *args: Any, **kwargs: Any) -> Any:  # noqa: D401
         """执行 Agent 的主流程（需由具体子类实现）。"""

@@ -1,9 +1,13 @@
+import os
 from calendar import c
 from html import entities
 from typing import Optional, Any, Dict, List
 
 from openai import OpenAI
 from Core.Agent import Agent
+from HyAgent.Logger.index import get_global_logger
+from HyAgent.TypeDefinitinons.EntityTypeDefinitions.index import KGEntity
+from HyAgent.TypeDefinitinons.TripleDefinitions.KGTriple import KGTriple
 
 
 class RelationshipExtractionAgent(Agent):
@@ -106,15 +110,39 @@ Output:
 ]"""
         super().__init__(client,model_name,self.system_prompt)
         
+    def process(self,texts,entities:List[KGEntity],causal_types:List[str])->List[KGTriple]:
+        if not entities:
+            return []
+        triples=[]
+        entities_name=[]
+        for entity in entities:
+            entities_name.append(entity.name)
+        for text in texts:
+            extracted_triples=self.extract_relationships(text,entities_name,causal_types)
+            triples.append(extracted_triples) 
+        triples=self.remove_duplicate_triples(triples)
+        return triples
 
-    def extract_relationships(self, text,entities:List[str],causal_type:Optional[List[str]]=None) -> List[Dict[str, Any]]:
-        # Placeholder for relationship extraction logic
+    def extract_relationships(self, text,entities:List[str],causal_types:List[str]) -> List[KGTriple]:
+        """
+        relationship extraction
+        parameters:
+        text:the paragraph to be extracted(the function could only settle with one paragraph each time so it might be called for times)
+        entities:the string list of entities recognized from the entity_extraction agent
+        causal_types:the causal relationships recognized from the causal_extraction agent
+        output:
+        the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
+        """
+        
         if len(entities)<2:
             return []
         entity_bullets = "\n".join(f"- {entity}" for entity in entities)
+        causal_types_str="\n".join(f"-{causal_type} "for causal_type in causal_types)
         prompt = f"""
         Entities of interest:
         {entity_bullets}
+        Causal types:
+        {causal_types_str}
 
         From the text below, identify direct relationships between these entities.
         Only extract relationships that are explicitly stated or clearly implied in the text.
@@ -124,5 +152,58 @@ Output:
 
         Return only a JSON array of relationships:
         """
+        try:
+            response=self.call_llm(prompt)
+            relations_data=self.parse_json(response)
+            triples=[]
+            for rel_data in relations_data:
+                if isinstance(rel_data,dict) and all(key in rel_data for key in ["head","relation","tail"]):
+                    head=rel_data.get("head","").strip()
+                    tail=rel_data.get("tail","").strip()
+                    if self.entities_exist(head,entities) and self.entities_exist(tail,entities):
+                        confidence=float(rel_data.get("confidence",0.5))
+                        evidence=rel_data.get("evidence","")
+                        mechanism=rel_data.get("mechanism","")
+                        temporal=rel_data.get("temporal","")
+                        relation=rel_data.get("relation","").strip()
+                        source="Relationship_extraction"
+                        triple=KGTriple(
+                            head=head,
+                            relation=relation,
+                            tail=tail,
+                            confidence=confidence,
+                            evidence=evidence,
+                            mechanism=mechanism,
+                            temporal_info=temporal,
+                            source=source
+                        )
+                        triples.append(triple)
+        except Exception as e:
+            logger=get_global_logger()
+            logger.info(f"Relationship extraction failed{str(e)}")
+            return []
+        return triples
+    
+    def entities_exist(self,entity_name:str,entities:List[str])->bool:
+         """
+         查看实体是否在实体识别的结果中
+         """
+         entity_lower=entity_name.lower()
+         return any(entity.lower()==entity_lower for entity in entities)
 
-        return relationships
+    def remove_duplicate_triples(self,triples:List[KGTriple])->List[KGTriple]:
+        """
+        remove duplicate triples(might with different information like confidence)
+        we remove the triples with lower confidence and preserve the higher ones
+        """
+        unique_triple={}
+        for triple in triples:
+            triple_key=triple.__str__
+            if triple_key not in unique_triple or triple.confidence>unique_triple[triple_key].confidence:
+                unique_triple[triple_key]=triple
+        return list(unique_triple.values())
+
+if __name__=="__main__":
+   open_ai_api=os.environ.get("OPEN_AI_KEY")
+   open_ai_url=os.environ.get("OPEN_AI_URL")
+   client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
