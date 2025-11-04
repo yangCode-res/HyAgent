@@ -2,11 +2,14 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 import json
-from EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
+from unittest.case import doModuleCleanups
+from TypeDefinitinons.EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
 from Core.Agent import Agent
-from EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
+from TypeDefinitinons.EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
 from ExampleText.index import ExampleText
 from ChatLLM.index import ChatLLM
+from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity
+from tqdm import tqdm
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -57,6 +60,7 @@ class EntityExtractionAgent(Agent):
             "You are a rigorous biomedical entity extractor. Return STRICT JSON only; "
             "no explanations, prefixes/suffixes, or Markdown.\n\n"
         )
+        self.allKGEntities: List[KGEntity] = []
     
     def build_type_detection_prompt(
         self,
@@ -207,7 +211,7 @@ class EntityExtractionAgent(Agent):
 
         return (
             "User:\n"
-            f"Task: Extract entities of type [{definition.name}] only (closed set = this single type). Do not output other types.\n"
+            f"Task: Extract entities of type [{boundary}] only (closed set = this single type). Do not output other types.\n"
             + "\n".join(f"- {r}" for r in rules)
             + "\n\n"
             "Type boundary for disambiguation (DO NOT restate in output):\n"
@@ -218,6 +222,46 @@ class EntityExtractionAgent(Agent):
             f"{text}\n"
             ">>>\n"
         )
+    def _deduplicate_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
+        """
+        Remove duplicate entities based on name similarity.
+
+        Args:
+            entities: List of entities to deduplicate
+
+        Returns:
+            List of unique entities
+        """
+        if not entities:
+            return []
+
+        unique_entities = {}
+
+        for entity in entities:
+            # Create a normalized key for comparison
+            key = entity.name.lower().strip()
+
+            # If we've seen this entity before, merge information
+            if key in unique_entities:
+                existing = unique_entities[key]
+
+                # Prefer more specific entity types
+                if entity.entity_type != "Unknown" and existing.entity_type == "Unknown":
+                    existing.entity_type = entity.entity_type
+
+                # Merge aliases
+                if entity.aliases:
+                    existing.aliases.extend(entity.aliases)
+                    existing.aliases = list(set(existing.aliases))  # Remove duplicates
+
+                # Prefer non-N/A normalized IDs
+                if entity.normalized_id != "N/A" and existing.normalized_id == "N/A":
+                    existing.normalized_id = entity.normalized_id
+
+            else:
+                unique_entities[key] = entity
+
+        return list(unique_entities.values())
     def step1(self, text: str) -> str:
         """
         Step 1: 在候选实体类型中检查存在的实体类型
@@ -244,11 +288,27 @@ class EntityExtractionAgent(Agent):
             prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
             # print(prompt)
             response = llm.single(prompt)
-            print(response)
-            break
-            # response = llm.single(prompt)
-            # print(response)
-        return text
+            try:
+                parsed = json.loads(response)
+            except Exception:
+                parsed = {}
+
+            items = []
+            if isinstance(parsed, dict):
+                items = parsed.get("entities") or []
+            elif isinstance(parsed, list):
+                items = parsed
+
+            for entity in items:
+                if not isinstance(entity, dict):
+                    continue
+                self.allKGEntities.append(KGEntity(
+                    entity_id=entity.get("mention", ""),
+                    entity_type=type_list[i].name,
+                    name=entity.get("mention", ""),
+                    normalized_id=entity.get("normalized_id", "N/A"),
+                    aliases=entity.get("aliases", []) or []
+                ))
     def run(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
         执行实体抽取主流程。
@@ -257,15 +317,15 @@ class EntityExtractionAgent(Agent):
         返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
         """
         text = ExampleText().get_text()
-        type_list = self.step1(text)
-        self.step2(text, type_list)
-        
-        results: List[Dict[str, Any]] = []
-        for doc in documents:
+        documents=text
+        for doc in tqdm(documents):
             doc_id = doc.get("id") or ""
             text = doc.get("text") or ""
-            entities = self.extract_from_text(text)
-            results.append({"doc_id": doc_id, "entities": entities})
+            type_list = self.step1(text)
+            self.step2(text, type_list)
+        
+        results=self._deduplicate_entities(self.allKGEntities)
+        # print(results)
         return results
 
     def extract_from_text(self, text: str) -> List[Dict[str, Any]]:

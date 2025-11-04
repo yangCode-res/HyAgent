@@ -1,8 +1,7 @@
 from ast import main
 from enum import Enum
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Optional
-
 
 class EntityType(str, Enum):
     """实体类型"""
@@ -99,8 +98,36 @@ ENTITY_DEFINITIONS: Dict[EntityType, EntityDefinition] = {
         include=["miscellaneous biomedical concepts", "study design elements", "context-specific terms"],
     ),
 }
+@dataclass
+class KGEntity:
+    """
+    Represents a canonical entity in the knowledge graph.
 
+    Attributes:
+        entity_id: Unique identifier
+        entity_type: Semantic type (e.g. Drug, Disease, Gene, Protein)
+        name: Display name
+        normalized_id: Reference to standard ontology (e.g., UMLS:C0004238)
+        aliases: Alternative names for the entity
+    """
+    entity_id: str
+    entity_type: str = "Unknown"
+    name: str = ""
+    normalized_id: str = "N/A"
+    aliases: List[str] = field(default_factory=list)
 
+    def __str__(self) -> str:
+        """String representation of the entity."""
+        return f"{self.name} ({self.entity_type})"
+
+    def to_dict(self) -> Dict:
+        """Convert to dictionary for serialization."""
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'KGEntity':
+        """Create instance from dictionary."""
+        return cls(**data)
 def format_entity_definition(
     definition: EntityDefinition,
     index: int = 1,
