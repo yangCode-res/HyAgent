@@ -29,5 +29,5 @@ class Triple:
         return f"({self.head}, -[{self.relation}]->, {self.tail})"
     
     @classmethod
-    def from_dict(cls, data: dict) -> "TripleDefinition":
+    def from_dict(cls, data: dict) -> "Triple":
         return cls(**data)
