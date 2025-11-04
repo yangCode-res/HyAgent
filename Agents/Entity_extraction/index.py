@@ -325,6 +325,7 @@ class EntityExtractionAgent(Agent):
             self.step2(text, type_list)
         
         results=self._deduplicate_entities(self.allKGEntities)
+        self.logger.info(f"Entity Extraction Agent: {results}")
         # print(results)
         return results
 

@@ -1,4 +1,7 @@
 from Agents.Entity_extraction.index import main
 from ChatLLM.index import ChatLLM
+from Logger.index import get_global_logger
 if __name__ == "__main__":
-    main()
+    logger = get_global_logger()
+    logger.info("Starting HyGraph...")
+    main(logger)
