@@ -4,7 +4,10 @@ from dataclasses import dataclass, asdict, field
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 import uuid, json
-from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity  # 保留你给的导入路径
+from tqdm import tqdm
+from pathlib import Path
+from typing import Union
 # ---------- 数据对象 ----------
 @dataclass
 class KGRelation:
@@ -29,48 +32,73 @@ class EntityStore:
     def _key(self, s: str) -> str: return (s or "").strip().lower()
 
     def upsert(self, e: KGEntity) -> KGEntity:
-        e.norm = self._key(e.name)
+        """
+        规则：
+        - 完全忽略来稿里的 entity_id（防止 name==id 的历史设计影响），统一由本存储分配。
+        - 先按 normalized_id 合并；否则按规范化 name 合并；否则新建并分配 ent:xxxxxx。
+        """
+        # 忽略外部传入的 entity_id
+        e.entity_id = ""
+
+        norm = self._key(e.name)
+
         # 1) 先用 normalized_id 合并
         if e.normalized_id and e.normalized_id != "N/A":
             k = self._key(e.normalized_id)
             if k in self.idx_normid:
                 return self._merge(self.by_id[self.idx_normid[k]], e)
-        # 2) 再用规范名合并
-        if e.norm and e.norm in self.idx_name:
-            return self._merge(self.by_id[self.idx_name[e.norm]], e)
-        # 3) 新建
-        if not e.entity_id: e.entity_id = self._nid()
-        self.by_id[e.entity_id] = e
-        if e.normalized_id != "N/A": self.idx_normid[self._key(e.normalized_id)] = e.entity_id
-        if e.norm: self.idx_name[e.norm] = e.entity_id
+
+        # 2) 再用规范化 name 合并
+        if norm and norm in self.idx_name:
+            return self._merge(self.by_id[self.idx_name[norm]], e)
+
+        # 3) 新建：分配全新 ID，并建立索引
+        new_id = self._nid()
+        e.entity_id = new_id
+        self.by_id[new_id] = e
+        if e.normalized_id and e.normalized_id != "N/A":
+            self.idx_normid[self._key(e.normalized_id)] = new_id
+        if norm:
+            self.idx_name[norm] = new_id
         return e
 
     def _merge(self, base: KGEntity, inc: KGEntity) -> KGEntity:
         # 类型：用更具体的
         if base.entity_type == "Unknown" and inc.entity_type != "Unknown":
             base.entity_type = inc.entity_type
-        # 名称：保留更长可读名
-        if (inc.name and len(inc.name) > len(base.name)):
-            if base.name: base.aliases.append(base.name)
-            base.name, base.norm = inc.name, self._key(inc.name)
+
+        # 名称：更长更可读则升级主名，并把旧主名并入别名
+        if inc.name and len(inc.name) > len(base.name):
+            if base.name:
+                base.aliases.append(base.name)
+            base.name = inc.name
+
         # 本体ID：优先非 N/A
-        if (base.normalized_id == "N/A" and inc.normalized_id != "N/A"):
+        if base.normalized_id == "N/A" and inc.normalized_id and inc.normalized_id != "N/A":
             base.normalized_id = inc.normalized_id
             self.idx_normid[self._key(base.normalized_id)] = base.entity_id
+
         # 别名并集（去重，大小写不敏感）
         pool = {self._key(a): a for a in base.aliases}
-        for a in ([inc.name] if inc.name else []) + inc.aliases:
-            if a: pool.setdefault(self._key(a), a)
+        for a in ([inc.name] if inc.name else []) + (inc.aliases or []):
+            if a:
+                pool.setdefault(self._key(a), a)
         base.aliases = sorted(pool.values(), key=str.lower)
-        # 重新索引规范名
-        if base.norm: self.idx_name[base.norm] = base.entity_id
+
+        # 重新索引规范名（主名可能变化）
+        norm = self._key(base.name)
+        if norm:
+            self.idx_name[norm] = base.entity_id
+
         return base
 
     def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
         k = self._key(name_or_alias)
         eid = self.idx_name.get(k)
         return self.by_id.get(eid) if eid else None
-
+    # 在 EntityStore 类中加入
+    def upsert_many(self, entities: List[KGEntity]) -> List[KGEntity]:
+        return [self.upsert(e) for e in tqdm(entities)]
     def find_by_normalized_id(self, normalized_id: str) -> Optional[KGEntity]:
         k = self._key(normalized_id)
         eid = self.idx_normid.get(k)
@@ -100,9 +128,15 @@ class Memory:
         self.entities = EntityStore()
         self.relations = RelationStore()
 
+    def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
+        """转发到 EntityStore，并兼容 dict 输入"""
+        self.entities.upsert_many(entities)
     def dump_json(self, dirpath: str = ".") -> str:
         ts = datetime.now().strftime("%Y%m%d-%H%M%S")
-        path = f"{dirpath}/memory-{ts}.json"
+        dirp = Path(dirpath)
+        dirp.mkdir(parents=True, exist_ok=True)  # 自动建目录
+
+        path = dirp / f"memory-{ts}.json"
         data = {
             "entities": [e.to_dict() for e in self.entities.all()],
             "relations": [r.to_dict() for r in self.relations.all()],
@@ -110,7 +144,7 @@ class Memory:
         }
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-        return path
+        return str(path)
 
 # 模块级全局实例：各 Agent 直接 `from shared_memory_min import memory`
 memory = Memory()
