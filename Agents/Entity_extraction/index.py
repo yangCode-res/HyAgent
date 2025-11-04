@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 import json
-from EntityTypeDefinitions.index import format_all_entity_definitions
+from EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
 from Core.Agent import Agent
 from EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
 from ExampleText.index import ExampleText
@@ -151,8 +151,12 @@ class EntityExtractionAgent(Agent):
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
         result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
         selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
+        allowed = {e.value: e for e in EntityType}
+        def defs_from_selected(selected, defs=ENTITY_DEFINITIONS):
+            return [defs[allowed[t]] for t in selected if t in allowed]
         return selected
-    def step2(self, text: str) -> str:
+    
+    def step2(self, text: str, type_list: List[EntityDefinition]) -> str:
         """
         Step 2: Classify the entities into the appropriate ontology
         """
