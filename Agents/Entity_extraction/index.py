@@ -41,9 +41,13 @@ class EntityExtractionAgent(Agent):
             metadata=dict(metadata or {}),
         )
         self.THRESH = THRESH
-        self.sys_desc = (
+        self.step1_sys_desc = (
             "You are a rigorous biomedical type detector. Return STRICT JSON only; "
             "no explanations, prefixes/suffixes, or Markdown."
+        )
+        self.step2_sys_desc = (
+            "You are a rigorous biomedical entity extractor. Return STRICT JSON only; "
+            "no explanations, prefixes/suffixes, or Markdown.\n\n"
         )
     
     def build_type_detection_prompt(
@@ -183,9 +187,6 @@ class EntityExtractionAgent(Agent):
         )
 
         return (
-            "System:\n"
-            "You are a rigorous biomedical entity extractor. Return STRICT JSON only; "
-            "no explanations, prefixes/suffixes, or Markdown.\n\n"
             "User:\n"
             f"Task: Extract entities of type [{definition.name}] only (closed set = this single type). Do not output other types.\n"
             + "\n".join(f"- {r}" for r in rules)
@@ -202,7 +203,7 @@ class EntityExtractionAgent(Agent):
         Step 1: 在候选实体类型中检查存在的实体类型
         """
         
-        llm = ChatLLM(system=self.sys_desc)
+        llm = ChatLLM(system=self.step1_sys_desc)
         step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
         response = llm.single(step1_prompt)
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
@@ -218,10 +219,12 @@ class EntityExtractionAgent(Agent):
         """
         Step 2: Classify the entities into the appropriate ontology
         """
-        llm = ChatLLM(system=self.sys_desc)
+        llm = ChatLLM(system=self.step2_sys_desc)
         for i in range(len(type_list)):
             prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
-            print(prompt)
+            # print(prompt)
+            response = llm.single(prompt)
+            print(response)
             break
             # response = llm.single(prompt)
             # print(response)
