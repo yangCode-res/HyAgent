@@ -1,7 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
+from multiprocessing import process
+import time
 from typing import Any, Dict, List, Optional
+from urllib import response
+from venv import logger
+
+from openai import OpenAI
 
 
 @dataclass
@@ -54,6 +60,62 @@ class Agent:
             self.priority = int(priority)
         if metadata is not None:
             self.metadata.update(metadata)
+    
+    def __init__(self,client:OpenAI,model_name:str,system_prompt:str):
+        """初始化 Agent 基类。
+        Args:
+            client (OpenAI): OpenAI 客户端实例。
+            model_name (str): 使用的模型名称。
+            system_prompt (str): Agent提示语。
+        """
+        self.client=client
+        self.model_name=model_name
+        self.system_prompt=system_prompt
+        self.metadata={
+            "total_calls":0,
+            "total_call_prompt_tokens":0,
+            "total_call_completion_tokens":0,
+            "total_call_processing_time":0.0
+        }
+    
+    def call_llm(self,prompt:str,temperature:float=0.1,max_tokens:Optional[int]=None,system_prompt:Optional[str]=None):
+        """调用语言模型接口。
+        Args:
+            prompt (str): 用户输入的提示语。
+            temperature (float, optional): 生成文本的随机性。默认为0.1。
+            max_tokens (Optional[int], optional): 生成文本的最大长度。默认为None。
+            system_prompt (Optional[str], optional): 系统提示语，覆盖默认的system_prompt。默认为None。"""
+        
+        start_time=time.time()
+        try:
+            messages=[
+                {"role":"system","content":system_prompt if system_prompt else self.system_prompt},
+                {"role":"user","content":prompt}
+            ]
+            call_kwargs={
+                "model":self.model_name,
+                "messages":messages,
+                "temperature":temperature
+            }
+            if max_tokens:
+                call_kwargs["max_tokens"]=max_tokens
+            response=self.client.chat.completions.create(**call_kwargs)
+
+            content=response.choices[0].message.content.strip()
+            prompt_tokens=response.usage.prompt_tokens
+            completion_tokens=response.usage.completion_tokens
+            processing_time=time.time()-start_time
+            
+            self.metadata["total_calls"]+=1
+            self.metadata["total_call_prompt_tokens"]+=prompt_tokens
+            self.metadata["total_call_completion_tokens"]+=completion_tokens
+            self.metadata["total_call_processing_time"]+=processing_time
+
+            return content
+        except Exception as e:
+            processing_time=time.time()-start_time
+            logger.error(f"LLM 调用失败: {e}")
+            raise e
 
     def to_dict(self) -> Dict[str, Any]:
         """导出为字典，便于日志/序列化。"""
