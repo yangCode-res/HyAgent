@@ -67,6 +67,7 @@ class Agent:
             client (OpenAI): OpenAI 客户端实例。
             model_name (str): 使用的模型名称。
             system_prompt (str): Agent提示语。
+            metadata (Dict[str, Any], optional): 额外的元数据。默认为空字典。
         """
         self.client=client
         self.model_name=model_name
