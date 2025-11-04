@@ -31,7 +31,15 @@ class EntityExtractionAgent(Agent):
         metadata: Optional[Dict[str, Any]] = None,
         THRESH: float = 0.6
     ) -> None:
+        # 按父类签名对齐：先构造 OpenAI 客户端与模型名，再调用父类 __init__
+        llm = ChatLLM(system=system)
         super().__init__(
+            client=llm.client,
+            model_name=llm.model,
+            system_prompt=system,
+        )
+        # 用父类提供的 configure 设置模板/名称/职责等元数据
+        self.configure(
             template_id="entity_extractor",
             name=name,
             responsibility=responsibility,
@@ -169,22 +177,33 @@ class EntityExtractionAgent(Agent):
             "If none found, return an empty array.",
             "Return STRICT JSON only; no explanations or extra text.",
         ]
-
+        ontoloty_mapping=(
+            "ONTOLOGY MAPPING:\n"
+            "- Use standard identifiers when known (MESH:D001241, NCBI:5743)\n"
+            "- Set \"N/A\" when no standard identifier available\n"
+            "- Prioritize well-established ontologies (MeSH, NCBI, UniProt)\n"
+        )
+        example=(
+            "EXAMPLES:\n"
+            "Text: \"Aspirin inhibits COX-2 enzyme activity\"\n"
+            "Output: [{\"mention\": \"Aspirin\", \"type\": \"DRUG\", \"normalized_id\": \"MESH:D001241\", \"aliases\": [\"acetylsalicylic acid\"]}, {\"mention\": \"COX-2\", \"type\": \"PROTEIN\", \"normalized_id\": \"NCBI:5743\", \"aliases\": [\"cyclooxygenase-2\", \"PTGS2\"]}]\n"
+        )
         schema = (
             "Output (STRICT JSON):\n"
             "{\n"
-            f'  "type": "{type_key}",\n'
+            f'  "type": "{boundary}",\n'
             '  "entities": [\n'
             "    {\n"
             '      "mention": "verbatim mention from text",\n'
             '      "span": [start, end],\n'
             '      "confidence": 0.0,\n'
-            '      "normalized_id": "ontology:ID or N/A",\n'
-            '      "aliases": ["optional1","optional2"]\n'
+            '      "normalized_id": "ontology:identifier or N/A",\n'
+            '      "aliases": ["synonym1", "synonym2"]\n'
             "    }\n"
             "  ]\n"
             "}"
         )
+
 
         return (
             "User:\n"
@@ -192,7 +211,8 @@ class EntityExtractionAgent(Agent):
             + "\n".join(f"- {r}" for r in rules)
             + "\n\n"
             "Type boundary for disambiguation (DO NOT restate in output):\n"
-            f"{boundary}\n\n"
+            f"{ontoloty_mapping}\n"
+            f"{example}\n"
             f"{schema}\n\n"
             "Text (extract ONLY from this text):\n<<<\n"
             f"{text}\n"
@@ -239,6 +259,7 @@ class EntityExtractionAgent(Agent):
         text = ExampleText().get_text()
         type_list = self.step1(text)
         self.step2(text, type_list)
+        
         results: List[Dict[str, Any]] = []
         for doc in documents:
             doc_id = doc.get("id") or ""
