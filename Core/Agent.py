@@ -8,8 +8,7 @@ from urllib import response
 from venv import logger
 from Logger.index import get_global_logger
 from openai import OpenAI
-
-
+from Store.index import get_memory
 @dataclass
 class Agent:
     """
@@ -79,7 +78,7 @@ class Agent:
             "total_call_processing_time":0.0
         }
         self.logger=get_global_logger()
-    
+        self.memory = get_memory()
     def call_llm(self,prompt:str,temperature:float=0.1,max_tokens:Optional[int]=None,system_prompt:Optional[str]=None):
         """调用语言模型接口。
         Args:

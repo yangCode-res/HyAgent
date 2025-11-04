@@ -1,220 +1,150 @@
+# shared_memory_min.py
 from __future__ import annotations
-
-from dataclasses import dataclass, field, asdict
-from threading import RLock
-from typing import Any, Dict, List, Optional
-import uuid
-
-
-# ===== 数据结构定义 =====
-
+from dataclasses import dataclass, asdict, field
+from typing import Dict, List, Any, Optional
+from datetime import datetime
+import uuid, json
+from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity  # 保留你给的导入路径
+from tqdm import tqdm
+from pathlib import Path
+from typing import Union
+# ---------- 数据对象 ----------
 @dataclass
-class EntityTypeDefinition:
-    """
-    实体类型定义
-    - name: 类型名（如 DRUG、DISEASE）
-    - description: 类型的解释
-    - examples: 示例（若干字符串）
-    - include: 包含/同义/相关词
-    """
+class KGRelation:
+    rel_id: str = ""                    # 留空自动生成
+    head_id: str = ""                   # 实体ID
+    rel_type: str = ""                  # 关系类型
+    tail_id: str = ""                   # 实体ID
+    props: Dict[str, Any] = field(default_factory=dict)
 
-    name: str
-    description: str
-    examples: List[str] = field(default_factory=list)
-    include: List[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
 
+# ---------- 独立存储：实体 ----------
+class EntityStore:
+    def __init__(self):
+        self.by_id: Dict[str, KGEntity] = {}
+        self.idx_normid: Dict[str, str] = {}  # normalized_id.lower() -> entity_id
+        self.idx_name: Dict[str, str] = {}    # norm(name) -> entity_id
 
-@dataclass
-class EntityRecord:
-    """
-    实体记录
-    - id: 唯一标识（默认自动生成）
-    - name: 实体名称
-    - type_name: 所属实体类型名（如 DRUG、DISEASE）
-    - description/examples/include: 语义信息
-    """
+    def _nid(self) -> str: return f"ent:{uuid.uuid4().hex[:12]}"
+    def _rid(self) -> str: return f"rel:{uuid.uuid4().hex[:12]}"
+    def _key(self, s: str) -> str: return (s or "").strip().lower()
 
-    name: str
-    type_name: str
-    id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    description: Optional[str] = None
-    examples: List[str] = field(default_factory=list)
-    include: List[str] = field(default_factory=list)
-    aliases: List[str] = field(default_factory=list)
-    confidence: Optional[float] = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    def upsert(self, e: KGEntity) -> KGEntity:
+        """
+        规则：
+        - 完全忽略来稿里的 entity_id（防止 name==id 的历史设计影响），统一由本存储分配。
+        - 先按 normalized_id 合并；否则按规范化 name 合并；否则新建并分配 ent:xxxxxx。
+        """
+        # 忽略外部传入的 entity_id
+        e.entity_id = ""
 
+        norm = self._key(e.name)
 
-# ===== 共享记忆池（可扩展） =====
+        # 1) 先用 normalized_id 合并
+        if e.normalized_id and e.normalized_id != "N/A":
+            k = self._key(e.normalized_id)
+            if k in self.idx_normid:
+                return self._merge(self.by_id[self.idx_normid[k]], e)
 
-class SharedMemory:
-    """
-    共享记忆池（可扩展版本）
+        # 2) 再用规范化 name 合并
+        if norm and norm in self.idx_name:
+            return self._merge(self.by_id[self.idx_name[norm]], e)
 
-    当前实现：
-    - 存储实体类型：增删改查
-    - 存储实体：按类型组织，支持增删改查
+        # 3) 新建：分配全新 ID，并建立索引
+        new_id = self._nid()
+        e.entity_id = new_id
+        self.by_id[new_id] = e
+        if e.normalized_id and e.normalized_id != "N/A":
+            self.idx_normid[self._key(e.normalized_id)] = new_id
+        if norm:
+            self.idx_name[norm] = new_id
+        return e
 
-    预留扩展：
-    - 关系存储（relations_by_signature 等）
-    - 子图存储（subgraphs_by_id 等）
-    """
+    def _merge(self, base: KGEntity, inc: KGEntity) -> KGEntity:
+        # 类型：用更具体的
+        if base.entity_type == "Unknown" and inc.entity_type != "Unknown":
+            base.entity_type = inc.entity_type
 
-    def __init__(self) -> None:
-        self._lock = RLock()
+        # 名称：更长更可读则升级主名，并把旧主名并入别名
+        if inc.name and len(inc.name) > len(base.name):
+            if base.name:
+                base.aliases.append(base.name)
+            base.name = inc.name
 
-        # 实体类型存储（name -> definition）
-        self._entity_types: Dict[str, EntityTypeDefinition] = {}
+        # 本体ID：优先非 N/A
+        if base.normalized_id == "N/A" and inc.normalized_id and inc.normalized_id != "N/A":
+            base.normalized_id = inc.normalized_id
+            self.idx_normid[self._key(base.normalized_id)] = base.entity_id
 
-        # 实体存储（type_name -> {entity_id -> EntityRecord}）
-        self._entities_by_type: Dict[str, Dict[str, EntityRecord]] = {}
-        # 名称索引（便于查找，同类型下 name/alias 到 entity_id 的映射）
-        self._name_index: Dict[str, Dict[str, str]] = {}
+        # 别名并集（去重，大小写不敏感）
+        pool = {self._key(a): a for a in base.aliases}
+        for a in ([inc.name] if inc.name else []) + (inc.aliases or []):
+            if a:
+                pool.setdefault(self._key(a), a)
+        base.aliases = sorted(pool.values(), key=str.lower)
 
-        # 预留扩展（不实现，留接口）
-        self._relations: Dict[str, Any] = {}
-        self._subgraphs: Dict[str, Any] = {}
+        # 重新索引规范名（主名可能变化）
+        norm = self._key(base.name)
+        if norm:
+            self.idx_name[norm] = base.entity_id
 
-    # ===== 实体类型：增删改查 =====
+        return base
 
-    def upsert_entity_type(self, definition: EntityTypeDefinition) -> None:
-        with self._lock:
-            self._entity_types[definition.name] = definition
-            if definition.name not in self._entities_by_type:
-                self._entities_by_type[definition.name] = {}
-            if definition.name not in self._name_index:
-                self._name_index[definition.name] = {}
+    def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
+        k = self._key(name_or_alias)
+        eid = self.idx_name.get(k)
+        return self.by_id.get(eid) if eid else None
+    # 在 EntityStore 类中加入
+    def upsert_many(self, entities: List[KGEntity]) -> List[KGEntity]:
+        return [self.upsert(e) for e in tqdm(entities)]
+    def find_by_normalized_id(self, normalized_id: str) -> Optional[KGEntity]:
+        k = self._key(normalized_id)
+        eid = self.idx_normid.get(k)
+        return self.by_id.get(eid) if eid else None
 
-    def get_entity_type(self, name: str) -> Optional[EntityTypeDefinition]:
-        with self._lock:
-            return self._entity_types.get(name)
+    def all(self) -> List[KGEntity]:
+        return list(self.by_id.values())
 
-    def list_entity_types(self) -> List[EntityTypeDefinition]:
-        with self._lock:
-            return list(self._entity_types.values())
+# ---------- 独立存储：关系 ----------
+class RelationStore:
+    def __init__(self):
+        self.by_id: Dict[str, KGRelation] = {}
 
-    def remove_entity_type(self, name: str) -> bool:
-        with self._lock:
-            if name in self._entity_types:
-                # 同时清理该类型下的实体与索引
-                self._entity_types.pop(name, None)
-                self._entities_by_type.pop(name, None)
-                self._name_index.pop(name, None)
-                return True
-            return False
+    def _rid(self) -> str: return f"rel:{uuid.uuid4().hex[:12]}"
 
-    # ===== 实体：增删改查 =====
+    def add(self, r: KGRelation) -> KGRelation:
+        if not r.rel_id: r.rel_id = self._rid()
+        self.by_id[r.rel_id] = r
+        return r
 
-    def upsert_entity(self, entity: EntityRecord) -> str:
-        with self._lock:
-            # 确保类型存在
-            if entity.type_name not in self._entity_types:
-                # 自动创建一个空定义，避免异常（也可改为抛错）
-                self._entity_types[entity.type_name] = EntityTypeDefinition(
-                    name=entity.type_name,
-                    description=f"Auto-created type for {entity.type_name}",
-                )
-                self._entities_by_type.setdefault(entity.type_name, {})
-                self._name_index.setdefault(entity.type_name, {})
+    def all(self) -> List[KGRelation]:
+        return list(self.by_id.values())
 
-            # 写入实体
-            bucket = self._entities_by_type.setdefault(entity.type_name, {})
-            bucket[entity.id] = entity
+# ---------- 全局共享记忆池（解耦聚合） ----------
+class Memory:
+    def __init__(self):
+        self.entities = EntityStore()
+        self.relations = RelationStore()
 
-            # 更新名称索引（name 与 aliases 都索引）
-            name_map = self._name_index.setdefault(entity.type_name, {})
-            name_map[entity.name.lower()] = entity.id
-            for alias in entity.aliases:
-                name_map[alias.lower()] = entity.id
+    def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
+        """转发到 EntityStore，并兼容 dict 输入"""
+        self.entities.upsert_many(entities)
+    def dump_json(self, dirpath: str = ".") -> str:
+        ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+        dirp = Path(dirpath)
+        dirp.mkdir(parents=True, exist_ok=True)  # 自动建目录
 
-            return entity.id
+        path = dirp / f"memory-{ts}.json"
+        data = {
+            "entities": [e.to_dict() for e in self.entities.all()],
+            "relations": [r.to_dict() for r in self.relations.all()],
+            "meta": {"generated_at": ts}
+        }
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return str(path)
 
-    def get_entity(self, type_name: str, entity_id: str) -> Optional[EntityRecord]:
-        with self._lock:
-            return self._entities_by_type.get(type_name, {}).get(entity_id)
-
-    def find_entity_by_name(self, type_name: str, name_or_alias: str) -> Optional[EntityRecord]:
-        with self._lock:
-            name_map = self._name_index.get(type_name, {})
-            entity_id = name_map.get(name_or_alias.lower())
-            if not entity_id:
-                return None
-            return self._entities_by_type.get(type_name, {}).get(entity_id)
-
-    def list_entities(self, type_name: str) -> List[EntityRecord]:
-        with self._lock:
-            return list(self._entities_by_type.get(type_name, {}).values())
-
-    def remove_entity(self, type_name: str, entity_id: str) -> bool:
-        with self._lock:
-            bucket = self._entities_by_type.get(type_name)
-            if not bucket or entity_id not in bucket:
-                return False
-            entity = bucket.pop(entity_id)
-
-            # 清理名称索引
-            name_map = self._name_index.get(type_name, {})
-            name_map.pop(entity.name.lower(), None)
-            for alias in entity.aliases:
-                name_map.pop(alias.lower(), None)
-            return True
-
-    # ===== 导入/导出 =====
-
-    def export_snapshot(self) -> Dict[str, Any]:
-        """导出当前内存快照为可序列化的 dict。"""
-        with self._lock:
-            return {
-                "entity_types": [asdict(t) for t in self._entity_types.values()],
-                "entities": {
-                    t: [asdict(e) for e in self._entities_by_type.get(t, {}).values()]
-                    for t in self._entities_by_type.keys()
-                },
-            }
-
-    def load_snapshot(self, snapshot: Dict[str, Any]) -> None:
-        """从快照恢复（会覆盖当前内存）。"""
-        with self._lock:
-            self._entity_types.clear()
-            self._entities_by_type.clear()
-            self._name_index.clear()
-
-            for t in snapshot.get("entity_types", []):
-                definition = EntityTypeDefinition(
-                    name=t.get("name"),
-                    description=t.get("description") or "",
-                    examples=list(t.get("examples") or []),
-                    include=list(t.get("include") or []),
-                    metadata=dict(t.get("metadata") or {}),
-                )
-                self.upsert_entity_type(definition)
-
-            entities_by_type = snapshot.get("entities", {})
-            for type_name, entities in entities_by_type.items():
-                for e in entities:
-                    record = EntityRecord(
-                        id=e.get("id") or str(uuid.uuid4()),
-                        name=e.get("name") or "",
-                        type_name=type_name,
-                        description=e.get("description"),
-                        examples=list(e.get("examples") or []),
-                        include=list(e.get("include") or []),
-                        aliases=list(e.get("aliases") or []),
-                        confidence=e.get("confidence"),
-                        metadata=dict(e.get("metadata") or {}),
-                    )
-                    self.upsert_entity(record)
-
-    # ===== 其他 =====
-
-    def reset(self) -> None:
-        """清空所有存储。"""
-        with self._lock:
-            self._entity_types.clear()
-            self._entities_by_type.clear()
-            self._name_index.clear()
-            self._relations.clear()
-            self._subgraphs.clear()
-
-
+# 模块级全局实例：各 Agent 直接 `from shared_memory_min import memory`
+memory = Memory()
