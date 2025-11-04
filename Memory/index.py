@@ -4,7 +4,7 @@ from dataclasses import dataclass, asdict, field
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 import uuid, json
-from TypeDefinitinons.EntityTypeDefinitions.index import KGEntity  # 保留你给的导入路径
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity  # 保留你给的导入路径
 from tqdm import tqdm
 from pathlib import Path
 from typing import Union
