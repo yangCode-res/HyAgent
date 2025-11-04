@@ -3,6 +3,7 @@
 downloaded_pdfs/
 markdown/
 models/
+snapshots/
 # 如果你想保留空目录但忽略其中所有文件，请改为下面两行并在目录里放一个 .gitkeep
 # downloaded_pdfs/*
 # !downloaded_pdfs/.gitkeep
