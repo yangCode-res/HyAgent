@@ -27,7 +27,7 @@ class ChatLLM:
         model: Optional[str] = None,
         system: Optional[str] = None,
         temperature: float = 0.5,
-        max_tokens: int = 500,
+        max_tokens: int = 8000,
     ) -> None:
         try:
             env_path = find_dotenv(usecwd=True)
