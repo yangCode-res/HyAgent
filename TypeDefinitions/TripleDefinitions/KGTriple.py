@@ -26,8 +26,13 @@ class KGTriple:
         return asdict(self)
     
     def __str__(self) -> str:
-        return f"({self.head.lower()}, -[{self.relation.lower()}]->, {self.tail.lower())"
+        return f"({self.head.lower()}, -[{self.relation.lower()}]->, {self.tail.lower()})"
     
     @classmethod
     def from_dict(cls, data: dict) -> "KGTriple":
         return cls(**data)
+
+def export_triples_to_dicts(triples: list[KGTriple]) -> list[dict]:
+    """将 KGTriple 列表导出为字典列表。"""
+    triple_dict=[triple.to_dict() for triple in triples]
+    return triple_dict

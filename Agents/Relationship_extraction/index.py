@@ -1,13 +1,14 @@
-import os
+import sys
+sys.path.append("/home/nas3/biod/dongkun")
 from calendar import c
 from html import entities
 from typing import Optional, Any, Dict, List
 
 from openai import OpenAI
 from Core.Agent import Agent
-from HyAgent.Logger.index import get_global_logger
-from HyAgent.TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from HyAgent.TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+from Logger.index import get_global_logger
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
 class RelationshipExtractionAgent(Agent):
@@ -111,6 +112,15 @@ Output:
         super().__init__(client,model_name,self.system_prompt)
         
     def process(self,texts,entities:List[KGEntity],causal_types:List[str])->List[KGTriple]:
+        """
+        process the relationship extraction for multiple paragraphs
+        parameters:
+        texts:the paragraphs to be extracted
+        entities:the list of entities recognized from the entity_extraction agent
+        causal_types:the causal relationships recognized from the causal_extraction agent
+        output:
+        the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
+        """
         if not entities:
             return []
         triples=[]
@@ -150,7 +160,7 @@ Output:
         Text to analyze:
         {text}
 
-        Return only a JSON array of relationships:
+        Return only a JSON array of relationships
         """
         try:
             response=self.call_llm(prompt)
@@ -203,7 +213,4 @@ Output:
                 unique_triple[triple_key]=triple
         return list(unique_triple.values())
 
-if __name__=="__main__":
-   open_ai_api=os.environ.get("OPEN_AI_KEY")
-   open_ai_url=os.environ.get("OPEN_AI_URL")
-   client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
+    

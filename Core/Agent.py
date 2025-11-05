@@ -127,7 +127,7 @@ class Agent:
         
         try:
             if "[" in response and "]" in response:
-                json_str=response[response.find("[]"):response.rfind("]")+1]
+                json_str=response[response.find("["):response.rfind("]")+1]
                 return json.loads(json_str)
             return json.loads(response)
         except Exception as e:
