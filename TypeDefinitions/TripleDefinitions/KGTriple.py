@@ -12,6 +12,7 @@ class KGTriple:
     - evidence: 证据（支持该关系的直接引用）
     - temporal_info: 时间信息（如有）
     - mechanism: 机制描述（50-100词）
+    - source: 信息来源（如文章pid）
     """
 
     head: str

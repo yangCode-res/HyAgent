@@ -29,19 +29,19 @@ class ChatLLM:
         temperature: float = 0.5,
         max_tokens: int = 500,
     ) -> None:
-        try:
-            env_path = find_dotenv(usecwd=True)
-            if env_path:
-                load_dotenv(env_path, override=False)
-        except Exception:
-            pass
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
-        self.base_url = base_url or os.environ.get("OPENAI_API_BASE_URL")
+        # try:
+        #     env_path = find_dotenv(usecwd=True)
+        #     if env_path:
+        #         load_dotenv(env_path, override=False)
+        # except Exception:
+        #     pass
+        self.api_key = os.environ.get("OPENAI_API_KEY")
+        self.base_url = os.environ.get("OPENAI_API_BASE_URL")
         if not self.api_key:
             raise RuntimeError("OPENAI_API_KEY not set")
 
         self.client = OpenAI(api_key=self.api_key, base_url=self.base_url)
-        self.model = model or os.environ.get("OPENAI_MODEL", "gpt-4")
+        self.model = os.environ.get("OPENAI_MODEL")
         self.temperature = temperature
         self.max_tokens = max_tokens
 

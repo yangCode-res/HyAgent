@@ -1,4 +1,9 @@
+import json
 import sys
+
+from tqdm import tqdm
+
+from HyAgent.Store.index import get_memory
 sys.path.append("/home/nas3/biod/dongkun")
 from calendar import c
 from html import entities
@@ -109,31 +114,66 @@ Output:
 [
   {"head": "aspirin", "relation": "INHIBITS", "tail": "COX-2", "confidence": 0.95, "temporal_info":None,"evidence": "Aspirin significantly inhibited COX-2 activity (p<0.001),mechanism: Aspirin exerts its inhibitory effect on COX-2 by acetylating a serine residue in the enzyme's active site, which prevents the conversion of arachidonic acid to prostaglandins. This reduction in prostaglandin synthesis leads to decreased inflammation and pain. The significant p-value (p<0.001) indicates strong statistical support for this effect."}
 ]"""
+        self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
-        
-    def process(self,texts,entities:List[KGEntity],causal_types:List[str])->List[KGTriple]:
+
+    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
-        texts:the paragraphs to be extracted
+        texts:the paragraphs with their ids to be extracted
         entities:the list of entities recognized from the entity_extraction agent
         causal_types:the causal relationships recognized from the causal_extraction agent
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        if not entities:
+        results={}
+        for text in tqdm(texts):
+            text_id=text.get("id","")
+            paragraph=text.get("text","")
+            causal_types=self.extract_existing_relation(paragraph)
+            extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
+            extracted_triples=self.remove_duplicate_triples(extracted_triples)
+            if text_id not in results:
+                results[text_id]=extracted_triples
+            else:
+                triples=results[text_id]
+                triples.extend(extracted_triples)
+                triples=self.remove_duplicate_triples(triples)
+                results[text_id]=triples
+        ###这块怎么解决实体抽取和关系抽取的冲突？
+        return results
+    ###step 1: extract existing relationship types from the text
+    def extract_existing_relation(self,text:str)->List[str]:
+        prompt=f"""return existing relationship types from provided text and return them as a list. The relationship types are defined as follows:
+        1. TREATS
+2. INHIBITS
+3. ACTIVATES
+4. CAUSES
+5. ASSOCIATED_WITH
+6. REGULATES
+7. INCREASES/DECREASES
+8. INTERACTS_WITH
+OUTPUT FORMAT:
+Return only valid array:
+[
+  "treats", "regulates", "activates", "causes"
+]
+        Text to analyze:
+        {text}
+"""
+        try:
+            response=self.call_llm(prompt)
+            # 解析返回的 JSON 数组
+            relationships=json.loads(response)
+            relationships=list(set(relationships))
+            return relationships
+        except Exception as e:
+            print("Error extracting causal relationships:", e)
             return []
-        triples=[]
-        entities_name=[]
-        for entity in entities:
-            entities_name.append(entity.name)
-        for text in texts:
-            extracted_triples=self.extract_relationships(text,entities_name,causal_types)
-            triples.append(extracted_triples) 
-        triples=self.remove_duplicate_triples(triples)
-        return triples
-
-    def extract_relationships(self, text,entities:List[str],causal_types:List[str]) -> List[KGTriple]:
+        return []
+    ###step 2: extract relationships from the text with provided existing relationship types
+    def extract_relationships(self,text:str,text_id:str,causal_types:List[str]) -> List[KGTriple]:
         """
         relationship extraction
         parameters:
@@ -143,23 +183,16 @@ Output:
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        
-        if len(entities)<2:
-            return []
-        entity_bullets = "\n".join(f"- {entity}" for entity in entities)
-        causal_types_str="\n".join(f"-{causal_type} "for causal_type in causal_types)
+        relations='\n'.join(causal_type for causal_type in causal_types)
         prompt = f"""
-        Entities of interest:
-        {entity_bullets}
-        Causal types:
-        {causal_types_str}
 
-        From the text below, identify direct relationships between these entities.
+        From the text below, identify direct relationships between entities.
         Only extract relationships that are explicitly stated or clearly implied in the text.
-
+        Please make sure that the relationships you extract are not in conflict with the provided causal types.
         Text to analyze:
         {text}
-
+        Existing relationship types:
+        {relations}
         Return only a JSON array of relationships
         """
         try:
@@ -170,30 +203,35 @@ Output:
                 if isinstance(rel_data,dict) and all(key in rel_data for key in ["head","relation","tail"]):
                     head=rel_data.get("head","").strip()
                     tail=rel_data.get("tail","").strip()
-                    if self.entities_exist(head,entities) and self.entities_exist(tail,entities):
-                        confidence=float(rel_data.get("confidence",0.5))
-                        evidence=rel_data.get("evidence","")
-                        mechanism=rel_data.get("mechanism","")
-                        temporal=rel_data.get("temporal","")
-                        relation=rel_data.get("relation","").strip()
-                        source="Relationship_extraction"
-                        triple=KGTriple(
-                            head=head,
-                            relation=relation,
-                            tail=tail,
-                            confidence=confidence,
-                            evidence=evidence,
-                            mechanism=mechanism,
-                            temporal_info=temporal,
-                            source=source
-                        )
-                        triples.append(triple)
+                    confidence=float(rel_data.get("confidence",0.5))
+                    evidence=rel_data.get("evidence","")
+                    mechanism=rel_data.get("mechanism","")
+                    temporal=rel_data.get("temporal","")
+                    relation=rel_data.get("relation","").strip()
+                    source=text_id
+                    triple=KGTriple(
+                        head=head,
+                        relation=relation,
+                        tail=tail,
+                        confidence=confidence,
+                        evidence=evidence,
+                        mechanism=mechanism,
+                        temporal_info=temporal,
+                        source=source
+                    )
+                    triples.append(triple)
         except Exception as e:
             logger=get_global_logger()
             logger.info(f"Relationship extraction failed{str(e)}")
             return []
         return triples
-    
+    ###step 3(Optional): modify the extracted relationships based on last-term entity recognition results
+    def modify_relationships(self,triples:List[KGTriple])->List[KGTriple]:
+        """
+        Modify the extracted relationships based on entity recognition results.
+        """
+        return triples
+
     def entities_exist(self,entity_name:str,entities:List[str])->bool:
          """
          查看实体是否在实体识别的结果中

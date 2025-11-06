@@ -58,3 +58,4 @@ class ExampleText:
     ]
     def get_text(self) -> str:
         return self.text
+
