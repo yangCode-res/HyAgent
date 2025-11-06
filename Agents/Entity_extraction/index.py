@@ -273,6 +273,7 @@ class EntityExtractionAgent(Agent):
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
         result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
         selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
+        print(selected)
         allowed = {e.value: e for e in EntityType}
         def defs_from_selected(selected, defs=ENTITY_DEFINITIONS):
             return [defs[allowed[t]] for t in selected if t in allowed]
@@ -283,14 +284,17 @@ class EntityExtractionAgent(Agent):
         """
         Step 2: Classify the entities into the appropriate ontology
         """
+        self.logger.info(f"Entity type list: {type_list}")
         llm = ChatLLM(system=self.step2_sys_desc)
-        for i in range(len(type_list)):
+        for i in tqdm(range(len(type_list))):
             prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
             # print(prompt)
             response = llm.single(prompt)
+            # self.logger.info(f"{type_list[i].name} Response: {response}")
             try:
-                parsed = json.loads(response)
+                parsed = self.parse_json(response)
             except Exception:
+                self.logger.error(f"Failed to parse JSON response {response}")
                 parsed = {}
 
             items = []
@@ -298,7 +302,7 @@ class EntityExtractionAgent(Agent):
                 items = parsed.get("entities") or []
             elif isinstance(parsed, list):
                 items = parsed
-
+            count=0
             for entity in items:
                 if not isinstance(entity, dict):
                     continue
@@ -309,6 +313,8 @@ class EntityExtractionAgent(Agent):
                     normalized_id=entity.get("normalized_id", "N/A"),
                     aliases=entity.get("aliases", []) or []
                 ))
+                count+=1
+            self.logger.info(f"{type_list[i].name} Extracted {count} entities")
     def run(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
         执行实体抽取主流程。
@@ -326,7 +332,7 @@ class EntityExtractionAgent(Agent):
         
         results=self._deduplicate_entities(self.allKGEntities)
         self.memory.upsert_many_entities(results)
-        self.logger.info(f"Entity Extraction Agent: {results}")
+        # self.logger.info(f"Entity Extraction Agent: {results}")
         # print(results)
         return results
 
