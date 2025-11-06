@@ -1,6 +1,7 @@
 import json
 import sys
 
+from sympy import false
 from tqdm import tqdm
 
 from HyAgent.Store.index import get_memory
@@ -117,7 +118,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
+    def process(self,texts:List[Dict[str,str]],step3_needed=False)->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
@@ -142,6 +143,8 @@ Output:
                 triples=self.remove_duplicate_triples(triples)
                 results[text_id]=triples
         ###这块怎么解决实体抽取和关系抽取的冲突？
+        if step3_needed:
+            pass
         return results
     ###step 1: extract existing relationship types from the text
     def extract_existing_relation(self,text:str)->List[str]:
