@@ -29,12 +29,12 @@ class ChatLLM:
         temperature: float = 0.5,
         max_tokens: int = 8000,
     ) -> None:
-        # try:
-        #     env_path = find_dotenv(usecwd=True)
-        #     if env_path:
-        #         load_dotenv(env_path, override=False)
-        # except Exception:
-        #     pass
+        try:
+            env_path = find_dotenv(usecwd=True)
+            if env_path:
+                load_dotenv(env_path, override=False)
+        except Exception:
+            pass
         self.api_key = os.environ.get("OPENAI_API_KEY")
         self.base_url = os.environ.get("OPENAI_API_BASE_URL")
         if not self.api_key:

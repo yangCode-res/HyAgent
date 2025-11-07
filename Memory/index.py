@@ -1,35 +1,52 @@
 # shared_memory_min.py
 from __future__ import annotations
+
 from dataclasses import dataclass, asdict, field
 from typing import Dict, List, Any, Optional
 from datetime import datetime
-import uuid, json
 from pathlib import Path
+import uuid
+import json
 from tqdm import tqdm
 
+# 按你的项目结构保留导入（即使当前文件里未直接使用 KGTriple）
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity  # 保留你给的导入路径
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
 
-# ---------- 数据对象 ----------
+# ===================== 基础数据结构 =====================
+
 @dataclass
 class KGRelation:
-    rel_id: str = ""                    # 留空自动生成
-    head_id: str = ""                   # 实体ID
-    rel_type: str = ""                  # 关系类型
-    tail_id: str = ""                   # 实体ID
+    """简单关系表示，用于知识图谱三元组存储。"""
+    rel_id: str = ""          # 留空则自动生成
+    head_id: str = ""         # 头实体 ID
+    rel_type: str = ""        # 关系类型（字符串）
+    tail_id: str = ""         # 尾实体 ID
     props: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
 
-# ---------- 独立存储：实体 ----------
+# ===================== 实体存储 =====================
+
 class EntityStore:
+    """
+    负责全局 / 子图内实体去重与索引。
+
+    规则：
+    - 忽略外部传入的 entity_id，由本类统一分配 ent:xxxxxx。
+    - 优先按 normalized_id 合并，其次按规范化 name 合并。
+    - 维护:
+        - by_id: id -> KGEntity
+        - idx_normid: normalized_id.lower() -> id
+        - idx_name: norm(name).lower() -> id
+    """
     def __init__(self):
         self.by_id: Dict[str, KGEntity] = {}
-        self.idx_normid: Dict[str, str] = {}  # normalized_id.lower() -> entity_id
-        self.idx_name: Dict[str, str] = {}    # norm(name) -> entity_id
+        self.idx_normid: Dict[str, str] = {}
+        self.idx_name: Dict[str, str] = {}
 
     def _nid(self) -> str:
         return f"ent:{uuid.uuid4().hex[:12]}"
@@ -38,25 +55,22 @@ class EntityStore:
         return (s or "").strip().lower()
 
     def upsert(self, e: KGEntity) -> KGEntity:
-        """
-        规则：
-        - 忽略外部传入的 entity_id，统一由本存储分配。
-        - 先按 normalized_id 合并；否则按规范化 name 合并；否则新建 ent:xxxxxx。
-        """
-        e.entity_id = ""  # 清掉外部ID
+        # 统一忽略外部 entity_id，避免历史设计冲突
+        e.entity_id = ""
+
         norm = self._key(e.name)
 
-        # 1) 用 normalized_id 合并
+        # 1) 尝试用 normalized_id 合并
         if e.normalized_id and e.normalized_id != "N/A":
             k = self._key(e.normalized_id)
             if k in self.idx_normid:
                 return self._merge(self.by_id[self.idx_normid[k]], e)
 
-        # 2) 用规范化 name 合并
+        # 2) 尝试用规范化名称合并
         if norm and norm in self.idx_name:
             return self._merge(self.by_id[self.idx_name[norm]], e)
 
-        # 3) 新建：分配 ID + 建索引
+        # 3) 新建实体
         new_id = self._nid()
         e.entity_id = new_id
         self.by_id[new_id] = e
@@ -69,11 +83,11 @@ class EntityStore:
         return e
 
     def _merge(self, base: KGEntity, inc: KGEntity) -> KGEntity:
-        # 类型：用更具体的
+        # 类型：prefer 更具体
         if base.entity_type == "Unknown" and inc.entity_type != "Unknown":
             base.entity_type = inc.entity_type
 
-        # 名称：更长更可读则升级主名，并把旧主名变为别名
+        # 名称：更长更可读 -> 升级为主名，旧主名入别名
         if inc.name and len(inc.name) > len(base.name):
             if base.name:
                 base.aliases.append(base.name)
@@ -84,14 +98,14 @@ class EntityStore:
             base.normalized_id = inc.normalized_id
             self.idx_normid[self._key(base.normalized_id)] = base.entity_id
 
-        # 别名并集（去重，大小写不敏感）
+        # 别名并集（大小写不敏感去重）
         pool = {self._key(a): a for a in base.aliases}
         for a in ([inc.name] if inc.name else []) + (inc.aliases or []):
             if a:
                 pool.setdefault(self._key(a), a)
         base.aliases = sorted(pool.values(), key=str.lower)
 
-        # 重新索引规范名（主名可能变化）
+        # 主名可能变化了，更新 name 索引
         norm = self._key(base.name)
         if norm:
             self.idx_name[norm] = base.entity_id
@@ -115,8 +129,10 @@ class EntityStore:
         return list(self.by_id.values())
 
 
-# ---------- 独立存储：关系 ----------
+# ===================== 关系存储 =====================
+
 class RelationStore:
+    """简单关系存储，不做去重逻辑，由上层自行控制。"""
     def __init__(self):
         self.by_id: Dict[str, KGRelation] = {}
 
@@ -133,15 +149,22 @@ class RelationStore:
         return list(self.by_id.values())
 
 
-# ---------- 子图 ----------
+# ===================== 子图 =====================
+
 class Subgraph:
+    """
+    子图：
+    - 拥有自己的 EntityStore / RelationStore
+    - 用 subgraph_id 标识（你在创建时传入）
+    - 可单独导出，也可 merge_into 全局 Memory
+    """
     def __init__(
         self,
-        subgraph_id: str,                 # 你来传这个ID（字符串）
+        subgraph_id: str,
         name: str = "",
         meta: Optional[Dict[str, Any]] = None,
     ):
-        self.id = subgraph_id            # 子图唯一标识（外部提供）
+        self.id = subgraph_id
         self.name = name
         self.meta = dict(meta or {})
         self.entities = EntityStore()
@@ -188,21 +211,23 @@ class Subgraph:
     # 合并到全局 Memory
     def merge_into(self, mem: "Memory") -> Dict[str, str]:
         """
-        把当前子图合并进全局 memory：
+        把当前子图内容合并进全局 memory：
         - 实体通过 mem.entities.upsert 去重/合并
-        - 返回: 子图实体旧ID -> 全局实体ID 的映射，用于对齐关系
+        - 关系使用合并后的全局实体ID重写 head/tail
+        - 返回: {子图旧实体ID -> 全局实体ID}
+        - 同时将该子图注册到 mem.subgraphs（保存子图视图）
         """
         id_map: Dict[str, str] = {}
 
         # 1) 合并实体
         for e in self.entities.all():
             old_id = e.entity_id
-            e_copy = KGEntity(**e.to_dict())
+            e_copy = KGEntity(**e.to_dict())  # 避免直接改动子图内对象
             merged = mem.entities.upsert(e_copy)
             if old_id:
                 id_map[old_id] = merged.entity_id
 
-        # 2) 合并关系（用映射替换 head/tail）
+        # 2) 合并关系
         for r in self.relations.all():
             head = id_map.get(r.head_id, r.head_id)
             tail = id_map.get(r.tail_id, r.tail_id)
@@ -210,41 +235,43 @@ class Subgraph:
                 rel_type=r.rel_type,
                 head_id=head,
                 tail_id=tail,
-                props=dict(r.props or {})
+                props=dict(r.props or {}),
             ))
 
-        # 3) 可选：把子图本身登记到全局（如果你希望 Memory 记住这个子图）
+        # 3) 记录子图本身（保持原局部视图）
         if self.id:
             mem.register_subgraph(self)
 
         return id_map
 
 
-# ---------- 全局共享记忆池 ----------
+# ===================== 全局共享记忆池 =====================
+
 class Memory:
+    """
+    全局共享记忆池：
+    - 持有一个全局 EntityStore / RelationStore
+    - 注册多个 Subgraph（以字符串ID索引）
+    - 支持导出统一快照 JSON（含全局 + 子图内部详细内容）
+    """
     def __init__(self):
         self.entities = EntityStore()
         self.relations = RelationStore()
-        # 新增：子图注册表
         self.subgraphs: Dict[str, Subgraph] = {}
 
     def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(entities)
 
-    # 子图管理：按 ID 注册 & 获取
+    # 子图管理
     def register_subgraph(self, sg: Subgraph) -> None:
-        """
-        将子图登记到全局索引中。
-        要求 sg.id 是非空字符串（由你在创建 Subgraph 时传入）。
-        """
         if not sg.id:
             return
         self.subgraphs[sg.id] = sg
 
     def get_subgraph(self, sg_id: str) -> Optional[Subgraph]:
-        """根据子图ID获取子图；如果不存在则返回 None。"""
         return self.subgraphs.get(sg_id)
 
+    # 导出全局快照（包含子图内部）
     def dump_json(self, dirpath: str = ".") -> str:
         ts = datetime.now().strftime("%Y%m%d-%H%M%S")
         dirp = Path(dirpath)
@@ -254,7 +281,10 @@ class Memory:
         data = {
             "entities": [e.to_dict() for e in self.entities.all()],
             "relations": [r.to_dict() for r in self.relations.all()],
-            "subgraphs": list(self.subgraphs.keys()),
+            "subgraphs": {
+                sg_id: sg.to_dict()
+                for sg_id, sg in self.subgraphs.items()
+            },
             "meta": {"generated_at": ts},
         }
         with open(path, "w", encoding="utf-8") as f:
@@ -262,5 +292,5 @@ class Memory:
         return str(path)
 
 
-# 模块级全局实例：各 Agent 直接 `from shared_memory_min import memory`
+# 全局实例：所有 Agent 请统一从这里 import
 memory = Memory()

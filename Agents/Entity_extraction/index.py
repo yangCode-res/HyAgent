@@ -333,7 +333,7 @@ class EntityExtractionAgent(Agent):
             self.step2(text, type_list)
             self.allKGEntities=self._deduplicate_entities(self.allKGEntities)
             subgraph.upsert_many_entities(self.allKGEntities)
-            self.memory.upsert_subgraph(subgraph)
+            self.memory.register_subgraph(subgraph)
             self.allKGEntities = []        
         return self.allKGEntities
 
