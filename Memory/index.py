@@ -132,12 +132,33 @@ class EntityStore:
 # ===================== 关系存储 =====================
 
 class RelationStore:
-    """简单关系存储，不做去重逻辑，由上层自行控制。"""
+    """by_head:通过查询头部实体获取三元组列表
+    by_relation:通过查询关系类型获取三元组列表
+    by_tail:通过查询尾部实体获取三元组列表"""
     def __init__(self):
-        self.by_id: Dict[str, KGRelation] = {}
-
+        self.by_head:Dict[str,List[KGTriple]]={}
+        self.by_relation:Dict[str,List[KGTriple]]={}
+        self.by_tail:Dict[str,List[KGTriple]]={}
     def _rid(self) -> str:
         return f"rel:{uuid.uuid4().hex[:12]}"
+
+    def add_many(self,triples:List[KGTriple]):
+        for triple in triples:
+            relation=triple.relation
+            head=triple.head
+            tail=triple.tail
+            if relation not in self.by_relation:
+                self.by_relation[relation]=[triple]
+            else:
+                self.by_relation[relation].append(triple)
+            if head not in self.by_head:
+                self.by_head[head]=[triple]
+            else:
+                self.by_head[head].append(triple)
+            if tail not in self.by_tail:
+                self.by_tail[tail]=[triple]
+            else:
+                self.by_tail[tail].append(triple)
 
     def add(self, r: KGRelation) -> KGRelation:
         if not r.rel_id:

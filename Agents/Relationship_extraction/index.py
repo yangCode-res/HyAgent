@@ -4,6 +4,7 @@ import sys
 from sympy import false
 from tqdm import tqdm
 
+from HyAgent.Memory.index import Subgraph
 from HyAgent.Store.index import get_memory
 sys.path.append("/home/nas3/biod/dongkun")
 from calendar import c
@@ -129,20 +130,16 @@ Output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
         results={}
-        for text in tqdm(texts):
+        for i,text in enumerate(tqdm(texts)):
             text_id=text.get("id","")
             paragraph=text.get("text","")
+            graph_id=text_id.join(str(i))
             causal_types=self.extract_existing_relation(paragraph)
             extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            if text_id not in results:
-                results[text_id]=extracted_triples
-            else:
-                triples=results[text_id]
-                triples.extend(extracted_triples)
-                triples=self.remove_duplicate_triples(triples)
-                results[text_id]=triples
-        ###这块怎么解决实体抽取和关系抽取的冲突？
+            subgraph=Subgraph(graph_id,graph_id,{"text":text})
+            subgraph.relations.add_many(extracted_triples)
+            self.memory.register_subgraph(subgraph)
         if step3_needed:
             pass
         return results
