@@ -139,6 +139,7 @@ class RelationStore:
         return t
     def add_many(self,triples:List[KGTriple]):
         for triple in triples:
+            self.add(triple)
             relation=triple.relation
             head=triple.head
             tail=triple.tail
