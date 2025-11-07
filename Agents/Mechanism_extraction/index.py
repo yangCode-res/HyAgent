@@ -4,9 +4,8 @@ import sys
 from sympy import false
 from tqdm import tqdm
 
-from Memory.index import Subgraph
-from Store.index import get_memory
-# sys.path.append("/home/nas3/biod/dongkun")
+from HyAgent.Store.index import get_memory
+sys.path.append("/home/nas3/biod/dongkun")
 from calendar import c
 from html import entities
 from typing import Optional, Any, Dict, List
@@ -130,16 +129,20 @@ Output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
         results={}
-        for i,text in enumerate(tqdm(texts)):
+        for text in tqdm(texts):
             text_id=text.get("id","")
             paragraph=text.get("text","")
-            graph_id=text_id.join(str(i))
             causal_types=self.extract_existing_relation(paragraph)
             extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            subgraph=Subgraph(graph_id,graph_id,{"text":text})
-            subgraph.add_relations(extracted_triples)
-            self.memory.register_subgraph(subgraph)
+            if text_id not in results:
+                results[text_id]=extracted_triples
+            else:
+                triples=results[text_id]
+                triples.extend(extracted_triples)
+                triples=self.remove_duplicate_triples(triples)
+                results[text_id]=triples
+        ###这块怎么解决实体抽取和关系抽取的冲突？
         if step3_needed:
             pass
         return results
@@ -252,3 +255,215 @@ Return only valid array:
         return list(unique_triple.values())
 
     
+import json
+from typing import List, Dict, Any
+
+from tqdm import tqdm
+from openai import OpenAI
+
+from Core.Agent import Agent
+from Logger.index import get_global_logger
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
+
+class MechanismExtractionAgent(Agent):
+    """
+    MechanismExtractionAgent
+
+    用途：
+    - 输入：原始文本列表 + 已抽取的关系三元组（KGTriple）
+    - 输出：在原三元组基础上填充/更新 mechanism 字段（+可选 evidence/confidence）
+
+    使用方式（示例）：
+    mech_agent = MechanismExtractionAgent(client, model_name)
+    enriched = mech_agent.process(texts, relation_results)
+
+    其中：
+    texts: [
+      {"id": "p1", "text": "..."},
+      {"id": "p2", "text": "..."},
+      ...
+    ]
+
+    relation_results: {
+      "p1": [KGTriple(...), KGTriple(...)]
+      "p2": [KGTriple(...)]
+    }
+
+    返回值同样是 {text_id: List[KGTriple]}，只是每个 triple.mechanism 被填好。
+    """
+
+    def __init__(self, client: OpenAI, model_name: str) -> None:
+        system_prompt = """
+You are a dedicated Mechanism Extraction Agent for biomedical knowledge graphs.
+
+GOAL:
+Given:
+- A biomedical text segment, and
+- One or more existing relational triples (head, relation, tail),
+
+You must extract a concise, mechanistically accurate explanation for *how* or *why* the head entity influences the tail entity under the given relation.
+
+GENERAL PRINCIPLES:
+- Focus on biological / pharmacological / molecular mechanisms.
+- Prefer concrete mechanistic steps over vague descriptions.
+- Use only information supported or strongly implied by the provided text.
+- If mechanism is known from general biomedical knowledge and clearly consistent, you MAY use it, but never contradict the text.
+- If no reliable mechanism is available, return an empty string "" for mechanism.
+
+OUTPUT REQUIREMENTS (PER TRIPLE):
+For each input triple, output a JSON object:
+
+{
+  "head": "exact_head",
+  "relation": "RELATIONSHIP_TYPE",
+  "tail": "exact_tail",
+  "mechanism": "50-120 words mechanistic explanation in English, if available, otherwise empty string",
+  "evidence": "short quote or paraphrase from the text that supports this mechanism, if available, otherwise empty string",
+  "confidence": 0.0-1.0   // confidence that the mechanism is correct and well-grounded
+}
+
+DETAILED GUIDELINES:
+
+1. CONSISTENCY WITH RELATION:
+   - Ensure the mechanism matches the relation type:
+     - TREATS: how the intervention alleviates / resolves the condition.
+     - INHIBITS: binding, blocking, downregulation, competitive/non-competitive inhibition, etc.
+     - ACTIVATES: receptor agonism, signaling activation, etc.
+     - CAUSES: pathogenic pathway, mutation effect, toxicity mechanism.
+     - ASSOCIATED_WITH: describe possible or hypothesized links; be explicit it's associative.
+     - REGULATES: transcriptional, translational, signaling, feedback regulation.
+     - INCREASES/DECREASES: upstream/downstream changes that alter levels or activity.
+     - INTERACTS_WITH: binding, complex formation, physical interaction.
+
+2. WHEN TEXT IS INSUFFICIENT:
+   - If the provided text does not support any clear mechanism,
+     set "mechanism": "" and lower confidence (<= 0.4).
+   - Do NOT fabricate detailed mechanisms that contradict the text.
+
+3. STYLE:
+   - Mechanism: 1~3 sentences, 50-120 words, precise and technical but readable.
+   - Evidence: 1 sentence, direct quote or faithful paraphrase.
+   - Return ONLY a JSON array of objects, no extra commentary.
+"""
+        super().__init__(client, model_name, system_prompt)
+        self.logger = get_global_logger()
+
+    def process(
+        self,
+        texts: List[Dict[str, str]],
+        relation_results: Dict[str, List[KGTriple]],
+    ) -> Dict[str, List[KGTriple]]:
+        """
+        给已有的关系三元组补充 mechanism 字段。
+
+        :param texts:        [{"id": str, "text": str}, ...]
+        :param relation_results: {text_id: [KGTriple, ...]}
+        :return: 同结构的字典，但 triple.mechanism / evidence / confidence 已更新（在能抽到的情况下）
+        """
+        text_map = {t["id"]: t.get("text", "") for t in texts}
+        enriched: Dict[str, List[KGTriple]] = {}
+
+        for text_id, triples in tqdm(relation_results.items()):
+            text = text_map.get(text_id, "")
+            if not text or not triples:
+                enriched[text_id] = triples
+                continue
+
+            # 为当前段落的所有三元组一起提机制，减少调用次数
+            enriched_triples = self._enrich_triples_for_text(text, triples)
+            enriched[text_id] = enriched_triples
+
+        return enriched
+
+    # ------- 内部方法：为一个文本里的三元组批量提机制 -------
+    def _enrich_triples_for_text(
+        self,
+        text: str,
+        triples: List[KGTriple],
+    ) -> List[KGTriple]:
+        """
+        给同一段文本下的一批 KGTriple 补 mechanism。
+        """
+        if not triples:
+            return triples
+
+        triples_payload = [
+            {
+                "head": t.head,
+                "relation": t.relation,
+                "tail": t.tail,
+            }
+            for t in triples
+        ]
+
+        prompt = f"""
+We have the following biomedical text:
+
+\"\"\"{text}\"\"\"
+
+And the following existing relational triples extracted from this text:
+{json.dumps(triples_payload, ensure_ascii=False, indent=2)}
+
+For EACH triple, infer the mechanistic explanation as specified in the system prompt.
+Return ONLY a JSON array, one object per triple, preserving the same (head, relation, tail) so we can align them.
+"""
+
+        try:
+            raw = self.call_llm(prompt)
+            data = self.parse_json(raw)
+        except Exception as e:
+            self.logger.info(f"[MechanismExtraction] LLM call/parse failed: {e}")
+            return triples
+
+        if not isinstance(data, list):
+            return triples
+
+        # 建立索引方便对上（head, relation, tail）→ result
+        mech_map: Dict[tuple, Dict[str, Any]] = {}
+
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            h = str(item.get("head", "")).strip()
+            r = str(item.get("relation", "")).strip()
+            t = str(item.get("tail", "")).strip()
+            if not (h and r and t):
+                continue
+
+            key = (h.lower(), r.upper(), t.lower())
+            mech = str(item.get("mechanism", "")).strip()
+            ev = str(item.get("evidence", "")).strip()
+            try:
+                conf = float(item.get("confidence", 0.0))
+            except Exception:
+                conf = 0.0
+
+            # 如果已有同 key，保留置信度更高的
+            prev = mech_map.get(key)
+            if (prev is None) or (conf > prev.get("confidence", 0.0)):
+                mech_map[key] = {
+                    "mechanism": mech,
+                    "evidence": ev,
+                    "confidence": conf,
+                }
+
+        # 回填到原有 triples
+        enriched_triples: List[KGTriple] = []
+        for t in triples:
+            key = (t.head.strip().lower(), t.relation.strip().upper(), t.tail.strip().lower())
+            info = mech_map.get(key)
+
+            if info:
+                # 只在机制非空时更新；否则保留原值
+                if info.get("mechanism"):
+                    t.mechanism = info["mechanism"]
+                if info.get("evidence"):
+                    t.evidence = info["evidence"]
+                # 如果机制可信度更高，也可以同步更新 triple 的 confidence（可选）
+                if info.get("confidence", 0.0) > 0 and info["confidence"] > t.confidence:
+                    t.confidence = info["confidence"]
+
+            enriched_triples.append(t)
+
+        return enriched_triples

@@ -16,17 +16,7 @@ from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
 # ===================== 基础数据结构 =====================
 
-@dataclass
-class KGRelation:
-    """简单关系表示，用于知识图谱三元组存储。"""
-    rel_id: str = ""          # 留空则自动生成
-    head_id: str = ""         # 头实体 ID
-    rel_type: str = ""        # 关系类型（字符串）
-    tail_id: str = ""         # 尾实体 ID
-    props: Dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
 
 
 # ===================== 实体存储 =====================
@@ -136,12 +126,17 @@ class RelationStore:
     by_relation:通过查询关系类型获取三元组列表
     by_tail:通过查询尾部实体获取三元组列表"""
     def __init__(self):
+        # self.by_id:Dict[str,KGTriple]={}
+        self.triples: List[KGTriple] = []
         self.by_head:Dict[str,List[KGTriple]]={}
         self.by_relation:Dict[str,List[KGTriple]]={}
         self.by_tail:Dict[str,List[KGTriple]]={}
     def _rid(self) -> str:
         return f"rel:{uuid.uuid4().hex[:12]}"
-
+    def add(self, t: KGTriple):
+        """插入一个三元组"""
+        self.triples.append(t)
+        return t
     def add_many(self,triples:List[KGTriple]):
         for triple in triples:
             relation=triple.relation
@@ -160,15 +155,9 @@ class RelationStore:
             else:
                 self.by_tail[tail].append(triple)
 
-    def add(self, r: KGRelation) -> KGRelation:
-        if not r.rel_id:
-            r.rel_id = self._rid()
-        self.by_id[r.rel_id] = r
-        return r
 
-    def all(self) -> List[KGRelation]:
-        return list(self.by_id.values())
-
+    def all(self) -> List[KGTriple]:
+        return self.triples
 
 # ===================== 子图 =====================
 
@@ -198,11 +187,11 @@ class Subgraph:
     def upsert_many_entities(self, ents: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(ents)
 
-    def add_relation(self, r: KGRelation) -> KGRelation:
+    def add_relation(self, r: KGTriple) -> KGTriple:
         return self.relations.add(r)
 
-    def add_relations(self, rs: List[KGRelation]) -> List[KGRelation]:
-        return [self.relations.add(r) for r in rs]
+    def add_relations(self, rs: List[KGTriple]) -> List[KGTriple]:
+        return self.relations.add_many(rs)
 
     def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
         return self.entities.find_by_norm(name_or_alias)
@@ -252,7 +241,7 @@ class Subgraph:
         for r in self.relations.all():
             head = id_map.get(r.head_id, r.head_id)
             tail = id_map.get(r.tail_id, r.tail_id)
-            mem.relations.add(KGRelation(
+            mem.relations.add(KGTriple(
                 rel_type=r.rel_type,
                 head_id=head,
                 tail_id=tail,
