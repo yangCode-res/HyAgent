@@ -103,18 +103,15 @@ Return only valid JSON array:
     "relation": "RELATIONSHIP_TYPE",
     "tail": "exact_entity_name",
     "confidence": 0.85,
-    "evidence": "direct quote supporting relationship",
-    "temporal_info": "the temporal_info of the relationship(if any)",
-    "mechanism": "To describe the mechanism of the cause(50-100 words)"
+    "evidence": "direct quote supporting relationship"
   }
 ]
 
 EXAMPLE:
 Text: "Aspirin significantly inhibited COX-2 activity (p<0.001), reducing PGE2 production by 60%."
-Entities: ["aspirin", "COX-2", "PGE2"]
 Output:
 [
-  {"head": "aspirin", "relation": "INHIBITS", "tail": "COX-2", "confidence": 0.95, "temporal_info":None,"evidence": "Aspirin significantly inhibited COX-2 activity (p<0.001),mechanism: Aspirin exerts its inhibitory effect on COX-2 by acetylating a serine residue in the enzyme's active site, which prevents the conversion of arachidonic acid to prostaglandins. This reduction in prostaglandin synthesis leads to decreased inflammation and pain. The significant p-value (p<0.001) indicates strong statistical support for this effect."}
+  {"head": "aspirin", "relation": "INHIBITS", "tail": "COX-2", "confidence": 0.95, "evidence": "Aspirin significantly inhibited COX-2 activity (p<0.001)"}
 ]"""
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
@@ -124,7 +121,6 @@ Output:
         process the relationship extraction for multiple paragraphs
         parameters:
         texts:the paragraphs with their ids to be extracted
-        entities:the list of entities recognized from the entity_extraction agent
         causal_types:the causal relationships recognized from the causal_extraction agent
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
@@ -181,7 +177,6 @@ Return only valid array:
         relationship extraction
         parameters:
         text:the paragraph to be extracted(the function could only settle with one paragraph each time so it might be called for times)
-        entities:the string list of entities recognized from the entity_extraction agent
         causal_types:the causal relationships recognized from the causal_extraction agent
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
@@ -207,9 +202,7 @@ Return only valid array:
                     head=rel_data.get("head","").strip()
                     tail=rel_data.get("tail","").strip()
                     confidence=float(rel_data.get("confidence",0.5))
-                    evidence=rel_data.get("evidence","")
-                    mechanism=rel_data.get("mechanism","")
-                    temporal=rel_data.get("temporal","")
+                    evidence=rel_data.get("evidence","").strip()
                     relation=rel_data.get("relation","").strip()
                     source=text_id
                     triple=KGTriple(
