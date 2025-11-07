@@ -133,10 +133,13 @@ Output:
         for i,text in enumerate(tqdm(texts)):
             text_id=text.get("id","")
             paragraph=text.get("text","")
+            # print(paragraph)
             graph_id=text_id.join(str(i))
             causal_types=self.extract_existing_relation(paragraph)
+            # print(causal_types)
             extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
+            print(extracted_triples)
             subgraph=Subgraph(graph_id,graph_id,{"text":text})
             subgraph.add_relations(extracted_triples)
             self.memory.register_subgraph(subgraph)
