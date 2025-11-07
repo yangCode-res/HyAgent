@@ -10,6 +10,7 @@ from ExampleText.index import ExampleText
 from ChatLLM.index import ChatLLM
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from tqdm import tqdm
+from Memory.index import Subgraph
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -327,14 +328,14 @@ class EntityExtractionAgent(Agent):
         for doc in tqdm(documents):
             doc_id = doc.get("id") or ""
             text = doc.get("text") or ""
+            subgraph = Subgraph(subgraph_id=doc_id, name=doc_id, meta={"text": text})
             type_list = self.step1(text)
             self.step2(text, type_list)
-        
-        results=self._deduplicate_entities(self.allKGEntities)
-        self.memory.upsert_many_entities(results)
-        # self.logger.info(f"Entity Extraction Agent: {results}")
-        # print(results)
-        return results
+            self.allKGEntities=self._deduplicate_entities(self.allKGEntities)
+            subgraph.upsert_many_entities(self.allKGEntities)
+            self.memory.upsert_subgraph(subgraph)
+            self.allKGEntities = []        
+        return self.allKGEntities
 
     def extract_from_text(self, text: str) -> List[Dict[str, Any]]:
         """
