@@ -19,8 +19,6 @@ class KGTriple:
     relation: str
     tail: str
     confidence: float
-    temporal_info: str="unknown"
-    mechanism: str="unknown"
     evidence: str="unknown"
     source:str="unknown"
     def to_dict(self) -> dict:
