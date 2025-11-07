@@ -26,6 +26,7 @@ if __name__ == "__main__":
     logger = get_global_logger()
     logger.info("Starting HyGraph...")
     extract_relationships=relationAgent.process(text)
+    print(extract_relationships)
     logger.info("HyGraph finished.")
     logger.info("="*100)
     memory.dump_json("./snapshots")
