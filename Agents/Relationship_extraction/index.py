@@ -211,8 +211,6 @@ Return only valid array:
                         tail=tail,
                         confidence=confidence,
                         evidence=evidence,
-                        mechanism=mechanism,
-                        temporal_info=temporal,
                         source=source
                     )
                     triples.append(triple)
