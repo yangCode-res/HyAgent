@@ -139,7 +139,6 @@ Output:
             # print(causal_types)
             extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            print(extracted_triples)
             subgraph=Subgraph(graph_id,graph_id,{"text":text})
             subgraph.add_relations(extracted_triples)
             self.memory.register_subgraph(subgraph)
