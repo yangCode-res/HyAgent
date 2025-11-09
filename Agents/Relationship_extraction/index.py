@@ -1,20 +1,11 @@
 import json
-import sys
-
-from sympy import false
 from tqdm import tqdm
-
 from Memory.index import Subgraph
 from Store.index import get_memory
-# sys.path.append("/home/nas3/biod/dongkun")
-from calendar import c
-from html import entities
 from typing import Optional, Any, Dict, List
-
 from openai import OpenAI
 from Core.Agent import Agent
 from Logger.index import get_global_logger
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
@@ -197,7 +188,7 @@ Return only valid array:
             response=self.call_llm(prompt)
             relations_data=self.parse_json(response)
             triples=[]
-            for rel_data in relations_data:
+            for rel_data in tqdm(relations_data):
                 if isinstance(rel_data,dict) and all(key in rel_data for key in ["head","relation","tail"]):
                     head=rel_data.get("head","").strip()
                     tail=rel_data.get("tail","").strip()
