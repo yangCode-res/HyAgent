@@ -305,6 +305,127 @@ class Memory:
             json.dump(data, f, ensure_ascii=False, indent=2)
         return str(path)
 
+def load_memory_from_json(path_or_data: Any) -> Memory:
+    """
+    从 Memory.dump_json() 导出的快照恢复为一个新的 Memory 实例。
+    - path_or_data: 文件路径(str/Path) 或 已解析的 dict
+    - 不修改当前全局 memory 变量，返回新的 Memory 对象
+    - 保留原始 entity_id，不走 upsert；同时重建各类倒排索引
+    """
+    # ==== 小工具（局部作用域，避免增加全局改动） ====
+    def _coerce_entity(ed: Any) -> KGEntity:
+        if isinstance(ed, KGEntity):
+            return ed
+        # 优先 from_dict
+        try:
+            from_dict = getattr(KGEntity, "from_dict", None)
+            if callable(from_dict):
+                return from_dict(ed)
+        except Exception:
+            pass
+        # 回退：直接解包
+        return KGEntity(**ed)
 
+    def _coerce_triple(rd: Any) -> KGTriple:
+        if isinstance(rd, KGTriple):
+            return rd
+        # 优先 from_dict
+        try:
+            from_dict = getattr(KGTriple, "from_dict", None)
+            if callable(from_dict):
+                return from_dict(rd)
+        except Exception:
+            pass
+        # 回退：尝试直接解包；不行就做字段映射
+        try:
+            return KGTriple(**rd)
+        except Exception:
+            mapped = dict(rd)
+            # 字段别名兼容
+            if "relation" in mapped and "rel_type" not in mapped:
+                mapped["rel_type"] = mapped["relation"]
+            if "head" in mapped and "head_id" not in mapped:
+                mapped["head_id"] = mapped["head"]
+            if "tail" in mapped and "tail_id" not in mapped:
+                mapped["tail_id"] = mapped["tail"]
+            # 只保留常见字段
+            allowed = {"rel_type", "relation", "head_id", "tail_id", "head", "tail", "props"}
+            slim = {k: v for k, v in mapped.items() if k in allowed}
+            return KGTriple(**slim)
+
+    # ==== 读取数据 ====
+    if isinstance(path_or_data, (str, Path)):
+        with open(path_or_data, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    elif isinstance(path_or_data, dict):
+        data = path_or_data
+    else:
+        raise TypeError("load_memory_from_json expects a file path (str/Path) or a dict")
+
+    # ==== 构建新的 Memory ====
+    mem = Memory()
+
+    # ---- 恢复全局实体 ----
+    for ed in data.get("entities", []):
+        e = _coerce_entity(ed)
+        # 直接写入并重建索引（不走 upsert，避免重分配ID）
+        mem.entities.by_id[e.entity_id] = e
+        if getattr(e, "normalized_id", None) and e.normalized_id != "N/A":
+            mem.entities.idx_normid[mem.entities._key(e.normalized_id)] = e.entity_id
+        if getattr(e, "name", None):
+            mem.entities.idx_name[mem.entities._key(e.name)] = e.entity_id
+
+    # ---- 恢复全局关系 ----
+    for rd in data.get("relations", []):
+        r = _coerce_triple(rd)
+        mem.relations.triples.append(r)
+
+        rel = getattr(r, "relation", None) or getattr(r, "rel_type", None)
+        head = getattr(r, "head", None) or getattr(r, "head_id", None)
+        tail = getattr(r, "tail", None) or getattr(r, "tail_id", None)
+
+        if rel is not None:
+            mem.relations.by_relation.setdefault(rel, []).append(r)
+        if head is not None:
+            mem.relations.by_head.setdefault(head, []).append(r)
+        if tail is not None:
+            mem.relations.by_tail.setdefault(tail, []).append(r)
+
+    # ---- 恢复子图 ----
+    for sg_id, sgd in (data.get("subgraphs") or {}).items():
+        sg = Subgraph(
+            subgraph_id=sgd.get("id", sg_id),
+            name=sgd.get("name", ""),
+            meta=sgd.get("meta", {}),
+        )
+
+        # 子图实体
+        for ed in sgd.get("entities", []):
+            e = _coerce_entity(ed)
+            sg.entities.by_id[e.entity_id] = e
+            if getattr(e, "normalized_id", None) and e.normalized_id != "N/A":
+                sg.entities.idx_normid[sg.entities._key(e.normalized_id)] = e.entity_id
+            if getattr(e, "name", None):
+                sg.entities.idx_name[sg.entities._key(e.name)] = e.entity_id
+
+        # 子图关系
+        for rd in sgd.get("relations", []):
+            r = _coerce_triple(rd)
+            sg.relations.triples.append(r)
+
+            rel = getattr(r, "relation", None) or getattr(r, "rel_type", None)
+            head = getattr(r, "head", None) or getattr(r, "head_id", None)
+            tail = getattr(r, "tail", None) or getattr(r, "tail_id", None)
+
+            if rel is not None:
+                sg.relations.by_relation.setdefault(rel, []).append(r)
+            if head is not None:
+                sg.relations.by_head.setdefault(head, []).append(r)
+            if tail is not None:
+                sg.relations.by_tail.setdefault(tail, []).append(r)
+
+        mem.register_subgraph(sg)
+
+    return mem
 # 全局实例：所有 Agent 请统一从这里 import
 memory = Memory()

@@ -115,6 +115,7 @@ class KGEntity:
     name: str = ""
     normalized_id: str = "N/A"
     aliases: List[str] = field(default_factory=list)
+    description: str = ""
 
     def __str__(self) -> str:
         """String representation of the entity."""

@@ -180,6 +180,8 @@ class EntityExtractionAgent(Agent):
             "Character spans use 0-based, half-open [start, end) over the raw text (including spaces/newlines).",
             f"Return at most {max_entities} entities.",
             "If none found, return an empty array.",
+            "For EACH entity, provide a ~20-word single-sentence description grounded ONLY in the document; if insufficient evidence, use \"N/A\".",
+            "The description must not rely on external/world knowledge; it must be inferable from the document."
             "Return STRICT JSON only; no explanations or extra text.",
         ]
         ontoloty_mapping=(
@@ -191,7 +193,7 @@ class EntityExtractionAgent(Agent):
         example=(
             "EXAMPLES:\n"
             "Text: \"Aspirin inhibits COX-2 enzyme activity\"\n"
-            "Output: [{\"mention\": \"Aspirin\", \"type\": \"DRUG\", \"normalized_id\": \"MESH:D001241\", \"aliases\": [\"acetylsalicylic acid\"]}, {\"mention\": \"COX-2\", \"type\": \"PROTEIN\", \"normalized_id\": \"NCBI:5743\", \"aliases\": [\"cyclooxygenase-2\", \"PTGS2\"]}]\n"
+            "Output: [{\"mention\": \"Aspirin\", \"type\": \"DRUG\", \"normalized_id\": \"MESH:D001241\", \"aliases\": [\"acetylsalicylic acid\"], \"description\": \"Drug described as inhibiting COX-2 enzyme activity.\"}, {\"mention\": \"COX-2\", \"type\": \"PROTEIN\", \"normalized_id\": \"NCBI:5743\", \"aliases\": [\"cyclooxygenase-2\", \"PTGS2\"], \"description\": \"Enzyme described as the inhibition target of aspirin.\"}]\n"
         )
         schema = (
             "Output (STRICT JSON):\n"
@@ -204,6 +206,7 @@ class EntityExtractionAgent(Agent):
             '      "confidence": 0.0,\n'
             '      "normalized_id": "ontology:identifier or N/A",\n'
             '      "aliases": ["synonym1", "synonym2"]\n'
+            '      "description": "20-word single-sentence description grounded ONLY in the document; if insufficient evidence, use \"N/A\""\n'
             "    }\n"
             "  ]\n"
             "}"
@@ -312,6 +315,7 @@ class EntityExtractionAgent(Agent):
                     entity_type=type_list[i].name,
                     name=entity.get("mention", ""),
                     normalized_id=entity.get("normalized_id", "N/A"),
+                    description=entity.get("description", "N/A"),  # ← 仅此一行
                     aliases=entity.get("aliases", []) or []
                 ))
                 count+=1
@@ -323,8 +327,7 @@ class EntityExtractionAgent(Agent):
         入参格式示例：[{"id": "doc1", "text": "..."}, ...]
         返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
         """
-        text = ExampleText().get_text()
-        documents=text
+
         for doc in tqdm(documents):
             doc_id = doc.get("id") or ""
             text = doc.get("text") or ""

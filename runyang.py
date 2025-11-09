@@ -7,7 +7,10 @@ import os
 from openai import OpenAI
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Mechanism_extraction.index import MechanismExtractionAgent
+from Agents.Entity_extraction.index import EntityExtractionAgent
 from dotenv import load_dotenv, find_dotenv
+from Agents.Entity_normalize.index import EntityNormalizationAgent
+from Memory.index import load_memory_from_json
 if __name__ == "__main__":
 
     try:
@@ -18,20 +21,19 @@ if __name__ == "__main__":
             pass
     test=ExampleText()
     text=test.get_text()
+    logger = get_global_logger()
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     # print(open_ai_api,open_ai_url)
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory = get_memory()
-    relationAgent=RelationshipExtractionAgent(client, model_name="deepseek-chat")
-    logger = get_global_logger()
+    memory = load_memory_from_json("./snapshots/memory-20251109-140029.json")
+#     extract_agent=EntityExtractionAgent()
+    normalize_agent=EntityNormalizationAgent(client, model_name="deepseek-chat")
     logger.info("Starting HyGraph...")
-    extract_relationships=relationAgent.process(text)
-    subgraph=memory.get_subgraph("0")
-    MechanismAgent=MechanismExtractionAgent(client, model_name="deepseek-chat")
-    mechanism=MechanismAgent.process(memory, max_workers=8)
-    print('mechanism',mechanism)
     # print(subgraph.to_dict())
+#     extract_agent.run(text)
+    normalize_agent.process(memory)
     logger.info("HyGraph finished.")
     logger.info("="*100)
     memory.dump_json("./snapshots")
