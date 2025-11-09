@@ -193,7 +193,10 @@ class Subgraph:
 
     def add_relations(self, rs: List[KGTriple]) -> List[KGTriple]:
         return self.relations.add_many(rs)
-
+    def get_meta(self) -> Dict[str, Any]:
+        return self.meta
+    def get_relations(self) -> List[KGTriple]:
+        return self.relations.all()
     def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
         return self.entities.find_by_norm(name_or_alias)
 

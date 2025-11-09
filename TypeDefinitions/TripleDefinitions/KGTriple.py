@@ -21,6 +21,7 @@ class KGTriple:
     confidence: float
     evidence: str="unknown"
     source:str="unknown"
+    mechanism:str="unknown"
     def to_dict(self) -> dict:
         return asdict(self)
     
