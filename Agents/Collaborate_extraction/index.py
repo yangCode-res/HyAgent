@@ -29,7 +29,7 @@ class CollaborationExtractionAgent(Agent):
                 concurrent.futures.wait([future_relationship])
             extracted_entities=future_entity.result()
             extracted_relationships=future_relationship.result()
-            subgraph.entities.upsert_many(extracted_entities)
+            subgraph.entities.update(extracted_entities)
             subgraph.relations.reset()
             subgraph.relations.add_many(extracted_relationships)
             self.memory.register_subgraph(subgraph)

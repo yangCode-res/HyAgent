@@ -72,6 +72,16 @@ class EntityStore:
 
         return e
 
+    def update(self, entities: List[KGEntity]):
+        for entity in entities:
+            former_entity=self.by_id.get(entity.entity_id)
+            if former_entity:
+                if former_entity==entity:
+                    continue
+                former_entity.name=entity.name
+                former_entity.entity_type=entity.entity_type
+                self.by_id[entity.entity_id]=former_entity
+                
     def _merge(self, base: KGEntity, inc: KGEntity) -> KGEntity:
         # 类型：prefer 更具体
         if base.entity_type == "Unknown" and inc.entity_type != "Unknown":
