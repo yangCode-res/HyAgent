@@ -81,7 +81,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def process(self,texts:List[Dict[str,str]],step3_needed=False)->Dict[str,List[KGTriple]]:
+    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
@@ -105,9 +105,6 @@ Output:
                 subgraph=Subgraph(graph_id,graph_id,{"text":text})
             subgraph.add_relations(extracted_triples)
             self.memory.register_subgraph(subgraph)
-        if step3_needed:
-            pass
-        return results
     ###step 1: extract existing relationship types from the text
     def extract_existing_relation(self,text:str)->List[str]:
         prompt=f"""return existing relationship types from provided text and return them as a list. The relationship types are defined as follows:
@@ -184,12 +181,7 @@ Return only valid array:
             logger.info(f"Relationship extraction failed{str(e)}")
             return []
         return triples
-    ###step 3(Optional): modify the extracted relationships based on last-term entity recognition results
-    def modify_relationships(self,triples:List[KGTriple])->List[KGTriple]:
-        """
-        Modify the extracted relationships based on entity recognition results.
-        """
-        return triples
+    
 
     def entities_exist(self,entity_name:str,entities:List[str])->bool:
          """
