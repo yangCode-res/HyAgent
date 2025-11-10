@@ -133,10 +133,25 @@ class RelationStore:
         self.by_tail:Dict[str,List[KGTriple]]={}
     def _rid(self) -> str:
         return f"rel:{uuid.uuid4().hex[:12]}"
-    def add(self, t: KGTriple):
+    def add(self, triple: KGTriple):
         """插入一个三元组"""
-        self.triples.append(t)
-        return t
+        self.triples.append(triple)
+        relation=triple.relation
+        head=triple.head
+        tail=triple.tail
+        if relation not in self.by_relation:
+            self.by_relation[relation]=[triple]
+        else:
+            self.by_relation[relation].append(triple)
+        if head not in self.by_head:
+            self.by_head[head]=[triple]
+        else:
+            self.by_head[head].append(triple)
+        if tail not in self.by_tail:
+            self.by_tail[tail]=[triple]
+        else:
+            self.by_tail[tail].append(triple)
+
     def add_many(self,triples:List[KGTriple]):
         for triple in triples:
             self.add(triple)
@@ -159,6 +174,14 @@ class RelationStore:
 
     def all(self) -> List[KGTriple]:
         return self.triples
+    
+    def reset(self):
+        """重置relationstore"""
+        # 清空所有存储
+        self.triples.clear()
+        self.by_head.clear()
+        self.by_relation.clear()
+        self.by_tail.clear()
 
 # ===================== 子图 =====================
 
@@ -168,6 +191,8 @@ class Subgraph:
     - 拥有自己的 EntityStore / RelationStore
     - 用 subgraph_id 标识（你在创建时传入）
     - 可单独导出，也可 merge_into 全局 Memory
+
+    NOTICE:subgraph_id的格式为 PMID_索引 的格式 用于标识文章_段落
     """
     def __init__(
         self,

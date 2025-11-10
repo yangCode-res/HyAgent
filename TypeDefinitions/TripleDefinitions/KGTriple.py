@@ -1,4 +1,7 @@
 from dataclasses import asdict, dataclass
+from typing import List, Optional
+
+from numpy import str_
 
 
 @dataclass
@@ -18,15 +21,16 @@ class KGTriple:
     head: str
     relation: str
     tail: str
-    confidence: float
-    evidence: str="unknown"
-    source:str="unknown"
-    mechanism:str="unknown"
+    confidence: Optional[List[float]]
+    evidence: Optional[List[str]]
+    mechanism: Optional[str]
+    source: str = "unknown"
+
     def to_dict(self) -> dict:
         return asdict(self)
     
     def __str__(self) -> str:
-        return f"({self.head.lower()}, -[{self.relation.lower()}]->, {self.tail.lower()})"
+        return f"({self.head}, -[{self.relation}]->, {self.tail})"
     
     @classmethod
     def from_dict(cls, data: dict) -> "KGTriple":

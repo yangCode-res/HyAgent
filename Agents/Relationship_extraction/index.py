@@ -55,30 +55,6 @@ REQUIRED CONDITIONS:
 - Evidence must be present within the analyzed text segment
 - Relationship direction must be determinable from context
 
-TEMPORAL ASPECTS:
-- Note any temporal information indicating when the relationship occurs
-- Capture if the relationship is transient or permanent
-- Include timing phrases (e.g., "after treatment", "over time")
-- Include the frequency if mentioned (e.g., "daily", "weekly")
-CONFIDENCE SCORING:
-HIGH CONFIDENCE (0.8-1.0):
-- Direct experimental evidence stated
-- Quantitative measurements provided
-- Established scientific facts
-- Clear causal language
-
-MODERATE CONFIDENCE (0.5-0.7):
-- Observational evidence
-- Statistical associations
-- Literature citations mentioned
-- Qualified statements (may, appears to, suggests)
-
-LOW CONFIDENCE (0.3-0.4):
-- Preliminary findings
-- Hypothetical relationships
-- Weak associations
-- Speculative statements
-
 QUALITY CONTROLS:
 - Ignore negated relationships ("does not treat", "no association")
 - Avoid circular relationships (A-B, B-A unless distinct)
@@ -92,9 +68,7 @@ Return only valid JSON array:
   {
     "head": "exact_entity_name",
     "relation": "RELATIONSHIP_TYPE",
-    "tail": "exact_entity_name",
-    "confidence": 0.85,
-    "evidence": "direct quote supporting relationship"
+    "tail": "exact_entity_name"
   }
 ]
 
@@ -121,12 +95,14 @@ Output:
             text_id=text.get("id","")
             paragraph=text.get("text","")
             # print(paragraph)
-            graph_id=text_id.join(str(i))
+            graph_id=text_id+'_'+str(i)
             causal_types=self.extract_existing_relation(paragraph)
             # print(causal_types)
             extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            subgraph=Subgraph(graph_id,graph_id,{"text":text})
+            subgraph=self.memory.get_subgraph(graph_id)
+            if not subgraph:
+                subgraph=Subgraph(graph_id,graph_id,{"text":text})
             subgraph.add_relations(extracted_triples)
             self.memory.register_subgraph(subgraph)
         if step3_needed:
@@ -191,16 +167,15 @@ Return only valid array:
                 if isinstance(rel_data,dict) and all(key in rel_data for key in ["head","relation","tail"]):
                     head=rel_data.get("head","").strip()
                     tail=rel_data.get("tail","").strip()
-                    confidence=float(rel_data.get("confidence",0.5))
-                    evidence=rel_data.get("evidence","").strip()
                     relation=rel_data.get("relation","").strip()
                     source=text_id
                     triple=KGTriple(
                         head=head,
                         relation=relation,
                         tail=tail,
-                        confidence=confidence,
-                        evidence=evidence,
+                        confidence=None,
+                        evidence=["unknown"],
+                        mechanism="unknown",
                         source=source
                     )
                     triples.append(triple)
