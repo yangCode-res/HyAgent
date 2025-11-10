@@ -1,65 +1,163 @@
-# Agents/Entity_normalize/index.py
-
-from __future__ import annotations
-
-import re
-from typing import Dict, List, Tuple, Any
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-import numpy as np
-import torch
-from transformers import AutoTokenizer, AutoModel
-from tqdm import tqdm
-
+import concurrent
+import concurrent.futures
+from typing import List, Optional
+from numpy import tri
 from openai import OpenAI
-from Memory.index import Memory, Subgraph
+from Core.Agent import Agent
+from Memory.index import Memory
 from Logger.index import get_global_logger
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from Core.Agent import Agent
-
-logger = get_global_logger()
-
-# 控制台颜色（如果重定向到文件，只是普通字符串，不影响）
-ANSI_RESET = "\033[0m"
-ANSI_CYAN = "\033[96m"    # LLM 相关
-ANSI_GREEN = "\033[92m"   # 汇总信息
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+from Store.index import get_memory
 
 
-class EntityNormalizationAgent(Agent):
-    """
-    子图级实体归一化 Agent
+class CollaborationExtractionAgent(Agent):
+    def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
+        self.system_prompt=""""""""
+        super().__init__(client,model_name,self.system_prompt)
+        self.memory=memory or get_memory()
+        self.logger=get_global_logger()
+    def process(self):
+        subgraphs=self.memory.subgraphs
+        for subgraph_id,subgraph in subgraphs.items():
+            if not subgraph:
+                return
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future_entity=executor.submit(self.entity_extraction,subgraph)
+                future_relationship=executor.submit(self.relationship_extraction,subgraph)
+                concurrent.futures.wait([future_entity])
+                concurrent.futures.wait([future_relationship])
+            extracted_entities=future_entity.result()
+            extracted_relationships=future_relationship.result()
+            subgraph.entities.upsert_many(extracted_entities)
+            subgraph.relations.reset()
+            subgraph.relations.add_many(extracted_relationships)
+            self.memory.register_subgraph(subgraph)
 
-    三步流程：
+    def entity_extraction(self,subgraph)->List[KGEntity]:
+        entities=subgraph.entities.all()
+        relations=subgraph.get_relations()
+        entities_str="\n".join("id:"+entity.entity_id+",name:"+entity.name+",type:"+entity.entity_type for entity in entities)#需要根据id确定更改哪个实体
+        relations_str="\n".join(relation.__str__() for relation in relations)
+        text=subgraph.meta.get("text","")
+        prompt="""
+        You are an entity extraction expert.The followings are the entities and relationships extracted from another entity extraction and relationship extraction agents.
+        Based on their results,please adjust and refine the entities to ensure accuracy and coherence.
+        INSTRUCTIONS:
+        1. Review the provided entities carefully according to given relationships.
+        2. Ensure that each entity correctly reflects the information in the relationships especially the situation that less words but not alias(such as "abdominal obesity" vs "obesity").
+        3. Based on the relationships, modify any entities that seem extremely inconsistent or incorrect, if there exists the case that the name of the entity from entities is the alias of the one of relationships, please NOT adjust it and keep the origin entity name.
+        4. If the entity has no relationships with others, just keep it unchanged.
+        OUTPUT FORMAT:
+        Return only valid JSON array:
+        [
+        {
+            "id":"entity_id",
+            "name": "exact_entity_name",
+            "type":"ENTITY_TYPE",
+        }
+        ]
+        EXAMPLE:
+        Entities:
+        id:1,name:obesity,type:Disease
 
-    1）规则归一化（同子图 + 同类型，确定性字符串匹配）
-    2）BioBERT 相似度候选（同子图 + 同类型，基于 description/name）
-    3）LLM 裁决合并（候选批次并行请求，合并操作串行执行）
-    """
+        Relationships:
+        abdominal obesity(-ASSOCIATED_WITH>)T2DM
 
-    def __init__(
-        self,
-        client: OpenAI,
-        model_name: str,
-        biobert_dir: str = "/home/nas2/path/models/biobert-base-cased-v1.1",
-        sim_threshold: float = 0.94,
-    ):
-        system_prompt = """
-
-"""
-        super().__init__(client, model_name, system_prompt)
-        self.logger = get_global_logger()
-
-    # ===================== 对外入口 =====================
-
-    def process(self, memory: Memory) -> None:
+        You could find out that the head entity name is not exactly matched with entity extraction results,so you need to modify it as follows:
+        [
+          {"id":"1","name": "abdominal obesity", "type":"Disease"}
+        ]"""
+        prompt+=f"""
+        Now please adjust the entities based on the relationships and resource paragraph below:
+        Entities:
+        {entities_str}
+        Relationships:
+        {relations_str}
+        Paragraph:
+        {text}
+        NOTE:
+        if there is no conflict between entities and relationships, just return the entities in given output format directly.
+        DO NOT CHANGE THE ID OF ENTITIES.
         """
-        对所有 subgraph 执行：
-        1）规则归一化；
-        2）用 BioBERT 生成候选对；
-        3）并行 LLM 裁决；
-        带总体进度条。
-        """
-        
-        
+        response=self.call_llm(prompt)
+        try:
+            results=self.parse_json(response)
+            entities=[]
+            for item in results:
+                entity_id=item.get("id","unknown")
+                if subgraph.entities.by_id[entity_id]:
+                    entity=subgraph.entities.by_id[entity_id]
+                    entity.name=item.get("name","unknown")
+                    entity.type=item.get("type","unknown")
+                    entities.append(entity)
+            return entities
+        except Exception as e:
+            logger=f"CollaborationExtractionAgent: Entity extraction failed{str(e)}"
+            print(logger)
+            self.logger.info(logger)
+            return []
 
-    
+    def relationship_extraction(self,subgraph)->List[KGTriple]:
+        entities=subgraph.entities.all()
+        relations=subgraph.get_relations()
+        entities_str="\n".join(entity.__str__() for entity in entities).strip()
+        relations_str="\n".join(relation.__str__() for relation in relations).strip()
+        text=subgraph.meta.get("text","")
+        prompt="""You are a relation extraction expert.The followings are the entities and relationships extracted from another entity extraction and relationship extraction agents.
+        Based on their results,please adjust and refine the relationships between entities to ensure accuracy and coherence.
+        INSTRUCTIONS:
+        1. Review the provided relationships carefully according to given entities.
+        2. Ensure that each relationship correctly reflects the interactions between the entities.
+        3. Modify any relationships that seem inconsistent or incorrect based on the entity information.
+
+        OUTPUT FORMAT:
+        Return only valid JSON array:
+        [
+        {
+            "head": "exact_entity_name",
+            "relation": "RELATIONSHIP_TYPE",
+            "tail": "exact_entity_name"
+        }
+        ]
+        EXAMPLE:
+        Entities:
+        T2DM(Disease),cardiovascular disease(Disease)
+        Relationships:
+        Type 2 diabetes mellitus(-ASSOCIATED_WITH>)cardiovascular disease
+        You could find out that the head entity name is not exactly matched with entity extraction results,so you need to modify it as follows:
+        [
+          {"head": "T2DM", "relation": "ASSOCIATED_WITH", "tail": "cardiovascular disease"}
+        ]"""
+        prompt+=f"""
+        Now please adjust the relationships based on the entities and resource paragraph below:
+        Entities:
+        {entities_str}
+        Relationships:
+        {relations_str}
+        Paragraph:
+        {text}
+        NOTE:
+        if there is no conflict between entities and relationships, just return the relationships in given output format directly.
+        """
+        response=self.call_llm(prompt)
+        try:
+            results=self.parse_json(response)
+            triples=[]
+            for item in results:
+                triple=KGTriple(
+                    head=item.get("head",""),
+                    relation=item.get("relation",""),
+                    tail=item.get("tail",""),
+                    confidence=None,
+                    evidence=None,
+                    mechanism=None,
+                    source="unknown"
+                )
+                triples.append(triple)
+            return triples
+        except Exception as e:
+            logger=f"CollaborationExtractionAgent: Relationship extraction failed{str(e)}"
+            print(logger)
+            self.logger.info(logger)
+            return [] 

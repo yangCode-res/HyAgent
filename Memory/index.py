@@ -212,7 +212,7 @@ class Subgraph:
 
     def upsert_many_entities(self, ents: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(ents)
-
+    
     def add_relation(self, r: KGTriple) -> KGTriple:
         return self.relations.add(r)
 

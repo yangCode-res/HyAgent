@@ -1,16 +1,17 @@
 import json
 import os
-from typing import Dict, List
+from typing import Dict, List, Optional
 from networkx import graph_atlas
 from openai import OpenAI
 from tqdm import tqdm
 from Core.Agent import Agent
+from Memory.index import Memory
 from Logger.index import get_global_logger
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 class CausalExtractionAgent(Agent):
-    def __init__(self, client: OpenAI, model_name: str):
+    def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
         self.system_prompt="""You are a causal relationship evaluation agent. In last term, the Relationship extraction expert has extracted various relationships from text paragraphs. 
         So now your task is to identify whether these causal relationships are supported by evidence and rate them with confidence from given text paragraphs.
         INSTRUCTIONS:
@@ -69,7 +70,7 @@ class CausalExtractionAgent(Agent):
         ]
         """
         super().__init__(client, model_name, self.system_prompt)
-        self.memory=get_memory()
+        self.memory=memory or get_memory()
         self.logger=get_global_logger()
         
     def process(self,texts:List[Dict[str,str]]): 
@@ -77,6 +78,7 @@ class CausalExtractionAgent(Agent):
         process the causal evaluation for multiple paragraphs
         parameters:
         texts:the paragraphs with their ids to be evaluated
+        And the result will be written in the memory store directly.
         """
         for i,text in enumerate(tqdm(texts)):
             self.logger.info(f"CausalExtractionAgent: Processing text {i+1}/{len(texts)}")
@@ -97,6 +99,7 @@ class CausalExtractionAgent(Agent):
         run the causal evaluation for a single paragraph
         parameters:
         text:the paragraph with its id to be evaluated
+        graph_id:the graph id in the memory store
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """

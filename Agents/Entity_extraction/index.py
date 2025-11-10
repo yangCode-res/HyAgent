@@ -328,10 +328,11 @@ class EntityExtractionAgent(Agent):
         返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
         """
 
-        for doc in tqdm(documents):
+        for i,doc in enumerate(tqdm(documents)):
             doc_id = doc.get("id") or ""
             text = doc.get("text") or ""
-            subgraph = Subgraph(subgraph_id=doc_id, name=doc_id, meta={"text": text})
+            graph_id=doc_id+'_'+str(i)
+            subgraph = Subgraph(subgraph_id=graph_id, name=doc_id, meta={"text": text})
             type_list = self.step1(text)
             self.step2(text, type_list)
             self.allKGEntities=self._deduplicate_entities(self.allKGEntities)
