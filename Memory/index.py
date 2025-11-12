@@ -165,23 +165,15 @@ class RelationStore:
     def add_many(self,triples:List[KGTriple]):
         for triple in triples:
             self.add(triple)
-            relation=triple.relation
-            head=triple.head
-            tail=triple.tail
-            if relation not in self.by_relation:
-                self.by_relation[relation]=[triple]
-            else:
-                self.by_relation[relation].append(triple)
-            if head not in self.by_head:
-                self.by_head[head]=[triple]
-            else:
-                self.by_head[head].append(triple)
-            if tail not in self.by_tail:
-                self.by_tail[tail]=[triple]
-            else:
-                self.by_tail[tail].append(triple)
 
-
+    def find_Triple_by_head_and_tail(self,head:str,tail:str)->KGTriple:
+        """通过头实体和尾实体查找三元组"""
+        head_triples=self.by_head.get(head,[])
+        for triple in head_triples:
+            if triple.tail==tail:
+                return triple
+        return None
+    
     def all(self) -> List[KGTriple]:
         return self.triples
     

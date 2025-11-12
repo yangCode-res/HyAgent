@@ -119,14 +119,19 @@ class CausalExtractionAgent(Agent):
         response=self.call_llm(prompt=prompt)
         try:
             causal_evaluations=self.parse_json(response)
-            subgraph.relations.reset()
+            triples=[]
             for eval in causal_evaluations:
                 head=eval.get("head","unknown")
                 relation=eval.get("relation","unknown")
                 tail=eval.get("tail","unknown")
                 confidence=eval.get("confidence",[0.0,0.0])
                 evidence=eval.get("evidence",[])
-                subgraph.relations.add(KGTriple(head,relation,tail,confidence,evidence=evidence,mechanism="unknown",source=text.get("id","unknown")))
+                triple=subgraph.relations.find_Triple_by_head_and_tail(head,tail)
+                object=triple.object if triple else None
+                subject=triple.subject if triple else None
+                triples.append(KGTriple(head,relation,tail,confidence,evidence=evidence,mechanism="unknown",source=text.get("id","unknown"),subject=subject,object=object))
+            subgraph.relations.reset()
+            subgraph.relations.add_many(triples)
             self.memory.register_subgraph(subgraph)
         except Exception as e:
             self.logger.error(f"CausalExtractionAgent: Failed to parse response JSON. Error: {e}")

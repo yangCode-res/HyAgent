@@ -1,9 +1,6 @@
 from dataclasses import asdict, dataclass
 from typing import List, Optional
-
-from numpy import str_
-
-from HyAgent.TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
 
 @dataclass
@@ -21,14 +18,14 @@ class KGTriple:
     """
 
     head: str
-    subject: KGEntity
     relation: str
     tail: str
-    object: KGEntity
     confidence: Optional[List[float]]
     evidence: Optional[List[str]]
     mechanism: Optional[str]
     source: str = "unknown"
+    subject: Optional[KGEntity]=None
+    object: Optional[KGEntity]=None
 
     def to_dict(self) -> dict:
         return asdict(self)

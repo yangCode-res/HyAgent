@@ -2,7 +2,7 @@ import json
 from tqdm import tqdm
 from Memory.index import Subgraph
 from Store.index import get_memory
-from typing import Optional, Any, Dict, List
+from typing import Dict, List
 from openai import OpenAI
 from Core.Agent import Agent
 from Logger.index import get_global_logger

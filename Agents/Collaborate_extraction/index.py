@@ -12,6 +12,7 @@ from Logger.index import get_global_logger
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from Store.index import get_memory
+from fuzzywuzzy import fuzz
 
 
 class CollaborationExtractionAgent(Agent):
@@ -52,6 +53,7 @@ class CollaborationExtractionAgent(Agent):
         2. Ensure that each entity correctly reflects the information in the relationships especially the situation that less words but not alias(such as "abdominal obesity" vs "obesity").
         3. Based on the relationships, modify any entities that seem extremely inconsistent or incorrect, if there exists the case that the name of the entity from entities is the alias of the one of relationships, please NOT adjust it and keep the origin entity name.
         4. If the entity has no relationships with others, just keep it unchanged.
+        5. You are allowed to change the name and type of the entity, but DO NOT change the id of the entity.
         OUTPUT FORMAT:
         Return only valid JSON array:
         [
@@ -173,10 +175,65 @@ class CollaborationExtractionAgent(Agent):
             entity_name=entity.name
             if subgraph.relations.by_head.get(entity_name) or subgraph.relations.by_tail.get(entity_name):
                 for relation in relations:
-                    if relation.head==entity_name:
+                    if relation.head==entity_name or fuzz.partial_ratio(relation.head,entity_name)>90:
                         relation.subject=entity
-                    elif relation.tail==entity_name:
+                    if relation.tail==entity_name or fuzz.partial_ratio(relation.tail,entity_name)>90:
                         relation.object=entity
+        unlinked_relations=[relation for relation in relations if not relation.subject or not relation.object]
+        if unlinked_relations:
+            self.logger.info(f"CollaborationExtractionAgent: Found {len(unlinked_relations)} unlinked relations in Subgraph {subgraph.id}.")
+            head_unlinked=[relation for relation in unlinked_relations if not relation.subject and relation.object]
+            tail_unlinked=[relation for relation in unlinked_relations if not relation.object and relation.subject]
+            entities_name="\n".join(f"- {entity.name} (ID: {entity.entity_id}, Type: {entity.entity_type})" for entity in entities)
+            head_unlinked_str="\n".join(relation.__str__() for relation in head_unlinked)
+            tail_unlinked_str="\n".join(relation.__str__() for relation in tail_unlinked)
+            prompt=f"""You are an expert in linking entities and relationships.
+            Your task is to accurately link the entities to the relationships based on their names.
+            Here are the entities and relationships:
+            Entities:
+            {entities_name}
+            Head unlinked relationships:
+            {head_unlinked_str}
+            Tail unlinked relationships:
+            {tail_unlinked_str}
+            INSTRUCTIONS:
+            1. For each unlinked relationship, find the best matching entity based on the name
+            2. If a relationship's head or tail matches an entity name closely, link them together
+            3. If no suitable entity is found for a relationship, leave it unlinked
+            4. If the head is linked but the tail is not, only try to link the tail, and vice versa
+            5. Please ensure all the entities to be linked, or find the most suitable one
+            6. Use the entity IDs for linking
+            OUTPUT FORMAT:
+            Return only valid JSON array:
+            [
+            {{
+                "head": "relationship_head_name",
+                "relation": "RELATIONSHIP_TYPE",
+                "tail": "relationship_tail_name",
+                "head_id": "linked_entity_id_or_unknown",
+                "tail_id": "linked_entity_id_or_unknown"
+            }}
+            ]
+            NOTICE:PLEASE MAKE SURE ALL SUBJECTS AND OBJECTS TO BE LINKED
+"""     
+            response=self.call_llm(prompt)
+            try:
+                results=self.parse_json(response)
+                for item in results:
+                    head=item.get("head","")
+                    tail=item.get("tail","")
+                    subject_id=item.get("head_id","unknown")
+                    object_id=item.get("tail_id","unknown")
+                    for relation in unlinked_relations:
+                        if relation.head==head and relation.tail==tail:
+                            if subject_id!="unknown" and subgraph.entities.by_id.get(subject_id):
+                                relation.subject=subgraph.entities.by_id[subject_id]
+                            if object_id!="unknown" and subgraph.entities.by_id.get(object_id):
+                                relation.object=subgraph.entities.by_id[object_id]
+            except Exception as e:
+                logger=f"CollaborationExtractionAgent: Entity-relation linking failed{str(e)}"
+                print(logger)
+                self.logger.info(logger)
         return subgraph
         
         
