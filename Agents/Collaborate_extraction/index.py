@@ -7,7 +7,7 @@ from numpy import tri
 from sympy import false
 from openai import OpenAI
 from Core.Agent import Agent
-from Memory.index import Memory
+from Memory.index import Memory, Subgraph
 from Logger.index import get_global_logger
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
@@ -35,6 +35,7 @@ class CollaborationExtractionAgent(Agent):
             subgraph.entities.update(extracted_entities)
             subgraph.relations.reset()
             subgraph.relations.add_many(extracted_relationships)
+            self.entity_relation_linking(subgraph)
             self.memory.register_subgraph(subgraph)
 
     def entity_extraction(self,subgraph)->List[KGEntity]:
@@ -165,7 +166,7 @@ class CollaborationExtractionAgent(Agent):
             self.logger.info(logger)
             return [] 
     
-    def entity_relation_linking(self,subgraph):
+    def entity_relation_linking(self,subgraph)->Subgraph:
         entities=subgraph.entities.all()
         relations=subgraph.get_relations()
         for i,entity in enumerate(entities):
@@ -176,7 +177,6 @@ class CollaborationExtractionAgent(Agent):
                         relation.subject=entity
                     elif relation.tail==entity_name:
                         relation.object=entity
-        subgraph.relations.reset()
-        subgraph.relations.add_many(relations)
+        return subgraph
         
         
