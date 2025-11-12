@@ -1,7 +1,10 @@
 import concurrent
 import concurrent.futures
+from os import link
+from re import sub
 from typing import List, Optional
 from numpy import tri
+from sympy import false
 from openai import OpenAI
 from Core.Agent import Agent
 from Memory.index import Memory
@@ -161,3 +164,19 @@ class CollaborationExtractionAgent(Agent):
             print(logger)
             self.logger.info(logger)
             return [] 
+    
+    def entity_relation_linking(self,subgraph):
+        entities=subgraph.entities.all()
+        relations=subgraph.get_relations()
+        for i,entity in enumerate(entities):
+            entity_name=entity.name
+            if subgraph.relations.by_head.get(entity_name) or subgraph.relations.by_tail.get(entity_name):
+                for relation in relations:
+                    if relation.head==entity_name:
+                        relation.subject=entity
+                    elif relation.tail==entity_name:
+                        relation.object=entity
+        subgraph.relations.reset()
+        subgraph.relations.add_many(relations)
+        
+        
