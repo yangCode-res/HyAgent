@@ -33,46 +33,44 @@ class AlignmentTripleAgent(Agent):
                 ent_embeds[ent.entity_id] = embedding
             # 这里的 sg 在类型系统里就是 Subgraph
             self.subgraph_entity_embeddings[sg_id] = ent_embeds
-            adj, eid2idx = self.build_adj_for_subgraph(sg)
-            self.subgraph_adj[sg_id] = (adj, eid2idx)
+            id2idx, adj = self.build_adj_for_subgraph(sg)
+            self.subgraph_adj[sg_id] = (adj, id2idx)
             # 简单打印检查一下
             self.logger.info(
                 f"[Adjacency] subgraph={sg_id}, |V|={adj.shape[0]}, |E|={int(adj.sum())}"
             )
-    def build_adj_for_subgraph(self, subgraph: Subgraph, directed: bool = False):
+    def build_adj_for_subgraph(self, subgraph: Subgraph):
         """
-        给一个子图（就是 memory['subgraphs'][sg_id] 那种 dict），
-        返回：
-        - entity_id -> 行列索引的映射
-        - 邻接矩阵 (numpy.ndarray, shape = [n_entities, n_entities])
+        给一个子图（Memory 里的 Subgraph 对象），返回：
+        - id2idx: entity_id -> 行列索引
+        - adj: 邻接矩阵 (numpy.ndarray, shape = [n_entities, n_entities])
         """
-        entities = subgraph.get_entities()
-        # print(entities)
-        relations = subgraph.get_relations()
-        id2idx = {}
+        # 1. 所有实体，构建 entity_id -> idx
+        entities = subgraph.get_entities()   # 这里应该是 KGEntity 的列表
+        relations = subgraph.get_relations() # 这里应该是 KGTriple 的列表
+
+        id2idx: Dict[str, int] = {}
         for idx, ent in enumerate(entities):
             eid = ent.get_id()
-            if not eid:
-                continue
             id2idx[eid] = idx
+
         n = len(id2idx)
         adj = np.zeros((n, n), dtype=int)
         # 2. 遍历关系，用 subject/object 里的 entity_id 建边
         for rel in relations:
-            subj = rel.get_subject()
-            obj = rel.get_object()
+            subj = rel.get_subject()   # 预期是 KGEntity 或 None
+            obj  = rel.get_object()
+            # 有些 triple 的 subject / object 可能是 None（比如你 JSON 里看到的 null），要先过滤掉
+            if subj is None or obj is None:
+                continue
             subj=KGEntity.from_dict(subj)
             obj=KGEntity.from_dict(obj)
+            head_id = subj.get_id()
+            tail_id = obj.get_id()
 
-            # 只用 subject / object 的 entity_id
-            print(subj,obj)
-            head_id = subj.get_id() 
-            tail_id = obj.get_id() 
-            # 如果缺少任一端的 entity_id，就跳过这条边
-            if head_id is None or tail_id is None:
-                continue
             i = id2idx[head_id]
             j = id2idx[tail_id]
+
             adj[i, j] += 1
             adj[j, i] += 1
         return id2idx, adj
