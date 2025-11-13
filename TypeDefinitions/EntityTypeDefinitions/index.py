@@ -124,7 +124,16 @@ class KGEntity:
     def to_dict(self) -> Dict:
         """Convert to dictionary for serialization."""
         return asdict(self)
-
+    def get_id(self) -> str:
+        return self.entity_id
+    def get_type(self) -> str:
+        return self.entity_type
+    def get_name(self) -> str:
+        return self.name
+    def get_normalized_id(self) -> str:
+        return self.normalized_id
+    def get_aliases(self) -> List[str]:
+        return self.aliases
     @classmethod
     def from_dict(cls, data: Dict) -> 'KGEntity':
         """Create instance from dictionary."""

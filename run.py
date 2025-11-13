@@ -3,6 +3,8 @@ from openai import OpenAI
 from ExampleText.index import ExampleText
 from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
+from Agents.Entity_extraction.index import EntityExtractionAgent
+from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Memory.index import load_memory_from_json
 from Logger.index import get_global_logger
 from Store.index import get_memory
@@ -21,17 +23,17 @@ if __name__ == "__main__":
     json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-#     logger.info("Entity extraction started...")
-#     entityAgent=EntityExtractionAgent()
-#     entityAgent.run(documents=json_texts)
-#     memory.dump_json("./snapshots")
-#     logger.info("Entity extraction finished.")
-#     logger.info("Relationship extraction started...")
-#     relationAgent=RelationshipExtractionAgent(client, model_name="deepseek-chat")
-#     relationAgent.process(json_texts)    
-#     memory.dump_json("./snapshots")
-#     logger.info("Relationship extraction finished.")
-    memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
+    logger.info("Entity extraction started...")
+    entityAgent=EntityExtractionAgent()
+    entityAgent.run(documents=json_texts)
+    # memory.dump_json("./snapshots")
+    logger.info("Entity extraction finished.")
+    logger.info("Relationship extraction started...")
+    relationAgent=RelationshipExtractionAgent(client, model_name="deepseek-chat")
+    relationAgent.process(json_texts)    
+    # memory.dump_json("./snapshots")
+    logger.info("Relationship extraction finished.")
+    # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
     logger.info("Collaboration extraction started...")
     collaborationAgent=CollaborationExtractionAgent(client, model_name="deepseek-chat",memory=memory)
     collaborationAgent.process()

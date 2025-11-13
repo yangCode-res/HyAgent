@@ -224,6 +224,8 @@ class Subgraph:
         return self.meta
     def get_relations(self) -> List[KGTriple]:
         return self.relations.all()
+    def get_entities(self) -> List[KGEntity]:
+        return self.entities.all()
     def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
         return self.entities.find_by_norm(name_or_alias)
 
