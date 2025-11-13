@@ -301,7 +301,6 @@ class Memory:
         self.entities = EntityStore()
         self.relations = RelationStore()
         self.subgraphs: Dict[str, Subgraph] = {}
-
     def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(entities)
 

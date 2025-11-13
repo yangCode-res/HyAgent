@@ -12,10 +12,36 @@ from Config.index import BioBertPath
 from typing import Dict, List, Tuple, Any, Optional
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import defaultdict
 Embedding = List[float]
 class AlignmentTripleAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
-        self.system_prompt=""""""""
+        self.system_prompt = """
+You are an expert in biomedical knowledge graph entity alignment.
+
+You will receive a single JSON string as user input, with fields such as:
+- "source_subgraph", "source_entity_id", "source_entity_name", "source_entity_text"
+- "target_subgraph", "target_subgraph_text"
+- "candidates": a list of objects { "id": ..., "name": ... }
+- "instruction": a natural language description of the task
+
+Your task:
+1. Parse the JSON input.
+2. Compare the source entity with all candidate entities from the target subgraph.
+3. Decide which candidates refer to the SAME real-world biomedical entity as the source entity.
+
+Output format (VERY IMPORTANT):
+- You MUST respond with STRICT JSON only.
+- The JSON must have exactly one top-level key "keep".
+- "keep" must be a list of candidate ids (strings) that should be kept.
+- Example: {"keep": ["cand1", "cand3"]}
+
+Rules:
+- If no candidate should be aligned with the source entity, return {"keep": []}.
+- Do NOT add any other keys, text, comments, or explanations.
+- Do NOT change, rename, or invent candidate ids.
+- The response must be valid JSON and parseable by a standard JSON parser.
+"""
         super().__init__(client,model_name,self.system_prompt)
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
@@ -31,6 +57,7 @@ class AlignmentTripleAgent(Agent):
     def process(self) -> None:
         for sg_id, sg in self.memory.subgraphs.items():
             ent_embeds: Dict[str, Embedding] = {}
+            ent_map: Dict[str, KGEntity] = {}
             for ent in sg.entities.all():
                 text = ent.description or ent.name or ent.normalized_id
                 embedding = self._encode_text(text)  # 返回 List[float] 或 np.ndarray
@@ -38,6 +65,7 @@ class AlignmentTripleAgent(Agent):
                 ent_map[ent.entity_id] = ent  # 记录实体对象
             # 这里的 sg 在类型系统里就是 Subgraph
             self.subgraph_entity_embeddings[sg_id] = ent_embeds
+            self.subgraph_entities[sg_id] = ent_map
             id2idx, adj = self.build_adj_for_subgraph(sg)
             self.subgraph_adj[sg_id] = (adj, id2idx)
             H, center_ids, hyperedge_embeds = self.build_hypergraph_for_subgraph(
@@ -56,207 +84,170 @@ class AlignmentTripleAgent(Agent):
                 f"[Hypergraph] subgraph={sg_id}, |V|={H.shape[0]}, |E_h|={H.shape[1]}"
             )
         self.propagate_embeddings_with_hypergraph(alpha=0.5)
-        self.build_entity_alignment(sim_threshold=0.9, top_k=10)
+        self.build_entity_alignment(sim_threshold=0.9, top_k=8)
         # 用 LLM 做精过滤（并行）
-        self.refine_alignment_with_llm(max_workers=8)
         for src_sg_id, ent_map in self.entity_alignment.items():
             for src_eid, matches in ent_map.items():
                 print(src_sg_id, src_eid)
                 for m in matches:
                     print("  ->", m["target_subgraph"], m["target_entity"], m["similarity"])   
-    def _llm_filter_for_entity(
+    def _llm_filter_for_one_pair(
         self,
         src_sg_id: str,
         src_eid: str,
+        tgt_sg_id: str,
         candidates: List[Dict[str, Any]],
     ) -> List[Dict[str, Any]]:
         """
-        对“一个源实体 + 多个候选实体”调用一次 LLM：
-        - 组装源实体 / 候选实体的 name / type / description / text context
-        - 请 LLM 输出 JSON: {"keep": [候选下标列表]}
-        - 返回被保留的候选（原始 dict 子集）
+        对一个 (源子图, 源实体, 目标子图) 的候选列表，调一次 LLM：
+        让 LLM 判断哪些 target_entity 真正是“同一实体”，返回保留的子集。
         """
-        # 1. 取源实体对象
-        src_ent_obj = self.subgraph_entities.get(src_sg_id, {}).get(src_eid, None)
-        if src_ent_obj is None:
-            # 没有实体对象就没法提供文本，直接保留原始候选（或者直接返回空，看你需求）
-            return candidates
-
-        src_text = self._build_entity_text_context(src_ent_obj)
-
-        # 2. 组装候选实体信息
-        cand_infos = []
-        for idx, cand in enumerate(candidates):
-            tgt_sg_id = cand["target_subgraph"]
+        # 1. 取源实体文本
+        src_entity = self._find_entity_in_subgraph(src_sg_id, src_eid)
+        src_text =self.memory.subgraphs.get(src_sg_id).get_meta().get("text", "")
+        # print('this is src_text',self.memory.subgraphs.get(src_sg_id).get_meta().get("text", ""))
+        # 2. 取每个候选实体的文本
+        tgt_items = []
+        tgt_text = self.memory.subgraphs.get(tgt_sg_id).get_meta().get("text", "")
+        for cand in candidates:
             tgt_eid = cand["target_entity"]
-            sim = cand.get("similarity", 0.0)
-
-            tgt_ent_obj = self.subgraph_entities.get(tgt_sg_id, {}).get(tgt_eid, None)
-            if tgt_ent_obj is None:
-                continue
-
-            tgt_text = self._build_entity_text_context(tgt_ent_obj)
-
-            cand_infos.append(
+            tgt_entity = self._find_entity_in_subgraph(tgt_sg_id, tgt_eid)
+            tgt_items.append(
                 {
-                    "idx": idx,
-                    "target_subgraph": tgt_sg_id,
-                    "target_entity": tgt_eid,
-                    "similarity": sim,
-                    "text": tgt_text,
+                    "id": tgt_eid,
+                    "name":tgt_entity.get_name(),
                 }
             )
-
-        if not cand_infos:
-            return []
-
-        # 3. 构造 prompt
-        system_prompt = (
-            "You are an expert biomedical entity alignment model. "
-            "Given one source entity and a list of candidate target entities from "
-            "other subgraphs, decide which candidates refer to the SAME real-world "
-            "biomedical concept as the source entity (e.g., same disease, same drug).\n\n"
-            "Respond strictly in JSON format: {\"keep\": [list of candidate_idx]}.\n"
-            "Only include indices for candidates that are very likely to be the same entity. "
-            "If none match, return an empty list."
-        )
-
-        # user 内容里给结构化信息
+        # 3. 组织 prompt
         user_payload = {
-            "source": {
-                "subgraph_id": src_sg_id,
-                "entity_id": src_eid,
-                "text": src_text,
-            },
+            "source_subgraph": src_sg_id,
+            "source_entity_id": src_eid,
+            "source_entity_text": src_text,
+            "target_subgraph": tgt_sg_id,
+            "source_entity_name":src_entity.get_name(),
             "candidates": [
                 {
-                    "candidate_idx": ci["idx"],
-                    "target_subgraph": ci["target_subgraph"],
-                    "target_entity": ci["target_entity"],
-                    "similarity": ci["similarity"],
-                    "text": ci["text"],
+                    "id": t["id"],
+                    "name": t["name"],
                 }
-                for ci in cand_infos
+                for t in tgt_items
             ],
+            "target_subgraph_text": tgt_text,
+            "instruction": (
+                "Read the source entity and the candidate entities. "
+                "Decide which candidates refer to the SAME real-world biomedical entity "
+                "as the source. Return a JSON object with a single key 'keep', "
+                "whose value is a list of candidate ids to keep. "
+                "Example: {\"keep\": [\"cand1\", \"cand3\"]}."
+            ),
         }
 
-        user_content = (
-            "Here is the source entity and its candidate target entities.\n\n"
-            "Decide which candidates are the same real-world biomedical entity as the source.\n"
-            "Return JSON only, no extra text.\n\n"
-            f"{json.dumps(user_payload, ensure_ascii=False, indent=2)}"
-        )
-
+        response=self.call_llm(prompt=json.dumps(user_payload, ensure_ascii=False))
+        # print('this is response',response)
+        content=self.parse_json(response)
+        # print('this is content',content)
+        # 5. 解析 JSON，只保留被 LLM 选中的候选
+        keep_ids: List[str] = []
         try:
-            resp = self.client.chat.completions.create(
-                model=self.model_name,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_content},
-                ],
-                temperature=0.0,
-            )
-            content = resp.choices[0].message.content
-            data = json.loads(content)
-            keep_idxs = set(data.get("keep", []))
+            # obj = json.loads(content)
+            keep_ids=[str(x) for x in content]
         except Exception as e:
             self.logger.warning(
-                f"[LLMAlign] LLM call/parse failed for ({src_sg_id}, {src_eid}): {e}"
+                f"[EntityAlign-LLM] parse JSON failed for ({src_sg_id}, {src_eid}, {tgt_sg_id}): "
+                f"raw_content={content!r}, error={e}"
             )
-            # 如果 LLM 出错，可以选择“全保留”或者“全丢弃”，这里示例为全保留
-            return candidates
-
-        # 4. 根据 keep 下标过滤
-        kept_candidates: List[Dict[str, Any]] = []
-        for ci in cand_infos:
-            if ci["idx"] in keep_idxs:
-                kept_candidates.append(
+            # 解析失败就视为不保留任何候选
+            return []
+        id_set = set(keep_ids)
+        kept: List[Dict[str, Any]] = []
+        for cand in candidates:
+            if cand["target_entity"] in id_set:
+                # 可以顺带打个标记，说明是 LLM 通过的
+                kept.append(
                     {
-                        "target_subgraph": ci["target_subgraph"],
-                        "target_entity": ci["target_entity"],
-                        "similarity": ci["similarity"],
+                        "target_subgraph": tgt_sg_id,
+                        "target_entity": cand["target_entity"],
+                        "similarity": cand["similarity"],
+                        "llm_agree": True,
                     }
                 )
 
-        return kept_candidates
-        def refine_alignment_with_llm(self, max_workers: int = 8) -> None:
-            """
-            使用 LLM 对粗召回的实体对齐结果做精过滤（并行调用）：
-            - 单次 LLM 调用对应“一个源实体 + 它的若干候选实体”
-            - 让 LLM 决定哪些候选是真正同一实体
-            - 最终更新 self.entity_alignment（结构保持不变）
-            """
-            jobs = []  # (src_sg_id, src_eid, candidates)
+        return kept
+    def _run_llm_alignment_parallel(
+        self,
+        candidate_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]],
+        max_workers: int = 8,
+    ) -> Dict[str, Dict[str, List[Dict[str, Any]]]]:
+        """
+        输入：candidate_alignment（只经过余弦筛选）
+        输出：refined_alignment（经过 LLM 精筛）
+        并行粒度：每个 (src_sg_id, src_eid, tgt_sg_id) 单独调一次 LLM。
+        """
+        # 组装 LLM job 列表
+        jobs: List[Tuple[str, str, str, List[Dict[str, Any]]]] = []
 
-            for src_sg_id, ent_map in self.entity_alignment.items():
-                for src_eid, candidates in ent_map.items():
-                    if not candidates:
+        for src_sg_id, ent_map in candidate_alignment.items():
+            for src_eid, matches in ent_map.items():
+                # 按 target_subgraph 重新分组：一个 job 对应一个目标子图
+                by_tgt: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+                for m in matches:
+                    tgt_sg_id = m["target_subgraph"]
+                    by_tgt[tgt_sg_id].append(m)
+
+                for tgt_sg_id, cand_list in by_tgt.items():
+                    # 过滤掉空的
+                    if not cand_list:
                         continue
-                    jobs.append((src_sg_id, src_eid, candidates))
+                    jobs.append((src_sg_id, src_eid, tgt_sg_id, cand_list))
 
-            if not jobs:
-                self.logger.info("[LLMAlign] No candidates to refine, skip.")
-                return
+        self.logger.info(f"[EntityAlign-LLM] total jobs={len(jobs)}")
 
-            refined_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+        # 收集结果：键是 (src_sg_id, src_eid)
+        merged_results: Dict[Tuple[str, str], List[Dict[str, Any]]] = defaultdict(list)
 
-            self.logger.info(
-                f"[LLMAlign] Start LLM refinement, #entities={len(jobs)}, max_workers={max_workers}"
-            )
+        if not jobs:
+            return {}
 
-            with ThreadPoolExecutor(max_workers=max_workers) as executor:
-                future_to_key = {}
-                for (src_sg_id, src_eid, candidates) in jobs:
-                    fut = executor.submit(
-                        self._llm_filter_for_entity,
-                        src_sg_id,
-                        src_eid,
-                        candidates,
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_job = {
+                executor.submit(
+                    self._llm_filter_for_one_pair,
+                    src_sg_id,
+                    src_eid,
+                    tgt_sg_id,
+                    cand_list,
+                ): (src_sg_id, src_eid, tgt_sg_id)
+                for (src_sg_id, src_eid, tgt_sg_id, cand_list) in jobs
+            }
+
+            for future in as_completed(future_to_job):
+                src_sg_id, src_eid, tgt_sg_id = future_to_job[future]
+                try:
+                    kept = future.result()  # List[Dict]
+                except Exception as e:
+                    self.logger.warning(
+                        f"[EntityAlign-LLM] job ({src_sg_id}, {src_eid}, {tgt_sg_id}) "
+                        f"failed: {e}"
                     )
-                    future_to_key[fut] = (src_sg_id, src_eid)
+                    kept = []
 
-                for fut in as_completed(future_to_key):
-                    src_sg_id, src_eid = future_to_key[fut]
-                    try:
-                        kept = fut.result()  # List[Dict] (过滤后的候选)
-                    except Exception as e:
-                        self.logger.warning(
-                            f"[LLMAlign] LLM refine failed for ({src_sg_id}, {src_eid}): {e}"
-                        )
-                        kept = []
+                if kept:
+                    merged_results[(src_sg_id, src_eid)].extend(kept)
 
-                    if kept:
-                        refined_alignment.setdefault(src_sg_id, {})[src_eid] = kept
+        # 转回 {src_sg_id: {src_eid: [..]}} 结构
+        refined_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+        for (src_sg_id, src_eid), lst in merged_results.items():
+            refined_alignment.setdefault(src_sg_id, {})[src_eid] = lst
 
-            self.entity_alignment = refined_alignment
-            self.logger.info(
-                f"[LLMAlign] Done. #subgraphs={len(self.entity_alignment)}"
-            )
-    def build_entity_alignment(self, sim_threshold: float = 0.7, top_k: int = 10) -> None:
+        return refined_alignment
+    def build_entity_alignment(self, sim_threshold: float = 0.7, top_k: int = 10,
+                               max_workers: int = 8) -> None:
         """
-        实体对齐：
-        - 遍历每个子图的每个实体（作为源实体）
-        - 对于每一个“其他子图”，计算该源实体与该子图所有实体的余弦相似度
-        - 对每个目标子图，保留相似度 >= sim_threshold 的 Top-K 实体
-        - 结果保存在 self.entity_alignment 中，不写文件
-
-        self.entity_alignment 结构：
-        {
-            src_sg_id: {
-                src_entity_id: [
-                    {
-                        "target_subgraph": tgt_sg_id,
-                        "target_entity": tgt_entity_id,
-                        "similarity": float
-                    },
-                    ...
-                ]
-            },
-            ...
-        }
+        第一步：用余弦相似度在所有子图之间做候选对齐；
+        第二步：对每个 (源子图, 源实体, 目标子图) 调一次 LLM 做精筛；
+        最终结果写入 self.entity_alignment。
         """
-        # 1. 先把每个子图的实体 embedding 组织成矩阵并预归一化，方便做余弦相似度
-        #    normalized_embeddings: {sg_id: (entity_ids: List[str], emb_matrix: np.ndarray [n, d])}
+        # ---------- 1. 归一化每个子图的实体向量 ----------
         normalized_embeddings: Dict[str, Tuple[List[str], np.ndarray]] = {}
 
         for sg_id, ent_embeds in self.subgraph_entity_embeddings.items():
@@ -272,39 +263,33 @@ class AlignmentTripleAgent(Agent):
                 ids.append(eid)
                 vecs.append(v)
 
-            mat = np.stack(vecs, axis=0)   # [n, d]
+
+            mat = np.stack(vecs, axis=0)  # [n, d]
             normalized_embeddings[sg_id] = (ids, mat)
 
-        alignment_result: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+        # ---------- 2. 余弦相似度候选：candidate_alignment ----------
+        candidate_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
 
-        # 2. 遍历每个源子图 / 源实体，跟其他子图做对齐
         for src_sg_id, (src_ids, src_mat) in normalized_embeddings.items():
             sg_align: Dict[str, List[Dict[str, Any]]] = {}
 
-            # 遍历源子图里的每个实体
             for i_src, src_eid in enumerate(src_ids):
-                src_vec = src_mat[i_src : i_src + 1, :]  # shape [1, d]
+                src_vec = src_mat[i_src : i_src + 1, :]  # [1, d]
                 matches_for_entity: List[Dict[str, Any]] = []
 
-                # 跟所有其他子图对齐
                 for tgt_sg_id, (tgt_ids, tgt_mat) in normalized_embeddings.items():
                     if tgt_sg_id == src_sg_id:
                         continue
                     if tgt_mat.size == 0:
                         continue
 
-                    # 余弦相似度：因为已经 L2 norm 过，直接点乘
-                    # sims: [n_tgt]
                     sims = (tgt_mat @ src_vec.T).reshape(-1)  # [n_tgt]
-
-                    # 从大到小排序
                     idx_sorted = np.argsort(-sims)
 
                     kept_count = 0
                     for idx in idx_sorted:
                         sim = float(sims[idx])
                         if sim < sim_threshold:
-                            # 因为已经按从大到小排，后面的都更小，可以直接 break
                             break
 
                         matches_for_entity.append(
@@ -321,14 +306,20 @@ class AlignmentTripleAgent(Agent):
                 if matches_for_entity:
                     sg_align[src_eid] = matches_for_entity
 
-            alignment_result[src_sg_id] = sg_align
+            candidate_alignment[src_sg_id] = sg_align
             self.logger.info(
-                f"[EntityAlign] subgraph={src_sg_id}, aligned_entities={len(sg_align)}"
+                f"[EntityAlign-Candidate] subgraph={src_sg_id}, "
+                f"candidate_entities={len(sg_align)}"
             )
 
-        self.entity_alignment = alignment_result
+        # ---------- 3. LLM 并行精筛（关键：每个 target 子图单独调一次） ----------
+        refined_alignment = self._run_llm_alignment_parallel(
+            candidate_alignment,
+            max_workers=max_workers,
+        )
+        self.entity_alignment = refined_alignment
         self.logger.info(
-            f"[EntityAlign] Done. #subgraphs={len(self.entity_alignment)}"
+            f"[EntityAlign-LLM] Done. #subgraphs={len(self.entity_alignment)}"
         )
     def propagate_embeddings_with_hypergraph(self, alpha: float = 0.5):
         """
@@ -492,4 +483,15 @@ class AlignmentTripleAgent(Agent):
             self.biobert_model.eval()
         except Exception as e:
             self.logger.info(f"[EntityNormalize][BioBERT] load failed ({e}), skip similarity-based suggestions.")
-    
+    def _find_entity_in_subgraph(self, sg_id: str, entity_id: str) -> Optional[KGEntity]:
+        """
+        在 Memory 里的某个 subgraph 中按 entity_id 找实体。
+        如果你的 Subgraph 已经有 get_entity(entity_id) 之类的方法，可以直接改用。
+        """
+        sg: Subgraph = self.memory.subgraphs.get(sg_id)
+        if sg is None:
+            return None
+        for ent in sg.entities.all():
+            if getattr(ent, "entity_id", None) == entity_id:
+                return ent
+        return None
