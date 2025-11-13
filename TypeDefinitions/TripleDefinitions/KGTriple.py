@@ -26,7 +26,25 @@ class KGTriple:
     source: str = "unknown"
     subject: Optional[KGEntity]=None
     object: Optional[KGEntity]=None
-
+    
+    def get_head(self) -> str:
+        return self.head
+    def get_relation(self) -> str:
+        return self.relation
+    def get_tail(self) -> str:
+        return self.tail
+    def get_confidence(self) -> Optional[List[float]]:
+        return self.confidence
+    def get_evidence(self) -> Optional[List[str]]:
+        return self.evidence
+    def get_mechanism(self) -> Optional[str]:
+        return self.mechanism
+    def get_source(self) -> str:
+        return self.source
+    def get_subject(self) -> Optional[KGEntity]:
+        return self.subject
+    def get_object(self) -> Optional[KGEntity]:
+        return self.object
     def to_dict(self) -> dict:
         return asdict(self)
     

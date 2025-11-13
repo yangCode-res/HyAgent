@@ -51,7 +51,6 @@ class AlignmentTripleAgent(Agent):
         relations = subgraph.get_relations()
         id2idx = {}
         for idx, ent in enumerate(entities):
-            print('this is ent',ent)
             eid = ent.get_id()
             if not eid:
                 continue
@@ -60,11 +59,15 @@ class AlignmentTripleAgent(Agent):
         adj = np.zeros((n, n), dtype=int)
         # 2. 遍历关系，用 subject/object 里的 entity_id 建边
         for rel in relations:
-            subj = rel.get("subject")
-            obj = rel.get("object")
+            subj = rel.get_subject()
+            obj = rel.get_object()
+            subj=KGEntity.from_dict(subj)
+            obj=KGEntity.from_dict(obj)
+
             # 只用 subject / object 的 entity_id
-            head_id = subj.get("entity_id") 
-            tail_id = obj.get("entity_id") 
+            print(subj,obj)
+            head_id = subj.get_id() 
+            tail_id = obj.get_id() 
             # 如果缺少任一端的 entity_id，就跳过这条边
             if head_id is None or tail_id is None:
                 continue
