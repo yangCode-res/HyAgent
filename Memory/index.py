@@ -9,14 +9,24 @@ import uuid
 import json
 from tqdm import tqdm
 
-# 按你的项目结构保留导入（即使当前文件里未直接使用 KGTriple）
+# 按你的项目结构保留导入
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
 
-# ===================== 基础数据结构 =====================
+# ===================== 简单对齐数据结构 =====================
 
-
+@dataclass
+class SimpleAlignment:
+    """
+    一条最简单的实体对齐记录：
+    - src_subgraph / src_entity: 源子图 + 源实体ID
+    - tgt_subgraph / tgt_entity: 目标子图 + 目标实体ID
+    """
+    src_subgraph: str
+    src_entity: str
+    tgt_subgraph: str
+    tgt_entity: str
 
 
 # ===================== 实体存储 =====================
@@ -74,14 +84,14 @@ class EntityStore:
 
     def update(self, entities: List[KGEntity]):
         for entity in entities:
-            former_entity=self.by_id.get(entity.entity_id)
+            former_entity = self.by_id.get(entity.entity_id)
             if former_entity:
-                if former_entity==entity:
+                if former_entity == entity:
                     continue
-                former_entity.name=entity.name
-                former_entity.entity_type=entity.entity_type
-                self.by_id[entity.entity_id]=former_entity
-                
+                former_entity.name = entity.name
+                former_entity.entity_type = entity.entity_type
+                self.by_id[entity.entity_id] = former_entity
+
     def _merge(self, base: KGEntity, inc: KGEntity) -> KGEntity:
         # 类型：prefer 更具体
         if base.entity_type == "Unknown" and inc.entity_type != "Unknown":
@@ -132,58 +142,175 @@ class EntityStore:
 # ===================== 关系存储 =====================
 
 class RelationStore:
-    """by_head:通过查询头部实体获取三元组列表
+    """
+    by_head:通过查询头部实体获取三元组列表
     by_relation:通过查询关系类型获取三元组列表
-    by_tail:通过查询尾部实体获取三元组列表"""
+    by_tail:通过查询尾部实体获取三元组列表
+    """
     def __init__(self):
-        # self.by_id:Dict[str,KGTriple]={}
         self.triples: List[KGTriple] = []
-        self.by_head:Dict[str,List[KGTriple]]={}
-        self.by_relation:Dict[str,List[KGTriple]]={}
-        self.by_tail:Dict[str,List[KGTriple]]={}
+        self.by_head: Dict[str, List[KGTriple]] = {}
+        self.by_relation: Dict[str, List[KGTriple]] = {}
+        self.by_tail: Dict[str, List[KGTriple]] = {}
+
     def _rid(self) -> str:
         return f"rel:{uuid.uuid4().hex[:12]}"
+
     def add(self, triple: KGTriple):
         """插入一个三元组"""
         self.triples.append(triple)
-        relation=triple.relation
-        head=triple.head
-        tail=triple.tail
-        if relation not in self.by_relation:
-            self.by_relation[relation]=[triple]
-        else:
-            self.by_relation[relation].append(triple)
-        if head not in self.by_head:
-            self.by_head[head]=[triple]
-        else:
-            self.by_head[head].append(triple)
-        if tail not in self.by_tail:
-            self.by_tail[tail]=[triple]
-        else:
-            self.by_tail[tail].append(triple)
 
-    def add_many(self,triples:List[KGTriple]):
+        # 这里按照 KGTriple 的属性名来取；你项目里如果是 rel_type/head_id/tail_id，
+        # 可以在 KGTriple 里做 property 映射。
+        relation = getattr(triple, "relation", None) or getattr(triple, "rel_type", None)
+        head = getattr(triple, "head", None) or getattr(triple, "head_id", None)
+        tail = getattr(triple, "tail", None) or getattr(triple, "tail_id", None)
+
+        if relation is not None:
+            self.by_relation.setdefault(relation, []).append(triple)
+        if head is not None:
+            self.by_head.setdefault(head, []).append(triple)
+        if tail is not None:
+            self.by_tail.setdefault(tail, []).append(triple)
+
+    def add_many(self, triples: List[KGTriple]):
         for triple in triples:
             self.add(triple)
 
-    def find_Triple_by_head_and_tail(self,head:str,tail:str)->KGTriple:
+    def find_Triple_by_head_and_tail(self, head: str, tail: str) -> Optional[KGTriple]:
         """通过头实体和尾实体查找三元组"""
-        head_triples=self.by_head.get(head,[])
+        head_triples = self.by_head.get(head, [])
         for triple in head_triples:
-            if triple.tail==tail:
+            t = getattr(triple, "tail", None) or getattr(triple, "tail_id", None)
+            if t == tail:
                 return triple
         return None
-    
+
     def all(self) -> List[KGTriple]:
         return self.triples
-    
+
     def reset(self):
         """重置relationstore"""
-        # 清空所有存储
         self.triples.clear()
         self.by_head.clear()
         self.by_relation.clear()
         self.by_tail.clear()
+
+
+# ===================== 对齐关系存储（极简版） =====================
+
+class AlignmentStore:
+    """
+    只存“实体对实体”的对齐结果，不带ID、不带相似度：
+    - 每条记录是一个 SimpleAlignment
+    - 主索引：by_source[(src_subgraph, src_entity)] -> List[SimpleAlignment]
+    """
+    def __init__(self):
+        self.by_source: Dict[tuple, List[SimpleAlignment]] = {}
+
+    def add(
+        self,
+        src_subgraph: str,
+        src_entity: str,
+        tgt_subgraph: str,
+        tgt_entity: str,
+    ) -> None:
+        """
+        添加一条对齐边；如果已经存在则不重复添加。
+        """
+        key = (src_subgraph, src_entity)
+        lst = self.by_source.setdefault(key, [])
+        # 去重：相同 tgt_subgraph + tgt_entity 就不再加
+        for rec in lst:
+            if rec.tgt_subgraph == tgt_subgraph and rec.tgt_entity == tgt_entity:
+                return
+        lst.append(SimpleAlignment(
+            src_subgraph=src_subgraph,
+            src_entity=src_entity,
+            tgt_subgraph=tgt_subgraph,
+            tgt_entity=tgt_entity,
+        ))
+
+    def save_from_alignment_dict(
+        self,
+        alignment_dict: Dict[str, Dict[str, List[Dict[str, Any]]]],
+    ) -> None:
+        """
+        直接接收 AlignmentTripleAgent.build_entity_alignment 的 refined_alignment：
+        {
+          src_sg_id: {
+            src_eid: [
+              {
+                "target_subgraph": ...,
+                "target_entity": ...,
+                ...
+              }, ...
+            ]
+          }
+        }
+        只取子图 + 实体ID 四个字段，其他信息忽略。
+        """
+        for src_sg_id, ent_map in alignment_dict.items():
+            for src_eid, matches in ent_map.items():
+                for m in matches:
+                    tgt_sg_id = m.get("target_subgraph")
+                    tgt_eid = m.get("target_entity")
+                    if not tgt_sg_id or not tgt_eid:
+                        continue
+                    self.add(
+                        src_subgraph=src_sg_id,
+                        src_entity=src_eid,
+                        tgt_subgraph=tgt_sg_id,
+                        tgt_entity=tgt_eid,
+                    )
+
+    # -------- 查询接口 --------
+
+    def get_for_source(
+        self,
+        src_subgraph: str,
+        src_entity: str,
+    ) -> List[SimpleAlignment]:
+        """给定 (src_subgraph, src_entity) 查询所有目标实体。"""
+        return list(self.by_source.get((src_subgraph, src_entity), []))
+
+    def all(self) -> List[SimpleAlignment]:
+        """返回所有对齐边（扁平列表）"""
+        result: List[SimpleAlignment] = []
+        for lst in self.by_source.values():
+            result.extend(lst)
+        return result
+
+    # -------- 序列化 / 反序列化，用于 Memory.dump_json --------
+
+    def to_list(self) -> List[Dict[str, Any]]:
+        """
+        导出为 list[dict] 方便 dump_json：
+        [
+          {
+            "src_subgraph": ...,
+            "src_entity": ...,
+            "tgt_subgraph": ...,
+            "tgt_entity": ...
+          },
+          ...
+        ]
+        """
+        return [asdict(rec) for rec in self.all()]
+
+    def from_list(self, data: List[Dict[str, Any]]) -> None:
+        """
+        从 list[dict] 恢复；会清空当前内容。
+        """
+        self.by_source.clear()
+        for d in data or []:
+            self.add(
+                src_subgraph=d["src_subgraph"],
+                src_entity=d["src_entity"],
+                tgt_subgraph=d["tgt_subgraph"],
+                tgt_entity=d["tgt_entity"],
+            )
+
 
 # ===================== 子图 =====================
 
@@ -214,18 +341,22 @@ class Subgraph:
 
     def upsert_many_entities(self, ents: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(ents)
-    
+
     def add_relation(self, r: KGTriple) -> KGTriple:
         return self.relations.add(r)
 
     def add_relations(self, rs: List[KGTriple]) -> List[KGTriple]:
         return self.relations.add_many(rs)
+
     def get_meta(self) -> Dict[str, Any]:
         return self.meta
+
     def get_relations(self) -> List[KGTriple]:
         return self.relations.all()
+
     def get_entities(self) -> List[KGEntity]:
         return self.entities.all()
+
     def find_by_norm(self, name_or_alias: str) -> Optional[KGEntity]:
         return self.entities.find_by_norm(name_or_alias)
 
@@ -272,13 +403,18 @@ class Subgraph:
 
         # 2) 合并关系
         for r in self.relations.all():
-            head = id_map.get(r.head_id, r.head_id)
-            tail = id_map.get(r.tail_id, r.tail_id)
+            # 这里按照你 KGTriple 的字段来取；示例用 rel_type/head_id/tail_id
+            head = id_map.get(getattr(r, "head_id", None) or getattr(r, "head", None),
+                              getattr(r, "head_id", None) or getattr(r, "head", None))
+            tail = id_map.get(getattr(r, "tail_id", None) or getattr(r, "tail", None),
+                              getattr(r, "tail_id", None) or getattr(r, "tail", None))
+            rel_type = getattr(r, "rel_type", None) or getattr(r, "relation", None)
+
             mem.relations.add(KGTriple(
-                rel_type=r.rel_type,
+                rel_type=rel_type,
                 head_id=head,
                 tail_id=tail,
-                props=dict(r.props or {}),
+                props=dict(getattr(r, "props", {}) or {}),
             ))
 
         # 3) 记录子图本身（保持原局部视图）
@@ -301,6 +437,9 @@ class Memory:
         self.entities = EntityStore()
         self.relations = RelationStore()
         self.subgraphs: Dict[str, Subgraph] = {}
+        # 新增：极简实体对齐存储
+        self.alignments = AlignmentStore()
+
     def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(entities)
 
@@ -327,11 +466,14 @@ class Memory:
                 sg_id: sg.to_dict()
                 for sg_id, sg in self.subgraphs.items()
             },
+            # 新增：对齐结果
+            "alignments": self.alignments.to_list(),
             "meta": {"generated_at": ts},
         }
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         return str(path)
+
 
 def load_memory_from_json(path_or_data: Any) -> Memory:
     """
@@ -454,6 +596,13 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
 
         mem.register_subgraph(sg)
 
+    # ---- 恢复对齐结果 ----
+    align_data = data.get("alignments", [])
+    if align_data:
+        mem.alignments.from_list(align_data)
+
     return mem
+
+
 # 全局实例：所有 Agent 请统一从这里 import
 memory = Memory()

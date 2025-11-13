@@ -318,6 +318,7 @@ Rules:
             max_workers=max_workers,
         )
         self.entity_alignment = refined_alignment
+        self.memory.alignments.save_from_alignment_dict(refined_alignment)
         self.logger.info(
             f"[EntityAlign-LLM] Done. #subgraphs={len(self.entity_alignment)}"
         )
