@@ -1,5 +1,6 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import Optional
+from dataclasses import dataclass, asdict
 @dataclass
 class TimeFormat:
     """时间格式定义信息。
@@ -12,13 +13,13 @@ class TimeFormat:
     - origin_text: 原始时间文本（从文本中提取的时间表达）
     """
     type:str
-    value: Optional[datetime]
-    start_time: Optional[str]
-    end_time: Optional[str]
-    granularity: Optional[str]
-    offset: Optional[str]
-    source: Optional[str]
-    origin_text: Optional[str]
+    value: Optional[datetime]=None
+    start_time: Optional[str]=None
+    end_time: Optional[str]=None
+    granularity: Optional[str]=None
+    offset: Optional[str]=None
+    source: Optional[str]=None
+    origin_text: Optional[str]=None
     
     def get_start_time(self) -> Optional[str]:
         return self.start_time
@@ -26,16 +27,17 @@ class TimeFormat:
     def get_end_time(self) -> Optional[str]:
         return self.end_time
     
-    def get_time_precision(self) -> Optional[str]:
-        return self.time_precision
-    
     def to_dict(self) -> dict:
         return asdict(self)
     
     def __str__(self) -> str:
         if self.type == "instant":
             return f"{self.value} (Precision: {self.granularity})"
-        return f"[{self.start_time} - {self.end_time}] (Precision: {self.granularity})"
+        elif self.type == "relative":
+            return f"Offset: {self.offset} (Precision: {self.granularity})"
+        elif self.type == "interval":
+            return f"[{self.start_time} - {self.end_time}] (Precision: {self.granularity})"
+        return "Unknown TimeFormat"
     
     @classmethod
     def from_dict(cls, data: dict) -> "TimeFormat":

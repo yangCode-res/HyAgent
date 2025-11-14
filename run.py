@@ -6,6 +6,8 @@ from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
 from Agents.Entity_extraction.index import EntityExtractionAgent
 from Agents.Entity_normalize.index import EntityNormalizationAgent
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
+from Agents.Temporal_extraction.index import TemporalExtractionAgent
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from Memory.index import load_memory_from_json
 from Logger.index import get_global_logger
 from Store.index import get_memory
@@ -45,6 +47,10 @@ if __name__ == "__main__":
     causalAgent=CausalExtractionAgent(client, model_name="deepseek-chat",memory=memory)
     causalAgent.process(json_texts)
     logger.info("Causal extraction finished.")
+    logger.info("Temporal extraction started...")
+    agent=TemporalExtractionAgent(client=client,model_name="deepseek-chat")
+    agent.process()
+    logger.info("Temporal extraction finished.")
     logger.info("HyGraph finished.")
     logger.info("="*100)
     memory.dump_json("./snapshots")

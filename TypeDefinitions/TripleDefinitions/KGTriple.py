@@ -1,7 +1,7 @@
 from dataclasses import asdict, dataclass
 from typing import List, Optional
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-
+from TypeDefinitions.TimeDefinitions.TimeFormat import TimeFormat
 
 @dataclass
 class KGTriple:
@@ -15,17 +15,21 @@ class KGTriple:
     - temporal_info: 时间信息（如有）
     - mechanism: 机制描述（50-100词）
     - source: 信息来源（如文章pid）
+    - subject:链接的头实体对象
+    - object:链接的尾实体对象
+    - time_info: 抽取的时间信息（分为相对时间、时间范围以及具体时间点）
     """
 
     head: str
     relation: str
     tail: str
-    confidence: Optional[List[float]]
-    evidence: Optional[List[str]]
-    mechanism: Optional[str]
+    confidence: Optional[List[float]]=None
+    evidence: Optional[List[str]]=None
+    mechanism: Optional[str]=None
     source: str = "unknown"
     subject: Optional[KGEntity]=None
     object: Optional[KGEntity]=None
+    time_info: Optional[TimeFormat]=None
     
     def get_head(self) -> str:
         return self.head
@@ -45,6 +49,8 @@ class KGTriple:
         return self.subject
     def get_object(self) -> Optional[KGEntity]:
         return self.object
+    def get_time(self) -> Optional[TimeFormat]:
+        return self.time_info
     def to_dict(self) -> dict:
         return asdict(self)
     
