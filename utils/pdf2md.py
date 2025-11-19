@@ -8,16 +8,17 @@ DeepSeek-OCR: PDF -> Markdown（逐页 OCR 合并）
 依赖：pip install pymupdf pillow transformers torch  （torch 安装 GPU 版）
 """
 
+import argparse
 import os
 import re
-import argparse
-import tempfile
 import shutil
+import tempfile
 from typing import List, Tuple
 
-import fitz                     # PyMuPDF
+import fitz  # PyMuPDF
 import torch
 from transformers import AutoModel, AutoTokenizer
+
 # 增量检测“尾部”标题（用于流式写入时提前停止）
 BACK_MATTER_RE = re.compile(
     r"\n#{1,6}\s*(references|acknowledg(e)?ments?|funding|conflicts?\s+of\s+interest|author\s+contributions?|ethics|appendix|supplementary)\b",
@@ -107,16 +108,14 @@ def load_deepseek(model_path: str, device: torch.device, dtype: torch.dtype):
     return tok, model
 
 
-from PIL import Image
-import tempfile
-
-from PIL import Image
+import io
 import json
+import tempfile
 import time
+from contextlib import redirect_stdout
 
 from PIL import Image
-import json, io, time
-from contextlib import redirect_stdout
+
 
 def _read_text_like(path: str) -> str:
     if not path or not os.path.isfile(path):

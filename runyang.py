@@ -1,19 +1,21 @@
-from Agents.Entity_extraction.index import main
-from ChatLLM.index import ChatLLM
-from Logger.index import get_global_logger
-from Store.index import get_memory
-from ExampleText.index import ExampleText
 import os
+
+from ChatLLM.index import ChatLLM
+from dotenv import find_dotenv, load_dotenv
 from openai import OpenAI
-from Agents.Relationship_extraction.index import RelationshipExtractionAgent
-from Agents.Mechanism_extraction.index import MechanismExtractionAgent
-from Agents.Entity_extraction.index import EntityExtractionAgent
-from dotenv import load_dotenv, find_dotenv
-from Agents.Entity_normalize.index import EntityNormalizationAgent
+
 from Agents.Alignment_triple.index import AlignmentTripleAgent
-from Memory.index import load_memory_from_json
+from Agents.Entity_extraction.index import EntityExtractionAgent, main
+from Agents.Entity_normalize.index import EntityNormalizationAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
+from Agents.Mechanism_extraction.index import MechanismExtractionAgent
+from Agents.Relationship_extraction.index import RelationshipExtractionAgent
+from ExampleText.index import ExampleText
+from Logger.index import get_global_logger
+from Memory.index import load_memory_from_json
+from Store.index import get_memory
 from utils.visualize import visualize_global_kg
+
 if __name__ == "__main__":
 
     try:

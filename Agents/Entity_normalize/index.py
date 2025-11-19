@@ -3,19 +3,19 @@
 from __future__ import annotations
 
 import re
-from typing import Dict, List, Tuple, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import torch
-from transformers import AutoTokenizer, AutoModel
-from tqdm import tqdm
-
 from openai import OpenAI
-from Memory.index import Memory, Subgraph
-from Logger.index import get_global_logger
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from tqdm import tqdm
+from transformers import AutoModel, AutoTokenizer
+
 from Core.Agent import Agent
+from Logger.index import get_global_logger
+from Memory.index import Memory, Subgraph
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
 logger = get_global_logger()
 

@@ -1,14 +1,18 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field, asdict
-from multiprocessing import process
 import time
+from dataclasses import asdict, dataclass, field
+from multiprocessing import process
 from typing import Any, Dict, List, Optional
 from urllib import response
 from venv import logger
-from Logger.index import get_global_logger
+
 from openai import OpenAI
+
+from Logger.index import get_global_logger
 from Store.index import get_memory
+
+
 @dataclass
 class Agent:
     """
@@ -123,6 +127,11 @@ class Agent:
         return asdict(self)
 
     def parse_json(self,response:str)->List[Dict]: # type: ignore
+        """解析 LLM 返回的 JSON 格式响应。
+        Args:
+            response (str): LLM 返回的字符串响应，预期为 JSON 格式。
+        Returns:
+            List[Dict]: 解析后的 JSON 对象列表。"""
         import json
         
         try:
@@ -136,8 +145,8 @@ class Agent:
             return []
         
     # 预留的运行接口，子类按需实现
-    def run(self, *args: Any, **kwargs: Any) -> Any:  # noqa: D401
+    def process(self, *args: Any, **kwargs: Any) -> Any:  # noqa: D401
         """执行 Agent 的主流程（需由具体子类实现）。"""
-        raise NotImplementedError("Subclasses must implement run()")
+        raise NotImplementedError("Subclasses must implement process()")
 
 

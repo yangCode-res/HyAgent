@@ -1,7 +1,8 @@
 from ast import main
+from dataclasses import asdict, dataclass, field
 from enum import Enum
-from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
+
 
 class EntityType(str, Enum):
     """实体类型"""

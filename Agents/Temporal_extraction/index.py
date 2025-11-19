@@ -1,7 +1,8 @@
 from Core.Agent import Agent
-from Store.index import get_memory
 from Logger.index import get_global_logger
+from Store.index import get_memory
 from TypeDefinitions.TimeDefinitions.TimeFormat import TimeFormat
+
 
 class TemporalExtractionAgent(Agent):
     def __init__(self,client,model_name="deepseek-chat",memory=None):

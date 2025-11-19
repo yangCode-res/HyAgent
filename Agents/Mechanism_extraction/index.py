@@ -1,14 +1,14 @@
 import json
-from typing import List, Dict, Any
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict, List
 
-from tqdm import tqdm
 from openai import OpenAI
+from tqdm import tqdm
 
 from Core.Agent import Agent
 from Logger.index import get_global_logger
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from Memory.index import Memory
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
 class MechanismExtractionAgent(Agent):

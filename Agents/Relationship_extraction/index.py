@@ -1,11 +1,13 @@
 import json
-from tqdm import tqdm
-from Memory.index import Subgraph
-from Store.index import get_memory
 from typing import Dict, List
+
 from openai import OpenAI
+from tqdm import tqdm
+
 from Core.Agent import Agent
 from Logger.index import get_global_logger
+from Memory.index import Subgraph
+from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 

@@ -1,7 +1,9 @@
 from dataclasses import asdict, dataclass
 from typing import List, Optional
+
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TimeDefinitions.TimeFormat import TimeFormat
+
 
 @dataclass
 class KGTriple:

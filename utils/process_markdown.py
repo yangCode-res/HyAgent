@@ -7,7 +7,8 @@ Safer cleaner for OCR-ed Markdown:
 - 若无显式标题，只在文末检测“明显的参考文献编号块”再裁
 - 设置 min_keep_ratio 保险，不在文件头部过早裁切
 """
-import argparse, re
+import argparse
+import re
 from pathlib import Path
 
 # —— 单行垃圾（ anywhere 删除该行，不扩展为块 ）——

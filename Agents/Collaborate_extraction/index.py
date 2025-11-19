@@ -3,16 +3,18 @@ import concurrent.futures
 from os import link
 from re import sub
 from typing import List, Optional
+
+from fuzzywuzzy import fuzz
 from numpy import tri
-from sympy import false
 from openai import OpenAI
+from sympy import false
+
 from Core.Agent import Agent
-from Memory.index import Memory, Subgraph
 from Logger.index import get_global_logger
+from Memory.index import Memory, Subgraph
+from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from Store.index import get_memory
-from fuzzywuzzy import fuzz
 
 
 class CollaborationExtractionAgent(Agent):

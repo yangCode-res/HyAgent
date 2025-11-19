@@ -1,8 +1,9 @@
-import networkx as nx
 import matplotlib.pyplot as plt
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+import networkx as nx
+
 from Memory.index import Memory
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
 def visualize_global_kg(mem: Memory, max_edges: int = 500):

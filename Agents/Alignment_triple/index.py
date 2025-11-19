@@ -1,18 +1,21 @@
-from openai import OpenAI
-from Core.Agent import Agent
-from Memory.index import Memory, Subgraph
-from Logger.index import get_global_logger
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from transformers import AutoTokenizer, AutoModel
-from Store.index import get_memory
+import json
+from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict, List, Optional, Tuple
+
 import numpy as np
 import torch
+from openai import OpenAI
+from transformers import AutoModel, AutoTokenizer
+
 from Config.index import BioBertPath
-from typing import Dict, List, Tuple, Any, Optional
-import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from collections import defaultdict
+from Core.Agent import Agent
+from Logger.index import get_global_logger
+from Memory.index import Memory, Subgraph
+from Store.index import get_memory
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
 Embedding = List[float]
 class AlignmentTripleAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):

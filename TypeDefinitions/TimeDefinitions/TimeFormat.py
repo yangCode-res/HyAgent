@@ -1,6 +1,8 @@
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from typing import Optional
-from dataclasses import dataclass, asdict
+
+
 @dataclass
 class TimeFormat:
     """时间格式定义信息。

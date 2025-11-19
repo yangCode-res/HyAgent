@@ -1,10 +1,8 @@
-from typing import List
+from typing import Dict, List
+
 from openai import OpenAI
 from transformers import pipeline
 
-from Store.index import get_memory
-from typing import Dict
-from Core.Agent import Agent
 from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
@@ -13,6 +11,8 @@ from Agents.Entity_normalize.index import EntityNormalizationAgent
 from Agents.Mechanism_extraction.index import MechanismExtractionAgent
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
+from Core.Agent import Agent
+from Store.index import get_memory
 
 
 class PipeLine:

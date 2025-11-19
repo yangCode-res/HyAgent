@@ -1,16 +1,19 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
 import json
+from typing import Any, Dict, List, Optional
 from unittest.case import doModuleCleanups
-from TypeDefinitions.EntityTypeDefinitions.index import format_all_entity_definitions,format_entity_definition
-from Core.Agent import Agent
-from TypeDefinitions.EntityTypeDefinitions.index import ENTITY_DEFINITIONS, EntityDefinition, EntityType
-from ExampleText.index import ExampleText
-from ChatLLM.index import ChatLLM
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+
 from tqdm import tqdm
+
+from Core.Agent import Agent
+from ExampleText.index import ExampleText
 from Memory.index import Subgraph
+from TypeDefinitions.EntityTypeDefinitions.index import (
+    ENTITY_DEFINITIONS, EntityDefinition, EntityType, KGEntity,
+    format_all_entity_definitions, format_entity_definition)
+
+
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -24,7 +27,8 @@ class EntityExtractionAgent(Agent):
 
     def __init__(
         self,
-        *,
+        client: OpenAI,
+        model: str,
         name: str = "Entity Extraction Agent",
         system: str = "You are a careful biomedical classifier. Return STRICT JSON only.",
         responsibility: str = '''You are a specialized Entity Extraction Agent for biomedical literature. 
@@ -36,10 +40,9 @@ class EntityExtractionAgent(Agent):
         THRESH: float = 0.6
     ) -> None:
         # 按父类签名对齐：先构造 OpenAI 客户端与模型名，再调用父类 __init__
-        llm = ChatLLM(system=system)
         super().__init__(
-            client=llm.client,
-            model_name=llm.model,
+            client=client,
+            model_name=model,
             system_prompt=system,
         )
         # 用父类提供的 configure 设置模板/名称/职责等元数据
@@ -270,10 +273,8 @@ class EntityExtractionAgent(Agent):
         """
         Step 1: 在候选实体类型中检查存在的实体类型
         """
-        
-        llm = ChatLLM(system=self.step1_sys_desc)
         step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
-        response = llm.single(step1_prompt)
+        response = self.call_llm(step1_prompt)
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
         result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
         selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
@@ -289,11 +290,10 @@ class EntityExtractionAgent(Agent):
         Step 2: Classify the entities into the appropriate ontology
         """
         self.logger.info(f"Entity type list: {type_list}")
-        llm = ChatLLM(system=self.step2_sys_desc)
         for i in tqdm(range(len(type_list))):
             prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
             # print(prompt)
-            response = llm.single(prompt)
+            response = self.call_llm(prompt)
             # self.logger.info(f"{type_list[i].name} Response: {response}")
             try:
                 parsed = self.parse_json(response)
@@ -341,33 +341,4 @@ class EntityExtractionAgent(Agent):
             self.allKGEntities = []        
         return self.allKGEntities
 
-    def extract_from_text(self, text: str) -> List[Dict[str, Any]]:
-        """
-        文本级实体抽取的占位实现（请在子类或实例中重写）。
-
-        默认返回空列表。你可以对接：
-        - 传统 NER 模型（如 spaCy/BioBERT）
-        - LLM 提示词抽取（调用你的 OpenAI/DeepSeek 客户端）
-        - 规则 + 词典匹配
-        返回的每个实体建议包含 name/type/span 等字段。
-        """
-        return []
-
-        # INSERT_YOUR_CODE
-def main():
-    # 示例文档列表
-    documents = [
-        {"id": "doc1", "text": "Aspirin is commonly used to treat fever and pain."},
-        {"id": "doc2", "text": "BRCA1 mutations are associated with breast cancer."},
-    ]
-
-    # 实例化你的类（假设名为 EntityExtractor，实际请用相应类名替换）
-    extractor = EntityExtractionAgent()
-    results = extractor.run(documents)
-    for result in results:
-        print(result)
-
-# 如果直接运行此脚本，则执行 main
-if __name__ == "__main__":
-    main()
 

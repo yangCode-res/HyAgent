@@ -1,14 +1,17 @@
 import json
 import os
 from typing import Dict, List, Optional
+
 from networkx import graph_atlas
 from openai import OpenAI
 from tqdm import tqdm
+
 from Core.Agent import Agent
-from Memory.index import Memory
 from Logger.index import get_global_logger
+from Memory.index import Memory
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
 
 class CausalExtractionAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
