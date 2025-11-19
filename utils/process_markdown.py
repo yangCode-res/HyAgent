@@ -121,7 +121,7 @@ def split_md_after_trim(path: str, target_words: int = 1200) -> dict:
     if cur_paras:
         chunks.append("\n\n".join(cur_paras).strip())
 
-    return {p.name: chunks}
+    return {p.name.replace(".md", ""): chunks}
 
 
 if __name__ == "__main__":
