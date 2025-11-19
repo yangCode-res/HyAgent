@@ -89,7 +89,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def processcess(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
+    def processcess(self)->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
@@ -98,18 +98,17 @@ Output:
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        for i,text in enumerate(tqdm(texts)):
-            text_id=text.get("id","")
-            paragraph=text.get("text","")
-            # print(paragraph)
-            graph_id=text_id+'_'+str(i)
+        subgraphs=self.memory.subgraphs
+        for subgraph_id,subgraph in tqdm(subgraphs.items()):
+            subgraph_id=subgraph_id
+            paragraph=subgraph.meta.get("text","")
             causal_types=self.extract_existing_relation(paragraph)
             # print(causal_types)
-            extracted_triples=self.extract_relationships(paragraph, text_id, causal_types)
+            extracted_triples=self.extract_relationships(paragraph, causal_types)
             extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            subgraph=self.memory.get_subgraph(graph_id)
+            subgraph=self.memory.get_subgraph(subgraph_id)
             if not subgraph:
-                subgraph=Subgraph(graph_id,graph_id,{"text":text})
+                subgraph=Subgraph(subgraph_id,subgraph_id,{"text":paragraph})
             subgraph.add_relations(extracted_triples)
             self.memory.register_subgraph(subgraph)
     ###step 1: extract existing relationship types from the text
@@ -142,7 +141,7 @@ Return only valid array:
             return []
         return []
     ###step 2: extract relationships from the text with provided existing relationship types
-    def extract_relationships(self,text:str,text_id:str,causal_types:List[str]) -> List[KGTriple]:
+    def extract_relationships(self,text:str,causal_types:List[str]) -> List[KGTriple]:
         """
         relationship extraction
         parameters:
