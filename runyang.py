@@ -1,51 +1,63 @@
 import os
+import warnings
 
-from ChatLLM.index import ChatLLM
 from dotenv import find_dotenv, load_dotenv
 from openai import OpenAI
 
-from Agents.Alignment_triple.index import AlignmentTripleAgent
-from Agents.Entity_extraction.index import EntityExtractionAgent, main
+from Agents.Causal_extraction.index import CausalExtractionAgent
+from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
+from Agents.Entity_extraction.index import EntityExtractionAgent
 from Agents.Entity_normalize.index import EntityNormalizationAgent
-from Agents.Fusion_subgraph.index import SubgraphMerger
-from Agents.Mechanism_extraction.index import MechanismExtractionAgent
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
+from Agents.Review_fetcher.index import ReviewFetcherAgent
+from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from ExampleText.index import ExampleText
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
-from utils.visualize import visualize_global_kg
-
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+from dotenv import load_dotenv
+load_dotenv()
+warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
-
-    try:
-            env_path = find_dotenv(usecwd=True)
-            if env_path:
-                load_dotenv(env_path, override=False)
-    except Exception:
-            pass
-    test=ExampleText()
-    text=test.get_text()
-    logger = get_global_logger()
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
-    # print(open_ai_api,open_ai_url)
+    model_name=os.environ.get("OPENAI_MODEL")
+    memory=get_memory()
+    test=ExampleText()
+    json_texts=test.get_text()
+    logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory = get_memory()
-    memory = load_memory_from_json("./snapshots/memory-20251118-193558.json")
-   
-#     extract_agent=EntityExtractionAgent()
-    # normalize_agent=EntityNormalizationAgent(client, model_name="deepseek-chat")
-    logger.info("Starting HyGraph...")
-    # merger = SubgraphMerger()
-    # merger.process(memory)
-    # alignment_agent=AlignmentTripleAgent(client, model_name="deepseek-reasoner",memory=memory)
-    # alignment_agent.process()
-    
-    # print(subgraph.to_dict())
-#     extract_agent.run(text)
-    # normalize_agent.process(memory)
-    visualize_global_kg(memory)
-    logger.info("HyGraph finished.")
-    logger.info("="*100)
-    memory.dump_json("./snapshots")
+    agent = ReviewFetcherAgent(client, model_name=model_name)
+    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
+    agent.process(user_query)
+    EntityExtractionAgent(client=client, model=model_name).process()
+    agent.memory.dump_json("./snapshots")
+#     logger.info("Entity extraction started...")
+#     entityAgent=EntityExtractionAgent(client=client, model=model_name)
+#     entityAgent.process(documents=json_texts)
+#     logger.info("Entity extraction finished.")
+#     logger.info("Entity normalization started...")
+#     normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
+#     normalizeAgent.process(memory)
+#     logger.info("Relationship extraction started...")
+#     relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
+#     relationAgent.process(json_texts)    
+#     logger.info("Relationship extraction finished.")
+#     # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
+#     logger.info("Collaboration extraction started...")
+#     collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
+#     collaborationAgent.process()
+#     memory.dump_json("./snapshots")
+#     logger.info("Collaboration extraction finished.")
+#     logger.info("Causal extraction started...")
+#     causalAgent=CausalExtractionAgent(client=client, model_name=model_name,memory=memory)
+#     causalAgent.process(json_texts)
+#     logger.info("Causal extraction finished.")
+#     logger.info("Temporal extraction started...")
+#     agent=TemporalExtractionAgent(client=client,model_name=model_name)
+#     agent.process()
+#     logger.info("Temporal extraction finished.")
+#     logger.info("HyGraph finished.")
+#     logger.info("="*100)
+#     memory.dump_json("./snapshots")
