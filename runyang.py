@@ -12,6 +12,8 @@ from dotenv import load_dotenv, find_dotenv
 from Agents.Entity_normalize.index import EntityNormalizationAgent
 from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Memory.index import load_memory_from_json
+from Agents.Fusion_subgraph.index import SubgraphMerger
+from utils.visualize import visualize_global_kg
 if __name__ == "__main__":
 
     try:
@@ -28,16 +30,20 @@ if __name__ == "__main__":
     # print(open_ai_api,open_ai_url)
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory = get_memory()
-    memory = load_memory_from_json("./snapshots/memory-20251113-094606.json")
+    memory = load_memory_from_json("./snapshots/memory-20251118-193558.json")
    
 #     extract_agent=EntityExtractionAgent()
     # normalize_agent=EntityNormalizationAgent(client, model_name="deepseek-chat")
     logger.info("Starting HyGraph...")
-    alignment_agent=AlignmentTripleAgent(client, model_name="deepseek-chat",memory=memory)
-    alignment_agent.process()
+    # merger = SubgraphMerger()
+    # merger.process(memory)
+    # alignment_agent=AlignmentTripleAgent(client, model_name="deepseek-reasoner",memory=memory)
+    # alignment_agent.process()
+    
     # print(subgraph.to_dict())
 #     extract_agent.run(text)
     # normalize_agent.process(memory)
+    visualize_global_kg(memory)
     logger.info("HyGraph finished.")
     logger.info("="*100)
     memory.dump_json("./snapshots")
