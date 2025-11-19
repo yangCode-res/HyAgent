@@ -1,5 +1,7 @@
+import json
 from openai import OpenAI
 from Core.Agent import Agent
+from HyAgent.TypeDefinitions.PipelineDefinitions.index import PipeLine
 
 
 class TaskSchedulerAgent(Agent):
@@ -49,5 +51,13 @@ class TaskSchedulerAgent(Agent):
     
     def process(self,user_input:str):
         response=self.call_llm(user_input)
-        return response
+        try:
+            response=json.loads(response)
+            type=response.get("type","")
+            if type not in ["Basic Knowledge Graph","Causal Knowledge Graph(without mechanism)","Temporal Knowledge Graph","Causal Knowledge Graph(with mechanism)","Comprehensive Knowledge Graph"]:
+                raise ValueError("Invalid knowledge graph type")
+            pipeline=PipeLine(graph_type=type,user_query=user_input,client=self.client,model_name=self.model_name).get_pipeline()
+        except Exception:
+            raise ValueError("Failed to parse LLM response or invalid knowledge graph type")
+        return pipeline
     

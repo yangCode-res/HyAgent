@@ -81,7 +81,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
+    def run(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
@@ -90,7 +90,6 @@ Output:
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        results={}
         for i,text in enumerate(tqdm(texts)):
             text_id=text.get("id","")
             paragraph=text.get("text","")

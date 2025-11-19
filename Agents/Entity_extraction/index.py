@@ -320,7 +320,7 @@ class EntityExtractionAgent(Agent):
                 ))
                 count+=1
             self.logger.info(f"{type_list[i].name} Extracted {count} entities")
-    def run(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
+    def process(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
         执行实体抽取主流程。
 
