@@ -46,6 +46,7 @@ dist/
 *.pt
 *.bin
 *.h5
+*.png
 # *.csv
 # *.tsv
 # data/
