@@ -137,6 +137,8 @@ class KGEntity:
         return self.aliases
     @classmethod
     def from_dict(cls, data: Dict) -> 'KGEntity':
+        if isinstance(data, KGEntity):
+            return data
         """Create instance from dictionary."""
         return cls(**data)
 def format_entity_definition(

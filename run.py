@@ -16,15 +16,10 @@ from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-
+from dotenv import load_dotenv
+load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
-    try:
-            env_path = find_dotenv(usecwd=True)
-            if env_path:
-                load_dotenv(env_path, override=False)
-    except Exception:
-            pass
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     model_name=os.environ.get("OPENAI_MODEL")

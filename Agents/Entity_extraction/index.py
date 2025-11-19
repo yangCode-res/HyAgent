@@ -294,37 +294,43 @@ class EntityExtractionAgent(Agent):
         result=defs_from_selected(selected)
         return result
     
+
     def step2(self, text: str, type_list: List[EntityDefinition]) -> List[KGEntity]:
         """
-        Step 2: 实体抽取 + 本体映射
+        Step 2: 实体抽取 + 本体映射（并行按类型抽取）
         返回当前 text 中抽到的 KGEntity 列表（单文档局部）
         """
-        self.logger.info(f"Entity type list: {type_list}")
         kg_entities: List[KGEntity] = []
 
-        for i in tqdm(range(len(type_list))):
-            prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
+        def _extract_for_type(defn: EntityDefinition) -> List[KGEntity]:
+            """
+            针对单一 EntityDefinition 抽取实体，返回对应的 KGEntity 列表
+            （供线程池并行调用）
+            """
+            prompt = self.build_single_type_extraction_prompt(text=text, definition=defn)
             response = self.call_llm(prompt)
 
             try:
                 parsed = self.parse_json(response)
             except Exception:
-                self.logger.error(f"Failed to parse JSON response {response}")
+                self.logger.error(f"Failed to parse JSON response for {defn.name}: {response}")
                 parsed = {}
 
-            items = []
             if isinstance(parsed, dict):
                 items = parsed.get("entities") or []
             elif isinstance(parsed, list):
                 items = parsed
+            else:
+                items = []
 
+            local_entities: List[KGEntity] = []
             count = 0
             for entity in items:
                 if not isinstance(entity, dict):
                     continue
-                kg_entities.append(KGEntity(
+                local_entities.append(KGEntity(
                     entity_id=entity.get("mention", ""),
-                    entity_type=type_list[i].name,
+                    entity_type=defn.name,
                     name=entity.get("mention", ""),
                     normalized_id=entity.get("normalized_id", "N/A"),
                     description=entity.get("description", "N/A"),
@@ -332,10 +338,26 @@ class EntityExtractionAgent(Agent):
                 ))
                 count += 1
 
-            self.logger.info(f"{type_list[i].name} Extracted {count} entities")
+            self.logger.info(f"{defn.name} Extracted {count} entities")
+            return local_entities
+
+        if not type_list:
+            return []
+
+        # 按类型并行调用 LLM
+        max_workers = min(8, len(type_list))  # 你可以自己改这个并发数
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {
+                executor.submit(_extract_for_type, defn): defn
+                for defn in type_list
+            }
+
+            # 用 tqdm 看整体进度（类型级）
+            for fut in tqdm(as_completed(futures), total=len(futures), desc="Entity extraction (per type)"):
+                ents = fut.result()
+                kg_entities.extend(ents)
 
         return kg_entities
-    
     def _process_single_subgraph(self, sg_id: str, sg: Subgraph) -> None:
         """
         处理单个子图：
@@ -374,7 +396,7 @@ class EntityExtractionAgent(Agent):
 
         # 默认线程数：min(8, CPU 核心数)；你也可以固定写死一个数字
         if max_workers is None:
-            cpu_count = os.cpu_count() or 4
+            cpu_count = os.cpu_count() or 8
             max_workers = min(8, max(1, cpu_count))
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
