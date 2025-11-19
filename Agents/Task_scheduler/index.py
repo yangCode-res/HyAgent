@@ -5,6 +5,12 @@ from openai import OpenAI
 from Core.Agent import Agent
 from HyAgent.TypeDefinitions.PipelineDefinitions.index import PipeLine
 
+"""
+任务调度 Agent，负责根据用户查询判断所需知识图类型，并调度相应的 Agent 模块流水线。
+输入:用户查询字符串
+输出:对应的 Agent 模块流水线（PipeLine 对象）
+调用入口：agent.process(user_input:str)
+"""
 
 class TaskSchedulerAgent(Agent):
     system_prompt="""

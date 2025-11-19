@@ -24,6 +24,17 @@ ANSI_RESET = "\033[0m"
 ANSI_CYAN = "\033[96m"    # LLM 相关
 ANSI_GREEN = "\033[92m"   # 汇总信息
 
+"""
+实体归一化 Agent。
+基于已有的子图实体，进行实体归一化合并，减少冗余节点。
+输入: 无（从内存中获取子图实体）
+输出: 无（将归一化合并后的实体更新回内存的子图）
+调用入口：agent.process()
+归一化流程包括三步：
+1.规则归一化（同子图 + 同类型，确定性字符串匹配）
+2.BioBERT 相似度候选（同子图 + 同类型，基于 description/name）
+3.LLM 裁决合并（候选批次并行请求，合并操作串行执行）
+"""
 
 class EntityNormalizationAgent(Agent):
     """

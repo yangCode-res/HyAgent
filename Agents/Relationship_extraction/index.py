@@ -10,7 +10,13 @@ from Memory.index import Subgraph
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
-
+"""
+关系抽取 Agent。
+基于已有的文本，抽取实体之间的关系并形成三元组。
+输入:无 (文本从子图工作区的meta属性中获取)
+输出:无（将抽取的三元组存储到内存中的子图）
+调用入口：agent.process()
+"""
 class RelationshipExtractionAgent(Agent):
     def __init__(self,client:OpenAI,model_name:str) -> None:
         self.system_prompt="""You are a specialized Relationship Extraction Agent for biomedical knowledge graphs. Your task is to identify precise relationships between biomedical entities with high accuracy and appropriate confidence scoring.
@@ -83,7 +89,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def run(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
+    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:

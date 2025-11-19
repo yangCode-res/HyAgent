@@ -3,6 +3,18 @@ from Logger.index import get_global_logger
 from Store.index import get_memory
 from TypeDefinitions.TimeDefinitions.TimeFormat import TimeFormat
 
+"""
+时序信息抽取 Agent。
+基于已有的三元组和文本，抽取三元组对应的时序信息并补充到三元组中。
+输入: 无（从内存中获取已有三元组和文本）
+输出: 无（将补充了时序信息的三元组更新回内存）
+调用入口：agent.process()
+时序信息包括三类：
+1.瞬时时间点（如“2020年1月1日”，“下午3点”，“下周一”）
+2.区间时间段（如“1月至3月”，“下午2点到4点之间”，“上周”）
+3.相对时间表达（如“昨天”，“两周后”，“三天前”）
+抽取结果以结构化 JSON 格式返回。
+"""
 
 class TemporalExtractionAgent(Agent):
     def __init__(self,client,model_name="deepseek-chat",memory=None):

@@ -13,7 +13,13 @@ from TypeDefinitions.EntityTypeDefinitions.index import (
     ENTITY_DEFINITIONS, EntityDefinition, EntityType, KGEntity,
     format_all_entity_definitions, format_entity_definition)
 
-
+"""
+实体抽取 Agent。
+基于已有的文本，抽取文本中的生物医学实体并进行本体映射。
+输入:无（从子图工作区获取文本）
+输出:无（将抽取的实体存储到内存中的子图）
+调用入口：agent.process()
+"""
 class EntityExtractionAgent(Agent):
     """
     实体抽取 Agent 模板。
@@ -229,6 +235,7 @@ class EntityExtractionAgent(Agent):
             f"{text}\n"
             ">>>\n"
         )
+    
     def _deduplicate_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         """
         Remove duplicate entities based on name similarity.
@@ -269,6 +276,7 @@ class EntityExtractionAgent(Agent):
                 unique_entities[key] = entity
 
         return list(unique_entities.values())
+    
     def step1(self, text: str) -> str:
         """
         Step 1: 在候选实体类型中检查存在的实体类型
@@ -320,6 +328,7 @@ class EntityExtractionAgent(Agent):
                 ))
                 count+=1
             self.logger.info(f"{type_list[i].name} Extracted {count} entities")
+
     def process(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         """
         执行实体抽取主流程。

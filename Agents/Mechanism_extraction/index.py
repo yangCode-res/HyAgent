@@ -10,6 +10,18 @@ from Logger.index import get_global_logger
 from Memory.index import Memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
+"""
+机制抽取Agent。
+基于已有的三元组和文本，补充三元组对应的机制信息
+输入: 无（从内存中获取已有三元组和文本）
+输出: 无（将补充了机制信息的三元组更新回内存）
+调用入口：agent.process()
+机制信息包括：
+1.机制描述（mechanism）：解释头实体如何通过某种生物学/药理学/分子机制影响尾实体
+2.支持证据（evidence）：文本中支持该机制的引用或释义
+3.置信度评分（confidence）：表示机制推断的可靠性，范围0.0-1.0
+抽取结果以结构化 JSON 格式返回。
+"""
 
 class MechanismExtractionAgent(Agent):
     """

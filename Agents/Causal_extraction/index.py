@@ -12,6 +12,13 @@ from Memory.index import Memory
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
+"""
+因果关系评估 Agent。
+基于已有的文本和三元组，评估三元组中的关系是否为因果关系，并给出置信度评分和支持证据。
+输入:无（从内存中的子图获取文本和三元组）
+输出:无（将评估结果存储到内存中的子图）
+调用入口：agent.process()
+"""
 
 class CausalExtractionAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):

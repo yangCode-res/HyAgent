@@ -16,6 +16,13 @@ from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
+"""
+协同抽取 Agent。
+结合实体抽取和关系抽取两个 Agent 的能力，协同优化实体和关系的抽取结果,并将关系的实体链接到对应实体。
+输入: 无（从内存中获取子图的文本）
+输出: 无（将优化后的实体和关系存储回内存的子图）
+调用入口：agent.process()
+"""
 
 class CollaborationExtractionAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):

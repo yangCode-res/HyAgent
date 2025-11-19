@@ -17,6 +17,13 @@ from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 Embedding = List[float]
+"""
+实体对齐三元组 Agent。
+基于子图中的实体嵌入和文本描述，识别不同子图中表示同一实体的实体对齐三元组。
+输入:无（从内存中获取子图和实体信息）
+输出:无（将识别的实体对齐三元组存储到内存中的对齐存储中）
+调用入口：agent.process()
+"""
 class AlignmentTripleAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
         self.system_prompt = """
