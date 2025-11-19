@@ -43,7 +43,7 @@ class ReviewFetcherAgent(Agent):
         # model_dir 不传就用 utils.pdf2md 里的默认：/home/nas2/path/yangmingjian/DeepSeek-OCR
         # combine_out 可传一个路径把多篇合并到一个 md；这里按篇输出
     )   
-        paragraphs=truncate_md_contents(md_outputs)
+        paragraphs=split_md_after_trim(md_outputs)
         for id,content in paragraphs.items():
             for i,content_chunk in enumerate(content):
                 subgraph_id=f"{id}_{i}"
@@ -90,3 +90,4 @@ class ReviewFetcherAgent(Agent):
         selected_str = selected_str.replace("[", "").replace("]", "")
         selected_5 = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
         return selected_5
+
