@@ -1,6 +1,9 @@
+from dataclasses import dataclass
 from typing import Dict, List
 
+import concurrent.futures
 from openai import OpenAI
+from sympy import fu
 from transformers import pipeline
 
 from Agents.Alignment_triple.index import AlignmentTripleAgent
@@ -14,7 +17,7 @@ from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from Core.Agent import Agent
 from Store.index import get_memory
 
-
+@dataclass
 class PipeLine:
     def __init__(self,graph_type:str,user_query:str,client:OpenAI,model_name:str):
         self.graph_type=graph_type
@@ -48,7 +51,7 @@ class PipeLine:
         """
         pipeline=[]
         # Fundamental modules
-        entity_extraction_agent=EntityExtractionAgent()
+        entity_extraction_agent=EntityExtractionAgent(self.client,self.model_name)
         relationship_extraction_agent=RelationshipExtractionAgent(self.client,self.model_name)
         entity_normalization_agent=EntityNormalizationAgent(self.client,self.model_name)
         collaboration_extraction_agent=CollaborationExtractionAgent(self.client,self.model_name)
@@ -82,14 +85,27 @@ class PipeLine:
             else:
                 print(f"Agent: {step.__class__.__name__}")
 
-    def run(self,texts:List[Dict[str,str]]):
+    def run(self):
+        """
+        [[Entity Extraction Agent,Relationship Extraction Agent], Entity Normalization Agent, Collaboration Extraction Agent, [Causal Extraction Agent, Mechanism Extraction Agent], Alignment Triple Agent]
+        """
         pipeline=self.get_pipeline()
         memory=get_memory()
+        all_futures=[]
         for step in pipeline:
             if isinstance(step, List):
                 # Parallel execution
                 for agent in step:
-                    agent.process(documents=texts,memory=memory)
+                    future=None
+                    if hasattr(agent,"process"):
+                        future=concurrent.futures.ThreadPoolExecutor().submit(agent.process)
+                    if future:
+                        all_futures.append(future)
             else:
-                step.process(documents=texts,memory=memory)
+                step.process()
+        for future in concurrent.futures.as_completed(all_futures):
+            try:
+                future.result()
+            except Exception as e:
+                print("Error in parallel agent execution:", e)
         memory.dump_json("./snapshots")

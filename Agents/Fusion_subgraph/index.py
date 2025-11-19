@@ -4,6 +4,13 @@ from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
+"""
+子图合并 Agent。
+将内存中的多个子图合并为一个全局知识图，处理实体对齐和关系映射。
+输入: 无（从内存中获取子图和对齐信息）
+输出: 无（将合并后的实体和关系存储到内存的全局知识图中:EntityStore和RelationStore）
+调用入口：agent.process()
+"""
 
 class SubgraphMerger:
     def __init__(self):

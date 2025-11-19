@@ -89,7 +89,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def process(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
+    def processcess(self,texts:List[Dict[str,str]])->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:

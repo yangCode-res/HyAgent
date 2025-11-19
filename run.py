@@ -39,7 +39,7 @@ if __name__ == "__main__":
     normalizeAgent.process(memory)
     logger.info("Relationship extraction started...")
     relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
-    relationAgent.run(json_texts)    
+    relationAgent.process(json_texts)    
     logger.info("Relationship extraction finished.")
     # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
     logger.info("Collaboration extraction started...")
