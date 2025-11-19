@@ -1,11 +1,10 @@
 from pathlib import Path
-from metapub import PubMedFetcher, FindIt
 
-from api import generate_text
-from search import batch_search_reviews_from_user_query
+from metapub import FindIt, PubMedFetcher
+
 from utils.download import save_pdfs_from_url_list
-from utils.pdf2md import deepseek_pdf_to_md_batch   # ✅ 用我们刚写的批量 OCR 函数
-from utils.process_markdown import clean_markdown    # ✅ 可选清洗
+from utils.pdf2md import deepseek_pdf_to_md_batch
+from utils.search import batch_search_reviews_from_user_query
 
 fetch = PubMedFetcher()
 

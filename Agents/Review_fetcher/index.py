@@ -1,14 +1,21 @@
+import os
 from pathlib import Path
+from pyexpat import model
 from typing import List
+
+from dotenv import find_dotenv, load_dotenv
+from metapub import FindIt, PubMedFetcher
 from openai import OpenAI
+
 from Core.Agent import Agent
+from Logger.index import get_global_logger
 from Memory.index import Subgraph
+from Store.index import get_memory
+from utils.download import save_pdfs_from_url_list
 from utils.filter import extract_pdf_paths
 from utils.pdf2md import deepseek_pdf_to_md_batch
-from Logger.index import get_global_logger
-from Store.index import get_memory
-from metapub import PubMedFetcher,FindIt
-from utils.download import save_pdfs_from_url_list
+from utils.process_markdown import split_md_after_trim
+
 
 class ReviewFetcherAgent(Agent):
     def __init__(self,client:OpenAI,model_name:str) -> None:
@@ -26,10 +33,14 @@ class ReviewFetcherAgent(Agent):
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=20)
         selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        review_urls = []
         for pmid in selected_reviews:
-            selected_reviews.append(FindIt(pmid).url)
-        save_pdfs_from_url_list(selected_reviews, outdir="pdfs", overwrite=False)
-        pdf_paths=extract_pdf_paths(save_pdfs_from_url_list)
+            try:
+                review_urls.append(FindIt(pmid).url)
+            except:
+                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+        results=save_pdfs_from_url_list(review_urls, outdir="pdfs", overwrite=False)
+        pdf_paths=extract_pdf_paths(results)
         markdown_dir = Path(__file__).resolve().parent / "markdown"
         markdown_dir.mkdir(parents=True, exist_ok=True)
         md_outputs = deepseek_pdf_to_md_batch(
@@ -43,11 +54,12 @@ class ReviewFetcherAgent(Agent):
         # model_dir 不传就用 utils.pdf2md 里的默认：/home/nas2/path/yangmingjian/DeepSeek-OCR
         # combine_out 可传一个路径把多篇合并到一个 md；这里按篇输出
     )   
-        paragraphs=split_md_after_trim(md_outputs)
-        for id,content in paragraphs.items():
-            for i,content_chunk in enumerate(content):
-                subgraph_id=f"{id}_{i}"
-                meta={"text":content_chunk,"source":id}
+        for md_output in md_outputs:
+            paragraphs=split_md_after_trim(md_output)
+            for id,content in paragraphs.items():
+                for i,content_chunk in enumerate(content):
+                    subgraph_id=f"{id}_{i}"
+                    meta={"text":content_chunk,"source":id}
                 s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                 self.memory.register_subgraph(s)
         return
@@ -91,3 +103,19 @@ class ReviewFetcherAgent(Agent):
         selected_5 = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
         return selected_5
 
+if __name__ == "__main__":
+    from openai import OpenAI
+    try:
+        env_path = find_dotenv(usecwd=True)
+        if env_path:
+            load_dotenv(env_path, override=False)
+    except Exception:
+            pass
+    open_ai_api=os.environ.get("OPENAI_API_KEY")
+    open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
+    model_name=os.environ.get("OPENAI_MODEL")
+    client = OpenAI(api_key=open_ai_api, base_url=open_ai_url)
+    agent = ReviewFetcherAgent(client, model_name=model_name)
+    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
+    agent.process(user_query)
+    agent.memory.dump_json("./snapshots")

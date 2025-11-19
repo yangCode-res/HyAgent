@@ -6,13 +6,14 @@ Requires: metapub, your api.generate_text (LLM).  # 依赖metapub与你的LLM接
 Optional: set env NCBI_API_KEY to improve E-utilities rate limits.  # 可设置NCBI_API_KEY提升速率限制
 """
 
+import logging  # 日志记录
 import math  # 数学函数库，用于sqrt、tanh等
 import time  # 时间与sleep
 from collections import defaultdict  # 提供默认字典结构
 from datetime import datetime  # 获取当前年份等
-from typing import List, Dict, Tuple, Optional, Callable  # 类型注解
+from typing import Callable, Dict, List, Optional, Tuple  # 类型注解
+
 from tqdm import tqdm  # 进度条显示
-import logging  # 日志记录
 
 # 配置日志
 logging.basicConfig(
@@ -23,8 +24,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from metapub import PubMedFetcher  # 引入PubMed检索器
+
 fetch = PubMedFetcher()  # 创建全局fetch实例（内部有缓存）
-from api import generate_text  # 动态导入你的LLM接口
+# from api import generate_text  # 动态导入你的LLM接口
 # -------------------- 1) LLM 生成 PubMed 检索式 --------------------
 def llm_query_from_user_question(user_query: str) -> str:  # 将自然语言问题转为PubMed检索式
     """

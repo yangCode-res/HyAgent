@@ -1,7 +1,7 @@
+import concurrent.futures
 from dataclasses import dataclass
 from typing import Dict, List
 
-import concurrent.futures
 from openai import OpenAI
 from sympy import fu
 from transformers import pipeline
@@ -16,6 +16,7 @@ from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from Core.Agent import Agent
 from Store.index import get_memory
+
 
 @dataclass
 class PipeLine:
