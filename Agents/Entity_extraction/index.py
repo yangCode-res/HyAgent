@@ -12,12 +12,13 @@ from Memory.index import Subgraph
 from TypeDefinitions.EntityTypeDefinitions.index import (
     ENTITY_DEFINITIONS, EntityDefinition, EntityType, KGEntity,
     format_all_entity_definitions, format_entity_definition)
-
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
 """
 实体抽取 Agent。
 基于已有的文本，抽取文本中的生物医学实体并进行本体映射。
 输入:无（从子图工作区获取文本）
-输出:无（将抽取的实体存储到内存中的子图）
+输出:无（将抽 取的实体存储到内存中的子图）
 调用入口：agent.process()
 """
 class EntityExtractionAgent(Agent):
@@ -293,16 +294,18 @@ class EntityExtractionAgent(Agent):
         result=defs_from_selected(selected)
         return result
     
-    def step2(self, text: str, type_list: List[EntityDefinition]) -> str:
+    def step2(self, text: str, type_list: List[EntityDefinition]) -> List[KGEntity]:
         """
-        Step 2: Classify the entities into the appropriate ontology
+        Step 2: 实体抽取 + 本体映射
+        返回当前 text 中抽到的 KGEntity 列表（单文档局部）
         """
         self.logger.info(f"Entity type list: {type_list}")
+        kg_entities: List[KGEntity] = []
+
         for i in tqdm(range(len(type_list))):
             prompt = self.build_single_type_extraction_prompt(text=text, definition=type_list[i])
-            # print(prompt)
             response = self.call_llm(prompt)
-            # self.logger.info(f"{type_list[i].name} Response: {response}")
+
             try:
                 parsed = self.parse_json(response)
             except Exception:
@@ -314,40 +317,72 @@ class EntityExtractionAgent(Agent):
                 items = parsed.get("entities") or []
             elif isinstance(parsed, list):
                 items = parsed
-            count=0
+
+            count = 0
             for entity in items:
                 if not isinstance(entity, dict):
                     continue
-                self.allKGEntities.append(KGEntity(
+                kg_entities.append(KGEntity(
                     entity_id=entity.get("mention", ""),
                     entity_type=type_list[i].name,
                     name=entity.get("mention", ""),
                     normalized_id=entity.get("normalized_id", "N/A"),
-                    description=entity.get("description", "N/A"),  # ← 仅此一行
+                    description=entity.get("description", "N/A"),
                     aliases=entity.get("aliases", []) or []
                 ))
-                count+=1
+                count += 1
+
             self.logger.info(f"{type_list[i].name} Extracted {count} entities")
 
-    def process(self, documents: List[Dict[str, str]]) -> List[Dict[str, Any]]:
+        return kg_entities
+    
+    def _process_single_subgraph(self, sg_id: str, sg: Subgraph) -> None:
         """
-        执行实体抽取主流程。
-
-        入参格式示例：[{"id": "doc1", "text": "..."}, ...]
-        返回格式示例：[{"doc_id": str, "entities": [{"name": str, "type": str, "span": [start, end]}]}]
+        处理单个子图：
+        - 从 sg.meta["text"] 取文本
+        - 调用 step1 / step2 抽取实体
+        - 去重后写回到该子图的 entities
         """
+        text = sg.meta.get("text", "") or ""
+        if not text.strip():
+            return
 
-        for i,doc in enumerate(tqdm(documents)):
-            doc_id = doc.get("id") or ""
-            text = doc.get("text") or ""
-            graph_id=doc_id+'_'+str(i)
-            subgraph = Subgraph(subgraph_id=graph_id, name=doc_id, meta={"text": text})
-            type_list = self.step1(text)
-            self.step2(text, type_list)
-            self.allKGEntities=self._deduplicate_entities(self.allKGEntities)
-            subgraph.upsert_many_entities(self.allKGEntities)
-            self.memory.register_subgraph(subgraph)
-            self.allKGEntities = []        
-        return self.allKGEntities
+        # 1. 判断该文档中有哪些实体类型
+        type_list = self.step1(text)
 
+        # 2. 抽取实体（局部列表）
+        kg_entities = self.step2(text, type_list)
 
+        # 3. 去重
+        kg_entities = self._deduplicate_entities(kg_entities)
+
+        # 4. 写回当前子图
+        sg.upsert_many_entities(kg_entities)
+
+    def process(self, max_workers: Optional[int] = None) -> None:
+        """
+        并行执行实体抽取主流程（从内存中读取子图）：
+
+        - 遍历 self.memory.subgraphs，每个子图视为一篇文档
+        - 子图 meta["text"] 为原始文本
+        - 使用线程池并行处理各个子图
+        - 抽取结果直接写回对应子图的 entities
+        """
+        subgraphs_items = list(self.memory.subgraphs.items())
+        if not subgraphs_items:
+            return
+
+        # 默认线程数：min(8, CPU 核心数)；你也可以固定写死一个数字
+        if max_workers is None:
+            cpu_count = os.cpu_count() or 4
+            max_workers = min(8, max(1, cpu_count))
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [
+                executor.submit(self._process_single_subgraph, sg_id, sg)
+                for sg_id, sg in subgraphs_items
+            ]
+
+            # 用 tqdm 监控整体进度：每个子图算一个任务
+            for _ in tqdm(as_completed(futures), total=len(futures), desc="Entity extraction over subgraphs"):
+                pass
