@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
@@ -13,6 +13,7 @@ from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer
 
 from Core.Agent import Agent
+from Store.index import get_memory
 from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
@@ -92,10 +93,11 @@ Guidelines:
         self.biobert_tokenizer = None
         self.biobert_model = None
         self._load_biobert()
+        self.memory=get_memory()
 
     # ===================== 对外入口 =====================
 
-    def process(self, memory: Memory) -> None:
+    def process(self) -> None:
         """
         对所有 subgraph 执行：
         1）规则归一化；
@@ -103,7 +105,8 @@ Guidelines:
         3）并行 LLM 裁决；
         带总体进度条。
         """
-        if not memory.subgraphs:
+
+        if not self.memory.subgraphs:
             logger.info("[EntityNormalize] no subgraphs found in memory, skip.")
             return
 
@@ -111,7 +114,7 @@ Guidelines:
         total_after = 0
         total_llm_merged = 0
 
-        subgraph_items = list(memory.subgraphs.items())
+        subgraph_items = list(self.memory.subgraphs.items())
 
         for sg_id, sg in tqdm(
             subgraph_items,

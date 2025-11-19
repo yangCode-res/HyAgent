@@ -1,3 +1,4 @@
+from asyncio import Task
 import os
 import warnings
 
@@ -12,6 +13,7 @@ from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Review_fetcher.index import ReviewFetcherAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from ExampleText.index import ExampleText
+from Agents.Task_scheduler.index import TaskSchedulerAgent
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
@@ -36,7 +38,10 @@ if __name__ == "__main__":
     agent = ReviewFetcherAgent(client, model_name=model_name)
     user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     agent.process(user_query)
-    agent.memory.dump_json("./snapshots")
+    task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name)
+    pipeline=task_scheduler.process(user_query)
+    pipeline.run()
+# agent.memory.dump_json("./snapshots")
 #     logger.info("Entity extraction started...")
 #     entityAgent=EntityExtractionAgent(client=client, model=model_name)
 #     entityAgent.process(documents=json_texts)

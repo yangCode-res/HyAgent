@@ -3,7 +3,7 @@ import json
 from openai import OpenAI
 
 from Core.Agent import Agent
-from HyAgent.TypeDefinitions.PipelineDefinitions.index import PipeLine
+from TypeDefinitions.PipelineDefinitions.index import PipeLine
 
 """
 任务调度 Agent，负责根据用户查询判断所需知识图类型，并调度相应的 Agent 模块流水线。
@@ -57,14 +57,14 @@ class TaskSchedulerAgent(Agent):
     def __init__(self,client:OpenAI,model_name:str):
         super().__init__(system_prompt=self.system_prompt,client=client,model_name=model_name)
     
-    def process(self,user_input:str):
+    def process(self,user_input:str)->PipeLine:
         response=self.call_llm(user_input)
         try:
             response=json.loads(response)
             type=response.get("type","")
             if type not in ["Basic Knowledge Graph","Causal Knowledge Graph(without mechanism)","Temporal Knowledge Graph","Causal Knowledge Graph(with mechanism)","Comprehensive Knowledge Graph"]:
                 raise ValueError("Invalid knowledge graph type")
-            pipeline=PipeLine(graph_type=type,user_query=user_input,client=self.client,model_name=self.model_name).get_pipeline()
+            pipeline=PipeLine(graph_type=type,user_query=user_input,client=self.client,model_name=self.model_name)
         except Exception:
             raise ValueError("Failed to parse LLM response or invalid knowledge graph type")
         return pipeline
