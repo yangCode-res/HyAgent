@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional, Tuple
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-
+from Store.index import get_memory
 """
 子图合并 Agent。
 将内存中的多个子图合并为一个全局知识图，处理实体对齐和关系映射。
@@ -16,7 +16,7 @@ class SubgraphMerger:
     def __init__(self):
         # (subgraph_id, local_entity_id) -> global_entity_id
         self.local2global: Dict[Tuple[str, str], str] = {}
-
+        self.memory=get_memory()
     # ------- 工具方法 -------
 
     def _get_entity(self, mem: Memory, sg_id: str, ent_id: str) -> Optional[KGEntity]:
@@ -116,7 +116,8 @@ class SubgraphMerger:
 
     # ------- 对外入口 -------
 
-    def process(self, mem: Memory):
+    def process(self):
+        mem=self.memory
         self.local2global = {}
         self._merge_alignments(mem)
         self._merge_unaligned_entities(mem)
