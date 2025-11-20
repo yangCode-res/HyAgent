@@ -94,13 +94,13 @@ Rules:
                 f"[Hypergraph] subgraph={sg_id}, |V|={H.shape[0]}, |E_h|={H.shape[1]}"
             )
         self.propagate_embeddings_with_hypergraph(alpha=0.5)
-        self.build_entity_alignment(sim_threshold=0.9, top_k=8)
+        self.build_entity_alignment(sim_threshold=0.95, top_k=5)
         # 用 LLM 做精过滤（并行）
-        for src_sg_id, ent_map in self.entity_alignment.items():
-            for src_eid, matches in ent_map.items():
-                print(src_sg_id, src_eid)
-                for m in matches:
-                    print("  ->", m["target_subgraph"], m["target_entity"], m["similarity"])   
+        # for src_sg_id, ent_map in self.entity_alignment.items():
+        #     for src_eid, matches in ent_map.items():
+        #         print(src_sg_id, src_eid)
+        #         for m in matches:
+        #             print("  ->", m["target_subgraph"], m["target_entity"], m["similarity"])   
     def _llm_filter_for_one_pair(
         self,
         src_sg_id: str,
@@ -278,50 +278,58 @@ Rules:
             normalized_embeddings[sg_id] = (ids, mat)
 
         # ---------- 2. 余弦相似度候选：candidate_alignment ----------
+                # ---------- 2. 余弦相似度候选：candidate_alignment ----------
         candidate_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
 
-        for src_sg_id, (src_ids, src_mat) in normalized_embeddings.items():
-            sg_align: Dict[str, List[Dict[str, Any]]] = {}
+        # 选“第一个子图”作为 anchor（中心子图）
+        if not normalized_embeddings:
+            return
+        anchor_sg_id = next(iter(normalized_embeddings.keys()))
+        anchor_ids, anchor_mat = normalized_embeddings[anchor_sg_id]
 
-            for i_src, src_eid in enumerate(src_ids):
-                src_vec = src_mat[i_src : i_src + 1, :]  # [1, d]
-                matches_for_entity: List[Dict[str, Any]] = []
+        sg_align: Dict[str, List[Dict[str, Any]]] = {}
 
-                for tgt_sg_id, (tgt_ids, tgt_mat) in normalized_embeddings.items():
-                    if tgt_sg_id == src_sg_id:
-                        continue
-                    if tgt_mat.size == 0:
-                        continue
+        # 只让 anchor_sg_id 作为 source，向其他子图对齐
+        for i_src, src_eid in enumerate(anchor_ids):
+            src_vec = anchor_mat[i_src : i_src + 1, :]  # [1, d]
+            matches_for_entity: List[Dict[str, Any]] = []
 
-                    sims = (tgt_mat @ src_vec.T).reshape(-1)  # [n_tgt]
-                    idx_sorted = np.argsort(-sims)
+            for tgt_sg_id, (tgt_ids, tgt_mat) in normalized_embeddings.items():
+                # 不和自己对齐
+                if tgt_sg_id == anchor_sg_id:
+                    continue
+                if tgt_mat.size == 0:
+                    continue
 
-                    kept_count = 0
-                    for idx in idx_sorted:
-                        sim = float(sims[idx])
-                        if sim < sim_threshold:
-                            break
+                sims = (tgt_mat @ src_vec.T).reshape(-1)  # [n_tgt]
+                idx_sorted = np.argsort(-sims)
 
-                        matches_for_entity.append(
-                            {
-                                "target_subgraph": tgt_sg_id,
-                                "target_entity": tgt_ids[idx],
-                                "similarity": sim,
-                            }
-                        )
-                        kept_count += 1
-                        if kept_count >= top_k:
-                            break
+                kept_count = 0
+                for idx in idx_sorted:
+                    sim = float(sims[idx])
+                    if sim < sim_threshold:
+                        break
 
-                if matches_for_entity:
-                    sg_align[src_eid] = matches_for_entity
+                    matches_for_entity.append(
+                        {
+                            "target_subgraph": tgt_sg_id,
+                            "target_entity": tgt_ids[idx],
+                            "similarity": sim,
+                        }
+                    )
+                    kept_count += 1
+                    if kept_count >= top_k:
+                        break
 
-            candidate_alignment[src_sg_id] = sg_align
-            self.logger.info(
-                f"[EntityAlign-Candidate] subgraph={src_sg_id}, "
-                f"candidate_entities={len(sg_align)}"
-            )
+            if matches_for_entity:
+                sg_align[src_eid] = matches_for_entity
 
+        # candidate_alignment 里只会有一个 source：anchor_sg_id
+        candidate_alignment[anchor_sg_id] = sg_align
+        self.logger.info(
+            f"[EntityAlign-Candidate] anchor_subgraph={anchor_sg_id}, "
+            f"candidate_entities={len(sg_align)}"
+        )
         # ---------- 3. LLM 并行精筛（关键：每个 target 子图单独调一次） ----------
         refined_alignment = self._run_llm_alignment_parallel(
             candidate_alignment,
