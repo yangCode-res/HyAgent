@@ -17,6 +17,8 @@ from Memory.index import load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from dotenv import load_dotenv
+from Agents.Fusion_subgraph.index import SubgraphMerger
+from utils.visualize import visualize_global_kg,export_memory_to_neo4j
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
@@ -29,10 +31,21 @@ if __name__ == "__main__":
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
-    agent.process(user_query)
-    EntityExtractionAgent(client=client, model=model_name).process()
-    agent.memory.dump_json("./snapshots")
+    # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
+    # agent.process(user_query)
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251120-103349.json')
+    # merger = SubgraphMerger()
+    # merger.process(memory)
+    # visualize_global_kg(memory)
+    export_memory_to_neo4j(
+        mem=memory,
+        uri="bolt://localhost:7687",
+        user="neo4j",
+        password="mingming0.+",
+        clear_db=True,      # 如果希望每次都清空图再导入
+        max_edges=5000,
+)
+    memory.dump_json("./snapshots")
 #     logger.info("Entity extraction started...")
 #     entityAgent=EntityExtractionAgent(client=client, model=model_name)
 #     entityAgent.process(documents=json_texts)
