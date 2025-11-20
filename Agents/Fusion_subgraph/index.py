@@ -2,7 +2,7 @@ from typing import Any, Dict, Optional, Tuple
 
 from openai import OpenAI
 
-from HyAgent.Core.Agent import Agent
+from Core.Agent import Agent
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple

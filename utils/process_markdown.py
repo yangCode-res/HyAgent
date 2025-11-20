@@ -79,6 +79,8 @@ def split_md_after_trim(path: str, target_words: int = 1200) -> dict:
        - 只在段落之间切分（段落由空行分隔）
     3) 返回 {filename: [chunk1, chunk2, ...]}
     """
+    if path is None:
+        return {}
     p = Path(path)
 
     # 第一步：去掉参考文献
