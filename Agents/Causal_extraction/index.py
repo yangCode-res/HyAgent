@@ -2,8 +2,11 @@ import json
 import os
 from typing import Dict, List, Optional
 
+import concurrent
+import concurrent.futures
 from networkx import graph_atlas
 from openai import OpenAI
+from pydot import Subgraph
 from tqdm import tqdm
 
 from Core.Agent import Agent
@@ -493,20 +496,19 @@ Now, evaluate the provided relationships based on the review text using this sys
         And the result will be written in the memory store directly.
         """
         subgraphs=self.memory.subgraphs
-        for subgraph_id,subgraph in tqdm(subgraphs.items()):
-            self.logger.info(f"CausalExtractionAgent: Processing Subgraph {subgraph_id} with {len(subgraph.relations.all())} relations.")
-            max_retries=5
-            retries=0
-            if not self.memory.get_subgraph(subgraph_id):
-                while not self.memory.get_subgraph(subgraph_id) and retries < max_retries:
-                    self.logger.warning(f"CausalExtractionAgent: Subgraph {subgraph_id} not found in memory. Retrying...")
-                    retries+=1
-            if not self.memory.get_subgraph(subgraph_id):
-                self.logger.error(f"CausalExtractionAgent: Subgraph {subgraph_id} still not found after {max_retries} retries. Skipping...")
-                continue
-            self.run(subgraph.meta.get("text",""), subgraph_id)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            futures=[]
+            for subgraph_id,subgraph in tqdm(subgraphs.items()):
+                if subgraph:
+                    futures.append(executor.submit(self.process_subgraph, subgraph))
 
-    def run(self,text:str,graph_id:str):
+            for future in tqdm(futures, desc="Processing causal extraction"):
+                try:
+                    future.result()
+                except Exception as e:
+                    self.logger.error(f"CausalExtractionAgent: Causal extraction failed in concurrent processing: {str(e)}")
+
+    def process_subgraph(self,subgraph:Subgraph):
         """
         run the causal evaluation for a single paragraph
         parameters:
@@ -515,12 +517,12 @@ Now, evaluate the provided relationships based on the review text using this sys
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        plain_text=text
-        subgraph=self.memory.get_subgraph(graph_id)
-        self.logger.info(f"CausalExtractionAgent: Processing Subgraph {graph_id} with {len(subgraph.relations.all())} relations.")
+        plain_text=subgraph.meta.get("text","")
+        subgraph=self.memory.get_subgraph(subgraph.id)
+        self.logger.info(f"CausalExtractionAgent: Processing Subgraph {subgraph.id} with {len(subgraph.relations.all())} relations.")
         extracted_triples=subgraph.get_relations()
         if not extracted_triples:
-            self.logger.info(f"CausalExtractionAgent: No relations found in Subgraph {graph_id}. Skipping...")
+            self.logger.info(f"CausalExtractionAgent: No relations found in Subgraph {subgraph.id}. Skipping...")
             return
         triple_str='\n'.join(triple.__str__() for triple in extracted_triples)
         prompt=f"""Evaluate the following relationships for causal validity based on the provided text.

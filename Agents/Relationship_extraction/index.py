@@ -1,6 +1,8 @@
+import concurrent.futures
 import json
 from typing import Dict, List
 
+import concurrent
 from openai import OpenAI
 from tqdm import tqdm
 
@@ -89,7 +91,7 @@ Output:
         self.memory=get_memory()
         super().__init__(client,model_name,self.system_prompt)
 
-    def processcess(self)->Dict[str,List[KGTriple]]:
+    def process(self)->Dict[str,List[KGTriple]]:
         """
         process the relationship extraction for multiple paragraphs
         parameters:
@@ -99,18 +101,32 @@ Output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
         subgraphs=self.memory.subgraphs
-        for subgraph_id,subgraph in tqdm(subgraphs.items()):
-            subgraph_id=subgraph_id
-            paragraph=subgraph.meta.get("text","")
-            causal_types=self.extract_existing_relation(paragraph)
-            # print(causal_types)
-            extracted_triples=self.extract_relationships(paragraph, causal_types)
-            extracted_triples=self.remove_duplicate_triples(extracted_triples)
-            subgraph=self.memory.get_subgraph(subgraph_id)
-            if not subgraph:
-                subgraph=Subgraph(subgraph_id,subgraph_id,{"text":paragraph})
-            subgraph.add_relations(extracted_triples)
-            self.memory.register_subgraph(subgraph)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            futures=[]
+            for subgraph_id,subgraph in tqdm(subgraphs.items()):
+                if subgraph:
+                    futures.append(executor.submit(self.process_subgraph,subgraph))
+            
+            for future in tqdm(futures,desc="Processing relationship extraction"):
+                try:
+                    future.result()
+                except Exception as e:
+                    logger=get_global_logger()
+                    logger.info(f"Relationship extraction failed in concurrent processing: {str(e)}")
+    
+    def process_subgraph(self,subgraph:Subgraph):
+        subgraph_id=subgraph.id # type: ignore
+        paragraph=subgraph.meta.get("text","")
+        causal_types=self.extract_existing_relation(paragraph)
+        # print(causal_types)
+        extracted_triples=self.extract_relationships(paragraph, subgraph_id, causal_types)
+        extracted_triples=self.remove_duplicate_triples(extracted_triples)
+        subgraph=self.memory.get_subgraph(subgraph_id) # type: ignore
+        if not subgraph:
+            subgraph=Subgraph(subgraph_id,subgraph_id,{"text":paragraph})
+        subgraph.add_relations(extracted_triples)
+        self.memory.register_subgraph(subgraph)
+
     ###step 1: extract existing relationship types from the text
     def extract_existing_relation(self,text:str)->List[str]:
         prompt=f"""return existing relationship types from provided text and return them as a list. The relationship types are defined as follows:
@@ -141,7 +157,7 @@ Return only valid array:
             return []
         return []
     ###step 2: extract relationships from the text with provided existing relationship types
-    def extract_relationships(self,text:str,causal_types:List[str]) -> List[KGTriple]:
+    def extract_relationships(self,text:str,subgraph_id,causal_types:List[str]) -> List[KGTriple]:
         """
         relationship extraction
         parameters:
@@ -171,7 +187,7 @@ Return only valid array:
                     head=rel_data.get("head","").strip()
                     tail=rel_data.get("tail","").strip()
                     relation=rel_data.get("relation","").strip()
-                    source=text_id
+                    source=subgraph_id
                     triple=KGTriple(
                         head=head,
                         relation=relation,

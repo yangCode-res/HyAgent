@@ -2,6 +2,7 @@ import concurrent
 import concurrent.futures
 from os import link
 from re import sub
+from sys import executable
 from typing import List, Optional
 
 from fuzzywuzzy import fuzz
@@ -30,13 +31,15 @@ class CollaborationExtractionAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
+    
     def process(self):
         subgraphs=self.memory.subgraphs
         futures=[]
-        for subgraph_id,subgraph in subgraphs.items():
-            if not subgraph:
-                return
-            futures.append(self.process_subgraph,subgraph)
+        with concurrent.futures.ThreadPoolExecutor() as executor: 
+            for subgraph_id,subgraph in subgraphs.items():
+                if not subgraph:
+                    continue
+                futures.append(executor.submit(self.process_subgraph,subgraph))
         concurrent.futures.wait(futures)
         
     
@@ -116,7 +119,7 @@ class CollaborationExtractionAgent(Agent):
         except Exception as e:
             logger=f"CollaborationExtractionAgent: Entity extraction failed{str(e)}"
             print(logger)
-            self.logger.info(logger)
+            self.logger.error(logger)
             return []
 
     def relationship_extraction(self,subgraph)->List[KGTriple]:

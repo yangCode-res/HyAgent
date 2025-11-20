@@ -26,6 +26,7 @@ class PipeLine:
         self.user_query=user_query
         self.client=client
         self.model_name=model_name
+
     
     def get_pipeline(self)->List[Agent]:
         """
@@ -98,6 +99,8 @@ class PipeLine:
         all_futures=[]
         for step in pipeline:
             if isinstance(step, List):
+                if all_futures:
+                    all_futures=[]
                 # Parallel execution
                 for agent in step:
                     future=None
@@ -105,14 +108,14 @@ class PipeLine:
                         future=concurrent.futures.ThreadPoolExecutor().submit(agent.process)
                     if future:
                         all_futures.append(future)
+                for future in concurrent.futures.as_completed(all_futures):
+                    try:
+                        future.result()
+                    except Exception as e:
+                        print("Error in parallel agent execution:", e)
             else:
                 try:
                     step.process()
                 except Exception as e:
                     print(f"Error executing agent {step.__class__.__name__}: {e}")
-        for future in concurrent.futures.as_completed(all_futures):
-            try:
-                future.result()
-            except Exception as e:
-                print("Error in parallel agent execution:", e)
         memory.dump_json("./snapshots")
