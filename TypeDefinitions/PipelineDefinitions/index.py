@@ -15,6 +15,7 @@ from Agents.Mechanism_extraction.index import MechanismExtractionAgent
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from Core.Agent import Agent
+from Agents.Fusion_subgraph.index import SubgraphMerger
 from Store.index import get_memory
 
 
@@ -57,6 +58,7 @@ class PipeLine:
         entity_normalization_agent=EntityNormalizationAgent(self.client,self.model_name)
         collaboration_extraction_agent=CollaborationExtractionAgent(self.client,self.model_name)
         alignment_triple_agent=AlignmentTripleAgent(self.client,self.model_name)
+        subgraph_merger=SubgraphMerger(self.client,self.model_name)
         pipeline.append([entity_extraction_agent,relationship_extraction_agent])
         pipeline.append(entity_normalization_agent)
         pipeline.append(collaboration_extraction_agent)
@@ -74,6 +76,7 @@ class PipeLine:
         if optional_pipelines:
             pipeline.append(optional_pipelines)
         pipeline.append(alignment_triple_agent)
+        pipeline.append(subgraph_merger)
         return pipeline
     
     def print_pipeline(self):
@@ -103,7 +106,10 @@ class PipeLine:
                     if future:
                         all_futures.append(future)
             else:
-                step.process()
+                try:
+                    step.process()
+                except Exception as e:
+                    print(f"Error executing agent {step.__class__.__name__}: {e}")
         for future in concurrent.futures.as_completed(all_futures):
             try:
                 future.result()

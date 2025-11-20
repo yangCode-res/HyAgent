@@ -32,21 +32,27 @@ class CollaborationExtractionAgent(Agent):
         self.logger=get_global_logger()
     def process(self):
         subgraphs=self.memory.subgraphs
+        futures=[]
         for subgraph_id,subgraph in subgraphs.items():
             if not subgraph:
                 return
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                future_entity=executor.submit(self.entity_extraction,subgraph)
-                future_relationship=executor.submit(self.relationship_extraction,subgraph)
-                concurrent.futures.wait([future_entity])
-                concurrent.futures.wait([future_relationship])
-            extracted_entities=future_entity.result()
-            extracted_relationships=future_relationship.result()
-            subgraph.entities.update(extracted_entities)
-            subgraph.relations.reset()
-            subgraph.relations.add_many(extracted_relationships)
-            self.entity_relation_linking(subgraph)
-            self.memory.register_subgraph(subgraph)
+            futures.append(self.process_subgraph,subgraph)
+        concurrent.futures.wait(futures)
+        
+    
+    def process_subgraph(self,subgraph:Subgraph):
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future_entity=executor.submit(self.entity_extraction,subgraph)
+            future_relationship=executor.submit(self.relationship_extraction,subgraph)
+            concurrent.futures.wait([future_entity])
+            concurrent.futures.wait([future_relationship])
+        extracted_entities=future_entity.result()
+        extracted_relationships=future_relationship.result()
+        subgraph.entities.update(extracted_entities)
+        subgraph.relations.reset()
+        subgraph.relations.add_many(extracted_relationships)
+        self.entity_relation_linking(subgraph)
+        self.memory.register_subgraph(subgraph)
 
     def entity_extraction(self,subgraph)->List[KGEntity]:
         entities=subgraph.entities.all()
