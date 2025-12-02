@@ -31,7 +31,7 @@ if __name__ == "__main__":
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "How can CRISPR-Cas9 be used to correct genetic mutations causing inherited diseases? What are the main challenges in ensuring long-term safety and effectiveness in clinical applications, especially concerning off-target effects and immune responses?"
+    user_query = "Propose a molecular mechanism linking Gut Microbiome dysbiosis (specifically increased abundance of Desulfovibrio bacteria) to the aggregation of alpha-synuclein in Parkinson's Disease. Focus on the vagus nerve pathway."
     agent.process(user_query)
     task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name)
     pipeline=task_scheduler.process(user_query)

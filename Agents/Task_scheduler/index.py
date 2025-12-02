@@ -62,10 +62,10 @@ class TaskSchedulerAgent(Agent):
         try:
             response=json.loads(response)
             type=response.get("type","")
-            if type not in ["Basic Knowledge Graph","Causal Knowledge Graph(without mechanism)","Temporal Knowledge Graph","Causal Knowledge Graph(with mechanism)","Comprehensive Knowledge Graph"]:
+            if type not in ["Basic Knowledge Graph","Causal Knowledge Graph (without mechanism)","Temporal Knowledge Graph","Causal Knowledge Graph (with mechanism)","Comprehensive Knowledge Graph"]:
                 raise ValueError("Invalid knowledge graph type")
             pipeline=PipeLine(graph_type=type,user_query=user_input,client=self.client,model_name=self.model_name)
         except Exception:
             raise ValueError("Failed to parse LLM response or invalid knowledge graph type")
         return pipeline
-    
+    '{\n    "type": "Causal Knowledge Graph (with mechanism)",\n    "question_complexity": "high"\n}'
