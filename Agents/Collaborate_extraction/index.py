@@ -105,22 +105,21 @@ class CollaborationExtractionAgent(Agent):
         DO NOT CHANGE THE ID OF ENTITIES.
         """
         response=self.call_llm(prompt)
-        try:
-            results=self.parse_json(response)
-            entities=[]
-            for item in results:
-                entity_id=item.get("id","unknown")
-                if subgraph.entities.by_id[entity_id]:
-                    entity=subgraph.entities.by_id[entity_id]
-                    entity.name=item.get("name","unknown")
-                    entity.type=item.get("type","unknown")
-                    entities.append(entity)
-            return entities
-        except Exception as e:
-            logger=f"CollaborationExtractionAgent: Entity extraction failed{str(e)}"
-            print(logger)
-            self.logger.error(logger)
-            return []
+        results=self.parse_json(response)
+        entities=[]
+        for item in results:
+            entity_id=item.get("id","unknown")
+            if subgraph.entities.by_id[entity_id]:
+                entity=subgraph.entities.by_id[entity_id]
+                entity.name=item.get("name","unknown")
+                entity.type=item.get("type","unknown")
+                entities.append(entity)
+        return entities
+        # except Exception as e:
+        #     logger=f"CollaborationExtractionAgent: Entity extraction failed{str(e)}"
+        #     print(logger)
+        #     self.logger.error(logger)
+        #     return []
 
     def relationship_extraction(self,subgraph)->List[KGTriple]:
         entities=subgraph.entities.all()

@@ -543,7 +543,7 @@ Now, evaluate the provided relationships based on the review text using this sys
                 triple=subgraph.relations.find_Triple_by_head_and_tail(head,tail)
                 object=triple.object if triple else None
                 subject=triple.subject if triple else None
-                triples.append(KGTriple(head,relation,tail,confidence,evidence=evidence,mechanism="unknown",source=text.get("id","unknown"),subject=subject,object=object))
+                triples.append(KGTriple(head,relation,tail,confidence,evidence=evidence,mechanism="unknown",source=subgraph.id,subject=subject,object=object))
             subgraph.relations.reset()
             subgraph.relations.add_many(triples)
             self.memory.register_subgraph(subgraph)
