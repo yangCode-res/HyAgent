@@ -14,7 +14,7 @@ from Store.index import get_memory
 from utils.download import save_pdfs_from_url_list
 from utils.filter import extract_pdf_paths
 from utils.pdf2md import deepseek_pdf_to_md_batch
-from utils.process_markdown import split_md_after_trim
+from utils.process_markdown import split_md_by_h2
 
 
 class ReviewFetcherAgent(Agent):
@@ -56,7 +56,7 @@ class ReviewFetcherAgent(Agent):
     # )  
         md_outputs=["/home/nas3/biod/dongkun/HyAgent/Agents/Review_fetcher/markdown/PMC11806630.md","/home/nas3/biod/dongkun/HyAgent/Agents/Review_fetcher/markdown/PMC11851694.md"]
         for md_output in md_outputs:
-            paragraphs=split_md_after_trim(md_output)
+            paragraphs=split_md_by_h2(md_output)
             for id,content in paragraphs.items():
                 for i,content_chunk in enumerate(content):
                     subgraph_id=f"{id}_{i}"
