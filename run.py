@@ -31,8 +31,9 @@ if __name__ == "__main__":
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "Propose a molecular mechanism linking Gut Microbiome dysbiosis (specifically increased abundance of Desulfovibrio bacteria) to the aggregation of alpha-synuclein in Parkinson's Disease. Focus on the vagus nerve pathway."
+    user_query = "By what mechanism do prenylated proteins (specifically Rho proteins) regulate estradiol-stimulated cell proliferation and ERα-mediated transcriptional activity in MCF-7 cells?"
     agent.process(user_query)
+
     task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name)
     pipeline=task_scheduler.process(user_query)
     pipeline.run()

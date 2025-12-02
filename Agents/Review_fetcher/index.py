@@ -57,19 +57,34 @@ class ReviewFetcherAgent(Agent):
 
 
     def generateMeSHStrategy(self,user_query:str)->str:
-        prompt=f"""
-        As a biomedical literature search expert, generate a PubMed search strategy using MeSH terms for the following research question:
-        Question: {user_query}
-        Requirements:
-        1. Use MeSH terms
-        2. Combine free-text terms
-        3. Use Boolean operators (AND/OR/NOT)
-        4. Limit document type to reviews
-        5. Limit to articles from the last 5 years
-        Note:
-        Please only return the search strategy without any explanations.
-        """
+        prompt = f"""
+                As an expert biomedical librarian, generate a broad and sensitive PubMed search strategy for the following research question. 
+
+                **Goal:** The goal is to retrieve REVIEWS that discuss the general mechanisms and relationships, even if they don't match every specific detail of the user query. **Prioritize Recall (Sensitivity) over Precision.**
+
+                Question: {user_query}
+
+                **Search Strategy Guidelines (CRITICAL):**
+                1. **Generalize Specific Entities:** 
+                - If the query mentions a specific cell line (e.g., "MCF-7"), search for the broader disease or tissue type (e.g., "Breast Neoplasms").
+                - If the query mentions a specific drug subtype, include the drug class.
+                2. **Limit 'AND' Operators:** 
+                - Only combine the **2 or 3 most critical concepts** (e.g., The Interacting Molecules + The Disease). 
+                - Do NOT 'AND' common biological outcomes (like "cell proliferation", "apoptosis") unless they are the sole focus, as these are often implied in broader reviews.
+                3. **Expand 'OR' Operators:** 
+                - Use extensive synonyms and broad MeSH terms for each concept.
+                - Include related biological processes (e.g., for "Rho proteins", also include "Prenylation" or "GTPases").
+                4. **Formatting:**
+                - Use MeSH terms (`[MeSH Terms]`) and Title/Abstract keywords (`[Title/Abstract]`).
+                - Use standard Boolean operators.
+
+                **Requirements:**
+                1. Limit document type to: "review"[Publication Type] OR "systematic review"[Publication Type]
+                2. Limit to articles from the last 5 years: (("2019"[Date - Publication] : "3000"[Date - Publication]))
+                3. Output ONLY the search query string. No explanations.
+                """
         result=self.call_llm(prompt)
+        print("mesh strategy=>",result)
         return str(result)
     
     def fetchReviews(self,search_strategy:str,maxlen=20):
