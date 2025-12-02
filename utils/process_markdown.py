@@ -40,6 +40,8 @@ def split_md_by_h2(path: str) -> dict[str, list[str]]:
        - 每个 H2 标题及其下方的内容会被归为一个 chunk
        - 第一个 H2 之前的内容（通常是 Title, Abstract）也会归为一个 chunk
     """
+    if path is None:
+        return {}
     p = Path(path)
     
     # 1. 先裁剪参考文献

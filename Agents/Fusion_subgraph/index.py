@@ -1,5 +1,8 @@
 from typing import Any, Dict, Optional, Tuple
 
+from openai import OpenAI
+
+from Core.Agent import Agent
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
@@ -12,11 +15,14 @@ from Store.index import get_memory
 调用入口：agent.process()
 """
 
-class SubgraphMerger:
-    def __init__(self):
+class SubgraphMerger(Agent):
+    def __init__(self,client:OpenAI,model_name:str):
         # (subgraph_id, local_entity_id) -> global_entity_id
         self.local2global: Dict[Tuple[str, str], str] = {}
         self.memory=get_memory()
+        self.client=client
+        self.model_name=model_name
+        super().__init__(client,model_name,"")
     # ------- 工具方法 -------
 
     def _get_entity(self, mem: Memory, sg_id: str, ent_id: str) -> Optional[KGEntity]:

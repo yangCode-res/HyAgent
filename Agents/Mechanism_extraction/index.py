@@ -79,15 +79,15 @@ RULES:
     # ===================== 对外入口 =====================
 
     def process(
-        self,
-        memory: Memory,
-        max_workers: int = 8,
+        self
     ) -> None:
         """
         遍历 memory.subgraphs：
         - 每个子图读取 meta.text.text 作为上下文
         - 对该子图所有 triples 并发补机制（原地修改 KGTriple）
         """
+        memory=self.memory
+        max_workers=5  # 子图内并发线程数
         if not memory.subgraphs:
             self.logger.info("[MechanismExtraction] no subgraphs found, nothing to do.")
             return

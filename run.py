@@ -31,7 +31,7 @@ if __name__ == "__main__":
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
+    user_query = "How can CRISPR-Cas9 be used to correct genetic mutations causing inherited diseases? What are the main challenges in ensuring long-term safety and effectiveness in clinical applications, especially concerning off-target effects and immune responses?"
     agent.process(user_query)
     task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name)
     pipeline=task_scheduler.process(user_query)

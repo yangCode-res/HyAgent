@@ -2,6 +2,7 @@ import concurrent
 import concurrent.futures
 from os import link
 from re import sub
+from sys import executable
 from typing import List, Optional
 
 from fuzzywuzzy import fuzz
@@ -30,23 +31,31 @@ class CollaborationExtractionAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
+    
     def process(self):
         subgraphs=self.memory.subgraphs
-        for subgraph_id,subgraph in subgraphs.items():
-            if not subgraph:
-                return
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                future_entity=executor.submit(self.entity_extraction,subgraph)
-                future_relationship=executor.submit(self.relationship_extraction,subgraph)
-                concurrent.futures.wait([future_entity])
-                concurrent.futures.wait([future_relationship])
-            extracted_entities=future_entity.result()
-            extracted_relationships=future_relationship.result()
-            subgraph.entities.update(extracted_entities)
-            subgraph.relations.reset()
-            subgraph.relations.add_many(extracted_relationships)
-            self.entity_relation_linking(subgraph)
-            self.memory.register_subgraph(subgraph)
+        futures=[]
+        with concurrent.futures.ThreadPoolExecutor() as executor: 
+            for subgraph_id,subgraph in subgraphs.items():
+                if not subgraph:
+                    continue
+                futures.append(executor.submit(self.process_subgraph,subgraph))
+        concurrent.futures.wait(futures)
+        
+    
+    def process_subgraph(self,subgraph:Subgraph):
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            future_entity=executor.submit(self.entity_extraction,subgraph)
+            future_relationship=executor.submit(self.relationship_extraction,subgraph)
+            concurrent.futures.wait([future_entity])
+            concurrent.futures.wait([future_relationship])
+        extracted_entities=future_entity.result()
+        extracted_relationships=future_relationship.result()
+        subgraph.entities.update(extracted_entities)
+        subgraph.relations.reset()
+        subgraph.relations.add_many(extracted_relationships)
+        self.entity_relation_linking(subgraph)
+        self.memory.register_subgraph(subgraph)
 
     def entity_extraction(self,subgraph)->List[KGEntity]:
         entities=subgraph.entities.all()
@@ -110,7 +119,7 @@ class CollaborationExtractionAgent(Agent):
         except Exception as e:
             logger=f"CollaborationExtractionAgent: Entity extraction failed{str(e)}"
             print(logger)
-            self.logger.info(logger)
+            self.logger.error(logger)
             return []
 
     def relationship_extraction(self,subgraph)->List[KGTriple]:
