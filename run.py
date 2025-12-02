@@ -3,6 +3,8 @@ import os
 import warnings
 
 from dotenv import find_dotenv, load_dotenv
+from matplotlib.pyplot import cla
+from networkx import core_number
 from openai import OpenAI
 
 from Agents.Causal_extraction.index import CausalExtractionAgent
@@ -14,6 +16,7 @@ from Agents.Review_fetcher.index import ReviewFetcherAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from ExampleText.index import ExampleText
 from Agents.Task_scheduler.index import TaskSchedulerAgent
+from Agents.Query_clarify.index import QueryClarifyAgent
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
@@ -30,11 +33,17 @@ if __name__ == "__main__":
     json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "Propose a molecular mechanism linking Gut Microbiome dysbiosis (specifically increased abundance of Desulfovibrio bacteria) to the aggregation of alpha-synuclein in Parkinson's Disease. Focus on the vagus nerve pathway."
-    agent.process(user_query)
-    task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name)
-    pipeline=task_scheduler.process(user_query)
+    user_query = "(1)Cancer classification accuracy and stability vary between different network constructions. (2) Ordering network displays better overall performance compared to correlation network across multiple cancer datasets. (3) Optimal classification performance does not necessarily correlate with the number of genes used in the model.  "
+    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    response = queryclarifyagent.process(user_query)
+    clarified_query = response.get("clarified_question", user_query) # type: ignore
+    core_entities= response.get("core_entities", []) # type: ignore
+    intention= response.get("main_intention", "") # type: ignore
+    print("Clarified Query:", clarified_query)
+    reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
+    reviewfetcheragent.process(clarified_query)
+    task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name) # type: ignore
+    pipeline=task_scheduler.process(clarified_query)
     pipeline.run()
 # agent.memory.dump_json("./snapshots")
 #     logger.info("Entity extraction started...")

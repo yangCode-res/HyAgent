@@ -1,5 +1,6 @@
 import concurrent.futures
 from dataclasses import dataclass
+from time import sleep
 from typing import Dict, List
 
 from openai import OpenAI
@@ -65,13 +66,13 @@ class PipeLine:
         pipeline.append(collaboration_extraction_agent)
         # Optional modules based on graph type
         optional_pipelines=[]
-        if self.graph_type=="Causal Knowledge Graph(without mechanism)" or self.graph_type=="Causal Knowledge Graph(with mechanism)" or self.graph_type=="Comprehensive Knowledge Graph":
+        if self.graph_type=="Causal Knowledge Graph (without mechanism)" or self.graph_type=="Causal Knowledge Graph (with mechanism)" or self.graph_type=="Comprehensive Knowledge Graph":
             causal_extraction_agent=CausalExtractionAgent(self.client,self.model_name)
             optional_pipelines.append(causal_extraction_agent)
         if self.graph_type=="Temporal Knowledge Graph" or self.graph_type=="Comprehensive Knowledge Graph":
             temporal_extraction_agent=TemporalExtractionAgent(self.client,self.model_name)
             optional_pipelines.append(temporal_extraction_agent)
-        if self.graph_type=="Causal Knowledge Graph(with mechanism)" or self.graph_type=="Comprehensive Knowledge Graph":
+        if self.graph_type=="Causal Knowledge Graph (with mechanism)" or self.graph_type=="Comprehensive Knowledge Graph":
             mechanism_extraction_agent=MechanismExtractionAgent(self.client,self.model_name)
             optional_pipelines.append(mechanism_extraction_agent)
         if optional_pipelines:
@@ -96,26 +97,37 @@ class PipeLine:
         """
         pipeline=self.get_pipeline()
         memory=get_memory()
-        all_futures=[]
+        #让pipeline全部串行测试
         for step in pipeline:
             if isinstance(step, List):
-                if all_futures:
-                    all_futures=[]
-                # Parallel execution
                 for agent in step:
-                    future=None
                     if hasattr(agent,"process"):
-                        future=concurrent.futures.ThreadPoolExecutor().submit(agent.process)
-                    if future:
-                        all_futures.append(future)
-                for future in concurrent.futures.as_completed(all_futures):
-                    try:
-                        future.result()
-                    except Exception as e:
-                        print("Error in parallel agent execution:", e)
+                        try:
+                            agent.process()
+                        except Exception as e:
+                            print("Error in parallel agent execution:", e)
             else:
                 try:
                     step.process()
                 except Exception as e:
                     print(f"Error executing agent {step.__class__.__name__}: {e}")
+        # all_futures=[]
+        # for step in pipeline:
+        #     if isinstance(step, List):
+        #         # Parallel execution
+        #         for agent in step:
+        #             if hasattr(agent,"process"):
+        #                 future=concurrent.futures.ThreadPoolExecutor(max_workers=2).submit(agent.process)
+        #             if future:
+        #                 all_futures.append(future)
+        #         for future in all_futures:
+        #             try:
+        #                 future.result()
+        #             except Exception as e:
+        #                 print("Error in parallel agent execution:", e)
+        #     else:
+        #         try:
+        #             step.process()
+        #         except Exception as e:
+        #             print(f"Error executing agent {step.__class__.__name__}: {e}")
         memory.dump_json("./snapshots")
