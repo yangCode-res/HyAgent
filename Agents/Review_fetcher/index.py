@@ -6,7 +6,7 @@ from typing import List
 from dotenv import find_dotenv, load_dotenv
 from metapub import FindIt, PubMedFetcher
 from openai import OpenAI
-
+import sys
 from Core.Agent import Agent
 from utils.pdf2mdOCR import ocr_to_md_files
 from Logger.index import get_global_logger
@@ -50,7 +50,10 @@ class ReviewFetcherAgent(Agent):
                     meta={"text":content_chunk,"source":id}
                     s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                     self.memory.register_subgraph(s)
-        return
+        if len(review_urls) == 0:
+            self.logger.warning("No review URLs found")
+            sys.exit(1)
+        return 
 
 
     def generateMeSHStrategy(self,user_query:str)->str:
