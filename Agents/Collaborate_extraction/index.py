@@ -259,4 +259,4 @@ class CollaborationExtractionAgent(Agent):
                 self.logger.info(logger)
         return subgraph
         
-        
+
