@@ -173,7 +173,7 @@ Guidelines:
             f"total_delta={total_before - total_after}, "
             f"total_llm_merged={total_llm_merged}{ANSI_RESET}"
         )
-
+        self.memory.dump_json("./snapshots")
     # ===================== 子图内：规则合并 =====================
 
     def _normalize_subgraph_entities(self, sg: Subgraph) -> int:
