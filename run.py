@@ -36,7 +36,7 @@ if __name__ == "__main__":
     json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    user_query = "By what mechanism do prenylated proteins (specifically Rho proteins) regulate estradiol-stimulated cell proliferation and ERα-mediated transcriptional activity in MCF-7 cells?"
+    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     response = queryclarifyagent.process(user_query)
     clarified_query = response.get("clarified_question", user_query) # type: ignore
@@ -49,11 +49,12 @@ if __name__ == "__main__":
     # pipeline=task_scheduler.process(user_query)
     # pipeline.run()
    # agent.memory.dump_json("./snapshots")
-    # logger.info("Entity extraction started...")
-    # entityAgent=EntityExtractionAgent(client=client, model=model_name)
-    # entityAgent.process()
-    # logger.info("Entity extraction finished.")
-    # logger.info("Entity normalization started...")
+    logger.info("Entity extraction started...")
+    entityAgent=EntityExtractionAgent(client=client, model=model_name)
+    entityAgent.process()
+    logger.info("Entity extraction finished.")
+    logger.info("Entity normalization started...")
+    memory.dump_json("./snapshots")
     # normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
     # normalizeAgent.process()
     logger.info("Relationship extraction started...")
@@ -62,6 +63,7 @@ if __name__ == "__main__":
     logger.info("Relationship extraction finished.")
     # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
     logger.info("Collaboration extraction started...")
+    memory.dump_json("./snapshots")
     collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name)
     collaborationAgent.process()
     memory.dump_json("./snapshots")

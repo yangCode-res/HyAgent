@@ -15,7 +15,7 @@ from Store.index import get_memory
 from utils.download import save_pdfs_from_url_list
 from utils.filter import extract_pdf_paths
 from utils.pdf2md import deepseek_pdf_to_md_batch
-from utils.process_markdown import split_md_by_h2
+from utils.process_markdown import split_md_by_mixed_count
 
 
 class ReviewFetcherAgent(Agent):
@@ -31,19 +31,22 @@ class ReviewFetcherAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
     
     def process(self,user_query:str):
-        # strategy = self.generateMeSHStrategy(user_query)
-        # reviews_metadata = self.fetchReviews(strategy, maxlen=20)
-        # selected_reviews = self.selectReviews(reviews_metadata, topk=1)
-        # review_urls = []
-        # for pmid in selected_reviews:
-        #     try:
-        #         review_urls.append(FindIt(pmid).url)
-        #     except:
-        #         self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
-        # md_outputs=ocr_to_md_files(review_urls)
-        md_outputs=["./ocr_md_outputs/ocr_result_2.md"]
-        for md_output in md_outputs:
-            paragraphs=split_md_by_h2(md_output)
+        strategy = self.generateMeSHStrategy(user_query)
+        reviews_metadata = self.fetchReviews(strategy, maxlen=20)
+        selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        review_urls = []
+        for pmid in selected_reviews:
+            try:
+                review_urls.append(FindIt(pmid).url)
+            except:
+                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+        print("review_urls=>",review_urls)
+        review_urls=[url for url in review_urls if url is not None]
+        md_outputs=ocr_to_md_files(review_urls)
+        print("md_outputs=>",md_outputs)
+        # md_outputs=["./ocr_md_outputs/ocr_result_2.md"]
+        for md_output in [md_outputs[0]]:
+            paragraphs=split_md_by_mixed_count(md_output)
 
             # paragraphs=split_md_by_h2(md_output)
             for id,content in paragraphs.items():
@@ -52,39 +55,35 @@ class ReviewFetcherAgent(Agent):
                     meta={"text":content_chunk,"source":id}
                     s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                     self.memory.register_subgraph(s)
-        # if len(review_urls) == 0:
-        #     self.logger.warning("No review URLs found")
-        #     sys.exit(1)
+        if len(review_urls) == 0:
+            self.logger.warning("No review URLs found")
+            sys.exit(1)
         return 
 
 
     def generateMeSHStrategy(self,user_query:str)->str:
         prompt = f"""
-                As an expert biomedical librarian, generate a broad and sensitive PubMed search strategy for the following research question. 
+As an expert Biomedical Information Specialist, generate a comprehensive PubMed search strategy for the following research question.
 
-                **Goal:** The goal is to retrieve REVIEWS that discuss the general mechanisms and relationships, even if they don't match every specific detail of the user query. **Prioritize Recall (Sensitivity) over Precision.**
+**Question:** {user_query}
 
-                Question: {user_query}
+**Instructions:**
+1. **Identify Key Concepts:** Break the user's query into 2-3 main concepts (e.g., Target Molecule + Disease/Condition).
+2. **Expand Terms (Crucial):** For EACH concept, construct a sub-query using 'OR' to combine:
+   - **MeSH Terms** (e.g., "Breast Neoplasms"[MeSH Terms])
+   - **Keywords in Title/Abstract** (e.g., "breast cancer"[Title/Abstract], "breast tumor"[Title/Abstract])
+   - **Specific Names:** If the query mentions a specific cell line (e.g., MCF-7) or drug code, include it as a keyword.
+3. **Combine Concepts:** Join the main concept sub-queries with 'AND'.
+4. **Apply Filters:**
+   - Limit to **Reviews** and **Systematic Reviews**.
+   - Limit to articles published in the **last 5 years** (e.g., 2020-2025).
 
-                **Search Strategy Guidelines (CRITICAL):**
-                1. **Generalize Specific Entities:** 
-                - If the query mentions a specific cell line (e.g., "MCF-7"), search for the broader disease or tissue type (e.g., "Breast Neoplasms").
-                - If the query mentions a specific drug subtype, include the drug class.
-                2. **Limit 'AND' Operators:** 
-                - Only combine the **2 or 3 most critical concepts** (e.g., The Interacting Molecules + The Disease). 
-                - Do NOT 'AND' common biological outcomes (like "cell proliferation", "apoptosis") unless they are the sole focus, as these are often implied in broader reviews.
-                3. **Expand 'OR' Operators:** 
-                - Use extensive synonyms and broad MeSH terms for each concept.
-                - Include related biological processes (e.g., for "Rho proteins", also include "Prenylation" or "GTPases").
-                4. **Formatting:**
-                - Use MeSH terms (`[MeSH Terms]`) and Title/Abstract keywords (`[Title/Abstract]`).
-                - Use standard Boolean operators.
+**Output format:**
+Return ONLY the raw search query string compatible with PubMed. Do not include explanations or markdown formatting.
 
-                **Requirements:**
-                1. Limit document type to: "review"[Publication Type] OR "systematic review"[Publication Type]
-                2. Limit to articles from the last 5 years: (("2019"[Date - Publication] : "3000"[Date - Publication]))
-                3. Output ONLY the search query string. No explanations.
-                """
+**Example Logic:**
+(Concept A [MeSH] OR Keyword A [TiAb] OR Synonym A [TiAb]) AND (Concept B [MeSH] OR Keyword B [TiAb]) AND (Filter: Reviews) AND (Filter: Date)
+"""
         result=self.call_llm(prompt)
         print("mesh strategy=>",result)
         return str(result)

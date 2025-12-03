@@ -375,7 +375,7 @@ Table 4. Efficiency of CRISPRa- and CRISPRi-mediated activation and inhibition o
 |   | DPDS | Mef2d | Cardiomyocytes | 30-fold | 3-fold | 276  |
 |   | DPDS | Klf15 | Cardiomyocytes | 15-fold | 4-fold | 276  |
 |   | SPDS | HGF | HEK293T | 10--15-fold | 1.8-fold | 220  |
-|  dCas9/VP64 | DPDS | HNF4a | AML12 | 40-fold | 1.2-fold | 261  |
+|  dCas9/VP64 | DPDS | HNF4α | AML12 | 40-fold | 1.2-fold | 261  |
 |   | DPDS | CT45 | A2780 | 4-fold |  | 349  |
 |   | SPDS | miR-524 | LN-229 | 4-fold | 3-fold | 206  |
 |   | SPDS | miR-524 | MDA-MB-23 | 7-fold | 3-fold | 206  |
