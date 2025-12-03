@@ -182,8 +182,8 @@ Table 2. CRISPR-mediated animal models of DMD.
 |  | Rabbit | Ex51 | Ex51 | SpCas9 | - | Severe muscle dystrophy | - | Expensive to maintain |
 |  |  |  |  |  | - | Severe cardiomyopathy | - | Lack of accepted protocols |
 |  | Pig | Ex13 | Ex13 | $\begin{gathered} \mathrm{BE} 3, \\ \mathrm{hA3A-} \\ \mathrm{BE} 3 \end{gathered}$ | - | Severe muscular dystrophy Anatomy, size and physiology closer to humans | - | Expensive to maintain <br> Long gestational period <br> Accelerated dystrophy compared to human <br> Stress may induced sudden death <br> Lack of accepted protocols |
-|  |  | Ex27 | Ex27 |  | - |  |  | [140] |
-|  |  | Ex52 | Ex52 |  | - |  |  | [139] |
+|  |  | Ex27 | Ex27 |  | - |  | - | [140] |
+|  |  | Ex52 | Ex52 |  | - |  | - | [139] |
 |  | Dog | Ex6 | Ex6 | SpCas9 | - | Severe muscular dystrophy Severe cardiomyopathy | - | Expensive to maintain |
 |  |  |  |  |  | - | Anatomy, size and physiology closer to humans | High variability <br> Low statistical power | [146] |
 |  | Monkey | Ex4 or Ex46 | Ex4 or Ex46 | SpCas9 | - | Greatest similarity to humans | - | Expensive to maintain <br> Long gestational period <br> Recent model, lack of accepted protocols | [147] |
