@@ -12,6 +12,7 @@ from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Review_fetcher.index import ReviewFetcherAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
+from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
 from ExampleText.index import ExampleText
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
@@ -26,18 +27,20 @@ if __name__ == "__main__":
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     model_name=os.environ.get("OPENAI_MODEL")
-    memory=get_memory()
+    # memory=get_memory()
     test=ExampleText()
     json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    agent = ReviewFetcherAgent(client, model_name=model_name)
+    # agent = ReviewFetcherAgent(client, model_name=model_name)
     # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     # agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251203-170338.json')
-    # merger = SubgraphMerger()
-    # merger.process(memory)
-    # visualize_global_kg(memory)
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251203-183309.json')
+    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="Prenylated proteins")
+    keywordAgent.process()
+    # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
+    # fusionAgent.process(memory=memory)
+    visualize_global_kg(memory)
     export_memory_to_neo4j(
         mem=memory,
         uri="bolt://localhost:7687",

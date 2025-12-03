@@ -20,7 +20,7 @@ class SubgraphMerger(Agent):
         # (subgraph_id, local_entity_id) -> global_entity_id
         self.local2global: Dict[Tuple[str, str], str] = {}
         # self.memory=get_memory()
-        self.memory=memory
+        self.memory=memory or get_memory()
         self.client=client
         self.model_name=model_name
         super().__init__(client,model_name,"")
@@ -123,8 +123,10 @@ class SubgraphMerger(Agent):
 
     # ------- 对外入口 -------
 
-    def process(self):
-        mem=self.memory
+    def process(self,memory:Optional[Memory]):
+        mem=memory or self.memory
+        print("this is memory",mem)
+        print("this is memory.subgraphs",mem.subgraphs.items())
         self.local2global = {}
         self._merge_alignments(mem)
         self._merge_unaligned_entities(mem)
