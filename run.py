@@ -19,6 +19,7 @@ from ExampleText.index import ExampleText
 from Agents.Task_scheduler.index import TaskSchedulerAgent
 from Agents.Query_clarify.index import QueryClarifyAgent
 from Agents.Alignment_triple.index import AlignmentTripleAgent
+from Agents.Fusion_subgraph.index import SubgraphMerger
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
@@ -82,4 +83,8 @@ if __name__ == "__main__":
     for subgraph_id in subgraphs_ids:
         memory.remove_subgraph(subgraph_id)
         logger.info(f"Removed empty subgraph {subgraph_id}")
+    logger.info("Fusion Subgraphs started...")
+    fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
+    fusionAgent.process()
+    logger.info("Fusion Subgraphs finished...")
     memory.dump_json("./snapshots")
