@@ -196,8 +196,8 @@ class CollaborationExtractionAgent(Agent):
         relations=subgraph.get_relations()
         for i,entity in enumerate(entities):
             entity_name=entity.name
-            if subgraph.relations.by_head.get(entity_name) or subgraph.relations.by_tail.get(entity_name):
-                for relation in relations:
+            
+            for relation in relations:
                     if relation.head==entity_name or fuzz.partial_ratio(relation.head,entity_name)>90:
                         relation.subject=entity
                     if relation.tail==entity_name or fuzz.partial_ratio(relation.tail,entity_name)>90:
