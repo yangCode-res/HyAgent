@@ -1,4 +1,5 @@
 from asyncio import Task
+from copy import copy
 import os
 import warnings
 
@@ -17,6 +18,7 @@ from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from ExampleText.index import ExampleText
 from Agents.Task_scheduler.index import TaskSchedulerAgent
 from Agents.Query_clarify.index import QueryClarifyAgent
+from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
@@ -41,36 +43,43 @@ if __name__ == "__main__":
     intention= response.get("main_intention", "") # type: ignore
     print("Clarified Query:", clarified_query)
     reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
-    reviewfetcheragent.process(clarified_query)
-    task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name) # type: ignore
-    pipeline=task_scheduler.process(clarified_query)
-    pipeline.run()
-# agent.memory.dump_json("./snapshots")
-#     logger.info("Entity extraction started...")
-#     entityAgent=EntityExtractionAgent(client=client, model=model_name)
-#     entityAgent.process(documents=json_texts)
-#     logger.info("Entity extraction finished.")
-#     logger.info("Entity normalization started...")
-#     normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
-#     normalizeAgent.process(memory)
-#     logger.info("Relationship extraction started...")
-#     relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
-#     relationAgent.process(json_texts)    
-#     logger.info("Relationship extraction finished.")
-#     # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
-#     logger.info("Collaboration extraction started...")
-#     collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
-#     collaborationAgent.process()
-#     memory.dump_json("./snapshots")
-#     logger.info("Collaboration extraction finished.")
-#     logger.info("Causal extraction started...")
-#     causalAgent=CausalExtractionAgent(client=client, model_name=model_name,memory=memory)
-#     causalAgent.process(json_texts)
-#     logger.info("Causal extraction finished.")
-#     logger.info("Temporal extraction started...")
-#     agent=TemporalExtractionAgent(client=client,model_name=model_name)
-#     agent.process()
-#     logger.info("Temporal extraction finished.")
-#     logger.info("HyGraph finished.")
-#     logger.info("="*100)
-#     memory.dump_json("./snapshots")
+    reviewfetcheragent.process(user_query)
+    # task_scheduler=TaskSchedulerAgent(client=client, model_name=model_name) # type: ignore
+    # pipeline=task_scheduler.process(user_query)
+    # pipeline.run()
+   # agent.memory.dump_json("./snapshots")
+    # logger.info("Entity extraction started...")
+    # entityAgent=EntityExtractionAgent(client=client, model=model_name)
+    # entityAgent.process()
+    # logger.info("Entity extraction finished.")
+    # logger.info("Entity normalization started...")
+    # normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
+    # normalizeAgent.process()
+    logger.info("Relationship extraction started...")
+    relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
+    relationAgent.process()    
+    logger.info("Relationship extraction finished.")
+    # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
+    logger.info("Collaboration extraction started...")
+    collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name)
+    collaborationAgent.process()
+    memory.dump_json("./snapshots")
+    logger.info("Collaboration extraction finished.")
+    logger.info("Causal extraction started...")
+    causalAgent=CausalExtractionAgent(client=client, model_name=model_name)
+    causalAgent.process()
+    logger.info("Causal extraction finished.")
+    # memory.dump_json("./snapshots")
+    # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251203-144947.json')
+    logger.info("Alignment extraction started...")
+    alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
+    alignmentAgent.process()
+    logger.info("Alignment extraction finished.")
+    subgraphs_ids=[]
+    for subgraph in memory.subgraphs.values():
+        if subgraph.entities.all()==[]:
+            subgraphs_ids.append(subgraph.id)
+    for subgraph_id in subgraphs_ids:
+        memory.remove_subgraph(subgraph_id)
+        logger.info(f"Removed empty subgraph {subgraph_id}")
+    memory.dump_json("./snapshots")

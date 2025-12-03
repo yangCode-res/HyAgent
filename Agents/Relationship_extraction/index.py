@@ -119,7 +119,11 @@ Output:
         paragraph=subgraph.meta.get("text","")
         causal_types=self.extract_existing_relation(paragraph)
         # print(causal_types)
-        extracted_triples=self.extract_relationships(paragraph, subgraph_id, causal_types)
+        extracted_triples=[]
+        for causal_type in causal_types:
+            triples=self.extract_relationships(paragraph,subgraph_id,causal_type)
+            for triple in triples:
+                extracted_triples.append(triple)
         extracted_triples=self.remove_duplicate_triples(extracted_triples)
         subgraph=self.memory.get_subgraph(subgraph_id) # type: ignore
         if not subgraph:
@@ -157,16 +161,16 @@ Return only valid array:
             return []
         return []
     ###step 2: extract relationships from the text with provided existing relationship types
-    def extract_relationships(self,text:str,subgraph_id,causal_types:List[str]) -> List[KGTriple]:
+    def extract_relationships(self,text:str,subgraph_id,causal_type:str) -> List[KGTriple]:
         """
         relationship extraction
         parameters:
         text:the paragraph to be extracted(the function could only settle with one paragraph each time so it might be called for times)
-        causal_types:the causal relationships recognized from the causal_extraction agent
+        causal_type:the causal relationship recognized from the causal_extraction agent
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        relations='\n'.join(causal_type for causal_type in causal_types)
+        relations=causal_type
         prompt = f"""
 
         From the text below, identify direct relationships between entities.
@@ -174,7 +178,7 @@ Return only valid array:
         Please make sure that the relationships you extract are not in conflict with the provided causal types.
         Text to analyze:
         {text}
-        Existing relationship types:
+        Existing relationship type:
         {relations}
         Return only a JSON array of relationships
         """

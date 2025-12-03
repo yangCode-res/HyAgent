@@ -67,6 +67,12 @@ Rules:
         
     def process(self) -> None:
         for sg_id, sg in self.memory.subgraphs.items():
+            if sg.entities.all()==[]:
+                self.logger.info(f"AlignmentTripleAgent: Subgraph {sg_id} has no entities, skipping.")
+                continue
+            if sg.get_relations()==[]:
+                self.logger.info(f"AlignmentTripleAgent: Subgraph {sg_id} has no relationships, skipping.")
+                continue
             ent_embeds: Dict[str, Embedding] = {}
             ent_map: Dict[str, KGEntity] = {}
             for ent in sg.entities.all():
@@ -407,6 +413,7 @@ Rules:
             center_ids: List[str], 每个超边的中心实体 id
             hyperedge_embeds: np.ndarray[m, d] (如果有 embedding，否则 None)
         """
+        
         n = adj.shape[0]
         # 反向索引 idx -> entity_id
         idx2id = {idx: eid for eid, idx in id2idx.items()}

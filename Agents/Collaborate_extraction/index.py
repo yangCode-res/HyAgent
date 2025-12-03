@@ -44,6 +44,12 @@ class CollaborationExtractionAgent(Agent):
         
     
     def process_subgraph(self,subgraph:Subgraph):
+        if subgraph.entities.all()==[]:
+            self.logger.info(f"CollaborationExtractionAgent: Subgraph {subgraph.id} has no entities, skipping.")
+            return
+        if subgraph.get_relations()==[]:
+            self.logger.info(f"CollaborationExtractionAgent: Subgraph {subgraph.id} has no relationships, skipping.")
+            return
         with concurrent.futures.ThreadPoolExecutor() as executor:
             future_entity=executor.submit(self.entity_extraction,subgraph)
             future_relationship=executor.submit(self.relationship_extraction,subgraph)

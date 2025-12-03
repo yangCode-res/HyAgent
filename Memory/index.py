@@ -451,6 +451,10 @@ class Memory:
 
     def get_subgraph(self, sg_id: str) -> Optional[Subgraph]:
         return self.subgraphs.get(sg_id)
+    
+    def remove_subgraph(self, sg_id: str) -> None:
+        if sg_id in self.subgraphs:
+            del self.subgraphs[sg_id]
 
     # 导出全局快照（包含子图内部）
     def dump_json(self, dirpath: str = ".") -> str:
