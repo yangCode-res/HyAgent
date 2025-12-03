@@ -33,7 +33,7 @@ if __name__ == "__main__":
     json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    user_query = "(1)Cancer classification accuracy and stability vary between different network constructions. (2) Ordering network displays better overall performance compared to correlation network across multiple cancer datasets. (3) Optimal classification performance does not necessarily correlate with the number of genes used in the model.  "
+    user_query = "By what mechanism do prenylated proteins (specifically Rho proteins) regulate estradiol-stimulated cell proliferation and ERα-mediated transcriptional activity in MCF-7 cells?"
     queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     response = queryclarifyagent.process(user_query)
     clarified_query = response.get("clarified_question", user_query) # type: ignore

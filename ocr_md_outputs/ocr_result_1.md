@@ -117,9 +117,9 @@ High-affinity, competitive binding of $17 \beta$-oestradiol to GPER was first de
 
 ## 2000s
 
-- 2000-2002: The role of GPR30 in mediating rapid $17 \beta$-oestradiol signalling discovered ${ }^{13,19}$
+- 2000-2002: The role of GPR30 in mediating rapid 17ß-oestradiol signalling discovered ${ }^{13,19}$
 - 2005: 17ß-Oestradiol binding to GPR30 demonstrated ${ }^{14,15}$
-- 2006-2009: GPR30 activation dilates human arteries and lowers blood pressure; $17 \beta$-oestradiol regulates human arterial GPR30 expression; GPR30 expression prevents obesity ${ }^{19,121}$
+- 2006-2009: GPR30 activation dilates human arteries and lowers blood pressure; 17ß-oestradiol regulates human arterial GPR30 expression; GPR30 expression prevents obesity ${ }^{19,121}$
 - 2006-2011: First GPR30-selective agonist (G-1) and antagonists (G15 and G36) developed ${ }^{87-90}$
 - 2008: International Union of Basic and Clinical Pharmacology designates GPR30 as G protein-coupled oestrogen receptor (GPER) ${ }^{16}$
 - 2009: Role of GPER and efficacy of G-1 treatment in multiple sclerosis shown ${ }^{118,149}$
@@ -128,10 +128,10 @@ High-affinity, competitive binding of $17 \beta$-oestradiol to GPER was first de
 ## 2010s
 
 - 2010: Protective effects of GPER in myocardial reperfusion injury shown ${ }^{127}$
-- 2011: GPER mediates $17 \beta$-oestradiol-stimulated pancreatic $\beta$-cell insulin secretion ${ }^{26}$
+- 2011: GPER mediates 17ß-oestradiol-stimulated pancreatic $\beta$-cell insulin secretion ${ }^{26}$
 - 2016: GPER regulates NOX1; G36 identified as NOX1 downregulator ${ }^{29,157}$
-- 2016: Roles of GPER in melanin production and therapeutic effects of G-1 in malignant melanoma shown ${ }^{129,128}$
-- 2019: Phase I clinical trial of G-1 (LN58801) for cancer ${ }^{78-80}$
+- 2016: Roles of GPER in melanin production and therapeutic effects of G-1 in malignant melanoma shown ${ }^{129,130}$
+- 2019: Phase I clinical trial of G-1 (LNS8801) for cancer ${ }^{78-80}$
 - 2019: First ER $\alpha$-selective and ER $\beta$-selective agonist AB-1 developed ${ }^{77}$
 
 

@@ -377,7 +377,7 @@ class EntityExtractionAgent(Agent):
 
         # 3. 去重
         kg_entities = self._deduplicate_entities(kg_entities)
-
+        self.logger.info("have extracted entities=>",kg_entities)
         # 4. 写回当前子图
         sg.upsert_many_entities(kg_entities)
 
@@ -410,3 +410,4 @@ class EntityExtractionAgent(Agent):
             # 用 tqdm 监控整体进度：每个子图算一个任务
             for _ in tqdm(as_completed(futures), total=len(futures), desc="Entity extraction over subgraphs"):
                 pass
+        
