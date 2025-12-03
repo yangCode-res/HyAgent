@@ -16,10 +16,11 @@ from Store.index import get_memory
 """
 
 class SubgraphMerger(Agent):
-    def __init__(self,client:OpenAI,model_name:str):
+    def __init__(self,client:OpenAI,model_name:str,memory:Memory):
         # (subgraph_id, local_entity_id) -> global_entity_id
         self.local2global: Dict[Tuple[str, str], str] = {}
-        self.memory=get_memory()
+        # self.memory=get_memory()
+        self.memory=memory
         self.client=client
         self.model_name=model_name
         super().__init__(client,model_name,"")

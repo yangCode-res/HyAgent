@@ -11,6 +11,7 @@ from Agents.Entity_normalize.index import EntityNormalizationAgent
 from Agents.Relationship_extraction.index import RelationshipExtractionAgent
 from Agents.Review_fetcher.index import ReviewFetcherAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
+from Agents.Fusion_subgraph.index import SubgraphMerger
 from ExampleText.index import ExampleText
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     agent = ReviewFetcherAgent(client, model_name=model_name)
     # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     # agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251120-103349.json')
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251203-170338.json')
     # merger = SubgraphMerger()
     # merger.process(memory)
     # visualize_global_kg(memory)
