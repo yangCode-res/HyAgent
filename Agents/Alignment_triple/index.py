@@ -64,6 +64,7 @@ Rules:
         self.subgraph_hypergraphs: Dict[str, Dict[str, Any]] = {}
         self.entity_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
         self.subgraph_entities: Dict[str, Dict[str, KGEntity]] = {}
+        
     def process(self) -> None:
         for sg_id, sg in self.memory.subgraphs.items():
             ent_embeds: Dict[str, Embedding] = {}

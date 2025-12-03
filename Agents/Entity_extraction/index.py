@@ -381,6 +381,8 @@ class EntityExtractionAgent(Agent):
         # 4. 写回当前子图
         sg.upsert_many_entities(kg_entities)
 
+        self.memory.register_subgraph(sg)
+
     def process(self, max_workers: Optional[int] = None) -> None:
         """
         并行执行实体抽取主流程（从内存中读取子图）：
