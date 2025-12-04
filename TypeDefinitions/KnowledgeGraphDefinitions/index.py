@@ -67,5 +67,6 @@ class KnowledgeGraph:
         dfs(entity,0)
         return KnowledgeGraph(subgraph_relations)
     
-
+#k.init(relations);
+#k.get_subgraph(entity,depth)
         
