@@ -41,6 +41,8 @@ class CollaborationExtractionAgent(Agent):
                     continue
                 futures.append(executor.submit(self.process_subgraph,subgraph))
         concurrent.futures.wait(futures)
+        for subgraph_id,subgraph in subgraphs.items():
+            self.remove_all_unlinked_relations(subgraph)
         
     
     def process_subgraph(self,subgraph:Subgraph):
@@ -60,7 +62,8 @@ class CollaborationExtractionAgent(Agent):
         subgraph.entities.update(extracted_entities)
         subgraph.relations.reset()
         subgraph.relations.add_many(extracted_relationships)
-        self.entity_relation_linking(subgraph)
+        subgraph=self.entity_relation_linking(subgraph)
+        subgraph=self.remove_all_unlinked_relations(subgraph)
         self.memory.register_subgraph(subgraph)
 
     def entity_extraction(self,subgraph)->List[KGEntity]:
@@ -259,4 +262,10 @@ class CollaborationExtractionAgent(Agent):
                 self.logger.info(logger)
         return subgraph
         
-
+    def remove_all_unlinked_relations(self,subgraph)->Subgraph:
+        relations=subgraph.get_relations()
+        linked_relations=[relation for relation in relations if relation.subject and relation.object]
+        subgraph.relations.reset()
+        subgraph.relations.add_many(linked_relations)
+        self.memory.register_subgraph(subgraph)
+        return subgraph

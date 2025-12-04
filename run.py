@@ -68,25 +68,25 @@ if __name__ == "__main__":
     collaborationAgent.process()
     memory.dump_json("./snapshots")
     logger.info("Collaboration extraction finished.")
-    logger.info("Causal extraction started...")
-    causalAgent=CausalExtractionAgent(client=client, model_name=model_name)
-    causalAgent.process()
-    logger.info("Causal extraction finished.")
+    # logger.info("Causal extraction started...")
+    # causalAgent=CausalExtractionAgent(client=client, model_name=model_name)
+    # causalAgent.process()
+    # logger.info("Causal extraction finished.")
+    # # memory.dump_json("./snapshots")
+    # # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251203-144947.json')
+    # logger.info("Alignment extraction started...")
+    # alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
+    # alignmentAgent.process()
+    # logger.info("Alignment extraction finished.")
+    # subgraphs_ids=[]
+    # for subgraph in memory.subgraphs.values():
+    #     if subgraph.entities.all()==[]:
+    #         subgraphs_ids.append(subgraph.id)
+    # for subgraph_id in subgraphs_ids:
+    #     memory.remove_subgraph(subgraph_id)
+    #     logger.info(f"Removed empty subgraph {subgraph_id}")
+    # logger.info("Fusion Subgraphs started...")
+    # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
+    # fusionAgent.process()
+    # logger.info("Fusion Subgraphs finished...")
     # memory.dump_json("./snapshots")
-    # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251203-144947.json')
-    logger.info("Alignment extraction started...")
-    alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
-    alignmentAgent.process()
-    logger.info("Alignment extraction finished.")
-    subgraphs_ids=[]
-    for subgraph in memory.subgraphs.values():
-        if subgraph.entities.all()==[]:
-            subgraphs_ids.append(subgraph.id)
-    for subgraph_id in subgraphs_ids:
-        memory.remove_subgraph(subgraph_id)
-        logger.info(f"Removed empty subgraph {subgraph_id}")
-    logger.info("Fusion Subgraphs started...")
-    fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
-    fusionAgent.process()
-    logger.info("Fusion Subgraphs finished...")
-    memory.dump_json("./snapshots")
