@@ -123,7 +123,11 @@ class SubgraphMerger(Agent):
 
     # ------- 对外入口 -------
 
-    def process(self):
+    def process(self,memory:Optional[Memory]=None):
+        if memory is not None:
+            self.memory = memory
+        else:
+            self.memory = get_memory()
         self.local2global = {}
         self._merge_alignments(self.memory)
         self._merge_unaligned_entities(self.memory)

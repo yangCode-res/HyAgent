@@ -35,8 +35,8 @@ if __name__ == "__main__":
     # agent = ReviewFetcherAgent(client, model_name=model_name)
     # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     # agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251203-183309.json')
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="Prenylated proteins")
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251204-104543.json')
+    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
     keywordAgent.process()
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process(memory=memory)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         clear_db=True,      # 如果希望每次都清空图再导入
         max_edges=5000,
 )
-    memory.dump_json("./snapshots")
+    # memory.dump_json("./snapshots")
 #     logger.info("Entity extraction started...")
 #     entityAgent=EntityExtractionAgent(client=client, model=model_name)
 #     entityAgent.process(documents=json_texts)
