@@ -1,0 +1,71 @@
+from dataclasses import dataclass
+from typing import List, Optional
+
+from HyAgent.Logger.index import get_global_logger
+from Store.index import get_memory
+from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
+"""
+Knowledge Graph 定义信息。
+- Graph: 知识图谱的图结构，使用邻接表表示。格式为{头节点,[(尾节点，三元组)]} 即{KGEntity:List[(KGEntity,KGTriple)]}
+"""
+@dataclass
+class KnowledgeGraph:
+    def __init__(self,relations:Optional[List[KGTriple]]=None):
+        """
+        初始化知识图谱。
+        :param relations: 可选的初始三元组列表，用于构建知识图谱。
+        如果relations没传入，则从memory中加载已有的三元组。
+        """
+        self.Graph={}
+        self.memory=get_memory()
+        self.logger=get_global_logger()
+        relations=relations or self.memory.relations.all()
+        if relations is None:
+            self.logger.error("No relations provided to initialize KnowledgeGraph and memory is empty.")
+            return
+        for triple in relations:
+            self.add_edge(triple)
+        self.sort_by_confidence()
+    
+    def add_edge(self,triple:KGTriple):
+        subj=triple.subject
+        obj=triple.object
+        if subj not in self.Graph:
+            self.Graph[subj]=[]
+            self.Graph[subj].append((obj,triple))
+        else:
+            self.Graph[subj].append((obj,triple))
+    
+    def sort_by_confidence(self):
+        """
+        根据三元组的置信度对每个头实体的边进行排序，置信度高的三元组排在前面。
+        """
+        for subj in self.Graph:
+            self.Graph[subj].sort(key=lambda x: x[1].confidence[0],reverse=True)
+    
+    def get_subgraph(self,entity:KGEntity,depth:int)->'KnowledgeGraph':
+        """
+        获取以指定实体为中心，指定深度的子图。
+        :param entity: 中心实体。
+        :param depth: 深度，表示从中心实体出发经过多少跳边。
+        :return: 包含子图的KnowledgeGraph对象。
+        """
+        subgraph_relations=[]
+        visited=set()
+        
+        def dfs(current_entity:KGEntity,current_depth:int):
+            if current_depth>depth or current_entity in visited:
+                return
+            visited.add(current_entity)
+            if current_entity in self.Graph:
+                for neighbor,triple in self.Graph[current_entity]:
+                    subgraph_relations.append(triple)
+                    dfs(neighbor,current_depth+1)
+        
+        dfs(entity,0)
+        return KnowledgeGraph(subgraph_relations)
+    
+
+        
