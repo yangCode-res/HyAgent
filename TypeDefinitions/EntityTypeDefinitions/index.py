@@ -99,7 +99,7 @@ ENTITY_DEFINITIONS: Dict[EntityType, EntityDefinition] = {
         include=["miscellaneous biomedical concepts", "study design elements", "context-specific terms"],
     ),
 }
-@dataclass
+@dataclass(frozen=True)
 class KGEntity:
     """
     Represents a canonical entity in the knowledge graph.

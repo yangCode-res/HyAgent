@@ -13,6 +13,7 @@ from Agents.Review_fetcher.index import ReviewFetcherAgent
 from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
 from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
+from Agents.Path_extraction.index import PathExtractionAgent
 from ExampleText.index import ExampleText
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
@@ -35,20 +36,22 @@ if __name__ == "__main__":
     # agent = ReviewFetcherAgent(client, model_name=model_name)
     # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     # agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251204-104543.json')
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
-    keywordAgent.process()
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251205-210706.json')
+    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,memory=memory)
+    PathExtractionAgent.process()
+    # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
+    # keywordAgent.process()
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process(memory=memory)
-    visualize_global_kg(memory)
-    export_memory_to_neo4j(
-        mem=memory,
-        uri="bolt://localhost:7687",
-        user="neo4j",
-        password="mingming0.+",
-        clear_db=True,      # 如果希望每次都清空图再导入
-        max_edges=5000,
-)
+    # visualize_global_kg(memory)
+#     export_memory_to_neo4j(
+#         mem=memory,
+#         uri="bolt://localhost:7687",
+#         user="neo4j",
+#         password="mingming0.+",
+#         clear_db=True,      # 如果希望每次都清空图再导入
+#         max_edges=5000,
+# )
     # memory.dump_json("./snapshots")
 #     logger.info("Entity extraction started...")
 #     entityAgent=EntityExtractionAgent(client=client, model=model_name)

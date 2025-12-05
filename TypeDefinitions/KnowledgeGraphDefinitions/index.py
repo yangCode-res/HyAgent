@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional
 
-from HyAgent.Logger.index import get_global_logger
+from Logger.index import get_global_logger
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
@@ -66,7 +66,6 @@ class KnowledgeGraph:
         
         dfs(entity,0)
         return KnowledgeGraph(subgraph_relations)
-    
 #k.init(relations);
 #k.get_subgraph(entity,depth)
         

@@ -285,5 +285,5 @@ class KeywordEntitySearchAgent(Agent):
                 f"[KeywordSearch] keyword='{kw}', LLM chose: "
                 f"{best_ent.get_name()} (id={best_ent.entity_id}, sim={best_score:.4f})"
             )
-
+        self.memory.add_key_entity(best_ent)
         return best_ent, best_score, candidates

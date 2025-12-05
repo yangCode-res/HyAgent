@@ -425,7 +425,32 @@ class Subgraph:
 
 
 # ===================== 全局共享记忆池 =====================
+# ===================== 关键实体存储（简单列表） =====================
 
+class KeyEntityStore:
+    """
+    用于存储“关键实体”的简单列表：
+    - 不做去重合并，不维护任何索引
+    - 只提供追加、批量追加、获取全部、清空等基础操作
+    """
+    def __init__(self):
+        self.entities: List[KGEntity] = []
+
+    def add(self, e: KGEntity) -> None:
+        """追加一个关键实体"""
+        self.entities.append(e)
+
+    def add_many(self, ents: List[KGEntity]) -> None:
+        """批量追加关键实体"""
+        self.entities.extend(ents)
+
+    def all(self) -> List[KGEntity]:
+        """返回所有关键实体（原始列表）"""
+        return list(self.entities)
+
+    def reset(self) -> None:
+        """清空关键实体列表"""
+        self.entities.clear()
 class Memory:
     """
     全局共享记忆池：
@@ -439,6 +464,8 @@ class Memory:
         self.subgraphs: Dict[str, Subgraph] = {}
         # 新增：极简实体对齐存储
         self.alignments = AlignmentStore()
+        # 新增：关键实体列表存储
+        self.key_entities = KeyEntityStore()
 
     def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(entities)
@@ -455,7 +482,14 @@ class Memory:
     def remove_subgraph(self, sg_id: str) -> None:
         if sg_id in self.subgraphs:
             del self.subgraphs[sg_id]
-
+    def add_key_entity(self, e: KGEntity) -> None:
+        self.key_entities.add(e)
+    def add_key_entities(self, ents: List[KGEntity]) -> None:
+        self.key_entities.add_many(ents)
+    def get_key_entities(self) -> List[KGEntity]:
+        return self.key_entities.all()
+    def get_allRealationShip(self)-> List[KGTriple]:
+        return self.relations.all()
     # 导出全局快照（包含子图内部）
     def dump_json(self, dirpath: str = ".") -> str:
         ts = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -472,6 +506,8 @@ class Memory:
             },
             # 新增：对齐结果
             "alignments": self.alignments.to_list(),
+              # 新增：关键实体列表
+            "key_entities": [e.to_dict() for e in self.key_entities.all()],
             "meta": {"generated_at": ts},
         }
         with open(path, "w", encoding="utf-8") as f:
@@ -604,7 +640,11 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
     align_data = data.get("alignments", [])
     if align_data:
         mem.alignments.from_list(align_data)
-
+     # ---- 恢复关键实体列表 ----
+    key_ents_data = data.get("key_entities", [])
+    for ed in key_ents_data:
+        e = _coerce_entity(ed)
+        mem.key_entities.add(e)
     return mem
 
 
