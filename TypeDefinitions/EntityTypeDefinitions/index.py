@@ -99,7 +99,7 @@ ENTITY_DEFINITIONS: Dict[EntityType, EntityDefinition] = {
         include=["miscellaneous biomedical concepts", "study design elements", "context-specific terms"],
     ),
 }
-@dataclass(frozen=True)
+@dataclass
 class KGEntity:
     """
     Represents a canonical entity in the knowledge graph.
@@ -117,7 +117,8 @@ class KGEntity:
     normalized_id: str = "N/A"
     aliases: List[str] = field(default_factory=list)
     description: str = ""
-
+    def __hash__(self):
+        return hash(self.entity_id)
     def __str__(self) -> str:
         """String representation of the entity."""
         return f"{self.name} ({self.entity_type})"

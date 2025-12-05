@@ -30,8 +30,8 @@ class KnowledgeGraph:
         self.sort_by_confidence()
     
     def add_edge(self,triple:KGTriple):
-        subj=triple.subject
-        obj=triple.object
+        subj=KGEntity(**triple.subject)
+        obj=KGEntity(**triple.object)
         if subj not in self.Graph:
             self.Graph[subj]=[]
             self.Graph[subj].append((obj,triple))
@@ -43,7 +43,11 @@ class KnowledgeGraph:
         根据三元组的置信度对每个头实体的边进行排序，置信度高的三元组排在前面。
         """
         for subj in self.Graph:
-            self.Graph[subj].sort(key=lambda x: x[1].confidence[0],reverse=True)
+            self.Graph[subj].sort(
+                # 修改这里的 lambda 函数
+                key=lambda x: x[1].confidence[0] if (x[1].confidence and len(x[1].confidence) > 0) else 0.5,
+                reverse=True
+            )
     
     def get_subgraph(self,entity:KGEntity,depth:int)->'KnowledgeGraph':
         """
@@ -65,7 +69,7 @@ class KnowledgeGraph:
                     dfs(neighbor,current_depth+1)
         
         dfs(entity,0)
-        return KnowledgeGraph(subgraph_relations)
+        return subgraph_relations
 #k.init(relations);
 #k.get_subgraph(entity,depth)
         

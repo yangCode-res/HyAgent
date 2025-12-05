@@ -22,10 +22,11 @@ class PathExtractionAgent(Agent):
         self.keyEntitys:List[KGEntity]=self.memory.get_key_entities()
         self.knowledgeGraph:KnowledgeGraph=KnowledgeGraph(self.memory.get_allRealationShip())
         # self.knowledgeGraph.init()
+        
     def process(self):
-        print(self.knowledgeGraph.Graph)
-        subgraphs=self.memory.subgraphs
-
+        # print(self.knowledgeGraph.Graph)
+        subgraph=self.knowledgeGraph.get_subgraph(self.keyEntitys[0],depth=5)
+        print(subgraph)
  
     
 
