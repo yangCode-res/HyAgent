@@ -30,8 +30,8 @@ class KnowledgeGraph:
         self.sort_by_confidence()
     
     def add_edge(self,triple:KGTriple):
-        subj=KGEntity(**triple.subject)
-        obj=KGEntity(**triple.object)
+        subj=KGEntity(**triple.subject).entity_id
+        obj=KGEntity(**triple.object).entity_id
         if subj not in self.Graph:
             self.Graph[subj]=[]
             self.Graph[subj].append((obj,triple))
