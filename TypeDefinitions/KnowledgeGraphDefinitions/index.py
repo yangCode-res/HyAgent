@@ -67,9 +67,8 @@ class KnowledgeGraph:
                 for neighbor,triple in self.Graph[current_entity]:
                     subgraph_relations.append(triple)
                     dfs(neighbor,current_depth+1)
-        
         dfs(entity,0)
         return subgraph_relations
 #k.init(relations);
 #k.get_subgraph(entity,depth)
-        
+       

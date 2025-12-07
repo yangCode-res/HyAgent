@@ -22,6 +22,7 @@ from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from dotenv import load_dotenv
 from Agents.Fusion_subgraph.index import SubgraphMerger
 from utils.visualize import visualize_global_kg,export_memory_to_neo4j
+from Agents.Alignment_triple.index import AlignmentTripleAgent
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
@@ -36,11 +37,17 @@ if __name__ == "__main__":
     # agent = ReviewFetcherAgent(client, model_name=model_name)
     # user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
     # agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251205-210706.json')
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251207-160725.json')
+    # alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
+    # alignmentAgent.process()
+    # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
+    # fusionAgent.process(memory=memory)
     PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,memory=memory)
     PathExtractionAgent.process()
+    # memory.dump_json("./snapshots")
     # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
     # keywordAgent.process()
+    # memory.dump_json("./snapshots")
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process(memory=memory)
     # visualize_global_kg(memory)

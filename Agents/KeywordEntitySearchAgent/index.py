@@ -38,7 +38,6 @@ class KeywordEntitySearchAgent(Agent):
         memory: Optional[Memory] = None,
         top_k_default: int = 10,
     ):
-        # ✅ 修改后的 system_prompt：专门做“实体链接 + 候选消歧”
         system_prompt = (
             "You are a biomedical entity-linking agent. "
             "Given a query keyword and a list of candidate entities from a knowledge graph, "
@@ -50,17 +49,12 @@ class KeywordEntitySearchAgent(Agent):
         self.logger = get_global_logger()
         self.memory: Memory = memory or get_memory()
         self.top_k_default = top_k_default
-        self.keyword = keyword  # ✅ 关键词在 init 里传进来，以后都用 self.keyword
-
+        self.keyword = keyword
         self.biobert_dir = BioBertPath
         self.biobert_model = None
         self.biobert_tokenizer = None
-
-        # entity_id -> KGEntity
         self.entities: Dict[str, KGEntity] = {}
-        # entity_id -> np.ndarray (归一化后的 embedding)
         self.entity_embeddings: Dict[str, np.ndarray] = {}
-
         self._load_biobert()
         self._build_entity_index()
 
@@ -91,7 +85,6 @@ class KeywordEntitySearchAgent(Agent):
         text = (text or "").strip()
         if not text:
             return None
-
         inputs = self.biobert_tokenizer(
             text,
             return_tensors="pt",
@@ -111,75 +104,58 @@ class KeywordEntitySearchAgent(Agent):
 
     # ---------------- 建索引 ----------------
     def _build_entity_index(self) -> None:
-        if not self.biobert_model:
-            self.logger.warning("[KeywordSearch] BioBERT not available, skip index building.")
-            return
-
-        ents = list(self.memory.entities.all())
-        self.logger.info(f"[KeywordSearch] building index for {len(ents)} entities...")
-
+        triples = self.memory.relations.all()
+        seen_ids = set()
         count_ok = 0
-        for ent in ents:
-            self.entities[ent.entity_id] = ent
-
-            text = None
-            name = getattr(ent, "name", None)
-            desc = getattr(ent, "description", None)
-            norm_id = getattr(ent, "normalized_id", None)
-
-            if name and str(name).strip():
-                text = str(name)
-            elif desc and str(desc).strip():
-                text = str(desc)
-            elif norm_id and str(norm_id).strip():
-                text = str(norm_id)
-            else:
+        for tri in triples:
+            node = getattr(tri, 'subject', None)
+            if node is None:
                 continue
-
+            ent=KGEntity(**node)
+            eid = getattr(ent, "entity_id", None)
+            if not eid or eid in seen_ids:
+                continue
+            seen_ids.add(eid)
+            # 记录到本地实体索引
+            self.entities[eid] = ent
+            # 选一个文本用于 BioBERT 编码：name > description > normalized_id
+            text = getattr(ent, "name", None)
+            if(text == None): continue
             emb = self._encode_text(text)
             if emb is None:
                 continue
-
             emb_norm = self._l2_normalize(emb)
-            self.entity_embeddings[ent.entity_id] = emb_norm
+            self.entity_embeddings[eid] = emb_norm
             count_ok += 1
-
         self.logger.info(
-            f"[KeywordSearch] index built: {len(self.entities)} entities, "
-            f"{count_ok} got BioBERT embeddings."
+            f"[KeywordSearch] index built from relation subjects/objects: "
+            f"{len(self.entities)} entities, {count_ok} got BioBERT embeddings."
         )
-
     # ---------------- BioBERT 检索 Top-K ----------------
     def _search_top_k(self, keyword: str, top_k: Optional[int] = None) -> List[Tuple[KGEntity, float]]:
         if top_k is None:
             top_k = self.top_k_default
-
         if not self.entity_embeddings:
             self.logger.warning("[KeywordSearch] entity_embeddings is empty, return [].")
             return []
-
         q_vec = self._encode_text(keyword)
         if q_vec is None:
             self.logger.warning(f"[KeywordSearch] failed to encode keyword='{keyword}'")
             return []
         q_vec = self._l2_normalize(q_vec)
-
         scores: List[Tuple[str, float]] = []
         for eid, evec in self.entity_embeddings.items():
             if evec is None:
                 continue
             sim = float(np.dot(q_vec, evec))
             scores.append((eid, sim))
-
         scores.sort(key=lambda x: x[1], reverse=True)
         top_scores = scores[:top_k]
-
         results: List[Tuple[KGEntity, float]] = []
         for eid, sim in top_scores:
             ent = self.entities.get(eid)
             if ent is not None:
                 results.append((ent, sim))
-
         if results:
             self.logger.info(
                 f"[KeywordSearch] keyword='{keyword}' -> top1='{results[0][0].get_name()}' "
