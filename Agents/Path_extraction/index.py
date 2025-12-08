@@ -36,11 +36,23 @@ class PathExtractionAgent(Agent):
     ) -> Optional[Tuple[List[KGEntity], List[KGTriple]]]:
         node_path: List[KGEntity] = []
         edge_path: List[KGTriple] = []
+         # 当前已找到的“最佳路径”（最长）
+        best_nodes: List[KGEntity] = []
+        best_edges: List[KGTriple] = []
         node_path.append(start)
-        if k==1:
-            return node_path.copy(), edge_path.copy()
+        best_nodes = node_path.copy()   # 至少有起点
+        best_edges = edge_path.copy()
+         # 如果 k == 1，直接返回起点即可
+        if k == 1:
+            return best_nodes, best_edges
         def dfs(current:KGEntity) -> bool:
+            nonlocal best_nodes, best_edges
             current_id = current.entity_id
+            # 每次进入一个新节点，都尝试更新当前“最长路径”
+            if len(node_path) > len(best_nodes):
+                best_nodes = node_path.copy()
+                best_edges = edge_path.copy()
+
             if len(node_path) == k:
                 return True
             neighbors = adj.get(current_id, [])
@@ -51,18 +63,31 @@ class PathExtractionAgent(Agent):
                 node_path.append(child_node)
                 node_for_llm = node_path[:-1].copy()
                 edge_for_llm = edge_path[:-1].copy()
-                print(child_node,node_for_llm,edge_for_llm)
+                print('this is valid',node_for_llm)
+                print('this is child node',child_node)
                 if is_valid(child_node, node_for_llm, edge_for_llm):
                     if dfs(child_node): 
                         return True
                 node_path.pop()
                 edge_path.pop()
             return False
-        path=dfs(start)
-        if path:
-            return node_path.copy(), edge_path.copy()
+        
+        found_full = dfs(start)
+
+        if found_full:
+            # 找到了一条长度恰好为 k 的路径，此时 best_nodes / best_edges 其实就是这条
+            self.logger.info(
+                f"[PathExtraction] Found full path of length {k} "
+                f"(nodes={len(best_nodes)}, edges={len(best_edges)})."
+            )
+            return best_nodes, best_edges
         else:
-            return None
+            # 没有长度为 k 的路径，返回搜索过程中遇到的最长路径
+            self.logger.info(
+                f"[PathExtraction] No path of length {k} found; "
+                f"return longest path length={len(best_nodes)}."
+            )
+            return best_nodes, best_edges
     def is_valid(
         self,
         child: KGEntity,
@@ -112,22 +137,48 @@ class PathExtractionAgent(Agent):
             },
             "candidate_extension": {
                 "node": candidate_entity,
-                "position": "path_suffix",  # 说明是路径末端的扩展
+                "position": "path_suffix",
             },
             "decision_criterion": {
-                "novelty": "does this node help introduce potentially novel or less-trivial connections?",
-                "relevance": "is this node relevant to the query about CRISPR-Cas9 and genetic disorders?",
-                "mechanistic_value": "does this node help form or extend a mechanistic / causal chain?",
-                "verifiability": "could hypotheses using this node be testable or grounded in experiment?",
+                "novelty": (
+                    "Does this node help introduce potentially novel or less-trivial connections? "
+                    "Even if its wording already appears in the description of an existing node, "
+                    "it can still be useful if it acts as an explicit mechanism node that connects "
+                    "different upstream/downstream entities or clarifies causal direction."
+                ),
+                "relevance": (
+                    "Is this node relevant to the query about CRISPR-Cas9 and genetic disorders "
+                    "or closely related biomedical mechanisms, targets, delivery strategies, "
+                    "safety profiles, or therapeutic outcomes?"
+                ),
+                "mechanistic_value": (
+                    "Does this node help form or extend a mechanistic / causal chain "
+                    "(e.g., link gene-editing tools, molecular targets, delivery systems, "
+                    "phenotypes, or safety effects)?"
+                ),
+                "verifiability": (
+                    "Could hypotheses using this node be testable or grounded in experiment "
+                    "(e.g., wet-lab validation, in vitro/in vivo models, or clinical studies)?"
+                ),
+                "do_not_reject_just_because": [
+                    "the candidate label or phrase already appears in the description text of an existing node",
+                    "the candidate is a mechanism/action term (e.g., 'genetically modifies') rather than a named entity",
+                    "the candidate comes from the same or adjacent sentence as the current node (this is expected in local KG extraction)"
+                ],
             },
             "instruction": (
-                "Carefully read the query and the current path. "
-                "If extending the path with this candidate node is helpful for generating "
-                "plausible, innovative yet verifiable hypotheses, set \"accept\": true. "
-                "Otherwise set \"accept\": false. "
+                "Carefully read the query, the current path, and the candidate node. "
+                "You are working with a local knowledge graph extracted from nearby sentences, "
+                "so overlapping wording between node labels and descriptions is normal.\n\n"
+                "ACCEPT the candidate if it helps structure the mechanism, connects different entities, "
+                "clarifies causal direction, or can support concrete, testable hypotheses, "
+                "even when the phrase already appears in a description.\n\n"
+                "ONLY reject when the node is truly redundant (e.g., exact self-loop with no new role, "
+                "no new entity, and no new mechanistic link) or clearly off-topic.\n\n"
                 "Always respond ONLY with JSON: {\"accept\": true/false, \"reason\": \"...\"}."
             ),
         }
+
         prompt = json.dumps(payload, ensure_ascii=False)
         try:
             raw = self.call_llm(prompt)
@@ -154,17 +205,18 @@ class PathExtractionAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
         return True
     def process(self):
-        result = self.find_path_with_edges(
+        k=5
+        keyEntityPath, keyTripePath = self.find_path_with_edges(
             self.keyEntitys[0], 
-            k=2, 
+            k=k, 
             adj=self.knowledgeGraph.Graph, 
             is_valid=self.is_valid
         )
-        if result:
-            keyEntityPath, keyTripePath = result
-            pprint(keyEntityPath)
-        else:
-            print("⚠️ No path found with length 5.")
+        print(f"✅ 返回路径长度：{len(keyEntityPath)}（目标长度 k={k}）")
+        print("✅ 路径节点：")
+        pprint(keyEntityPath)
+        print("✅ 路径边：")
+        pprint(keyTripePath)
 
  
 
