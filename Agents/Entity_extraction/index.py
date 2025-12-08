@@ -287,7 +287,6 @@ class EntityExtractionAgent(Agent):
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
         result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
         selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
-        print(selected)
         allowed = {e.value: e for e in EntityType}
         def defs_from_selected(selected, defs=ENTITY_DEFINITIONS):
             return [defs[allowed[t]] for t in selected if t in allowed]

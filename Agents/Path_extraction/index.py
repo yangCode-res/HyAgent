@@ -12,7 +12,7 @@ from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
 import json
 class PathExtractionAgent(Agent):
-    def __init__(self, client: OpenAI, model_name: str,memory:Optional[Memory]=None):
+    def __init__(self, client: OpenAI, model_name: str,k=5,memory:Optional[Memory]=None):
         self.system_prompt = (
             "You are a biomedical AI4Science assistant. "
             "Your job is to decide whether extending a knowledge-graph path "
@@ -26,6 +26,7 @@ class PathExtractionAgent(Agent):
         self.query='What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?'
         self.keyEntitys:List[KGEntity]=self.memory.get_key_entities()
         self.knowledgeGraph:KnowledgeGraph=KnowledgeGraph(self.memory.get_allRealationShip())
+        self.k=k
         # self.knowledgeGraph.init()
     def find_path_with_edges(
         self,
@@ -205,14 +206,15 @@ class PathExtractionAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
         return True
     def process(self):
-        k=5
+        pprint(self.knowledgeGraph.Graph)
         keyEntityPath, keyTripePath = self.find_path_with_edges(
             self.keyEntitys[0], 
-            k=k, 
+            k=self.k, 
             adj=self.knowledgeGraph.Graph, 
             is_valid=self.is_valid
         )
-        print(f"✅ 返回路径长度：{len(keyEntityPath)}（目标长度 k={k}）")
+        self.memory.add_extracted_path(keyEntityPath, keyTripePath)
+        print(f"✅ 返回路径长度：{len(keyEntityPath)}（目标长度 k={self.k}）")
         print("✅ 路径节点：")
         pprint(keyEntityPath)
         print("✅ 路径边：")

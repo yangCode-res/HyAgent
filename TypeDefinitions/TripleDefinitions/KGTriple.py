@@ -58,7 +58,6 @@ class KGTriple:
     
     def __str__(self) -> str:
         return f"({self.head}, -[{self.relation}]->, {self.tail})"
-    
     @classmethod
     def from_dict(cls, data: dict) -> "KGTriple":
         return cls(**data)
