@@ -18,16 +18,17 @@ from Store.index import get_memory
 class SubgraphMerger(Agent):
     def __init__(self,client:OpenAI,model_name:str,memory:Memory):
         # (subgraph_id, local_entity_id) -> global_entity_id
+        super().__init__(client,model_name,"")
         self.local2global: Dict[Tuple[str, str], str] = {}
         # self.memory=get_memory()
-        self.memory: Memory = memory or get_memory()
+        self.memory=memory or get_memory()
         self.client=client
         self.model_name=model_name
-        super().__init__(client,model_name,"")
+        
     # ------- 工具方法 -------
 
-    def _get_entity(self, mem: Memory, sg_id: str, ent_id: str) -> Optional[KGEntity]:
-        sg = mem.subgraphs.get(sg_id)
+    def _get_entity(self, sg_id: str, ent_id: str) -> Optional[KGEntity]:
+        sg = self.memory.subgraphs.get(sg_id)
         if sg is None:
             return None
         return sg.entities.by_id.get(ent_id)
@@ -47,17 +48,17 @@ class SubgraphMerger(Agent):
 
     # ------- 步骤 1：合并对齐实体 -------
 
-    def _merge_alignments(self, mem: Memory):
-        for (src_sg, src_eid), aligns in mem.alignments.by_source.items():
-            src_ent = self._get_entity(mem, src_sg, src_eid)
+    def _merge_alignments(self):
+        for (src_sg, src_eid), aligns in self.memory.alignments.by_source.items():
+            src_ent = self._get_entity( src_sg, src_eid)
             if src_ent is None:
                 continue
 
             if (src_sg, src_eid) in self.local2global:
                 gid = self.local2global[(src_sg, src_eid)]
-                base = mem.entities.by_id[gid]
+                base = self.memory.entities.by_id[gid]
             else:
-                base = mem.entities.upsert(KGEntity(**src_ent.to_dict()))
+                base = self.memory.entities.upsert(KGEntity(**src_ent.to_dict()))
                 gid = base.entity_id
                 self.local2global[(src_sg, src_eid)] = gid
 
@@ -65,27 +66,27 @@ class SubgraphMerger(Agent):
                 key = (al.tgt_subgraph, al.tgt_entity)
                 if key in self.local2global:
                     continue
-                tgt_ent = self._get_entity(mem, al.tgt_subgraph, al.tgt_entity)
+                tgt_ent = self._get_entity(al.tgt_subgraph, al.tgt_entity)
                 if tgt_ent is None:
                     continue
-                mem.entities._merge(base, KGEntity(**tgt_ent.to_dict()))
+                self.memory.entities._merge(base, KGEntity(**tgt_ent.to_dict()))
                 self.local2global[key] = gid
 
     # ------- 步骤 2：未对齐实体走正常 upsert -------
 
-    def _merge_unaligned_entities(self, mem: Memory):
-        for sg_id, sg in mem.subgraphs.items():
+    def _merge_unaligned_entities(self):
+        for sg_id, sg in self.memory.subgraphs.items():
             for e in sg.entities.all():
                 key = (sg_id, e.entity_id)
                 if key in self.local2global:
                     continue
-                g = mem.entities.upsert(KGEntity(**e.to_dict()))
+                g = self.memory.entities.upsert(KGEntity(**e.to_dict()))
                 self.local2global[key] = g.entity_id
 
     # ------- 步骤 3：合并关系，并映射到全局实体 -------
 
-    def _merge_relations(self, mem: Memory):
-        for sg_id, sg in mem.subgraphs.items():
+    def _merge_relations(self):
+        for sg_id, sg in self.memory.subgraphs.items():
             for r in sg.relations.all():
                 # 统一把 subject/object 转成 KGEntity
                 subj = self._ensure_entity(r.subject)
@@ -100,12 +101,12 @@ class SubgraphMerger(Agent):
                 if sid is not None:
                     gid = self.local2global.get((sg_id, sid))
                     if gid:
-                        g_subj = mem.entities.by_id[gid]
+                        g_subj = self.memory.entities.by_id[gid]
 
                 if oid is not None:
                     gid = self.local2global.get((sg_id, oid))
                     if gid:
-                        g_obj = mem.entities.by_id[gid]
+                        g_obj = self.memory.entities.by_id[gid]
 
                 new_triple = KGTriple(
                     head=g_subj.name if g_subj else r.head,
@@ -119,16 +120,12 @@ class SubgraphMerger(Agent):
                     object=g_obj,
                     time_info=r.time_info,
                 )
-                mem.relations.add(new_triple)
+                self.memory.relations.add(new_triple)
 
     # ------- 对外入口 -------
 
-    def process(self,memory:Optional[Memory]=None):
-        if memory is not None:
-            self.memory = memory
-        else:
-            self.memory = get_memory()
+    def process(self):
         self.local2global = {}
-        self._merge_alignments(self.memory)
-        self._merge_unaligned_entities(self.memory)
-        self._merge_relations(self.memory)
+        self._merge_alignments()
+        self._merge_unaligned_entities()
+        self._merge_relations()

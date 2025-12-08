@@ -206,6 +206,7 @@ class PathExtractionAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
         return True
     def process(self):
+        pprint(self.knowledgeGraph.Graph)
         keyEntityPath, keyTripePath = self.find_path_with_edges(
             self.keyEntitys[0], 
             k=self.k, 
