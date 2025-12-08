@@ -151,7 +151,37 @@ class EntityExtractionAgent(Agent):
         - 为闭集中每个类型补全 score；将分数裁剪到 [0,1]；
         - 如果 present 为空但部分分数>0，也不自动加入 present（保持“由模型判定”的语义）。
         """
-        data = json.loads(raw_json_text)
+        text = (raw_json_text or "").strip()
+
+        # 1) 先去掉 ```json ``` / ``` 包裹
+        if text.startswith("```"):
+            lines = text.splitlines()
+            # 去掉第一行 ``` 或 ```json
+            if lines and lines[0].lstrip().startswith("```"):
+                lines = lines[1:]
+            # 去掉最后一行 ``` 
+            if lines and lines[-1].lstrip().startswith("```"):
+                lines = lines[:-1]
+            text = "\n".join(lines).strip()
+
+        # 2) 再兜底：如果前后还有别的说明文字，只取第一个 {...} 块
+        if text and not text.lstrip().startswith("{"):
+            start = text.find("{")
+            end = text.rfind("}")
+            if start != -1 and end != -1 and start < end:
+                text = text[start:end+1].strip()
+
+        try:
+            data = json.loads(text)
+        except Exception as e:
+            # 兜底：解析失败时直接当“没有类型”
+            self.logger.warning(
+                f"[EntityExtraction] step1 JSON decode failed: {e}, raw={raw_json_text[:200]!r}, cleaned={text[:200]!r}"
+            )
+            return {
+                "present": [],
+                "scores": {t: 0.0 for t in closed_set},
+            }
 
         present = data.get("present", [])
         scores = data.get("scores", {})
@@ -278,12 +308,17 @@ class EntityExtractionAgent(Agent):
 
         return list(unique_entities.values())
     
-    def step1(self, text: str) -> str:
+    def step1(self, text: str,sg_id: Optional[str] = None) -> str:
         """
         Step 1: 在候选实体类型中检查存在的实体类型
         """
         step1_prompt = self.build_type_detection_prompt(text=text,entity_definitions=ENTITY_DEFINITIONS,order=list(EntityType))
         response = self.call_llm(step1_prompt)
+         # 这里先打日志，把原始回复记下来（截断一下防止太长）
+        prefix = f"[EntityExtraction] sg_id={sg_id} " if sg_id is not None else "[EntityExtraction] "
+        self.logger.info(
+            f"{prefix}step1 raw response (first 400 chars) = {response[:400]!r}"
+        )
         closed_set = [et.value for et in EntityType]  # 小写键集合：['disease','drug',...]
         result = self.validate_and_fix_type_result(raw_json_text=response, closed_set=closed_set)
         selected = [t for t in result["present"] if result["scores"].get(t, 0.0) >= self.THRESH]
@@ -369,8 +404,13 @@ class EntityExtractionAgent(Agent):
             return
 
         # 1. 判断该文档中有哪些实体类型
-        type_list = self.step1(text)
-
+        type_list = self.step1(text, sg_id=sg_id)
+        self.logger.info(f"[EntityExtraction] sg_id={sg_id} step1 types={[d.name for d in type_list]}")
+        if not text.strip():
+            self.logger.warning(
+                f"[EntityExtraction] sg_id={sg_id} has EMPTY text in sg.meta['text'], skip."
+            )
+            return
         # 2. 抽取实体（局部列表）
         kg_entities = self.step2(text, type_list)
 
@@ -392,6 +432,8 @@ class EntityExtractionAgent(Agent):
         - 抽取结果直接写回对应子图的 entities
         """
         subgraphs_items = list(self.memory.subgraphs.items())
+        self.logger.info(f"[EntityExtraction] total subgraphs={len(subgraphs_items)}")
+        self.logger.info(f"[EntityExtraction] sg_ids={list(self.memory.subgraphs.keys())}")
         if not subgraphs_items:
             return
 
@@ -407,6 +449,9 @@ class EntityExtractionAgent(Agent):
             ]
 
             # 用 tqdm 监控整体进度：每个子图算一个任务
-            for _ in tqdm(as_completed(futures), total=len(futures), desc="Entity extraction over subgraphs"):
-                pass
+            for fut in tqdm(as_completed(futures), total=len(futures), desc="Entity extraction over subgraphs"):
+                try:
+                    fut.result()
+                except Exception as e:
+                    self.logger.exception(f"[EntityExtraction] subgraph worker failed: {e}")
         
