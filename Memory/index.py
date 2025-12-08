@@ -466,7 +466,26 @@ class Memory:
         self.alignments = AlignmentStore()
         # 新增：关键实体列表存储
         self.key_entities = KeyEntityStore()
-
+        self._extracted_paths: List[dict] = []
+    def add_extracted_path(
+        self,
+        node_path: List[KGEntity],
+        edge_path: List[KGTriple],
+    ) -> None:
+        """
+        把一次抽取到的路径存起来，节点和边都直接以对象形式存。
+        """
+        self._extracted_paths.append(
+            {
+                "nodes": list(node_path),   # 做一份拷贝，避免后面被修改
+                "edges": list(edge_path),
+            }
+        )
+    def get_extracted_paths(self) -> List[dict]:
+        """
+        返回所有已存的路径记录，每条记录为 {'nodes': [...], 'edges': [...]}。
+        """
+        return list(self._extracted_paths)
     def upsert_many_entities(self, entities: List[KGEntity]) -> List[KGEntity]:
         return self.entities.upsert_many(entities)
 
@@ -509,6 +528,13 @@ class Memory:
               # 新增：关键实体列表
             "key_entities": [e.to_dict() for e in self.key_entities.all()],
             "meta": {"generated_at": ts},
+            "paths": [
+            {
+                "nodes": [n.to_dict() for n in p.get("nodes", [])],
+                "edges": [e.to_dict() for e in p.get("edges", [])],
+            }
+            for p in getattr(self, "_extracted_paths", [])
+        ],
         }
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -645,6 +671,19 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
     for ed in key_ents_data:
         e = _coerce_entity(ed)
         mem.key_entities.add(e)
+
+    paths_data = data.get("paths", [])
+    for pd in paths_data:
+        node_ents: List[KGEntity] = []
+        edge_triples: List[KGTriple] = []
+
+        for ed in pd.get("nodes", []):
+            node_ents.append(_coerce_entity(ed))
+        for rd in pd.get("edges", []):
+            edge_triples.append(_coerce_triple(rd))
+
+        mem.add_extracted_path(node_ents, edge_triples)
+
     return mem
 
 

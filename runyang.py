@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # fusionAgent.process(memory=memory)
     PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,memory=memory)
     PathExtractionAgent.process()
-    # memory.dump_json("./snapshots")
+    memory.dump_json("./snapshots")
     # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
     # keywordAgent.process()
     # memory.dump_json("./snapshots")
