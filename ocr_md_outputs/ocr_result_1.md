@@ -374,7 +374,7 @@ Table 4. Efficiency of CRISPRa- and CRISPRi-mediated activation and inhibition o
 |   | DPDS | Mef2d | Cardiomyocytes | 30-fold | 3-fold | 276  |
 |   | DPDS | Klf15 | Cardiomyocytes | 15-fold | 4-fold | 276  |
 |   | SPDS | HGF | HEK293T | 10--15-fold | 1.8-fold | 220  |
-|  dCas9/VP64 | DPDS | HNF4α | AML12 | 40-fold | 1.2-fold | 261  |
+|  dCas9/VP64 | DPDS | HNF4a | AML12 | 40-fold | 1.2-fold | 261  |
 |   | DPDS | CT45 | A2780 | 4-fold |  | 349  |
 |   | SPDS | miR-524 | LN-229 | 4-fold | 3-fold | 206  |
 |   | SPDS | miR-524 | MDA-MB-23 | 7-fold | 3-fold | 206  |
@@ -637,7 +637,7 @@ Competing interests: The authors declare no competing interests.
 202. Liu, C. et al. A programmable hierarchical-responsive nanoCRISPR elicits robust activation of endogenous target to treat cancer. Theranostics 11, 9833-9846 (2021).
 203. Sameiyan, E. et al. Aptamer-based ATP-responsive delivery systems for cancer diagnosis and treatment. Acta Biomater. 123, 110-122 (2021).
 204. Alsaian, S. K. et al. Endosomal escape and delivery of CRISPR/Cas9 genome editing machinery enabled by nanoscale zeolitic imidazolate framework. J. Am. Chem. Soc. 140, 143-146 (2018).
-205. Jiang, C. et al. A non-viral CRISPR/Cas9 delivery system for therapeutically targeting HBV DNA and pcsk9 in vivo. Cell Res. 27, 440-443 (2017).
+205. Jiang, C. et al. A non-viral CRISPR/Cas9 delivery system for therapeutically targeting HBV DNA and pcok9 in vivo. Cell Res. 27, 440-443 (2017).
 206. Liu, Q. et al. Multistage delivery nanoparticle facilitates efficient CRISPR/dCas9 activation and tumor growth suppression in vivo. Adv. Sci. 6, 1801423 (2019).
 207. Zhang, Z. et al. Dual-locking nanoparticles disrupt the PD-1/PD-L1 pathway for efficient cancer immunotherapy. Adv. Mater. 31, e1905751 (2019).
 208. Cui, Q. et al. Modulating ROS to overcome multidrug resistance in cancer. Drug Resist. Updat. 41, 1-25 (2018).
