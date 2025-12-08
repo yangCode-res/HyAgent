@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # ===== 配置 =====
-MODEL_ID="dmis-lab/biobert-base-cased-v1.1"
+MODEL_ID="cambridgeltl/SapBERT-from-PubMedBERT-fulltext"
 HF_MIRROR="https://hf-mirror.com"          # 国内镜像域名
 BASE_DIR="/home/nas2/path/models"          # 你想放模型的目录
-TARGET_DIR="${BASE_DIR}/biobert-base-cased-v1.1"
+TARGET_DIR="${BASE_DIR}/SapBERT-from-PubMedBERT-fulltext"
 
 mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
