@@ -38,6 +38,8 @@ dist/
 *.tmp
 *.temp
 *.env
+*.test.py
+*.run.py
 
 # ---- 可选：常见大文件与数据（按需保留或删除这一段）----
 *.npy

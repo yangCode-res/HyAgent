@@ -8,7 +8,7 @@ from matplotlib.pyplot import cla
 from networkx import core_number
 from openai import OpenAI
 
-from Agents.Causal_extraction.index import CausalExtractionAgent
+# from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
 from Agents.Entity_extraction.index import EntityExtractionAgent
 from Agents.Entity_normalize.index import EntityNormalizationAgent
@@ -49,25 +49,27 @@ if __name__ == "__main__":
     # pipeline=task_scheduler.process(user_query)
     # pipeline.run()
    # agent.memory.dump_json("./snapshots")
-    logger.info("Entity extraction started...")
+    # logger.info("Entity extraction started...")
     entityAgent=EntityExtractionAgent(client=client, model=model_name)
     entityAgent.process()
-    logger.info("Entity extraction finished.")
-    logger.info("Entity normalization started...")
     memory.dump_json("./snapshots")
+    # logger.info("Entity extraction finished.")
+    # logger.info("Entity normalization started...")
+    # memory.dump_json("./snapshots")
     # normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
     # normalizeAgent.process()
-    logger.info("Relationship extraction started...")
-    relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
-    relationAgent.process()    
-    logger.info("Relationship extraction finished.")
-    # memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251110-165915.json')
-    logger.info("Collaboration extraction started...")
-    memory.dump_json("./snapshots")
-    collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name)
-    collaborationAgent.process()
-    memory.dump_json("./snapshots")
-    logger.info("Collaboration extraction finished.")
+    # logger.info("Relationship extraction started...")
+    # relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
+    # relationAgent.process()    
+    # logger.info("Relationship extraction finished.")
+
+    # logger.info("Collaboration extraction started...")
+    # memory.dump_json("./snapshots")
+    # memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251208-165256.json')
+    # collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
+    # collaborationAgent.process()
+    # memory.dump_json("./snapshots")
+    # logger.info("Collaboration extraction finished.")
     # logger.info("Causal extraction started...")
     # causalAgent=CausalExtractionAgent(client=client, model_name=model_name)
     # causalAgent.process()
