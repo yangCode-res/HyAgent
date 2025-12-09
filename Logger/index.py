@@ -31,7 +31,19 @@ if not _logger.handlers:
     _logger.addHandler(file_handler)
     _logger.addHandler(stream_handler)
     _logger.propagate = False
+# ---- 降噪第三方库日志 ----
+# 这些库默认会在 INFO 打一堆无用信息，比如 HTTP 请求、线程数之类
+_noisy_loggers = [
+    "httpx",
+    "httpcore",        # httpx 底层也会打
+    "numexpr",
+    "numexpr.utils",
+]
 
+for name in _noisy_loggers:
+    lg = logging.getLogger(name)
+    lg.setLevel(logging.WARNING)   # 只保留 WARNING 及以上
+    lg.propagate = False           # 不再往 root logger 冒泡
 def get_global_logger():
     """
     获取全局 logger。
