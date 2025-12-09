@@ -12,7 +12,7 @@ from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
 import json
 class PathExtractionAgent(Agent):
-    def __init__(self, client: OpenAI, model_name: str,k=5,memory:Optional[Memory]=None):
+    def __init__(self, client: OpenAI, model_name: str,k=3,memory:Optional[Memory]=None):
         self.system_prompt = (
             "You are a biomedical AI4Science assistant. "
             "Your job is to decide whether extending a knowledge-graph path "
@@ -64,8 +64,7 @@ class PathExtractionAgent(Agent):
                 node_path.append(child_node)
                 node_for_llm = node_path[:-1].copy()
                 edge_for_llm = edge_path[:-1].copy()
-                print('this is valid',node_for_llm)
-                print('this is child node',child_node)
+                print([i.name for i in node_path])
                 if is_valid(child_node, node_for_llm, edge_for_llm):
                     if dfs(child_node): 
                         return True
@@ -206,7 +205,7 @@ class PathExtractionAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
         return True
     def process(self):
-        pprint(self.knowledgeGraph.Graph)
+        # pprint(self.knowledgeGraph.Graph)
         keyEntityPath, keyTripePath = self.find_path_with_edges(
             self.keyEntitys[0], 
             k=self.k, 

@@ -62,6 +62,7 @@ if __name__ == "__main__":
     logger.info("Relationship extraction finished.")
 
     logger.info("Collaboration extraction started...")
+    memory.dump_json("./snapshots")
     collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
     collaborationAgent.process()
     logger.info("Collaboration extraction finished.")
@@ -86,4 +87,4 @@ if __name__ == "__main__":
     fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     fusionAgent.process()
     # logger.info("Fusion Subgraphs finished...")
-    # memory.dump_json("./snapshots")
+    memory.dump_json("./snapshots")

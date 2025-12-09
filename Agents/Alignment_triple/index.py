@@ -67,27 +67,36 @@ Rules:
         
     def process(self) -> None:
         for sg_id, sg in self.memory.subgraphs.items():
+            #如果关系和实体为空则跳过
             if sg.entities.all()==[]:
                 self.logger.info(f"AlignmentTripleAgent: Subgraph {sg_id} has no entities, skipping.")
                 continue
             if sg.get_relations()==[]:
                 self.logger.info(f"AlignmentTripleAgent: Subgraph {sg_id} has no relationships, skipping.")
                 continue
+            #实体嵌入
             ent_embeds: Dict[str, Embedding] = {}
+            #实体map
             ent_map: Dict[str, KGEntity] = {}
+            #录制子图实体的embedding
             for ent in sg.entities.all():
                 text = ent.description or ent.name or ent.normalized_id
                 embedding = self._encode_text(text)  # 返回 List[float] 或 np.ndarray
                 ent_embeds[ent.entity_id] = embedding
                 ent_map[ent.entity_id] = ent  # 记录实体对象
             # 这里的 sg 在类型系统里就是 Subgraph
+            #保存子图的mebdding
             self.subgraph_entity_embeddings[sg_id] = ent_embeds
+            #保存子图的map
             self.subgraph_entities[sg_id] = ent_map
+            #创建邻接矩阵和entity_id到index的映射
             id2idx, adj = self.build_adj_for_subgraph(sg)
             self.subgraph_adj[sg_id] = (adj, id2idx)
+            #创建超图
             H, center_ids, hyperedge_embeds = self.build_hypergraph_for_subgraph(
                 sg, id2idx, adj, ent_embeds
             )
+            #保存超图embedding
             self.subgraph_hypergraphs[sg_id] = {
                 "H": H,                      # n × m incidence matrix
                 "center_ids": center_ids,    # len = m
@@ -100,7 +109,9 @@ Rules:
             self.logger.info(
                 f"[Hypergraph] subgraph={sg_id}, |V|={H.shape[0]}, |E_h|={H.shape[1]}"
             )
+        #聚合超图
         self.propagate_embeddings_with_hypergraph(alpha=0.5)
+        #对齐
         self.build_entity_alignment(sim_threshold=0.95, top_k=5)
         # 用 LLM 做精过滤（并行）
         # for src_sg_id, ent_map in self.entity_alignment.items():
@@ -266,7 +277,7 @@ Rules:
         """
         # ---------- 1. 归一化每个子图的实体向量 ----------
         normalized_embeddings: Dict[str, Tuple[List[str], np.ndarray]] = {}
-
+        
         for sg_id, ent_embeds in self.subgraph_entity_embeddings.items():
             ids: List[str] = []
             vecs: List[np.ndarray] = []
