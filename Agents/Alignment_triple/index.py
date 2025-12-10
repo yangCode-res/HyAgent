@@ -84,7 +84,7 @@ Rules:
             ent_map: Dict[str, KGEntity] = {}
             #录制子图实体的embedding
             for ent in sg.entities.all():
-                text = ent.description or ent.name or ent.normalized_id
+                text = ent.name or ent.description or ent.normalized_id
                 embedding = self._encode_text(text)  # 返回 List[float] 或 np.ndarray
                 ent_embeds[ent.entity_id] = embedding
                 ent_map[ent.entity_id] = ent  # 记录实体对象
@@ -116,7 +116,7 @@ Rules:
         #聚合超图
         self.propagate_embeddings_with_hypergraph(alpha=0.5)
         #对齐
-        self.build_entity_alignment(sim_threshold=0.95, top_k=5)
+        self.build_entity_alignment(sim_threshold=0.5, top_k=5)
         # 用 LLM 做精过滤（并行）
         # for src_sg_id, ent_map in self.entity_alignment.items():
         #     for src_eid, matches in ent_map.items():
@@ -280,10 +280,10 @@ Rules:
         max_workers: int = 8,
     ) -> None:
         """
-        顺序融合对齐：
+        顺序融合对齐（不再更新 embedding 数值，只扩充 canonical 实体集合）：
 
         1）选“第一个子图”为 anchor / canonical；
-        2）把它视为“融合子图 F”，其实体作为全局 canonical；
+        2）把它视为“融合子图 F”，其实体作为初始 canonical 集合；
         3）依次遍历剩余子图 S_i：
             - 动态看 |F| 和 |S_i| 的大小：
               * 如果 |F| <= |S_i|：用 F 的实体做 source；
@@ -291,16 +291,23 @@ Rules:
             - 做一次余弦相似度候选筛选；
             - 调 _run_llm_alignment_parallel 对这一对(F, S_i)做精筛；
             - 把对齐结果统一映射到 anchor_sg_id 的 canonical 实体上；
-            - 同时用 S_i 实体的 embedding 对 canonical embedding 做简单融合（0.5 * old + 0.5 * new）。
+            - **将 S_i 中未对齐上的实体加入 canonical_raw_embeds（实体集合变大）**。
         4）最终 self.entity_alignment 只用 anchor_sg_id 做 key，结构：
            {anchor_sg_id: {canonical_eid: [ {target_subgraph, target_entity, similarity, llm_agree}, ... ]}}
+
+        注意：embedding 只用来算相似度，不在此函数中做数值上的更新。
         """
-        # 辅助函数：把 raw embedding dict 变成 (ids, normalized_mat)
+
         def _normalize_embeds(embeds: Dict[str, Embedding]) -> Tuple[List[str], np.ndarray]:
+            """把 {entity_id: 向量} 转成 (id_list, L2 归一化矩阵)。"""
             ids: List[str] = []
             vecs: List[np.ndarray] = []
             for eid, emb in embeds.items():
+                if emb is None:
+                    continue
                 v = np.asarray(emb, dtype=np.float32)
+                if v.size == 0:
+                    continue
                 norm = np.linalg.norm(v)
                 if norm == 0.0:
                     continue
@@ -320,8 +327,10 @@ Rules:
         anchor_sg_id = all_sg_ids[0]
         self.logger.info(f"[EntityAlign] anchor_subgraph={anchor_sg_id}")
 
-        # canonical 的“raw” embedding，会在后面被融合更新
-        canonical_raw_embeds: Dict[str, Embedding] = dict(self.subgraph_entity_embeddings[anchor_sg_id])
+        # canonical 的 embedding 字典（只用来算相似度 & 记录有哪些 canonical 实体）
+        canonical_raw_embeds: Dict[str, Embedding] = dict(
+            self.subgraph_entity_embeddings[anchor_sg_id]
+        )
 
         # 对齐结果（统一以 anchor_sg_id 为 key）
         global_alignment: Dict[str, Dict[str, List[Dict[str, Any]]]] = {
@@ -423,6 +432,12 @@ Rules:
                 self.logger.info(
                     f"[EntityAlign] step ({anchor_sg_id} vs {tgt_sg_id}) has no cosine candidates above threshold."
                 )
+                # 即便没有候选，对齐失败，也要把 S_i 的所有实体并入 canonical
+                for eid, vec in tgt_raw_embeds.items():
+                    canonical_raw_embeds.setdefault(eid, vec)
+                self.logger.info(
+                    f"[EntityAlign] merge-only step: F size -> {len(canonical_raw_embeds)} after union with {tgt_sg_id}"
+                )
                 continue
 
             # ---------- 调一次 LLM 对这一对 (F, S_i) 做精筛 ----------
@@ -435,9 +450,30 @@ Rules:
                 self.logger.info(
                     f"[EntityAlign-LLM] step ({anchor_sg_id} vs {tgt_sg_id}) LLM kept nothing."
                 )
+
+                # ---- 这里：实体 union 到锚点 subgraph 的实体 map ----
+                anchor_ent_map = self.subgraph_entities.get(anchor_sg_id, {})
+                tgt_ent_map = self.subgraph_entities.get(tgt_sg_id, {})
+                if tgt_ent_map:
+                    for eid, ent in tgt_ent_map.items():
+                        if eid not in anchor_ent_map:
+                            anchor_ent_map[eid] = ent
+                    self.subgraph_entities[anchor_sg_id] = anchor_ent_map
+
+                # ---- 这里：embedding union（你之前就有）----
+                for eid, vec in tgt_raw_embeds.items():
+                    if eid not in canonical_raw_embeds:
+                        canonical_raw_embeds[eid] = vec
+
+                self.logger.info(
+                    f"[EntityAlign] merge-only step (LLM-none): F size -> {len(canonical_raw_embeds)} after union with {tgt_sg_id}"
+                )
                 continue
 
-            # ---------- 把 refined_step 统一映射到 anchor_sg_id 的 canonical 上，并融合 embedding ----------
+            # ---------- 把 refined_step 统一映射到 anchor_sg_id 的 canonical 上 ----------
+            # 同时统计：这一轮“在目标子图中被对齐到的实体”，用来区分 unmatched
+            matched_tgt_ids: set[str] = set()
+
             if source_is_canonical:
                 # refined_step: {anchor_sg_id: {canonical_eid: [ {tgt_sg_id, tgt_eid}, ... ]}}
                 per_src = refined_step.get(anchor_sg_id, {})
@@ -446,16 +482,10 @@ Rules:
                         continue
                     # 累积对齐结果（anchor_sg_id -> canonical_eid）
                     global_alignment[anchor_sg_id].setdefault(canon_eid, []).extend(kept_list)
-
-                    # 用 S_i 的 embedding 融合更新 canonical embedding
-                    old_vec = np.asarray(canonical_raw_embeds.get(canon_eid), dtype=np.float32)
+                    # 收集本轮对齐到的目标实体 id
                     for m in kept_list:
-                        tgt_eid = m["target_entity"]
-                        tgt_vec = np.asarray(tgt_raw_embeds.get(tgt_eid), dtype=np.float32)
-                        if tgt_vec.size == 0 or old_vec.size == 0:
-                            continue
-                        old_vec = 0.5 * old_vec + 0.5 * tgt_vec
-                    canonical_raw_embeds[canon_eid] = old_vec
+                        if m.get("target_subgraph") == tgt_sg_id:
+                            matched_tgt_ids.add(m["target_entity"])
 
             else:
                 # refined_step: {tgt_sg_id: {src_eid_in_Si: [ {target_subgraph=anchor, target_entity=canon_eid}, ... ]}}
@@ -463,6 +493,9 @@ Rules:
                 for src_eid_in_S, kept_list in per_src.items():
                     if not kept_list:
                         continue
+                    # src_eid_in_S 在这一轮里至少和某个 canonical 对齐过
+                    matched_tgt_ids.add(src_eid_in_S)
+
                     for m in kept_list:
                         canon_eid = m["target_entity"]
                         # 反向存储：canonical_eid -> (tgt_sg_id, src_eid_in_S)
@@ -473,25 +506,39 @@ Rules:
                             "llm_agree": m.get("llm_agree", True),
                         }
                         global_alignment[anchor_sg_id].setdefault(canon_eid, []).append(inv_match)
+            anchor_ent_map = self.subgraph_entities.get(anchor_sg_id, {})
+            tgt_ent_map = self.subgraph_entities.get(tgt_sg_id, {})
+            if tgt_ent_map:
+                for eid, ent in tgt_ent_map.items():
+                    if eid not in anchor_ent_map:
+                        anchor_ent_map[eid] = ent
+                self.subgraph_entities[anchor_sg_id] = anchor_ent_map
+            # ---------- 将 S_i 中未对齐上的实体加入 canonical 集合 ----------
+            all_tgt_ids = set(tgt_raw_embeds.keys())
+            unmatched_ids = all_tgt_ids - matched_tgt_ids
 
-                        # 融合 embedding: canonical <- S_i 实体
-                        old_vec = np.asarray(canonical_raw_embeds.get(canon_eid), dtype=np.float32)
-                        src_vec = np.asarray(tgt_raw_embeds.get(src_eid_in_S), dtype=np.float32)
-                        if src_vec.size == 0 or old_vec.size == 0:
-                            continue
-                        old_vec = 0.5 * old_vec + 0.5 * src_vec
-                        canonical_raw_embeds[canon_eid] = old_vec
+            for eid in unmatched_ids:
+                if eid not in canonical_raw_embeds:
+                    canonical_raw_embeds[eid] = tgt_raw_embeds[eid]
+
+            self.logger.info(
+                f"[EntityAlign] step ({anchor_sg_id} vs {tgt_sg_id}) merged: "
+                f"matched_in_S={len(matched_tgt_ids)}, "
+                f"unmatched_added={len(unmatched_ids)}, "
+                f"|F| now={len(canonical_raw_embeds)}"
+            )
 
         # 最终结果
         self.entity_alignment = global_alignment
-        # 可选：也把融合后的 canonical embedding 回写到 subgraph_entity_embeddings[anchor_sg_id]
+        # 把最终的 canonical embedding 字典（只是集合意义上的）写回 anchor_sg_id
         self.subgraph_entity_embeddings[anchor_sg_id] = canonical_raw_embeds
 
         # 写回 Memory 的对齐存储
         self.memory.alignments.save_from_alignment_dict(global_alignment)
         self.logger.info(
             f"[EntityAlign-LLM] Done. anchor_subgraph={anchor_sg_id}, "
-            f"#canonical_entities={len(global_alignment.get(anchor_sg_id, {}))}"
+            f"#canonical_entities={len(global_alignment.get(anchor_sg_id, {}))}, "
+            f"|F|={len(canonical_raw_embeds)}"
         )
     def propagate_embeddings_with_hypergraph(self, alpha: float = 0.5):
         """
@@ -658,9 +705,17 @@ Rules:
             self.logger.info(f"[EntityNormalize][BioBERT] load failed ({e}), skip similarity-based suggestions.")
     def _find_entity_in_subgraph(self, sg_id: str, entity_id: str) -> Optional[KGEntity]:
         """
-        在 Memory 里的某个 subgraph 中按 entity_id 找实体。
-        如果你的 Subgraph 已经有 get_entity(entity_id) 之类的方法，可以直接改用。
+        优先在 self.subgraph_entities 里找实体，
+        找不到再回退到 Memory.subgraphs[sg_id].entities.
         """
+        # 1) 先查我们缓存好的实体 map
+        ent_map = self.subgraph_entities.get(sg_id)
+        if ent_map is not None:
+            ent = ent_map.get(entity_id)
+            if ent is not None:
+                return ent
+
+        # 2) 回退到 Memory（兼容老逻辑）
         sg: Subgraph = self.memory.subgraphs.get(sg_id)
         if sg is None:
             return None

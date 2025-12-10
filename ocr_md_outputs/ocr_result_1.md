@@ -146,7 +146,8 @@ Table 2. Cas9 variants that have been modified for increased security
 
 directs Cas9 to a designated site where DSBs form flat ends in the presence of HNH and RuvC nuclease structural domains. Subsequently, DNA repair mechanisms are activated, mainly NHEJ and HDR. ${ }^{21,129,130}$ The repair of DSBs by NHEJ is imprecise and often leads to base mutations that result in targeted mutations. HDR repair is a complex and precise process that can repair broken DNA strands correctly. The perfectly repaired DNA strand is indistinguishable from the target DNA and will be cleaved by Cas9 again until the sgRNA becomes unrecognizable. Fortunately, the chance of HDR occurring in mature cells is much lower than that of NHEJ. ${ }^{68}$
 
-Cas9 efficiently cleaves double-stranded DNA, but in practice, the sgRNA often mismatches with double-stranded DNA, leading to offtarget effects. ${ }^{5}$ In addition, a more efficient method to mediate mutational inactivation of genes is needed to enhance the efficiency of gene knockdown and reduce unnecessary cleavage. Cas9 nickase (Cas9n), a Cas9 variant with mutations in the nuclease structural domain RuvC (D10A) of Cas9, only creates breaks in DNA strands complementary to the crRNA. ${ }^{131}$ DNA single-strand breaks are repaired by a high-fidelity base excision repair (BER) pathway, and thus two adjacent sgRNA/Cas9n complexes are designed to shear a single site, which effectively prevents Cas9-mediated damage to nontarget DNA and greatly enhances the specificity of Cas9. ${ }^{132} \mathrm{An}$ offset of an appropriate distance between two Cas9ns facilitates the efficiency of gene editing. Zhang Feng and colleagues designed an online tool (http://www.genome-engineering.org/) for the design of two Cas9n sgRNAs to facilitate follow-up research. ${ }^{131}$
+Cas9 efficiently cleaves double-stranded DNA, but in practice, the sgRNA often mismatches with double-stranded DNA, leading to offtarget effects. ${ }^{5}$ In addition, a more efficient method to mediate mutational inactivation of genes is needed to enhance the efficiency of gene knockdown and reduce unnecessary cleavage. Cas9 nickase (Cas9n), a Cas9 variant with mutations in the nuclease structural domain RuvC (D10A) of Cas9, only creates breaks in DNA strands complementary to the crRNA. ${ }^{131}$ DNA single-strand breaks are repaired by a high-fidelity base excision repair (BER) pathway, and thus two adjacent sgRNA/Cas9n complexes are designed to shear a single site, which effectively prevents Cas9-mediated damage to nontarget DNA and greatly enhances the specificity of Cas9. ${ }^{132} \mathrm{An}$
+offset of an appropriate distance between two Cas9ns facilitates the efficiency of gene editing. Zhang Feng and colleagues designed an online tool (http://www.genome-engineering.org/) for the design of two Cas9n sgRNAs to facilitate follow-up research. ${ }^{131}$
 
 In 2015, Zhang Feng et al. extracted Cpf1 (CRISPR from Prevotella and Francisella), now known as Cas12a. ${ }^{133}$ Cas12a, belonging to the Class II Type V CRISPR-Cas Cas12a, is a Class II Type V CRISPR-Cas system with the same ability to cut DNA double strands as Cas9 but differs to a great extent from Cas9. In bacteria, crRNA maturation of Cas12a does not require the involvement of tracrRNA and RNase III, and when the CRISPR array is activated for transcription, the precrRNA is cleaved directly by Cas12a into a 43 bp nucleotide sequence serving as the sgRNA. SgRNA/Cas12a recognizes a T-rich PAM sequence, usually $5^{\prime}$-TTTV-3', located upstream of the target site, followed by crRNA binding to the DNA strand. Cas12a has only one nuclease structural domain, RuvC, mediating the cleavage of double-stranded DNA. ${ }^{134}$ Unlike the flat ends produced by Cas9 cutting the double strand, Cas12a generates a sticky end interface similar to the double sgRNA-guided Cas9n described above, producing a $4-5$ base overhang. ${ }^{135}$ This approach presents the advantage that if the first DNA strand repair creates insertions or deletions (indels), the target position could still be repaired the next
 
@@ -168,15 +169,89 @@ Many known genetic diseases are caused by a mutation in a base in a gene. The fu
 
 ![img-2.jpeg](img-2.jpeg)
 
-Fig. 3 Schematic diagram of dCas9-based tools to regulate expression. a The dCas9 fusion VP64, VPR and other transcriptional activation effectors bind near the gene transcription start site to promote gene transcription. b dCas9 may be fused with KRAB or other transcriptional repressor effectors and bind to the gene transcription start site to silence gene transcription. c The complex formed by the fusion of dCas9 with P300 or other histone acetylases binds the gene transcription start site or enhancer region and promotes histone acetylation, which in turn enhances gene transcription. d dCas9 fused with DNMT3 and other DNA methyltransferases may bind the gene transcription start site to promote DNA methylation and thereby knock down gene transcription. (Figure was created with Biorender.com)
+Fig. 3 Schematic diagram of dCas9-based tools to regulate expression. a The dCas9 fusion VP64, VPR and other transcriptional activation
+effectors bind near the gene transcription start site to promote gene transcription. b dCas9 may be fused with KRAB or other transcriptional
+repressor effectors and bind to the gene transcription start site to silence gene transcription. c The complex formed by the fusion of dCas9
+with P300 or other histone acetylases binds the gene transcription start site or enhancer region and promotes histone acetylation, which in
+turn enhances gene transcription. d dCas9 fused with DNMT3 and other DNA methyltransferases may bind the gene transcription start site to
+promote DNA methylation and thereby knock down gene transcription. (Figure was created with Biorender.com)
 
-Komor et al. selected APOBEC1 from rats as a first-generation base-editing tool (BE1) by comparing cytidine deaminase activity from humans, rats, and lamprey.25 Catalytically inactive dCas9 was chosen as the target delivery vehicle to carry catalase, and 16-residue XTEN was also added as a stabilizer for this system. BE1 has good deamidation activity against nucleotides at the distal 4–8 positions of PAM, but in human genomic experiments, the conversion efficiency was only 0.8–7.7%. A possible explanation is that U is a base that does not belong in DNA and is easily repaired during DNA repair. In the second generation of base-editing tools (BE2), a stabilizer for U was added to prevent BER.106, 107 This improvement was successful, achieving a three-fold increase in the base substitution efficiency of BE2. Catalyzing a strand break complementary to the mutation site to replace G with A when BER occurs further improves the efficiency of base substitution.24, 131 Subsequent researchers have made some improvements to BE3 to enhance the efficiency of base editing, such as modifying and optimizing the nuclear localization signal, changing codons, and other methods, to improve the efficiency of BE3 base editing, reduce the formation of indels, and obtain more efficient gene-editing tools such as BE4max and BE4-Gam.158, 159, 160 Kurt et al. successfully developed a gene-editing tool to induce a C-to-G substitution based on BE4max.76 CBE frequently undergoes C-G mismutations during the process of achieving the C-to-T substitution, and the addition of two UGIs effectively stops this process. The human UNG (hUNG) enzyme with increased abasic site generation also has positive implications for base replacement between C and G.160 Through a series of improvements, a novel base editor (BE4max (R33A) ΔUGI-hUNG complex (CGBE1)) was finally obtained.76 This study improved the gene-editing tools for interbase substitution and facilitated the development of C-to-G base editors.
+Komor et al. selected APOBEC1 from rats as a first-generation
+base-editing tool (BE1) by comparing cytidine deaminase activity
+from humans, rats, and lamprey.<sup>25</sup> Catalytically inactive dCas9 was
+chosen as the target delivery vehicle to carry catalase, and 16-
+residue XTEN was also added as a stabilizer for this system. BE1 has
+good deamidation activity against nucleotides at the distal 4–8
+positions of PAM, but in human genomic experiments, the
+conversion efficiency was only 0.8–7.7%. A possible explanation is
+that U is a base that does not belong in DNA and is easily repaired
+during DNA repair. In the second generation of base-editing tools
+(BE2), a stabilizer for U was added to prevent BER.<sup>136,137</sup> This
+improvement was successful, achieving a three-fold increase in the
+base substitution efficiency of BE2. Catalyzing a strand break
+complementary to the mutation site to replace G with A when BER
+occurs further improves the efficiency of base substitution.<sup>24,131</sup>
+Subsequent researchers have made some improvements to BE3 to
+enhance the efficiency of base editing, such as modifying and
+optimizing the nuclear localization signal, changing codons, and
+other methods, to improve the efficiency of BE3 base editing,
+reduce the formation of indels, and obtain more efficient gene-
+editing tools such as BE4max and BE4-Gam.<sup>158–160</sup> Kurt et al.
+successfully developed a gene-editing tool to induce a C-to-G
+substitution based on BE4max.<sup>76</sup> CBE frequently undergoes C-G
+mismutations during the process of achieving the C-to-T substitu-
+tion, and the addition of two UGIs effectively stops this process. The
+human UNG (hUNG) enzyme with increased abasic site generation
+also has positive implications for base replacement between C and
+G.<sup>160</sup> Through a series of improvements, a novel base editor
+(BE4max (R33A) ΔUGI-hUNG complex (CGBE1)) was finally
+obtained.<sup>76</sup> This study improved the gene-editing tools for
+interbase substitution and facilitated the development of C-to-G
+base editors.
 
-Achieving C-G to T-A and C-G to G-C substitutions is important for single-gene-editing efforts, but multiple types of base mutations cause disease, and achieving arbitrary substitutions between bases is an urgent task for applying CRISPR technology to disease treatment.161 In 2017, Liu and his colleagues completed work to replace A-T base pairs with C-G base pairs.26 Unlike the C-to-U substitution, which has been reported to occur only on free adenine, adenosine in RNA or adenosine in RNA–DNA mismatches, no adenine deaminases are capable of deaminating A on doublestranded DNA. TadA is a tRNA adenine deaminase, and because of its homology to APOBECs, modifying TadA so that it can activate adenine deaminase activity on the DNA double strand is a promising approach.162, 163 When the antibiotic resistance gene in E. coli was mutated, E. coli survived only if they obtained the mutant site to achieve an A-to-I substitution. Using this method, researchers screened for TadA* capable of acting as a mutation on the DNA strand. During E. coli selection, the survival rate of E. coli in the presence of heterodimeric TadA-TadA* was higher, and the formation of heterodimers might significantly improve the editing efficiency of adenine bases. TadA-TadA*-Cas9n was finalized as ABE7.10 through several modifications.152 Adenine is catalyzed by adenosine deaminase to become inosine, which eventually leads to the conversion of A-T to G-C. In subsequent studies of ABE, additional improvements were made to ABE7.10 to obtain a more efficient base-editing tool with fewer side effects.159, 164, 165, 166
+Achieving C-G to T-A and C-G to G-C substitutions is important
+for single-gene-editing efforts, but multiple types of base mutations
+cause disease, and achieving arbitrary substitutions between bases
+is an urgent task for applying CRISPR technology to disease
+treatment.<sup>161</sup> In 2017, Liu and his colleagues completed work to
+replace A-T base pairs with C-G base pairs.<sup>26</sup> Unlike the C-to-U
+substitution, which has been reported to occur only on free
+adenine, adenosine in RNA or adenosine in RNA–DNA mismatches,
+no adenine deaminases are capable of deaminating A on doublestranded DNA. TadA is a tRNA adenine deaminase, and because of
+its homology to APOBECs, modifying TadA so that it can activate
+adenine deaminase activity on the DNA double strand is a
+promising approach.<sup>162,163</sup> When the antibiotic resistance gene in
+*E. coli* was mutated, *E. coli* survived only if they obtained the mutant
+site to achieve an A-to-I substitution. Using this method, researchers
+screened for TadA* capable of acting as a mutation on the DNA
+strand. During *E. coli* selection, the survival rate of *E. coli* in the
+presence of heterodimeric TadA-TadA* was higher, and the
+formation of heterodimers might significantly improve the editing
+efficiency of adenine bases. TadA-TadA*-Cas9n was finalized as
+ABE7.10 through several modifications.<sup>152</sup> Adenine is catalyzed by
+adenosine deaminase to become inosine, which eventually leads to
+the conversion of A-T to G-C. In subsequent studies of ABE,
+additional improvements were made to ABE7.10 to obtain a more
+efficient base-editing tool with fewer side effects.<sup>159,164–166</sup>
 
-The cytidine deaminase AID from a human source fused to the C-terminus of nCas9 efficiently achieves C-to-T editing.167 However, in some strains, researchers have detected a high frequency of C-to-A mutations. CBEs added UGI to suppress the activity of the uracil-DNA glycosylase (ung) gene to increase the frequency of C-to-T mutations.25, 168 A high frequency of C-to-A mutations was observed in strains without suppressed ung activity, and this gene may be responsible for the C-to-A mutation. Finally, the Ung-nCas9-AID complex was constructed. This complex enables efficient C-to-A base substitution and fills a gap in single-base gene-editing technology.75 Similarly, ung genes are involved in C-to-G base substitutions, and they construct the APOBEC-nCas9-Ung complex that allows efficient C-to-G substitutions. Researchers refer to this nCas9-cytidine deaminase-ung substitution as glycosylase base editors (GBEs).
+The cytidine deaminase AID from a human source fused to the
+C-terminus of nCas9 efficiently achieves C-to-T editing.<sup>167</sup> However,
+in some strains, researchers have detected a high frequency of C-to-
+A mutations. CBEs added UGI to suppress the activity of the uracil-
+DNA glycosylase (*ung*) gene to increase the frequency of C-to-T
+mutations.<sup>25,168</sup> A high frequency of C-to-A mutations was
+observed in strains without suppressed *ung* activity, and this gene
+may be responsible for the C-to-A mutation. Finally, the Ung-nCas9-
+AID complex was constructed. This complex enables efficient C-to-A
+base substitution and fills a gap in single-base gene-editing
+technology.<sup>75</sup> Similarly, *ung* genes are involved in C-to-G base
+substitutions, and they construct the APOBEC-nCas9-Ung complex
+that allows efficient C-to-G substitutions. Researchers refer to this
+nCas9-cytidine deaminase-*ung* substitution as glycosylase base
+editors (GBEs).
 
-Both ABE and CBE show efficient base substitution but do not achieve insertions, substitutions, and deletions between bases at
+Both ABE and CBE show efficient base substitution but do not
+achieve insertions, substitutions, and deletions between bases at
 
 will. Thus, a new single-base-editing technology may be needed.^{169} The prime editor (PE) consists of two parts, a reverse transcriptase (RT) protein from Moloney murine leukemia virus (M-MLV) fused with Cas9n (H840A) and a 30 bp sgRNA (pegRNA), including a primer binding site (PBS) and an RT template.^{27,170--173} After Cas9n reaches the designated position, it cuts the target DNA strand. PBS fixes the free 3′ DNA strand by complementary base pairing and reverse transcribes the new DNA strand with the RT template under the action of RT. Using this approach, arbitrary substitutions between bases are achieved, greatly increasing the applicability range of single-base gene editing, and base insertions and deletions can also be introduced. PE2 was obtained by optimizing M-MLV RT based on PE1, and the bases on the unedited strand must rely on DNA repair mechanisms to change.^{27} BE3 in the system described above was modified by shearing the nonedited strand to obtain a much higher mutation efficiency than BE2. Therefore, in the improved PE2, another new sgRNA was added to cleave the nonedited strand to obtain PE3 and PE3b.^{27} Although the editing efficiency of PE3/PE3b was increased by ~3-fold, Cas9 was unable to discriminate between these two different sgRNAs, introducing an unknown risk for this editing system (Fig. 4).
 
@@ -374,7 +449,7 @@ Table 4. Efficiency of CRISPRa- and CRISPRi-mediated activation and inhibition o
 |   | DPDS | Mef2d | Cardiomyocytes | 30-fold | 3-fold | 276  |
 |   | DPDS | Klf15 | Cardiomyocytes | 15-fold | 4-fold | 276  |
 |   | SPDS | HGF | HEK293T | 10--15-fold | 1.8-fold | 220  |
-|  dCas9/VP64 | DPDS | HNF4a | AML12 | 40-fold | 1.2-fold | 261  |
+|  dCas9/VP64 | DPDS | HNF4α | AML12 | 40-fold | 1.2-fold | 261  |
 |   | DPDS | CT45 | A2780 | 4-fold |  | 349  |
 |   | SPDS | miR-524 | LN-229 | 4-fold | 3-fold | 206  |
 |   | SPDS | miR-524 | MDA-MB-23 | 7-fold | 3-fold | 206  |
@@ -637,7 +712,7 @@ Competing interests: The authors declare no competing interests.
 202. Liu, C. et al. A programmable hierarchical-responsive nanoCRISPR elicits robust activation of endogenous target to treat cancer. Theranostics 11, 9833-9846 (2021).
 203. Sameiyan, E. et al. Aptamer-based ATP-responsive delivery systems for cancer diagnosis and treatment. Acta Biomater. 123, 110-122 (2021).
 204. Alsaian, S. K. et al. Endosomal escape and delivery of CRISPR/Cas9 genome editing machinery enabled by nanoscale zeolitic imidazolate framework. J. Am. Chem. Soc. 140, 143-146 (2018).
-205. Jiang, C. et al. A non-viral CRISPR/Cas9 delivery system for therapeutically targeting HBV DNA and pcok9 in vivo. Cell Res. 27, 440-443 (2017).
+205. Jiang, C. et al. A non-viral CRISPR/Cas9 delivery system for therapeutically targeting HBV DNA and pcsk9 in vivo. Cell Res. 27, 440-443 (2017).
 206. Liu, Q. et al. Multistage delivery nanoparticle facilitates efficient CRISPR/dCas9 activation and tumor growth suppression in vivo. Adv. Sci. 6, 1801423 (2019).
 207. Zhang, Z. et al. Dual-locking nanoparticles disrupt the PD-1/PD-L1 pathway for efficient cancer immunotherapy. Adv. Mater. 31, e1905751 (2019).
 208. Cui, Q. et al. Modulating ROS to overcome multidrug resistance in cancer. Drug Resist. Updat. 41, 1-25 (2018).

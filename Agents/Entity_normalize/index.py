@@ -53,7 +53,7 @@ class EntityNormalizationAgent(Agent):
         client: OpenAI,
         model_name: str,
         biobert_dir: str = "/home/nas2/path/models/biobert-base-cased-v1.1",
-        sim_threshold: float = 0.94,
+        sim_threshold: float = 0.7,
     ):
         system_prompt = """
 You are a specialized Entity Normalization Agent for biomedical literature.

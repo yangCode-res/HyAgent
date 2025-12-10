@@ -36,14 +36,14 @@ if __name__ == "__main__":
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
     
-    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
-    agent.process(user_query)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251208-210622.json')
+    user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
+    # agent.process(user_query)
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251210-154929.json')
     # alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
     # alignmentAgent.process()
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
-    # fusionAgent.process(memory=memory)
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="CRISPR-Cas9")
+    # fusionAgent.process()
+    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="coronary artery calcification")
     keywordAgent.process()
     PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory)
     PathExtractionAgent.process()
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     # memory.dump_json("./snapshots")
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process(memory=memory)
-    # visualize_global_kg(memory)
+#     visualize_global_kg(memory)
 #     export_memory_to_neo4j(
 #         mem=memory,
 #         uri="bolt://localhost:7687",

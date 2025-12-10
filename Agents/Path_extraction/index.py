@@ -23,7 +23,7 @@ class PathExtractionAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
-        self.query='What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?'
+        self.query='Cardiovascular diseases and endothelial dysfunction may be related to what factors?'
         self.keyEntitys:List[KGEntity]=self.memory.get_key_entities()
         self.knowledgeGraph:KnowledgeGraph=KnowledgeGraph(self.memory.get_allRealationShip())
         self.k=k

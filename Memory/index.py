@@ -467,6 +467,7 @@ class Memory:
         # 新增：关键实体列表存储
         self.key_entities = KeyEntityStore()
         self._extracted_paths: List[dict] = []
+        self.entity_id_mapping_path: Optional[str] = None
     def add_extracted_path(
         self,
         node_path: List[KGEntity],
@@ -527,7 +528,7 @@ class Memory:
             "alignments": self.alignments.to_list(),
               # 新增：关键实体列表
             "key_entities": [e.to_dict() for e in self.key_entities.all()],
-            "meta": {"generated_at": ts},
+            "meta": {"generated_at": ts,"entity_id_mapping_path": self.entity_id_mapping_path,},
             "paths": [
             {
                 "nodes": [n.to_dict() for n in p.get("nodes", [])],
@@ -683,7 +684,10 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
             edge_triples.append(_coerce_triple(rd))
 
         mem.add_extracted_path(node_ents, edge_triples)
-
+    mem.entity_id_mapping_path = (
+        data.get("entity_id_mapping_path")
+        or (data.get("meta", {}) or {}).get("entity_id_mapping_path")
+    )
     return mem
 
 
