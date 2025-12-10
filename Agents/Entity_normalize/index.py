@@ -18,12 +18,14 @@ from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from Config.index import BioBertPath
+
 logger = get_global_logger()
 
 # 控制台颜色（如果重定向到文件，只是普通字符串，不影响）
 ANSI_RESET = "\033[0m"
 ANSI_CYAN = "\033[96m"    # LLM 相关
 ANSI_GREEN = "\033[92m"   # 汇总信息
+
 
 """
 实体归一化 Agent。
@@ -36,6 +38,7 @@ ANSI_GREEN = "\033[92m"   # 汇总信息
 2.BioBERT 相似度候选（同子图 + 同类型，基于 description/name）
 3.LLM 裁决合并（候选批次并行请求，合并操作串行执行）
 """
+
 
 class EntityNormalizationAgent(Agent):
     """
@@ -53,6 +56,10 @@ class EntityNormalizationAgent(Agent):
         client: OpenAI,
         model_name: str,
         sim_threshold: float = 0.7,
+        max_workers: int = 12,
+        llm_batch_size: int = 40,
+        llm_max_workers: int = 6,
+        memory: Optional[Memory] = None,
     ):
         system_prompt = """
 You are a specialized Entity Normalization Agent for biomedical literature.
@@ -92,87 +99,132 @@ Guidelines:
         self.biobert_tokenizer = None
         self.biobert_model = None
         self._load_biobert()
-        self.memory=get_memory()
+
+        self.memory = memory or get_memory()
+        self.max_workers = max_workers
+        self.llm_batch_size = llm_batch_size
+        self.llm_max_workers = llm_max_workers
 
     # ===================== 对外入口 =====================
 
     def process(self) -> None:
         """
-        对所有 subgraph 执行：
-        1）规则归一化；
-        2）用 BioBERT 生成候选对；
-        3）并行 LLM 裁决；
-        带总体进度条。
+        方案 B：子图级多线程。
+
+        - 不同子图并行跑（ThreadPoolExecutor）
+        - 单个子图内部：
+            1）规则归一化
+            2）BioBERT 相似度候选
+            3）LLM 批处理决策（内部自己也有小规模并行）
+
+        参数：
+            max_workers: 子图级并行线程数
+            llm_batch_size: 每个子图内，LLM 一次请求的候选对数量
+            llm_max_workers: 每个子图内，LLM 并行 batch 数上限
         """
 
         if not self.memory.subgraphs:
             logger.info("[EntityNormalize] no subgraphs found in memory, skip.")
             return
 
-        total_before = 0
-        total_after = 0
-        total_llm_merged = 0
-
         subgraph_items = list(self.memory.subgraphs.items())
 
-        for sg_id, sg in tqdm(
-            subgraph_items,
-            desc="EntityNormalize | subgraphs",
-            unit="sg"
-        ):
-            before = len(sg.entities.all())
-            if before == 0:
-                continue
+        total_before = 0
+        total_after = 0
+        total_rule_merged = 0
+        total_llm_merged = 0
 
-            # 1) 精确规则合并
-            merged_rule = self._normalize_subgraph_entities(sg)
-            after_rule = len(sg.entities.all())
+        # 每个子图的统计，用于最终输出表格
+        per_sg_stats: List[Dict[str, Any]] = []
 
-            # 2) BioBERT 候选对
-            candidates: List[Dict[str, Any]] = []
-            if self.biobert_model is not None:
-                candidates = self._collect_biobert_candidate_pairs(sg)
-            else:
-                logger.info(
-                    f"[EntityNormalize][BioBERT] subgraph={sg_id} skipped: BioBERT model not loaded."
+        def worker(item):
+            sg_id, sg = item
+            try:
+                return self._process_one_subgraph(
+                    sg_id,
+                    sg,
+                    llm_batch_size=self.llm_batch_size,
+                    llm_max_workers=self.llm_max_workers,
+                )
+            except Exception as e:
+                logger.exception(
+                    f"[EntityNormalize] subgraph={sg_id} failed in worker: {e}"
+                )
+                # 出错就返回 0，避免整个线程池崩掉
+                return 0, 0, 0, 0, 0, sg_id
+
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = [
+                executor.submit(worker, item)
+                for item in subgraph_items
+            ]
+
+            # ✅ 只有这一条总进度条
+            for fut in tqdm(
+                as_completed(futures),
+                total=len(futures),
+                desc="EntityNormalize | subgraphs (parallel)",
+                unit="sg",
+            ):
+                before, after_all, rule_merged, llm_merged, num_candidates, sg_id = fut.result()
+
+                total_before += before
+                total_after += after_all
+                total_rule_merged += rule_merged
+                total_llm_merged += llm_merged
+
+                per_sg_stats.append(
+                    {
+                        "sg_id": sg_id,
+                        "before": before,
+                        "after": after_all,
+                        "num_candidates": num_candidates,
+                        "rule_merged": rule_merged,
+                        "llm_merged": llm_merged,
+                        "total_merged": rule_merged + llm_merged,
+                    }
                 )
 
-            # 3) LLM 裁决并合并（内部带 batch 进度条）
-            llm_merged = 0
-            if candidates:
-                logger.info(
-                    f"{ANSI_CYAN}[EntityNormalize][LLM] subgraph={sg_id} "
-                    f"received {len(candidates)} candidate pairs from BioBERT, "
-                    f"sending to LLM in parallel...{ANSI_RESET}"
-                )
-                llm_merged = self._llm_decide_and_merge(sg, candidates)
-            else:
-                logger.info(
-                    f"[EntityNormalize][LLM] subgraph={sg_id} no candidates passed to LLM."
-                )
-
-            after_all = len(sg.entities.all())
-
-            total_before += before
-            total_after += after_all
-            total_llm_merged += llm_merged
-
-            logger.info(
-                f"{ANSI_GREEN}[EntityNormalize] subgraph={sg_id} "
-                f"entities_before={before} "
-                f"after_rule={after_rule} "
-                f"rule_merged={merged_rule} "
-                f"llm_merged={llm_merged} "
-                f"entities_after_all={after_all}{ANSI_RESET}"
-            )
-
+        # ========= 全局 summary =========
         logger.info(
-            f"{ANSI_GREEN}[EntityNormalize] done. total_before={total_before}, "
+            f"{ANSI_GREEN}[EntityNormalize] done (parallel). "
+            f"total_before={total_before}, "
             f"total_after={total_after}, "
-            f"total_delta={total_before - total_after}, "
-            f"total_llm_merged={total_llm_merged}{ANSI_RESET}"
+            f"total_rule_merged={total_rule_merged}, "
+            f"total_llm_merged={total_llm_merged}, "
+            f"total_delta={total_before - total_after}{ANSI_RESET}"
         )
-        # self.memory.dump_json("./snapshots")
+
+        # ========= 每个子图漂亮表格 =========
+        if per_sg_stats:
+            logger.info("=" * 100)
+            logger.info("[EntityNormalize] Per-subgraph summary:")
+
+            header = (
+                f"{'Subgraph':<32}"
+                f"{'before':>8}"
+                f"{'after':>8}"
+                f"{'candidates':>12}"
+                f"{'rule_merge':>12}"
+                f"{'llm_merge':>12}"
+                f"{'total_merge':>12}"
+            )
+            logger.info(header)
+            logger.info("-" * 100)
+
+            for s in sorted(per_sg_stats, key=lambda x: x["sg_id"]):
+                logger.info(
+                    f"{s['sg_id']:<32}"
+                    f"{s['before']:>8}"
+                    f"{s['after']:>8}"
+                    f"{s['num_candidates']:>12}"
+                    f"{s['rule_merged']:>12}"
+                    f"{s['llm_merged']:>12}"
+                    f"{s['total_merged']:>12}"
+                )
+
+            logger.info("=" * 100)
+
     # ===================== 子图内：规则合并 =====================
 
     def _normalize_subgraph_entities(self, sg: Subgraph) -> int:
@@ -359,11 +411,19 @@ Guidelines:
         return vec
 
     def _get_ent_text(self, ent: KGEntity) -> str:
+        """
+        返回用于 BioBERT 编码的文本：
+        1) 优先使用 name
+        2) 如果 name 为空，再用 description
+        """
+        name = getattr(ent, "name", None)
+        if isinstance(name, str) and name.strip():
+            return name.strip()
+
         desc = getattr(ent, "description", None)
         if isinstance(desc, str) and desc.strip():
             return desc.strip()
-        if isinstance(ent.name, str) and ent.name.strip():
-            return ent.name.strip()
+
         return ""
 
     def _cosine(self, a: np.ndarray, b: np.ndarray) -> float:
@@ -438,13 +498,14 @@ Guidelines:
             )
         return all_candidates
 
-    # ===================== LLM 裁决（并行查询 + 进度条，串行合并） =====================
+    # ===================== LLM 裁决（并行查询 + 串行合并） =====================
 
     def _llm_decide_and_merge(
         self,
         sg: Subgraph,
         candidates: List[Dict[str, Any]],
         batch_size: int = 40,
+        max_workers: int = 8,
     ) -> int:
         if not candidates:
             return 0
@@ -480,14 +541,10 @@ Guidelines:
             return 0
 
         results: List[Any] = [None] * num_batches
-        max_workers = min(8, num_batches)
+        max_workers = min(max_workers, num_batches)
 
-        # 并行请求 + 批次进度条
-        with ThreadPoolExecutor(max_workers=max_workers) as executor, tqdm(
-            total=num_batches,
-            desc=f"LLM merge | sg={sg.id}",
-            unit="batch"
-        ) as pbar:
+        # 静默并行调用 LLM（不加 tqdm）
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_idx = {
                 executor.submit(self.call_llm_json_safe, prompts[idx]): idx
                 for idx in range(num_batches)
@@ -502,7 +559,6 @@ Guidelines:
                     )
                     data = []
                 results[idx] = data
-                pbar.update(1)
 
         # 串行应用合并决策
         merged_count = 0
@@ -538,13 +594,68 @@ Guidelines:
                 leader, removed = self._merge_two_entities(sg, ea, eb)
                 if removed:
                     merged_count += 1
-                    logger.info(
-                        f"{ANSI_CYAN}[EntityNormalize][LLM] subgraph={sg.id} "
-                        f"MERGED {removed.entity_id} -> {leader.entity_id} | "
-                        f"{removed.name} -> {leader.name}{ANSI_RESET}"
-                    )
+                    # ❌ 不再打印逐条 MERGED 日志
 
         return merged_count
+
+    def _process_one_subgraph(
+        self,
+        sg_id: str,
+        sg: Subgraph,
+        llm_batch_size: int = 40,
+        llm_max_workers: int = 3,
+    ) -> Tuple[int, int, int, int, int, str]:
+        """
+        单个子图的完整归一化流程：
+        1) 规则归一化
+        2) BioBERT 相似度候选
+        3) LLM 裁决合并
+
+        返回: (before, after_all, rule_merged, llm_merged, num_candidates, sg_id)
+        """
+        entities = sg.entities.all()
+        before = len(entities)
+        if before == 0:
+            return 0, 0, 0, 0, 0, sg_id
+
+        # 1) 精确规则合并
+        merged_rule = self._normalize_subgraph_entities(sg)
+
+        # 2) BioBERT 候选对
+        candidates: List[Dict[str, Any]] = []
+        if self.biobert_model is not None:
+            candidates = self._collect_biobert_candidate_pairs(sg)
+        else:
+            logger.info(
+                f"[EntityNormalize][BioBERT] subgraph={sg_id} skipped: BioBERT model not loaded."
+            )
+        num_candidates = len(candidates)
+
+        # 3) LLM 裁决并合并
+        llm_merged = 0
+        if candidates:
+            logger.info(
+                f"{ANSI_CYAN}[EntityNormalize][LLM] subgraph={sg_id} "
+                f"received {num_candidates} candidate pairs from BioBERT, "
+                f"sending to LLM in parallel...{ANSI_RESET}"
+            )
+            llm_merged = self._llm_decide_and_merge(
+                sg,
+                candidates,
+                batch_size=llm_batch_size,
+                max_workers=llm_max_workers,
+            )
+        else:
+            logger.info(
+                f"[EntityNormalize][LLM] subgraph={sg_id} no candidates passed to LLM."
+            )
+
+        after_all = len(sg.entities.all())
+
+        # ❌ 不再打印每个子图的详细 summary，这些信息在最终表里统一展示
+        # logger.info(...)
+
+        return before, after_all, merged_rule, llm_merged, num_candidates, sg_id
 
     def _merge_two_entities(
         self,
