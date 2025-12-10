@@ -35,7 +35,7 @@ ANSI_GREEN = "\033[92m"   # 汇总信息
 调用入口：agent.process()
 归一化流程包括三步：
 1.规则归一化（同子图 + 同类型，确定性字符串匹配）
-2.BioBERT 相似度候选（同子图 + 同类型，基于 description/name）
+2.BioBERT 相似度候选（同子图，不再限制类型）
 3.LLM 裁决合并（候选批次并行请求，合并操作串行执行）
 """
 
@@ -47,7 +47,7 @@ class EntityNormalizationAgent(Agent):
     三步流程：
 
     1）规则归一化（同子图 + 同类型，确定性字符串匹配）
-    2）BioBERT 相似度候选（同子图 + 同类型，基于 description/name）
+    2）BioBERT 相似度候选（同子图，不再限制类型）
     3）LLM 裁决合并（候选批次并行请求，合并操作串行执行）
     """
 
@@ -56,7 +56,7 @@ class EntityNormalizationAgent(Agent):
         client: OpenAI,
         model_name: str,
         sim_threshold: float = 0.7,
-        max_workers: int = 12,
+        max_workers: int = 20,
         llm_batch_size: int = 40,
         llm_max_workers: int = 6,
         memory: Optional[Memory] = None,
@@ -81,13 +81,17 @@ Guidelines:
 2. Prefer MERGE when:
    - Names and descriptions clearly refer to the same concept / synonym / abbreviation / variant.
    - Or one is a more specific surface form of the other, but not meaningfully distinct in KG granularity.
+   - This can happen EVEN IF their types differ slightly due to annotation or schema differences
+     (e.g., one tagged as "Gene" and the other as "Protein" but both clearly refer to the same molecule).
 3. Prefer NO_MERGE when:
    - One is a cause, regulator, or downstream effect of the other.
-   - One is a disease and the other is a biomarker, pathway, phenotype, mechanism, or drug.
-   - They occupy clearly different roles (e.g., hyperglycemia vs atherosclerosis).
-   - Types conflict in a meaningful way.
-4. Be precise and conservative. Do NOT merge just because text is similar or they co-occur.
-5. Output STRICT JSON ONLY, no comments or extra text.
+   - One is a disease and the other is a biomarker, pathway, phenotype, mechanism, or drug,
+     and the text clearly treats them as different roles or levels.
+   - They occupy clearly different roles in a clinical or mechanistic chain (e.g., hyperglycemia vs atherosclerosis).
+4. Type differences alone DO NOT automatically forbid merging, but they are a strong signal.
+   Use them together with the textual evidence to decide.
+5. Be precise and conservative. Do NOT merge just because text is similar or they co-occur.
+6. Output STRICT JSON ONLY, no comments or extra text.
 """
         super().__init__(client, model_name, system_prompt)
         self.logger = get_global_logger()
@@ -166,7 +170,14 @@ Guidelines:
                 desc="EntityNormalize | subgraphs (parallel)",
                 unit="sg",
             ):
-                before, after_all, rule_merged, llm_merged, num_candidates, sg_id = fut.result()
+                (
+                    before,
+                    after_all,
+                    rule_merged,
+                    llm_merged,
+                    num_candidates,
+                    sg_id,
+                ) = fut.result()
 
                 total_before += before
                 total_after += after_all
@@ -225,7 +236,7 @@ Guidelines:
 
             logger.info("=" * 100)
 
-    # ===================== 子图内：规则合并 =====================
+    # ===================== 子图内：规则合并（保持不变，仍然按类型） =====================
 
     def _normalize_subgraph_entities(self, sg: Subgraph) -> int:
         entities: List[KGEntity] = sg.entities.all()
@@ -372,7 +383,7 @@ Guidelines:
 
         return best_idx
 
-    # ===================== BioBERT 候选收集 =====================
+    # ===================== BioBERT 候选收集（这里开始允许跨类型） =====================
 
     def _load_biobert(self) -> None:
         try:
@@ -436,66 +447,63 @@ Guidelines:
         return float(np.dot(a, b) / (na * nb))
 
     def _collect_biobert_candidate_pairs(self, sg: Subgraph) -> List[Dict[str, Any]]:
+        """
+        使用 BioBERT 生成候选对：
+        - 不再按类型分组，允许不同类型实体成为候选对
+        - 只要文本相似度 >= sim_threshold 即加入候选
+        """
         entities: List[KGEntity] = sg.entities.all()
         if len(entities) <= 1 or not self.biobert_model:
             return []
 
-        type_to_ents: Dict[str, List[KGEntity]] = {}
-        for e in entities:
-            etype = e.entity_type or "Unknown"
-            type_to_ents.setdefault(etype, []).append(e)
+        # 统一编码所有实体（不按类型拆分）
+        vecs: List[Optional[np.ndarray]] = []
+        for ent in entities:
+            txt = self._get_ent_text(ent)
+            vecs.append(self._encode_text(txt) if txt else None)
 
         all_candidates: List[Dict[str, Any]] = []
 
-        for etype, ents in type_to_ents.items():
-            if len(ents) <= 1:
+        n = len(entities)
+        for i in range(n):
+            vi = vecs[i]
+            if vi is None:
                 continue
-
-            texts: List[str] = []
-            vecs: List[np.ndarray] = []
-            for ent in ents:
-                txt = self._get_ent_text(ent)
-                texts.append(txt)
-                vecs.append(self._encode_text(txt) if txt else None)
-
-            n = len(ents)
-            for i in range(n):
-                vi = vecs[i]
-                if vi is None:
+            for j in range(i + 1, n):
+                vj = vecs[j]
+                if vj is None:
                     continue
-                for j in range(i + 1, n):
-                    vj = vecs[j]
-                    if vj is None:
-                        continue
 
-                    sim = self._cosine(vi, vj)
-                    if sim < self.sim_threshold:
-                        continue
+                sim = self._cosine(vi, vj)
+                if sim < self.sim_threshold:
+                    continue
 
-                    ea, eb = ents[i], ents[j]
-                    all_candidates.append(
-                        {
-                            "subgraph_id": sg.id,
-                            "entity_type": etype,
-                            "similarity": float(sim),
-                            "ent_a_id": ea.entity_id,
-                            "ent_b_id": eb.entity_id,
-                            "ent_a_name": ea.name,
-                            "ent_b_name": eb.name,
-                            "ent_a_normalized_id": getattr(ea, "normalized_id", "N/A"),
-                            "ent_b_normalized_id": getattr(eb, "normalized_id", "N/A"),
-                            "ent_a_aliases": list(getattr(ea, "aliases", []) or []),
-                            "ent_b_aliases": list(getattr(eb, "aliases", []) or []),
-                            "ent_a_description": self._get_ent_text(ea),
-                            "ent_b_description": self._get_ent_text(eb),
-                        }
-                    )
+                ea, eb = entities[i], entities[j]
+                type_a = getattr(ea, "entity_type", None) or "Unknown"
+                type_b = getattr(eb, "entity_type", None) or "Unknown"
 
-        if all_candidates:
-            logger.info(
-                f"[EntityNormalize][BioBERT] subgraph={sg.id} "
-                f"collected_candidates>={self.sim_threshold}: {len(all_candidates)}"
-            )
+                all_candidates.append(
+                    {
+                        "subgraph_id": sg.id,
+                        # 兼容旧字段，同时新增每一方的类型
+                        "entity_type": f"{type_a}|{type_b}",
+                        "ent_a_type": type_a,
+                        "ent_b_type": type_b,
+                        "similarity": float(sim),
+                        "ent_a_id": ea.entity_id,
+                        "ent_b_id": eb.entity_id,
+                        "ent_a_name": ea.name,
+                        "ent_b_name": eb.name,
+                        "ent_a_normalized_id": getattr(ea, "normalized_id", "N/A"),
+                        "ent_b_normalized_id": getattr(eb, "normalized_id", "N/A"),
+                        "ent_a_aliases": list(getattr(ea, "aliases", []) or []),
+                        "ent_b_aliases": list(getattr(eb, "aliases", []) or []),
+                        "ent_a_description": self._get_ent_text(ea),
+                        "ent_b_description": self._get_ent_text(eb),
+                    }
+                )
+
+
         return all_candidates
 
     # ===================== LLM 裁决（并行查询 + 串行合并） =====================
@@ -594,7 +602,7 @@ Guidelines:
                 leader, removed = self._merge_two_entities(sg, ea, eb)
                 if removed:
                     merged_count += 1
-                    # ❌ 不再打印逐条 MERGED 日志
+                    # 不再打印逐条 MERGED 日志
 
         return merged_count
 
@@ -618,10 +626,10 @@ Guidelines:
         if before == 0:
             return 0, 0, 0, 0, 0, sg_id
 
-        # 1) 精确规则合并
+        # 1) 精确规则合并（仍然是“同类型内部”合并）
         merged_rule = self._normalize_subgraph_entities(sg)
 
-        # 2) BioBERT 候选对
+        # 2) BioBERT 候选对（允许不同类型实体）
         candidates: List[Dict[str, Any]] = []
         if self.biobert_model is not None:
             candidates = self._collect_biobert_candidate_pairs(sg)
@@ -634,11 +642,7 @@ Guidelines:
         # 3) LLM 裁决并合并
         llm_merged = 0
         if candidates:
-            logger.info(
-                f"{ANSI_CYAN}[EntityNormalize][LLM] subgraph={sg_id} "
-                f"received {num_candidates} candidate pairs from BioBERT, "
-                f"sending to LLM in parallel...{ANSI_RESET}"
-            )
+
             llm_merged = self._llm_decide_and_merge(
                 sg,
                 candidates,
@@ -652,8 +656,7 @@ Guidelines:
 
         after_all = len(sg.entities.all())
 
-        # ❌ 不再打印每个子图的详细 summary，这些信息在最终表里统一展示
-        # logger.info(...)
+        # 不再打印每个子图的详细 summary，这些信息在最终表里统一展示
 
         return before, after_all, merged_rule, llm_merged, num_candidates, sg_id
 
