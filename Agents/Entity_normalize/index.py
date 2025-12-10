@@ -17,7 +17,7 @@ from Store.index import get_memory
 from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-
+from Config.index import BioBertPath
 logger = get_global_logger()
 
 # 控制台颜色（如果重定向到文件，只是普通字符串，不影响）
@@ -52,7 +52,6 @@ class EntityNormalizationAgent(Agent):
         self,
         client: OpenAI,
         model_name: str,
-        biobert_dir: str = "/home/nas2/path/models/biobert-base-cased-v1.1",
         sim_threshold: float = 0.7,
     ):
         system_prompt = """
@@ -89,7 +88,7 @@ Guidelines:
         self.sim_threshold = float(sim_threshold)
 
         # BioBERT（本地加载，仅用于相似度）
-        self.biobert_dir = biobert_dir
+        self.biobert_dir = BioBertPath
         self.biobert_tokenizer = None
         self.biobert_model = None
         self._load_biobert()
