@@ -8,7 +8,7 @@ from matplotlib.pyplot import cla
 from networkx import core_number
 from openai import OpenAI
 import sys
-# from Agents.Causal_extraction.index import CausalExtractionAgent
+from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
 from Agents.Entity_extraction.index import EntityExtractionAgent
 from Agents.Entity_normalize.index import EntityNormalizationAgent
@@ -34,22 +34,19 @@ if __name__ == "__main__":
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     model_name=os.environ.get("OPENAI_MODEL")
     memory=get_memory()
-    test=ExampleText()
-    json_texts=test.get_text()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    # memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251208-210338.json')
+    # memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251211-135219.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
     queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     response = queryclarifyagent.process(user_query)
     clarified_query = response.get("clarified_question", user_query) # type: ignore
     core_entities= response.get("core_entities", []) # type: ignore
     intention= response.get("main_intention", "") # type: ignore
-    print("Clarified Query:", clarified_query)
+    # print("Clarified Query:", clarified_query)
+    # print("Core Entities:", core_entities)
     reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
     reviewfetcheragent.process(clarified_query)
-
-   
 
     entityAgent=EntityExtractionAgent(client=client, model=model_name)
     entityAgent.process()
@@ -67,7 +64,8 @@ if __name__ == "__main__":
     collaborationAgent.process()
     logger.info("Collaboration extraction finished.")
     memory.dump_json("./snapshots")
-
+    casualAgent=CausalExtractionAgent(client=client, model_name=model_name)
+    casualAgent.process()
     alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
     alignmentAgent.process()
     fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
@@ -75,6 +73,6 @@ if __name__ == "__main__":
     memory.dump_json("./snapshots")
     keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
     keywordAgent.process()
-    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory)
+    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
     PathExtractionAgent.process()
     memory.dump_json("./snapshots")

@@ -205,19 +205,33 @@ class PathExtractionAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
         return True
     def process(self):
-        # pprint(self.knowledgeGraph.Graph)
-        keyEntityPath, keyTripePath = self.find_path_with_edges(
-            self.keyEntitys[0], 
-            k=self.k, 
-            adj=self.knowledgeGraph.Graph, 
-            is_valid=self.is_valid
-        )
-        self.memory.add_extracted_path(keyEntityPath, keyTripePath)
-        print(f"✅ 返回路径长度：{len(keyEntityPath)}（目标长度 k={self.k}）")
-        print("✅ 路径节点：")
-        pprint(keyEntityPath)
-        print("✅ 路径边：")
-        pprint(keyTripePath)
+        # 假设 Memory 里已经有你贴的 keyword_entity_map（关键实体列表）
+        keyword_entity_map = self.memory.get_keyword_entity_map()
+        for keyword, ent_list in keyword_entity_map.items():
+            # ent_list 是你贴的那种 dict 列表
+            for ent_data in ent_list:
+                if isinstance(ent_data, KGEntity):
+                    start_entity = ent_data
+                else:
+                    start_entity = KGEntity(**ent_data)
+
+                node_path, edge_path = self.find_path_with_edges(
+                    start_entity,
+                    k=self.k,
+                    adj=self.knowledgeGraph.Graph,
+                    is_valid=self.is_valid,
+                )
+
+                if not node_path:
+                    continue
+
+                # ✅ 这里把路径存回 memory，挂在这个 keyword 下面
+                self.memory.add_extracted_path(keyword, node_path, edge_path)
+
+                print(
+                    f"✅ keyword={keyword} | 起点={start_entity.name} | "
+                    f"返回路径长度：{len(node_path)}（目标长度 k={self.k}）"
+                )
 
  
 
