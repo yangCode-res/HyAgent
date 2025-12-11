@@ -12,7 +12,7 @@ from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
 import json
 class PathExtractionAgent(Agent):
-    def __init__(self, client: OpenAI, model_name: str,k=3,memory:Optional[Memory]=None):
+    def __init__(self, client: OpenAI, model_name: str,k=3,memory:Optional[Memory]=None,query:str=''):
         self.system_prompt = (
             "You are a biomedical AI4Science assistant. "
             "Your job is to decide whether extending a knowledge-graph path "
@@ -23,7 +23,7 @@ class PathExtractionAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
-        self.query='Cardiovascular diseases and endothelial dysfunction may be related to what factors?'
+        self.query=query
         self.keyEntitys:List[KGEntity]=self.memory.get_key_entities()
         self.knowledgeGraph:KnowledgeGraph=KnowledgeGraph(self.memory.get_allRealationShip())
         self.k=k

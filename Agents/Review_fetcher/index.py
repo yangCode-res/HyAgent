@@ -31,20 +31,20 @@ class ReviewFetcherAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
     
     def process(self,user_query:str):
-        strategy = self.generateMeSHStrategy(user_query)
-        reviews_metadata = self.fetchReviews(strategy, maxlen=20)
-        selected_reviews = self.selectReviews(reviews_metadata, topk=5)
-        review_urls = []
-        for pmid in selected_reviews:
-            try:
-                review_urls.append(FindIt(pmid).url)
-            except:
-                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
-        print("review_urls=>",review_urls)
-        review_urls=[url for url in review_urls if url is not None]
-        md_outputs=ocr_to_md_files(review_urls)
-        print("md_outputs=>",md_outputs)
-        # md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
+        # strategy = self.generateMeSHStrategy(user_query)
+        # reviews_metadata = self.fetchReviews(strategy, maxlen=20)
+        # selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        # review_urls = []
+        # for pmid in selected_reviews:
+        #     try:
+        #         review_urls.append(FindIt(pmid).url)
+        #     except:
+        #         self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+        # print("review_urls=>",review_urls)
+        # review_urls=[url for url in review_urls if url is not None]
+        # md_outputs=ocr_to_md_files(review_urls)
+        # print("md_outputs=>",md_outputs)
+        md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
         for md_output in md_outputs[0:2]:
             paragraphs=split_md_by_mixed_count(md_output)
 
@@ -55,9 +55,9 @@ class ReviewFetcherAgent(Agent):
                     meta={"text":content_chunk,"source":id}
                     s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                     self.memory.register_subgraph(s)
-        if len(review_urls) == 0:
-            self.logger.warning("No review URLs found")
-            sys.exit(1)
+        # if len(review_urls) == 0:
+        #     self.logger.warning("No review URLs found")
+        #     sys.exit(1)
         return 
 
 

@@ -132,7 +132,10 @@ class KeywordEntitySearchAgent(Agent):
             node = getattr(tri, "subject", None)
             if node is None:
                 continue
-            ent = KGEntity(**node)
+            if not isinstance(node, KGEntity):
+                ent = KGEntity(**node)
+            else:
+                ent = node
             eid = getattr(ent, "entity_id", None)
             if not eid or eid in seen_ids:
                 continue
