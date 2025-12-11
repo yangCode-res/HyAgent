@@ -1,1 +1,1 @@
-BioBertPath="/home/nas2/path/models/biobert-base-cased-v1.1"
+BioBertPath="/home/nas2/path/models/SapBERT-from-PubMedBERT-fulltext"

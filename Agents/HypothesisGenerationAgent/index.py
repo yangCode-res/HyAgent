@@ -32,26 +32,52 @@ class HypothesisGenerationAgent(Agent):
         hypotheses_per_path: int = 3,
     ):
         # system prompt：主要定义“你是谁 + 要做什么 + 输出格式”
-        system_prompt = (
-            "You are a biomedical AI4Science assistant. "
-            "Given a user query and a mechanistic path extracted from a biomedical knowledge graph, "
-            "you must propose plausible, mechanistic, and experimentally testable hypotheses "
-            "that leverage the entities and relations along this path. "
-            "Always respond ONLY with valid JSON of the form:\n"
-            "{\n"
-            "  \"hypotheses\": [\n"
-            "    {\n"
-            "      \"title\": \"short hypothesis title\",\n"
-            "      \"hypothesis\": \"full hypothesis statement\",\n"
-            "      \"mechanism_explanation\": \"how the entities/relations in the path support this hypothesis\",\n"
-            "      \"experimental_suggestion\": \"a concise, concrete experimental idea to test it\",\n"
-            "      \"relevance_to_query\": \"why this hypothesis is relevant to the user query\",\n"
-            "      \"confidence\": 0.0\n"
-            "    }\n"
-            "  ]\n"
-            "}\n"
-            "Do not output any text outside this JSON."
-        )
+        system_prompt = """
+        You are a biomedical AI4Science assistant.
+        Given a user query and a mechanistic path extracted from a biomedical knowledge graph,
+        your task is to propose plausible, mechanistic, and experimentally testable hypotheses
+        that leverage the entities and relations along this path.
+        Your another task is to according to several given generated hypotheses and their contexts,
+        generate a more comprehensive hypothesis.
+        The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
+        The input format is as follows:
+        Task 1:
+        {
+        "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
+        "query": "user query string",
+        "path_index": int,
+        "path": "string",it will be given in the format of entity1-[relation1]->entity2-[relation2]->entity3...
+        "contexts": "string"
+        }
+        Task 2:
+        {
+        "task": "generate a more comprehensive hypothesis based on several given hypotheses and their contexts",
+        "query": "user query string",
+        "given_hypotheses": [
+            {
+            "hypothesis": "full hypothesis statement",
+            "context": "string"
+            }
+        ]
+        }
+        You should respond ONLY with valid JSON in the following format:
+
+        {
+        "hypotheses": [
+            {
+            "title": "short hypothesis title",
+            "hypothesis": "full hypothesis statement",
+            "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
+            "experimental_suggestion": "a concise, concrete experimental idea to test it",
+            "relevance_to_query": "why this hypothesis is relevant to the user query",
+            "confidence": 0.0
+            }
+        ]
+        }
+
+        Do not include any text outside the JSON response.
+        """
+
 
         super().__init__(client, model_name, system_prompt)
 
@@ -70,44 +96,48 @@ class HypothesisGenerationAgent(Agent):
         path_idx: int,
         node_path: List[KGEntity],
         edge_path: List[KGTriple],
+        hypotheses:Optional[List[Dict[str,Any]]]=None,
+        task:int=1,
     ) -> str:
         """
         把 query + 一条路径打包成 JSON prompt 发给 LLM。
         """
-        payload = {
-            "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
-            "query": self.query,
-            "path_index": path_idx,
-            "path": {
-                "nodes": [e.serialize() for e in node_path],
-                "edges": [tr.serialize() for tr in edge_path],
-            },
-            "constraints": {
-                "use_path": "Hypotheses should explicitly leverage entities and relations along the path.",
-                "mechanistic": "Explain the mechanism or causal chain implied by the path.",
-                "testable": "Each hypothesis should be experimentally testable in principle.",
-                "novelty": "Prefer non-trivial or non-obvious combinations over purely textbook restatement.",
-                "relevance": "Hypotheses must be relevant to the user query.",
-            },
-            "generation_config": {
-                "max_hypotheses": self.hypotheses_per_path,
-            },
-            "output_format": {
-                "hypotheses": [
-                    {
-                        "title": "short hypothesis title",
-                        "hypothesis": "full hypothesis statement",
-                        "mechanism_explanation": "how path entities/relations support it",
-                        "experimental_suggestion": "how to test it",
-                        "relevance_to_query": "why this matters for the query",
-                        "confidence": 0.0,
-                    }
-                ]
-            },
-            "instruction": (
-                "Return ONLY valid JSON with a top-level key 'hypotheses'. "
-                "Do not include any natural language outside JSON."
-            ),
+        if(task==1){
+            payload = {
+                "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
+                "query": self.query,
+                "path_index": path_idx,
+                "path": {
+                    "nodes": [e.serialize() for e in node_path],
+                    "edges": [tr.serialize() for tr in edge_path],
+                },
+                "constraints": {
+                    "use_path": "Hypotheses should explicitly leverage entities and relations along the path.",
+                    "mechanistic": "Explain the mechanism or causal chain implied by the path.",
+                    "testable": "Each hypothesis should be experimentally testable in principle.",
+                    "novelty": "Prefer non-trivial or non-obvious combinations over purely textbook restatement.",
+                    "relevance": "Hypotheses must be relevant to the user query.",
+                },
+                "generation_config": {
+                    "max_hypotheses": self.hypotheses_per_path,
+                },
+                "output_format": {
+                    "hypotheses": [
+                        {
+                            "title": "short hypothesis title",
+                            "hypothesis": "full hypothesis statement",
+                            "mechanism_explanation": "how path entities/relations support it",
+                            "experimental_suggestion": "how to test it",
+                            "relevance_to_query": "why this matters for the query",
+                            "confidence": 0.0,
+                        }
+                    ]
+                },
+                "instruction": (
+                    "Return ONLY valid JSON with a top-level key 'hypotheses'. "
+                    "Do not include any natural language outside JSON."
+                ),
+            }
         }
 
         return json.dumps(payload, ensure_ascii=False)
@@ -149,17 +179,27 @@ class HypothesisGenerationAgent(Agent):
         """
         主流程：
           1）从 Memory 中取出已抽取的路径；
-          2）对前 max_paths 条路径逐一调用 LLM 生成假设；
-          3）返回一个列表，每个元素包含：
+             路径格式为：
+             {
+               "core_entity":List[Path],
+            }
+             其中 Path 格式为：
+             {
+               "nodes": List[KGEntity],
+               "edges": List[KGTriple],
+            }
+            即三元组列表；
+          2）对每个实体的 max_paths 路径逐一调用 LLM 生成假设；
+          3）返回一个字典，每个元素包含：
               {
-                "path_index": int,
+                {"path_index": int,
                 "nodes": [...],
                 "edges": [...],
-                "hypotheses": [...]
+                "hypotheses": [...]}
               }
           之后你可以视情况把这些结果再写回 Memory。
         """
-        all_paths = getattr(self.memory, "get_extracted_paths", lambda: [])()
+        all_paths = self.memory.get_extracted_paths()
         if not all_paths:
             self.logger.warning("[HypothesisGeneration] no extracted paths found in memory.")
             return []

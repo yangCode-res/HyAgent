@@ -184,7 +184,7 @@ class CollaborationExtractionAgent(Agent):
                     confidence=None,
                     evidence=None,
                     mechanism=None,
-                    source="unknown"
+                    source=subgraph.id,
                 )
                 triples.append(triple)
             return triples
