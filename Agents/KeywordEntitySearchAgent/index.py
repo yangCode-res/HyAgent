@@ -262,7 +262,7 @@ class KeywordEntitySearchAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
 
         raw = self.call_llm(prompt)
-
+        print("this is raw",raw)
         try:
             obj = json.loads(raw)
         except Exception as e:
