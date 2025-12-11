@@ -450,32 +450,64 @@ Guidelines:
         """
         使用 BioBERT 生成候选对：
         - 不再按类型分组，允许不同类型实体成为候选对
-        - 只要文本相似度 >= sim_threshold 即加入候选
+        - 相似度 = 两个实体 (name + aliases) 所有组合的最大余弦相似度
+        - 只要最大相似度 >= sim_threshold 即加入候选
         """
         entities: List[KGEntity] = sg.entities.all()
         if len(entities) <= 1 or not self.biobert_model:
             return []
 
-        # 统一编码所有实体（不按类型拆分）
-        vecs: List[Optional[np.ndarray]] = []
+        # 全局文本 -> 向量缓存，避免重复 encode
+        emb_cache: Dict[str, Optional[np.ndarray]] = {}
+
+        def get_vec(text: str) -> Optional[np.ndarray]:
+            if text in emb_cache:
+                return emb_cache[text]
+            vec = self._encode_text(text) if text else None
+            emb_cache[text] = vec
+            return vec
+
+        # 为每个实体准备 surfaces 和对应的向量列表
+        ent_surfaces: List[List[str]] = []
+        ent_vecs: List[List[Optional[np.ndarray]]] = []
+
         for ent in entities:
-            txt = self._get_ent_text(ent)
-            vecs.append(self._encode_text(txt) if txt else None)
+            surfs = self._get_surfaces(ent)
+            ent_surfaces.append(surfs)
+
+            vec_list: List[Optional[np.ndarray]] = []
+            for s in surfs:
+                vec_list.append(get_vec(s))
+            ent_vecs.append(vec_list)
 
         all_candidates: List[Dict[str, Any]] = []
-
         n = len(entities)
+
         for i in range(n):
-            vi = vecs[i]
-            if vi is None:
+            surfs_i = ent_surfaces[i]
+            vecs_i = ent_vecs[i]
+            if not surfs_i or not vecs_i:
                 continue
+
             for j in range(i + 1, n):
-                vj = vecs[j]
-                if vj is None:
+                surfs_j = ent_surfaces[j]
+                vecs_j = ent_vecs[j]
+                if not surfs_j or not vecs_j:
                     continue
 
-                sim = self._cosine(vi, vj)
-                if sim < self.sim_threshold:
+                # === 关键：两两组合取最大相似度 ===
+                best_sim = -1.0
+                for vi in vecs_i:
+                    if vi is None:
+                        continue
+                    for vj in vecs_j:
+                        if vj is None:
+                            continue
+                        sim_ij = self._cosine(vi, vj)
+                        if sim_ij > best_sim:
+                            best_sim = sim_ij
+
+                if best_sim < self.sim_threshold:
                     continue
 
                 ea, eb = entities[i], entities[j]
@@ -485,11 +517,10 @@ Guidelines:
                 all_candidates.append(
                     {
                         "subgraph_id": sg.id,
-                        # 兼容旧字段，同时新增每一方的类型
                         "entity_type": f"{type_a}|{type_b}",
                         "ent_a_type": type_a,
                         "ent_b_type": type_b,
-                        "similarity": float(sim),
+                        "similarity": float(best_sim),   # 现在是 max(name+aliases)
                         "ent_a_id": ea.entity_id,
                         "ent_b_id": eb.entity_id,
                         "ent_a_name": ea.name,
@@ -498,13 +529,40 @@ Guidelines:
                         "ent_b_normalized_id": getattr(eb, "normalized_id", "N/A"),
                         "ent_a_aliases": list(getattr(ea, "aliases", []) or []),
                         "ent_b_aliases": list(getattr(eb, "aliases", []) or []),
+                        # 描述还是用原来的逻辑（name 优先，否则 description）
                         "ent_a_description": self._get_ent_text(ea),
                         "ent_b_description": self._get_ent_text(eb),
                     }
                 )
 
-
         return all_candidates
+    def _get_surfaces(self, ent: KGEntity) -> List[str]:
+        """
+        返回一个实体的所有 surface 形式：
+        - name
+        - aliases 列表
+        做简单去重（忽略大小写）
+        """
+        surfaces: List[str] = []
+
+        name = getattr(ent, "name", None)
+        if isinstance(name, str) and name.strip():
+            surfaces.append(name.strip())
+
+        aliases = getattr(ent, "aliases", None) or []
+        for a in aliases:
+            if isinstance(a, str) and a.strip():
+                surfaces.append(a.strip())
+
+        # 去重（忽略大小写）
+        seen = set()
+        uniq = []
+        for s in surfaces:
+            key = s.lower()
+            if key not in seen:
+                seen.add(key)
+                uniq.append(s)
+        return uniq
 
     # ===================== LLM 裁决（并行查询 + 串行合并） =====================
 
