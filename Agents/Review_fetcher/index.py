@@ -44,8 +44,8 @@ class ReviewFetcherAgent(Agent):
         # review_urls=[url for url in review_urls if url is not None]
         # md_outputs=ocr_to_md_files(review_urls)
         # print("md_outputs=>",md_outputs)
-        md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md"]
-        for md_output in [md_outputs[0]]:
+        md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
+        for md_output in md_outputs[0:2]:
             paragraphs=split_md_by_mixed_count(md_output)
 
             # paragraphs=split_md_by_h2(md_output)

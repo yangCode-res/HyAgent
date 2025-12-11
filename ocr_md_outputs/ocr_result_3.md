@@ -452,12 +452,10 @@ Ran FA, Cong L, Yan WX, Scott DA, Gootenberg JS, Kriz AJ, Zetsche B, Shalem O, W
 Raper SE, Chirmule N, Lee FS, Wivel NA, Bagg A, Gao GP, Wilson JM, and Batshaw ML (2003). Fatal systemic inflammatory response syndrome in a ornithine transcarbamylase deficient patient following adenoviral gene transfer. Mol Genet Metab 80, 148-158. [PubMed: 14567964]
 Rees HA, and Liu DR (2018). Base editing: precision chemistry on the genome and transcriptome of living cells. Nat Rev Genet 19, 770-788. [PubMed: 30323312]
 Rees HA, Minella AC, Burnett CA, Komor AC, and Gaudelli NM (2021). CRISPR-derived genome editing therapies: Progress from bench to bedside. Mol Ther 29, 3125-3139. [PubMed: 34619370]
-
 Richter M, Stone D, Miao C, Humbert O, Kiem HP, Papayannopoulou T, and Lieber A (2017). In Vivo Hematopoietic Stem Cell Transduction. Hematol Oncol Clin North Am 31, 771-785. [PubMed: 28895846]
 
 Richter MF, Zhao KT, Eton E, Lapinaite A, Newby GA, Thuronyi BW, Wilson C, Koblan LW, Zeng J, Bauer DE, et al. (2020). Phage-assisted evolution of an adenine base editor with improved Cas domain compatibility and activity. Nat Biotechnol 38, 883-891. [PubMed: 32433547]
 Rothgangl T, Dennis MK, Lin PJC, Oka R, Witzigmann D, Villiger L, Qi W, Hruzova M, Kissling L, Lenggenhager D, et al. (2021). In vivo adenine base editing of PCSK9 in macaques reduces LDL cholesterol levels. Nat Biotechnol 39, 949-957. [PubMed: 34012094]
-
 Rurik JG, Tombacz I, Yadegari A, Mendez Fernandez PO, Shewale SV, Li L, Kimura T, Soliman OY, Papp TE, Tam YK, et al. (2022). CAR T cells produced in vivo to treat cardiac injury. Science 375, 91-96. [PubMed: 34990237]
 Russell S, Bennett J, Wellman JA, Chung DC, Yu ZF, Tillman A, Wittes J, Pappas J, Elci O, McCague S, et al. (2017). Efficacy and safety of voretigene neparvovec (AAV2-hRPE65v2) in patients with RPE65-mediated inherited retinal dystrophy: a randomised, controlled, open-label, phase 3 trial. Lancet 390, 849-860. [PubMed: 28712537]
 Ryu SM, Koo T, Kim K, Lim K, Baek G, Kim ST, Kim HS, Kim DE, Lee H, Chung E, et al. (2018). Adenine base editing in mouse embryos and an adult mouse model of Duchenne muscular dystrophy. Nat Biotechnol 36, 536-539. [PubMed: 29702637]

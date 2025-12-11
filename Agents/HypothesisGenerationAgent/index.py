@@ -107,10 +107,7 @@ class HypothesisGenerationAgent(Agent):
                 "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
                 "query": self.query,
                 "path_index": path_idx,
-                "path": {
-                    "nodes": [e.serialize() for e in node_path],
-                    "edges": [tr.serialize() for tr in edge_path],
-                },
+                "path": self.
                 "constraints": {
                     "use_path": "Hypotheses should explicitly leverage entities and relations along the path.",
                     "mechanistic": "Explain the mechanism or causal chain implied by the path.",
@@ -173,7 +170,18 @@ class HypothesisGenerationAgent(Agent):
                 f"[HypothesisGeneration] path_idx={path_idx} LLM call/parse failed: {e}"
             )
             return []
-
+    def serialize_path(
+        self,
+        node_path: List[KGEntity],
+        edge_path: List[KGTriple],
+    ) -> str:
+        parts = []
+        for i, node in enumerate(node_path):
+            parts.append(node.name)
+            if i < len(edge_path):
+                edge = edge_path[i]
+                parts.append(f"-[{edge.relation}]->")
+        return "".join(parts)
     # ---------- 对外主入口 ----------
     def process(self) -> List[Dict[str, Any]]:
         """
