@@ -6,9 +6,9 @@ import concurrent
 import concurrent.futures
 from networkx import graph_atlas
 from openai import OpenAI
-from pydot import Subgraph
 from tqdm import tqdm
 
+from Memory.index import Memory, Subgraph
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory
@@ -518,7 +518,7 @@ Now, evaluate the provided relationships based on the review text using this sys
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
         plain_text=subgraph.meta.get("text","")
-        subgraph=self.memory.get_subgraph(subgraph.id)
+        #subgraph=self.memory.get_subgraph(subgraph.id)
         self.logger.info(f"CausalExtractionAgent: Processing Subgraph {subgraph.id} with {len(subgraph.relations.all())} relations.")
         extracted_triples=subgraph.get_relations()
         if not extracted_triples:
