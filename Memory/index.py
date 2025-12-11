@@ -466,8 +466,10 @@ class Memory:
         self.alignments = AlignmentStore()
         # 新增：关键实体列表存储
         self.key_entities = KeyEntityStore()
+        self.keyword_entity_map: Dict[str, List[KGEntity]] = {}
         self._extracted_paths: List[dict] = []
         self.entity_id_mapping_path: Optional[str] = None
+        
     def add_extracted_path(
         self,
         node_path: List[KGEntity],
@@ -510,6 +512,35 @@ class Memory:
         return self.key_entities.all()
     def get_allRealationShip(self)-> List[KGTriple]:
         return self.relations.all()
+    def add_keyword_entities(self, keyword: str, ents: List[KGEntity]) -> None:
+        """
+        覆盖式设置某个 keyword 对应的实体列表。
+        """
+        keyword = (keyword or "").strip()
+        if not keyword:
+            return
+        self.keyword_entity_map[keyword] = list(ents)
+
+    def append_keyword_entities(self, keyword: str, ents: List[KGEntity]) -> None:
+        """
+        追加式添加某个 keyword 的实体列表（在原有基础上 extend）。
+        """
+        keyword = (keyword or "").strip()
+        if not keyword:
+            return
+        self.keyword_entity_map.setdefault(keyword, []).extend(ents)
+
+    def get_keyword_entities(self, keyword: str) -> List[KGEntity]:
+        """
+        获取某个 keyword 目前映射的实体列表。
+        """
+        return list(self.keyword_entity_map.get(keyword, []))
+
+    def get_keyword_entity_map(self) -> Dict[str, List[KGEntity]]:
+        """
+        获取完整的 keyword -> [KGEntity, ...] 映射（浅拷贝）。
+        """
+        return {k: list(v) for k, v in self.keyword_entity_map.items()}
     # 导出全局快照（包含子图内部）
     def dump_json(self, dirpath: str = ".") -> str:
         ts = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -528,6 +559,10 @@ class Memory:
             "alignments": self.alignments.to_list(),
               # 新增：关键实体列表
             "key_entities": [e.to_dict() for e in self.key_entities.all()],
+            "keyword_entity_map": {
+                kw: [e.to_dict() for e in ents]
+                for kw, ents in self.keyword_entity_map.items()
+            },
             "meta": {"generated_at": ts,"entity_id_mapping_path": self.entity_id_mapping_path,},
             "paths": [
             {
@@ -672,7 +707,12 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
     for ed in key_ents_data:
         e = _coerce_entity(ed)
         mem.key_entities.add(e)
-
+    kw_map_data = data.get("keyword_entity_map", {}) or {}
+    for kw, ents_list in kw_map_data.items():
+        ents: List[KGEntity] = []
+        for ed in ents_list or []:
+            ents.append(_coerce_entity(ed))
+        mem.keyword_entity_map[kw] = ents
     paths_data = data.get("paths", [])
     for pd in paths_data:
         node_ents: List[KGEntity] = []

@@ -45,7 +45,7 @@ if __name__ == "__main__":
     # fusionAgent.process()
     # EntityNormalizationAgent=EntityNormalizationAgent(client=client, model_name=model_name,memory=memory)
     # EntityNormalizationAgent.process()
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keyword="endothelial dysfunction")
+    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=["endothelial dysfunction","Cardiovascular diseases"])
     keywordAgent.process()
     # PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory)
     # PathExtractionAgent.process()

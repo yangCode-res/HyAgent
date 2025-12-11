@@ -1,10 +1,11 @@
 import math
 import json
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Any
 
 import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
+
 from Store.index import get_memory
 from Config.index import BioBertPath
 from Core.Agent import Agent
@@ -16,37 +17,26 @@ from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 class KeywordEntitySearchAgent(Agent):
     """
     功能：
-      1）用 BioBERT 在 Memory 全局实体中检索与 keyword 最相近的实体（相似度 Top-N 候选池）
-      2）把这 N 个候选丢给大模型，由大模型在候选中选出 若干个 最匹配的实体（最多 K 个）
+      1）用 BioBERT 在 Memory 全局实体中检索与多个 keyword 最相近的实体（相似度 Top-M 作为候选池）
+      2）把这 M 个候选丢给大模型，由大模型在候选中选出最多 K 个最匹配的实体
+      3）结果写入 memory.keyword_entity_map[keyword] = [KGEntity, ...]
 
-    参数：
-      - top_k_default: 最终想返回的实体数量 K
-      - candidate_pool_size: 提供给 LLM 选择的候选池大小 N（如果为 None，则默认为 max(K, 10)）
-
-    用法示例：
-        agent = KeywordEntitySearchAgent(
-            client=openai_client,
-            model_name="gpt-4o-mini",
-            keyword="Src family kinase",
-            memory=get_memory(),
-            top_k_default=3,          # 最终返回 3 个
-            candidate_pool_size=15,   # 让 LLM 从 15 个候选里选
-        )
-        best_ents, best_scores, candidates = agent.process()
+    说明：
+      - 相似度是 keyword 与实体的 [name + aliases] 多个 surface 中的最大值
+      - 日志：
+          * 过程阶段只在警告/出错时打印 warning/error
+          * 最后一次性以表格形式输出所有关键词的匹配结果
     """
 
     def __init__(
         self,
         client,
         model_name: str,
-        keyword: str,
+        keywords: List[str],            # ⭐ 多个关键词
         memory: Optional[Memory] = None,
-        top_k_default: int = 3,             # 最终返回 K 个
-        candidate_pool_size: Optional[int] = None,  # BioBERT 候选池 N
+        top_k_default: int = 3,         # ⭐ 每个 keyword 最终保留多少个实体
+        candidate_pool_size: int = 10,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
     ):
-        # 先保存 K，用于 system_prompt 里描述「最多返回 K 个」
-        self.top_k_default = top_k_default
-
         system_prompt = (
             "You are a biomedical entity-linking agent. "
             "Given a query keyword and a list of candidate entities from a knowledge graph, "
@@ -57,36 +47,31 @@ class KeywordEntitySearchAgent(Agent):
             "}\n"
             "You MUST:\n"
             "- Return at least 1 id if there is any reasonable match.\n"
-            f"- NEVER return more than K={top_k_default} ids.\n"
+            "- NEVER return more than K ids.\n"
             "- Do not include any extra fields, comments, or text outside the JSON."
         )
         super().__init__(client, model_name, system_prompt)
 
         self.logger = get_global_logger()
         self.memory: Memory = memory or get_memory()
-        self.keyword = keyword
+
+        self.keywords: List[str] = keywords
+        self.top_k_default: int = top_k_default
+        self.candidate_pool_size: int = candidate_pool_size
+
         self.biobert_dir = BioBertPath
         self.biobert_model = None
         self.biobert_tokenizer = None
+
+        # 全局实体索引
         self.entities: Dict[str, KGEntity] = {}
-        self.entity_embeddings: Dict[str, np.ndarray] = {}
-
-        # ------- 新增：候选池大小 N -------
-        if candidate_pool_size is None:
-            # 默认给 LLM 的候选池比 K 大一点（至少 10）
-            candidate_pool_size = max(top_k_default, 10)
-        # 保证候选池大小 >= K
-        if candidate_pool_size < top_k_default:
-            candidate_pool_size = top_k_default
-        self.candidate_pool_size = int(candidate_pool_size)
-        # ---------------------------------
-
-        # 索引统计信息，用于最终 summary 日志
-        self._index_total_entities: int = 0
-        self._index_with_embeddings: int = 0
+        # 每个实体对应多个 surface：(surface_text, embedding)
+        self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray]]] = {}
 
         self._load_biobert()
         self._build_entity_index()
+
+        # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
 
     # ---------------- BioBERT 相关 ----------------
     def _load_biobert(self) -> None:
@@ -100,9 +85,8 @@ class KeywordEntitySearchAgent(Agent):
                 local_files_only=True,
             )
             self.biobert_model.eval()
-            # 成功加载不打 log，保持过程静默
         except Exception as e:
-            # 真正的错误仍然报出来
+            # 这是致命问题，打 error
             self.logger.error(
                 f"[KeywordSearch][BioBERT] load failed ({e}), keyword search will not work properly."
             )
@@ -116,22 +100,15 @@ class KeywordEntitySearchAgent(Agent):
         text = (text or "").strip()
         if not text:
             return None
-        try:
-            inputs = self.biobert_tokenizer(
-                text,
-                return_tensors="pt",
-                truncation=True,
-                max_length=128,
-            )
-            outputs = self.biobert_model(**inputs)
-            vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
-            return vec
-        except Exception as e:
-            # 编码失败算异常，打 error
-            self.logger.error(
-                f"[KeywordSearch][BioBERT] encode_text failed for text='{text[:50]}...' ({e})"
-            )
-            return None
+        inputs = self.biobert_tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=128,
+        )
+        outputs = self.biobert_model(**inputs)
+        vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
+        return vec
 
     @staticmethod
     def _l2_normalize(vec: np.ndarray) -> np.ndarray:
@@ -140,11 +117,17 @@ class KeywordEntitySearchAgent(Agent):
             return vec
         return vec / norm
 
-    # ---------------- 建索引 ----------------
+    # ---------------- 建索引（name + aliases 多 surface） ----------------
     def _build_entity_index(self) -> None:
+        """
+        遍历内存中的关系，把 subject 视为 KGEntity，
+        为每个实体记录：
+          - self.entities[eid] = KGEntity
+          - self.entity_surfaces[eid] = [(surface_text, emb_norm), ...]
+            其中 surface_text = name 或 alias
+        """
         triples = self.memory.relations.all()
         seen_ids = set()
-        count_ok = 0
         for tri in triples:
             node = getattr(tri, "subject", None)
             if node is None:
@@ -153,66 +136,109 @@ class KeywordEntitySearchAgent(Agent):
             eid = getattr(ent, "entity_id", None)
             if not eid or eid in seen_ids:
                 continue
+
+            # 收集 surfaces: name + aliases
+            surfaces: List[str] = []
+            name = getattr(ent, "name", None)
+            if isinstance(name, str) and name.strip():
+                surfaces.append(name.strip())
+            aliases = getattr(ent, "aliases", None) or []
+            for a in aliases:
+                if isinstance(a, str) and a.strip():
+                    surfaces.append(a.strip())
+
+            if not surfaces:
+                continue  # 没有任何有效文本，不建索引
+
+            surface_vecs: List[Tuple[str, np.ndarray]] = []
+            for s in surfaces:
+                emb = self._encode_text(s)
+                if emb is None:
+                    continue
+                emb_norm = self._l2_normalize(emb)
+                surface_vecs.append((s, emb_norm))
+
+            if not surface_vecs:
+                continue  # 所有 surface 都没成功编码
+
             seen_ids.add(eid)
-            # 记录到本地实体索引
             self.entities[eid] = ent
-            # 选一个文本用于 BioBERT 编码：name > description > normalized_id
-            text = getattr(ent, "name", None)
-            if text is None:
-                continue
-            emb = self._encode_text(text)
-            if emb is None:
-                continue
-            emb_norm = self._l2_normalize(emb)
-            self.entity_embeddings[eid] = emb_norm
-            count_ok += 1
+            self.entity_surfaces[eid] = surface_vecs
 
-        # 只保存统计信息，不打印过程 log
-        self._index_total_entities = len(self.entities)
-        self._index_with_embeddings = count_ok
+        # 不在这里打印 info，避免过程日志刷屏
 
-    # ---------------- BioBERT 检索 Top-K（候选池） ----------------
-    def _search_top_k(
-        self, keyword: str, top_k: Optional[int] = None
-    ) -> List[Tuple[KGEntity, float]]:
+    # ---------------- 针对单个 keyword 的 BioBERT Top-K 检索 ----------------
+    def _search_top_k_for_keyword(
+        self,
+        keyword: str,
+        top_k: Optional[int] = None,
+    ) -> List[Tuple[KGEntity, float, str, str]]:
         """
-        用 BioBERT 检索 Top-K 候选（这里 K 一般是 candidate_pool_size）
+        返回：
+          [(KGEntity, best_sim, best_surface_text, surface_source), ...]
+        其中 best_sim 是 keyword 与该实体 [name + aliases] 多个 surface 中最大相似度；
+        surface_source 取值：'name' / 'alias' / 'unknown'
         """
         if top_k is None:
             top_k = self.candidate_pool_size
-        if not self.entity_embeddings:
-            # 没有任何 embedding，算异常
-            self.logger.error(
-                "[KeywordSearch] entity_embeddings is empty, cannot perform keyword search."
-            )
+
+        if not self.entity_surfaces:
+            self.logger.warning("[KeywordSearch] entity_surfaces is empty, return [].")
             return []
+
         q_vec = self._encode_text(keyword)
         if q_vec is None:
-            self.logger.error(
-                f"[KeywordSearch] failed to encode keyword='{keyword}', cannot perform search."
-            )
+            self.logger.warning(f"[KeywordSearch] failed to encode keyword='{keyword}'")
             return []
+
         q_vec = self._l2_normalize(q_vec)
-        scores: List[Tuple[str, float]] = []
-        for eid, evec in self.entity_embeddings.items():
-            if evec is None:
+
+        scored: List[Tuple[str, float, str, str]] = []
+        for eid, surfaces in self.entity_surfaces.items():
+            best_sim = -1.0
+            best_surface_text = ""
+            for surface_text, svec in surfaces:
+                if svec is None:
+                    continue
+                sim = float(np.dot(q_vec, svec))
+                if sim > best_sim:
+                    best_sim = sim
+                    best_surface_text = surface_text
+
+            if best_sim < 0.0:
                 continue
-            sim = float(np.dot(q_vec, evec))
-            scores.append((eid, sim))
-        scores.sort(key=lambda x: x[1], reverse=True)
-        top_scores = scores[:top_k]
-        results: List[Tuple[KGEntity, float]] = []
-        for eid, sim in top_scores:
+
             ent = self.entities.get(eid)
-            if ent is not None:
-                results.append((ent, sim))
+            if ent is None:
+                continue
+
+            # 判断这个 surface 来自 name 还是 alias
+            source = "unknown"
+            if isinstance(ent.name, str) and best_surface_text == ent.name.strip():
+                source = "name"
+            elif best_surface_text in (ent.aliases or []):
+                source = "alias"
+
+            scored.append((eid, best_sim, best_surface_text, source))
+
+        # 按相似度排序，取前 top_k
+        scored.sort(key=lambda x: x[1], reverse=True)
+        top_scored = scored[:top_k]
+
+        results: List[Tuple[KGEntity, float, str, str]] = []
+        for eid, sim, best_surface_text, source in top_scored:
+            ent = self.entities.get(eid)
+            if ent is None:
+                continue
+            results.append((ent, sim, best_surface_text, source))
+
         return results
 
-    # ---------------- LLM 在候选中选 若干个 ----------------
+    # ---------------- LLM 在候选中选若干个实体 id ----------------
     def _llm_disambiguate(
         self,
         keyword: str,
-        candidates: List[Dict[str, str]],
+        candidates: List[Dict[str, Any]],
         max_return: Optional[int] = None,
     ) -> Optional[List[str]]:
         """
@@ -232,14 +258,12 @@ class KeywordEntitySearchAgent(Agent):
         }
         prompt = json.dumps(payload, ensure_ascii=False)
 
-        # 用基类里的 LLM 调用
         raw = self.call_llm(prompt)
 
         try:
             obj = json.loads(raw)
         except Exception as e:
-            # 解析失败算异常，打 error
-            self.logger.error(
+            self.logger.warning(
                 f"[KeywordSearch][LLM] parse JSON failed: raw={raw!r}, error={e}"
             )
             return None
@@ -268,178 +292,160 @@ class KeywordEntitySearchAgent(Agent):
 
         return uniq or None
 
-    # ---------------- Summary 日志格式化 ----------------
-    def _log_summary_table(
-        self,
-        keyword: str,
-        candidates: List[Tuple[KGEntity, float]],
-        best_entities: List[KGEntity],
-        best_scores: List[float],
-        decision_source: str,
-    ) -> None:
-        """
-        在所有计算结束后，以表格形式打印一次优雅的 summary 日志。
-        """
-        lines: List[str] = []
-        sep_main = "=" * 95
-        sep_sub = "-" * 95
-
-        lines.append(sep_main)
-        lines.append("[KeywordSearch] Summary")
-        lines.append(sep_sub)
-        lines.append(f"Keyword               : {keyword}")
-        lines.append(f"Final Top-K (return)  : {self.top_k_default}")
-        lines.append(f"Candidate Pool Size N : {self.candidate_pool_size}")
-        lines.append(
-            f"Index Entities         : {self._index_total_entities} "
-            f"(with embeddings: {self._index_with_embeddings})"
-        )
-        lines.append(f"BioBERT Candidates    : {len(candidates)}")
-        lines.append(f"Selected Entities      : {len(best_entities)}")
-        lines.append(f"Decision Source        : {decision_source}")
-        lines.append(sep_sub)
-
-        if not best_entities:
-            lines.append("No entities selected.")
-            lines.append(sep_main)
-            self.logger.info("\n" + "\n".join(lines))
-            return
-
-        # 表头
-        col_rank = "Rank"
-        col_id = "Entity ID"
-        col_name = "Name"
-        col_sim = "Sim"
-
-        # 设定宽度
-        w_rank = 6
-        w_id = 20
-        w_name = 40
-        w_sim = 8
-
-        header = (
-            f"{col_rank:^{w_rank}} | {col_id:^{w_id}} | "
-            f"{col_name:^{w_name}} | {col_sim:^{w_sim}}"
-        )
-        lines.append(header)
-        lines.append("-" * len(header))
-
-        def _truncate(s: str, max_len: int) -> str:
-            s = s or ""
-            if len(s) <= max_len:
-                return s
-            if max_len <= 3:
-                return s[:max_len]
-            return s[: max_len - 3] + "..."
-
-        for idx, (ent, score) in enumerate(zip(best_entities, best_scores), start=1):
-            eid = getattr(ent, "entity_id", "") or ""
-            name = getattr(ent, "name", "") or ""
-            eid_short = _truncate(eid, w_id)
-            name_short = _truncate(name, w_name)
-            sim_str = f"{score:.4f}"
-
-            line = (
-                f"{idx:^{w_rank}} | {eid_short:<{w_id}} | "
-                f"{name_short:<{w_name}} | {sim_str:^{w_sim}}"
-            )
-            lines.append(line)
-
-        lines.append(sep_main)
-
-        # 最终只打一条 info，把整个表格输出
-        self.logger.info("\n" + "\n".join(lines))
-
-    # ---------------- 对外接口：process() 返回 K 个实体 ----------------
+    # ---------------- 对外接口：多 keyword，每个 keyword 返回 K 个实体 ----------------
     def process(
         self,
-    ) -> Tuple[List[KGEntity], List[float], List[Tuple[KGEntity, float]]]:
+    ) -> Tuple[
+        Dict[str, List[KGEntity]],
+        Dict[str, List[float]],
+        Dict[str, List[Tuple[KGEntity, float, str, str]]],
+    ]:
         """
-        不传任何参数：
-          - 使用 __init__ 里的 self.keyword
-          - 先用 BioBERT 找 N 个候选（candidate_pool_size）
-          - 再用 LLM 从候选中选 若干个（最多 K 个）
-
         返回：
-          best_entities: [KGEntity, ...] 选中的实体列表（可能 < K，失败则为空列表）
-          best_scores:   [float, ...]    对应实体的 BioBERT 相似度（与 best_entities 对应）
-          candidates:    [(KGEntity, score), ...] 原始 BioBERT 候选，方便调试
+          kw2best_entities: {keyword: [KGEntity, ...]}
+          kw2best_scores:   {keyword: [float, ...]}        # 与 best_entities 对应
+          kw2candidates:    {keyword: [(KGEntity, score, best_surface, source), ...]}
+        并在最后输出一张总表格日志（info），过程不刷 info，只在异常时打 warning/error。
         """
-        kw = self.keyword
+        kw2best_entities: Dict[str, List[KGEntity]] = {}
+        kw2best_scores: Dict[str, List[float]] = {}
+        kw2candidates: Dict[str, List[Tuple[KGEntity, float, str, str]]] = {}
 
-        # 1) BioBERT 相似度检索（返回候选池 N）
-        candidates = self._search_top_k(kw, top_k=self.candidate_pool_size)
-        if not candidates:
+        # 用于最后汇总日志的一行一行记录
+        # 列：Keyword | Rank | EntityID | EntityName | MatchedSurface | SurfaceType | Similarity
+        table_rows: List[List[Any]] = []
+
+        for kw in self.keywords:
+            kw = (kw or "").strip()
+            if not kw:
+                continue
+
+            # 1) BioBERT 相似度检索；候选池大小 = candidate_pool_size
+            candidates = self._search_top_k_for_keyword(
+                kw,
+                top_k=self.candidate_pool_size,
+            )
+            kw2candidates[kw] = candidates
+
+            if not candidates:
+                # 这个 keyword 没有任何候选，跳过但记录空
+                kw2best_entities[kw] = []
+                kw2best_scores[kw] = []
+                continue
+
+            # 构造给 LLM 的候选信息
+            llm_cands: List[Dict[str, Any]] = []
+            # 用来后面查找 best_surface 的索引：eid -> (sim, best_surface, source)
+            eid2surface_info: Dict[str, Tuple[float, str, str]] = {}
+
+            for ent, sim, best_surface, source in candidates:
+                eid = ent.entity_id
+                eid2surface_info[eid] = (sim, best_surface, source)
+                llm_cands.append(
+                    {
+                        "entity_id": eid,
+                        "name": getattr(ent, "name", "") or "",
+                        "description": getattr(ent, "description", "") or "",
+                        "best_surface": best_surface,
+                        "surface_type": source,  # name / alias / unknown
+                        "similarity_hint": f"{sim:.4f}",
+                    }
+                )
+
+            # 2) 让 LLM 在候选里选 若干个（最多 top_k_default 个）
+            chosen_ids = self._llm_disambiguate(
+                kw,
+                llm_cands,
+                max_return=self.top_k_default,
+            )
+
             best_entities: List[KGEntity] = []
             best_scores: List[float] = []
-            # 输出 summary 日志
-            self._log_summary_table(
-                keyword=kw,
-                candidates=[],
-                best_entities=best_entities,
-                best_scores=best_scores,
-                decision_source="no_candidates",
-            )
-            return best_entities, best_scores, []
 
-        # 整理成给 LLM 用的候选信息
-        llm_cands: List[Dict[str, str]] = []
-        for ent, sim in candidates:
-            llm_cands.append(
-                {
-                    "entity_id": ent.entity_id,
-                    "name": getattr(ent, "name", "") or "",
-                    "description": getattr(ent, "description", "") or "",
-                    "similarity_hint": f"{sim:.4f}",
-                }
-            )
-
-        # 2) 让 LLM 在候选里选 若干个（最多 K 个）
-        chosen_ids = self._llm_disambiguate(
-            kw, llm_cands, max_return=self.top_k_default
-        )
-
-        best_entities: List[KGEntity] = []
-        best_scores: List[float] = []
-        decision_source: str
-
-        if chosen_ids is None:
-            # LLM 挂了就退回 BioBERT Top-K（在候选池里再取前 K）
-            decision_source = "fallback_biobert_topk"
-            for ent, sim in candidates[: self.top_k_default]:
-                best_entities.append(ent)
-                best_scores.append(sim)
-        else:
-            # 在候选中按 LLM 顺序对齐
-            id_to_item = {ent.entity_id: (ent, sim) for ent, sim in candidates}
-            for eid in chosen_ids:
-                item = id_to_item.get(eid)
-                if item is None:
-                    continue
-                ent, sim = item
-                best_entities.append(ent)
-                best_scores.append(sim)
-
-            # 如果 LLM 返回的 id 都不在候选里，则退回 BioBERT Top-1
-            if not best_entities:
-                ent, sim = candidates[0]
-                best_entities = [ent]
-                best_scores = [sim]
-                decision_source = "fallback_biobert_top1"
+            if chosen_ids is None:
+                # LLM 挂了，就退回 BioBERT Top-K（这里用 top_k_default，而不是 candidate_pool_size）
+                fallback = candidates[: self.top_k_default]
+                for ent, sim, _, _ in fallback:
+                    best_entities.append(ent)
+                    best_scores.append(sim)
             else:
-                decision_source = "llm_filtered"
+                # 在候选中按 LLM 顺序对齐
+                id_to_ent: Dict[str, KGEntity] = {ent.entity_id: ent for ent, _, _, _ in candidates}
 
-        # 把选中的实体都记录到 memory 的 key entity 里
-        for ent in best_entities:
-            self.memory.add_key_entity(ent)
+                for eid in chosen_ids:
+                    ent = id_to_ent.get(eid)
+                    if ent is None:
+                        continue
+                    sim, _, _ = eid2surface_info.get(eid, (0.0, "", "unknown"))
+                    best_entities.append(ent)
+                    best_scores.append(sim)
 
-        # 最终 summary 表格 log
-        self._log_summary_table(
-            keyword=kw,
-            candidates=candidates,
-            best_entities=best_entities,
-            best_scores=best_scores,
-            decision_source=decision_source,
-        )
+                # 如果 LLM 给出的 id 都不在候选里，则退回 top-1
+                if not best_entities:
+                    ent, sim, _, _ = candidates[0]
+                    best_entities = [ent]
+                    best_scores = [sim]
 
-        return best_entities, best_scores, candidates
+            kw2best_entities[kw] = best_entities
+            kw2best_scores[kw] = best_scores
+
+            # 写入 memory：一个 keyword 对应 K 个 best_entities
+            self.memory.add_keyword_entities(kw, best_entities)
+
+            # 同时平铺到全局 key_entities 里
+            self.memory.add_key_entities(best_entities)
+
+            # 收集表格行（每个 keyword × 每个选中的实体都一行）
+            for rank, ent in enumerate(best_entities, start=1):
+                eid = ent.entity_id
+                name = getattr(ent, "name", "") or ""
+                sim, best_surface, source = eid2surface_info.get(eid, (0.0, "", "unknown"))
+                table_rows.append(
+                    [
+                        kw,
+                        rank,
+                        eid,
+                        name,
+                        best_surface,
+                        source,          # name / alias / unknown
+                        f"{sim:.4f}",
+                    ]
+                )
+
+        # -------- 最终汇总日志：表格形式（只打一条 info） --------
+        if table_rows:
+            headers = [
+                "Keyword",
+                "Rank",
+                "EntityID",
+                "EntityName",
+                "MatchedSurface",
+                "SurfaceType",
+                "Similarity",
+            ]
+
+            # 计算每一列的宽度
+            col_widths = [len(h) for h in headers]
+            for row in table_rows:
+                for i, cell in enumerate(row):
+                    col_widths[i] = max(col_widths[i], len(str(cell)))
+
+            def _fmt_row(row_vals: List[Any]) -> str:
+                parts = []
+                for i, cell in enumerate(row_vals):
+                    s = str(cell)
+                    parts.append(s.ljust(col_widths[i]))
+                return " | ".join(parts)
+
+            header_line = _fmt_row(headers)
+            sep_line = "-+-".join("-" * w for w in col_widths)
+            body_lines = [_fmt_row(r) for r in table_rows]
+
+            table_str = "\n".join([header_line, sep_line] + body_lines)
+
+            self.logger.info(
+                "\n[KeywordSearch] Summary of keyword → entities mapping:\n"
+                + table_str
+            )
+
+        return kw2best_entities, kw2best_scores, kw2candidates
