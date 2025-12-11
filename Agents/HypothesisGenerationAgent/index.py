@@ -46,7 +46,7 @@ class HypothesisGenerationAgent(Agent):
         "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
         "query": "user query string",
         "path_index": int,
-        "path": "string",it will be given in the format of entity1-[relation1]->entity2-[relation2]->entity3...
+        "path": "string",it will be given in the format of entity1:EntityType1-[relation1]->entity2:EntityType2-[relation2]->entity3:EntityType3...
         "contexts": "string"
         }
         Task 2:
@@ -90,54 +90,75 @@ class HypothesisGenerationAgent(Agent):
 
     # ---------- 工具函数：序列化实体 / 三元组，方便喂给 LLM ----------
 
+    def generate_system_prompt(self,task_type, query, path=None, given_hypotheses=None, contexts=None):
+        if task_type == "task_1":
+            # 任务1的模板
+            system_prompt = f"""
+    You are a biomedical AI4Science assistant.
+    Given a user query and a mechanistic path extracted from a biomedical knowledge graph,
+    your task is to propose plausible, mechanistic, and experimentally testable hypotheses
+    that leverage the entities and relations along this path.
+    The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
+    The input format is as follows:
+    Task 1:
+    {{
+    "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
+    "query": "{query}",
+    "path_index": 0,
+    "path": "{path}",
+    "contexts": "{contexts}"
+    }}
+    You should respond ONLY with valid JSON in the following format:
 
-    def _build_prompt_for_path(
-        self,
-        path_idx: int,
-        node_path: List[KGEntity],
-        edge_path: List[KGTriple],
-        hypotheses:Optional[List[Dict[str,Any]]]=None,
-        task:int=1,
-    ) -> str:
-        """
-        把 query + 一条路径打包成 JSON prompt 发给 LLM。
-        """
-        if(task==1){
-            payload = {
-                "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
-                "query": self.query,
-                "path_index": path_idx,
-                "path": self.
-                "constraints": {
-                    "use_path": "Hypotheses should explicitly leverage entities and relations along the path.",
-                    "mechanistic": "Explain the mechanism or causal chain implied by the path.",
-                    "testable": "Each hypothesis should be experimentally testable in principle.",
-                    "novelty": "Prefer non-trivial or non-obvious combinations over purely textbook restatement.",
-                    "relevance": "Hypotheses must be relevant to the user query.",
-                },
-                "generation_config": {
-                    "max_hypotheses": self.hypotheses_per_path,
-                },
-                "output_format": {
-                    "hypotheses": [
-                        {
-                            "title": "short hypothesis title",
-                            "hypothesis": "full hypothesis statement",
-                            "mechanism_explanation": "how path entities/relations support it",
-                            "experimental_suggestion": "how to test it",
-                            "relevance_to_query": "why this matters for the query",
-                            "confidence": 0.0,
-                        }
-                    ]
-                },
-                "instruction": (
-                    "Return ONLY valid JSON with a top-level key 'hypotheses'. "
-                    "Do not include any natural language outside JSON."
-                ),
-            }
-        }
+    {{
+    "hypotheses": [
+        {{
+        "title": "short hypothesis title",
+        "hypothesis": "full hypothesis statement",
+        "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
+        "experimental_suggestion": "a concise, concrete experimental idea to test it",
+        "relevance_to_query": "why this hypothesis is relevant to the user query",
+        "confidence": 0.0
+        }}
+    ]
+    }}
 
-        return json.dumps(payload, ensure_ascii=False)
+    Do not include any text outside the JSON response.
+    """
+        elif task_type == "task_2":
+            # 任务2的模板
+            system_prompt = f"""
+    You are a biomedical AI4Science assistant.
+    Your task is to generate a more comprehensive hypothesis based on several given hypotheses and their contexts.
+    The input will be a JSON payload containing the user query and a list of given hypotheses, along with their contexts.
+    The input format is as follows:
+    Task 2:
+    {{
+    "task": "generate a more comprehensive hypothesis based on several given hypotheses and their contexts",
+    "query": "{query}",
+    "given_hypotheses": {given_hypotheses}
+    }}
+    You should respond ONLY with valid JSON in the following format:
+
+    {{
+    "hypotheses": [
+        {{
+        "title": "short hypothesis title",
+        "hypothesis": "full hypothesis statement",
+        "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
+        "experimental_suggestion": "a concise, concrete experimental idea to test it",
+        "relevance_to_query": "why this hypothesis is relevant to the user query",
+        "confidence": 0.0
+        }}
+    ]
+    }}
+
+    Do not include any text outside the JSON response.
+    """
+        else:
+            raise ValueError("Invalid task_type. Choose either 'task_1' or 'task_2'.")
+
+        return system_prompt
 
     def _call_llm_for_path(
         self,
@@ -151,7 +172,7 @@ class HypothesisGenerationAgent(Agent):
         if not node_path:
             return []
 
-        prompt = self._build_prompt_for_path(path_idx, node_path, edge_path)
+        prompt = self.generate_system_prompt("task_1", self.query, self.serialize_path(node_path, edge_path))
         try:
             raw = self.call_llm(prompt)
             obj = json.loads(raw)
@@ -170,6 +191,7 @@ class HypothesisGenerationAgent(Agent):
                 f"[HypothesisGeneration] path_idx={path_idx} LLM call/parse failed: {e}"
             )
             return []
+    
     def serialize_path(
         self,
         node_path: List[KGEntity],
@@ -177,7 +199,7 @@ class HypothesisGenerationAgent(Agent):
     ) -> str:
         parts = []
         for i, node in enumerate(node_path):
-            parts.append(node.name)
+            parts.append(node.name+":"+node.entity_type)
             if i < len(edge_path):
                 edge = edge_path[i]
                 parts.append(f"-[{edge.relation}]->")

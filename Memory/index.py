@@ -467,7 +467,7 @@ class Memory:
         # 新增：关键实体列表存储
         self.key_entities = KeyEntityStore()
         self.keyword_entity_map: Dict[str, List[KGEntity]] = {}
-        self._extracted_paths: List[dict] = []
+        self._extracted_paths: Dict[str, List[dict]] = {}
         self.entity_id_mapping_path: Optional[str] = None
         
     def add_extracted_path(
