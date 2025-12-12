@@ -36,7 +36,10 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251211-211147.json')
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
+    path=memory.paths
+    print(path)
+
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
     queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     response = queryclarifyagent.process(user_query)
