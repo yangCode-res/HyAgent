@@ -6,7 +6,7 @@ from Core.Agent import Agent
 from openai import OpenAI
 from Memory.index import Memory
 from Store.index import get_memory
-
+from pprint import pprint
 
 class ReflectionAgent(Agent):
     """
@@ -18,6 +18,25 @@ class ReflectionAgent(Agent):
     - Validates JSON schema before returning.
     - returns a Python Dictionary, not a string.
     """
+
+    @staticmethod
+    def load_hypotheses_from_file(memory: Memory) -> list:
+        """从 memory.hypothesesDir 读取 output.json 文件"""
+        with open(memory.hypothesesdir, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    @staticmethod
+    def extract_modified_hypotheses(hypotheses_data: list) -> Dict[str, list]:
+        """
+        从 output.json 数据中提取 entity -> modified_hypotheses 的映射。
+        
+        Args:
+            hypotheses_data: load_hypotheses_from_file 返回的列表
+            
+        Returns:
+            Dict[str, list]: key 是 entity，value 是 modified_hypotheses 列表
+        """
+        return {item["entity"]: item["modified_hypotheses"] for item in hypotheses_data}
 
     _RUBRIC_ANCHORS = r"""
     You must evaluate the hypothesis using the following 6 criteria.
@@ -81,9 +100,9 @@ class ReflectionAgent(Agent):
         self,
         client: OpenAI,
         model_name: str,
-        hypothesis: Dict[str, Any],
         memory: Optional[Memory] = None,
     ):
+
         # 构造严格的 JSON 模板
         # 注意：这里定义了 EditInstructions 的具体结构，方便 RevisionAgent 自动执行
         json_template = json.dumps({
@@ -131,7 +150,8 @@ class ReflectionAgent(Agent):
         {json_template}
         """
         super().__init__(client, model_name, system_prompt)
-        self.hypothesis = hypothesis
+
+        self.hypothesis=self.extract_modified_hypotheses(self.load_hypotheses_from_file(memory))
         self.memory = memory or get_memory()
 
     def process(self) -> Dict[str, Any]:
@@ -170,9 +190,25 @@ class ReflectionAgent(Agent):
 
         # 4. 结构校验 (Schema Validation)
         self._validate_schema(data)
-
+        #优美的打印这个json
+        print("data=>",json.dumps(data, ensure_ascii=False, indent=2))
         return data
-
+    def call_for_each_hypothesis(self, hypothesis: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        针对每个 hypothesis 调用 LLM
+        """
+        hypothesis_text = json.dumps(hypothesis, ensure_ascii=False, indent=2)
+        user_message = (
+            "Hypothesis (JSON):\n"
+            f"{hypothesis_text}\n\n"
+        )
+        raw_response = self.call_llm(user_message)
+        cleaned_json_str = self._clean_and_extract_json(raw_response)
+        try:
+            data = json.loads(cleaned_json_str)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"JSON Parse Error: {e}\nRaw Output: {raw_response}")
+        return data
     def _clean_and_extract_json(self, text: str) -> str:
         """
         使用正则提取最外层的 JSON 对象，忽略前后的 Markdown 标记或废话。
