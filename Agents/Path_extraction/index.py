@@ -12,7 +12,7 @@ from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
 import json
 class PathExtractionAgent(Agent):
-    def __init__(self, client: OpenAI, model_name: str,k=3,memory:Optional[Memory]=None,query:str=''):
+    def __init__(self, client: OpenAI, model_name: str,k=20,memory:Optional[Memory]=None,query:str=''):
         self.system_prompt = (
             "You are a biomedical AI4Science assistant. "
             "Your job is to decide whether extending a knowledge-graph path "
@@ -74,18 +74,17 @@ class PathExtractionAgent(Agent):
         
         found_full = dfs(start)
 
-        if found_full:
+        if found_full and len(best_nodes)<=2:
             # 找到了一条长度恰好为 k 的路径，此时 best_nodes / best_edges 其实就是这条
             self.logger.info(
-                f"[PathExtraction] Found full path of length {k} "
+                f"[PathExtraction] Found full path of length {self.k} "
                 f"(nodes={len(best_nodes)}, edges={len(best_edges)})."
             )
-            return best_nodes, best_edges
-        else:
-            # 没有长度为 k 的路径，返回搜索过程中遇到的最长路径
+            return [],[]
+        elif found_full and len(best_nodes)>2:
             self.logger.info(
-                f"[PathExtraction] No path of length {k} found; "
-                f"return longest path length={len(best_nodes)}."
+                f"[PathExtraction] Found full path of length {self.k} "
+                f"(nodes={len(best_nodes)}, edges={len(best_edges)})."
             )
             return best_nodes, best_edges
     def is_valid(

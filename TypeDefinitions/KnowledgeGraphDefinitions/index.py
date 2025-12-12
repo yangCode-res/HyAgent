@@ -48,10 +48,20 @@ class KnowledgeGraph:
         """
         根据三元组的置信度对每个头实体的边进行排序，置信度高的三元组排在前面。
         """
+        relation_priority = {
+    'CAUSES': 0,           # 因果关系优先
+    'TREATS': 1,           # 直接治疗关系
+    'INHIBITS': 2,         # 抑制关系
+    'ACTIVATES': 3,        # 激活关系
+    'REGULATES': 4,        # 调控关系
+    'INCREASES/DECREASES': 5,  # 增加/减少关系
+    'ASSOCIATED_WITH': 6,  # 统计关联关系
+    'INTERACTS_WITH': 7    # 直接交互关系
+}
         for subj in self.Graph:
             self.Graph[subj].sort(
                 # 修改这里的 lambda 函数
-                key=lambda x: x[1].confidence[0] if (x[1].confidence and len(x[1].confidence) > 0) else 0.5,
+                key=lambda x:(relation_priority.get(x[1].relation, 8), x[1].confidence[0] if (x[1].confidence and len(x[1].confidence) > 0) else 0.5),
                 reverse=True
             )
     
