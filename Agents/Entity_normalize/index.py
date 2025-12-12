@@ -55,7 +55,7 @@ class EntityNormalizationAgent(Agent):
         self,
         client: OpenAI,
         model_name: str,
-        sim_threshold: float = 0.7,
+        sim_threshold: float = 0.9,
         max_workers: int = 20,
         llm_batch_size: int = 40,
         llm_max_workers: int = 6,
