@@ -87,6 +87,8 @@ class PathExtractionAgent(Agent):
                 f"(nodes={len(best_nodes)}, edges={len(best_edges)})."
             )
             return best_nodes, best_edges
+        else:
+            return [],[]
     def is_valid(
         self,
         child: KGEntity,
@@ -201,8 +203,6 @@ class PathExtractionAgent(Agent):
                 f"[PathExtraction][LLM is_valid] parse failed, child={child.name}, error={e}"
             )
             return False
-        prompt = json.dumps(payload, ensure_ascii=False)
-        return True
     def process(self):
         # 假设 Memory 里已经有你贴的 keyword_entity_map（关键实体列表）
         keyword_entity_map = self.memory.get_keyword_entity_map()
