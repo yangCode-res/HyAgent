@@ -276,8 +276,9 @@ class HypothesisGenerationAgent(Agent):
                     continue
                 
                 hyps = self._call_llm_for_path(idx, node_path, edge_path)
-                results.append(path_index=idx,
+                results.append(
                     {
+                        "entity":key,
                         "path_index": idx,
                         "nodes": node_path,
                         "edges": edge_path,
