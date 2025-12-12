@@ -467,21 +467,21 @@ class Memory:
         # 新增：关键实体列表存储
         self.key_entities = KeyEntityStore()
         self.keyword_entity_map: Dict[str, List[KGEntity]] = {}
-        self._extracted_paths: List[dict] = []
+        self._extracted_paths: Dict[str, List[dict]] = {}
         self.entity_id_mapping_path: Optional[str] = None
         
     def add_extracted_path(
         self,
-        node_path: List[KGEntity],
-        edge_path: List[KGTriple],
+        keyword: str,
+        nodes: List[KGEntity],
+        edges: List[KGTriple],
     ) -> None:
-        """
-        把一次抽取到的路径存起来，节点和边都直接以对象形式存。
-        """
-        self._extracted_paths.append(
+        if not hasattr(self, "paths"):
+            self.paths = {}
+        self.paths.setdefault(keyword, []).append(
             {
-                "nodes": list(node_path),   # 做一份拷贝，避免后面被修改
-                "edges": list(edge_path),
+                "nodes": nodes,
+                "edges": edges,
             }
         )
     def get_extracted_paths(self) -> List[dict]:
@@ -564,13 +564,22 @@ class Memory:
                 for kw, ents in self.keyword_entity_map.items()
             },
             "meta": {"generated_at": ts,"entity_id_mapping_path": self.entity_id_mapping_path,},
-            "paths": [
-            {
-                "nodes": [n.to_dict() for n in p.get("nodes", [])],
-                "edges": [e.to_dict() for e in p.get("edges", [])],
-            }
-            for p in getattr(self, "_extracted_paths", [])
-        ],
+            "paths": {
+                kw: [
+                    {
+                        "nodes": [
+                            n.to_dict() if hasattr(n, "to_dict") else n
+                            for n in path.get("nodes", [])
+                        ],
+                        "edges": [
+                            e.to_dict() if hasattr(e, "to_dict") else e
+                            for e in path.get("edges", [])
+                        ],
+                    }
+                    for path in path_list
+                ]
+                for kw, path_list in getattr(self, "paths", {}).items()
+            },
         }
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -714,16 +723,17 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
             ents.append(_coerce_entity(ed))
         mem.keyword_entity_map[kw] = ents
     paths_data = data.get("paths", [])
-    for pd in paths_data:
-        node_ents: List[KGEntity] = []
-        edge_triples: List[KGTriple] = []
+    for kw, path_list in paths_data.items():
+            for pd in path_list or []:
+                node_ents: List[KGEntity] = []
+                edge_triples: List[KGTriple] = []
 
-        for ed in pd.get("nodes", []):
-            node_ents.append(_coerce_entity(ed))
-        for rd in pd.get("edges", []):
-            edge_triples.append(_coerce_triple(rd))
+                for ed in pd.get("nodes", []):
+                    node_ents.append(_coerce_entity(ed))
+                for rd in pd.get("edges", []):
+                    edge_triples.append(_coerce_triple(rd))
 
-        mem.add_extracted_path(node_ents, edge_triples)
+                mem.add_extracted_path(kw, node_ents, edge_triples)
     mem.entity_id_mapping_path = (
         data.get("entity_id_mapping_path")
         or (data.get("meta", {}) or {}).get("entity_id_mapping_path")
