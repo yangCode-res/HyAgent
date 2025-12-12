@@ -469,7 +469,7 @@ class Memory:
         self.keyword_entity_map: Dict[str, List[KGEntity]] = {}
         self._extracted_paths: Dict[str, List[dict]] = {}
         self.entity_id_mapping_path: Optional[str] = None
-        
+        self.hypothesesdir: str= ""
     def add_extracted_path(
         self,
         keyword: str,
@@ -484,6 +484,8 @@ class Memory:
                 "edges": edges,
             }
         )
+    def add_hypothesesDir(self, hypothesesDir: str) -> None:
+        self.hypothesesDir = hypothesesDir
     def get_extracted_paths(self) -> List[dict]:
         """
         返回所有已存的路径记录，每条记录为 {'nodes': [...], 'edges': [...]}。

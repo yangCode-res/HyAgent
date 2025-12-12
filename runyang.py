@@ -38,7 +38,7 @@ if __name__ == "__main__":
     
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
     # agent.process(user_query)
-    memory=load_memory_from_json('//home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251210-204428.json')
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251211-175210.json')
     # alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
     # alignmentAgent.process()
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
