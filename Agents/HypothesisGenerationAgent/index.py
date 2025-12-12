@@ -192,19 +192,13 @@ class HypothesisGenerationAgent(Agent):
         path_idx: int,
         node_path: List[KGEntity],
         edge_path: List[KGTriple],
+        contexts:str
     ) -> List[Dict[str, Any]]:
         """
         针对单条路径调用一次 LLM，返回解析好的 hypothesis 列表。
         """
         if not node_path:
             return []
-        contexts=""
-        sources=set()
-        for edge in edge_path:
-            if edge.source:
-                sources.add(edge.source)
-        for source in sources:
-            contexts+=self.memory.subgraphs[source].meta['text']+"\n"
         prompt_1 = self.generate_system_prompt("task_1", path=self.serialize_path(node_path, edge_path), contexts=contexts)
         try:
             raw = self.call_llm(prompt_1)
@@ -281,19 +275,27 @@ class HypothesisGenerationAgent(Agent):
 
         for key,paths in all_paths.items():
             for idx, path in enumerate(paths[: self.max_paths]):
+                contexts=""
+                sources=set()
+                for edge in edge_path:
+                    if edge.source:
+                        sources.add(edge.source)
+                for source in sources:
+                    contexts+=self.memory.subgraphs[source].meta['text']+"\n"
                 node_path: List[KGEntity] = path.get("nodes", []) or []
                 edge_path: List[KGTriple] = path.get("edges", []) or []
 
                 if not node_path or len(node_path) <= 2:
                     continue
                 
-                hyps = self._call_llm_for_path(idx, node_path, edge_path)
+                hyps = self._call_llm_for_path(idx, node_path, edge_path,contexts)
                 results.append(
                     {
                         "entity":key,
                         "path_index": idx,
                         "edges": edge_path,
                         "hypotheses": hyps,
+                        "contexts": contexts,
                     }
                 )
             # TODO：如你需要，可以在这里把 results 写回 Memory，如：
