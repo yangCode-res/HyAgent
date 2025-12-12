@@ -87,6 +87,8 @@ class PathExtractionAgent(Agent):
                 f"(nodes={len(best_nodes)}, edges={len(best_edges)})."
             )
             return best_nodes, best_edges
+        else:
+            return [],[]
     def is_valid(
         self,
         child: KGEntity,
