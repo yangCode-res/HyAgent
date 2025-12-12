@@ -9,7 +9,6 @@ from Memory.index import Memory, load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from openai._models import P
 
 
 class HypothesisGenerationAgent(Agent):
@@ -92,7 +91,7 @@ class HypothesisGenerationAgent(Agent):
 
     # ---------- 工具函数：序列化实体 / 三元组，方便喂给 LLM ----------
 
-    def generate_system_prompt(self,task_type, query, path=None, given_hypotheses:Optional[List[Dict[str, str]]]=None,contexts=None) -> str:
+    def generate_system_prompt(self,task_type,path:Optional[Any], given_hypotheses:Optional[List[Dict[str, str]]]=None,contexts=None) -> str:
         if task_type == "task_1":
             # 任务1的模板
             system_prompt = f"""
@@ -105,7 +104,7 @@ class HypothesisGenerationAgent(Agent):
     Task 1:
     {{
     "task": "generate mechanistic, testable biomedical hypotheses based on a KG path",
-    "query": "{query}",
+    "query": "{self.query}",
     "path_index": 0,
     "path": "{path}",
     "contexts": "{contexts}"
@@ -137,7 +136,7 @@ class HypothesisGenerationAgent(Agent):
     Task 2:
     {{
     "task": "generate a more comprehensive hypothesis based on several given hypotheses and their contexts",
-    "query": "{query}",
+    "query": "{self.query}",
     "given_hypotheses": {given_hypotheses},
     "contexts": "{contexts}"
     }}
@@ -162,6 +161,29 @@ class HypothesisGenerationAgent(Agent):
             raise ValueError("Invalid task_type. Choose either 'task_1' or 'task_2'.")
 
         return system_prompt
+    def modify_hypothesis(self,given_hypotheses:List[Dict[str, str]],contexts:str)->List[Dict[str, Any]]:
+        """
+        根据已有的假设，生成一个更全面的假设。
+        """
+        prompt_2 = self.generate_system_prompt("task_2",given_hypotheses=given_hypotheses, contexts=contexts)
+        try:
+            raw = self.call_llm(prompt_2)
+            obj = json.loads(raw.replace("```json", "").replace("```", ""))
+            hyps = obj.get("hypotheses", [])
+            if not isinstance(hyps, list):
+                self.logger.warning(
+                    f"[HypothesisGeneration] LLM returned invalid 'hypotheses' type: {type(hyps)}"
+                )
+                return []
+            self.logger.info(
+                f"[HypothesisGeneration] got {len(hyps)} modified hypotheses from LLM."
+            )
+            return hyps
+        except Exception as e:
+            self.logger.warning(
+                f"[HypothesisGeneration] LLM call/parse failed: {e}"
+            )
+            return []
 
     def _call_llm_for_path(
         self,
@@ -184,7 +206,7 @@ class HypothesisGenerationAgent(Agent):
         prompt_1 = self.generate_system_prompt("task_1", self.query, self.serialize_path(node_path, edge_path), contexts=contexts)
         try:
             raw = self.call_llm(prompt_1)
-            obj = json.loads(raw)
+            obj = json.loads(raw.replace("```json", "").replace("```", ""))
             hyps = obj.get("hypotheses", [])
             if not isinstance(hyps, list):
                 self.logger.warning(
@@ -246,7 +268,7 @@ class HypothesisGenerationAgent(Agent):
         results: List[Dict[str, Any]] = []
 
         for key,paths in all_paths.items():
-            for idx, path in paths[: self.max_paths]:
+            for idx, path in enumerate(paths[: self.max_paths]):
                 node_path: List[KGEntity] = path.get("nodes", []) or []
                 edge_path: List[KGTriple] = path.get("edges", []) or []
 
@@ -254,7 +276,7 @@ class HypothesisGenerationAgent(Agent):
                     continue
                 
                 hyps = self._call_llm_for_path(idx, node_path, edge_path)
-                results.append(
+                results.append(path_index=idx,
                     {
                         "path_index": idx,
                         "nodes": node_path,
@@ -262,7 +284,6 @@ class HypothesisGenerationAgent(Agent):
                         "hypotheses": hyps,
                     }
                 )
-
             # TODO：如你需要，可以在这里把 results 写回 Memory，如：
             # if hasattr(self.memory, "add_generated_hypotheses"):
             #     self.memory.add_generated_hypotheses(self.query, results)
