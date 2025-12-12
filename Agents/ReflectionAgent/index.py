@@ -175,55 +175,49 @@ class ReflectionAgent(Agent):
         self.context = context or {}
 
     def process(self) -> Dict[str, Any]:
+        for hypothesis in self.hypothesis:
+            self.call_for_each_hypothesis(hypothesis)
+
+    def call_for_each_hypothesis(self, hypothesis: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Sends the hypothesis to the LLM and returns a structured dictionary (JSON).
+        Executes the agent logic:
+        1. Calls LLM.
+        2. Cleans and extracts JSON from response.
+        3. Validates schema.
+        4. Returns structured Dict.
         """
-        hypothesis_text = json.dumps(self.hypothesis, ensure_ascii=False, indent=2)
-        context_text = json.dumps(self.context, ensure_ascii=False, indent=2)
+        hypothesis_text = json.dumps(hypothesis, ensure_ascii=False, indent=2)
 
         user_message = (
             "Hypothesis (JSON):\n"
             f"{hypothesis_text}\n\n"
             "Context (JSON):\n"
-            f"{context_text}\n"
-            "\n"
-            "Remember: Output ONLY valid JSON, no markdown formatting."
+            "Review Task:\n"
+            "Provide a critique in strict JSON format based on the rubric.\n"
+            "Output JSON ONLY. No preamble. No markdown."
         )
 
+        # 1. 调用 LLM
         raw_response = self.call_llm(user_message)
 
         if not isinstance(raw_response, str) or not raw_response.strip():
             raise ValueError("Empty reflection output from model.")
 
-        # 清理 Markdown 标记 (例如 ```json ... ```)
-        cleaned_response = self._clean_json_text(raw_response)
+        # 2. 清理与提取 JSON
+        cleaned_json_str = self._clean_and_extract_json(raw_response)
 
+        # 3. 解析 JSON
         try:
-            return json.loads(cleaned_response)
+            data = json.loads(cleaned_json_str)
         except json.JSONDecodeError as e:
             raise ValueError(f"JSON Parse Error: {e}\nRaw Output: {raw_response}")
 
         # 4. 结构校验 (Schema Validation)
         self._validate_schema(data)
-        #优美的打印这个json
-        print("data=>",json.dumps(data, ensure_ascii=False, indent=2))
+
         return data
-    def call_for_each_hypothesis(self, hypothesis: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        针对每个 hypothesis 调用 LLM
-        """
-        hypothesis_text = json.dumps(hypothesis, ensure_ascii=False, indent=2)
-        user_message = (
-            "Hypothesis (JSON):\n"
-            f"{hypothesis_text}\n\n"
-        )
-        raw_response = self.call_llm(user_message)
-        cleaned_json_str = self._clean_and_extract_json(raw_response)
-        try:
-            data = json.loads(cleaned_json_str)
-        except json.JSONDecodeError as e:
-            raise ValueError(f"JSON Parse Error: {e}\nRaw Output: {raw_response}")
-        return data
+
+
     def _clean_and_extract_json(self, text: str) -> str:
         """
         Helper to strip markdown code blocks from LLM output.
