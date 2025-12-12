@@ -205,11 +205,11 @@ class ReflectionAgent(Agent):
                 try:
                     result = future.result()
                     # 将结果放回对应位置
-                    self.hypotheses_data[item_idx]["reflection_results"][hyp_idx] = result
+                    self.hypotheses_data[item_idx]["feedback"][hyp_idx] = result
                     print(f"✓ Completed: {hypothesis.get('title', 'N/A')[:50]}...")
                 except Exception as e:
                     print(f"✗ Error for hypothesis: {hypothesis.get('title', 'N/A')}: {e}")
-                    self.hypotheses_data[item_idx]["reflection_results"][hyp_idx] = {"error": str(e)}
+                    self.hypotheses_data[item_idx]["feedback"][hyp_idx] = {"error": str(e)}
         
         # 保存回 output.json
         self._save_to_file()
