@@ -1,8 +1,10 @@
 from asyncio import Task
 from copy import copy
+import json
 import os
 import warnings
 
+from Agents.HypothesisGenerationAgent.index import HypothesisGenerationAgent
 from dotenv import find_dotenv, load_dotenv
 from matplotlib.pyplot import cla
 from networkx import core_number
@@ -36,13 +38,23 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251211-211147.json')
+    memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251212-095930.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
-    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
-    response = queryclarifyagent.process(user_query)
-    clarified_query = response.get("clarified_question", user_query) # type: ignore
-    core_entities= response.get("core_entities", []) # type: ignore
-    intention= response.get("main_intention", "") # type: ignore
+    hypothesis_agent = HypothesisGenerationAgent(
+        client=client,
+        model_name=model_name,
+        query=user_query,
+        memory=memory,
+        max_paths=5,
+        hypotheses_per_path=3,
+    )
+    results = hypothesis_agent.process()
+    json.dump(results, open("hypotheses_output.json", "w"), indent=2, ensure_ascii=False)
+    # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    # response = queryclarifyagent.process(user_query)
+    # clarified_query = response.get("clarified_question", user_query) # type: ignore
+    # core_entities= response.get("core_entities", []) # type: ignore
+    # intention= response.get("main_intention", "") # type: ignore
     # print("Clarified Query:", clarified_query)
     # print("Core Entities:", core_entities)
     # reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
@@ -70,9 +82,9 @@ if __name__ == "__main__":
     # alignmentAgent.process()
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process()
+    # # memory.dump_json("./snapshots")
+    # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
+    # keywordAgent.process()
+    # PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
+    # PathExtractionAgent.process()
     # memory.dump_json("./snapshots")
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
-    keywordAgent.process()
-    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
-    PathExtractionAgent.process()
-    memory.dump_json("./snapshots")

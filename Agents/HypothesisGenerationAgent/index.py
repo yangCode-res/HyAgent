@@ -1,13 +1,15 @@
+import os
 from typing import List, Dict, Any, Optional
 from openai import OpenAI
 import json
 
 from Core.Agent import Agent
 from Logger.index import get_global_logger
-from Memory.index import Memory
+from Memory.index import Memory, load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+from openai._models import P
 
 
 class HypothesisGenerationAgent(Agent):
@@ -90,7 +92,7 @@ class HypothesisGenerationAgent(Agent):
 
     # ---------- 工具函数：序列化实体 / 三元组，方便喂给 LLM ----------
 
-    def generate_system_prompt(self,task_type, query, path=None, given_hypotheses=None, contexts=None):
+    def generate_system_prompt(self,task_type, query, path=None, given_hypotheses:Optional[List[Dict[str, str]]]=None,contexts=None) -> str:
         if task_type == "task_1":
             # 任务1的模板
             system_prompt = f"""
@@ -136,7 +138,8 @@ class HypothesisGenerationAgent(Agent):
     {{
     "task": "generate a more comprehensive hypothesis based on several given hypotheses and their contexts",
     "query": "{query}",
-    "given_hypotheses": {given_hypotheses}
+    "given_hypotheses": {given_hypotheses},
+    "contexts": "{contexts}"
     }}
     You should respond ONLY with valid JSON in the following format:
 
@@ -171,10 +174,16 @@ class HypothesisGenerationAgent(Agent):
         """
         if not node_path:
             return []
-
-        prompt = self.generate_system_prompt("task_1", self.query, self.serialize_path(node_path, edge_path))
+        contexts=""
+        sources=set()
+        for edge in edge_path:
+            if edge.source:
+                sources.add(edge.source)
+        for source in sources:
+            contexts+=self.memory.subgraphs[source].meta['text']+"\n"
+        prompt_1 = self.generate_system_prompt("task_1", self.query, self.serialize_path(node_path, edge_path), contexts=contexts)
         try:
-            raw = self.call_llm(prompt)
+            raw = self.call_llm(prompt_1)
             obj = json.loads(raw)
             hyps = obj.get("hypotheses", [])
             if not isinstance(hyps, list):
@@ -229,32 +238,34 @@ class HypothesisGenerationAgent(Agent):
               }
           之后你可以视情况把这些结果再写回 Memory。
         """
-        all_paths = self.memory.get_extracted_paths()
+        all_paths:Dict[str,List[Any]] = self.memory.paths
         if not all_paths:
             self.logger.warning("[HypothesisGeneration] no extracted paths found in memory.")
             return []
 
         results: List[Dict[str, Any]] = []
 
-        for idx, p in enumerate(all_paths[: self.max_paths]):
-            node_path: List[KGEntity] = p.get("nodes", []) or []
-            edge_path: List[KGTriple] = p.get("edges", []) or []
+        for key,paths in all_paths.items():
+            for idx, path in paths[: self.max_paths]:
+                node_path: List[KGEntity] = path.get("nodes", []) or []
+                edge_path: List[KGTriple] = path.get("edges", []) or []
 
-            if not node_path:
-                continue
+                if not node_path or len(node_path) <= 2:
+                    continue
+                
+                hyps = self._call_llm_for_path(idx, node_path, edge_path)
+                results.append(
+                    {
+                        "path_index": idx,
+                        "nodes": node_path,
+                        "edges": edge_path,
+                        "hypotheses": hyps,
+                    }
+                )
 
-            hyps = self._call_llm_for_path(idx, node_path, edge_path)
-            results.append(
-                {
-                    "path_index": idx,
-                    "nodes": node_path,
-                    "edges": edge_path,
-                    "hypotheses": hyps,
-                }
-            )
+            # TODO：如你需要，可以在这里把 results 写回 Memory，如：
+            # if hasattr(self.memory, "add_generated_hypotheses"):
+            #     self.memory.add_generated_hypotheses(self.query, results)
 
-        # TODO：如你需要，可以在这里把 results 写回 Memory，如：
-        # if hasattr(self.memory, "add_generated_hypotheses"):
-        #     self.memory.add_generated_hypotheses(self.query, results)
-
-        return results
+            return results
+        
