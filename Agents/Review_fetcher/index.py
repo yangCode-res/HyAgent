@@ -1,0 +1,128 @@
+import os
+from pathlib import Path
+from pyexpat import model
+from typing import List
+
+from dotenv import find_dotenv, load_dotenv
+from metapub import FindIt, PubMedFetcher
+from openai import OpenAI
+import sys
+from Core.Agent import Agent
+from utils.pdf2mdOCR import ocr_to_md_files
+from Logger.index import get_global_logger
+from Memory.index import Subgraph
+from Store.index import get_memory
+from utils.download import save_pdfs_from_url_list
+from utils.filter import extract_pdf_paths
+from utils.pdf2md import deepseek_pdf_to_md_batch
+from utils.process_markdown import split_md_by_mixed_count
+
+
+class ReviewFetcherAgent(Agent):
+    def __init__(self,client:OpenAI,model_name:str) -> None:
+        self.system_prompt="""You are a specialized Review Fetcher Agent for biomedical knowledge graphs. Your task is to fetch relevant literature reviews based on the user's query.
+        You are requested to do the following:
+        1.Understand the user's query and identify key biomedical concepts, generate MeSH search strategy.
+        2.Based on the given abstracts of the reviews, select the most relevant ones that comprehensively cover different aspects of the query.
+        """
+        self.memory=get_memory()
+        self.logger=get_global_logger()
+        self.fetch=PubMedFetcher()
+        super().__init__(client,model_name,self.system_prompt)
+    
+    def process(self,user_query:str):
+        strategy = self.generateMeSHStrategy(user_query)
+        reviews_metadata = self.fetchReviews(strategy, maxlen=20)
+        selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        review_urls = []
+        for pmid in selected_reviews:
+            try:
+                review_urls.append(FindIt(pmid).url)
+            except:
+                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+        print("review_urls=>",review_urls)
+        review_urls=[url for url in review_urls if url is not None]
+        md_outputs=ocr_to_md_files(review_urls)
+        # print("md_outputs=>",md_outputs)
+        # md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
+        for md_output in md_outputs[0:2]:
+            paragraphs=split_md_by_mixed_count(md_output)
+
+            # paragraphs=split_md_by_h2(md_output)
+            for id,content in paragraphs.items():
+                for i,content_chunk in enumerate(content):
+                    subgraph_id=f"{id}_{i}"
+                    meta={"text":content_chunk,"source":id}
+                    s = Subgraph(subgraph_id=subgraph_id,meta=meta)
+                    self.memory.register_subgraph(s)
+        if len(review_urls) == 0:
+            self.logger.warning("No review URLs found")
+            sys.exit(1)
+        return 
+
+
+    def generateMeSHStrategy(self,user_query:str)->str:
+        prompt = f"""
+As an expert Biomedical Information Specialist, generate a comprehensive PubMed search strategy for the following research question.
+
+**Question:** {user_query}
+
+**Instructions:**
+1. **Identify Key Concepts:** Break the user's query into 2-3 main concepts (e.g., Target Molecule + Disease/Condition).
+2. **Expand Terms (Crucial):** For EACH concept, construct a sub-query using 'OR' to combine:
+   - **MeSH Terms** (e.g., "Breast Neoplasms"[MeSH Terms])
+   - **Keywords in Title/Abstract** (e.g., "breast cancer"[Title/Abstract], "breast tumor"[Title/Abstract])
+   - **Specific Names:** If the query mentions a specific cell line (e.g., MCF-7) or drug code, include it as a keyword.
+3. **Combine Concepts:** Join the main concept sub-queries with 'AND'.
+4. **Apply Filters:**
+   - Limit to **Reviews** and **Systematic Reviews**.
+   - Limit to articles published in the **last 5 years** (e.g., 2020-2025).
+
+**Output format:**
+Return ONLY the raw search query string compatible with PubMed. Do not include explanations or markdown formatting.
+
+**Example Logic:**
+(Concept A [MeSH] OR Keyword A [TiAb] OR Synonym A [TiAb]) AND (Concept B [MeSH] OR Keyword B [TiAb]) AND (Filter: Reviews) AND (Filter: Date)
+"""
+        result=self.call_llm(prompt)
+        print("mesh strategy=>",result)
+        return str(result)
+    
+    def fetchReviews(self,search_strategy:str,maxlen=20):
+        pmids=self.fetch.pmids_for_query(str(search_strategy),retmax=maxlen)
+        reviews_metadata = [self.fetch.article_by_pmid(pmid) for pmid in pmids]
+        return reviews_metadata
+    
+    def selectReviews(self,reviews_metadata, topk=5) -> List:
+        review_str='\n'.join(review.__str__() for review in reviews_metadata)
+        selection_prompt = f"""
+        From the following {len(reviews_metadata)} reviews, select the most relevant {topk} ones:
+        {review_str}
+        Selection criteria:
+        1. Cover different aspects of the query topic
+        2. High citation count and impact factor
+        3. Recent publication date
+        4. Include mechanism studies and clinical applications
+        Please return the selected {topk} review pmids in a comma-separated format without any additional description.
+        """
+        selected_str = str(self.call_llm(selection_prompt))
+        selected_str = selected_str.replace("[", "").replace("]", "")
+        selected_5 = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
+        return selected_5
+
+if __name__ == "__main__":
+    from openai import OpenAI
+    try:
+        env_path = find_dotenv(usecwd=True)
+        if env_path:
+            load_dotenv(env_path, override=False)
+    except Exception:
+            pass
+    open_ai_api=os.environ.get("OPENAI_API_KEY")
+    open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
+    model_name=os.environ.get("OPENAI_MODEL")
+    client = OpenAI(api_key=open_ai_api, base_url=open_ai_url)
+    agent = ReviewFetcherAgent(client, model_name=model_name)
+    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
+    agent.process(user_query)
+    agent.memory.dump_json("./snapshots")

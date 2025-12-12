@@ -1,0 +1,34 @@
+name: Agent311
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  # ---- Python 版本 ----
+  - python=3.11
+  - pip
+
+  # ---- 用 conda 安装 PyTorch + CUDA 12.4 ----
+  - pytorch=2.6.0
+  - torchvision
+  - pytorch-cuda=12.4
+
+  # ---- 其余依赖用 pip 装（走 PyPI）----
+  - pip:
+      - transformers>=4.44
+      - accelerate>=0.33
+      - peft>=0.12
+      - bitsandbytes>=0.41.1
+      - datasets
+      - sentencepiece
+      - tokenizers
+      - tiktoken
+      - langchain
+      - langgraph
+      - openai
+      - httpx
+      - faiss-cpu
+      - sse-starlette
+      - pydantic<3
+      - python-dotenv
+      - typer
