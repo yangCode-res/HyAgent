@@ -1,0 +1,969 @@
+[
+    {
+        "entity": "Cardiovascular Diseases",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "atherosclerotic cardiovascular disease",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "endothelium type II activation",
+                "confidence": [
+                    0.88,
+                    0.8
+                ],
+                "evidence": [
+                    "This review focuses on the different stages of atherosclerosis development, ranging from endothelial dysfunction to plaque rupture."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_0",
+                "subject": {
+                    "entity_id": "ent:69b74f1d626f",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic cardiovascular disease",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "ACV",
+                        "Atherosclerosis",
+                        "atherosclerotic cardiovascular disease",
+                        "cardiovascular disease",
+                        "cardiovascular diseases",
+                        "CVD",
+                        "CVDs",
+                        "early atherosclerosis"
+                    ],
+                    "description": "Atherosclerosis is described as the main risk factor for cardiovascular disease, characterized by accumulation of lipids, fibrous elements, and calcification within large arteries, leading to atheroma plaque formation and cardiovascular complications."
+                },
+                "object": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "time_info": null
+            },
+            {
+                "head": "endothelium type II activation",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "cholesterol accumulation and foam cell formation",
+                "confidence": [
+                    0.95,
+                    0.08
+                ],
+                "evidence": [
+                    "Together, these induce an inflammatory response that is considered the first step of atheromatous plaque formation: the fatty streak",
+                    "Atherosclerosis initiates upon endothelial dysfunction"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_1",
+                "subject": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "object": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "time_info": null
+            },
+            {
+                "head": "cholesterol accumulation and foam cell formation",
+                "relation": "CAUSES",
+                "tail": "formation of cholesterol crystals",
+                "confidence": [
+                    0.78,
+                    0.05
+                ],
+                "evidence": [
+                    "An accumulation of cholesterol in the subendothelial compartment also promotes the formation of cholesterol crystals both inside and outside the cells and contributes to the development of atherosclerotic plaques [157,158,159]"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "object": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "time_info": null
+            },
+            {
+                "head": "formation of cholesterol crystals",
+                "relation": "ACTIVATES",
+                "tail": "NALP3 inflammasome",
+                "confidence": [
+                    0.87,
+                    0.08
+                ],
+                "evidence": [
+                    "Cholesterol crystals within the plaque activate NLRP3 inflammasome in macrophages",
+                    "These crystals cause lysosomal destabilization [163], inducing the release of lysosomal contents, such as cathepsins or reactive oxygen species [164], leading to NLRP3 inflammasome assembly"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "object": {
+                    "entity_id": "ent:9e22c5c022d2",
+                    "entity_type": "PROTEIN",
+                    "name": "NALP3 inflammasome",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "NLRP3",
+                        "NLRP3 inflammasome"
+                    ],
+                    "description": "Inflammasome described as being activated by silica crystals and aluminum salts through phagosomal destabilization."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Cholesterol crystal-induced NLRP3 inflammasome activation as a link between endothelial dysfunction and atherosclerosis progression",
+                "hypothesis": "Endothelial dysfunction (type II activation) promotes cholesterol accumulation and foam cell formation, which leads to cholesterol crystal formation that activates the NLRP3 inflammasome, thereby driving the inflammatory progression of atherosclerotic cardiovascular disease.",
+                "mechanism_explanation": "The path shows that atherosclerotic cardiovascular disease is associated with endothelium type II activation, which is linked to cholesterol accumulation and foam cell formation. This accumulation causes the formation of cholesterol crystals, which in turn activate the NLRP3 inflammasome. The context explains that cholesterol crystals within atherosclerotic plaques activate NLRP3 in macrophages, leading to caspase-1 activation and production of pro-inflammatory cytokines like IL-1β and IL-18, which perpetuate inflammation and plaque development.",
+                "experimental_suggestion": "In a mouse model of atherosclerosis (e.g., ApoE-/- mice), treat with a NLRP3 inflammasome inhibitor (e.g., MCC950) and measure plaque size, cholesterol crystal content, and levels of IL-1β in the aortic tissue compared to controls.",
+                "relevance_to_query": "The hypothesis directly links endothelial dysfunction (a factor in cardiovascular diseases) to a specific molecular mechanism (NLRP3 inflammasome activation via cholesterol crystals) that drives disease progression, identifying a potential therapeutic target.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Targeting foam cell-derived cholesterol crystals to mitigate NLRP3-mediated vascular inflammation",
+                "hypothesis": "Therapeutic interventions that prevent cholesterol crystal formation within foam cells (arising from endothelial dysfunction) will suppress NLRP3 inflammasome activation, reduce vascular inflammation, and slow atherosclerotic cardiovascular disease progression.",
+                "mechanism_explanation": "The path entities indicate a causal chain: endothelial dysfunction -> cholesterol accumulation/foam cell formation -> cholesterol crystal formation -> NLRP3 inflammasome activation. The context details that cholesterol crystals, formed from accumulated cholesterol in macrophages and VSMCs, are a key activator of the NLRP3 inflammasome. Preventing crystal formation should interrupt this pro-inflammatory cascade.",
+                "experimental_suggestion": "Use primary human macrophages differentiated from monocytes. Load them with oxidized LDL to induce foam cell formation and cholesterol crystallization. Co-treat with a compound that solubilizes or prevents cholesterol crystallization (e.g., cyclodextrin) and quantify NLRP3 activation (caspase-1 cleavage, IL-1β secretion) and crystal content via microscopy.",
+                "relevance_to_query": "It proposes a mechanistic factor (cholesterol crystals) that connects endothelial dysfunction to a potent inflammatory driver (NLRP3) in cardiovascular disease, suggesting a precise point for intervention.",
+                "confidence": 0.8
+            },
+            {
+                "title": "Endothelial activation primes the vascular niche for NLRP3-dependent inflammation via lipid accumulation",
+                "hypothesis": "Endothelium type II activation creates a pro-atherogenic environment that facilitates subendothelial cholesterol accumulation, which is a prerequisite for the formation of NLRP3-activating cholesterol crystals, thereby establishing a feed-forward loop of inflammation in cardiovascular disease.",
+                "mechanism_explanation": "The path starts with atherosclerotic CVD being associated with endothelium activation, which is then associated with cholesterol accumulation. The context explains that endothelial dysfunction allows LDL infiltration and retention, leading to modification (e.g., oxLDL) and uptake by scavenger receptors on macrophages/VSMCs, resulting in foam cells. The accumulated cholesterol crystallizes and activates NLRP3. Thus, the initial endothelial event sets the stage for the downstream inflammasome activation.",
+                "experimental_suggestion": "Apply pro-inflammatory cytokines (e.g., TNF-α) to human aortic endothelial cells in culture to induce activation. Condition the media from these activated cells and use it to treat co-cultured monocytes/macrophages in the presence of LDL. Measure subsequent foam cell formation, cholesterol crystal generation, and NLRP3 inflammasome activity in the macrophages.",
+                "relevance_to_query": "It delineates a sequential mechanistic pathway showing how endothelial dysfunction (a key factor in CVD) initiates events leading to a specific inflammatory factor (NLRP3 activation), addressing the query's focus on related factors.",
+                "confidence": 0.75
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Mechanistic Hypothesis of Endothelial Dysfunction in Atherosclerosis",
+                "hypothesis": "Endothelial dysfunction in cardiovascular diseases arises from a synergistic interplay between hemodynamic forces (specifically low or oscillatory wall shear stress at arterial bifurcations), inflammatory activation via the NLRP3 inflammasome pathway triggered by modified lipids, and phenotypic switching of vascular smooth muscle cells, which collectively disrupt vascular homeostasis, promote lipid retention and inflammation, and drive plaque formation and instability.",
+                "mechanism_explanation": "The provided context describes a comprehensive mechanistic cascade: 1) **Hemodynamic Initiation**: Low/oscillatory wall shear stress (WSS) at bifurcations induces endothelial dysfunction, characterized by a cobblestone EC morphology and a pro-inflammatory, pro-adhesive state. 2) **Lipid Retention and Modification**: Dysfunctional endothelium allows LDL infiltration and subsequent oxidation (oxLDL) in the intima. 3) **Inflammatory Amplification**: oxLDL uptake via receptors like CD36 in macrophages and VSMCs leads to intracellular cholesterol crystal formation, lysosomal destabilization, and activation of the NLRP3 inflammasome. This results in caspase-1 activation and the secretion of potent pro-inflammatory cytokines (IL-1β, IL-18). 4) **Cellular Transformation and Plaque Development**: Inflammatory signals and growth factors (e.g., PDGF, IL-1) drive VSMC migration from the media to the intima, phenotypic switching to a synthetic state, proliferation, and extracellular matrix production, contributing to both foam cell formation and fibrous cap development. This integrated path from disturbed flow to chronic inflammation and vascular remodeling encapsulates the core pathophysiology of atherosclerosis.",
+                "experimental_suggestion": "Utilize a microfluidic artery-on-a-chip model replicating an arterial bifurcation with tunable shear stress. Seed human aortic endothelial cells, co-culture with VSMCs and monocytes in the abluminal space, and perfuse with fluorescently tagged LDL. Apply defined periods of low/oscillatory vs. high/laminar WSS. Quantitatively measure in real-time: (1) endothelial permeability and adhesion molecule expression, (2) oxLDL accumulation and cholesterol crystal formation via imaging, (3) NLRP3 inflammasome activation (ASC speck formation) and IL-1β secretion, (4) VSMC migration, phenotypic marker changes, and collagen deposition. Inhibit key nodes (e.g., CD36, NLRP3, caspase-1) to dissect their relative contributions to the phenotype under different flow regimes.",
+                "relevance_to_query": "This hypothesis directly addresses the query by synthesizing the primary factors related to cardiovascular diseases and endothelial dysfunction: hemodynamic forces (low WSS) as the initiating physical factor, modified lipids (oxLDL) as the biochemical driver, and inflammatory pathways (NLRP3) and vascular cell phenotypic changes (VSMC switching) as the key cellular and molecular executors. It provides a unified, testable framework linking these factors into a coherent disease mechanism.",
+                "confidence": 0.85
+            }
+        ]
+    },
+    {
+        "entity": "Cardiovascular Diseases",
+        "path_index": 1,
+        "edges": [
+            {
+                "head": "Epicardial Adipose Tissue Thickness",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "essential hypertension",
+                "confidence": [
+                    0.85,
+                    0.15
+                ],
+                "evidence": [
+                    "Increased Epicardial Adipose Tissue Thickness as a Predictor for Hypertension: A Cross-Sectional Observational Study.",
+                    "Association of epicardial adipose tissue thickness by echocardiography and hypertension.",
+                    "Epicardial Adipose Tissue Accumulation and Essential Hypertension in Non-Obese Adults."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_2_16",
+                "subject": {
+                    "entity_id": "ent:e9fc9b7b516f",
+                    "entity_type": "BIOMARKER",
+                    "name": "Epicardial Adipose Tissue Thickness",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Increased thickness is described as a predictor for hypertension in a cross-sectional observational study."
+                },
+                "object": {
+                    "entity_id": "ent:71646b709e2d",
+                    "entity_type": "DISEASE",
+                    "name": "essential hypertension",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "essential hypertension",
+                        "hypertension"
+                    ],
+                    "description": "Condition in patients with abnormal endothelium-dependent vascular relaxation related to endothelium-derived nitric oxide."
+                },
+                "time_info": null
+            },
+            {
+                "head": "essential hypertension",
+                "relation": "DECREASES",
+                "tail": "endotheliumdependent vascular relaxation",
+                "confidence": [
+                    0.8,
+                    0.08
+                ],
+                "evidence": [
+                    "Role of endothelium-derived nitric oxide in the abnormal endotheliumdependent vascular relaxation of patients with essential hypertension.",
+                    "Oxidative stress and endothelial dysfunction in hypertension."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_17",
+                "subject": {
+                    "entity_id": "ent:71646b709e2d",
+                    "entity_type": "DISEASE",
+                    "name": "essential hypertension",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "essential hypertension",
+                        "hypertension"
+                    ],
+                    "description": "Condition in patients with abnormal endothelium-dependent vascular relaxation related to endothelium-derived nitric oxide."
+                },
+                "object": {
+                    "entity_id": "ent:de260bc77b57",
+                    "entity_type": "MECHANISM",
+                    "name": "endotheliumdependent vascular relaxation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "endothelium-dependent vascular relaxation",
+                        "endothelium-dependent vasodilation",
+                        "endotheliumdependent vascular relaxation",
+                        "vasodilatory effects",
+                        "vasorelaxation"
+                    ],
+                    "description": "Effects of PVAT in which sympathetic nerve activation and sensory neurons are described as having a role according to electrical field stimulation assays."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Epicardial fat thickness impairs endothelial function via hypertension",
+                "hypothesis": "Increased epicardial adipose tissue thickness promotes the development of essential hypertension, which in turn decreases endothelium-dependent vascular relaxation, contributing to endothelial dysfunction and cardiovascular disease risk.",
+                "mechanism_explanation": "The path shows a direct association between epicardial adipose tissue thickness (a biomarker) and essential hypertension (a disease), and then shows that essential hypertension decreases endothelium-dependent vascular relaxation (a mechanism). This suggests a causal chain where epicardial fat accumulation leads to hypertension, which mechanistically impairs endothelial function by reducing nitric oxide-mediated vasodilation.",
+                "experimental_suggestion": "In a cohort study, measure epicardial adipose tissue thickness via cardiac MRI, monitor blood pressure longitudinally, and assess endothelial function via flow-mediated dilation. Use mediation analysis to determine if the effect of epicardial fat on endothelial dysfunction is statistically mediated by hypertension incidence.",
+                "relevance_to_query": "The hypothesis directly addresses factors (epicardial adipose tissue and resulting hypertension) that mechanistically link to endothelial dysfunction, a key component of cardiovascular diseases.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Epicardial fat-derived factors drive endothelial dysfunction through hypertensive pathways",
+                "hypothesis": "Epicardial adipose tissue secretes pro-inflammatory adipocytokines that contribute to the pathogenesis of essential hypertension, and the hypertensive state subsequently reduces endothelial nitric oxide synthase activity or bioavailability, leading to impaired endothelium-dependent relaxation.",
+                "mechanism_explanation": "The context references studies showing epicardial fat expresses inflammatory mediators and has a pathogenic adipocytokine profile. The path links this fat to hypertension, and hypertension to decreased endothelial relaxation. This supports a mechanism where fat-derived signals promote hypertension, which then disrupts endothelial nitric oxide signaling.",
+                "experimental_suggestion": "Collect epicardial adipose tissue explants from patients undergoing cardiac surgery. Condition media with these explants and apply it to endothelial cell cultures or ex vivo vascular rings. Measure secretion of inflammatory cytokines (e.g., IL-6, TNF-α), assess endothelial nitric oxide synthase phosphorylation and nitric oxide production, and test vasorelaxation responses to acetylcholine.",
+                "relevance_to_query": "It identifies a specific adipose-derived factor pathway as a contributor to endothelial dysfunction via hypertension, addressing the query's focus on mechanistic factors.",
+                "confidence": 0.8
+            },
+            {
+                "title": "Targeting epicardial fat to restore endothelial function in hypertension",
+                "hypothesis": "Therapeutic reduction of epicardial adipose tissue volume or modulation of its secretory profile will attenuate the development or severity of essential hypertension, thereby preserving endothelium-dependent vascular relaxation and reducing cardiovascular disease progression.",
+                "mechanism_explanation": "The associative and causative links in the path imply that epicardial fat is upstream of hypertension and endothelial dysfunction. Intervening at the source (epicardial fat) should interrupt the pathological cascade, preventing the decrease in endothelial relaxation caused by hypertension.",
+                "experimental_suggestion": "In an animal model of diet-induced obesity with increased pericardial fat, implement a targeted intervention (e.g., local pharmacological modulation of epicardial fat metabolism or surgical removal) and measure subsequent changes in blood pressure, vascular reactivity (aortic ring assays), and endothelial nitric oxide synthase expression in the aorta.",
+                "relevance_to_query": "It proposes a modifiable factor (epicardial fat) whose intervention could mitigate endothelial dysfunction, directly answering what factors are related and potentially actionable.",
+                "confidence": 0.75
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Mechanistic Framework Linking Epicardial Adipose Tissue Dysfunction to Endothelial Dysfunction and Cardiovascular Disease",
+                "hypothesis": "Epicardial adipose tissue (EAT) dysfunction, characterized by a pro-inflammatory adipocytokine profile (reduced adiponectin, increased inflammatory mediators) and increased thickness, promotes endothelial dysfunction and atherosclerosis through multiple integrated mechanisms: 1) by impairing endothelial nitric oxide synthase (eNOS) expression and nitric oxide (NO) bioavailability via oxidative stress, 2) by enhancing the transcytosis of atherogenic lipoproteins across the endothelium via caveolin-1-mediated pathways, and 3) by directly influencing vascular tone and remodeling through paracrine effects on vascular smooth muscle cells. This dysfunctional EAT-vascular axis is a central factor linking hypertension, hypercholesterolemia, and metabolic disorders to cardiovascular diseases.",
+                "mechanism_explanation": "The contexts describe a cohesive biological narrative: EAT is a metabolically active organ that, in disease states, exhibits a pathogenic profile (reduced adiponectin, increased inflammatory mediators like those from IL-18 pathways) and increased thickness, which is associated with hypertension and coronary artery disease. This dysfunctional EAT can impair endothelial function by promoting oxidative stress, which downregulates eNOS expression and reduces NO bioavailability—a key mediator of endothelium-dependent vasodilation and an antiatherogenic molecule. Concurrently, EAT-derived factors may influence endothelial transcytosis, a process critical for lipoprotein entry into the vessel wall and regulated by structures like caveolae and caveolin-1. The impaired NO signaling and increased lipoprotein influx collectively contribute to endothelial dysfunction, vasoconstriction, and the initiation of atherosclerosis, linking EAT pathology directly to cardiovascular disease mechanisms.",
+                "experimental_suggestion": "Utilize a co-culture system of human epicardial adipocytes (from patients with/without CVD) and endothelial cells in a fluid shear stress bioreactor. Measure: 1) Adipocytokine secretion profile, 2) Endothelial NO production and eNOS expression, 3) Oxidative stress markers, 4) Caveolin-1 expression and LDL transcytosis rates. Subsequently, validate findings in an animal model (e.g., ApoE-/- mice) by surgically modulating EAT (transplantation of dysfunctional EAT) and assessing in vivo endothelial function (vasoreactivity), atherosclerotic plaque development, and endothelial gene expression profiles.",
+                "relevance_to_query": "The query asks about factors related to cardiovascular diseases and endothelial dysfunction. This comprehensive hypothesis directly identifies dysfunctional epicardial adipose tissue as a critical, multifactorial upstream driver. It integrates several pathogenic factors mentioned in the contexts—inflammatory mediators, oxidative stress, NO bioavailability, lipoprotein transport, and vascular remodeling—into a single, coherent framework that explains how EAT dysfunction can initiate and propagate endothelial damage, leading to hypertension, atherosclerosis, and other cardiovascular diseases.",
+                "confidence": 0.85
+            }
+        ]
+    },
+    {
+        "entity": "Endothelial Dysfunction",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "atherosclerotic cardiovascular disease",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "endothelium type II activation",
+                "confidence": [
+                    0.88,
+                    0.8
+                ],
+                "evidence": [
+                    "This review focuses on the different stages of atherosclerosis development, ranging from endothelial dysfunction to plaque rupture."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_0",
+                "subject": {
+                    "entity_id": "ent:69b74f1d626f",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic cardiovascular disease",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "ACV",
+                        "Atherosclerosis",
+                        "atherosclerotic cardiovascular disease",
+                        "cardiovascular disease",
+                        "cardiovascular diseases",
+                        "CVD",
+                        "CVDs",
+                        "early atherosclerosis"
+                    ],
+                    "description": "Atherosclerosis is described as the main risk factor for cardiovascular disease, characterized by accumulation of lipids, fibrous elements, and calcification within large arteries, leading to atheroma plaque formation and cardiovascular complications."
+                },
+                "object": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "time_info": null
+            },
+            {
+                "head": "endothelium type II activation",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "cholesterol accumulation and foam cell formation",
+                "confidence": [
+                    0.95,
+                    0.08
+                ],
+                "evidence": [
+                    "Together, these induce an inflammatory response that is considered the first step of atheromatous plaque formation: the fatty streak",
+                    "Atherosclerosis initiates upon endothelial dysfunction"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_1",
+                "subject": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "object": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "time_info": null
+            },
+            {
+                "head": "cholesterol accumulation and foam cell formation",
+                "relation": "CAUSES",
+                "tail": "formation of cholesterol crystals",
+                "confidence": [
+                    0.78,
+                    0.05
+                ],
+                "evidence": [
+                    "An accumulation of cholesterol in the subendothelial compartment also promotes the formation of cholesterol crystals both inside and outside the cells and contributes to the development of atherosclerotic plaques [157,158,159]"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "object": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "time_info": null
+            },
+            {
+                "head": "formation of cholesterol crystals",
+                "relation": "ACTIVATES",
+                "tail": "NALP3 inflammasome",
+                "confidence": [
+                    0.87,
+                    0.08
+                ],
+                "evidence": [
+                    "Cholesterol crystals within the plaque activate NLRP3 inflammasome in macrophages",
+                    "These crystals cause lysosomal destabilization [163], inducing the release of lysosomal contents, such as cathepsins or reactive oxygen species [164], leading to NLRP3 inflammasome assembly"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "object": {
+                    "entity_id": "ent:9e22c5c022d2",
+                    "entity_type": "PROTEIN",
+                    "name": "NALP3 inflammasome",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "NLRP3",
+                        "NLRP3 inflammasome"
+                    ],
+                    "description": "Inflammasome described as being activated by silica crystals and aluminum salts through phagosomal destabilization."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Cholesterol crystal-induced NLRP3 inflammasome activation as a key link between endothelial dysfunction and atherosclerosis progression",
+                "hypothesis": "Endothelial dysfunction (type II activation) promotes cholesterol accumulation and foam cell formation, which leads to the formation of cholesterol crystals that activate the NLRP3 inflammasome, thereby driving a pro-inflammatory cascade that accelerates atherosclerotic cardiovascular disease progression.",
+                "mechanism_explanation": "The path shows a direct mechanistic chain: atherosclerotic cardiovascular disease is associated with endothelium type II activation, which is associated with cholesterol accumulation and foam cell formation. This accumulation causes the formation of cholesterol crystals, which in turn activate the NLRP3 inflammasome. The context confirms that cholesterol crystals within atherosclerotic plaques activate NLRP3 in macrophages, leading to caspase-1 activation and production of pro-inflammatory cytokines IL-1β and IL-18, contributing to plaque inflammation and instability.",
+                "experimental_suggestion": "In a mouse model of atherosclerosis (e.g., ApoE-/- mice fed a high-fat diet), treat with a specific NLRP3 inflammasome inhibitor (e.g., MCC950) and measure: 1) plaque size and composition via histology, 2) levels of IL-1β and IL-18 in plaque and serum, and 3) endothelial function via aortic wire myography. Compare to vehicle-treated controls.",
+                "relevance_to_query": "The hypothesis directly links endothelial dysfunction (a key factor in cardiovascular diseases) to a specific downstream inflammatory mechanism (NLRP3 activation) via cholesterol crystal formation, identifying a testable pathway that could be targeted therapeutically.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Targeting cholesterol crystal formation to mitigate NLRP3-driven endothelial inflammation",
+                "hypothesis": "Pharmacological interventions that prevent cholesterol crystal formation within foam cells will reduce NLRP3 inflammasome activation, decrease endothelial inflammation, and slow the progression of atherosclerotic cardiovascular disease.",
+                "mechanism_explanation": "The path indicates cholesterol accumulation and foam cell formation causes cholesterol crystal formation, which activates NLRP3. The context details that cholesterol crystals cause lysosomal destabilization, releasing cathepsins or ROS that trigger NLRP3 assembly. Preventing crystal formation should interrupt this specific activation signal to NLRP3, reducing downstream inflammation.",
+                "experimental_suggestion": "Treat human macrophage cell lines (e.g., THP-1 derived macrophages) loaded with oxidized LDL (to induce foam cell formation) with compounds that solubilize or prevent cholesterol crystallization (e.g., cyclodextrins). Quantify cholesterol crystal formation via microscopy, measure NLRP3 inflammasome activation (caspase-1 activity, IL-1β secretion), and assess markers of endothelial cell activation (e.g., VCAM-1 expression) in a co-culture system.",
+                "relevance_to_query": "It proposes a mechanistic intervention point (chrystal formation) upstream of NLRP3 activation that connects lipid metabolism dysregulation (a factor in cardiovascular disease) to endothelial inflammation.",
+                "confidence": 0.8
+            },
+            {
+                "title": "VSMC-derived foam cells as a major source of NLRP3-activating cholesterol crystals",
+                "hypothesis": "Vascular smooth muscle cell (VSMC)-derived foam cells, resulting from endothelial dysfunction and intimal cholesterol accumulation, are a significant source of cholesterol crystals that activate the NLRP3 inflammasome within the atherosclerotic plaque, contributing to local inflammation and plaque progression.",
+                "mechanism_explanation": "The path connects endothelial dysfunction to cholesterol accumulation/foam cell formation. The context explicitly states that VSMCs in the intima contribute significantly to the foam cell population (at least 50% in human coronary intima) by internalizing oxLDL and having reduced cholesterol efflux capacity. These VSMC-derived foam cells are therefore a plausible major site for the cholesterol crystal formation that activates NLRP3, as described in the path.",
+                "experimental_suggestion": "Using lineage-tracing mouse models (e.g., Myh11-CreERT2; Rosa26-tdTomato ApoE-/- mice), specifically isolate VSMC-derived foam cells from atherosclerotic plaques via fluorescence-activated cell sorting. Analyze these cells compared to monocyte-derived foam cells for: 1) intracellular cholesterol crystal content (via filipin staining and polarized light microscopy), 2) NLRP3 inflammasome component expression, and 3) ability to secrete IL-1β upon stimulation.",
+                "relevance_to_query": "It identifies a specific cellular actor (VSMCs) in the path from endothelial dysfunction to NLRP3 activation, highlighting a potential cell-type-specific therapeutic target for modulating inflammation in cardiovascular disease.",
+                "confidence": 0.75
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Hemodynamic-Metabolic-Inflammatory Hypothesis for Atherosclerosis",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked through a synergistic cascade initiated by low/oscillatory wall shear stress (WSS), which promotes endothelial dysfunction, LDL infiltration and oxidation, foam cell formation via VSMC and macrophage uptake, NLRP3 inflammasome activation by cholesterol crystals, and subsequent VSMC phenotypic switching and fibrous cap formation, with this entire pathway being modulated by systemic factors including microbiota, non-coding RNAs, and sex hormones.",
+                "mechanism_explanation": "The provided context describes a comprehensive pathophysiological sequence: 1) Low/oscillatory WSS at arterial bifurcations causes endothelial cobblestone morphology and dysfunction, disrupting homeostasis. 2) Dysfunctional endothelium allows LDL infiltration and oxidation in the intima. 3) oxLDL is taken up by macrophages (via CD36/TLR4/6) and vascular smooth muscle cells (VSMCs via SR-A, CD36, LOX-1), forming foam cells. 4) Intracellular cholesterol crystals from oxLDL uptake activate the NLRP3 inflammasome in macrophages, leading to caspase-1 activation and production of IL-1β/IL-18. 5) Inflammatory cytokines (IL-1, PDGF) from macrophages and foam cells promote VSMC migration from media to intima, phenotypic switching to synthetic state, proliferation, and extracellular matrix production, forming the fibrous cap over the necrotic core. 6) The review also mentions modulation by microRNAs, lncRNAs, microbiota, and sex as crucial risk factors, suggesting these elements regulate various steps in this cascade.",
+                "experimental_suggestion": "Establish a multi-parameter in vitro flow system simulating arterial bifurcation hemodynamics (low/oscillatory vs. high/laminar WSS) using endothelial cells co-cultured with VSMCs and monocytes. Sequentially expose the system to: 1) Fluorescently labelled LDL to track infiltration and oxidation under different shear patterns. 2) Inhibitors/scavengers of CD36, LOX-1, and NLRP3 to dissect their roles in foam cell formation and inflammasome activation. 3) Measure downstream outputs including endothelial adhesion molecule expression, oxLDL uptake (flow cytometry), NLRP3 activation (caspase-1 activity, IL-1β release), VSMC phenotypic markers (α-SMA vs. collagen production), and fibrous cap protein deposition. Correlate findings with patient plaque imaging (MRI/IVUS) and histology from different vascular regions (high vs. low shear).",
+                "relevance_to_query": "This hypothesis directly addresses the query by integrating the primary initiating factor (hemodynamic forces/WSS) with the core cellular dysfunction (endothelial dysfunction), and then tracing the downstream mechanistic consequences (lipid metabolism, inflammation, vascular remodeling) that collectively define atherosclerosis pathogenesis. It moves beyond listing factors to proposing a testable, sequential pathway linking hemodynamics to plaque stability.",
+                "confidence": 0.85
+            }
+        ]
+    },
+    {
+        "entity": "Risk Factors",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "atherosclerotic cardiovascular disease",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "endothelium type II activation",
+                "confidence": [
+                    0.88,
+                    0.8
+                ],
+                "evidence": [
+                    "This review focuses on the different stages of atherosclerosis development, ranging from endothelial dysfunction to plaque rupture."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_0",
+                "subject": {
+                    "entity_id": "ent:69b74f1d626f",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic cardiovascular disease",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "ACV",
+                        "Atherosclerosis",
+                        "atherosclerotic cardiovascular disease",
+                        "cardiovascular disease",
+                        "cardiovascular diseases",
+                        "CVD",
+                        "CVDs",
+                        "early atherosclerosis"
+                    ],
+                    "description": "Atherosclerosis is described as the main risk factor for cardiovascular disease, characterized by accumulation of lipids, fibrous elements, and calcification within large arteries, leading to atheroma plaque formation and cardiovascular complications."
+                },
+                "object": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "time_info": null
+            },
+            {
+                "head": "endothelium type II activation",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "cholesterol accumulation and foam cell formation",
+                "confidence": [
+                    0.95,
+                    0.08
+                ],
+                "evidence": [
+                    "Together, these induce an inflammatory response that is considered the first step of atheromatous plaque formation: the fatty streak",
+                    "Atherosclerosis initiates upon endothelial dysfunction"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_1",
+                "subject": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "object": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "time_info": null
+            },
+            {
+                "head": "cholesterol accumulation and foam cell formation",
+                "relation": "CAUSES",
+                "tail": "formation of cholesterol crystals",
+                "confidence": [
+                    0.78,
+                    0.05
+                ],
+                "evidence": [
+                    "An accumulation of cholesterol in the subendothelial compartment also promotes the formation of cholesterol crystals both inside and outside the cells and contributes to the development of atherosclerotic plaques [157,158,159]"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "object": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "time_info": null
+            },
+            {
+                "head": "formation of cholesterol crystals",
+                "relation": "ACTIVATES",
+                "tail": "NALP3 inflammasome",
+                "confidence": [
+                    0.87,
+                    0.08
+                ],
+                "evidence": [
+                    "Cholesterol crystals within the plaque activate NLRP3 inflammasome in macrophages",
+                    "These crystals cause lysosomal destabilization [163], inducing the release of lysosomal contents, such as cathepsins or reactive oxygen species [164], leading to NLRP3 inflammasome assembly"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "object": {
+                    "entity_id": "ent:9e22c5c022d2",
+                    "entity_type": "PROTEIN",
+                    "name": "NALP3 inflammasome",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "NLRP3",
+                        "NLRP3 inflammasome"
+                    ],
+                    "description": "Inflammasome described as being activated by silica crystals and aluminum salts through phagosomal destabilization."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Cholesterol crystal-induced NLRP3 inflammasome activation as a link between endothelial dysfunction and atherosclerosis progression",
+                "hypothesis": "Endothelial dysfunction (type II activation) promotes cholesterol accumulation and foam cell formation, which leads to cholesterol crystal formation that activates the NLRP3 inflammasome, creating a feed-forward inflammatory loop that accelerates atherosclerotic cardiovascular disease progression.",
+                "mechanism_explanation": "The path shows atherosclerotic cardiovascular disease is associated with endothelium type II activation, which is associated with cholesterol accumulation and foam cell formation. This accumulation causes formation of cholesterol crystals, which then activates the NLRP3 inflammasome protein. This mechanistic chain connects endothelial dysfunction to innate immune activation through cholesterol crystallization.",
+                "experimental_suggestion": "In a mouse model of atherosclerosis (ApoE-/-), measure NLRP3 inflammasome activation (caspase-1 cleavage, IL-1β secretion) in aortic plaques following induction of endothelial dysfunction via TNF-α or oscillatory shear stress, and assess whether NLRP3 inhibition (MCC950) reduces plaque inflammation and progression.",
+                "relevance_to_query": "This hypothesis directly addresses how endothelial dysfunction (a key factor in cardiovascular diseases) mechanistically links to inflammatory pathways through cholesterol metabolism, identifying specific molecular mediators that could be therapeutic targets.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Endothelial activation drives foam cell formation through cholesterol crystal-dependent NLRP3 activation",
+                "hypothesis": "Activated endothelial cells promote subendothelial cholesterol accumulation in macrophages and VSMCs, leading to intracellular cholesterol crystal formation that activates NLRP3 inflammasome, enhancing local inflammation and further endothelial dysfunction in a vicious cycle.",
+                "mechanism_explanation": "The path connects endothelial activation to cholesterol accumulation/foam cell formation (association), which causes cholesterol crystal formation, which activates NLRP3. The context explains that cholesterol crystals form both inside and outside cells in atherosclerotic plaques and specifically activate NLRP3 in macrophages, linking endothelial dysfunction to inflammasome activation.",
+                "experimental_suggestion": "Co-culture activated endothelial cells with macrophages in the presence of oxidized LDL; quantify intracellular cholesterol crystals (by microscopy), NLRP3 activation (ASC speck formation, IL-1β release), and measure whether endothelial-derived factors enhance this crystal-dependent inflammasome activation.",
+                "relevance_to_query": "It identifies a specific sequence from endothelial dysfunction to innate immune activation, highlighting cholesterol crystals as a key intermediate factor connecting endothelial status to inflammation in cardiovascular disease.",
+                "confidence": 0.8
+            },
+            {
+                "title": "NLRP3 as a therapeutic target to break the endothelial dysfunction-atherosclerosis link",
+                "hypothesis": "Targeting NLRP3 inflammasome activation downstream of cholesterol crystal formation could interrupt the pathological link between endothelial dysfunction and atherosclerotic progression, even if endothelial dysfunction persists.",
+                "mechanism_explanation": "The path shows endothelial dysfunction leads to cholesterol accumulation and crystal formation, which activates NLRP3. Inhibiting NLRP3 could block this specific inflammatory consequence without needing to reverse the upstream endothelial dysfunction, potentially uncoupling endothelial activation from disease progression.",
+                "experimental_suggestion": "In endothelial-specific Nox2 overexpressing mice (a model of endothelial dysfunction), cross with NLRP3-/- mice or treat with NLRP3 inhibitor, and assess atherosclerosis burden, plaque stability, and systemic inflammation compared to controls with intact NLRP3 signaling.",
+                "relevance_to_query": "It proposes a specific intervention point (NLRP3) that could mitigate cardiovascular disease progression driven by endothelial dysfunction, addressing the query about factors relating these conditions.",
+                "confidence": 0.75
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Hemodynamic-Metabolic-Inflammatory Axis in Atherosclerosis",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked through a synergistic axis where low/oscillatory wall shear stress (WSS) at arterial bifurcations induces endothelial dysfunction, promoting LDL infiltration and oxidation (oxLDL), which is then internalized by macrophages and vascular smooth muscle cells (VSMCs) via scavenger receptors (CD36, SR-A, LOX-1), leading to foam cell formation, NLRP3 inflammasome activation, and chronic inflammation that drives fibrous cap formation and plaque progression.",
+                "mechanism_explanation": "The provided context describes a comprehensive cascade: (1) Hemodynamic forces (low/oscillatory WSS) at bifurcations cause endothelial dysfunction and cobblestone EC morphology, disrupting homeostasis. (2) This dysfunction allows LDL infiltration and modification to oxLDL in the intima. (3) oxLDL is taken up by macrophages (via CD36/TLR4/TLR6) and VSMCs (via CD36, SR-A, LOX-1), forming foam cells. (4) Intracellular cholesterol crystals from oxLDL uptake activate the NLRP3 inflammasome, leading to caspase-1 activation and production of IL-1β/IL-18, sustaining inflammation. (5) Inflammatory signals (e.g., IL-1, PDGF) promote VSMC migration, proliferation, and extracellular matrix production, forming the fibrous cap. (6) VSMC-derived foam cells significantly contribute to plaque volume, and their reduced cholesterol efflux (low ABCA1) exacerbates lipid accumulation. This path integrates mechanical stress, metabolic dysfunction, and inflammatory signaling into a cohesive disease mechanism.",
+                "experimental_suggestion": "Use a microfluidic artery-on-a-chip model with tunable WSS and bifurcation geometry to culture endothelial cells, VSMCs, and monocytes. Subject the system to low/oscillatory WSS vs. laminar high WSS, introduce fluorescently labeled LDL, and track: (1) endothelial permeability and adhesion molecule expression, (2) oxLDL accumulation and foam cell formation (VSMC vs. macrophage origin via cell-specific markers), (3) NLRP3 inflammasome activation (caspase-1 activity, IL-1β release), and (4) fibrous cap development (VSMC migration, collagen deposition). Inhibit key nodes (e.g., CD36, NLRP3) to assess their necessity in this integrated cascade.",
+                "relevance_to_query": "This hypothesis directly addresses the query by identifying and linking the key factors (hemodynamic forces, lipid metabolism, inflammatory pathways, and cellular responses) that connect endothelial dysfunction to cardiovascular disease progression, specifically atherosclerosis. It provides a unified mechanistic framework that explains how these factors interact sequentially and synergistically.",
+                "confidence": 0.85
+            }
+        ]
+    },
+    {
+        "entity": "Molecular Mechanisms",
+        "path_index": 1,
+        "edges": [
+            {
+                "head": "Plaque Configuration",
+                "relation": "CAUSES",
+                "tail": "Stress Distribution",
+                "confidence": [
+                    0.92,
+                    0.1
+                ],
+                "evidence": [
+                    "Influence of Plaque Configuration and Stress Distribution on Fissuring of Coronary Atherosclerotic Plaques."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_22",
+                "subject": {
+                    "entity_id": "ent:726bdf942731",
+                    "entity_type": "MECHANISM",
+                    "name": "Plaque Configuration",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "object": {
+                    "entity_id": "ent:11f0ad648d8a",
+                    "entity_type": "MECHANISM",
+                    "name": "Stress Distribution",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "time_info": null
+            },
+            {
+                "head": "Stress Distribution",
+                "relation": "CAUSES",
+                "tail": "atherosclerotic plaques",
+                "confidence": [
+                    0.9,
+                    0.05
+                ],
+                "evidence": [
+                    "Influence of Plaque Configuration and Stress Distribution on Fissuring of Coronary Atherosclerotic Plaques."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_22",
+                "subject": {
+                    "entity_id": "ent:11f0ad648d8a",
+                    "entity_type": "MECHANISM",
+                    "name": "Stress Distribution",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "object": {
+                    "entity_id": "ent:b6e5c13da1bf",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic plaques",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "advanced atherosclerosis",
+                        "atheroma development",
+                        "atheroma plaque",
+                        "atheroma plaques",
+                        "atherosclerosis",
+                        "atherosclerotic disease",
+                        "atherosclerotic lesions",
+                        "atherosclerotic plaque",
+                        "atherosclerotic plaques",
+                        "atherosclerotic plaques of smokers",
+                        "atherosclerotic process",
+                        "carotid plaque",
+                        "early plaques",
+                        "fibrous plaque",
+                        "plaque",
+                        "plaque development"
+                    ],
+                    "description": "Plaques whose development is contributed to by cholesterol accumulation and crystal formation, featuring a necrotic core and fibrous cap, and representing advanced stages of atherosclerosis."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Plaque Configuration Influences Atherosclerosis via Stress Distribution",
+                "hypothesis": "Specific plaque configurations (e.g., thin fibrous caps, large lipid cores, eccentric shapes) cause abnormal mechanical stress distributions within the arterial wall, and this localized stress directly promotes the development, progression, and destabilization of atherosclerotic plaques.",
+                "mechanism_explanation": "The path explicitly states 'Plaque Configuration' CAUSES 'Stress Distribution' which in turn CAUSES 'atherosclerotic plaques'. This establishes a direct mechanistic chain: the physical morphology of a plaque alters the biomechanical forces (stress) acting on the tissue, and this altered stress environment is a causative factor in the disease process itself, not merely a consequence.",
+                "experimental_suggestion": "Use patient-derived coronary CT angiography data to computationally model stress distributions in plaques with different configurations (e.g., using finite element analysis). Correlate high-stress regions with subsequent plaque progression or vulnerability features (like necrotic core expansion or cap thinning) assessed by follow-up imaging or histology in explanted vessels.",
+                "relevance_to_query": "The query asks about factors related to cardiovascular diseases and endothelial dysfunction. Plaque configuration and the resulting biomechanical stress are direct physical factors in atherosclerosis, a primary cardiovascular disease. Endothelial dysfunction is both a cause and consequence of these biomechanical changes.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Stress-Mediated Molecular Signaling in Plaque Development",
+                "hypothesis": "The abnormal stress distribution caused by specific plaque configurations activates specific mechanosensitive signaling pathways in vascular smooth muscle cells and endothelial cells (e.g., via TRPM7, integrins, or YAP/TAZ), leading to phenotypic switching, increased matrix degradation (via MMPs), and impaired efferocytosis, which collectively drive the formation of vulnerable atherosclerotic plaques.",
+                "mechanism_explanation": "While the core path is Plaque Config -> Stress -> Disease, the provided context links stress to molecular mechanisms. For example, context references TRPM7 upregulation by AngII triggering VSMC switching (ref 190), MMP activity degrading plaque matrix (refs 203-205), and impaired efferocytosis contributing to necrotic core formation (refs 198-202). The hypothesis connects the 'Stress Distribution' node to these downstream molecular effectors that execute the 'CAUSES atherosclerotic plaques' step.",
+                "experimental_suggestion": "Apply cyclic mechanical strain to human coronary artery smooth muscle cells (HCASMCs) in vitro mimicking high-stress vs. low-stress conditions. Measure activation of candidate pathways (TRPM7, YAP nuclear localization), subsequent changes in gene expression (MMP-13, MMP-14, collagen), and functional outcomes like calcification potential or ability to phagocytose apoptotic bodies (efferocytosis).",
+                "relevance_to_query": "This hypothesis identifies a specific, testable molecular link between a physical factor (stress) and the cellular dysfunction central to atherosclerosis. It moves beyond correlation to propose a mechanism by which plaque geometry influences disease biology, directly addressing 'factors' related to CVD.",
+                "confidence": 0.75
+            },
+            {
+                "title": "Stress Distribution as a Unifying Driver of Plaque Vulnerability Features",
+                "hypothesis": "Focal high stress distributions, determined by plaque configuration, act as a unifying local driver that simultaneously promotes multiple key features of vulnerable plaques: thinning of the fibrous cap (via MMP activation), expansion of the necrotic core (via impaired efferocytosis and increased cell death), and microcalcification (via VSMC-derived exosome secretion), thereby creating a high-risk atherosclerotic lesion.",
+                "mechanism_explanation": "The path's endpoint is 'atherosclerotic plaques', which in the context are described with features like necrotic core, thin fibrous cap, and calcification. The hypothesis posits that 'Stress Distribution' is the causal mechanism that integrates these disparate features. The context provides evidence for each: stress can induce MMPs (refs 203-205) degrading the cap, inhibit efferocytosis (refs 198-202) enlarging the necrotic core, and promote VSMC exosome-mediated calcification (ref 217).",
+                "experimental_suggestion": "In an ApoE-/- mouse model of atherosclerosis, use intravascular ultrasound or optical coherence tomography to identify plaques with configurations predicted to generate high stress. Use localized perivascular cuff placement or genetic targeting to experimentally modulate stress in specific plaques. Analyze these plaques histologically for co-localization of cap thickness, necrotic core size, and microcalcification, compared to control plaques.",
+                "relevance_to_query": "This hypothesis directly links a physical factor (stress from plaque shape) to the composite pathological phenotype of a high-risk atherosclerotic plaque. It provides a mechanistic explanation for how various 'factors' like inflammation, cell death, and calcification might be spatially coordinated within a plaque, contributing to cardiovascular disease outcomes.",
+                "confidence": 0.7
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Plaque Vulnerability Hypothesis",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked to atherosclerotic plaque vulnerability through a cascade involving macrophage apoptosis/efferocytosis failure, matrix metalloproteinase-mediated collagen degradation, cholesterol crystallization, and vascular smooth muscle cell phenotypic switching and calcification, which collectively determine fibrous cap stability and thrombotic potential.",
+                "mechanism_explanation": "The provided contexts describe multiple interconnected pathways: 1) Macrophage apoptosis and impaired efferocytosis (Linton et al., 2016; Cabrera & Makino, 2021) lead to necrotic core expansion, 2) MMP-13 and MMP-14 from macrophages degrade collagen in the fibrous cap (Quillard et al., 2014; Schneider et al., 2008), 3) Cholesterol crystallization (Nidorf et al., 2020) and matrix vesicle release (Bobryshev et al., 2008) promote plaque instability, 4) Vascular smooth muscle cell phenotypic switching (Zhang et al., 2012; Mack, 2011) and calcification (Kapustin et al., 2015) alter plaque mechanics, and 5) These processes culminate in fibrous cap thinning (Li et al., 2006) and increased rupture risk with subsequent atherothrombosis (Thim et al., 2008).",
+                "experimental_suggestion": "Establish a longitudinal study using ApoE-/- mice with serial intravascular ultrasound and histological analysis to correlate temporal changes in: 1) macrophage efferocytosis efficiency (via TUNEL/MERTK staining), 2) MMP-13/14 activity and collagen content, 3) cholesterol crystal formation, and 4) smooth muscle cell phenotype and calcification, with ultimate plaque rupture events triggered by pharmacological stress.",
+                "relevance_to_query": "This comprehensive hypothesis directly addresses the query by integrating multiple factors (cellular processes, enzymatic activities, structural changes) that link endothelial dysfunction to cardiovascular disease progression through the common endpoint of atherosclerotic plaque vulnerability, providing a unified mechanistic framework.",
+                "confidence": 0.85
+            }
+        ]
+    },
+    {
+        "entity": "Clinical Biomarkers",
+        "path_index": 1,
+        "edges": [
+            {
+                "head": "Plaque Configuration",
+                "relation": "CAUSES",
+                "tail": "Stress Distribution",
+                "confidence": [
+                    0.92,
+                    0.1
+                ],
+                "evidence": [
+                    "Influence of Plaque Configuration and Stress Distribution on Fissuring of Coronary Atherosclerotic Plaques."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_22",
+                "subject": {
+                    "entity_id": "ent:726bdf942731",
+                    "entity_type": "MECHANISM",
+                    "name": "Plaque Configuration",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "object": {
+                    "entity_id": "ent:11f0ad648d8a",
+                    "entity_type": "MECHANISM",
+                    "name": "Stress Distribution",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "time_info": null
+            },
+            {
+                "head": "Stress Distribution",
+                "relation": "CAUSES",
+                "tail": "atherosclerotic plaques",
+                "confidence": [
+                    0.9,
+                    0.05
+                ],
+                "evidence": [
+                    "Influence of Plaque Configuration and Stress Distribution on Fissuring of Coronary Atherosclerotic Plaques."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_22",
+                "subject": {
+                    "entity_id": "ent:11f0ad648d8a",
+                    "entity_type": "MECHANISM",
+                    "name": "Stress Distribution",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Influence on fissuring of coronary atherosclerotic plaques mentioned in the reference."
+                },
+                "object": {
+                    "entity_id": "ent:b6e5c13da1bf",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic plaques",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "advanced atherosclerosis",
+                        "atheroma development",
+                        "atheroma plaque",
+                        "atheroma plaques",
+                        "atherosclerosis",
+                        "atherosclerotic disease",
+                        "atherosclerotic lesions",
+                        "atherosclerotic plaque",
+                        "atherosclerotic plaques",
+                        "atherosclerotic plaques of smokers",
+                        "atherosclerotic process",
+                        "carotid plaque",
+                        "early plaques",
+                        "fibrous plaque",
+                        "plaque",
+                        "plaque development"
+                    ],
+                    "description": "Plaques whose development is contributed to by cholesterol accumulation and crystal formation, featuring a necrotic core and fibrous cap, and representing advanced stages of atherosclerosis."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Plaque Configuration Influences Atherosclerotic Plaque Development via Stress Distribution",
+                "hypothesis": "Specific plaque configurations (e.g., thin fibrous caps, large lipid cores, eccentric shapes) cause abnormal mechanical stress distributions within the arterial wall, and these localized stress patterns directly promote the development and progression of atherosclerotic plaques by inducing endothelial dysfunction, smooth muscle cell phenotypic switching, and macrophage infiltration.",
+                "mechanism_explanation": "The path 'Plaque Configuration:MECHANISM-[CAUSES]->Stress Distribution:MECHANISM-[CAUSES]->atherosclerotic plaques:DISEASE' provides a direct causal chain. The context supports this by detailing how plaque morphology (configuration) determines mechanical stress (e.g., references 192, 193 on stress distribution and cap stability), and how this stress environment can drive cellular processes central to atherosclerosis, such as VSMC differentiation (191), macrophage apoptosis contributing to necrotic cores (198, 211), and matrix degradation affecting plaque vulnerability (203, 204, 209).",
+                "experimental_suggestion": "Use patient-derived CT angiography data to classify plaques by configuration (e.g., calcified, lipid-rich, eccentric). Apply finite element analysis to model stress distribution in each class. Correlate high-stress regions with histological markers of plaque activity (e.g., MMP expression, macrophage density, VSMC phenotype) from corresponding carotid endarterectomy specimens.",
+                "relevance_to_query": "The hypothesis directly links a mechanical factor (plaque configuration/stress) to the disease endpoint (atherosclerotic plaques), which is a core component of cardiovascular disease. It suggests that assessing and therapeutically modifying plaque configuration could be a strategy to mitigate endothelial dysfunction and plaque progression.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Stress-Mediated Necrotic Core Expansion Drives Plaque Vulnerability",
+                "hypothesis": "Abnormal stress distributions caused by specific plaque configurations promote macrophage apoptosis and impair efferocytosis within the plaque, leading to the expansion of the necrotic core, which is a key determinant of atherosclerotic plaque vulnerability and rupture risk.",
+                "mechanism_explanation": "The core path establishes that configuration causes stress. The context elaborates that stress can induce biological responses: macrophage apoptosis is a key source of the necrotic core (198, 211), and impaired clearance of these cells (efferocytosis) is critical (199, 202). Stress may disrupt efferocytic pathways (e.g., MERTK signaling) or promote pro-apoptotic signaling. The expanded necrotic core, a hallmark of advanced 'atherosclerotic plaques,' directly increases rupture risk (197, 210).",
+                "experimental_suggestion": "Subject human macrophage-foam cell cultures in 3D collagen matrices to cyclic mechanical stress mimicking high plaque stress. Quantify apoptosis rates (e.g., caspase-3 activation) and efferocytosis efficiency (using pHrodo-labeled apoptotic cells). Inhibit specific stress-sensing pathways (e.g., TRPM7, referenced in 190) to test their role in stress-induced apoptosis and efferocytic impairment.",
+                "relevance_to_query": "It identifies a concrete cellular mechanism (impaired dead cell clearance) linking mechanical stress from plaque configuration to a critical feature of advanced, dysfunctional atherosclerotic plaques, addressing factors that transition stable plaques to high-risk states.",
+                "confidence": 0.8
+            },
+            {
+                "title": "Stress Distribution Modulates Plaque Calcification and Stability",
+                "hypothesis": "Local mechanical stress distributions, dictated by plaque configuration, regulate the propensity for vascular smooth muscle cell (VSMC) calcification and the formation of microcalcifications within the fibrous cap, thereby directly influencing the structural stability of atherosclerotic plaques.",
+                "mechanism_explanation": "The path links configuration and stress to plaques. The context provides mechanisms for calcification: VSMC-derived exosomes mediate calcification (217), and matrix vesicles in the cap may contribute to rupture (215). Mechanical stress is a known regulator of VSMC phenotype and mineralization. High stress may promote the VSMC switch to an osteogenic phenotype and the release of calcifying exosomes (217), leading to spotty calcifications that alter local stress fields and potentially weaken the fibrous cap (214, 215), affecting the overall 'atherosclerotic plaque' entity.",
+                "experimental_suggestion": "Culture human VSMCs on flexible membranes and subject them to defined cyclic tensile strain patterns. Measure osteogenic marker expression (e.g., Runx2), alkaline phosphatase activity, and exosome secretion (217). Analyze the mineral content and morphology of calcified deposits. Correlate these in vitro findings with microcalcification patterns and local stress maps from ex vivo atherosclerotic tissue.",
+                "relevance_to_query": "It connects a biomechanical factor (stress) to a specific compositional change (calcification) within plaques, which is a major factor in plaque stability and a clinical imaging biomarker, offering a mechanistic link between plaque morphology and disease progression.",
+                "confidence": 0.75
+            }
+        ],
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Plaque Vulnerability Hypothesis",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked to atherosclerotic plaque vulnerability through a synergistic interplay of cellular processes including macrophage apoptosis/efferocytosis imbalance, matrix metalloproteinase-mediated extracellular matrix degradation, vascular smooth muscle cell phenotypic switching, and pathological calcification, which collectively determine plaque stability and rupture risk.",
+                "mechanism_explanation": "The provided contexts describe multiple interconnected mechanisms: (1) Macrophage apoptosis and impaired efferocytosis (Linton et al., 2016; Cabrera & Makino, 2021) lead to necrotic core expansion, (2) MMP-13 and MMP-14 activity from macrophages degrades collagen in the fibrous cap (Quillard et al., 2014; Schneider et al., 2008), (3) Angiotensin II-induced TRPM7 upregulation triggers vascular smooth muscle cell phenotypic switching (Zhang et al., 2012), reducing their capacity to maintain cap integrity, and (4) Regulated exosome secretion mediates vascular smooth muscle cell calcification (Kapustin et al., 2015), which can either stabilize or destabilize plaques depending on pattern and location. These processes create a feed-forward cycle where inflammation drives matrix degradation and cell death, while impaired clearance amplifies inflammation.",
+                "experimental_suggestion": "Establish a longitudinal study using ApoE-/- mice with serial intravascular ultrasound and histological analysis to correlate temporal changes in: (1) macrophage apoptosis markers (cleaved caspase-3) and efferocytosis efficiency (MERTK activity), (2) MMP-13/14 activity and collagen content in the fibrous cap, (3) smooth muscle cell contractile vs. synthetic phenotype markers, and (4) calcification patterns. Correlate these molecular and cellular metrics with plaque rupture events induced by pharmacological triggers.",
+                "relevance_to_query": "This hypothesis directly addresses the query by identifying specific cellular and molecular factors (macrophage behavior, protease activity, smooth muscle cell phenotype, calcification) that link endothelial dysfunction to cardiovascular disease progression through the common pathway of atherosclerotic plaque vulnerability.",
+                "confidence": 0.85
+            }
+        ]
+    }
+]

@@ -49,7 +49,18 @@ if __name__ == "__main__":
         hypotheses_per_path=3,
     )
     results = hypothesis_agent.process()
-    json.dump(results, open("hypotheses_output.json", "w"), indent=2, ensure_ascii=False)
+    for result in results:
+        print("Generated Hypotheses:", result.get("hypotheses"))
+        print("Modified Hypotheses:", result.get("modified_hypotheses"))
+    with open('output.json', 'w', encoding='utf-8') as f:
+        json.dump(
+            results, 
+            f, 
+            ensure_ascii=False, 
+            indent=4, 
+            # 只需要这一行 lambda
+            default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
+        )
     # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     # response = queryclarifyagent.process(user_query)
     # clarified_query = response.get("clarified_question", user_query) # type: ignore

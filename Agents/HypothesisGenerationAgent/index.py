@@ -91,7 +91,7 @@ class HypothesisGenerationAgent(Agent):
 
     # ---------- 工具函数：序列化实体 / 三元组，方便喂给 LLM ----------
 
-    def generate_system_prompt(self,task_type,path:Optional[Any], given_hypotheses:Optional[List[Dict[str, str]]]=None,contexts=None) -> str:
+    def generate_system_prompt(self,task_type,path:Optional[Any]=None, given_hypotheses:Optional[List[Dict[str, str]]]=None,contexts=None) -> str:
         if task_type == "task_1":
             # 任务1的模板
             system_prompt = f"""
@@ -137,7 +137,7 @@ class HypothesisGenerationAgent(Agent):
     {{
     "task": "generate a more comprehensive hypothesis based on several given hypotheses and their contexts",
     "query": "{self.query}",
-    "given_hypotheses": {given_hypotheses},
+    "given_hypotheses": {self.serialize_hypothesis(given_hypotheses)},
     "contexts": "{contexts}"
     }}
     You should respond ONLY with valid JSON in the following format:
@@ -161,7 +161,7 @@ class HypothesisGenerationAgent(Agent):
             raise ValueError("Invalid task_type. Choose either 'task_1' or 'task_2'.")
 
         return system_prompt
-    def modify_hypothesis(self,given_hypotheses:List[Dict[str, str]],contexts:str)->List[Dict[str, Any]]:
+    def modify_hypothesis(self,given_hypotheses:Dict[str, Any],contexts:str)->List[Dict[str, Any]]:
         """
         根据已有的假设，生成一个更全面的假设。
         """
@@ -203,7 +203,7 @@ class HypothesisGenerationAgent(Agent):
                 sources.add(edge.source)
         for source in sources:
             contexts+=self.memory.subgraphs[source].meta['text']+"\n"
-        prompt_1 = self.generate_system_prompt("task_1", self.query, self.serialize_path(node_path, edge_path), contexts=contexts)
+        prompt_1 = self.generate_system_prompt("task_1", path=self.serialize_path(node_path, edge_path), contexts=contexts)
         try:
             raw = self.call_llm(prompt_1)
             obj = json.loads(raw.replace("```json", "").replace("```", ""))
@@ -236,6 +236,16 @@ class HypothesisGenerationAgent(Agent):
                 parts.append(f"-[{edge.relation}]->")
         return "".join(parts)
     # ---------- 对外主入口 ----------
+    def serialize_hypothesis(
+        self,
+        hypothesis: List[Dict[str, Any]],
+    ) -> str:
+        res=""
+        for hypo in hypothesis:
+            res.join(f"Title: {hypo.get('title', '')}\nHypothesis: {hypo.get('hypothesis', '')}\nMechanism Explanation: {hypo.get('mechanism_explanation', '')}\nExperimental Suggestion: {hypo.get('experimental_suggestion', '')}\nRelevance to Query: {hypo.get('relevance_to_query', '')}\nConfidence: {hypo.get('confidence', 0.0)}\n")
+        return res
+    
+
     def process(self) -> List[Dict[str, Any]]:
         """
         主流程：
@@ -280,7 +290,6 @@ class HypothesisGenerationAgent(Agent):
                     {
                         "entity":key,
                         "path_index": idx,
-                        "nodes": node_path,
                         "edges": edge_path,
                         "hypotheses": hyps,
                     }
@@ -289,5 +298,20 @@ class HypothesisGenerationAgent(Agent):
             # if hasattr(self.memory, "add_generated_hypotheses"):
             #     self.memory.add_generated_hypotheses(self.query, results)
 
-            return results
+        for result in results:
+            # 针对每条路径生成的假设，进行二次加工，生成更全面的假设
+            given_hypotheses = result.get("hypotheses", [])
+            if given_hypotheses:
+                contexts=""
+                sources=set()
+                edge_path: List[KGTriple] = result.get("edges", []) or []
+                for edge in edge_path:
+                    if edge.source:
+                        sources.add(edge.source)
+                for source in sources:
+                    contexts+=self.memory.subgraphs[source].meta['text']+"\n"
+                modified_hyps = self.modify_hypothesis(given_hypotheses, contexts)
+                result["modified_hypotheses"] = modified_hyps
+        
+        return results
         
