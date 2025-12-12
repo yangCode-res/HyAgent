@@ -24,6 +24,7 @@ from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
 from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
 from Agents.Path_extraction.index import PathExtractionAgent
+from Agents.ReflectionAgent.index import ReflectionAgent
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
@@ -40,19 +41,20 @@ if __name__ == "__main__":
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
-    hypothesis_agent = HypothesisGenerationAgent(
-        client=client,
-        model_name=model_name,
-        query=user_query,
-        memory=memory,
-        max_paths=5,
-        hypotheses_per_path=3,
-    )
-    results = hypothesis_agent.process()
-    for result in results:
-        print("Generated Hypotheses:", result.get("hypotheses"))
-        print("Modified Hypotheses:", result.get("modified_hypotheses"))
-    
+    # hypothesis_agent = HypothesisGenerationAgent(
+    #     client=client,
+    #     model_name=model_name,
+    #     query=user_query,
+    #     memory=memory,
+    #     max_paths=5,
+    #     hypotheses_per_path=3,
+    # )
+    # results = hypothesis_agent.process()
+    # for result in results:
+    #     print("Generated Hypotheses:", result.get("hypotheses"))
+    #     print("Modified Hypotheses:", result.get("modified_hypotheses"))
+    reflectionAgent=ReflectionAgent(client=client, model_name=model_name,memory=memory)
+    reflectionAgent.process()
     # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     # response = queryclarifyagent.process(user_query)
     # clarified_query = response.get("clarified_question", user_query) # type: ignore
