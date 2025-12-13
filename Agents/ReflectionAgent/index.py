@@ -256,8 +256,25 @@ class ReflectionAgent(Agent):
 
         # 4. 结构校验 (Schema Validation)
         self._validate_schema(data)
-
         return data
+
+    def get_scores_only(self, hypothesis: Dict[str, Any]) -> Dict[str, str]:
+        """
+        调用 call_for_each_hypothesis 获取完整评价，但只返回各维度的得分。
+        
+        Args:
+            hypothesis: 假设字典
+            
+        Returns:
+            Dict[str, str]: 各评价维度的得分，如 {'Novelty': '2/5', 'Plausibility': '4/5', ...}
+        """
+        full_result = self.call_for_each_hypothesis(hypothesis)
+        
+        score_keys = ["Novelty", "Plausibility", "Grounding", "Testability", "Specificity", "SafetyEthics"]
+        
+        scores = {key: full_result[key]["score"] for key in score_keys}
+        
+        return scores
 
 
     def _clean_and_extract_json(self, text: str) -> str:
