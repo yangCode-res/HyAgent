@@ -277,13 +277,14 @@ class HypothesisGenerationAgent(Agent):
             for idx, path in enumerate(paths[: self.max_paths]):
                 contexts=""
                 sources=set()
+                node_path: List[KGEntity] = path.get("nodes", []) or []
+                edge_path: List[KGTriple] = path.get("edges", []) or []
                 for edge in edge_path:
                     if edge.source:
                         sources.add(edge.source)
                 for source in sources:
                     contexts+=self.memory.subgraphs[source].meta['text']+"\n"
-                node_path: List[KGEntity] = path.get("nodes", []) or []
-                edge_path: List[KGTriple] = path.get("edges", []) or []
+
 
                 if not node_path or len(node_path) <= 2:
                     continue
@@ -301,7 +302,7 @@ class HypothesisGenerationAgent(Agent):
             # TODO：如你需要，可以在这里把 results 写回 Memory，如：
             # if hasattr(self.memory, "add_generated_hypotheses"):
             #     self.memory.add_generated_hypotheses(self.query, results)
-
+            break
         for result in results:
             # 针对每条路径生成的假设，进行二次加工，生成更全面的假设
             given_hypotheses = result.get("hypotheses", [])
@@ -317,7 +318,7 @@ class HypothesisGenerationAgent(Agent):
                 modified_hyps = self.modify_hypothesis(given_hypotheses, contexts)
                 result["modified_hypotheses"] = modified_hyps
         timestamp=datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        with open(f'../../output/output_{timestamp}.json', 'w', encoding='utf-8') as f:
+        with open(f'output/output_{timestamp}.json', 'w', encoding='utf-8') as f:
             json.dump(
                 results, 
                 f, 

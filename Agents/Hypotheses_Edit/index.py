@@ -13,7 +13,7 @@ from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 
 
-class HypothesisGenerationAgent(Agent):
+class HypothesisEditAgent(Agent):
     """
     基于：
       - 用户 query
@@ -30,6 +30,7 @@ class HypothesisGenerationAgent(Agent):
         model_name: str,
         query: str,
         memory: Optional[Memory] = None,
+        original_hypotheses: Optional[List[Dict[str, Any]]] = None,
     ):
         system_prompt = """
     You are an expert biomedical AI4Science assistant specializing in hypothesis refinement and critical analysis.
@@ -89,7 +90,7 @@ class HypothesisGenerationAgent(Agent):
         self.logger = get_global_logger()
         self.memory: Memory = memory or get_memory()
         self.query = query
-
+        self.original_hypotheses = original_hypotheses or self.load_hypotheses_from_file(self.memory)
 
     def serialize_hypothesis(self, hypothesis: List[Dict[str, Any]]) -> str:
         lines = []
@@ -105,14 +106,14 @@ class HypothesisGenerationAgent(Agent):
         return "\n".join(lines)
     
 
-    def process(self,original_hypotheses: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        for original_hypothesis in original_hypotheses:
+    def process(self) -> List[Dict[str, Any]]:
+        for original_hypothesis in self.original_hypotheses:
             self.logger.info(
                 f"[HypothesisGeneration] Processing original hypothesis: {original_hypothesis.get('title', '')}"
             )
-        for hypothesis in original_hypotheses:
+        for hypothesis in self.original_hypotheses:
             modified_hyps=hypothesis.get("modified_hypotheses",[])
-            hypo_str=self.serialize_hypothesis([modified_hyps])
+            hypo_str=self.serialize_hypothesis(modified_hyps)
             feedback_str=json.dumps(hypothesis.get("feedback",""), ensure_ascii=False)
             payload={
                 "task": "refine a hypothesis based on feedback",
@@ -126,7 +127,7 @@ class HypothesisGenerationAgent(Agent):
             {json.dumps(payload, ensure_ascii=False)}
             Please provide the revised hypothesis in the specified JSON format.
             """
-            raw=self.call_llm(prompt)
+            raw=self.call_llm(prompt).replace("```json", "").replace("```", "")
             try:
                 response=json.loads(raw)
                 refined_hyps=response.get("hypotheses",[])
@@ -139,9 +140,9 @@ class HypothesisGenerationAgent(Agent):
                     f"[HypothesisGeneration][LLM process] JSON parse failed for hypothesis: {hypothesis.get('title', '')}, error: {e}"
                 )
         timestamp=datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        with open(f'../../output/output_{timestamp}_modified.json', 'w', encoding='utf-8') as f:
+        with open(f'output/output_{timestamp}_modified.json', 'w', encoding='utf-8') as f:
             json.dump(
-                original_hypotheses, 
+                self.original_hypotheses, 
                 f, 
                 ensure_ascii=False, 
                 indent=4, 
@@ -150,5 +151,10 @@ class HypothesisGenerationAgent(Agent):
             )
         if self.memory:
             self.memory.add_hypothesesDir(f'output/output_{timestamp}_modified.json')
-        return original_hypotheses
-        
+        return self.original_hypotheses
+    @staticmethod
+    def load_hypotheses_from_file(memory: Memory) -> List[Dict[str, Any]]:
+        print("memory.hypothesesdir=>",memory.hypothesesdir)
+        """从 memory.hypothesesDir 读取 output.json 文件"""
+        with open(memory.hypothesesdir, 'r', encoding='utf-8') as f:
+            return json.load(f)

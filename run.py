@@ -30,6 +30,7 @@ from Memory.index import load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from dotenv import load_dotenv
+from Agents.Hypotheses_Edit.index import HypothesisEditAgent
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
@@ -55,6 +56,13 @@ if __name__ == "__main__":
     #     print("Modified Hypotheses:", result.get("modified_hypotheses"))
     reflectionAgent=ReflectionAgent(client=client, model_name=model_name,memory=memory)
     reflectionAgent.process()
+    hypotheses_edit_agent = HypothesisEditAgent(
+        client=client,
+        model_name=model_name,
+        query=user_query,
+        memory=memory,
+    )
+    results = hypotheses_edit_agent.process()
     # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     # response = queryclarifyagent.process(user_query)
     # clarified_query = response.get("clarified_question", user_query) # type: ignore

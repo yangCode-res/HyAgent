@@ -188,8 +188,8 @@ class ReflectionAgent(Agent):
         tasks: List[Tuple[int, int, Dict[str, Any]]] = []
         for item_idx, item in enumerate(self.hypotheses_data):
             modified_hypotheses = item.get("modified_hypotheses", [])
-            # 预先初始化 reflection_results 列表
-            item["reflection_results"] = [None] * len(modified_hypotheses)
+            # 预先初始化 feedback 列表
+            item["feedback"] = [None] * len(modified_hypotheses)
             for hyp_idx, hypothesis in enumerate(modified_hypotheses):
                 tasks.append((item_idx, hyp_idx, hypothesis))
         
