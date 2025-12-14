@@ -18,9 +18,37 @@ class Benchmark:
         return data[:limit]
 
     def runOneTestData(self, item: dict):
+        overlap_scores = []
+
         pipeline = Pipeline(user_query=item.get('background', ''))
         pipeline.run()
-        return pipeline.scores
+        for i in pipeline.scores:
+            overlap_scores.append(self.compute_overlap(i.get('hypothesis', ''), item.get('hypothesis', '')))
+        
+        # 获取各个指标的最大值
+        max_scores = self.get_max_scores(overlap_scores)
+        return pipeline.scores, max_scores
+
+    def get_max_scores(self, overlap_scores: List[Dict[str, float]]) -> Dict[str, float]:
+        """
+        获取 overlap_scores 中各个指标的最大值
+        
+        Args:
+            overlap_scores: 多个 overlap 计算结果的列表
+            
+        Returns:
+            Dict: 每个指标的最大值
+        """
+        if not overlap_scores:
+            return {"jaccard": 0, "precision": 0, "recall": 0, "f1": 0, "bleu_1": 0, "rouge_l": 0}
+        
+        score_keys = ["jaccard", "precision", "recall", "f1", "bleu_1", "rouge_l"]
+        max_scores = {}
+        
+        for key in score_keys:
+            max_scores[key] = max(score[key] for score in overlap_scores)
+        
+        return max_scores
 
     def run(self, test_data: list):
         for item in test_data:

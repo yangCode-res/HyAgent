@@ -266,6 +266,7 @@ class ReflectionAgent(Agent):
             for hyp_idx, hypothesis in enumerate(modified_hypotheses):
                 full_result = self.call_for_each_hypothesis(hypothesis)
                 scores = {key: full_result[key]["score"] for key in score_keys}
+                scores["hypothesis"]=modified_hypotheses
                 print(f"Scores for {item['entity']}: {scores}")
                 scores_dict[item["entity"]] = scores
         return scores_dict
