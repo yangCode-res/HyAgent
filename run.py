@@ -41,10 +41,7 @@ if __name__ == "__main__":
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
-    user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
-    evaluateAgent=ReflectionAgent(client=client,model_name=model_name,memory=memory)
-    scores=evaluateAgent.get_scores_only()
-    open("scores.json","w").write(json.dumps(scores,indent=4))
+    user_query = "The prevalence of depressive symptoms is common among Korean police officers. (2) Four subgroups of depressive symptoms were identified: \"at-risk\", \"anhedonic\", \"somatic\", and \"minimal\". (3) Drinking behaviors were higher in the at-risk group, working hours were greater in the somatic group, and sleep quality and fatigue were related in the anhedonic group."
     # hypothesis_agent = HypothesisGenerationAgent(
     #     client=client,
     #     model_name=model_name,
@@ -66,41 +63,41 @@ if __name__ == "__main__":
     #     memory=memory,
     # )
     # results = hypotheses_edit_agent.process()
-    # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
-    # response = queryclarifyagent.process(user_query)
-    # clarified_query = response.get("clarified_question", user_query) # type: ignore
-    # core_entities= response.get("core_entities", []) # type: ignore
-    # intention= response.get("main_intention", "") # type: ignore
-    # print("Clarified Query:", clarified_query)
-    # print("Core Entities:", core_entities)
-    # reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
-    # reviewfetcheragent.process(clarified_query)
+    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    response = queryclarifyagent.process(user_query)
+    clarified_query = response.get("clarified_question", user_query) # type: ignore
+    core_entities= response.get("core_entities", []) # type: ignore
+    intention= response.get("main_intention", "") # type: ignore
+    print("Clarified Query:", clarified_query)
+    print("Core Entities:", core_entities)
+    reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
+    reviewfetcheragent.process(clarified_query)
 
-    # entityAgent=EntityExtractionAgent(client=client, model=model_name)
-    # entityAgent.process()
+    entityAgent=EntityExtractionAgent(client=client, model=model_name)
+    entityAgent.process()
 
-    # normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
-    # normalizeAgent.process()
-    # logger.info("Relationship extraction started...")
-    # memory.dump_json("./snapshots")
-    # relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
-    # relationAgent.process()    
-    # logger.info("Relationship extraction finished.")
+    normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
+    normalizeAgent.process()
+    logger.info("Relationship extraction started...")
+    memory.dump_json("./snapshots")
+    relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
+    relationAgent.process()    
+    logger.info("Relationship extraction finished.")
 
-    # logger.info("Collaboration extraction started...")
-    # collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
-    # collaborationAgent.process()
-    # logger.info("Collaboration extraction finished.")
+    logger.info("Collaboration extraction started...")
+    collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
+    collaborationAgent.process()
+    logger.info("Collaboration extraction finished.")
+    memory.dump_json("./snapshots")
+    casualAgent=CausalExtractionAgent(client=client, model_name=model_name,memory=memory)
+    casualAgent.process()
+    alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
+    alignmentAgent.process()
+    fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
+    fusionAgent.process()
     # memory.dump_json("./snapshots")
-    # casualAgent=CausalExtractionAgent(client=client, model_name=model_name,memory=memory)
-    # casualAgent.process()
-    # alignmentAgent=AlignmentTripleAgent(client=client, model_name=model_name,memory=memory)
-    # alignmentAgent.process()
-    # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
-    # fusionAgent.process()
-    # # memory.dump_json("./snapshots")
-    # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
-    # keywordAgent.process()
-    # PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
-    # PathExtractionAgent.process()
-    # memory.dump_json("./snapshots")
+    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
+    keywordAgent.process()
+    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
+    PathExtractionAgent.process()
+    memory.dump_json("./snapshots")
