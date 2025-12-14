@@ -42,6 +42,9 @@ if __name__ == "__main__":
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
+    evaluateAgent=ReflectionAgent(client=client,model_name=model_name,memory=memory)
+    scores=evaluateAgent.get_scores_only()
+    open("scores.json","w").write(json.dumps(scores,indent=4))
     # hypothesis_agent = HypothesisGenerationAgent(
     #     client=client,
     #     model_name=model_name,
@@ -54,15 +57,15 @@ if __name__ == "__main__":
     # for result in results:
     #     print("Generated Hypotheses:", result.get("hypotheses"))
     #     print("Modified Hypotheses:", result.get("modified_hypotheses"))
-    reflectionAgent=ReflectionAgent(client=client, model_name=model_name,memory=memory)
-    reflectionAgent.process()
-    hypotheses_edit_agent = HypothesisEditAgent(
-        client=client,
-        model_name=model_name,
-        query=user_query,
-        memory=memory,
-    )
-    results = hypotheses_edit_agent.process()
+    # reflectionAgent=ReflectionAgent(client=client, model_name=model_name,memory=memory)
+    # reflectionAgent.process()
+    # hypotheses_edit_agent = HypothesisEditAgent(
+    #     client=client,
+    #     model_name=model_name,
+    #     query=user_query,
+    #     memory=memory,
+    # )
+    # results = hypotheses_edit_agent.process()
     # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     # response = queryclarifyagent.process(user_query)
     # clarified_query = response.get("clarified_question", user_query) # type: ignore

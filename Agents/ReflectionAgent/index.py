@@ -258,23 +258,19 @@ class ReflectionAgent(Agent):
         self._validate_schema(data)
         return data
 
-    def get_scores_only(self, hypothesis: Dict[str, Any]) -> Dict[str, str]:
-        """
-        调用 call_for_each_hypothesis 获取完整评价，但只返回各维度的得分。
-        
-        Args:
-            hypothesis: 假设字典
-            
-        Returns:
-            Dict[str, str]: 各评价维度的得分，如 {'Novelty': '2/5', 'Plausibility': '4/5', ...}
-        """
-        full_result = self.call_for_each_hypothesis(hypothesis)
-        
+    def get_scores_only(self) -> Dict[str, str]:
+        scores_dict={}
         score_keys = ["Novelty", "Plausibility", "Grounding", "Testability", "Specificity", "SafetyEthics"]
-        
-        scores = {key: full_result[key]["score"] for key in score_keys}
-        
-        return scores
+        for item_idx, item in enumerate(self.hypotheses_data):
+            modified_hypotheses = item.get("modified_hypotheses", [])
+            for hyp_idx, hypothesis in enumerate(modified_hypotheses):
+                full_result = self.call_for_each_hypothesis(hypothesis)
+                scores = {key: full_result[key]["score"] for key in score_keys}
+                print(f"Scores for {item['entity']}: {scores}")
+                scores_dict[item["entity"]] = scores
+        return scores_dict
+
+
 
 
     def _clean_and_extract_json(self, text: str) -> str:

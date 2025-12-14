@@ -203,110 +203,12 @@
         ],
         "feedback": [
             {
-                "Novelty": {
-                    "score": "2/5",
-                    "rationale": "The hypothesis is a comprehensive synthesis of well-established, canonical pathways in atherosclerosis (e.g., disturbed flow, oxLDL, CD36/TLR, NLRP3 inflammasome, foam cell formation). While the integration of genetic, epigenetic, and microbiota factors is broad, it represents a recombination of known concepts rather than proposing a novel, non-obvious mechanism or a new causal linkage that challenges or significantly extends current paradigms.",
-                    "concerns": [
-                        "The core mechanistic cascade is a standard model in vascular biology.",
-                        "The 'synergistic interplay' is stated but not defined in a novel way; it is the expected interaction of these known factors.",
-                        "The inclusion of modulators like microRNAs and microbiota is common in contemporary reviews but does not constitute a novel hypothesis."
-                    ],
-                    "suggestions": [
-                        "Propose a specific, non-obvious ordering or feedback loop within the cascade (e.g., 'NLRP3 activation in VSMCs directly reprograms endothelial gene expression via exosomal miRNAs, creating a feed-forward loop').",
-                        "Identify and hypothesize a testable, under-explored causal link between two established factors (e.g., 'Specific microbiota-derived metabolites directly inhibit endothelial repair mechanisms initiated by laminar shear stress').",
-                        "Make a novel, falsifiable prediction that differentiates this framework from standard models (e.g., 'The framework predicts that CD36 inhibition will fail to stabilize plaques if NLRP3 is activated via an alternative, CD36-independent pathway in intimal VSMCs')."
-                    ]
-                },
-                "Plausibility": {
-                    "score": "4/5",
-                    "rationale": "The hypothesis presents a coherent and largely self-consistent chain of events that aligns with established biomedical knowledge of atherosclerosis pathogenesis. The sequence from hemodynamic insult to inflammation and plaque destabilization is logical, and key cellular actors and pathways are correctly identified. Assumptions (e.g., the primacy of disturbed flow) are consistent with the field.",
-                    "concerns": [
-                        "The relative contribution and necessity of each step (e.g., is NLRP3 activation always required for VSMC phenotypic change?) are not explicitly weighted, leaving some causal strength assumptions implicit.",
-                        "The framework is broad, making it somewhat permissive; it does not clearly specify conditions under which the cascade might fail or diverge."
-                    ],
-                    "suggestions": [
-                        "Explicitly state which steps are considered necessary vs. modulatory for the core outcome of plaque instability.",
-                        "Define a key boundary condition (e.g., 'This cascade is proposed to be dominant in early-to-mid stage atherosclerosis in large arteries, but may be less relevant in advanced calcified plaques or microvascular disease')."
-                    ]
-                },
-                "Grounding": {
-                    "score": "4/5",
-                    "rationale": "The 'mechanism_explanation' provides a detailed, traceable path that maps closely onto extensive literature in atherosclerosis. Each step (shear stress, oxLDL, receptor-mediated uptake, inflammasome activation) is supported by a large body of cited evidence, though specific references are not provided in this text. The claim-evidence mapping is precise for the core pathway.",
-                    "concerns": [
-                        "While the core pathway is well-grounded, the integration of epigenetic and microbiota modulators is stated more generally without specifying the strongest supporting evidence or the proposed mechanism of their modulation.",
-                        "The 'confidence' score of 0.85 is not justified or calibrated against uncertainty in specific parts of the hypothesis."
-                    ],
-                    "suggestions": [
-                        "For the modulatory factors (miRNAs, lncRNAs, microbiota), cite 1-2 key example pathways or studies that concretely link them to a specific step in the cascade (e.g., 'miR-33 targets ABCA1, linking a specific miRNA to the impaired efflux step').",
-                        "Add a brief note calibrating confidence, e.g., 'High confidence (>.9) in core oxLDL-inflammasome link; moderate confidence (~.7) in the primacy of microbiota modulation in human disease progression'."
-                    ]
-                },
-                "Testability": {
-                    "score": "4/5",
-                    "rationale": "The 'experimental_suggestion' outlines a sophisticated, multi-faceted validation strategy that is executable. It proposes a specific model (ApoE-/- mouse with disturbed flow), clear readouts (imaging, omics), and interventional approaches (pharmacological, genetic) with discriminative potential. The expected outcomes (changes in plaque phenotype upon inhibition) are implied.",
-                    "concerns": [
-                        "The expected outcomes for each intervention are not explicitly stated (e.g., 'We expect CD36 inhibition to reduce foam cell formation but not affect VSMC migration').",
-                        "The metrics for key concepts like 'endothelial dysfunction' and 'plaque stability' in the proposed experiments are not defined (e.g., specific gene expression panels, cap thickness measurements)."
-                    ],
-                    "suggestions": [
-                        "Define 2-3 primary quantitative endpoints for 'endothelial dysfunction' (e.g., expression of VCAM-1, eNOS phosphorylation, monocyte adhesion assay) and 'plaque stability' (e.g., cap-to-core ratio, collagen content, MMP activity) in the experimental plan.",
-                        "State a clear, falsifiable prediction for at least one intervention: 'If the CD36/TLR-NLRP3 axis is critical, then NLRP3 inhibitor treatment will reduce IL-1β levels by >50% and increase fibrous cap thickness compared to vehicle, independent of lipid lowering.'"
-                    ]
-                },
-                "Specificity": {
-                    "score": "3/5",
-                    "rationale": "The hypothesis specifies actors (endothelium, macrophages, VSMCs), conditions (arterial bifurcations, disturbed flow), and a directional mechanism. However, it remains a high-level framework. Key parameters (magnitude/duration of disturbed flow, threshold levels of oxLDL) and the precise functional relationships between the modulatory factors (how exactly do miRNAs modulate the cascade?) are not specified. The scope is broad but not tightly bounded.",
-                    "concerns": [
-                        "Lacks quantitative or kinetic parameters that would allow for computational modeling or precise experimental challenge.",
-                        "The role of integrated modulators (genetic, epigenetic, microbiota) is described as 'further modulated by' which is vague regarding mechanism, direction, and relative importance."
-                    ],
-                    "suggestions": [
-                        "Add one quantitative constraint to a key step (e.g., 'Prolonged (>72h) oscillatory shear stress of <1 dyne/cm² is proposed to be necessary to induce the endothelial phenotype conducive to maximal LDL infiltration').",
-                        "For one modulator, specify the proposed direction and target: e.g., 'The gut microbiota is hypothesized to exacerbate inflammation specifically by producing trimethylamine-N-oxide (TMAO), which amplifies NLRP3 inflammasome activation in macrophages.'"
-                    ]
-                },
-                "SafetyEthics": {
-                    "score": "4/5",
-                    "rationale": "The hypothesis and proposed experiments (using established mouse models, pharmacological inhibitors) are standard in preclinical cardiovascular research and pose no intrinsic high risks. The framework does not promote harmful advice. Compliance with animal welfare (IACUC) and biosafety guidelines is implicitly required for the suggested experiments.",
-                    "concerns": [
-                        "The experimental suggestion does not explicitly mention compliance prerequisites (IACUC approval, sample size justification to minimize animal use, blinding procedures).",
-                        "If translated to human implications, the broad framework could be misinterpreted without noting that genetic/epigenetic factors are probabilistic risk modifiers, not deterministic causes."
-                    ],
-                    "suggestions": [
-                        "Add to the experimental suggestion: 'All animal procedures must be approved by an Institutional Animal Care and Use Committee (IACUC) and adhere to the 3Rs principles, with statistical power analysis used to determine minimum sample sizes.'",
-                        "Include a brief limitation: 'This mechanistic framework describes pathological processes; it does not imply that modulating any single factor (e.g., via dietary changes targeting microbiota) is a guaranteed therapeutic strategy without clinical validation.'"
-                    ]
-                },
-                "OverallSummary": {
-                    "Strengths": [
-                        "Comprehensive and coherent synthesis of major established pathways in atherosclerosis.",
-                        "Mechanism explanation is detailed and logically sequenced.",
-                        "Experimental suggestion is sophisticated, multi-modal, and provides a clear path for validation."
-                    ],
-                    "Weaknesses": [
-                        "Lacks true novelty; it is an integrative review rather than a novel hypothesis.",
-                        "Specificity is moderate; lacks quantitative parameters and precise functional definitions for integrated modulators.",
-                        "While testable, the experimental predictions and success metrics are not explicitly defined."
-                    ],
-                    "PriorityMustFix": [
-                        "Increase specificity by adding quantitative or kinetic constraints to at least one key step in the cascade.",
-                        "Define clear, measurable endpoints for core concepts (endothelial dysfunction, plaque stability) in the experimental plan.",
-                        "Explicitly state the compliance path (IACUC, 3Rs) for the proposed animal studies."
-                    ],
-                    "NiceToFix": [
-                        "Enhance novelty by proposing one specific, non-obvious, and testable interaction within the broad framework.",
-                        "Ground the modulatory factors (miRNAs, microbiota) with more precise mechanistic links to specific cascade steps.",
-                        "Calibrate and justify the confidence score by acknowledging uncertainty in specific areas."
-                    ],
-                    "RiskFlags": [
-                        "Low risk. Main risk is over-interpretation of a correlative framework as proven causality, or misapplication of preclinical findings to human health advice without clinical trials."
-                    ],
-                    "EditInstructions": [
-                        "Reframe the 'hypothesis' to highlight a specific, novel, and testable claim within the integrative framework, rather than presenting the entire framework as the hypothesis.",
-                        "Revise the 'experimental_suggestion' section to include: a) defined primary endpoints, b) explicit predictions for key interventions, c) a statement on ethical compliance.",
-                        "In the 'mechanism_explanation', for the modulatory factors, replace general statements with 1-2 specific examples of mechanism (e.g., 'miR-XXX targets gene YYY in the ZZ pathway')."
-                    ]
-                }
+                "Novelty": "2/5",
+                "Plausibility": "4/5",
+                "Grounding": "4/5",
+                "Testability": "4/5",
+                "Specificity": "3/5",
+                "SafetyEthics": "4/5"
             }
         ]
     },
@@ -431,111 +333,12 @@
         ],
         "feedback": [
             {
-                "Novelty": {
-                    "score": "3/5",
-                    "rationale": "The hypothesis integrates well-established concepts (EAT dysfunction, endothelial impairment, oxidative stress) into a single narrative. The novelty lies in positioning EAT as the central, initiating pathogenic organ and explicitly linking its secretome to specific downstream transcriptional (shear stress response) and transcytotic (caveolin-1) mechanisms. However, the core components (EAT inflammation, endothelial dysfunction, NO bioavailability) are individually well-documented, making this a moderate, synthetic novelty.",
-                    "concerns": [
-                        "The central role of EAT as a driver is debated; it may also be a bystander or amplifier of vascular inflammation.",
-                        "The proposed linkage of EAT secretome to shear-stress transcriptional regulation is an under-specified and less common connection, but not entirely new."
-                    ],
-                    "suggestions": [
-                        "Explicitly differentiate this framework from prior models that focus on systemic risk factors (e.g., hypercholesterolemia) as the primary drivers, with EAT as a secondary contributor.",
-                        "Clarify the predicted temporal sequence: does EAT dysfunction precede measurable endothelial dysfunction in early pathogenesis?"
-                    ]
-                },
-                "Plausibility": {
-                    "score": "4/5",
-                    "rationale": "The mechanistic chain is coherent and aligns with established biomedical knowledge. Each step (altered EAT secretome -> endothelial inflammation/oxidative stress -> reduced NO -> impaired barrier function -> increased lipoprotein transcytosis) is supported by cited literature. The hypothesis acknowledges exacerbating conditions (hypertension, hypercholesterolemia). The causal direction from EAT to endothelium is plausible, though bidirectional influences exist.",
-                    "concerns": [
-                        "The hypothesis presents a linear cascade; in reality, these processes are highly interconnected with feedback loops (e.g., endothelial dysfunction can worsen EAT inflammation).",
-                        "The specific mechanistic link from the EAT secretome to the shear-stress-responsive transcriptional machinery (e.g., eNOS promoter) is not detailed and relies on an assumed connection via oxidative stress/inflammatory signaling."
-                    ],
-                    "suggestions": [
-                        "Acknowledge and diagram potential feedback loops within the hypothesis statement to enhance mechanistic completeness.",
-                        "Specify the proposed signaling pathways (e.g., NF-κB, JAK/STAT) by which EAT-derived inflammatory mediators might directly influence shear-stress-sensitive promoters."
-                    ]
-                },
-                "Grounding": {
-                    "score": "4/5",
-                    "rationale": "The hypothesis is strongly grounded in the provided context, with specific citations supporting each major claim (EAT phenotype, endothelial dysfunction markers, NO biology, shear stress regulation, transcytosis, role of risk factors). The 'mechanism_explanation' provides a clear claim-to-evidence mapping. The confidence score (0.85) is appropriately calibrated.",
-                    "concerns": [
-                        "Some key linkages in the proposed axis, while plausible, are not directly cited. For example, no citation directly shows that the altered EAT secretome *causes* impaired shear-stress regulation of eNOS.",
-                        "The role of caveolin-1 in lipoprotein transcytosis is cited, but its specific regulation by the EAT secretome is not."
-                    ],
-                    "suggestions": [
-                        "Add a sentence noting which proposed linkages are inferential syntheses of separate literatures and require direct experimental validation.",
-                        "Cite review articles or primary studies that discuss adipose tissue signaling to endothelial transcriptional programs to bolster the less-direct connections."
-                    ]
-                },
-                "Testability": {
-                    "score": "5/5",
-                    "rationale": "The 'experimental_suggestion' section provides a highly testable, multi-tiered validation plan with clear in vitro and in vivo models, specific measurable endpoints (secretome profile, NO production, TEER, LDL transcytosis, eNOS promoter activity), and an intervention (siRNA knockdown, surgical EAT removal). Controls (patients without CVD, sham surgery) and expected discriminative outcomes are implied.",
-                    "concerns": [
-                        "The murine model of diet-induced obesity may confound systemic metabolic effects with specific EAT effects, even with removal surgery.",
-                        "Measuring 'shear-stress-responsive transcriptional regulation' in the co-culture system requires precise engineering of flow conditions."
-                    ],
-                    "suggestions": [
-                        "Specify the control for the murine experiment: e.g., compare EAT removal to perigonadal adipose tissue removal to establish depot-specificity.",
-                        "Detail the shear stress parameters (laminar vs. oscillatory, magnitude, duration) to be used in the co-culture system to test the transcriptional regulation claim."
-                    ]
-                },
-                "Specificity": {
-                    "score": "4/5",
-                    "rationale": "The hypothesis is highly specific regarding actors (EAT, endothelial cells), direction (EAT dysfunction -> endothelial impairment), and mechanisms (altered secretome, oxidative stress, reduced NO, impaired shear stress response, caveolin-1-mediated transcytosis). It includes exacerbating conditions. The scope is bounded to the initiation of atherosclerotic plaque formation.",
-                    "concerns": [
-                        "Lacks quantitative or threshold parameters (e.g., what degree of secretome alteration is 'dysfunctional'?).",
-                        "The phrase 'potentially via caveolin-1-mediated pathways' introduces vagueness; it is not a definitive claim.",
-                        "Does not explicitly state non-applicable cases (e.g., does this apply to all vascular beds or primarily coronaries?)."
-                    ],
-                    "suggestions": [
-                        "Define a measurable operational definition of 'EAT dysfunction' for experimental purposes (e.g., adiponectin/IL-6 ratio below threshold X).",
-                        "Replace 'potentially via' with a stronger conditional statement: '...impairs barrier function, which enhances lipoprotein transcytosis; this transcytosis is hypothesized to be mediated by caveolin-1 upregulation.'",
-                        "Add a boundary condition: 'This axis is proposed to be most relevant in coronary and possibly large elastic arteries where EAT/PVAT is in direct anatomic contact with the vessel wall.'"
-                    ]
-                },
-                "SafetyEthics": {
-                    "score": "4/5",
-                    "rationale": "The proposed research uses standard in vitro and animal models. Human tissue sourcing (from patients) is implied, which carries standard ethical requirements. The hypothesis itself describes a pathological mechanism and does not propose unsafe or non-compliant interventions.",
-                    "concerns": [
-                        "The experimental plan involving human tissue requires explicit mention of ethical oversight (IRB, informed consent).",
-                        "The murine surgery (EAT removal) is a non-trivial procedure requiring specific biosafety and animal welfare considerations."
-                    ],
-                    "suggestions": [
-                        "Add to the experimental suggestion: 'Human tissue collection must be approved by an IRB with informed consent. Animal studies must follow IACUC protocols.'",
-                        "Briefly note potential confounders in human tissue studies (medications, comorbidities) that must be recorded and controlled for statistically."
-                    ]
-                },
-                "OverallSummary": {
-                    "Strengths": [
-                        "Mechanistically coherent and comprehensive synthesis of multiple established pathways.",
-                        "Excellent testability with a detailed, multi-modal experimental validation plan.",
-                        "Strong grounding in the provided scientific literature.",
-                        "Clearly addresses the query with an integrated framework."
-                    ],
-                    "Weaknesses": [
-                        "Novelty is moderate, being primarily an integrative synthesis rather than proposing a fundamentally new component.",
-                        "Some mechanistic links, while plausible, are not directly supported by citations and are presented linearly, omitting feedback.",
-                        "Lacks quantitative thresholds and some boundary conditions, reducing specificity."
-                    ],
-                    "PriorityMustFix": [
-                        "Clarify the novelty by explicitly contrasting this EAT-centric axis with other pathogenic models.",
-                        "Add essential ethical compliance statements (IRB, IACUC) to the experimental plan.",
-                        "Refine the specificity by adding boundary conditions (anatomic scope) and operational definitions for 'dysfunction'."
-                    ],
-                    "NiceToFix": [
-                        "Acknowledge and briefly describe potential feedback loops in the mechanism explanation.",
-                        "Specify shear stress parameters and surgical controls in the experimental suggestion to bolster testability.",
-                        "Replace tentative language ('potentially via') with a stronger hypothetical statement."
-                    ],
-                    "RiskFlags": [
-                        "None identified. The hypothesis describes basic/translational research on a disease mechanism with standard model systems."
-                    ],
-                    "EditInstructions": [
-                        "In the hypothesis statement, integrate one sentence on boundary conditions (e.g., '...primarily in coronary circulation...').",
-                        "In the experimental_suggestion, prefix the plan with a compliance statement.",
-                        "In the mechanism_explanation, add a short paragraph discussing the possibility of bidirectional feedback between EAT and the endothelium."
-                    ]
-                }
+                "Novelty": "3/5",
+                "Plausibility": "4/5",
+                "Grounding": "4/5",
+                "Testability": "5/5",
+                "Specificity": "4/5",
+                "SafetyEthics": "4/5"
             }
         ]
     }

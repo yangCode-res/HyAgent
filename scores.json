@@ -1,0 +1,10 @@
+{
+    "Cardiovascular Diseases": {
+        "Novelty": "3/5",
+        "Plausibility": "4/5",
+        "Grounding": "4/5",
+        "Testability": "5/5",
+        "Specificity": "4/5",
+        "SafetyEthics": "4/5"
+    }
+}
