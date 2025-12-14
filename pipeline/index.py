@@ -21,8 +21,7 @@ from Memory.index import Memory
 from typing import Optional
 load_dotenv()
 class Pipeline:
-    def __init__(self,user_query:str,client:OpenAI,model_name:str,memory:Optional[Memory]=None):
-        super().__init__(client=client,model_name=model_name)
+    def __init__(self,user_query:str,memory:Optional[Memory]=None):
         self.user_query=user_query
         self.client=OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),base_url=os.environ.get("OPENAI_API_BASE_URL"))
         self.model_name=os.environ.get("OPENAI_MODEL")
@@ -31,6 +30,7 @@ class Pipeline:
         self.logger=get_global_logger()
         self.reason_model="deepseek-reasoner"
         self.clarified_query=""
+        self.scores={}
     def get_pipeline(self):
         pipeline=[]
         pipeline.append(EntityExtractionAgent(self.client,self.model_name))
@@ -64,4 +64,5 @@ class Pipeline:
             self.memory.dump_json("./snapshots")
         evaluateAgent=ReflectionAgent(client=self.client,model_name=self.reason_model)
         scores=evaluateAgent.get_scores_only()
-        open("scores.json","w").write(json.dumps(scores,indent=4))
+        self.scores=scores
+        open("scores.json","w").write(json.dumps(self.scores,indent=4)) 
