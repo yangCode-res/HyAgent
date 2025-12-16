@@ -174,7 +174,7 @@ class ReflectionAgent(Agent):
         self.memory = memory or get_memory()
         self.context = context or {}
         # 保存原始数据，后续需要写回文件
-        self.hypotheses_data = self.load_hypotheses_from_file(self.memory)
+        self.hypotheses_data = None
         self.max_workers: int = 5
     def process(self) -> list:
         """
@@ -183,6 +183,7 @@ class ReflectionAgent(Agent):
         Args:
             max_workers: 最大线程数，默认 5
         """
+        self.hypotheses_data=self.load_hypotheses_from_file(self.memory)
         max_workers=self.max_workers
         # 收集所有需要处理的任务: (item_index, hypothesis_index, hypothesis)
         tasks: List[Tuple[int, int, Dict[str, Any]]] = []

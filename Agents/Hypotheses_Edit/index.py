@@ -90,7 +90,7 @@ class HypothesisEditAgent(Agent):
         self.logger = get_global_logger()
         self.memory: Memory = memory or get_memory()
         self.query = query
-        self.original_hypotheses = original_hypotheses or self.load_hypotheses_from_file(self.memory)
+        self.original_hypotheses = None
 
     def serialize_hypothesis(self, hypothesis: List[Dict[str, Any]]) -> str:
         lines = []
@@ -107,6 +107,7 @@ class HypothesisEditAgent(Agent):
     
 
     def process(self) -> List[Dict[str, Any]]:
+        self.original_hypotheses = self.load_hypotheses_from_file(self.memory)
         for original_hypothesis in self.original_hypotheses:
             self.logger.info(
                 f"[HypothesisGeneration] Processing original hypothesis: {original_hypothesis.get('title', '')}"

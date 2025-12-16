@@ -4,10 +4,12 @@ from pathlib import Path
 from typing import Dict, List
 from collections import Counter
 from pipeline.index import Pipeline
-
+from openai import OpenAI
 
 class Benchmark:
-    def __init__(self, limit: int = 5):
+    def __init__(self, client: OpenAI, model_name: str, limit: int = 5):
+        self.client = client
+        self.model_name = model_name
         self.limit = limit
         self.test_data = self.load_test_data(limit=self.limit)
 
@@ -20,7 +22,7 @@ class Benchmark:
     def runOneTestData(self, item: dict):
         overlap_scores = []
 
-        pipeline = Pipeline(user_query=item.get('background', ''))
+        pipeline = Pipeline(user_query=item.get('background', ''),client=self.client,model_name=self.model_name)
         pipeline.run()
         for i in pipeline.scores:
             overlap_scores.append(self.compute_overlap(i.get('hypothesis', ''), item.get('hypothesis', '')))

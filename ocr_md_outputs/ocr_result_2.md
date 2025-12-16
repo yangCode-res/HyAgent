@@ -1,491 +1,307 @@
-# HHS Public Access 
+Scoping Review
 
-Author manuscript
-Circ Res. Author manuscript; available in PMC 2022 April 02.
-Published in final edited form as:
-Circ Res. 2021 April 02; 128(7): 951-968. doi:10.1161/CIRCRESAHA.121.318093.
+J Prev Med Public Health 2024;57:521-529 · https://doi.org/10.3961/jpmph.24.302
 
-## Obesity, Adipose Tissue and Vascular Dysfunction
+pISSN 1975-8375 eISSN 2233-4521
 
-Mascha Koenen ${ }^{1, *}$, Michael A. Hill ${ }^{2,3, *}$, Paul Cohen ${ }^{1,6}$, James R. Sowers ${ }^{2,3,4,5,6}$<br>${ }^{1}$ Laboratory of Molecular Metabolism, The Rockefeller University, New York, NY 10065, USA.<br>${ }^{2}$ Dalton Cardiovascular Research Center, University of Missouri, Columbia, MO 65211, USA<br>${ }^{3}$ Department of Medical Pharmacology and Physiology, University of Missouri School of Medicine, 134 Research Park Drive, Columbia, MO 65212, USA<br>${ }^{4}$ Diabetes and Cardiovascular Center, University of Missouri School of Medicine, Columbia, MO 65212, USA<br>${ }^{5}$ Department of Medicine University of Missouri School of Medicine, Columbia, MO 65212, USA
+Check for updates
 
+Journal of Preventive Medicine &amp; Public Health
 
-#### Abstract
+# Is Farming a Risk Occupation for Cardio-cerebrovascular Diseases? A Scoping Review on Cardio-cerebrovascular Disease Risk in Farmers
 
-Cardiovascular diseases (CVD) are the leading cause of death worldwide. Overweight and obesity are strongly associated with comorbidities such as hypertension and insulin resistance, which collectively contribute to the development of cardiovascular diseases and resultant morbidity and mortality. $42 \%$ of adults in the US are obese and a total of 1.9 billion adults worldwide are overweight or obese. These alarming numbers, which continue to climb, represent a major health and economic burden. Adipose tissue is a highly dynamic organ that can be classified based on the cellular composition of different depots and their distinct anatomic localization. Massive expansion and remodeling of adipose tissue during obesity differentially affects specific adipose tissue depots and significantly contributes to vascular dysfunction and CVD. Visceral adipose tissue accumulation results in increased immune cell infiltration and secretion of vasoconstrictor mediators, whereas expansion of subcutaneous AT is less harmful. Therefore, fat distribution more than overall body weight is a key determinant of the risk for CVD. Thermogenic brown and beige adipose tissue, in contrast to white adipose tissue, is associated with beneficial effects on the vasculature. The relationship between the type of adipose tissue and its influence on vascular function becomes particularly evident in the context of the heterogenous phenotype of perivascular adipose tissue that is strongly location dependent. In this review, we address the abnormal remodeling of specific adipose tissue depots during obesity and how this critically contributes to the development of hypertension, endothelial dysfunction and vascular stiffness. We also discuss the local and systemic roles of adipose tissue derived secreted factors and increased systemic inflammation during obesity and highlight their detrimental impact on cardiovascular health.
+Hyeonjun Kim¹, Wongeon Jung², Sunjin Jung¹, Seunghyeon Cho³, Inho Jung¹, Hansoo Song⁴, Ki-Soo Park⁵, Seong-Yong Yoon⁶, Joo Hyun Sung⁷, Seok-Ju Yoo⁸, Won-Ju Park¹
 
+¹Department of Occupational and Environmental Medicine, Chonnam National University Medical School and Chonnam National University Hwasun Hospital, Hwasun, Korea; ²National Institute of Agricultural Sciences, Rural Development Administration, Jeonju, Korea; ³Department of Occupational and Environmental Medicine, Chonnam National University Hospital, Gwangju, Korea; ⁴Department of Occupational and Environmental Medicine, Chosun University Hospital, Gwangju, Korea; ⁵Department of Preventive Medicine, Gyeongsang National University College of Medicine, Jinju, Korea; ⁶Department of Occupational and Environmental Medicine, Soonchunhyang University Gumi Hospital, Gumi, Korea; ⁷Department of Occupational and Environmental Medicine, Institute of Medical Science, Gyeongsangnamdo Environmental Health Center, Gyeongsang National University Changwon Hospital, Gyeongsang National University College of Medicine, Jinju, Korea; ⁸Department of Preventive Medicine, Dongguk University College of Medicine, Gyeongju, Korea
 
-[^0]
-[^0]:    ${ }^{6}$ Co-corresponding authors: pcohen@rockefeller.edu, sowersj@health.missouri.edu.
-    These authors contributed equally to this work.
-    Disclosures:
-    None of the authors have any financial, personal or professional relationships with other people or organizations that could reasonably be perceived as conflicts of interest or as potentially influencing or biasing this work.
+Objectives: In Korea, cardio-cerebrovascular disease (CCVD) is recognized as an occupational disease when sufficient evidence of a work-related burden exists. In 2021, approximately 26.8% of the payments from occupational disease insurance under the Industrial Accident Compensation Insurance Act were allocated to CCVDs. However, due to the specific nature of insurance policies for farmers, CCVD is not acknowledged as an occupational disease in their case.
 
-Keywords
+Methods: We reviewed studies on the differences in the incidence, prevalence, and mortality rates of CCVDs between farmers and the general population or other occupations and described the exposure of farmers to risk factors for CCVDs.
 
-Adipose Tissue; Hypertension; Aortic Stiffness; Obesity; Cardiovascular diseases
+Results: Several studies showed that farming is a high-risk occupation for CCVDs, with the following risk factors: long working hours, night work, lack of holidays, and strenuous physical labor; physical factors (noise, cold, heat, humidity, and vibration); exposure to hazardous gases (diesel exhaust, carbon monoxide, hydrogen sulfide, carbon disulfide, nitrogen oxides, and polycyclic aromatic hydrocarbons), pesticides, and dust (particulate matter, silica, and organic dust); exposure to a hypoxic environment; and job-related stress. Social isolation and lack of accessible medical facilities also function as additional risk factors by preventing farmers from receiving early interventions.
 
-## Subject Terms:
+Conclusions: Farmers are exposed to various risk factors for CCVDs and are an occupation at risk for CCVDs. More studies are needed in the future to elucidate this relationship. This study lays the groundwork for future research to develop guidelines for approving CCVDs as occupational diseases among farmers.
 
-Cardiovascular Disease; Hypertension; Obesity
+Key words: Agriculture, Cardiovascular diseases, Cerebrovascular disorders, Heart disease risk factors, Occupational diseases
 
-## I. Obesity and Cardiovascular Disease
+Received: Jun 16, 2024 Revised: Jul 21, 2024 Accepted: Aug 1, 2024
 
-The worldwide prevalence of obesity has tripled since 1975, with a parallel trend in type 2 diabetes^{1,2}. Globally, over 1.9 billion adults were overweight or obese in 2016 and more than 60% of people with obesity live in developing countries^{3}. Today, about two out of three adults (69%) are overweight or obese in the United States and current projections suggest that nearly 50% of adults in the US will be obese by 2030^{4}. Predictions made in 2008, estimated up to 3.3 billion individuals to become overweight and obese by 2030, if adjusted for secular trends^{5}. Non-adjusted predictions for 2030 generated by the same study predicted only 1.35 billion overweight and 573 million obese individuals for 2030^{5}, a number that was outdated already by 2016^{3}. While it is well documented that genetic and epigenetic factors contribute to obesity, environmental factors such as diet, physical activity and environmental toxins also play a major role in the increased prevalence of this disorder (Figure 1). For example, the increase in obesity in the US and other industrialized nations is closely related to increased consumption of high fructose corn syrup and saturated fat and to reduced physical activity^{3,4} (Figure 1). Further, there is emerging evidence that consumption of high fructose corn syrup diets by pregnant women programs the offspring for the subsequent development of obesity and associated cardiometabolic and cardiovascular disease (CVD) in later life (Figure 2)^{6}. These maternal influences appear to be mediated through adverse effects of metabolic factors such as impaired insulin signaling, dyslipidemia and altered blood supply on placental function and resultant fetal nutrition as well as epigenetic influences that originate from maternal obesity^{6}.
+Corresponding author: Won-Ju Park
 
-There is considerable evidence that overweight and obesity and their comorbidities, hypertension and insulin resistance, increase CVD and overall morbidity and mortality rates^{7--12}. Indeed, a positive association even exists between a progressive increase in body mass index (BMI) within the normal and overweight range and the risk of CVD^{6,7}. In this regard, an analysis of the Framingham Heart Study showed a positive association between overweight (BMI 25--29.9 kg/m^{2}) and the relative risks of hypertension and CVD^{8}. In addition, the presence of childhood obesity has been shown to increase the risk for development of type 2 diabetes, hypertension, dyslipidemia, and atherosclerosis and related CVD in adulthood^{9--11}. This review discusses the various factors that promote vascular dysfunction and CVD in obesity, with a focus on the role of dysfunctional adipose tissue.
+Department of Occupational and Environmental Medicine, Chonnam National University Medical School and Chonnam National University Hwasun Hospital, 322 Seoyang-ro, Hwasun 58128, Korea
 
-## Types of Adipose Tissue
+E-mail: wonjupark@jnu.ac.kr
 
-### Functionally distinct adipose tissue depots in mice and humans
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (https://creativecommons.org/licenses/by-nc/4.0/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 
-Adipose tissue (AT) is a dynamic organ distributed throughout the body with an almost unlimited capacity to expand during obesity. Several distinct depots can be defined by their location, size, cellular composition and function. While many functions of AT are conserved between mouse models and humans, their location and abundance can vary broadly. Mammals possess two major types of AT: white and brown (Figure 3). White adipose tissue (WAT) represents the largest proportion of whole-body AT and can be found around major organs and blood vessels in the abdominal cavity and subcutaneously (Figure 4). WAT stores excess energy in the form of triglycerides, and increased accumulation of WAT, particularly in visceral depots, is a key determinant of the relative risk for cardiometabolic disorders, hypertension and CVD^{12--17}. To this point, fat distribution dictates CVD risk such that individuals with higher visceral AT and ectopic fat deposition have an increased prevalence of cardiometabolic disorders including hypertension^{18,19}, dyslipidemia and insulin resistance^{15--17} compared to equally obese individuals with less visceral AT and relatively more subcutaneous fat. Thus, measurements limited to determination of BMI do not reflect the actual risk for CVD conferred by obesity.
+# INTRODUCTION
 
-In contrast to WAT, brown AT (BAT) represents only approximately 4.3% of all AT in adult humans and can be found in cervical, supraclavicular, axillary, paraspinal, mediastinal and abdominal depots^{20--22} (Figure 4). In addition, newborns possess interscapular BAT that decreases in size over time and is no longer detectable in adults^{23}. BAT protects animals from hypothermia by dissipating energy as heat, via a process called non-shivering thermogenesis, and has more recently been found to also have anti-obesity and anti-diabetes properties and to confer broad cardiometabolic health benefits^{24}.
+Industrialization has rapidly progressed in Korea, leading to long working hours, night shift work, and various work-related burdens. Thus, cardio-cerebrovascular disease (CCVD) is recognized as an occupational disease in Korea when a sufficient work-related burden is confirmed [1]. In Korea, most workers (excluding those in occupations protected by other insurance,
 
-The main functional cell type of AT is the adipocyte or fat cell. White adipocytes contain a single large lipid droplet (unilocular) and only possess a small number of mitochondria. Brown adipocytes, on the other hand, have multilocular lipid droplets and contain a large number of cristae-dense mitochondria, which uniquely express uncoupling protein-1 (UCP1) in the inner mitochondrial membrane (Figure 3). UCP1 uncouples oxidative phosphorylation from ATP production, ultimately resulting in the generation of heat^{25}. More recently, several UCP1-independent thermogenic mechanisms have also been described^{26}.
+Copyright © 2024 The Korean Society for Preventive Medicine
 
-In addition to developmentally preformed brown adipocytes, mice and humans also have inducible brown adipocytes, referred to as beige or brite adipocytes. These multilocular fat cells come from a distinct developmental lineage and tend to be interspersed within WAT, but also express UCP1^{27} (Figure 3). At baseline or during thermoneutrality, beige adipocytes display a more white-like phenotype with large lipid droplets and low expression of thermogenic genes^{28}, but activation by cold exposure, beta-adrenergic stimulation or exercise results in the robust upregulation of a thermogenic program in a process commonly called “browning.” While these cold-inducible brown-like adipocytes were first described almost 40 years ago^{28--32}, their developmental origin, molecular properties, and physiological roles have only more recently been investigated. In mice, beige adipocytes are enriched within subcutaneous fat depots, and are rarely detected in visceral depots.
+Hyeonjun Kim, et al.
 
-Intriguingly, due to their temperature dependent epigenomic plasticity, beige adipocytes also have the capacity to “whiten” in a warm environment^{33}.
+Journal of Preventive Medicine &amp; Public Health
 
-In light of their morphological and functional differences, it is not surprising that white and thermogenic brown/beige adipocytes are derived from distinct precursors^{31,34--37}. White adipocytes arise from mural precursors that are CD24, CD34^{38} and PDGFRα positive^{12,39}, and subcutaneous and visceral white adipocytes appear to originate from distinct progenitor populations^{40}. Developmentally preformed or classical brown fat is derived from a myogenic precursor expressing Pax7, Engrailed-1 and Myf5 around embryonic days 9.5--11.5 in mice, even before white adipocytes develop^{35,37,41}. Beige adipocytes, in contrast, originate from a vascular smooth muscle lineage^{42}. Despite their distinct origins, the development of both brown and beige adipocytes is dependent on the transcriptional coregulatory protein PRDM16. Adult humans also have inducible thermogenic adipocytes, and evidence suggests that these cells share properties with both murine brown and beige adipocytes^{23,27,29,36,43}. The relative proportion of brown vs. beige adipocytes in different human depots in various contexts remains to be fully clarified^{44}.
-
-### Stromal cell composition of AT and impact on physiology
-
-Although adipocytes account for most of the volume of AT, they only make up about 50% of the cellular content^{45,46}. Other cell types include immune cells such as macrophages^{47--49}, lymphocytes^{50--53}, eosinophils^{54,55} and mast cells^{49}, as well as fibroblasts, adipocyte precursors, vascular cells^{45}, multipotent mesenchymal stem-like cells^{56} and nerve processes^{57,58}. Visceral AT, in contrast to subcutaneous AT, tends to have a higher content of macrophages^{49}, regulatory T cells^{52}, natural killer T cells^{51} and eosinophils^{54}. Further, visceral and subcutaneous AT display differences in angiogenesis^{59--63} and sympathetic innervation^{58,64,65}, which can modulate the propensity for energy storage vs. dissipation. Finally, changes in macrophages^{66}, eosinophils^{66--68} and group two innate lymphoid cells (ILC2)^{69} can regulate the browning of AT.
-
-### Perivascular and epicardial adipose tissue
-
-In addition to the well-described white and brown adipose depots, AT is also located around most large blood vessels including the aorta and mesenteric vessels, but not the pulmonary and brain vasculature or the microcirculation^{70} (Figure 4). Perivascular adipose tissue (PVAT) is a specialized local deposit of adipose tissue surrounding blood vessels that also provides mechanical protection and regulation of blood vessel tone^{71--73}. Ex vivo aortic ring experiments revealed a role for PVAT in relaxation after stretch-mediated stress in mesenteric arteries and the thoracic aorta of rats^{74}. The contractile response of isolated murine mesenteric arteries towards norepinephrine is significantly reduced in the presence of PVAT^{75}. Further, electrical field stimulation assays of mesenteric arteries demonstrated a role for sympathetic nerve activation^{76} and sensory neurons^{77} in the vasodilatory effects of PVAT. The anti-contractile effects of sympathetic stimulation are mediated by the stimulation of β_{3}-adrenoreceptors in PVAT, and treatment with an antagonist of β_{3}-adrenoreceptors reduces these effects^{76}.
-
-Interestingly, PVAT is itself heterogeneous, with its phenotype strongly location-dependent^{78--80}. Due to its close proximity to the vasculature and direct contact with the adventitia^{81}, PVAT is thought to play a role in vascular function and pathology. PVAT surrounding the abdominal aorta and the mesenteric arteries displays a mostly white phenotype in humans^{82} and mice, with almost no UCP1 expressing thermogenic adipocytes^{28}. On the other hand, rodent PVAT surrounding the thoracic aorta has a brown-like phenotype with multilocular adipocytes and UCP1 expression similar to classical brown adipocytes^{83--86}. This is supported by patterns of BAT detected by positron emission tomography -- computed tomography (PET-CT) in the para-aortic area and around the heart of humans^{87}. In addition, autopsy studies of Siberian adults revealed clear UCP1 expression and multilocular and paucilocular appearance of about 40% of mediastinal periaortic vascular AT, with some individuals displaying up to 73%^{88}. Long-term moderate cold exposure (16°C) of mice results in further browning of thoracic PVAT with a markedly increased expression of Ucp1 and Pgc1α and β^{84}.
-
-Thermogenesis of PVAT through cold exposure or genetic manipulation in mice supports a protective role of thoracic PVAT in inflammation and atherosclerosis. Overexpression of the mitochondrial membrane protein MitoNEET induces browning of WAT and thermogenic gene expression^{89,90}. Ucp1-driven overexpression of MitoNEET in BAT and PVAT prevented mice from an intravascular temperature drop during cold exposure and increased energy expenditure even after removal of interscapular BAT^{90}. Further, cold exposure of atherosclerosis-prone ApoE-deficient or ApoE-MitoNEET double deficient mice with removed interscapular BAT resulted in reduced atherosclerotic lesion sizes^{84,90}. Likewise, lack of PVAT in ApoE-deficient mice with an additional smooth muscle-specific deletion of PPARy (peroxisome proliferator-activated receptor y) had increased atherosclerotic lesions and cold exposure had no protective effect^{84}. Although, the potential contribution of cold-induced browning of WAT was not excluded, these studies imply a contribution of PVAT to whole-body thermogenesis and protection from atherosclerosis.
-
-Several studies in humans have examined the phenotype of perivascular fat surrounding the internal thoracic arteries. While human internal thoracic artery PVAT has been reported to have a white phenotype in one study, importantly 84% of the individuals were overweight or obese, which might affect the appearance of AT^{91}. Nevertheless, PVAT of human internal thoracic arteries attenuated the contractile response to the thromboxane A2/prostaglandin H2 receptor agonist U46619 and phenylephrine^{91}. Similar effects were observed in PVAT stripped arteries through the transfer of PVAT-incubated supernatant^{91}. Detailed analysis of human thoracic PVAT is limited due to difficulties with sample acquisition and is often isolated from patients with underlying cardiovascular complications, complicating phenotypic assessment.
-
-Despite the close morphological relationship between BAT and tPVAT in mice, proteomics data revealed a depot specific clustering and an only 43% overlap of their proteome on a standard diet^{92}. This is comparable to the overlap of 44% of detected proteins between tPVAT with visceral WAT or the overlap of 53% between visceral WAT and BAT, two very distinct depots with different functions^{92} suggesting a potentially unique PVAT composition. Interestingly, PVAT has been shown to regulate vascular tone^{83,93} through contact dependent
-
-and paracrine functions that are impaired during obesity in mice and humans^{91,94,95}. The contractile response of mesenteric arteries to norepinephrine, for example, is reduced in the presence of PVAT but compromised in diet-induced obesity^{95}. Further, the expression of vasodilatory factors, such as angiotensin (1--7)^{96--98}, adiponectin^{75,76} and nitric oxide^{99} is inhibited during obesity^{94,95,99,100}, and the expression of the vasoconstrictor angiotensin II is induced in PVAT^{70}. Finally, a recent single cell RNA sequencing study demonstrated the existence of two main clusters of mesenchymal stem/stromal cells in PVAT of the thoracic aorta of mice^{101}. One of the clusters was associated with angiogenic and adipogenic potential, whereas the other cluster was enriched for genes associated with vascular smooth muscle cell differentiation^{101}. Transplantation of those PVAT-derived mesenchymal stem/stromal cells to a vein graft model significantly promoted neointima formation demonstrating a possible role of PVAT in vascular remodeling^{101}.
-
-PVAT is an important contributing factor to hypertension^{18,19}, endothelial dysfunction^{102} and other vascular abnormalities in obesity^{71--73,94,103,104} (Figure 5). PVAT normally releases vasodilatory mediators, including adiponectin^{75,76}, and yet to be fully characterized molecules often acting on K^{+} channels, that exert an anti-contractile activity and promote vascular relaxation^{70}. However, in the setting of obesity and insulin resistance, oxidative stress and inflammation are increased in PVAT, thereby resulting in an increase in pro-inflammatory adipokines including tumor necrosis factor alpha (TNF-α), and interleukins (IL-6 and IL-8), leading to vascular insulin resistance, impaired relaxation, and vascular stiffness^{71}. Il-6 and TNF-α also attenuate the vasodilation of mesenteric arteries ex vivo^{94}. Other cytokines such as interleukin-18 (IL-18) are thought to have protective effects on PVAT and vascular function, and loss of IL-18 results in elevated blood pressure in mice associated with the whitening of thoracic PVAT^{105}. However, the specific impact of IL-18 in PVAT needs to be addressed in AT-specific conditional knock out animals. The Framingham Offspring and Third Generation cohort studies showed that increased PVAT volume is associated with higher thoracic and abdominal aortic dimensions and increased arterial stiffness, even after adjusting for age and CVD risk factors including BMI and visceral AT volume^{104}.
-
-The heart is also directly associated with specific AT depots. Epicardial AT is located on the surface of the myocardium in direct contact with the coronary arteries, and pericardial AT is in contact with the pericardial sac^{106}. Under physiological conditions, epicardial AT may supply energetic substrates to the heart and has a greater capacity for free fatty acid turnover than other visceral AT depots^{107}. Although its cold-induced UCP1 expression does not reach levels of classical BAT^{28}, human epicardial AT has a thermogenic phenotype and has been suggested to regulate the temperature of the myocardium^{108}. Other studies described the portion of epicardial AT surrounding the coronary arteries in humans as a white-like depot despite the expression of some classical brown fat marker genes such as UCP1, PRDM16 and CPT1β^{109}. The same study found a lower expression of adipogenic marker genes PPARγ, FABP4 and C/EBPα but an increased expression of pro-inflammatory cytokines compared to subcutaneous AT^{109}. This discrepancy might be explained by the reported whitening of epicardial AT after birth in humans, with only distinct subset of multilocular UCP1 positive cells^{110}. Epicardial AT secretes polypeptides, such as adiponectin^{111} and adrenomedullin^{112}, which have cardioprotective effects, with low expression of adiponectin
-
-in epicardial AT being associated with hypertension^{113}. Healthy epicardial AT accounts for approximately 5--20% of the heart weight^{114}, and the thickness of epicardial AT is increased in hypertensive individuals^{115--117}. Under pathological conditions, epicardial AT becomes infiltrated with immune cells expressing pro-inflammatory genes (IL-1β, Il-6 and TNF-α)^{118} and can contribute to structural changes in the heart^{119--121}. Studies from epicardial AT derived from coronary artery bypass grafts showed significantly lower adiponectin expression compared to other visceral adipose depots and a marked increase in CD45 expression, suggesting increased immune cell infiltration compared to omental AT^{122}. Studies of mild cold exposure in humans and the analysis of epicardial AT could be beneficial to understanding the role of epicardial AT thermogenesis for CVD^{110}. Since mice do not have a comparable epicardial AT depot, a mechanistic understanding of how epicardial AT contributes to blood pressure modulation is lacking.
-
-## III. Cardiovascular consequences of obesity and adipose tissue dysfunction
-
-### Impact of AT on blood pressure regulation
-
-One of the central modes of blood pressure regulation is via the renin-angiotensinaldosterone system (RAAS). The major bioactive component angiotensin II is produced from its precursor angiotensinogen by the activation of angiotensin-converting enzymes 1 and 2. Angiotensin-converting enzyme 2 can further process angiotensin II to generate angiotensin 1--7, which has vasodilatory properties^{96--98}. Angiotensin II^{83} and aldosterone are also secreted by adipocytes and can directly activate vascular smooth muscle cells (VSMC) via the angiotensin type 1 receptor^{123}. Angiotensin II is a prominent regulator of vascular tone,^{124} and its expression is spatially regulated in PVAT, with higher expression in mesenteric PVAT compared to thoracic PVAT^{83}. Interestingly, studies in rats have demonstrated that fasting reduces angiotensinogen expression in visceral AT, whereas refeeding significantly induces its expression and results in elevated blood pressure^{125}. A similar effect can be observed by overexpression of angiotensinogen in mice, which also results in hypertension^{126}.
-
-All of the components of the RAAS are also secreted by human WAT^{127}. However, there are conflicting data as to whether the basal expression of RAAS components differ in visceral and subcutaneous AT in lean individuals. One study reported a higher general expression of angiotensinogen, the precursor of angiotensin II, in visceral AT compared to subcutaneous AT^{128}. A more recent, larger study, however, reported no changes in angiotensinogen expression between the two depots in lean individuals^{129}. Nevertheless, visceral AT expressed higher amounts of renin, angiotensin-converting enzyme 2 and both angiotensin receptor types 1 and 2 in the same study, whereas ACE1 was not changed^{129}. In rats, mesenteric PVAT expresses higher levels of angiotensin II and both angiotensin receptor subtypes than thermogenic thoracic PVAT^{83}. This is in line with the reported downregulation of angiotensinogen after beta-adrenergic stimulation of murine adipocytes in vitro^{130}.
-
-Thermogenic brown and beige AT is considered to have protective effects on the vasculature, as individuals with detectable thermogenic AT have lower odds for hypertension and
-
-coronary artery disease relative to individuals without thermogenic AT^{24}. Moreover, coding variants in PRDM16, the master regulator of thermogenic AT, are associated with hypertension in humans^{131}. Interestingly, components of the RAAS cascade can directly affect AT, and angiotensin 1--7, besides its vasodilatory actions^{96--98} also induces BAT and reduces diet-induced obesity in mice^{132,133}. Surprisingly, pharmacological activation of angiotensin receptor 2 and angiotensin II treatment can induce browning of subcutaneous white adipocytes in vivo and stimulation of brown precursor differentiation in vitro^{134,135}. This protective impact on BAT is assumed to be either mediated by increased sympathetic nerve activation^{135} or through increased conversion of angiotensin II to angiotensin 1--7. Moreover, deletion of the type 1 angiotensin receptor results in increased appearance of multilocular beige adipocytes^{136}. Taken together, it appears that angiotensin 1--7 and activation of the angiotensin receptor 2 or inhibition of the type 1 angiotensin receptor can stimulate BAT, which in turn has beneficial effects on blood pressure and attenuates development of CVD. Further studies will be needed to investigate the direct impact and molecular basis of the protective impact of thermogenic AT on hypertension.
-
-### Adipose tissue remodeling during obesity
-
-Obesity results in a chronic low-grade inflammatory state in adipose tissue^{137,138}. Visceral obesity in particular, is strongly associated with the development of CVD^{13,14}. Defining and understanding remodeling of different AT depots during obesity is thus of utmost importance to ultimately preventing deleterious sequelae. During obesity, AT can expand by either enlargement of existing adipocytes (hypertrophy) or by increasing the number of adipocytes (hyperplasia) (Figure 3), with the relative importance of either mechanism varying based on depot, sex and age^{31}. At baseline, fed a standard diet, neither visceral nor subcutaneous AT exhibit significant new adipogenesis in adult humans or mice^{31,139}. Long-term high fat feeding of mice, on the other hand, resulted in increased adipogenesis and hypertrophy in the visceral AT, including mesenteric PVAT, whereas subcutaneous AT adapts to the higher energy intake by hypertrophy^{31}. The individual impact of hypertrophy versus hyperplasia in the development of the metabolic syndrome is still under debate^{140}. Maximum hypertrophy in adipocytes in established obese conditions can result in the exhaustion of the lipid storing capacity in adipocytes, which in turn can induce ectopic storage of fat in other organs such as the liver, supporting the development of the metabolic syndrom^{141}. On the other hand, visceral AT is more susceptible to AT inflammation, which in turn contributes to metabolic and CVD outcomes^{142}. Sex-dependent differences in AT distribution have been reviewed elsewhere^{143--145}, but in short, females most often accumulate AT in the subcutaneous depot, whereas men and post-menopausal women tend to accumulate AT in central visceral depots^{143}. Hormone replacement therapy in postmenopausal women prevents this central AT distribution^{146}, highlighting the role of sex hormones in fat distribution. However, recent studies, using an elegant separation of gonadal sex and sex chromosomes demonstrated that the XX chromosomal sex results in increased weight gain independent of the gonadal sex^{147,148}. This was mediated through the X-chromosome-escaped dose-dependent expression differences of the histone demethylase KDM5C in females compared to males, and lowering KDM5C levels in females to the same extend seen in males resulted in weight loss and body fat content^{148}.
-
-###
-
-In obesity, the immune cell composition of different AT depots demonstrates dynamic changes^{70,142,149} (Figure 4). For example, adipose tissue macrophages increase in obesity and their ablation improves insulin sensitivity and reduces inflammation^{47,150--152}. The recruitment^{47} and proliferation^{153} of pro-inflammatory macrophages during obesity is greater in visceral than in subcutaneous AT^{154,155}. Obesity further results in the loss of protective CD4 helper^{156} and regulatory T cells (Tregs)^{52,157} and in the enrichment of CD8 T cells in visceral AT^{53}. These variations in immune cell infiltration between visceral and subcutaneous AT results in a low-grade inflammatory environment that can contribute to CVD^{158,159}. Recently, eosinophils have gained attention for their role in promoting beige adipocyte activation^{67,68}, and their loss during obesity, especially in visceral and mesenteric AT, renders mice susceptible to diet-induced obesity^{54} and abolishes the anti-contractile effect of PVAT to norepinephrine^{95}. However, some of these findings require further clarification and together with detailed information on PVAT immune cell content and changes during obesity are discussed elsewhere^{70}.
-
-Thermogenic brown and beige fat, on the other hand, have anti-obesity effects in humans^{160,161}, and depletion of UCP1 itself or ablation of UCP1 expressing thermogenic AT results in weight gain^{162,163}. In contrast to WAT, classical BAT of obese mice expresses lower levels of genes associated with immune cells, suggesting that thermogenic AT is resistant to diet-induced inflammation^{86}. However, other studies have shown that macrophages^{164} and B lymphocytes^{165} infiltrate thermogenic AT during obesity, and together with increased inflammatory cytokines^{109} are thought to suppress UCP1 expression in brown adipocytes^{164}. Further, mice fed a HFD for 12 weeks, show reduced expression of some thermogenic marker genes, and adipocytes shifted from a multilocular to an unilocular appearance with increased lipid accumulation in BAT and thoracic PVAT^{92}. The increased body and PVAT weight also impair anti-contractile effects of PVAT^{91}. High fat feeding further results in a tPVAT-specific upregulation of Notch1 compared to WAT or BAT^{92}. Genetic adipocyte-specific induction of Notch1 resulted in morphological changes of tPVAT comparable to HFD induced effects^{92}. This is supported by another study showing that adipocyte-specific overexpression of Notch1 impairs thermogenesis and insulin sensitivity and results in whitening of classical BAT, whereas pharmacological inhibition of Notch1 results in browning of WAT and ameliorates HFD-induced obesity^{166}.
-
-### Remodeling of AT during obesity and its impact on blood pressure homeostasis
-
-Obesity is strongly associated with the development of hypertension^{13}, a major risk factor for CVD morbidity and mortality^{167,168}. Compared to normal weight individuals, obese individuals also carry a greater risk for coronary artery calcification, carotid artery intimal media thickening and left ventricular hypertrophy, even after adjustment for traditional CVD risk factors^{169}. Weight reduction significantly improves blood pressure^{19,170,171}, and therefore, suggests a direct link between AT phenotype and odds of developing CVD and hypertension. Visceral obesity in rodents and humans is particularly associated with the metabolic syndrome^{172}, which consists of several risk factors for CVD, including hypertension^{173}. On the other hand, humans with thermogenic AT have lower odds for hypertension, coronary artery disease and congestive heart failure, even when obese^{24}.
-
-ngiotensinogen expression is significantly elevated in obese individuals and is also higher in visceral AT compared to subcutaneous AT^{128,174,175} (Figure 4). Interestingly, expression of angiotensin II is increased in subcutaneous AT in obese individuals with hypertension compared to normotensive obese individuals^{128}. Diet-induced obesity did not affect angiotensinogen levels in BAT, liver, kidney or heart in wild-type mice or in mice expressing the human angiotensinogen gene under its own promoter^{175}. Importantly, adipocyte-specific deletion of angiotensinogen prevents increased angiotensin II in the circulation and blocks elevation of BP in obese mice^{176}, suggesting a direct impact of AT-derived angiotensinogen on blood pressure. Moreover, angiotensin receptor type 1 inhibition reverses obesity-induced blood pressure elevation in rats^{177}. Finally, angiotensinogen levels are negatively regulated by PRDM16, and deletion of PRDM16 and ablation of beige adipocytes results in increased angiotensinogen expression^{178,179}. Ablation of BAT in mice results in obesity as well as elevated blood pressure^{180}; however, whether this is a consequence of obesity induced changes in RAAS or can be directly linked to factors secreted by brown AT needs to be further determined. Aldosterone, another component of the RAAS secreted by adipocytes^{123}, also positively correlates with BMI, and weight loss reduces serum aldosterone levels and reduces hypertension^{181}. Components of the RAAS can therefore affect VSMC and endothelial dependent regulation of vascular tone, both of which are adversely affected during obesity.
-
-Leptin, an adipocyte-derived hormone that regulates food intake and energy expenditure, is significantly increased in obesity in mice and humans^{182,183} (Figure 4). In contrast to angiotensinogen, it may be expressed at higher levels in subcutaneous than in visceral AT^{184--186}, and its expression is correlated with adipocyte size^{185}. Nevertheless, diet-induced obesity results in elevated leptin levels and attendant increases in heart rate and blood pressure in rodents^{92,187,188}. This induction is mediated by a leptin-stimulated increase in sympathetic nerve activity^{189,190}, and antibody blockade of leptin or inhibition of leptin receptors on hypothalamic neurons normalized blood pressure in obese rodents^{187}. Finally, leptin deficient mice^{191} and humans with loss of function mutations in leptin or the leptin receptor have lower blood pressure despite severe obesity^{187}. It is not well understood how the chronic increase of leptin in obese subjects results in leptin-resistance^{192} and whether this affects blood pressure. Based on the above-mentioned data, reduced leptin signaling ameliorates blood pressure in mice, and therefore, leptin-resistant obesity should be beneficial in regard to blood pressure. Indeed, leptin also has some vasodilatory effects in healthy rodents, via induction of nitric oxide expression in endothelial cells^{77,193} and in healthy humans by a mechanism independent of nitric oxide^{194}. Further, leptin resistance was demonstrated to selectively affect neurons in the hypothalamus that regulate food intake, while affecting other neuronal circuits to a lesser extent^{195,196}, which could explain how obese individuals do not have beneficial effects on blood pressure when leptin resistant. In detail, agouti obese mice were resistant to food intake and body weight effects of systemic leptin administration, but had a preserved induction of leptin-induced renal sympathetic activation^{196,197}. Similar results in diet-induced obese mice showed the preservation of leptin-induced renal sympathetic activation and blood pressure regulation despite the resistance to weight-reducing actions of leptin^{188}.
-
-Resistin is enriched in visceral AT^{198}, including epicardial AT^{199} and PVAT^{200}, and is markedly increased during obesity^{200,201}. Resistin has an important role in type 2 diabetes and insulin resistance in mice^{201}. In humans with type 2 diabetes, resistin expression was only elevated in combination with hypertension and not in patients without hypertension^{202}. In hypertensive patients without type two diabetes, resistin levels did not correlate with blood pressure indicating a more complex connection of obesity, insulin resistance and blood pressure regulation by resistin. In mice, resistin treatment induced hypertension through the induction of angiotensinogen^{203}. Finally, resistin treatment of isolated human VSMC similar to angiotensin, resulted in increased proliferation^{204}.
-
-Visfatin is also expressed in visceral AT, including PVAT^{200}, and increased through hypoxia induced expression of HIF1α^{205} in obesity^{200}. Hypertensive patients have elevated serum visfatin levels^{206} however, newly diagnosed, non-obese hypertensive men did not show any association of plasma visfatin levels and hypertension^{207}. Importantly, visfatin is mostly enriched in adipose tissue macrophages in mice^{200} and humans,^{208} and therefore, its role in adipocyte specific regulation of blood pressure might be a secondary cause of increased immune cell infiltration in obesity. Nevertheless, it was shown that hypoxic conditions can induce visfatin in murine adipocyte cell lines and its adipocyte specific role in blood pressure regulation should be determined by adipocyte-specific deletion of visfatin.
-
-Adiponectin is another endocrine factor secreted by AT that tends to be reduced during obesity^{209,210} (Figure 4). In humans, visceral adiposity inversely correlates with adiponectin secretion, whereas secretion of adiponectin by subcutaneous AT is not affected by adiposity^{209}. Serum adiponectin levels are reduced in obese individuals with hypertension^{211}, and lifestyle intervention^{212} or anti-hypertensive therapy^{211} resulted in increased adiponectin levels and improved blood pressure^{212}. In addition, lower adiponectin levels correlate with the risk for development of hypertension in humans^{213,214}, independent of body fat distribution^{215}. Mice on a standard diet that lack adiponectin display elevated blood pressure despite similar body weight^{76}, whereas adiponectin overexpression in obese mice ameliorates elevated blood pressure^{210}. To understand the direct impact of adiponectin without secondary metabolic effects such as insulin resistance, mice lacking adiponectin were fed a high salt diet. These mice developed hypertension, which could be rescued by adiponectin administration^{210}. The observed elevation in blood pressure was associated with reduced endothelial eNOS and prostaglandin I_{2} synthase^{210}, indicating a role for adiponectin in endothelial cell mediated vasodilation^{216}. Further, ex vivo stimulation of murine mesenteric arteries with norepinephrine was significantly reduced in the presence of PVAT or PVAT-derived supernatant and could be blocked by adiponectin blocking peptide or in vessels derived from adiponectin-deficient mice^{95}. Adiponectin blocking peptide also blocked electrical field stimulation of mesenteric arteries depending on the presence of PVAT^{76}. Adiponectin treatment of isolated mesenteric arteries stripped of PVAT restores the anti-contractile effects^{75,76}, depending on the vascular large-conductance Ca^{2+}-activated K^{+} channel on VSMC^{75}. Finally, AMPKα1-deficient mice secrete less adiponectin, and ex vivo stimulation of thoracic aortic rings from these mice displayed an impaired vasodilatory effect of PVAT after U46619 treatment^{217}.
-
-Another factor enriched in human omental AT and detected in human serum is omentin^{218}. Like adiponectin, it is reduced in obese conditions^{219} and induced through weight reduction^{220}. In rats, omentin treatment ameliorates angiotensin II or noradrenalin-induced hypertension and reduces blood pressure in normotensive rats^{221,222}. Interestingly, omentin suppressed inflammatory mediators in various vascular cell types^{222--224} and induced adiponectin levels, which might result in the indirect regulation of blood pressure. This is also the case for adipolin^{225}, which is reduced in obese mice^{226} and has a protective role in vascular remodeling through the inhibition of VSMC proliferation and macrophage activation^{227}, and although associated with protective effects on CVD, its role in regulation of blood pressure needs to be further determined.
-
-Several other factors secreted by different adipose tissue depots have been associated with a role in blood pressure regulation; however, functional and mechanistical proof is still sparse and will be required to understand the independent impact of those AT-derived mediators in the regulation of hypertension. Interleukin-33 (IL-33), for example, plays a pivotal role in the activation of eosinophils, and genetic loss or obesity-induced reduction of eosinophils in PVAT results in a reduced anti-contractile response^{95}. Further, activation of eosinophils by IL-33 treatment rescues obesity-induced high blood pressure to the level of control mice, dependent on an endothelial cell and nitric oxide synthase-mediated effect^{228}. Of note, patients with pulmonary hypertension showed elevated IL-33 levels^{229}, and deficiency of the IL-33 receptor attenuates the progression of pulmonary arterial hypertension in mice^{230}. Therefore IL-33 could play a differential role in blood pressure regulation of vasculature with and without PVAT.
-
-### Vascular stiffening and CVD risk
-
-While vascular stiffening is a normal phenomenon with increasing age, obesity and associated insulin resistance accelerates this process. To this point, a population study showed that skin-fold thickness is a predictor of arterial stiffness in hypertensive patients^{231}. Another study found an association between abdominal obesity and increased vascular stiffness^{232,233}. Epidemiological studies have demonstrated that hyperinsulinemia or insulin resistance, as exists in overweight and obese individuals, is an independent risk factor for vascular stiffening. This vascular stiffening in association with obesity and insulin resistance has been observed in all age groups, including children^{234,235}.
-
-There is considerable evidence that the vascular stiffening that is increased in obesity is a powerful risk factor for CVD. Data from the Framingham Heart Study have established an increased incidence of CVD events with increasing weight in both men and women^{8}, and CVD has been strongly associated with vascular stiffness^{235,236}. Importantly, arterial stiffening is especially striking in obese and diabetic premenopausal females who tend to lose the normal protection afforded by female sex hormones against vascular disease and show an increase in CVD events relative to lean, non-diabetic, age-matched women^{237}. Indeed, vascular stiffness independently predicts heart disease, cerebrovascular disease and renal disease, as increased vascular stiffness is significantly associated with damage to target organs such as the heart, kidney, and brain^{238}. For example, stiffening of central arteries increases systolic pressure and decreases diastolic pressure, resulting in increased pulse
-
-pressure and afterload leading to an increase in left ventricular mass and myocardial oxygen demand. Further, the decrease in diastolic pressure is associated with reduced coronary blood flow during diastole. These changes have been consistently associated with left ventricular remodeling and fibrosis together with left ventricular diastolic dysfunction and associated heart failure with preserved systolic function (HFpEF)^{239,240} (Figure 5). While early detection of arterial stiffening in obese individuals certainly helps to identify a powerful risk factor for CVD, definitive studies on the impact of weight loss on reversal of vascular stiffness have yet to be conducted.
-
-### Mechanisms in CV stiffness with Obesity
-
-Development of arterial stiffness is a complex process that is driven by the interaction of endocrine factors and AT-derived cytokines, as well as interactions between different vascular cellular components, the extracellular matrix (ECM), PVAT, and immune cells in the vasculature^{6,94}. The paragraphs that follow focus on mechanisms involved in CV stiffness in conditions of overnutrition and obesity. This includes a discussion of the role of vascular endothelial abnormalities which lead to impaired endothelial nitric oxide (NO) synthase (eNOS) activation and associated increases in vascular stiffness. We also discuss the emerging role of vascular cell-specific mineralocorticoid (MR) and insulin receptor (IR) activation in promoting endothelial stiffness via endothelial Na^{+} channel (EnNaC) activation, and the impact of a decrease in bioavailable NO in mediating vascular stiffness in diet induced obesity (Figure 5).
-
-Arterial stiffness in obesity is associated with structural and functional changes in the intimal, medial, and adventitial layers of the vasculature^{241}. Arterial stiffness is regulated by plasma factors such as aldosterone and insulin, as well as factors derived from the different layers of the vascular wall. Moreover, interactive signaling between different cells of the vascular wall modulates structure and function of cellular and non-cellular components. Increased arterial stiffness in obese and insulin resistant states has been related to mechanisms related to both endothelial cell (EC) and VSMC stiffness, leading to the use of such terms as the “stiff endothelial cell syndrome”^{241--243} and the “smooth muscle stiffness syndrome”^{242}. In addition to the role of ECs and VSMCs, vascular adipose and immune cell dysfunction and ECM remodeling contribute to obesity-associated arterial stiffness. This underscores the importance of understanding the complex cellular and ECM interactions that contribute to obesity-associated arterial stiffness^{243,244}.
-
-Increased plasma insulin and aldosterone levels lead to heightened activation of vascular MRs and IRs in obesity and insulin resistance states^{239--243}. Further, a downstream mediator of MR and IR activation, the ion channel EnNaC, has recently been identified as a key molecular determinant of endothelial dysfunction and CV fibrosis and stiffening^{239,243}. Increased activity of EnNaC results in a number of negative consequences including stiffening of the cortical actin cytoskeleton in ECs, impaired endothelial nitric oxide (NO) release, increased oxidative stress meditated NO destruction, increased vascular permeability and stimulation of an inflammatory environment. Such endothelial alterations impact vascular function and stiffening through increases in vascular constriction and stimulation of tissue remodeling including fibrosis. In the case of the myocardium, obesity and associated
-
-elevations in aldosterone and insulin are associated with coronary vascular endothelial stiffening and related reductions in bioavailable NO leading to heart failure with preserved systolic function (HFpEF).
-
-Recent studies, conducted in female mice fed a diet high in refined carbohydrates and saturated fat showed increased endothelial and aortic stiffness, impaired endothelial-dependent vasorelaxation, aortic fibrosis, aortic oxidative stress and increased vascular expression of EnNaC^{239--241}. To gain further insight into the vascular role played by EnNaC, we have characterized a mouse model with endothelial cell-specific deletion of the α, pore-forming, subunit of EnNaC^{241}. Obesogenic diet induced abnormalities, along with vascular and cardiac remodeling and fibrosis, were all significantly attenuated in mice with deletion of EnNaC^{241--243}. From a mechanistic standpoint, these studies showed that diet induced obesity resulted in a heightened inflammatory response that was associated with reduced endothelial NO synthase (eNOS) activation and NO production and bioavailability. These latter events likely emanated from increased EnNaC activity leading to polymerization of cortical actin fibers, subsequently reducing eNOS activity, and decreasing NO production leading to increased vascular stiffness (Figure 5). This research has further revealed that activation of the endothelial Na^{+} channel by aldosterone and insulin leads to endothelial cortical stiffening, impaired NO production and subsequent vascular fibrosis and stiffening in diet induced obesity^{244,245}. Additionally, these observations in this obese mouse model also suggest that activation of the endothelial Na^{+} channel in the coronary vasculature promotes myocardial fibrosis, myocardial stiffening and impaired diastolic relaxation and HFpEF, a condition that is especially pronounced in obese and insulin resistant females.
-
-Studies performed in epithelial cells have shown that both aldosterone and insulin increase ENaC activity via activation of the ubiquitously expressed serum and glucocorticoid regulated kinase 1 (SGK-1)^{246}. Very recent work has shown that SGK-1 represents a point of convergence for insulin and aldosterone signaling in endothelial cells^{244}. Consistent with this notion, our preliminary studies have shown that aldosterone and insulin induced increases in EnNaC activity are diminished in isolated ECs from SGK-1 global knock-out mice compared to those of wild-type controls^{244}. It is also of relevance that evidence exists in humans for SGK-1 playing an important integrative role in the development of the cardiometabolic syndrome. Specifically, an SGK-1 gain of function gene variant that exists in 5 percent of the population is associated with increased blood pressure and obesity^{247} and has a particularly strong effect in increasing blood pressure in states of hyperinsulinemia and obesity^{247}. Further, in rodent models, hyperinsulinism sensitizes the blood pressure to high fructose and salt intake, an effect involving increased activity of SGK-1^{248}. Indeed, SGK-1-knockout mice are protected against salt-induced hypertension in the context of obesity caused by a high-fat and high-fructose diet^{248}. Finally, increased SGK-1 activity in obesity and hypertension has also been demonstrated in adipocytes^{249} and immune cells^{250}. Thus, multiple lines of evidence point towards important contributions of SGK-1 signaling in promoting the cardiometabolic syndrome, vascular stiffness and associated CVD in obesity.
-
-In summary, obesity is increasing in prevalence and these increases in obesity are associated with increased consumption of refined carbohydrates and saturated fat and reduced physical activity. These and other environmental factors interact with genetic and epigenetic factors
-
-to promote obesity and related CVD (Figure 1). Obesity also negates the CVD protection normally afforded in premenopausal women. The earliest sign of obesity related CVD is impaired NO mediated relaxation which leads to CV stiffness. Recent studies indicate that insulin and mineralocorticoid receptor activation of the EnNaC is important in the pathogenesis of CV stiffness, especially in obese females who lose the protection against CVD normally afforded in premenstrual women.
-
-# IV. Unanswered questions and future directions 
-
-While recent research has highlighted key links between obesity, adipose tissue, and vascular function, a number of important unanswered questions remain. From a basic standpoint, a more complete understanding of the developmental origin and cellular and molecular components of perivascular fat is necessary. Moreover, a comprehensive inventory of the secreted polypeptides and metabolites released by adipose tissues in normal physiology and the obese state will help further illuminate how excess adiposity contributes generally to vascular dysfunction and more specifically to the pathogenesis of hypertension and vascular stiffening. Future studies will also need to uncover the role of environment, genetics, epigenetics, and the microbiome on modulating the interactions between adipose tissues and the vasculature.
-
-## Financial support for the author(s):
-
-M.K. was supported by the Women \& Science Initiative at Rockefeller University; P.C. was supported by the Sinsheimer Foundation; M.A.H. and J.R.S. were supported by the NIH.
-
-## Non-standard Abbreviations and Acronyms
-
-| AMPK $\alpha 1$ | 5'AMP-activated protein kinase catalytic subunit alpha 1 |
-| :-- | :-- |
-| ANG 1-7 | Angiotensin 1-7 |
-| ANG II | Angiotensin II |
-| ApoE | Apolipoprotein E |
-| AT | Adipose tissue |
-| ATP | Adenosine triphosphate |
-| BAT | Brown adipose tissue |
-| BMI | Body mass index |
-| CD | Cluster of differentiation |
-| C/EBP $\alpha$ | CCAAT-enhancer binding protein alpha |
-| CVD | Cardiovascular disease |
-| EC | Endothelial cells |
-| ECM | Extracellular matrix |
-
-| EnNaC | Endothelial $\mathrm{Na}^{2+}$ channel |
-| :--: | :--: |
-| eNOS | Endothelial nitric oxide synthase |
-| FABP4 | Fatty acid-binding protein |
-| HFD | High fat diet |
-| HFpEF | Heart failure with preserved ejection fraction |
-| HIF1 $\alpha$ | Hypoxia-inducible factor 1 alpha |
-| IL | Interleukin |
-| ILC2 | Group 2 innate lymphoid cells |
-| IR | Insulin receptor |
-| KDM5C | Lysine-specific demethylase 5C |
-| MR | Mineralocorticoid receptor |
-| Myf5 | Myogenic factor 5 |
-| NO | Nitric oxide |
-| Pax7 | Paired box 7 |
-| PET-CT | Positron emission tomography-computed tomography |
-| PDGFR $\alpha$ | Platelet-derived growth factor receptor alpha |
-| PGC1 $\alpha$ | Pparg coactivator 1 alpha |
-| PRDM16 | PR domain containing 16 |
-| PVAT | Perivascular adipose tissue |
-| RAAS | Renin-Angiotensin-Aldosterone-System |
-| SGK-1 | Serum/Glucocorticoid regulated kinase 1 |
-| TNF $\alpha$ | Tumor necrosis factor alpha |
-| Treg | Regulatory T cells |
-| UCP1 | Uncoupling protein 1 |
-| US | United States |
-| VSMC | Vascular smooth muscle cell |
-| WAT | White adipose tissue |
-
-1. GBD 2015 Obesity Collaborators, Afshin A, Forouzanfar MH, et al. Health Effects of Overweight and Obesity in 195 Countries over 25 Years. N Engl J Med. 2017;377:13--27. [PubMed: 28604169]
-2. Gregg EW, Shaw JE. Global Health Effects of Overweight and Obesity. N Engl J Med. 2017;377:80--81. [PubMed: 28604226]
-3. Obesity and overweight. Accessed January 11, 2021. https://www.who.int/news-room/fact-sheets/ detail/obesity-and-overweight
-4. Ward ZJ, Bleich SN, Cradock AL, et al. Projected U.S. State-Level Prevalence of Adult Obesity and Severe Obesity. New England Journal of Medicine. 2019;381:2440--2450.
-5. Kelly T, Yang W, Chen C-S, Reynolds K, He J. Global burden of obesity in 2005 and projections to 2030. International Journal of Obesity. 2008;32:1431--1437. [PubMed: 18607383]
-6. Guanghong Jia, Hill Michael A., Sowers James R. Maternal Exposure to High Fructose and Offspring Health. Hypertension. 2019;74:499--501. [PubMed: 31327270]
-7. Field AE, Coakley EH, Must A, et al. Impact of overweight on the risk of developing common chronic diseases during a 10-year period. Arch Intern Med. 2001;161:1581--1586. [PubMed: 11434789]
-8. Hubert HB, Feinleib M, McNamara PM, Castelli WP. Obesity as an independent risk factor for cardiovascular disease: a 26-year follow-up of participants in the Framingham Heart Study. Circulation. 1983;67:968--977. [PubMed: 6219830]
-9. Franks PW, Hanson RL, Knowler WC, Sievers ML, Bennett PH, Looker HC. Childhood obesity, other cardiovascular risk factors, and premature death. N Engl J Med. 2010;362:485--493. [PubMed: 20147714]
-10. Juonala M, Magnussen CG, Berenson GS, et al. Childhood Adiposity, Adult Adiposity, and Cardiovascular Risk Factors. New England Journal of Medicine. 2011;365:1876--1885.
-11. Cote AT, Harris KC, Panagiotopoulos C, Sandor GGS, Devlin AM. Childhood obesity and cardiovascular dysfunction. J Am Coll Cardiol. 2013;62:1309--1319. [PubMed: 23954339]
-12. Lee M-J, Wu Y, Fried SK. Adipose Tissue Heterogeneity: Implication of depot differences in adipose tissue for Obesity Complications. Mol Aspects Med. 2013;34:1--11. [PubMed: 23068073]
-13. Garrison RJ, Kannel WB, Stokes J, Castelli WP. Incidence and precursors of hypertension in young adults: The Framingham offspring study. Preventive Medicine. 1987;16:235--251. [PubMed: 3588564]
-14. Bhupathiraju Shilpa N, Hu Frank B Epidemiology of Obesity and Diabetes and Their Cardiovascular Complications. Circulation Research. 2016;118:1723--1735. [PubMed: 27230638]
-15. Jia G, Martinez-Lemus LA, Sowers JR. Interaction of Adipogenesis and Angiogenesis in Dietary-Induced Obesity. Diabetes. 2015;64:2326--2328. [PubMed: 26106192]
-16. Aroor AR, McKarns S, Demarco VG, Jia G, Sowers JR. Maladaptive immune and inflammatory pathways lead to cardiovascular insulin resistance. Metabolism. 2013;62:1543--1552. [PubMed: 23932846]
-17. Piché Marie-Eve, Tchernof André, Després Jean-Pierre. Obesity Phenotypes, Diabetes, and Cardiovascular Diseases. Circulation Research. 126:1477--1500.
-18. DeMarco VG, Aroor AR, Sowers JR. The pathophysiology of hypertension in patients with obesity. Nat Rev Endocrinol. 2014;10:364--376. [PubMed: 24732974]
-19. Hall John E, do Carmo Jussara M, da Silva Alexandre A, Wang Zhen, Hall Michael E. Obesity-Induced Hypertension. Circulation Research. 2015;116:991--1006. [PubMed: 25767285]
-20. Virtanen KA, Lidell ME, Orava J, et al. Functional Brown Adipose Tissue in Healthy Adults. New England Journal of Medicine. 2009;360:1518--1525.
-21. Leitner BP, Huang S, Brychta RJ, et al. Mapping of human brown adipose tissue in lean and obese young men. PNAS. 2017;114:8649--8654. [PubMed: 28739898]
-22. Zhang F, Hao G, Shao M, et al. An Adipose Tissue Atlas: An Image Guided Identification of Human-like BAT and Beige Depots in Rodents. Cell Metab. 2018;27:252--262.e3. [PubMed: 29320705]
-
-23. Lidell ME, Betz MJ, Leinhard OD, et al. Evidence for two types of brown adipose tissue in humans. Nature Medicine. 2013;19:631-634.
-24. Becher T, Palanisamy S, Kramer DJ, et al. Brown adipose tissue is associated with cardiometabolic health. Nature Medicine. Published online 14, 2021:1-8.
-25. Klaus S, Casteilla L, Bouillaud F, Ricquier D. The uncoupling protein UCP: a membraneous mitochondrial ion carrier exclusively expressed in brown adipose tissue. Int J Biochem. 1991;23:791-801. [PubMed: 1773883]
-26. Roesler A, Kazak L. UCP1-independent thermogenesis. Biochem J. 2020;477:709-725. [PubMed: 32059055]
-27. Wu J, Boström P, Sparks LM, et al. Beige Adipocytes Are a Distinct Type of Thermogenic Fat Cell in Mouse and Human. Cell. 2012;150:366-376. [PubMed: 22796012]
-28. Waldén TB, Hansen IR, Timmons JA, Cannon B, Nedergaard J. Recruited vs. nonrecruited molecular signatures of brown, "brite," and white adipose tissues. American Journal of Physiology-Endocrinology and Metabolism. 2011;302:E19-E31. [PubMed: 21828341]
-29. Young P, Arch JRS, Ashwell M. Brown adipose tissue in the parametrial fat pad of the mouse. FEBS Letters. 1984;167:10-14. [PubMed: 6698197]
-30. Orava J, Nuutila P, Lidell ME, et al. Different Metabolic Responses of Human Brown Adipose Tissue to Activation by Cold and Insulin. Cell Metabolism. 2011;14:272-279. [PubMed: 21803297]
-31. Wang QA, Tao C, Gupta RK, Scherer PE. Tracking adipogenesis during white adipose tissue development, expansion and regeneration. Nature Medicine. 2013;19:1338-1344.
-32. Rosenwald M, Perdikari A, Rülicke T, Wolfrum C. Bi-directional interconversion of brite and white adipocytes. Nat Cell Biol. 2013;15:659-667. [PubMed: 23624403]
-33. Roh HC, Tsai LTY, Shao M, et al. Warming Induces Significant Reprogramming of Beige, but Not Brown, Adipocyte Cellular Identity. Cell Metabolism. 2018;27:1121-1137. [PubMed: 29657031]
-34. Moulin K, Truel N, André M, et al. Emergence during development of the white-adipocyte cell phenotype is independent of the brown-adipocyte cell phenotype. Biochem J. 2001;356:659-664. [PubMed: 11368797]
-35. Timmons JA, Wennmalm K, Larsson O, et al. Myogenic gene expression signature establishes that brown and white adipocytes originate from distinct cell lineages. Proc Natl Acad Sci U S A. 2007;104:4401-4406. [PubMed: 17360536]
-36. Xue B, Rim J-S, Hogan JC, Coulter AA, Koza RA, Kozak LP. Genetic variability affects the development of brown adipocytes in white fat but not in interscapular brown fat. J Lipid Res. 2007;48:41-51. [PubMed: 17041251]
-37. Seale P, Bjork B, Yang W, et al. PRDM16 controls a brown fat/skeletal muscle switch. Nature. 2008;454:961-967. [PubMed: 18719582]
-38. Rodeheffer MS, Birsoy K, Friedman JM. Identification of White Adipocyte Progenitor Cells In Vivo. Cell. 2008;135:240-249. [PubMed: 18835024]
-39. Berry R, Rodeheffer MS. Characterization of the adipocyte cellular lineage in vivo. Nat Cell Biol. 2013;15:302-308. [PubMed: 23434825]
-40. Gesta S, Blüher M, Yamamoto Y, et al. Evidence for a role of developmental genes in the origin of obesity and body fat distribution. PNAS. 2006;103:6676-6681. [PubMed: 16617105]
-41. Atit R, Sgaier SK, Mohamed OA, et al. Beta-catenin activation is necessary and sufficient to specify the dorsal dermal fate in the mouse. Dev Biol. 2006;296:164-176. [PubMed: 16730693]
-42. Long JZ, Svensson KJ, Tsai L, et al. A Smooth Muscle-Like Origin for Beige Adipocytes. Cell Metabolism. 2014;19:810-820. [PubMed: 24709624]
-43. Sharp LZ, Shinoda K, Ohno H, et al. Human BAT possesses molecular signatures that resemble beige/brite cells. PLoS One. 2012;7:e49452. [PubMed: 23166672]
-44. Cannon B, Jong JMA de, Fischer AW, Nedergaard J, Petrovic N Human brown adipose tissue: Classical brown rather than brite/beige? Experimental Physiology. 2020;105:1191-1200. [PubMed: 32378255]
-
-45. Silva KR, Côrtes I, Liechocki S, et al. Characterization of stromal vascular fraction and adipose stem cells from subcutaneous, preperitoneal and visceral morbidly obese human adipose tissue depots. PLOS ONE. 2017;12:e0174115. [PubMed: 28323901]
-46. Kumar RK, Jin Y, Watts SW, Rockwell CE. Naïve, Regulatory, Activated, and Memory Immune Cells Co-exist in PVATs That Are Comparable in Density to Non-PVAT Fats in Health. Front Physiol. 2020;11.
-47. Weisberg SP, McCann D, Desai M, Rosenbaum M, Leibel RL, Ferrante AW. Obesity is associated with macrophage accumulation in adipose tissue. J Clin Invest. 2003;112:1796-1808. [PubMed: 14679176]
-48. Lumeng CN, Bodzin JL, Saltiel AR. Obesity induces a phenotypic switch in adipose tissue macrophage polarization. J Clin Invest. 2007;117:175-184. [PubMed: 17200717]
-49. Altintas MM, Azad A, Nayer B, et al. Mast cells, macrophages, and crown-like structures distinguish subcutaneous from visceral fat in mice. J Lipid Res. 2011;52:480-488. [PubMed: 21148461]
-50. Caspar-Bauguil S, Cousin B, Galinier A, et al. Adipose tissues as an ancestral immune organ: Sitespecific change in obesity. FEBS Letters. 2005;579:3487-3492. [PubMed: 15953605]
-51. Schipper HS, Rakhshandehroo M, Graaf SFJ van de, et al. Natural killer T cells in adipose tissue prevent insulin resistance. J Clin Invest. 2012;122:3343-3354. [PubMed: 22863618]
-52. Feuerer M, Herrero L, Cipolletta D, et al. Lean, but not obese, fat is enriched for a unique population of regulatory T cells that affect metabolic parameters. Nature Medicine. 2009;15:930939 .
-53. Nishimura S, Manabe I, Nagasaki M, et al. CD8+ effector T cells contribute to macrophage recruitment and adipose tissue inflammation in obesity. Nat Med. 2009;15:914-920. [PubMed: 19633658]
-54. Wu D, Molofsky AB, Liang H-E, et al. Eosinophils Sustain Adipose Alternatively Activated Macrophages Associated with Glucose Homeostasis. Science. 2011;332:243-247. [PubMed: 21436399]
-55. Brigger D, Riether C, van Brummelen R, et al. Eosinophils regulate adipose tissue inflammation and sustain physical and immunological fitness in old age. Nature Metabolism. 2020;2:688-702.
-56. Zuk PA, Zhu M, Ashjian P, et al. Human adipose tissue is a source of multipotent stem cells. Mol Biol Cell. 2002;13:4279-4295. [PubMed: 12475952]
-57. Romijn JA, Fliers E. Sympathetic and parasympathetic innervation of adipose tissue: metabolic implications. Curr Opin Clin Nutr Metab Care. 2005;8:440-444. [PubMed: 15930971]
-58. Chi J, Wu Z, Choi CHJ, et al. Three-Dimensional Adipose Tissue Imaging Reveals Regional Variation in Beige Fat Biogenesis and PRDM16-Dependent Sympathetic Neurite Density. Cell Metabolism. 2018;27:226-236 [PubMed: 29320703]
-59. Xue Y, Petrovic N, Cao R, et al. Hypoxia-Independent Angiogenesis in Adipose Tissues during Cold Acclimation. Cell Metabolism. 2009;9:99-109. [PubMed: 19117550]
-60. Villaret A, Galitzky J, Decaunes P, et al. Adipose tissue endothelial cells from obese human subjects: differences among depots in angiogenic, metabolic, and inflammatory gene expression and cellular senescence. Diabetes. 2010;59:2755-2763. [PubMed: 20713685]
-61. Elias I, Franckhauser S, Ferré T, et al. Adipose Tissue Overexpression of Vascular Endothelial Growth Factor Protects Against Diet-Induced Obesity and Insulin Resistance. Diabetes. 2012;61:1801-1813. [PubMed: 22522611]
-62. Bagchi M, Kim LA, Boucher J, Walshe TE, Kahn CR, D'Amore PA. Vascular endothelial growth factor is important for brown adipose tissue development and maintenance. FASEB J. 2013;27:3257-3271. [PubMed: 23682123]
-63. Shimizu I, Aprahamian T, Kikuchi R, et al. Vascular rarefaction mediates whitening of brown fat in obesity. J Clin Invest. 2014;124:2099-2112. [PubMed: 24713652]
-64. Murano I, Barbatelli G, Giordano A, Cinti S. Noradrenergic parenchymal nerve fiber branching after cold acclimatisation correlates with brown adipocyte density in mouse adipose organ. J Anat. 2009;214:171-178. [PubMed: 19018882]
-65. Wang P, Loh KH, Wu M, et al. A leptin-BDNF pathway regulating sympathetic innervation of adipose tissue. Nature. 2020;583:839-844. [PubMed: 32699414]
-
-66. Nguyen KD, Qiu Y, Cui X, et al. Alternatively activated macrophages produce catecholamines to sustain adaptive thermogenesis. Nature. 2011;480:104-108. [PubMed: 22101429]
-67. Qiu Y, Nguyen KD, Odegaard JI, et al. Eosinophils and Type 2 Cytokine Signaling in Macrophages Orchestrate Development of Functional Beige Fat. Cell. 2014;157:1292-1308. [PubMed: 24906148]
-68. Knights AJ, Vohralik EJ, Houweling PJ, et al. Eosinophil function in adipose tissue is regulated by Krüppel-like factor 3 (KLF3). Nature Communications. 2020;11:2922.
-69. Brestoff JR, Kim BS, Saenz SA, et al. Group 2 innate lymphoid cells promote beiging of white adipose tissue and limit obesity. Nature. 2015;519:242-246. [PubMed: 25533952]
-70. Saxton SN, Clark BJ, Withers SB, Eringa EC, Heagerty AM. Mechanistic Links Between Obesity, Diabetes, and Blood Pressure: Role of Perivascular Adipose Tissue. Physiological Reviews. 2019;99:1701-1763. [PubMed: 31339053]
-71. Padilla J, Vieira-Potter VJ, Jia G, Sowers JR. Role of perivascular adipose tissue on vascular reactive oxygen species in type 2 diabetes: a give-and-take relationship. Diabetes. 2015;64:19041906. [PubMed: 25999534]
-72. Jia G, Durante W, Sowers JR. Endothelium-Derived Hyperpolarizing Factors: A Potential Therapeutic Target for Vascular Dysfunction in Obesity and Insulin Resistance. Diabetes. 2016;65:2118-2120. [PubMed: 27456617]
-73. Jia G, Aroor AR, Sowers JR. The role of mineralocorticoid receptor signaling in the cross-talk between adipose tissue and the vascular wall. Cardiovasc Res. 2017;113:1055-1063. [PubMed: 28838041]
-74. Watts SW, Flood ED, Garver H, Fink GD, Roccabianca S. A New Function for Perivascular Adipose Tissue (PVAT): Assistance of Arterial Stress Relaxation. Scientific Reports. 2020;10:1807. [PubMed: 32019956]
-75. Lynch FM, Withers SB, Yao Z, et al. Perivascular adipose tissue-derived adiponectin activates BKCa channels to induce anticontractile responses. American Journal of Physiology-Heart and Circulatory Physiology. 2013;304:H786-H795. [PubMed: 23292715]
-76. Saxton Sophie N, Ryding Katie E, Aldous Robert G, Withers Sarah B, Ohanian Jacqueline, Heagerty Anthony M. Role of Sympathetic Nerves and Adipocyte Catecholamine Uptake in the Vasorelaxant Function of Perivascular Adipose Tissue. Arteriosclerosis, Thrombosis, and Vascular Biology. 2018;38:880-891.
-77. Abu Bakar H, Robert Dunn W, Daly C, Ralevic V. Sensory innervation of perivascular adipose tissue: a crucial role in artery vasodilatation and leptin release. Cardiovascular Research. 2017;113:962-972. [PubMed: 28371926]
-78. Police Sara B, Thatcher Sean E, Charnigo Richard, Daugherty Alan, Cassis Lisa A. Obesity Promotes Inflammation in Periaortic Adipose Tissue and Angiotensin II-Induced Abdominal Aortic Aneurysm Formation. Arteriosclerosis, Thrombosis, and Vascular Biology. 2009;29:14581464.
-79. Qi X-Y, Qu S-L, Xiong W-H, Rom O, Chang L, Jiang Z-S. Perivascular adipose tissue (PVAT) in atherosclerosis: a double-edged sword. Cardiovasc Diabetol. 2018;17.
-80. Padilla J, Jenkins NT, Vieira-Potter VJ, Laughlin MH. Divergent phenotype of rat thoracic and abdominal perivascular adipose tissues. Am J Physiol Regul Integr Comp Physiol. 2013;304:R543-552. [PubMed: 23389108]
-81. Eringa EC, Bakker W, Smulders YM, Serné EH, Yudkin JS, Stehouwer CDA. Regulation of Vascular Function and Insulin Sensitivity by Adipose Tissue: Focus on Perivascular Adipose Tissue. Microcirculation. 2007;14:389-402. [PubMed: 17613810]
-82. Kwok KHM, Lam KSL, Xu A. Heterogeneity of white adipose tissue: molecular basis and clinical implications. Experimental \& Molecular Medicine. 2016;48:e215-e215. [PubMed: 26964831]
-83. Gálvez-Prieto B, Bolbrinker J, Stucchi P, et al. Comparative expression analysis of the reninangiotensin system components between white and brown perivascular adipose tissue. Journal of Endocrinology. 2008;197:55-64.
-84. Chang L, Villacorta L, Li R, et al. Loss of Perivascular Adipose Tissue upon PPAR $\gamma$ Deletion in Smooth Muscle Cells Impairs Intravascular Thermoregulation and Enhances Atherosclerosis. Circulation. 2012;126:1067-1078. [PubMed: 22855570]
-
-85. Elvire Henrichot, Juge-Aubry Cristiana E., Pernin Agnès, et al. Production of Chemokines by Perivascular Adipose Tissue. Arteriosclerosis, Thrombosis, and Vascular Biology. 2005;25:25942599.
-86. Fitzgibbons TP, Kogan S, Aouadi M, Hendricks GM, Straubhaar J, Czech MP. Similarity of mouse perivascular and brown adipose tissues and their resistance to diet-induced inflammation. American Journal of Physiology-Heart and Circulatory Physiology. 2011;301:H1425-H1437. [PubMed: 21765057]
-87. Nedergaard J, Bengtsson T, Cannon B. Unexpected evidence for active brown adipose tissue in adult humans. American Journal of Physiology-Endocrinology and Metabolism. 2007;293:E444E452. [PubMed: 17473055]
-88. Efremova A, Senzacqua M, Venema W, et al. A large proportion of mediastinal and perirenal visceral fat of Siberian adult people is formed by UCP1 immunoreactive multilocular and paucilocular adipocytes. J Physiol Biochem. 2020;76:185-192. [PubMed: 31853729]
-89. Kusminski CM, Park J, Scherer PE. MitoNEET-mediated effects on browning of white adipose tissue. Nature Communications. 2014;5(:3962.
-90. Xiong W, Zhao X, Garcia-Barrio MT, et al. MitoNEET in Perivascular Adipose Tissue Blunts Atherosclerosis under Mild Cold Condition in Mice. Front Physiol. 2017;8.
-91. Gao Y-J, Zeng Z, Teoh K, et al. Perivascular adipose tissue modulates vascular function in the human internal thoracic artery. The Journal of Thoracic and Cardiovascular Surgery. 2005;130:1130-1136. [PubMed: 16214530]
-92. Boucher Joshua M, Ryzhova Larisa, Harrington Anne, et al. Pathological Conversion of Mouse Perivascular Adipose Tissue by Notch Activation. Arteriosclerosis, Thrombosis, and Vascular Biology. 2020;40:2227-2243.
-93. Gu P, Xu A. Interplay between adipose tissue and blood vessels in obesity and vascular dysfunction. Rev Endocr Metab Disord. 2013;14:49-58. [PubMed: 23283583]
-94. Greenstein Adam S, Khavandi Kaivan, Withers Sarah B., et al. Local Inflammation and Hypoxia Abolish the Protective Anticontractile Properties of Perivascular Fat in Obese Patients. Circulation. 2009;119:1661-1670. [PubMed: 19289637]
-95. Withers SB, Forman R, Meza-Perez S, et al. Eosinophils are key regulators of perivascular adipose tissue and vascular functionality. Scientific Reports. 2017;7:44571. [PubMed: 28303919]
-96. Bridget Brosnihan K., Ping Li, Ferrario Carlos M. Angiotensin-(1-7) Dilates Canine Coronary Arteries Through Kinins and Nitric Oxide. Hypertension. 1996;27:523-528. [PubMed: 8613197]
-97. Durand MJ, Zinkevich NS, Riedel M, et al. Vascular Actions of Angiotensin 1-7 in the Human Microcirculation: Novel Role for Telomerase. Arterioscler Thromb Vasc Biol. 2016;36:12541262. [PubMed: 27079876]
-98. Bujak-Gizycka B, Madej J, Wołkow PP, et al. Measurement of angiotensin metabolites in organ bath and cell culture experiments by liquid chromatography - electrospray ionization - mass spectrometry (LC-ESI-MS). J Physiol Pharmacol. 2007;58:529-540. [PubMed: 17928648]
-99. Gao Y-J, Lu C, Su L-Y, Sharma AM, Lee RMKW. Modulation of vascular function by perivascular adipose tissue: the role of endothelium and hydrogen peroxide. British Journal of Pharmacology. 2007;151:323-331. [PubMed: 17384669]
-100. Arita Y, Kihara S, Ouchi N, et al. Paradoxical decrease of an adipose-specific protein, adiponectin, in obesity. Biochem Biophys Res Commun. 1999;257:79-83. [PubMed: 10092513]
-101. Wenduo Gu, Nowak Witold N., Xie Yao, et al. Single-Cell RNA-Sequencing and Metabolomics Analyses Reveal the Contribution of Perivascular Adipose Tissue Stem Cells to Vascular Remodeling. Arteriosclerosis, Thrombosis, and Vascular Biology. 2019;39:2049-2066.
-102. Guanghong Jia, Sowers James R. Endothelial Dysfunction Potentially Interacts With Impaired Glucose Metabolism to Increase Cardiovascular Risk. Hypertension. 2014;64:1192-1193. [PubMed: 25225204]
-103. Villacorta L, Chang L. The role of perivascular adipose tissue in vasoconstriction, arterial stiffness, and aneurysm. Horm Mol Biol Clin Investig. 2015;21:137-147.
-104. Thanassoulis G, Massaro JM, Corsini E, et al. Periaortic Adipose Tissue and Aortic Dimensions in the Framingham Heart Study. J Am Heart Assoc. 2012;1.
-
-105. Li W, Jin D, Takai S, et al. Impaired function of aorta and perivascular adipose tissue in IL-18deficient mice. American Journal of Physiology-Heart and Circulatory Physiology. 2019;317:H1142-H1156. [PubMed: 31518161]
-106. Talman AH, Psaltis PJ, Cameron JD, Meredith IT, Seneviratne SK, Wong DTL. Epicardial adipose tissue: far more than a fat depot. Cardiovasc Diagn Ther. 2014;4:416-429. [PubMed: 25610800]
-107. Marchington JM, Mattacks CA, Pond CM. Adipose tissue in the mammalian heart and pericardium: structure, foetal development and biochemical properties. Comp Biochem Physiol B. 1989;94:225-232. [PubMed: 2591189]
-108. Sacks HS, Fain JN, Holman B, et al. Uncoupling protein-1 and related messenger ribonucleic acids in human epicardial and other adipose tissues: epicardial fat functioning as brown fat. J Clin Endocrinol Metab. 2009;94:3611-3615. [PubMed: 19567523]
-109. Chatterjee Tapan K, Stoll Lynn L, Denning Gerene M, et al. Proinflammatory Phenotype of Perivascular Adipocytes. Circulation Research. 2009;104:541-549. [PubMed: 19122178]
-110. Aldiss P, Davies G, Woods R, Budge H, Sacks HS, Symonds ME. 'Browning' the cardiac and peri-vascular adipose tissues to modulate cardiovascular risk. International Journal of Cardiology. 2017;228:265-274. [PubMed: 27865196]
-111. Iacobellis G, Pistilli D, Gucciardo M, et al. Adiponectin expression in human epicardial adipose tissue in vivo is lower in patients with coronary artery disease. Cytokine. 2005;29:251-255. [PubMed: 15749025]
-112. Silaghi A, Achard V, Paulmyer-Lacroix O, et al. Expression of adrenomedullin in human epicardial adipose tissue: role of coronary status. Am J Physiol Endocrinol Metab. 2007;293:E1443-1450. [PubMed: 17878224]
-113. Teijeira-Fernandez E, Eiras S, Grigorian-Shamagian L, Fernandez A, Adrio B, Gonzalez-Juanatey JR. Epicardial adipose tissue expression of adiponectin is lower in patients with hypertension. Journal of Human Hypertension. 2008;22:856-863. [PubMed: 18650840]
-114. Le Jemtel TH, Samson R, Ayinapudi K, Singh T, Oparil S. Epicardial Adipose Tissue and Cardiovascular Disease. Curr Hypertens Rep. 2019;21:36. [PubMed: 30953236]
-115. Dicker D, Atar E, Kornowski R, Bachar GN. Increased Epicardial Adipose Tissue Thickness as a Predictor for Hypertension: A Cross-Sectional Observational Study. The Journal of Clinical Hypertension. 2013;15:893-898. [PubMed: 24102800]
-116. Eroğlu S, Sade LE, Yıldırır A, Demir O, Müderrisoğlu H. Association of epicardial adipose tissue thickness by echocardiography and hypertension. Turk Kardiyol Dern Ars. 2013;41:115-122. [PubMed: 23666298]
-117. Austys D, Dobrovolskij A, Jablonskienė V, Dobrovolskij V, Valevičienė N, Stukas R. Epicardial Adipose Tissue Accumulation and Essential Hypertension in Non-Obese Adults. Medicina (Kaunas). 2019;55.
-118. Mazurek Tomasz, Zhang LiFeng, Zalewski Andrew, et al. Human Epicardial Adipose Tissue Is a Source of Inflammatory Mediators. Circulation. 2003;108:2460-2466. [PubMed: 14581396]
-119. Iacobellis G, Ribaudo MC, Zappaterreno A, Iannucci CV, Leonetti F. Relation between epicardial adipose tissue and left ventricular mass. Am J Cardiol. 2004;94:1084-1087. [PubMed: 15476634]
-120. Iacobellis G, Leonetti F, Singh N, M Sharma A. Relationship of epicardial adipose tissue with atrial dimensions and diastolic function in morbidly obese subjects. International Journal of Cardiology. 2007;115:272-273. [PubMed: 16759715]
-121. George Thanassoulis, Massaro Joseph M., O’Donnell Christopher J., et al. Pericardial Fat Is Associated With Prevalent Atrial Fibrillation. Circulation: Arrhythmia and Electrophysiology. 2010;3:345-350. [PubMed: 20558845]
-122. Baker AR, da Silva NF, Quinn DW, et al. Human epicardial adipose tissue expresses a pathogenic profile of adipocytokines in patients with cardiovascular disease. Cardiovascular Diabetology. 2006;5:1. [PubMed: 16412224]
-123. Nguyen Dinh Cat A, Briones AM, Callera GE, et al. Adipocyte-derived factors regulate vascular smooth muscle cells through mineralocorticoid and glucocorticoid receptors. Hypertension. 2011;58:479-488. [PubMed: 21788604]
-
-124. Nguyen Dinh Cat A, Touyz RM. A new look at the renin-angiotensin system—Focusing on the vascular system. Peptides. 2011;32:2141-2150. [PubMed: 21945916]
-125. Frederich RC, Kahn BB, Peach MJ, Flier JS. Tissue-specific nutritional regulation of angiotensinogen in adipose tissue. Hypertension. 1992;19:339-344. [PubMed: 1555865]
-126. Massiéra F, Bloch-Faure M, Ceiler D, et al. Adipose angiotensinogen is involved in adipose tissue growth and blood pressure regulation. FASEB J. 2001;15:2727-2729. [PubMed: 11606482]
-127. Engeli S, Gorzelniak K, Kreutz R, Runkel N, Distler A, Sharma AM. Co-expression of reninangiotensin system genes in human adipose tissue. Journal of Hypertension. 1999;17:555-560. [PubMed: 10404958]
-128. Giacchetti G, Faloia E, Sardu C, et al. Gene expression of angiotensinogen in adipose tissue of obese patients. Int J Obes. 2000;24:S142-S143.
-129. Zhang Y, Somers KR, Becari C, et al. Comparative Expression of Renin-Angiotensin Pathway Proteins in Visceral Versus Subcutaneous Fat. Front Physiol. 2018;9.
-130. Jones BH, Standridge MK, Taylor JW, Moustaid N. Angiotensinogen gene expression in adipose tissue: analysis of obese models and hormonal and nutritional control. American Journal of Physiology-Regulatory, Integrative and Comparative Physiology. 1997;273:R236-R242.
-131. Liu C, Kraja AT, Smith JA, et al. Meta-analysis identifies common and rare variants influencing blood pressure and overlapping with metabolic trait loci. Nat Genet. 2016;48:1162-1170. [PubMed: 27618448]
-132. Morimoto H, Mori J, Nakajima H, et al. Angiotensin 1-7 stimulates brown adipose tissue and reduces diet-induced obesity. Am J Physiol Endocrinol Metab. 2018;314:E131-E138. [PubMed: 29066463]
-133. Kawabe Y, Mori J, Morimoto H, et al. ACE2 exerts anti-obesity effect via stimulating brown adipose tissue and induction of browning in white adipose tissue. American Journal of Physiology-Endocrinology and Metabolism. 2019;317:E1140-E1149. [PubMed: 31638856]
-134. Than A, Xu S, Li R, Leow M-S, Sun L, Chen P. Angiotensin type 2 receptor activation promotes browning of white adipose tissue and brown adipogenesis. Signal Transduction and Targeted Therapy. 2017;2:1-12.
-135. de Kloet AD, Krause EG, Scott KA, et al. Central angiotensin II has catabolic action at white and brown adipose tissue. American Journal of Physiology-Endocrinology and Metabolism. 2011;301:E1081-E1091. [PubMed: 21862725]
-136. Tsukuda K, Mogi M, Iwanami J, et al. Enhancement of Adipocyte Browning by Angiotensin II Type 1 Receptor Blockade. PLoS One. 2016;11:e0167704. [PubMed: 27992452]
-137. Hotamisligil GS, Shargill NS, Spiegelman BM. Adipose expression of tumor necrosis factoralpha: direct role in obesity-linked insulin resistance. Science. 1993;259:87-91. [PubMed: 7678183]
-138. Cildir G, Akıncılar SC, Tergaonkar V. Chronic adipose tissue inflammation: all immune cells on the stage. Trends in Molecular Medicine. 2013;19:487-500. [PubMed: 23746697]
-139. Spalding KL, Arner E, Westermark PO, et al. Dynamics of fat cell turnover in humans. Nature. 2008;453:783-787. [PubMed: 18454136]
-140. Goossens GH. The Metabolic Phenotype in Obesity: Fat Mass, Body Fat Distribution, and Adipose Tissue Function. Obes Facts. 2017;10:207-215. [PubMed: 28564650]
-141. Moreno-Indias I, Tinahones FJ. Impaired Adipose Tissue Expandability and Lipogenic Capacities as Ones of the Main Causes of Metabolic Disorders. J Diabetes Res. 2015;2015.
-142. Guzik TJ, Skiba DS, Touyz RM, Harrison DG. The role of infiltrating immune cells in dysfunctional adipose tissue. Cardiovasc Res. 2017;113:1009-1023. [PubMed: 28838042]
-143. Fried SK, Lee M-J, Karastergiou K. Shaping fat distribution: new insights into the molecular determinants of depot- and sex-dependent adipose biology. Obesity (Silver Spring). 2015;23:1345-1352. [PubMed: 26054752]
-144. Palmer BF, Clegg DJ. The sexual dimorphism of obesity. Mol Cell Endocrinol. 2015;402:113119. [PubMed: 25578600]
-145. Lee M-J, Fried SK. Sex-dependent Depot Differences in Adipose Tissue Development and Function; Role of Sex Steroids. J Obes Metab Syndr. 2017;26:172-180. [PubMed: 31089514]
-
-146. Haarbo J, Marslew U, Gotfredsen A, Christiansen C. Postmenopausal hormone replacement therapy prevents central distribution of body fat after menopause. Metabolism. 1991;40:13231326. [PubMed: 1961129]
-147. Chen X, McClusky R, Chen J, et al. The Number of X Chromosomes Causes Sex Differences in Adiposity in Mice. PLOS Genetics. 2012;8:e1002709. [PubMed: 22589744]
-148. Link JC, Wiese CB, Chen X, et al. X chromosome dosage of histone demethylase KDM5C determines sex differences in adiposity. J Clin Invest. 2020;130:5688-5702. [PubMed: 32701509]
-149. Liu R, Nikolajczyk BS. Tissue Immune Cells Fuel Obesity-Associated Inflammation in Adipose Tissue and Beyond. Front Immunol. 2019;10.
-150. Kanda H, Tateya S, Tamori Y, et al. MCP-1 contributes to macrophage infiltration into adipose tissue, insulin resistance, and hepatic steatosis in obesity. J Clin Invest. 2006;116:1494-1505. [PubMed: 16691291]
-151. Patsouris D, Li P-P, Thapar D, Chapman J, Olefsky JM, Neels JG. Ablation of CD11c-Positive Cells Normalizes Insulin Sensitivity in Obese Insulin Resistant Animals. Cell Metabolism. 2008;8:301-309. [PubMed: 18840360]
-152. Wentworth JM, Naselli G, Brown WA, et al. Pro-Inflammatory CD11c+CD206+ Adipose Tissue Macrophages Are Associated With Insulin Resistance in Human Obesity. Diabetes. 2010;59:1648-1656. [PubMed: 20357360]
-153. Amano SU, Cohen JL, Vangala P, et al. Local Proliferation of Macrophages Contributes to Obesity-Associated Adipose Tissue Inflammation. Cell Metabolism. 2014;19:162-171. [PubMed: 24374218]
-154. Cancello R, Tordjman J, Poitou C, et al. Increased infiltration of macrophages in omental adipose tissue is associated with marked hepatic lesions in morbid human obesity. Diabetes. 2006;55:1554-1561. [PubMed: 16731817]
-155. Murano I, Barbatelli G, Parisani V, et al. Dead adipocytes, detected as crown-like structures, are prevalent in visceral fat depots of genetically obese mice. J Lipid Res. 2008;49:1562-1568. [PubMed: 18390487]
-156. Winer S, Chan Y, Paltser G, et al. Normalization of Obesity-Associated Insulin Resistance through Immunotherapy: CD4+ T Cells Control Glucose Homeostasis. Nat Med. 2009;15:921929. [PubMed: 19633657]
-157. Cipolletta D, Feuerer M, Li A, et al. PPAR- $\gamma$ is a major driver of the accumulation and phenotype of adipose tissue Treg cells. Nature. 2012;486:549-553. [PubMed: 22722857]
-158. Fuster JJ, Ouchi N, Gokce N, Walsh K. Obesity-induced Changes in Adipose Tissue Microenvironment and Their Impact on Cardiovascular Disease. Circ Res. 2016;118:1786-1807. [PubMed: 27230642]
-159. Osborn O, Olefsky JM. The cellular and signaling networks linking the immune system and metabolism in disease. Nature Medicine. 2012;18:363-374.
-160. Saito M, Okamatsu-Ogura Y, Matsushita M, et al. High Incidence of Metabolically Active Brown Adipose Tissue in Healthy Adult Humans: Effects of Cold Exposure and Adiposity. Diabetes. 2009;58:1526-1531. [PubMed: 19401428]
-161. Yoneshiro T, Aita S, Matsushita M, et al. Recruited brown adipose tissue as an antiobesity agent in humans. J Clin Invest. 2013;123:3404-3408. [PubMed: 23867622]
-162. Lowell BBS-Susulic V, Hamann A, et al. Development of obesity in transgenic mice after genetic ablation of brown adipose tissue. Nature. 1993;366:740-742. [PubMed: 8264795]
-163. Feldmann HM, Golozoubova V, Cannon B, Nedergaard J. UCP1 ablation induces obesity and abolishes diet-induced thermogenesis in mice exempt from thermal stress by living at thermoneutrality. Cell Metab. 2009;9:203-209. [PubMed: 19187776]
-164. Sakamoto T, Nitta T, Maruno K, et al. Macrophage infiltration into obese adipose tissues suppresses the induction of UCP1 level in mice. American Journal of Physiology-Endocrinology and Metabolism. 2016;310:E676-E687. [PubMed: 26884382]
-165. Peterson KR, Flaherty DK, Hasty AH. Obesity alters B cell and macrophage populations in brown adipose tissue. Obesity (Silver Spring). 2017;25:1881-1884. [PubMed: 28922564]
-
-166. Bi P, Shan T, Liu W, et al. Inhibition of Notch signaling promotes browning of white adipose tissue and ameliorates obesity. Nature Medicine. 2014;20:911-918.
-167. Lawes CM, Hoorn SV, Rodgers A. Global burden of blood-pressure-related disease, 2001. The Lancet. 2008;371:1513-1518.
-168. Zhou D, Xi B, Zhao M, Wang L, Veeranki SP. Uncontrolled hypertension increases risk of allcause and cardiovascular disease mortality in US adults: the NHANES III Linked Mortality Study. Sci Rep. 2018;8.
-169. Burke GL, Bertoni AG, Shea S, et al. The impact of obesity on cardiovascular disease risk factors and subclinical vascular disease: the Multi-Ethnic Study of Atherosclerosis. Arch Intern Med. 2008;168:928-935. [PubMed: 18474756]
-170. Stevens VJ, Obarzanek E, Cook NR, et al. Long-Term Weight Loss and Changes in Blood Pressure: Results of the Trials of Hypertension Prevention, Phase II. Ann Intern Med. 2001;134:1-11. [PubMed: 11187414]
-171. Lee D, Sui X, Church TS, Lavie CJ, Jackson AS, Blair SN. Changes in Fitness and Fatness on the Development of Cardiovascular Disease Risk Factors: Hypertension, Metabolic Syndrome, and Hypercholesterolemia. Journal of the American College of Cardiology. 2012;59:665-672. [PubMed: 22322083]
-172. Matsuzawa Y, Funahashi T, Nakamura T. The concept of metabolic syndrome: contribution of visceral fat accumulation and its molecular mechanism. J Atheroscler Thromb. 2011;18:629-639. [PubMed: 21737960]
-173. Huang PL. A comprehensive definition for metabolic syndrome. Dis Model Mech. 2009;2:231237. [PubMed: 19407331]
-174. van Harmelen V, Elizalde M, Ariapart P, et al. The association of human adipose angiotensinogen gene expression with abdominal fat distribution in obesity. International Journal of Obesity. 2000;24:673-678. [PubMed: 10878672]
-175. Rahmouni K, Mark AL, Haynes WG, Sigmund CD. Adipose depot-specific modulation of angiotensinogen gene expression in diet-induced obesity. American Journal of PhysiologyEndocrinology and Metabolism. 2004;286:E891-E895. [PubMed: 14749209]
-176. Frederique Yiannikouris, Manisha Gupte, Kelly Putnam, et al. Adipocyte Deficiency of Angiotensinogen Prevents Obesity-Induced Hypertension in Male Mice. Hypertension. 2012;60:1524-1530. [PubMed: 23108647]
-177. Boustany CM, Brown DR, Randall DC, Cassis LA. AT1-receptor antagonism reverses the blood pressure elevation associated with diet-induced obesity. American Journal of PhysiologyRegulatory, Integrative and Comparative Physiology. 2005;289:R181-R186.
-178. Cohen P, Levy JD, Zhang Y, et al. Ablation of PRDM16 and Beige Adipose Causes Metabolic Dysfunction and a Subcutaneous to Visceral Fat Switch. Cell. 2014;156:304-316. [PubMed: 24439384]
-179. Harms MJ, Lim H-W, Ho Y, et al. PRDM16 binds MED1 and controls chromatin architecture to determine a brown fat transcriptional program. Genes Dev. 2015;29:298-307. [PubMed: 25644604]
-180. Antonio Cittadini, Mantzoros Christos S., Hampton Thomas G., et al. Cardiovascular Abnormalities in Transgenic Mice With Reduced Brown Fat. Circulation. 1999;100:2177-2183. [PubMed: 10571977]
-181. Dall'Asta C, Vedani P, Manunta P, et al. Effect of weight loss through laparoscopic gastric banding on blood pressure, plasma renin activity and aldosterone levels in morbid obesity. Nutrition, Metabolism and Cardiovascular Diseases. 2009;19:110-114.
-182. Maffei M, Halaas J, Ravussin E, et al. Leptin levels in human and rodent: Measurement of plasma leptin and ob RNA in obese and weight-reduced subjects. Nature Medicine. 1995;1:1155-1161.
-183. Considine RV, Sinha MK, Heiman ML, et al. Serum Immunoreactive-Leptin Concentrations in Normal-Weight and Obese Humans. New England Journal of Medicine. 1996;334:292-295.
-184. Russell CD, Petersen RN, Rao SP, et al. Leptin expression in adipose tissue from obese humans: depot-specific regulation by insulin and dexamethasone. American Journal of PhysiologyEndocrinology and Metabolism. 1998;275:E507-E515.
-
-185. Harmelen VV, Reynisdottir S, Eriksson P, et al. Leptin secretion from subcutaneous and visceral adipose tissue in women. Diabetes. 1998;47:913-917. [PubMed: 9604868]
-186. Schoof E, Stuppy A, Harig F, et al. Comparison of leptin gene expression in different adipose tissues in children and adults. Eur J Endocrinol. 2004;150:579-584. [PubMed: 15080789]
-187. Simonds SE, Pryor JT, Ravussin E, et al. Leptin Mediates the Increase in Blood Pressure Associated with Obesity. Cell. 2014;159:1404-1416. [PubMed: 25480301]
-188. Rahmouni K, Morgan DA, Morgan GM, Mark AL, Haynes WG. Role of Selective Leptin Resistance in Diet-Induced Obesity Hypertension. Diabetes. 2005;54:2012-2018. [PubMed: 15983201]
-189. Mark AL, Correia M, Morgan DA, Shaffer RA, Haynes WG. State-of-the-art-lecture: Obesityinduced hypertension: new concepts from the emerging biology of obesity. Hypertension. 1999;33:537-541. [PubMed: 9931161]
-190. Haynes WG. Interaction between leptin and sympathetic nervous system in hypertension. Current Science Inc. 2000;2:311-318.
-191. Mark AL, Shaffer RA, Correia MLG, Morgan DA, Sigmund CD, Haynes WG. Contrasting blood pressure effects of obesity in leptin-deficient ob/ob mice and agouti yellow obese mice. Journal of Hypertension. 1999;17:1949-1953. [PubMed: 10703894]
-192. Halaas JL, Boozer C, Blair-West J, Fidahusein N, Denton DA, Friedman JM. Physiological response to long-term peripheral and central leptin infusion in lean and obese mice. PNAS. 1997;94:8878-8883. [PubMed: 9238071]
-193. Lembo G, Vecchione C, Fratta L, et al. Leptin induces direct vasodilation through distinct endothelial mechanisms. Diabetes. 2000;49:293-297. [PubMed: 10868946]
-194. Nakagawa K, Higashi Y, Sasaki S, Oshima T, Matsuura H, Chayama K. Leptin Causes Vasodilation in Humans. Hypertension Research. 2002;25:161-165. [PubMed: 12047029]
-195. Bravo PE, Morse S, Borne DM, Aguilar EA, Reisin E. Leptin and Hypertension in Obesity. Vasc Health Risk Manag. 2006;2:163-169. [PubMed: 17319461]
-196. Mark AL. Selective leptin resistance revisited. American Journal of Physiology-Regulatory, Integrative and Comparative Physiology. 2013;305:R566-R581.
-197. Correia MLG, Haynes WG, Rahmouni K, Morgan DA, Sivitz WI, Mark AL. The Concept of Selective Leptin Resistance: Evidence From Agouti Yellow Obese Mice. Diabetes. 2002;51:439442. [PubMed: 11812752]
-198. Gabriely I, Ma XH, Yang XM, et al. Removal of Visceral Fat Prevents Insulin Resistance and Glucose Intolerance of Aging: An Adipokine-Mediated Process? Diabetes. 2002;51:2951-2958. [PubMed: 12351432]
-199. Langheim S, Dreas L, Veschini L, et al. Increased expression and secretion of resistin in epicardial adipose tissue of patients with acute coronary syndrome. American Journal of Physiology-Heart and Circulatory Physiology. 2010;298:H746-H753. [PubMed: 20061546]
-200. Park SY, Kim KH, Seo KW, et al. Resistin derived from diabetic perivascular adipose tissue upregulates vascular expression of osteopontin via the AP-1 signalling pathway. The Journal of Pathology. 2014;232:87-97. [PubMed: 24089355]
-201. Steppan CM, Bailey ST, Bhat S, et al. The hormone resistin links obesity to diabetes. Nature. 2001;409:307-312. [PubMed: 11201732]
-202. Yasunori Takata, Haruhiko Osawa, Mie Kurata, et al. Hyperresistinemia Is Associated With Coexistence of Hypertension and Type 2 Diabetes. Hypertension. 2008;51:534-539. [PubMed: 18180399]
-203. Jiang Y, Lu L, Hu Y, et al. Resistin Induces Hypertension and Insulin Resistance in Mice via a TLR4-Dependent Pathway. Scientific Reports. 2016;6:22193. [PubMed: 26917360]
-204. Calabro P, Samudio I, Willerson JT, Yeh ETH. Resistin promotes smooth muscle cell proliferation through activation of extracellular signal-regulated kinase $1 / 2$ and phosphatidylinositol 3-kinase pathways. Circulation. 2004;110:3335-3340. [PubMed: 15545519]
-205. Segawa K, Fukuhara A, Hosogai N, et al. Visfatin in adipocytes is upregulated by hypoxia through HIF1 $\alpha$-dependent mechanism. Biochemical and Biophysical Research Communications. 2006;349:875-882. [PubMed: 16970912]
-
-206. Gunes F, Akbal E, Cakir E, Akyurek O, Altunbas M, Ozbek M. Visfatin may be a novel marker for identifying stages of essential hypertension in advanced age patients. Intern Med. 2012;51:553-557. [PubMed: 22449661]
-207. Dogru T, Sonmez A, Tasci I, et al. Plasma visfatin levels in young male patients with uncomplicated and newly diagnosed hypertension. Journal of Human Hypertension. 2007;21:173-175. [PubMed: 17096008]
-208. Curat CA, Wegner V, Sengenès C, et al. Macrophages in human visceral adipose tissue: increased accumulation in obesity and a source of resistin and visfatin. Diabetologia. 2006;49:744. [PubMed: 16496121]
-209. Reneau J, Goldblatt M, Gould J, et al. Effect of adiposity on tissue-specific adiponectin secretion. PLOS ONE. 2018;13:e0198889. [PubMed: 29924824]
-210. Ohashi K, Kihara S, Ouchi N, et al. Adiponectin replenishment ameliorates obesity-related hypertension. Hypertension. 2006;47:1108-1116. [PubMed: 16651465]
-211. Yilmaz MI, Sonmez A, Caglar K, et al. Effect of antihypertensive agents on plasma adiponectin levels in hypertensive patients with metabolic syndrome. Nephrology. 2007;12:147-153. [PubMed: 17371337]
-212. Yin C, Chu H, Li H, Xiao Y. Plasma Sfrp5 and adiponectin levels in relation to blood pressure among obese children. J Hum Hypertens. 2017;31:284-291. [PubMed: 27882931]
-213. Imatoh T, Miyazaki M, Momose Y, Tanihara S, Une H. Adiponectin Levels Associated with the Development of Hypertension: A Prospective Study. Hypertension Research. 2008;31:229-233. [PubMed: 18360041]
-214. Shatat IF, Freeman KD, Vuguin PM, Dimartino-Nardi JR, Flynn JT. Relationship Between Adiponectin and Ambulatory Blood Pressure in Obese Adolescents. Pediatric Research. 2009;65:691-695. [PubMed: 19430383]
-215. Peri-Okonny PA, Ayers C, Maalouf N, et al. Adiponectin protects against incident hypertension independent of body fat distribution: observations from the Dallas Heart Study. Diabetes Metab Res Rev. 2017;33.
-216. Noriyuki Ouchi, Mitsuru Ohishi, Shinji Kihara, et al. Association of Hypoadiponectinemia With Impaired Vasoreactivity. Hypertension. 2003;42:231-234. [PubMed: 12860835]
-217. Almabrouk TAM, Ugusman AB, Katwan OJ, Salt IP, Kennedy S. Deletion of AMPK $\alpha 1$ attenuates the anticontractile effect of perivascular adipose tissue (PVAT) and reduces adiponectin release. Br J Pharmacol. 2017;174:3398-3410. [PubMed: 27668984]
-218. Yang R-Z, Lee M-J, Hu H, et al. Identification of omentin as a novel depot-specific adipokine in human adipose tissue: possible role in modulating insulin action. American Journal of Physiology-Endocrinology and Metabolism. 2006;290:E1253-E1261. [PubMed: 16531507]
-219. de Souza Batista CM, Yang R-Z, Lee M-J, et al. Omentin plasma levels and gene expression are decreased in obesity. Diabetes. 2007;56:1655-1661. [PubMed: 17329619]
-220. Moreno-Navarrete JM, Catalán V, Ortega F, et al. Circulating omentin concentration increases after weight loss. Nutr Metab (Lond). 2010;7:27. [PubMed: 20380714]
-221. Kazama K, Okada M, Hara Y, Yamawaki H. A Novel Adipocytokine, Omentin, Inhibits AgonistsInduced Increases of Blood Pressure in Rats. Journal of Veterinary Medical Science. 2013;advpub.
-222. Brunetti L, Leone S, Orlando G, et al. Hypotensive effects of omentin-1 related to increased adiponectin and decreased interleukin-6 in intra-thoracic pericardial adipose tissue. Pharmacological Reports. 2014;66:991-995. [PubMed: 25443726]
-223. Ohashi K, Shibata R, Murohara T, Ouchi N. Role of anti-inflammatory adipokines in obesityrelated diseases. Trends in Endocrinology \& Metabolism. 2014;25:348-355. [PubMed: 24746980]
-224. Zabetian-Targhi F, Mirzaei K, Keshavarz SA, Hossein-Nezhad A. Modulatory Role of Omentin-1 in Inflammation: Cytokines and Dietary Intake. J Am Coll Nutr. 2016;35:670-678. [PubMed: 27331575]
-225. Sargolzaei J, Chamani E, Kazemi T, Fallah S, Soori H. The role of adiponectin and adipolin as anti-inflammatory adipokines in the formation of macrophage foam cells and their association with cardiovascular diseases. Clinical Biochemistry. 2018;54:1-10. [PubMed: 29452073]
-
-226. Enomoto T, Ohashi K, Shibata R, et al. Adipolin/C1qdc2/CTRP12 Protein Functions as an Adipokine That Improves Glucose Metabolism*. Journal of Biological Chemistry. 2011;286:34552-34558.
-227. Ogawa H, Ohashi K, Ito M, et al. Adipolin/CTRP12 protects against pathological vascular remodelling through suppression of smooth muscle cell growth and macrophage inflammatory response. Cardiovascular Research. 2020;116:237-249. [PubMed: 30874788]
-228. Saxton SN, Whitley AS, Potter RJ, Withers SB, Grencis R, Heagerty AM. Interleukin-33 rescues perivascular adipose tissue anticontractile function in obesity. Am J Physiol Heart Circ Physiol. 2020;319:H1387-H1397. [PubMed: 33035443]
-229. Titone D, Aroonsakool N, Li J, et al. Increased Serum Interleukin-33 In Patients With Pulmonary Arterial Hypertension: A Role For IL-33/ST2 In Disease Pathogenesis. In: B95. NOVEL THERAPEUTIC TARGETS IN PULMONARY HYPERTENSION: INSIGHTS FROM TRANSLATIONAL AND PRECLINICAL STUDIES American Thoracic Society International Conference Abstracts. American Thoracic Society; 2014:A3636-A3636.
-230. Gutierrez AK. The Role of Interleukin-33 in the Progression of Pulmonary Arterial Hypertension Through an ST2/MyD88 Pathway. 2018.
-231. Selcuk A, Bulucu F, Kalafat F, et al. Skinfold thickness as a predictor of arterial stiffness: obesity and fatness linked to higher stiffness measurements in hypertensive patients. Clin Exp Hypertens. 2013;35:459-464. [PubMed: 23194427]
-232. Strasser B, Arvandi M, Pasha EP, Haley AP, Stanforth P, Tanaka H. Abdominal obesity is associated with arterial stiffness in middle-aged adults. Nutr Metab Cardiovasc Dis. 2015;25:495-502. [PubMed: 25770757]
-233. Sutton-Tyrrell K, Newman A, Simonsick EM, et al. Aortic stiffness is associated with visceral adiposity in older adults enrolled in the study of health, aging, and body composition. Hypertension. 2001;38:429-433. [PubMed: 11566917]
-234. Tounian P, Aggoun Y, Dubern B, et al. Presence of increased stiffness of the common carotid artery and endothelial dysfunction in severely obese children: a prospective study. Lancet. 2001;358:1400-1404. [PubMed: 11705484]
-235. Cote AT, Phillips AA, Harris KC, Sandor GGS, Panagiotopoulos C, Devlin AM. Obesity and arterial stiffness in children: systematic review and meta-analysis. Arterioscler Thromb Vasc Biol. 2015;35:1038-1044. [PubMed: 25633314]
-236. Mitchell GF, Hwang S-J, Vasan RS, et al. Arterial stiffness and cardiovascular events: the Framingham Heart Study. Circulation. 2010;121:505-511. [PubMed: 20083680]
-237. Kim H-L, Lee J-M, Seo J-B, et al. The effects of metabolic syndrome and its components on arterial stiffness in relation to gender. Journal of Cardiology. 2015;65:243-249. [PubMed: 25034706]
-238. Cooper LL, Palmisano JN, Benjamin EJ, et al. Microvascular function contributes to the relation between aortic stiffness and cardiovascular events: the Framingham Heart Study. Circ Cardiovasc Imaging. 2016;9.
-239. B BJ H, Vg D, et al. Mineralocorticoid receptor blockade prevents Western diet-induced diastolic dysfunction in female mice. Am J Physiol Heart Circ Physiol. 2015;308:H1126-35. [PubMed: 25747754]
-240. Jia G, Habibi J, Aroor AR, et al. Endothelial Mineralocorticoid Receptor Mediates Diet-Induced Aortic Stiffness in Females. Circ Res. 2016;118:935-943. [PubMed: 26879229]
-241. Sowers JR, Habibi J, Aroor AR, et al. Epithelial sodium channels in endothelial cells mediate diet-induced endothelium stiffness and impaired vascular relaxation in obese female mice. Metabolism. 2019;99:57-66. [PubMed: 31302199]
-242. Sehgel NL, Vatner SF, Meininger GA. "Smooth Muscle Cell Stiffness Syndrome"—Revisiting the Structural Basis of Arterial Stiffness. Front Physiol. 2015;6.
-243. Sowers JR, Habibi J, Jia G, et al. Endothelial sodium channel activation promotes cardiac stiffness and diastolic dysfunction in Western diet fed female mice. Metabolism. 2020;109:154223. [PubMed: 32275972]
-
-244. Hill MA, Jaisser F, Sowers JR. Role of the vascular endothelial sodium channel activation in the genesis of pathologically increased cardiovascular stiffness. Cardiovascular Research. 2020; (cvaa326).
-245. Leopold Jane A Cellular and Molecular Mechanisms of Arterial Stiffness Associated With Obesity. Hypertension. 2013;62:1003-1004. [PubMed: 24060893]
-246. Wang J, Barbry P, Maiyar AC, et al. SGK integrates insulin and mineralocorticoid regulation of epithelial sodium transport. American Journal of Physiology-Renal Physiology. 2001;280:F303F313. [PubMed: 11208606]
-247. von Wowern F, Berglund G, Carlson J, Månsson H, Hedblad B, Melander O. Genetic variance of SGK-1 is associated with blood pressure, blood pressure change over time and strength of the insulin-diastolic blood pressure relationship. Kidney Int. 2005;68:2164-2172. [PubMed: 16221215]
-248. Huang DY, Boini KM, Osswald H, et al. Resistance of mice lacking the serum- and glucocorticoid-inducible kinase SGK1 against salt-sensitive hypertension induced by a high-fat diet. American Journal of Physiology-Renal Physiology. 2006;291:F1264-F1273. [PubMed: 17003223]
-249. Li P, Pan F, Hao Y, Feng W, Song H, Zhu D. SGK1 is regulated by metabolic-related factors in 3T3-L1 adipocytes and overexpressed in the adipose tissue of subjects with obesity and diabetes. Diabetes Res Clin Pract. 2013;102:35-42. [PubMed: 24035040]
-250. Norlander AE, Saleh MA, Pandey AK, et al. A salt-sensing kinase in T lymphocytes, SGK1, drives hypertension and hypertensive end-organ damage. JCI Insight. 2018;2.
+such as civil servants, military personnel, and teachers) are covered for various diseases, including CCVDs, under the Industrial Accident Compensation Insurance Act (IACIA). The compensation paid to workers for occupational CCVDs has been increasing annually; in 2021, it reached 581.15 billion Korean won [2]. However, agriculture, forestry, and fishing are exempt from this law under certain conditions. These sectors are not protected if the activity involves fewer than 5 people or is classified as a family employment activity. Therefore, the agricultural sector is in a blind spot, outside the scope of protection of the social security system known as industrial accident insurance. Traditionally, small-scale farmers and their families have been considered business owners or self-employed rather than workers. As a result, farmers who are both business owners and workers have faced high insurance premiums to obtain IACIA coverage. It is estimated that only about 2-3% of the farm population is covered by the IACIA [3]. Farmers with optional rather than mandatory insurance face several challenges in voluntarily joining the IACIA due to poor economic conditions. Farmer Safety Insurance (FSI) was implemented in 1996 to address these issues through government support. However, FSI is optional and not mandatory, resulting in a relatively low subscription rate (64.8% in 2019), and it primarily covers accidents rather than diseases such as CCVDs. Additionally, there are challenges such as a narrow scope of coverage and the fact that FSI is managed by private financial institutions rather than the government. Despite the establishment of the FSI system, many farmers hesitate to join due to poor economic conditions [4,5]. This scoping review aimed to describe and summarize the scientific literature on the risk factors for CCVDs in farmers. Additionally, we reviewed studies
 
 ![img-0.jpeg](img-0.jpeg)
+Figure 1. Number of diseases and deaths of occupational cardio-cerebrovascular diseases under the Industrial Accident Compensation Insurance in Korea.
 
-Figure 1. Obesity, vascular stiffness and cardiovascular disease (CVD): genetic/epigenetic and environment interactions.
-A food desert refers to an area with limited access to nutritious, affordable food.
+that describe the differences in the incidence, prevalence, and mortality rates of CCVDs among farmers compared to the general population or other occupations. Through this review, we intend to provide evidence to support the expansion of insurance coverage for CCVDs in farmers.
+
+# METHODS
+
+## Steps for Conducting a Scoping Review
+
+A scoping review is a type of review that rapidly identifies the main concepts, resources, and evidence within a specific field of study. This study was conducted using the scoping review methodology [6,7].
+
+## Identifying the Research Question and Purposes
+
+In Korea, the standards for occupational compensation for CCVDs among farmers are inadequate. Currently, most occupational CCVDs in this group are not covered by insurance. As an initial step toward establishing compensation standards for CCVDs in farmers, we plan to conduct a scoping review addressing the following questions: (1) What is the status of approval of CCVDs as occupational diseases among farmers in Korea? (Figures 1 and 2, Table 1). (2) Is the incidence of CCVD among farmers higher than that in the general population? (Table 2). (3) What are the occupational risk factors for CCVD? (Table 3). (4) Which of these risk factors can farmers be exposed to? (Supplemental Material 1).
+
+## Identifying a Team of Experts and Consulting
+
+A scoping review was conducted by a team comprising 5 researchers and 6 experts, totaling eleven members. The team
 
 ![img-1.jpeg](img-1.jpeg)
+Figure 2. Total amount paid of occupational cardio-cerebrovascular diseases under the Industrial Accident Compensation Insurance in Korea (unit: 100 million Korean won).
 
-Figure 2. Prenatal programming and epigenetics in the genesis of obesity and cardiovascular disease (CVD) in offspring.
-(Illustration credit: Ben Smith)
+Journal of Preventive Medicine &amp; Public Health
 
-|  | White Adipocyte | Beige Adipocyte | Brown Adipocyte |
-| :--: | :--: | :--: | :--: |
-| Depots | Visceral and subcutaneous and most PVAT depots | Cervical*, supraclavicular*, axillary*, paraspinal*, renal*, thoracic PVAT*, subcutaneous (only rodents) | Interscapular (human only infants), thoracic PVAT* |
-| Function | Storage of triglycerides, endocrine (secretion of adipokines and vasoactive factors) | Thermogenesis, anti-inflammatory properties, cardioprotective | Thermogenesis, anti-inflammatory properties, cardioprotective |
-| Progenitor | CD24 ${ }^{+}$, CD34 ${ }^{+}$, PDGFR $\alpha^{+}$ | Vascular smooth muscle origin | Myogenic origin <br> Pax7 ${ }^{+}$, En-1 ${ }^{+}$, Myf5 ${ }^{+}$ |
-| Changes during obesity | Hyperplasia, hypertrophy, Immune cell infiltration, secretion of vasoconstrictors | "Whitening", loss of UCP1 expression | Potentially resistant to obesityinduced inflammation |
+CCVD in Farmers
 
-* The definition of these thermogenic AT depots in humans as brown or beige is still under debate
+Table 1. Approval status of cardio-cerebrovascular diseases (CCVDs) as occupational diseases among farmers according to the Industrial Accident Compensation Insurance Act in Korea
 
-Figure 3. Function and localization of different adipose tissue depots.
-Comparison of white, beige and brown adipocytes in regard to their localization in specific depots in human and mice. Their major functions and progenitor cells are depicted. Major changes occurring during adipose tissue remodeling in obesity are highlighted. PVAT, Perivascular adipose tissue; CD, Cluster of differentiation; PDGFR $\alpha$ : Platelet-derived growth factor receptor alpha; Pax7, Paired box 7; En-1, Engrailed-1; Myf5, Myogenic factor 5;Ucp-1, Uncoupling protein-1; AT, Adipose tissue.
+|  Year | No. of places of agricultural business^{1} | No. of farm workers^{1} | No. of people in whom occupational disease was approved (death) | No. of CCVDs approved for occupational diseases (death) | Incidence rate of occupational CCVDs (%)  |
+| --- | --- | --- | --- | --- | --- |
+|  2021 | 20 302 | 78 999 | 38 (2) | 6 (2) | 0.008  |
+|  2020 | 19 382 | 78 940 | 46 (3) | 5 (3) | 0.006  |
+|  2019 | 18 785 | 79 482 | 43 (3) | 9 (2) | 0.011  |
+|  2018 | 17 449 | 83 540 | 45 (4) | 4 (3) | 0.005  |
+|  2017 | 15 452 | 76 033 | 26 (1) | 0 (0) | 0.000  |
+|  2016 | 14 954 | 80 990 | 28 (1) | 2 (1) | 0.002  |
+|  2015 | 12 350 | 68 697 | 28 (2) | 3 (2) | 0.004  |
+|  2014 | 10 871 | 61 681 | 26 (2) | 2 (1) | 0.003  |
 
-![img-2.jpeg](img-2.jpeg)
+1It is estimated that only about 2-3% of all farmers are enrolled in Industrial Accident Compensation Insurance.
 
-Figure 4. Changes in different adipose tissue depots in homeostasis and during obesity.
-In states of normal body weight (left), thermogenic brown and beige adipocytes are found surrounding the thoracic aorta (PVAT) and can be detected in the cervical, supraclavicular, axillary, paraspinal, renal and epicardial area and in infants in the interscapular depot. These cells have a multilocular appearance and due to the high density of mitochondria appear brown. The abdominal aorta and mesenteric vasculature are surrounded by white adipocytes. These unilocular adipocytes are also found in visceral and subcutaneous adipose depots. Adiponectin and angiotensin 1-7 are secreted by adipocytes and have a vasodilating effect on the vasculature. In the lean state, adipose tissue is populated with different immune cells important for homeostasis, that change dramatically during obesity. During obesity (right), T regulatory cells (Treg) are lost in visceral adipose tissue and inflammatory CD8 T cells and macrophages infiltrate the visceral, mesenteric and to a lesser extent subcutaneous adipose depot. Thermogenic adipose tissue in proximity to the heart and the aorta downregulates thermogenic gene expression and becomes infiltrated with immune cells. Classical brown adipose tissue is potentially protected against obesity-induced immune cell infiltration. Secretion of vasodilatory factors from adipocytes are downregulated whereas leptin and angiotensin II (ANGII) are predominantly secreted, resulting in elevations in blood pressure. PVAT, Perivascular adipose tissue; WAT, white adipose tissue; ANG II, Angiotensin II; ANG 1-7, Angiotensin 1-7; CD, Cluster of differentiation. (Illustration credit: Ben Smith)
+Table 2. Published studies on the incidence, prevalence, and/or mortality rate of CCVDs in farmers
 
-![img-3.jpeg](img-3.jpeg)
+|  Study | Country | Epidemiological indicator | Database | Summary  |
+| --- | --- | --- | --- | --- |
+|  Kang et al., 2022 [10] | Korea | SPR | National Health Insurance Sharing Service | Among females, the SPR of diseases of the circulatory system was higher in farmers (24 498.8 per 100 000) than in non-farmers (23 957.1 per 100 000)  |
+|  Lee et al., 2020 [11] | Korea | SIR | National Health Insurance Service | Age-adjusted incidence per 1000 person-years; Farmers: 0.766 for MI and 0.559 for stroke; Controls: 0.585 for MI and 0.321 for stroke; Farmers had a higher age-adjusted incidence of MI and stroke  |
+|  Zhao et al., 2019 [12] | Spain | Excessive mortality rate | Population census | There was an excess mortality of 22.3% from cardiovascular diseases in farmers  |
+|  Lee et al., 2016 [13] | Korea | SMR | National Employment Insurance | The highest SMR was for agricultural, forestry, and fishery workers; The SMRs per 100 000 were high for IHD (25.8), cerebrovascular disease (42.9), and diseases of the circulatory system in males and IHD in females (7.1)  |
+|  Wada et al., 2016 [14] | Japan | SMR | Ministry of Health, Labour, and Welfare of Japan | The relative risks for stroke and IHD mortality were 2.75 (95% CI, 1.96 to 3.87) and 2.55 (95% CI, 1.90 to 3.42) in the agriculture industry; The reference group was sales  |
+|  Robinson et al., 2015 [15] | US | SMR | NIOSH National Occupational Mortality Surveillance | After adjusting for smoking, the SMR of acute MI was higher in farmers, agricultural worker occupations, and in the wholesale farm supplies, agricultural chemicals, and agricultural crop industries  |
+|  Lee et al., 2010 [16] | Korea | SPR | Korean National Health and Nutrition Examination Survey | No significant differences in CCVDs prevalence were identified among agricultural workers  |
+|  Sjögren et al., 2003 [17] | Sweden | SMR | Swedish National Censuses | Livestock workers had a slightly higher SMR for IHD than all gainfully employed; The SMR for male workers was 1.06 (95% CI, 0.95 to 1.18); The SMR for female workers was 1.10 (95% CI, 0.98 to 1.23); Agricultural workers had lower SMRs  |
 
-Figure 5. Effects of obesity on the vasculature which promote dysfunctional remodeling and stiffness of the vasculature.
-EC, endothelial cell; VSMC, vascular smooth muscle cell; MMPs, matrix metalloproteinase; TG2, tissue transglutaminase; Ang II, angiotensin II; MR, mineralocorticoid receptor; TxA2, thromboxane A2; ENaC, epithelial $\mathrm{Na}^{+}$channel; IL, interleukin; TNF, tumor necrosis factor; NO, nitric oxide; MCP-1, monocyte chemotactic protein-1; CRP, C- reactive protein; TGF$\beta$, transforming growth factor- $\beta$. (Illustration credit: Ben Smith)
+CCVD, cardio-cerebrovascular disease; SPR, standardized prevalence rate; SIR, standardized incidence rate; MI, myocardial infarction; IHD, ischemic heart disease; CI, confidence interval; SMR, standardized mortality rate; NIOSH, National Institute for Occupational Safety and Health.
+
+employed a specific search methodology, wherein the 5 researchers examined a broad spectrum of literature and organized overlapping content to draft this review paper. The findings were discussed over 4 research meetings and were further presented at a professional conference (23rd Asian Congress on Occupational Health). Feedback received from experts at these forums was incorporated to strengthen the results.
+
+## Searching and Selecting Relevant Studies
+
+Three researchers conducted a review of the risk factors, incidence, prevalence, and mortality associated with CCVDs in farmers using the PubMed and Google Scholar databases. The primary search methods were standardized, with additional searches performed at the discretion of individual researchers if initial results were insufficient. The search terms for cardio
+
+Hyeonjun Kim, et al.
+
+Journal of Preventive Medicine &amp; Public Health
+
+Table 3. Occupational risk factors and exposure status for CCVDs in farmers
+
+|  Risk factors | Hazards | Detailed description^{1} | Reference  |
+| --- | --- | --- | --- |
+|  Air pollution | PM | Increased the cerebrovascular disease risk (HR, 1.18; 95% CI, 1.09 to 1.28) among farmers with exposure to annual average PM_{2.5} concentrations of 54 μg/m³ or greater; Increased risk of cardiovascular mortality (HR, 1.87; 95% CI, 1.04 to 3.36) among male farmers | [18,19]  |
+|  Chemicals | Volatile organic compounds | Using a powered sprayer inside a greenhouse: EL 6.0-19.4 mg/m³ | [20]  |
+|  Dust | PM | Rice straw input work: EL 26.34 mg/m³ | [20]  |
+|  Gas | Carbon monoxide | Using a powered sprayer inside a greenhouse: EL 4.6-352.0 ppm | [20]  |
+|  Medical vulnerability | Difficulty in accessing medical institutions | Accessibility to local CCVD centers: the average adjusted mortality rate in vulnerable areas significantly higher at 1.51 ± 0.48 for CVD and 1.54 ± 0.21 for cerebrovascular disease (p<0.05). | [21,22]  |
+|  Noise | Time-weighted average, 8 hr | Tractor without cabin: EL 95.0 ± 3.3 dB(A); Harvesters, grain dryers, brush mowers, or chainsaws: EL ≥ 100 dB(A) | [23,24]  |
+|  Pesticides | Farmers with experience using pesticides | Acute pesticide poisoning experience rate: 7.0-86.7%; Pesticide concentrations ranged from 0.20 to 12.12 ng/mL in the blood; Pesticides (chlorpyrifos, coumaphos, carbofuran, metalaxyl, pendimethalin, and trifluralin) pesticides evaluated were significantly associated with MI, which all had odds ratios >1.7 among female farmers; In a cohort of 7557 Japanese-Americans, a positive association was observed between CVD incidence and high levels of pesticide exposure (HR, 1.46; p=0.009) | [25-27]  |
+|  Physical load | Musculoskeletal burden factors | Prevalence of occupational musculoskeletal disorders: total 4.4%; male 3.7%; female: 5.2%; Rate of complaints of musculoskeletal symptoms: 81.9%; Farmers vs. non-farmers: 72.4 vs 49.8%; Prevalence of physician-diagnosed musculoskeletal disorders: farmers (72.4%) and non-farmers (49.8%) | [28,29]  |
+|  Stress, mental | Financial difficulties, pesticide exposure, climate variabilities/ drought, and poor physical health/past injuries | A systematic review of 167 articles on farmers' mental health: psychological health disturbances were more common in farmers and farm workers; Outcomes included loss of self-esteem, withdrawal from social/community activity, relationship breakdown, hopelessness, nervousness, inability to function in occupational roles, feelings of suffocation, fatigue, insomnia, violence involving loss of control, and substance abuse | [30]  |
+|  Temperature | Cold and hot | Both low and high temperature increase the risk of stroke mortality; Heatwaves and global warming are significant risk factors for CVD; Working inside a greenhouse: EL temperature 50°C, humidity exceeds 90%, and the temperature difference between inside and outside is 23°C | [24,31,32]  |
+|  Vibration | Frequency weighted acceleration, 8 hr | Agricultural machinery causes whole-body and local vibrations; Rice harvesting using a combine: EL 4.07 m/s² | [20,24]  |
+|  Working hours, overwork | Long working hours | The daily working hours of Korean farmers are 10 hr 35 min and 11 hr 11 min for males and females respectively, which is one of the highest in the world | [29]  |
+
+CCVD, cardio-cerebrovascular disease; PM, particulate matter; PM₂.₅, particulate matter with a diameter of less than 2.5 μg/m³; HR, hazard ratio; CI, confidence interval; CVD, cardiovascular disease; EL, exposure levels; MI, myocardial infarction.
+¹Among various tasks, tasks with a high level of exposure are selected and described.
+
+vascular diseases included: ("cardiovascular diseases" OR "CVD" OR "myocardial infarction" OR "AMI" OR "angina" OR "ischemic heart disease" OR "IHD" OR "aortic dissection" OR "aortic aneurysm" OR "atrial fibrillation" OR "cardiac arrhythmia" OR "heart failure" OR "tachycardia") AND ("agriculture" OR "farmer"). The search terms used for cerebrovascular disorders were as follows: ("subarachnoid hemorrhage" OR "SAH" OR "cerebral hemorrhage" OR "ICH" OR "cerebral infarction" OR "intracranial hemorrhage" OR "intracranial arteriosclerosis" OR "intracranial aneurysm") AND ("agriculture" OR "farmer"). Two researchers investigated the risk factors, incidence, prevalence, and mortality of CCVDs in farmers based on published textbooks and reports. We also received and analyzed related research reports from researchers affiliated with the National Institute of Agricultural Sciences [8].
+
+## Charting, Collating, Summarizing, and Reporting the Results
+
+We presented 4 tables corresponding to the questions of this study, as well as 2 figures showing that although the number and amount of compensation for occupational CCVDs is increasing in Korea, farmers are being excluded. Through this review, we intend to provide evidence for expanding the scope of insurance coverage for CCVDs in farmers.
+
+## Ethics Statement
+
+This study was a scoping review of published literature and did not involve direct human subjects research. As such, it did not require approval from an institutional review board. All data analyzed were from previously published studies that
+
+had already undergone ethical review and approval as part of their original publication process. No additional ethical considerations were required for the conduct of this secondary analysis of publicly available data.
+
+## RESULTS
+
+Table 1 displays the number of farmers affiliated with IACIA, which includes agricultural corporations or businesses with 5 or more employees, alongside the number of CCVDs recognized as work-related diseases. In 2021, 78 999 farmers from 20 302 agricultural businesses enrolled in IACIA. Of these, 6 farmers were officially recognized as having occupational CCVDs, and 2 of them died [9]. The IACIA subscription rate of farmers remains unchanged (Table 1); however, FSI, a type of private insurance, does not classify CCVDs as an occupational disease within its terms and conditions. Consequently, the cases of insurance coverage for farmers' CCVDs represent only a minor fraction of the total compensations at IACIA, and finding such compensation cases at FSI was challenging.
+
+Although inconsistent, several studies analyzing the incidence, prevalence, and mortality rate of CCVDs among farmers have indicated high rates in this demographic. Specifically, among females, the age-standardized prevalence rate of circulatory system diseases (International Classification of Diseases-10th revision: I00-I99) was higher in farmers (24 498.8 per 100 000) compared to non-farmers (23 957.1 per 100 000) across all years, according to data from Korea's National Health Insurance (KNHI). The KNHI also offers insurance premium reductions for farmers and fishermen, which helps distinguish between farmers and non-farmers [10]. In another study using the KNHI database, the age-adjusted incidence per 1000 person-years was significantly higher in farmers for both myocardial infarction (0.766 vs. 0.585) and stroke (0.559 vs. 0.321) [11]. In a population census study in Spain, the excess mortality rate of cardiovascular disease among farmers was 22.3% higher [12]. The research results from several countries are also included in Table 2 [10-17].
+
+Various chemicals, heavy metals, dust, radiation, abnormal temperatures, vibration, noise, physical labor, mental stress, long working hours, and night shift work are recognized as occupational risk factors for CCVDs (Supplemental Material 1). A literature review was conducted on the exposure levels of farmers to these occupational risk factors for CCVDs, summarizing the high exposure level values. The findings from previous studies indicate that farming is a high-risk occupation for CCVDs. The associated risk factors include stress from long working hours, night shifts, limited holidays, and intense physical labor; physical factors such as noise, cold, high temperatures, humidity, and vibration; exposure to hazardous gases including diesel exhaust, carbon monoxide, hydrogen sulfide, carbon disulfide, nitrogen oxides, and polycyclic aromatic hydrocarbons; pesticides; and dusts like particulate matter, silica, and organic dust. Additionally, farmers face exposure to hypoxic environments and job-related stress (Table 3) [18-32]. Focusing on temperature-related risk factors, an increase of 1°C in temperature correlates with a 2.1% increase in cardiovascular diseases-related mortality. During high-intensity heatwaves, this mortality risk can surge by 18.9%. The pooled relative risks for extreme cold (first percentile of temperature) and cold (10th percentile of temperature) over lags of 0-14 days are 1.39 and 1.11, respectively, compared to the 25th percentile. Similarly, the relative risks of stroke mortality are 1.06 for extremely hot temperatures and 1.14 for hot temperatures, compared to the 75th percentile of temperature [31,32]. This review confirms that farmers are potentially exposed to a high level of various CCVD risk factors.
+
+## DISCUSSION
+
+In this study, we reviewed research on the differences in incidence, prevalence, and mortality rates of CCVDs among farmers compared to the general population and other occupations. We also explored the exposure of farmers to various CCVD risk factors. The findings from multiple studies indicate that farming is a high-risk occupation for CCVDs. The associated risk factors include stress due to long working hours, night shifts, limited holidays, and intense physical labor; physical factors such as noise, extreme temperatures, humidity, and vibration; exposure to hazardous gases including diesel exhaust, carbon monoxide, hydrogen sulfide, carbon disulfide, nitrogen oxides, and polycyclic aromatic hydrocarbons; and contact with pesticides and dusts like particulate matter, silica, and organic dust. Additionally, exposure to hypoxic environments and job-related stress are significant concerns. Social isolation and the lack of accessible medical facilities hinder early intervention for farmers, further elevating their risk.
+
+Agriculture, construction, and mining rank among the top 3 most hazardous occupations. According to the International Labor Organization, approximately 170 000 agricultural work
+
+ers globally lose their lives each year due to workplace accidents. The rate of fatal accidents in agriculture is twice that of other industries, with an additional 40 000 agricultural workers dying annually from pesticide exposure. Sustainable agriculture practices are essential not only for food security but also for human health and environmental well-being [33,34]. To support societal development and ensure its survival, it is imperative to establish a safe working environment for farmers.
+
+In the 1970s, the Korea was predominantly an agricultural nation, with 14.422 million people, or 44.7% of the total population, engaged in agriculture. By 2021, this number had decreased to 2.215 million, representing just 4.3% of the population [35]. The country's economic development plan promoted industrialization, leading to a migration from rural areas to urban centers. This shift not only delayed agricultural development due to technical and financial limitations but also broadened the scope of compensation for injuries and diseases among general workers through the Occupational Safety and Health Act and the IACIA (Figures 1 and 2). However, the development of protective systems for farmers has lagged behind. For instance, while general workers can receive approval for CCVDs as an occupational disease, farmers face significant challenges in obtaining similar recognition.
+
+Korea is experiencing a demographic shift, with a rapidly increasing proportion of its population aged 65 years and older, presenting challenges for the agricultural sector. In 2000, over 7% of the population in Korea was elderly, a figure that rose to over 14% by 2017. As of July 2023, this proportion has reached 18.5% and is expected to exceed 20% by 2025, marking the transition to a post-aged society [36]. Rural areas are aging more rapidly than urban ones [37], and the farming population is not only shrinking but also aging, significantly heightening the risk of CCVDs. In Korea, the majority of farmers operate small family units comprising fewer than 5 people, serving both as laborers and business owners [3]. Thus, the incidence of CCVDs among these farm members directly results in a decline in agricultural productivity, effectively leading to the loss of an agricultural business. This situation contributes to long-term income disparities between farmers and non-farmers. The aging farmer community thus represents a major socioeconomic burden on farms and will play a crucial role in determining the future of agriculture in Korea. To address this, comprehensive primary, secondary, and tertiary preventive measures for CCVDs among farmers are essential.
+
+Advances in agricultural technology can help address these challenges by enhancing productivity and efficiency through modern technologies and automation, such as artificial intelligence and robots. The adoption of precision agriculture, smart farm technologies, and sustainable farming practices represents key strategies for modernizing agriculture. Each year, more than 15 000 farmers and their families return to farming in Korea, with the number reaching 16 906 in 2022 and peaking at 20 559 in 2016 [38]. Given the global economic challenges and the weaponization of food, the agricultural output of each country has become crucial to societal well-being. Implementing smart farm technologies can lead to more efficient resource use and increased productivity, thus boosting agricultural competitiveness. Furthermore, the development of innovative agricultural technologies is vital for tackling the issues posed by climate change and population growth. In this era of agricultural innovation, a national-level social safety net is necessary to keep the population engaged in agriculture, necessitating more effective insurance for farmers.
+
+This study has several limitations. Primarily, it is a scoping review rather than a systematic review, serving to organize and catalog related research without offering conclusive evidence on whether farmers have a higher or lower risk of CCVDs than the general population. As a result, this study only suggests potential associations and carries a risk of publication bias by potentially excluding studies that report low-risk or non-significant findings. In Korea, criteria for determining the work-relatedness of workers' CCVDs have been established and are continuously refined by the IACIA [1]. However, these standards are not directly applicable to self-employed farmers. Therefore, it is crucial to carefully consider their applicability when evaluating the work-relatedness of CCVDs in farmers.
+
+This study is significant as it explores the association between CCVDs and farming, a topic that has previously received limited attention. Through our research, we have identified multiple studies indicating that farmers are exposed to various risk factors for CCVD, categorizing them as an occupation at risk. Future studies should aim to further elucidate this relationship through systematic reviews of specific diseases and risk factors, the development of objective methods for evaluating farmers' exposure to these risk factors, or the analysis of big data from health insurance records. Looking ahead, based on the findings of this study and the broader social consensus, several issues warrant consideration: (1) Should it become mandatory for farmers to join IACIA? (2) Should CCVDs be added to the list of diseases covered by FSI? (3) What should
+
+Journal of Preventive Medicine &amp; Public Health
+
+CCVD in Farmers
+
+the approval process look like if CCVDs are included in the FSI disease list? Although the process of professional investigation and committee rulings such as IACIA is highly valid, it can be time-consuming and socioeconomically expensive. Automatic approval under certain conditions would enable a quicker process and reduce the socioeconomic costs associated with investigations and decisions. However, it may not account for the unique aspects of each case, and if the standards are set too high or too low, accurate judgments may be compromised.
+
+## CONCLUSION
+
+Workers' rights and social safety nets have rapidly developed in Korea. However, the development of systems to protect farmers has lagged, positioning them within the vulnerable occupation group. The modernization of agriculture is essential for national development, necessitating the establishment of systems to safeguard farmers. This study lays the groundwork for future research on guidelines for occupational disease approval for CCVDs among farmers.
+
+## NOTES
+
+### Supplemental Materials
+
+Supplemental material is available at https://doi.org/10.3961/jpmph.24.302.
+
+### Conflict of Interest
+
+The authors have no conflicts of interest associated with the material presented in this paper.
+
+### Funding
+
+This study was supported by a grant from the National Institute of Agricultural Sciences, Rural Development Administration, Republic of Korea (No. RS-2022-RD010387).
+
+### Acknowledgements
+
+We would like to thank all the researchers who participated in the project for developing Korean farmers' guidelines for work-related diseases and customized health management systems. We are also grateful to members of the National Institute of Agricultural Sciences, Rural Development Administration for their assistance in the research.
+
+### Author Contributions
+
+Conceptualization: Song H, Park WJ, Park KS. Data curation: Kim H, Cho S, Jung S, Jung I. Formal analysis: Song H, Jung W. Funding acquisition: Jung W, Park KS. Methodology: Yoon SY. Project administration: Park KS, Song H, Yoo SJ. Writing – original draft: Kim H, Jung S, Jung I, Yoon SY. Writing – review &amp; editing: Park WJ, Jung W, Cho S, Song H, Park KS, Sung JH, Yoo SJ.
+
+### ORCID
+
+Hyeonjun Kim https://orcid.org/0000-0003-3758-1868
+Wongeon Jung https://orcid.org/0000-0003-0570-2485
+Sunjin Jung https://orcid.org/0000-0001-5297-3435
+Seunghyeon Cho https://orcid.org/0000-0001-5314-2078
+Inho Jung https://orcid.org/0000-0001-9381-5353
+Hansoo Song https://orcid.org/0000-0001-6000-1572
+Ki-Soo Park https://orcid.org/0000-0001-5571-3639
+Seong-Yong Yoon https://orcid.org/0000-0003-3297-5841
+Joo Hyun Sung https://orcid.org/0000-0001-9043-1127
+Seok-Ju Yoo https://orcid.org/0000-0001-9764-8097
+Won-Ju Park https://orcid.org/0000-0002-1081-9840
+
+## REFERENCES
+
+1. Kim UJ, Choi WJ, Kang SK, Lee W, Ham S, Lee J, et al. Standards for recognition and approval rate of occupational cerebrocardiovascular diseases in Korea. Ann Occup Environ Med 2022;34:e30. https://doi.org/10.35371/aoem.2022.34.e30
+2. Korean Statistical Information System (KOSIS). Insurance benefit payment status by disease; 2022 [cited 2024 May 15]. Available from: https://kosis.kr/statHtml/statHtml.do?orgId=118&amp;tblId=TX_11811_A099&amp;vw_cd=MT_OTITLE&amp;list_id=118_11811&amp;scrId=&amp;seqNo=&amp;lang_mode=ko&amp;obj_var_id=&amp;itm_id=&amp;conn_path=MT_OTITLE&amp;path=%252FstatisticsList%252FstatisticsListIndex.do (Korean).
+3. Song HS. High-risk occupation; farmers. In: Kang SG, editor. Occupational and environmental medicine, revised edition. Seoul: Gyechuk; 2022, p. 667-670 (Korean).
+4. Ministry of Agriculture, Food and Rural Affairs (MAFAR). Farmer Safety Insurance project implementation; 2022 [cited 2024 May 15]. Available from: https://www.mafra.go.kr/home/5248/subview.do (Korean).
+5. Korea Rural Economic Institute. Agricultural outlook 2021. Agricultural sector risks: how to manage them?; 2021 [cited 2024 May 15]. Available from: https://www.krei.re.kr/krei//researchReportView.do?key=67&amp;pageType=010101&amp;biblioId=5270
+
+Hyeonjun Kim, et al.
+
+Journal of Preventive Medicine &amp; Public Health
+
+72&amp;pageUnit=10&amp;searchCnd=all&amp;searchKrwd=&amp;pageIndex=363 (Korean).
+
+6. Mak S, Thomas A. Steps for conducting a scoping review. J Grad Med Educ 2022;14(5):565-567. https://doi.org/10.4300/JGME-D-22-00621.1
+
+7. Seo HJ, Kim SY. What is scoping review? J Health Technol Assess 2018;6(1):16-21 (Korean). https://doi.org/10.34161/joh-ta.2018.6.1.003
+
+8. National Institute of Agricultural Sciences. Major research achievements; 2022 [cited 2024 May 15]. Available from: https://www.naas.go.kr/02_research/Research_List.do?menu_code=2&amp;tg=0&amp;mmode=11 (Korean).
+
+9. Ministry of Employment and Labor. Analysis of work-related injuries and illnesses in 2022; 2023 [cited 2024 May 15]. Available from: https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20231201612 (Korean).
+
+10. Kang DY. A comparative study on disease prevalence between farmers and non-farmers using National Health Insurance Service data. Wonju: Yonsei University; 2022 (Korean).
+
+11. Lee S, Lee H, Kim HS, Koh SB. Incidence, risk factors, and prediction of myocardial infarction and stroke in farmers: a Korean nationwide population-based study. J Prev Med Public Health 2020;53(5):313-322. https://doi.org/10.3961/jpmph.20.156
+
+12. Zhao G, Regidor E, Astasio P, Ortega P, Barrio G, Ronda E. Cardiovascular disease, digestive diseases, traffic accidents, and suicides: leading causes of death responsible for excess mortality in farmers in Spain. J Occup Environ Med 2019;61(5): e212-e216. https://doi.org/10.1097/JOM.0000000000001571
+
+13. Lee HE, Kim HR, Chung YK, Kang SK, Kim EA. Mortality rates by occupation in Korea: a nationwide, 13-year follow-up study. Occup Environ Med 2016;73(5):329-335. https://doi.org/10.1136/oemed-2015-103192
+
+14. Wada K, Eguchi H, Prieto-Merino D. Differences in stroke and ischemic heart disease mortality by occupation and industry among Japanese working-aged men. SSM Popul Health 2016; 2:745-749. https://doi.org/10.1016/j.ssmph.2016.10.004
+
+15. Robinson CF, Walker JT, Sweeney MH, Shen R, Calvert GM, Schumacher PK, et al. Overview of the National Occupational Mortality Surveillance (NOMS) system: leukemia and acute myocardial infarction risk by industry and occupation in 30 US states 1985-1999, 2003-2004, and 2007. Am J Ind Med 2015; 58(2):123-137. https://doi.org/10.1002/ajim.22408
+
+16. Lee WJ, Cha ES, Moon EK. Disease prevalence and mortality among agricultural workers in Korea. J Korean Med Sci 2010; 25(Suppl):S112-S118. https://doi.org/10.3346/jkms.2010.25.
+
+S.S112
+
+17. Sjögren B, Weiner J, Larsson K. Ischaemic heart disease among livestock and agricultural workers. Occup Environ Med 2003; 60(8):e1. https://doi.org/10.1136/oem.60.8.e1
+
+18. Sun D, Liu C, Ding Y, Yu C, Guo Y, Sun D, et al. Long-term exposure to ambient PM2-5, active commuting, and farming activity and cardiovascular disease risk in adults in China: a prospective cohort study. Lancet Planet Health 2023;7(4):e304-e312. https://doi.org/10.1016/S2542-5196(23)00047-5
+
+19. Weichenthal S, Villeneuve PJ, Burnett RT, van Donkelaar A, Martin RV, Jones RR, et al. Long-term exposure to fine particulate matter: association with nonaccidental and cardiovascular mortality in the agricultural health study cohort. Environ Health Perspect 2014;122:609-615. https://doi.org/10.1289/ehp.1307277
+
+20. Rural Development Administration. Measures to improve agricultural hazards. Jeonju: Rural Development Administration; 2013 (Korean).
+
+21. Shin HS, Roh YM, Seo JW. The relationship between accessibility to local cardio-cerebrovascular disease centers and mortality ratio. Health Soc Welf Rev 2023;43(1):85-100 (Korean). https://doi.org/10.15709/hswr.2023.43.1.85
+
+22. Kim M, An D, Lim J. Urban-rural gap of healthcare and cultural service accessibility in South Korea. In: Batabyal AA, Higano Y, Nijkamp P, editors. Rural-urban dichotomies and spatial development in Asia 2021. Singapore: Springer; 2021, p. 91-126.
+
+23. National Institute of Agricultural Sciences. Measurement and abatement of noise level of major agricultural machinery. Jeonju: Rural Development Administration; 2019 (Korean).
+
+24. Kwon SC, Lee SJ, Jeong M. Work-related hazards among farmers. J Korean Med Assoc 2012;55(11)1046-1053 (Koran). https://doi.org/10.5124/jkma.2012.55.11.1046
+
+25. Kumar D, Sinha SN, Rajendra S, Sharma K. Assessing farmer's exposure to pesticides and the risk for non-communicable diseases: a biomonitoring study. Sci Total Environ 2023;891: 164429. https://doi.org/10.1016/j.scitotenv.2023.164429
+
+26. Dayton SB, Sandler DP, Blair A, Alavanja M, Beane Freeman LE, Hoppin JA. Pesticide use and myocardial infarction incidence among farm women in the agricultural health study. J Occup Environ Med 2010;52(7):693-697. https://doi.org/10.1097/JOM.0b013e3181e66d25
+
+27. Berg ZK, Rodriguez B, Davis J, Katz AR, Cooney RV, Masaki K. Association between occupational exposure to pesticides and cardiovascular disease incidence: the Kuakini Honolulu Heart Program. J Am Heart Assoc 2019;8(19):e012569. https://doi.
+
+Journal of Preventive Medicine &amp; Public Health
+
+CCVD in Farmers
+
+org/10.1161/JAHA.119.012569
+
+28. National Institute of Agricultural Sciences. Occupational diseases of farmers. Jeonju: Rural Development Administration; 2021 (Korean).
+
+29. Roh S. Work-related diseases of agricultural workers in South Korea. J Korean Med Assoc 2012;55(11):1063-1069 (Korean). https://doi.org/10.5124/jkma.2012.55.11.1063
+
+30. Daghagh Yazd S, Wheeler SA, Zuo A. Key risk factors affecting farmers' mental health: a systematic review. Int J Environ Res Public Health 2019;16(23):4849. https://doi.org/10.3390/ijerph16234849
+
+31. Chen R, Wang C, Meng X, Chen H, Thach TQ, Wong CM, et al. Both low and high temperature may increase the risk of stroke mortality. Neurology 2013;81(12):1064-1070. https://doi.org/10.1212/WNL.0b013e3182a4a43c
+
+32. Liu J, Varghese BM, Hansen A, Zhang Y, Driscoll T, Morgan G, et al. Heat exposure and cardiovascular health outcomes: a systematic review and meta-analysis. Lancet Planet Health 2022; 6(6):e484-e495. https://doi.org/10.1016/S2542-5196(22)00117-6
+
+33. Food Information Statistics System. Key statistics for Agriculture, Food and Rural Affairs; 2023 [cited 2024 May 15]. Available from: https://www.atfis.or.kr/home/board/FB0028.do?act=read&amp;subSkinYn=N&amp;bpold=4603&amp;bcald=0&amp;pageIndex=1 (Korean).
+
+34. International Labour Organization (ILO). Agriculture: a hazardous work; 2015 [cited 2024 May 15]. Available from: https://www.ilo.org/resource/agriculture-hazardous-work-0
+
+35. International Labour Organization (ILO). Facts on agriculture; 2003 [cited 2024 May 15]. Available from: https://www.ilo.org/wcmsp5/groups/public/---dgreports/---dcomm/documents/publication/wcms_067555.pdf
+
+36. Korean Statistical Information System (KOSIS). Resident registration population; 2023 [cited 2024 May 15]. Available from: https://kosis.kr/statisticsList/statisticsListIndex.do?vwcd=MT_ZTITLE&amp;menuld=M_01_01 (Korean).
+
+37. Kim KW, Kim OS. Super aging in South Korea unstoppable but mitigatable: a sub-national scale population projection for best policy planning. Spat Demogr 2020;8(2):155-173. https://doi.org/10.1007/s40980-020-00061-8
+
+38. Korean Statistical Information System (KOSIS). Number of people who moved to rural areas; 2022 [cited 2024 May 15]. Available from: https://kosis.kr/statHtml/statHtml.do?orgId=101&amp;tblId=DT_1A02001&amp;vw_cd=MT_ZTITLE&amp;list_id=K1_6&amp;scrld=&amp;seqNo=&amp;lang_mode=ko&amp;obj_var_id=&amp;itm_id=&amp;conn_path=MT_ZTITLE&amp;path=%252FstatisticsList%252FstatisticsListIndex.do (Korean).
+
+529

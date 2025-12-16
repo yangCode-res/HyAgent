@@ -19,13 +19,15 @@ from Store.index import get_memory
 from Logger.index import get_global_logger
 from Memory.index import Memory
 from typing import Optional
+from Agents.Query_clarify.index import QueryClarifyAgent
+from Agents.Review_fetcher.index import ReviewFetcherAgent
 load_dotenv()
 class Pipeline:
-    def __init__(self,user_query:str,memory:Optional[Memory]=None):
+    def __init__(self,user_query:str,client:OpenAI,model_name:str,memory:Optional[Memory]=None):
         self.user_query=user_query
-        self.client=OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),base_url=os.environ.get("OPENAI_API_BASE_URL"))
-        self.model_name=os.environ.get("OPENAI_MODEL")
         self.core_entities=[]
+        self.client=client
+        self.model_name=model_name
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
         self.reason_model="deepseek-reasoner"
@@ -54,12 +56,13 @@ class Pipeline:
         self.clarified_query=clarified_query
         core_entities= response.get("core_entities", []) # type: ignore
         intention= response.get("main_intention", "") # type: ignore
-        reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
+        reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
         reviewfetcheragent.process(clarified_query)
         self.core_entities=core_entities
         self.intention=intention
         self.pipeline=self.get_pipeline()
         for agent in self.pipeline:
+            print(f"Running agent: {agent.__class__.__name__}")
             agent.process()
             self.memory.dump_json("./snapshots")
         evaluateAgent=ReflectionAgent(client=self.client,model_name=self.reason_model)
