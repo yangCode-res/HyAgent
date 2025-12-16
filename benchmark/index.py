@@ -50,7 +50,8 @@ class Benchmark:
         
         return max_scores
 
-    def run(self, test_data: list):
+    def run(self):
+        test_data=self.load_test_data(limit=self.limit)
         for item in test_data:
             scores = self.runOneTestData(item)
             print(scores)

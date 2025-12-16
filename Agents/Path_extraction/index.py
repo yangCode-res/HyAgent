@@ -59,7 +59,10 @@ class PathExtractionAgent(Agent):
             neighbors = adj.get(current_id, [])
             for child, relation in neighbors:
                 child_data=relation.object
-                child_node=KGEntity(**child_data)
+                if isinstance(child_data, KGEntity):
+                    child_node=child_data
+                else:
+                    child_node=KGEntity(**child_data)
                 edge_path.append(relation)
                 node_path.append(child_node)
                 node_for_llm = node_path[:-1].copy()
