@@ -10,7 +10,8 @@ class KGTriple:
     """三元组定义信息。
 
     - head: 头实体名称
-    - relation: 关系类型
+    - relation: 关系名称（raw）
+    - relation_type: 关系类别（Category）
     - tail: 尾实体名称
     - confidence: 置信度（0-1 之间的浮点数）
     - evidence: 证据（支持该关系的直接引用）
@@ -25,6 +26,7 @@ class KGTriple:
     head: str
     relation: str
     tail: str
+    relation_type: Optional[str]=None
     confidence: Optional[List[float]]=None
     evidence: Optional[List[str]]=None
     mechanism: Optional[str]=None
@@ -37,6 +39,8 @@ class KGTriple:
         return self.head
     def get_relation(self) -> str:
         return self.relation
+    def get_relation_type(self) -> Optional[str]:
+        return self.relation_type
     def get_tail(self) -> str:
         return self.tail
     def get_confidence(self) -> Optional[List[float]]:

@@ -40,50 +40,51 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
+    # memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
-    hypothesis_agent = HypothesisGenerationAgent(
-        client=client,
-        model_name=model_name,
-        query=user_query,
-        memory=memory,
-        max_paths=5,
-        hypotheses_per_path=3,
-    )
-    results = hypothesis_agent.process()
-    for result in results:
-        print("Generated Hypotheses:", result.get("hypotheses"))
-        print("Modified Hypotheses:", result.get("modified_hypotheses"))
-    with open('output.json', 'w', encoding='utf-8') as f:
-        json.dump(
-            results, 
-            f, 
-            ensure_ascii=False, 
-            indent=4, 
-            # 只需要这一行 lambda
-            default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
-        )
-    # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
-    # response = queryclarifyagent.process(user_query)
-    # clarified_query = response.get("clarified_question", user_query) # type: ignore
-    # core_entities= response.get("core_entities", []) # type: ignore
-    # intention= response.get("main_intention", "") # type: ignore
-    # print("Clarified Query:", clarified_query)
-    # print("Core Entities:", core_entities)
-    # reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
-    # reviewfetcheragent.process(clarified_query)
+    # hypothesis_agent = HypothesisGenerationAgent(
+    #     client=client,
+    #     model_name=model_name,
+    #     query=user_query,
+    #     memory=memory,
+    #     max_paths=5,
+    #     hypotheses_per_path=3,
+    # )
+    # results = hypothesis_agent.process()
+    # for result in results:
+    #     print("Generated Hypotheses:", result.get("hypotheses"))
+    #     print("Modified Hypotheses:", result.get("modified_hypotheses"))
+    # with open('output.json', 'w', encoding='utf-8') as f:
+    #     json.dump(
+    #         results, 
+    #         f, 
+    #         ensure_ascii=False, 
+    #         indent=4, 
+    #         # 只需要这一行 lambda
+    #         default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
+    #     )
+    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    response = queryclarifyagent.process(user_query)
+    clarified_query = response.get("clarified_question", user_query) # type: ignore
+    core_entities= response.get("core_entities", []) # type: ignore
+    intention= response.get("main_intention", "") # type: ignore
+    print("Clarified Query:", clarified_query)
+    print("Core Entities:", core_entities)
+    reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
+    reviewfetcheragent.process(clarified_query)
 
-    entityAgent=EntityExtractionAgent(client=client, model=model_name)
-    entityAgent.process()
+    # entityAgent=EntityExtractionAgent(client=client, model=model_name)
+    # entityAgent.process()
 
-    normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
-    normalizeAgent.process()
+    # normalizeAgent=EntityNormalizationAgent(client=client, model_name=model_name)
+    # normalizeAgent.process()
     logger.info("Relationship extraction started...")
     memory.dump_json("./snapshots")
     relationAgent=RelationshipExtractionAgent(client=client, model_name=model_name)
-    relationAgent.process()    
+    relationAgent.process()   
+    memory.dump_json("./snapshots") 
     logger.info("Relationship extraction finished.")
-
+    sys.exit(1)
     logger.info("Collaboration extraction started...")
     collaborationAgent=CollaborationExtractionAgent(client=client, model_name=model_name,memory=memory)
     collaborationAgent.process()
