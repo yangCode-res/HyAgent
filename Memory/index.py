@@ -582,6 +582,7 @@ class Memory:
                 ]
                 for kw, path_list in getattr(self, "paths", {}).items()
             },
+            "hypothesesdir": self.hypothesesdir,
         }
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
@@ -740,6 +741,7 @@ def load_memory_from_json(path_or_data: Any) -> Memory:
         data.get("entity_id_mapping_path")
         or (data.get("meta", {}) or {}).get("entity_id_mapping_path")
     )
+    mem.hypothesesdir = data.get("hypothesesdir","")
     return mem
 
 

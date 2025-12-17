@@ -1,18 +1,43 @@
 import json
 import re
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, List, Tuple
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from Core.Agent import Agent
 from openai import OpenAI
 from Memory.index import Memory
 from Store.index import get_memory
-
+from pprint import pprint
 
 class ReflectionAgent(Agent):
     """
     Input: hypothesis (dict)
-    Output: reflection report (JSON Dictionary)
+    Output: reflection report (Strict Structured JSON Dictionary)
+    
+    Key Features:
+    - Enforces PascalCase keys (e.g., SafetyEthics) for code stability.
+    - Validates JSON schema before returning.
+    - returns a Python Dictionary, not a string.
     """
+
+    @staticmethod
+    def load_hypotheses_from_file(memory: Memory) -> list:
+        """从 memory.hypothesesDir 读取 output.json 文件"""
+        with open(memory.hypothesesdir, 'r', encoding='utf-8') as f:
+            return json.load(f)
+
+    @staticmethod
+    def extract_modified_hypotheses(hypotheses_data: list) -> Dict[str, list]:
+        """
+        从 output.json 数据中提取 entity -> modified_hypotheses 的映射。
+        
+        Args:
+            hypotheses_data: load_hypotheses_from_file 返回的列表
+            
+        Returns:
+            Dict[str, list]: key 是 entity，value 是 modified_hypotheses 列表
+        """
+        return {item["entity"]: item["modified_hypotheses"] for item in hypotheses_data}
 
     _RUBRIC_ANCHORS = r"""
     You must evaluate the hypothesis using the following 6 criteria.
@@ -76,11 +101,13 @@ class ReflectionAgent(Agent):
         self,
         client: OpenAI,
         model_name: str,
-        hypothesis: Dict[str, Any],
         memory: Optional[Memory] = None,
         context: Optional[Dict[str, Any]] = None,
+        max_workers: Optional[int] = 5,
     ):
-        # 定义 JSON 结构示例
+
+        # 构造严格的 JSON 模板
+        # 注意：这里定义了 EditInstructions 的具体结构，方便 RevisionAgent 自动执行
         json_template = json.dumps({
             "Novelty": {
                 "score": "X/5",
@@ -112,22 +139,21 @@ class ReflectionAgent(Agent):
                 "concerns": [],
                 "suggestions": []
             },
-            "Safety & Ethics": {
+            "SafetyEthics": {
                 "score": "X/5",
                 "rationale": "...",
                 "concerns": [],
                 "suggestions": []
             },
-            "Overall Summary": {
+            "OverallSummary": {
                 "Strengths": ["..."],
                 "Weaknesses": ["..."],
-                "Priority must-fix": ["..."],
-                "Nice-to-fix": ["..."],
-                "Risk flags": ["..."],
-                "Edit instructions": ["..."]
+                "PriorityMustFix": ["..."],
+                "NiceToFix": ["..."],
+                "RiskFlags": ["..."],
+                "EditInstructions": ["..."]
             }
         }, indent=2)
-
         system_prompt = f"""You are a rigorous scientific reviewer.
 
         {self._RUBRIC_ANCHORS}
@@ -144,41 +170,112 @@ class ReflectionAgent(Agent):
         {json_template}
         """
         super().__init__(client, model_name, system_prompt)
-        self.hypothesis = hypothesis
+
         self.memory = memory or get_memory()
         self.context = context or {}
+        # 保存原始数据，后续需要写回文件
+        self.hypotheses_data = None
+        self.max_workers: int = 5
+    def process(self) -> list:
+        """
+        对每个 entity 的 modified_hypotheses 进行评价（多线程），并保存回 output.json
+        
+        Args:
+            max_workers: 最大线程数，默认 5
+        """
+        self.hypotheses_data=self.load_hypotheses_from_file(self.memory)
+        max_workers=self.max_workers
+        # 收集所有需要处理的任务: (item_index, hypothesis_index, hypothesis)
+        tasks: List[Tuple[int, int, Dict[str, Any]]] = []
+        for item_idx, item in enumerate(self.hypotheses_data):
+            modified_hypotheses = item.get("modified_hypotheses", [])
+            # 预先初始化 feedback 列表
+            item["feedback"] = [None] * len(modified_hypotheses)
+            for hyp_idx, hypothesis in enumerate(modified_hypotheses):
+                tasks.append((item_idx, hyp_idx, hypothesis))
+        
+        # 多线程处理
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_task = {
+                executor.submit(self.call_for_each_hypothesis, task[2]): task
+                for task in tasks
+            }
+            
+            for future in as_completed(future_to_task):
+                item_idx, hyp_idx, hypothesis = future_to_task[future]
+                try:
+                    result = future.result()
+                    # 将结果放回对应位置
+                    self.hypotheses_data[item_idx]["feedback"][hyp_idx] = result
+                    print(f"✓ Completed: {hypothesis.get('title', 'N/A')[:50]}...")
+                except Exception as e:
+                    print(f"✗ Error for hypothesis: {hypothesis.get('title', 'N/A')}: {e}")
+                    self.hypotheses_data[item_idx]["feedback"][hyp_idx] = {"error": str(e)}
+        
+        # 保存回 output.json
+        self._save_to_file()
+        
+        return self.hypotheses_data
 
-    def process(self) -> Dict[str, Any]:
+    def _save_to_file(self) -> None:
+        """将更新后的数据保存回 output.json"""
+        with open(self.memory.hypothesesdir, 'w', encoding='utf-8') as f:
+            json.dump(self.hypotheses_data, f, ensure_ascii=False, indent=4)
+
+    def call_for_each_hypothesis(self, hypothesis: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Sends the hypothesis to the LLM and returns a structured dictionary (JSON).
+        Executes the agent logic:
+        1. Calls LLM.
+        2. Cleans and extracts JSON from response.
+        3. Validates schema.
+        4. Returns structured Dict.
         """
-        hypothesis_text = json.dumps(self.hypothesis, ensure_ascii=False, indent=2)
-        context_text = json.dumps(self.context, ensure_ascii=False, indent=2)
+        hypothesis_text = json.dumps(hypothesis, ensure_ascii=False, indent=2)
 
         user_message = (
             "Hypothesis (JSON):\n"
             f"{hypothesis_text}\n\n"
             "Context (JSON):\n"
-            f"{context_text}\n"
-            "\n"
-            "Remember: Output ONLY valid JSON, no markdown formatting."
+            "Review Task:\n"
+            "Provide a critique in strict JSON format based on the rubric.\n"
+            "Output JSON ONLY. No preamble. No markdown."
         )
 
+        # 1. 调用 LLM
         raw_response = self.call_llm(user_message)
 
         if not isinstance(raw_response, str) or not raw_response.strip():
             raise ValueError("Empty reflection output from model.")
 
-        # 清理 Markdown 标记 (例如 ```json ... ```)
-        cleaned_response = self._clean_json_text(raw_response)
-
+        # 2. 清理与提取 JSON
+        cleaned_json_str = self._clean_and_extract_json(raw_response)
+        # 3. 解析 JSON
         try:
-            return json.loads(cleaned_response)
+            data = json.loads(cleaned_json_str)
         except json.JSONDecodeError as e:
-            # 在开发调试阶段，可以将 raw_response 打印出来查看原因
-            raise ValueError(f"Failed to parse Agent output as JSON. Raw output:\n{raw_response}\nError: {e}")
+            raise ValueError(f"JSON Parse Error: {e}\nRaw Output: {raw_response}")
 
-    def _clean_json_text(self, text: str) -> str:
+        # 4. 结构校验 (Schema Validation)
+        self._validate_schema(data)
+        return data
+
+    def get_scores_only(self) -> Dict[str, str]:
+        scores_dict={}
+        score_keys = ["Novelty", "Plausibility", "Grounding", "Testability", "Specificity", "SafetyEthics"]
+        for item_idx, item in enumerate(self.hypotheses_data):
+            modified_hypotheses = item.get("modified_hypotheses", [])
+            for hyp_idx, hypothesis in enumerate(modified_hypotheses):
+                full_result = self.call_for_each_hypothesis(hypothesis)
+                scores = {key: full_result[key]["score"] for key in score_keys}
+                scores["hypothesis"]=modified_hypotheses
+                print(f"Scores for {item['entity']}: {scores}")
+                scores_dict[item["entity"]] = scores
+        return scores_dict
+
+
+
+
+    def _clean_and_extract_json(self, text: str) -> str:
         """
         Helper to strip markdown code blocks from LLM output.
         """
@@ -188,3 +285,31 @@ class ReflectionAgent(Agent):
         # Remove ``` at the end
         text = re.sub(r"\s*```$", "", text)
         return text
+    def _validate_schema(self, data: Dict[str, Any]) -> None:
+        """
+        检查返回的 Dict 是否包含所有必要的 Key 和正确的类型。
+        这能防止 RevisionAgent 因为缺字段而崩溃。
+        """
+        # 1. Check Top-level Keys
+        required_criteria = [
+            "Novelty", "Plausibility", "Grounding", 
+            "Testability", "Specificity", "SafetyEthics", 
+            "OverallSummary"
+        ]
+        
+        for key in required_criteria:
+            if key not in data:
+                raise ValueError(f"ReflectionAgent Output Missing required top-level key: '{key}'")
+
+        # 2. Check Criteria Fields (Novelty...SafetyEthics)
+        criteria_subfields = ["score", "rationale", "concerns", "suggestions"]
+        
+        for key in required_criteria[:-1]: # Exclude OverallSummary from this loop
+            item = data[key]
+            if not isinstance(item, dict):
+                raise ValueError(f"Key '{key}' must be a dictionary.")
+            
+            for sub in criteria_subfields:
+                if sub not in item:
+                    raise ValueError(f"Key '{key}' missing subfield '{sub}'.")
+            

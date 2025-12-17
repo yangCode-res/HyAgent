@@ -1,3 +1,5 @@
+from datetime import date
+import datetime
 import os
 from typing import List, Dict, Any, Optional
 from openai import OpenAI
@@ -190,19 +192,13 @@ class HypothesisGenerationAgent(Agent):
         path_idx: int,
         node_path: List[KGEntity],
         edge_path: List[KGTriple],
+        contexts:str
     ) -> List[Dict[str, Any]]:
         """
         针对单条路径调用一次 LLM，返回解析好的 hypothesis 列表。
         """
         if not node_path:
             return []
-        contexts=""
-        sources=set()
-        for edge in edge_path:
-            if edge.source:
-                sources.add(edge.source)
-        for source in sources:
-            contexts+=self.memory.subgraphs[source].meta['text']+"\n"
         prompt_1 = self.generate_system_prompt("task_1", path=self.serialize_path(node_path, edge_path), contexts=contexts)
         try:
             raw = self.call_llm(prompt_1)
@@ -279,25 +275,34 @@ class HypothesisGenerationAgent(Agent):
 
         for key,paths in all_paths.items():
             for idx, path in enumerate(paths[: self.max_paths]):
+                contexts=""
+                sources=set()
                 node_path: List[KGEntity] = path.get("nodes", []) or []
                 edge_path: List[KGTriple] = path.get("edges", []) or []
+                for edge in edge_path:
+                    if edge.source:
+                        sources.add(edge.source)
+                for source in sources:
+                    contexts+=self.memory.subgraphs[source].meta['text']+"\n"
+
 
                 if not node_path or len(node_path) <= 2:
                     continue
                 
-                hyps = self._call_llm_for_path(idx, node_path, edge_path)
+                hyps = self._call_llm_for_path(idx, node_path, edge_path,contexts)
                 results.append(
                     {
                         "entity":key,
                         "path_index": idx,
                         "edges": edge_path,
                         "hypotheses": hyps,
+                        "contexts": contexts,
                     }
                 )
             # TODO：如你需要，可以在这里把 results 写回 Memory，如：
             # if hasattr(self.memory, "add_generated_hypotheses"):
             #     self.memory.add_generated_hypotheses(self.query, results)
-
+            break
         for result in results:
             # 针对每条路径生成的假设，进行二次加工，生成更全面的假设
             given_hypotheses = result.get("hypotheses", [])
@@ -312,15 +317,6 @@ class HypothesisGenerationAgent(Agent):
                     contexts+=self.memory.subgraphs[source].meta['text']+"\n"
                 modified_hyps = self.modify_hypothesis(given_hypotheses, contexts)
                 result["modified_hypotheses"] = modified_hyps
-        timestamp=datetime.now().strftime("%Y%m%d%H%M")
-        with open(f'../../output/output_{timestamp}.json', 'w', encoding='utf-8') as f:
-            json.dump(
-                results, 
-                f, 
-                ensure_ascii=False, 
-                indent=4, 
-                # 只需要这一行 lambda
-                default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
-            )
+        
         return results
         

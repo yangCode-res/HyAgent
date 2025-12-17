@@ -1,0 +1,564 @@
+[
+    {
+        "entity": "Cardiovascular Diseases",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "atherosclerotic cardiovascular disease",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "endothelium type II activation",
+                "confidence": [
+                    0.88,
+                    0.8
+                ],
+                "evidence": [
+                    "This review focuses on the different stages of atherosclerosis development, ranging from endothelial dysfunction to plaque rupture."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_0",
+                "subject": {
+                    "entity_id": "ent:69b74f1d626f",
+                    "entity_type": "DISEASE",
+                    "name": "atherosclerotic cardiovascular disease",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "ACV",
+                        "Atherosclerosis",
+                        "atherosclerotic cardiovascular disease",
+                        "cardiovascular disease",
+                        "cardiovascular diseases",
+                        "CVD",
+                        "CVDs",
+                        "early atherosclerosis"
+                    ],
+                    "description": "Atherosclerosis is described as the main risk factor for cardiovascular disease, characterized by accumulation of lipids, fibrous elements, and calcification within large arteries, leading to atheroma plaque formation and cardiovascular complications."
+                },
+                "object": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "time_info": null
+            },
+            {
+                "head": "endothelium type II activation",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "cholesterol accumulation and foam cell formation",
+                "confidence": [
+                    0.95,
+                    0.08
+                ],
+                "evidence": [
+                    "Together, these induce an inflammatory response that is considered the first step of atheromatous plaque formation: the fatty streak",
+                    "Atherosclerosis initiates upon endothelial dysfunction"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_1",
+                "subject": {
+                    "entity_id": "ent:3d45a4372fc7",
+                    "entity_type": "DISEASE",
+                    "name": "endothelium type II activation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "dysfunction",
+                        "endothelial dysfunction",
+                        "Endothelial stimulation",
+                        "endothelial type I activation",
+                        "endothelium type II activation",
+                        "phenotypic modulation"
+                    ],
+                    "description": "Endothelial dysfunction is mentioned as one of the stages of atherosclerosis development, covered in the review's abstract."
+                },
+                "object": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "time_info": null
+            },
+            {
+                "head": "cholesterol accumulation and foam cell formation",
+                "relation": "CAUSES",
+                "tail": "formation of cholesterol crystals",
+                "confidence": [
+                    0.78,
+                    0.05
+                ],
+                "evidence": [
+                    "An accumulation of cholesterol in the subendothelial compartment also promotes the formation of cholesterol crystals both inside and outside the cells and contributes to the development of atherosclerotic plaques [157,158,159]"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:444403af517d",
+                    "entity_type": "MECHANISM",
+                    "name": "cholesterol accumulation and foam cell formation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "fatty streak",
+                        "fatty streak formation",
+                        "foam cell formation"
+                    ],
+                    "description": "Result when the balance between cholesterol input and output is tilted in favor of accumulation."
+                },
+                "object": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "time_info": null
+            },
+            {
+                "head": "formation of cholesterol crystals",
+                "relation": "ACTIVATES",
+                "tail": "NALP3 inflammasome",
+                "confidence": [
+                    0.87,
+                    0.08
+                ],
+                "evidence": [
+                    "Cholesterol crystals within the plaque activate NLRP3 inflammasome in macrophages",
+                    "These crystals cause lysosomal destabilization [163], inducing the release of lysosomal contents, such as cathepsins or reactive oxygen species [164], leading to NLRP3 inflammasome assembly"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_5",
+                "subject": {
+                    "entity_id": "ent:8276395e136b",
+                    "entity_type": "MECHANISM",
+                    "name": "formation of cholesterol crystals",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Process promoted by accumulation of cholesterol in the subendothelial compartment, contributing to atherosclerotic plaque development."
+                },
+                "object": {
+                    "entity_id": "ent:9e22c5c022d2",
+                    "entity_type": "PROTEIN",
+                    "name": "NALP3 inflammasome",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "NLRP3",
+                        "NLRP3 inflammasome"
+                    ],
+                    "description": "Inflammasome described as being activated by silica crystals and aluminum salts through phagosomal destabilization."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Cholesterol crystal-induced NLRP3 inflammasome activation as a mechanistic link between endothelial dysfunction and atherosclerosis progression",
+                "hypothesis": "Endothelial dysfunction (type II activation) in atherosclerotic cardiovascular disease promotes subendothelial cholesterol accumulation and foam cell formation, which leads to the formation of cholesterol crystals that activate the NLRP3 inflammasome, thereby driving a pro-inflammatory cascade that exacerbates plaque development and instability.",
+                "mechanism_explanation": "The path explicitly links atherosclerotic cardiovascular disease to endothelium type II activation (ASSOCIATED_WITH), which is associated with cholesterol accumulation and foam cell formation (ASSOCIATED_WITH). This accumulation CAUSES formation of cholesterol crystals, which ACTIVATES the NALP3 inflammasome. The context supports this by detailing how cholesterol crystals within plaques activate NLRP3 in macrophages, leading to caspase-1 activation and production of IL-1β/IL-18, contributing to inflammation and plaque progression.",
+                "experimental_suggestion": "In a mouse model of atherosclerosis (e.g., ApoE-/- mice fed a high-cholesterol diet), treat with a specific NLRP3 inflammasome inhibitor (e.g., MCC950) and measure plaque size, cholesterol crystal content, IL-1β levels, and markers of endothelial dysfunction (e.g., VCAM-1 expression) compared to vehicle-treated controls.",
+                "relevance_to_query": "The hypothesis directly addresses factors linking cardiovascular diseases and endothelial dysfunction by identifying cholesterol crystal formation and NLRP3 inflammasome activation as key mechanistic drivers downstream of endothelial activation.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Targeting cholesterol crystal dissolution to suppress NLRP3-mediated inflammation in endothelial dysfunction",
+                "hypothesis": "Pharmacological agents that dissolve or prevent cholesterol crystal formation in the subendothelial space following endothelial activation can inhibit NLRP3 inflammasome activation, thereby reducing vascular inflammation and slowing atherosclerosis progression.",
+                "mechanism_explanation": "The path indicates that endothelial dysfunction leads to cholesterol accumulation and foam cell formation, which causes cholesterol crystal formation. These crystals then activate the NLRP3 inflammasome. Intervening to disrupt crystal formation or promote dissolution could break this causal chain, preventing NLRP3 activation. The context notes cholesterol crystals are present in early plaques and activate NLRP3 via lysosomal destabilization.",
+                "experimental_suggestion": "Treat human aortic endothelial cells (HAECs) activated with TNF-α (to mimic dysfunction) with oxLDL to induce foam cell formation, then add a cholesterol-solubilizing agent (e.g., methyl-β-cyclodextrin). Measure cholesterol crystal formation (via microscopy), NLRP3 inflammasome activation (caspase-1 activity, IL-1β secretion), and compare to untreated controls.",
+                "relevance_to_query": "It proposes a specific factor (cholesterol crystals) and a therapeutic strategy relevant to mitigating the inflammatory consequences of endothelial dysfunction in cardiovascular disease.",
+                "confidence": 0.75
+            },
+            {
+                "title": "Endothelial dysfunction primes NLRP3 inflammasome sensitivity to cholesterol crystals",
+                "hypothesis": "Endothelial type II activation increases the expression of scavenger receptors (e.g., CD36) on macrophages and vascular smooth muscle cells, enhancing oxLDL uptake and subsequent intracellular cholesterol crystal formation, thereby potentiating NLRP3 inflammasome activation and creating a feed-forward inflammatory loop.",
+                "mechanism_explanation": "The path connects endothelial activation to cholesterol accumulation/foam cell formation. The context elaborates that CD36-mediated oxLDL uptake leads to intracellular cholesterol crystals that activate NLRP3. Endothelial dysfunction is known to upregulate adhesion molecules and release cytokines that could increase CD36 expression on recruited monocytes/macrophages, thus linking the initial endothelial event to the downstream inflammasome activation.",
+                "experimental_suggestion": "Isolate monocytes from human blood, differentiate into macrophages, and co-culture with TNF-α-activated HAECs. Expose to oxLDL. Compare CD36 expression (flow cytometry), intracellular cholesterol crystal formation (filipin staining), and NLRP3 activation (ASC speck formation assay) in macrophages co-cultured with activated vs. non-activated HAECs.",
+                "relevance_to_query": "It details a cellular/molecular mechanism by which endothelial dysfunction influences a key inflammatory factor (NLRP3) via modulating lipid handling in immune cells.",
+                "confidence": 0.8
+            }
+        ],
+        "contexts": "# Review <br> Pathophysiology of Atherosclerosis \n\nShifa Jebari-Benslaiman ${ }^{1,2}$, Unai Galicia-García ${ }^{2,3}$, Asier Larrea-Sebal ${ }^{2,3}$, Javier Rekondo Olaetxea ${ }^{4}$, Iraide Alloza ${ }^{1,5}$, Koen Vandenbroeck ${ }^{1,5,6}$, Asier Benito-Vicente ${ }^{1,2, *}$ and César Martín ${ }^{1,2, * *}$\n\n#### Abstract\n\ncheck for updates Citation: Jebari-Benslaiman, S.; Galicia-García, U.; Larrea-Sebal, A.; Olaetxea, J.R.; Alloza, I.; Vandenbroeck, K.; Benito-Vicente, A.; Martín, C. Pathophysiology of Atherosclerosis. Int. J. Mol. Sci. 2022, 23, 3346. https://doi.org/10.3390/ ijms23063346\n\nAcademic Editor: Manfredi Rizzo\nReceived: 3 December 2021\nAccepted: 18 March 2022\nPublished: 20 March 2022\nPublisher's Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional affiliations.\n\n## 0\n\nCopyright: (c) 2022 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https:// creativecommons.org/licenses/by/ $4.0 /$ ).\n\n1 Department of Biochemistry and Molecular Biology, Universidad del País Vasco UPV/EHU, 48940 Leioa, Bizkaia, Spain; sjebari001@ikasle.ehu.eus (S.J.-B.); iraide.alloza@ehu.eus (I.A.); koen.vandenbroeck@ehu.eus (K.V.)\n2 Biofisika Institute (UPV/EHU, CSIC), Barrio Sarriena s/n., 48940 Leioa, Bizkaia, Spain; u.galiciag@gmail.com (U.G.-G.); alarrea040@ikasle.ehu.eus (A.L.-S.)\n3 Fundación Biofisika Bizkaia, Barrio Sarriena s/n., 48940 Leioa, Bizkaia, Spain\n4 Cardiology Department, Basurto University Hospital, 48013 Bilbao, Bizkaia, Spain; javiergregorio.rekondoolaetxea@osakidetza.eus\n5 Inflammation \\& Biomarkers Group, Biocruces Bizkaia Health Research Institute, 48903 Barakaldo, Bizkaia, Spain\n6 Ikerbasque, Basque Foundation for Science, 48013 Bilbao, Bizkaia, Spain\n\n* Correspondence: asier.benito@ehu.eus (A.B.-V.); cesar.martin@ehu.eus (C.M.); Tel.: +34-946-01-2741 (C.M.)\n\nAbstract: Atherosclerosis is the main risk factor for cardiovascular disease (CVD), which is the leading cause of mortality worldwide. Atherosclerosis is initiated by endothelium activation and, followed by a cascade of events (accumulation of lipids, fibrous elements, and calcification), triggers the vessel narrowing and activation of inflammatory pathways. The resultant atheroma plaque, along with these processes, results in cardiovascular complications. This review focuses on the different stages of atherosclerosis development, ranging from endothelial dysfunction to plaque rupture. In addition, the post-transcriptional regulation and modulation of atheroma plaque by microRNAs and IncRNAs, the role of microbiota, and the importance of sex as a crucial risk factor in atherosclerosis are covered here in order to provide a global view of the disease.\n\nKeywords: atherosclerosis; endothelial dysfunction; atheroma plaque; risk factors; microbiota; ocLDL; microRNA; lncRNA\n\n## 1. Introduction\n\nAtherosclerosis is a disease that is characterized by the accumulation of lipids, fibrous elements, and calcification within the large arteries. This process is initiated by endothelium activation, followed by a cascade of events, which implies the vessel narrowing and activation of inflammatory pathways leading to atheroma plaque formation. Altogether, these processes result in cardiovascular complications that remain as the leading cause of death worldwide.\n\nIn this study, we aimed to review the mechanism of development of atherosclerosis, including endothelial dysfunction, fatty streak formation, fibrous plaque formation, and plaque rupture. This review approaches the pathophysiology of atherosclerosis from a broad perspective, examining the pathological and biochemical processes of atherosclerotic plaque formation and growth. In addition, this review summarizes the current understanding of the involvement of microRNAs and lncRNAs in post-transcriptional regulation and modulation of atheroma plaque and atherogenesis. Non-traditional drivers of atherosclerosis-such as disturbed sleep, physical inactivity, the microbiome, the role of microbiota, and the importance of sex as a crucial risk factor in atherosclerosis are covered here in order to provide a global view of the disease.\n\n# 2. Endothelium \n\nThe vascular endothelium is a heterogeneous monolayer formed by endothelial cells (ECs), which face the luminal side of all blood vessels, representing the first barrier for molecules, cells, or pathogens circulating in the bloodstream [1]. In large vessels, the vessel wall is lined with a single EC layer called the endothelium, which, together with collagen and elastic fibers, forms the luminal layer of the vessels or the intima. ECs are in intimate contact with tunica media consisting of vascular smooth muscle cells (VSMC) and elastic and collagenous tissue. Finally, surrounding this layer is tunica adventitia, which is composed mainly of a dense matrix of connective tissue. On the other hand, the walls of arterioles and venules are composed of the same three layers as the larger vessels, although the media and adventitia are much thinner and less pronounced. Finally, post-capillary venules completely lack media and adventitia and only consist of ECs and a basement membrane [2].\n\nEndothelium is strategically located between circulating blood and tissues, working as a sensor and transducer of signals by the production of biologically active substances. All changes in circulating blood are perceived by the endothelium, which then mediates signal transduction to the other layers of the vascular wall. Such changes include mechanical stress (elongation and wall shear stress (WSS)), as well as changes in the concentration of metabolic factors.\nAn accumulation of cholesterol in the subendothelial compartment also promotes the formation of cholesterol crystals both inside and outside the cells and contributes to the development of atherosclerotic plaques [157,158,159]. This process has been monitored both outside and inside the cells, in macrophages incubated with oxLDLs [160]. Although cholesterol crystals are a common feature of advanced atherosclerotic lesions, they are present also in early plaques and can be used as a marker of early atherosclerosis development [161]. Cholesterol crystals within the plaque activate NLRP3 inflammasome in macrophages, leading to activation of pro-inflammatory pathways. Inflammasomes are cytosolic multiprotein complexes of the innate immune system responsible for the activation of inflammatory pathways [162]. Although NLRP3 activation and assembly is not fully understood, it is known that its activation leads to caspase-1 activation. Caspase-1 subsequently cleaves the proinflammatory IL-1 family of cytokines into their bioactive forms, IL-1β and IL-18, contributing to inflammation [88]. It has been suggested that uptake of oxLDLs mediated by the CD36 receptor is responsible for NLRP3 activation [88]. Apparently, the CD36 scavenger receptor, along with TLR4-TLR6, takes up oxLDL, which results in intracellular cholesterol crystals. These crystals cause lysosomal destabilization [163], inducing the release of lysosomal contents, such as cathepsins or reactive oxygen species [164], leading to NLRP3 inflammasome assembly and the subsequent activation of caspase-1.\n\n### 3.5. Contribution of VSMCs to Foam Cell Population\n\nVSMCs located in the intima are also able to internalize oxLDL in a non-regulated way through different scavenger receptors, such as SR-A, CD36, and LOX-1 [165,166,167,168,169]. Indeed, their contribution to the sum of foam cell population within the plaque is significant [20]. In addition, VSMCs of the intima express fewer ABCA1 transporters than the ones of the tunica media [170]. Therefore, the balance between cholesterol input and output is tilted in favor of cholesterol accumulation and foam cell formation. At least 50% of the foam cells in the human coronary intima are VSMC-derived rather than monocyte-derived, underlying the importance of VSMCs in atherosclerosis development [170].\n\n## 4. Fibrous Plaque Development\n\nDuring fibrous plaque development, atheroma plaques undergo a transition from the fatty streak to intimal growing, a step characterized by the presence of a cell-free and lipid-rich area known as the necrotic core (Figure 3). To stabilize the plaque, the necrotic core is covered by fibers, thus developing a fibrous cap. The necrotic core and the fibrous cap constitute the hallmark of advanced atherosclerosis [171], and atheroma plaque regression is unlikely to happen in this stage [172,173].\n\n![img-2.jpeg](img-2.jpeg)\n\n**Figure 3.** Schematic representation of atheroma plaque formation from a healthy artery to plaque rupture underlying the most important events that contribute to its development in each stage.\n\n### 4.1. Fibrous Cap\n\nThe fibrous cap is a subendothelial barrier between the lumen of the vessel and the atherosclerotic necrotic core consisting of VSMCs that have migrated to the luminal side of the artery and extracellular matrix (ECM) derived from VSMCs [174,175]. The role of the fibrous cap is to serve as a structural support to avoid the exposure of prothrombotic material of the core that otherwise would trigger thrombosis [174].\n\nAt the physiological situation, differentiated VSMCs of the tunica media show a contractile phenotype that regulates the blood vessel diameter and blood flow [176,177,178]. However, in response to injury, VSMCs switch their phenotype to the synthetic one in which migratory and proliferation activities prevail [179,180]. For that purpose, neighboring cells activate the healing process by producing several growth factors, which include epidermal growth factor, fibroblast growth factor, insulin-like growth factor, platelet-derived growth factor (PDGF), transforming growth factor-β (TGF-β), and vascular endothelial growth factor (VEGF) [179]. In atherosclerosis, in response to the growth factors produced by foam cells (VSMC- or macrophage-derived) or ECs of the intima, VSMCs from the tunica media migrate to the intima [175,179,181,182,183]. Moreover, IL-1 produced by macrophages enhances the endogenous production of PDGF by VSMC, and, once in the intima, it autocrinically leads to their proliferation [184,185]. In addition to migration and subsequent\n\nproliferation, VSMCs with a synthetic phenotype also increase the production of ECM components, such as interstitial collagen, elastin, and proteoglycans [183,186,187,188]. These proliferating VSMCs, along with ECM production, generate a fibrous cap that will cover the developing atherosclerotic plaque, thus surrounding the lesion and preventing its rupture [189]. Interestingly, if the mitogen production does not cease, VSMCs do not switch back to the contractile phenotype [176,177,190,191], which facilitates lesion development. Fibrous-cap features, such as thickness, cellularity, matrix composition, and collagen content, are important determinants of plaque stability [192,193,194].\n\n### 4.2. Necrotic Core\nDifferent mechanical forces acting on the arterial wall modulate several physiological functions, such as the regulation of homeostasis, vascular tone, and vascular integrity. Apart from their role in homeostasis, the involvement of hemodynamics in vascular disease development has been shown to be crucial in the pathology of atherosclerosis, affecting both disease onset and progression. The main forces acting on the arterial wall include both tensile stress induced by blood pressure and WSS, a tangential force to the vessel wall induced by blood flow that plays an important role in atherogenic hemodynamics [3].\n\nVessel segments with low WSS or highly oscillatory WSS appear to be at the highest risk for development of atherosclerosis [4,5]. WSS change can directly affect the morphology and function of the vascular endothelium and stimulate the migration and proliferation of VSMCs and mononuclear cells [6]. Whether low or unstable, changing WSS is an indicator to evaluate hemodynamic changes that are closely related to atherosclerosis [7,8].\n\nThe magnitude and direction of WSS are recognized by mechanosensors on the endothelium and are transduced as biochemical signaling. WSS-induced mechanotransduction regulates the expression of numerous genes involved in cell morphology, adhesion, and proliferation.\n\nFor example, shear stress induces characteristic EC alignment [9,10] (Figure 1A). In tubular or straight regions of arteries, where the WSS presents a laminar flow, ECs show a flattened shape and an elongated alignment in the direction of the flow [11]. However, at the bifurcation or high vessel curvature sites, flow disturbance occurs and, as a consequence of the turbulent and reversal flow with lowered WSS at the outer vessel wall, ECs augment their volume by adopting a cobblestone appearance [12] (Figure 1A). Moreover, hemodynamic forces determine the early development of localized atherosclerotic plaques that are not randomly distributed, neither in experimental animal models nor in humans [13,14]. Atherosclerotic lesions mainly occur in regions characterized by low WSS and flow separation (Figure 1B) and most frequently involve branch points and bifurcations. The extensive correlative data indicating that low shear or disrupted flow accounts for the localization of atherosclerosis lesions emphasize the importance of arterial branches and bifurcations when performing a diagnosis of atherosclerotic lesion development or progression.\n\n![img-0.jpeg](img-0.jpeg)\n\n**Figure 1.** Effect of flow and WSS patterns at arterial bifurcations on atherosclerotic plaque development. (**A**) In straight vessel segments, physiological WSS with laminar flow leads to ECs and shows a quiescent characteristic flattened shape when flow disturbance occurs. Lower WSS at the outer vessel wall causes ECs to adopt a cobblestone appearance. (**B**) Turbulent flow occurs at bifurcations and branch points where the arterial curvature is higher due to flow separation. Disturbed laminar flow or turbulent flow reduces WSS and promotes endothelial dysfunction and LDL infiltration, which constitutes the first step of atheroma plaque formation. On the contrary, low curvature areas of the vascular system subjected to higher shear stress are athero-protected.\n\nEndothelium modulates the tone of underlying vascular smooth muscle; maintains a non-adhesive luminal surface; and mediates hemostasis, cellular proliferation, and inflammatory and immune response in the vascular wall [15]. In fact, endothelium releases both agonists and antagonists in order to balance the effect in both directions. For instance, ECs are able to produce both coagulants or anti-coagulants, vasodilators or vasoconstrictors and pro-inflammatory or anti-inflammatory molecules [15,16].\n\n### 3. Atherosclerosis Initiation and Fatty Streak Formation\n\nAtherosclerosis initiates upon endothelial dysfunction accompanied by low-density lipoprotein (LDL) retention and its modification in the intima [17,18]. Modified LDLs,\n\ntogether with additional atherogenic factors, promote the activation of ECs, leading to monocyte recruitment within the intima. Modified LDLs are avidly captured by differentiated monocytes and VSMC, which promote foam cell formation [19,20]. In addition, several inflammatory signaling pathways are activated, allowing the fatty streak formation, which represents the first sign of atherosclerosis and is characterized by a substantial accumulation of lipids both within the cells (macrophages and VSMC) and the extracellular media [21].\n\n### 3.1. Endothelial Dysfunction in Atherosclerosis Development\n\nDisruption of the mechanisms involved in vascular homeostasis regulation leads to endothelial dysfunction [9,12,22]. Briefly, when ECs lose their ability to maintain homeostasis, vessel walls are predisposed to vasoconstriction, lipid infiltration, leukocyte adhesion, platelet activation, and oxidative stress, among other things [23,24]. Together, these induce an inflammatory response that is considered the first step of atheromatous plaque formation: the fatty streak [12,22]. In addition, endothelial dysfunction also plays a remarkable role in subsequent steps of atherosclerosis by participating in plaque development and in its rupture in the last steps of atherosclerosis [22]. Therefore, an increased endothelial dysfunction is considered an early indicator of atherogenesis [25,26].\n\n### 3.1.1. Hemodynamic Forces and Endothelial Dysfunction\n",
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Mechanistic Framework for Endothelial Dysfunction in Cardiovascular Disease",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked through a synergistic interplay of hemodynamic forces, lipid metabolism, and inflammatory signaling, where disturbed flow patterns at arterial bifurcations initiate endothelial dysfunction, promoting oxidized LDL infiltration and retention, which in turn activates NLRP3 inflammasome via CD36/TLR pathways in macrophages and vascular smooth muscle cells, leading to chronic inflammation, foam cell formation, and fibrous cap destabilization, with this cascade being further modulated by genetic, epigenetic (microRNAs/lncRNAs), and environmental factors including microbiota and lifestyle.",
+                "mechanism_explanation": "The provided context outlines a comprehensive pathophysiological cascade: 1) Low/oscillatory wall shear stress at arterial bifurcations causes endothelial cobblestone morphology and dysfunction. 2) Dysfunctional endothelium allows LDL infiltration and oxidation (oxLDL) in the intima. 3) oxLDL is internalized via scavenger receptors (CD36, SR-A, LOX-1) on macrophages and vascular smooth muscle cells (VSMCs). 4) CD36/TLR4-TLR6 mediated uptake leads to intracellular cholesterol crystal formation, lysosomal destabilization, and NLRP3 inflammasome activation. 5) This produces active IL-1β/IL-18, driving inflammation. 6) Inflammatory cytokines and growth factors (PDGF, VEGF) promote VSMC migration/proliferation and extracellular matrix production, forming a fibrous cap. 7) Concurrently, impaired cholesterol efflux (reduced ABCA1 in intimal VSMCs) and continued lipid accumulation create a necrotic core. 8) The balance between cap stability (VSMCs, collagen) and instability (inflammation, core size) determines plaque rupture risk. Additional modulators like microRNAs, lncRNAs, and microbiota are integrated as regulators of these processes.",
+                "experimental_suggestion": "Establish a multi-omics longitudinal study in a hyperlipidemic mouse model (e.g., ApoE-/-) with surgically induced disturbed flow in the carotid artery. Combine in vivo ultrasound imaging to monitor plaque development and WSS with spatial transcriptomics/proteomics of the vessel wall at serial timepoints. Use single-cell RNA sequencing to track endothelial, macrophage, and VSMC phenotypic changes. Validate by pharmacological inhibition (e.g., CD36 antibody, NLRP3 inhibitor) and genetic knockdown of key pathway nodes (e.g., cell-specific ABCA1 deletion) to dissect their contribution to endothelial dysfunction, foam cell formation, and plaque stability.",
+                "relevance_to_query": "This hypothesis directly addresses the query by synthesizing the primary factors (hemodynamic forces, lipid metabolism, inflammation, cellular actors like VSMCs and macrophages, and regulatory elements like non-coding RNAs and microbiota) from the provided review into a unified, mechanistic framework explaining how endothelial dysfunction arises and propagates cardiovascular disease, specifically atherosclerosis.",
+                "confidence": 0.85
+            }
+        ],
+        "feedback": [
+            {
+                "Novelty": {
+                    "score": "2/5",
+                    "rationale": "The hypothesis is a comprehensive synthesis of well-established, canonical pathways in atherosclerosis (e.g., disturbed flow, oxLDL, CD36/TLR, NLRP3 inflammasome, foam cell formation). While the integration of genetic, epigenetic, and microbiota factors is broad, it represents a recombination of known concepts rather than proposing a novel, non-obvious mechanism or a new causal linkage that challenges or significantly extends current paradigms.",
+                    "concerns": [
+                        "The core mechanistic cascade is a standard model in vascular biology.",
+                        "The 'synergistic interplay' is stated but not defined in a novel way; it is the expected interaction of these known factors.",
+                        "The inclusion of modulators like microRNAs and microbiota is common in contemporary reviews but does not constitute a novel hypothesis."
+                    ],
+                    "suggestions": [
+                        "Propose a specific, non-obvious ordering or feedback loop within the cascade (e.g., 'NLRP3 activation in VSMCs directly reprograms endothelial gene expression via exosomal miRNAs, creating a feed-forward loop').",
+                        "Identify and hypothesize a testable, under-explored causal link between two established factors (e.g., 'Specific microbiota-derived metabolites directly inhibit endothelial repair mechanisms initiated by laminar shear stress').",
+                        "Make a novel, falsifiable prediction that differentiates this framework from standard models (e.g., 'The framework predicts that CD36 inhibition will fail to stabilize plaques if NLRP3 is activated via an alternative, CD36-independent pathway in intimal VSMCs')."
+                    ]
+                },
+                "Plausibility": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis presents a coherent and largely self-consistent chain of events that aligns with established biomedical knowledge of atherosclerosis pathogenesis. The sequence from hemodynamic insult to inflammation and plaque destabilization is logical, and key cellular actors and pathways are correctly identified. Assumptions (e.g., the primacy of disturbed flow) are consistent with the field.",
+                    "concerns": [
+                        "The relative contribution and necessity of each step (e.g., is NLRP3 activation always required for VSMC phenotypic change?) are not explicitly weighted, leaving some causal strength assumptions implicit.",
+                        "The framework is broad, making it somewhat permissive; it does not clearly specify conditions under which the cascade might fail or diverge."
+                    ],
+                    "suggestions": [
+                        "Explicitly state which steps are considered necessary vs. modulatory for the core outcome of plaque instability.",
+                        "Define a key boundary condition (e.g., 'This cascade is proposed to be dominant in early-to-mid stage atherosclerosis in large arteries, but may be less relevant in advanced calcified plaques or microvascular disease')."
+                    ]
+                },
+                "Grounding": {
+                    "score": "4/5",
+                    "rationale": "The 'mechanism_explanation' provides a detailed, traceable path that maps closely onto extensive literature in atherosclerosis. Each step (shear stress, oxLDL, receptor-mediated uptake, inflammasome activation) is supported by a large body of cited evidence, though specific references are not provided in this text. The claim-evidence mapping is precise for the core pathway.",
+                    "concerns": [
+                        "While the core pathway is well-grounded, the integration of epigenetic and microbiota modulators is stated more generally without specifying the strongest supporting evidence or the proposed mechanism of their modulation.",
+                        "The 'confidence' score of 0.85 is not justified or calibrated against uncertainty in specific parts of the hypothesis."
+                    ],
+                    "suggestions": [
+                        "For the modulatory factors (miRNAs, lncRNAs, microbiota), cite 1-2 key example pathways or studies that concretely link them to a specific step in the cascade (e.g., 'miR-33 targets ABCA1, linking a specific miRNA to the impaired efflux step').",
+                        "Add a brief note calibrating confidence, e.g., 'High confidence (>.9) in core oxLDL-inflammasome link; moderate confidence (~.7) in the primacy of microbiota modulation in human disease progression'."
+                    ]
+                },
+                "Testability": {
+                    "score": "4/5",
+                    "rationale": "The 'experimental_suggestion' outlines a sophisticated, multi-faceted validation strategy that is executable. It proposes a specific model (ApoE-/- mouse with disturbed flow), clear readouts (imaging, omics), and interventional approaches (pharmacological, genetic) with discriminative potential. The expected outcomes (changes in plaque phenotype upon inhibition) are implied.",
+                    "concerns": [
+                        "The expected outcomes for each intervention are not explicitly stated (e.g., 'We expect CD36 inhibition to reduce foam cell formation but not affect VSMC migration').",
+                        "The metrics for key concepts like 'endothelial dysfunction' and 'plaque stability' in the proposed experiments are not defined (e.g., specific gene expression panels, cap thickness measurements)."
+                    ],
+                    "suggestions": [
+                        "Define 2-3 primary quantitative endpoints for 'endothelial dysfunction' (e.g., expression of VCAM-1, eNOS phosphorylation, monocyte adhesion assay) and 'plaque stability' (e.g., cap-to-core ratio, collagen content, MMP activity) in the experimental plan.",
+                        "State a clear, falsifiable prediction for at least one intervention: 'If the CD36/TLR-NLRP3 axis is critical, then NLRP3 inhibitor treatment will reduce IL-1β levels by >50% and increase fibrous cap thickness compared to vehicle, independent of lipid lowering.'"
+                    ]
+                },
+                "Specificity": {
+                    "score": "3/5",
+                    "rationale": "The hypothesis specifies actors (endothelium, macrophages, VSMCs), conditions (arterial bifurcations, disturbed flow), and a directional mechanism. However, it remains a high-level framework. Key parameters (magnitude/duration of disturbed flow, threshold levels of oxLDL) and the precise functional relationships between the modulatory factors (how exactly do miRNAs modulate the cascade?) are not specified. The scope is broad but not tightly bounded.",
+                    "concerns": [
+                        "Lacks quantitative or kinetic parameters that would allow for computational modeling or precise experimental challenge.",
+                        "The role of integrated modulators (genetic, epigenetic, microbiota) is described as 'further modulated by' which is vague regarding mechanism, direction, and relative importance."
+                    ],
+                    "suggestions": [
+                        "Add one quantitative constraint to a key step (e.g., 'Prolonged (>72h) oscillatory shear stress of <1 dyne/cm² is proposed to be necessary to induce the endothelial phenotype conducive to maximal LDL infiltration').",
+                        "For one modulator, specify the proposed direction and target: e.g., 'The gut microbiota is hypothesized to exacerbate inflammation specifically by producing trimethylamine-N-oxide (TMAO), which amplifies NLRP3 inflammasome activation in macrophages.'"
+                    ]
+                },
+                "SafetyEthics": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis and proposed experiments (using established mouse models, pharmacological inhibitors) are standard in preclinical cardiovascular research and pose no intrinsic high risks. The framework does not promote harmful advice. Compliance with animal welfare (IACUC) and biosafety guidelines is implicitly required for the suggested experiments.",
+                    "concerns": [
+                        "The experimental suggestion does not explicitly mention compliance prerequisites (IACUC approval, sample size justification to minimize animal use, blinding procedures).",
+                        "If translated to human implications, the broad framework could be misinterpreted without noting that genetic/epigenetic factors are probabilistic risk modifiers, not deterministic causes."
+                    ],
+                    "suggestions": [
+                        "Add to the experimental suggestion: 'All animal procedures must be approved by an Institutional Animal Care and Use Committee (IACUC) and adhere to the 3Rs principles, with statistical power analysis used to determine minimum sample sizes.'",
+                        "Include a brief limitation: 'This mechanistic framework describes pathological processes; it does not imply that modulating any single factor (e.g., via dietary changes targeting microbiota) is a guaranteed therapeutic strategy without clinical validation.'"
+                    ]
+                },
+                "OverallSummary": {
+                    "Strengths": [
+                        "Comprehensive and coherent synthesis of major established pathways in atherosclerosis.",
+                        "Mechanism explanation is detailed and logically sequenced.",
+                        "Experimental suggestion is sophisticated, multi-modal, and provides a clear path for validation."
+                    ],
+                    "Weaknesses": [
+                        "Lacks true novelty; it is an integrative review rather than a novel hypothesis.",
+                        "Specificity is moderate; lacks quantitative parameters and precise functional definitions for integrated modulators.",
+                        "While testable, the experimental predictions and success metrics are not explicitly defined."
+                    ],
+                    "PriorityMustFix": [
+                        "Increase specificity by adding quantitative or kinetic constraints to at least one key step in the cascade.",
+                        "Define clear, measurable endpoints for core concepts (endothelial dysfunction, plaque stability) in the experimental plan.",
+                        "Explicitly state the compliance path (IACUC, 3Rs) for the proposed animal studies."
+                    ],
+                    "NiceToFix": [
+                        "Enhance novelty by proposing one specific, non-obvious, and testable interaction within the broad framework.",
+                        "Ground the modulatory factors (miRNAs, microbiota) with more precise mechanistic links to specific cascade steps.",
+                        "Calibrate and justify the confidence score by acknowledging uncertainty in specific areas."
+                    ],
+                    "RiskFlags": [
+                        "Low risk. Main risk is over-interpretation of a correlative framework as proven causality, or misapplication of preclinical findings to human health advice without clinical trials."
+                    ],
+                    "EditInstructions": [
+                        "Reframe the 'hypothesis' to highlight a specific, novel, and testable claim within the integrative framework, rather than presenting the entire framework as the hypothesis.",
+                        "Revise the 'experimental_suggestion' section to include: a) defined primary endpoints, b) explicit predictions for key interventions, c) a statement on ethical compliance.",
+                        "In the 'mechanism_explanation', for the modulatory factors, replace general statements with 1-2 specific examples of mechanism (e.g., 'miR-XXX targets gene YYY in the ZZ pathway')."
+                    ]
+                }
+            }
+        ],
+        "refined_hypotheses": [
+            {
+                "title": "A Feed-Forward Loop Linking VSMC-Derived Exosomal miR-21 to Endothelial Dysfunction and Plaque Destabilization",
+                "hypothesis": "In early atherosclerosis at arterial bifurcations, NLRP3 inflammasome activation in intimal vascular smooth muscle cells (VSMCs) triggered by oxLDL uptake via CD36/LOX-1, but not SR-A, leads to the selective packaging and release of exosomes enriched with miR-21-5p. These VSMC-derived exosomes are taken up by overlying endothelial cells, where miR-21-5p directly represses Kruppel-like factor 2 (KLF2) and its target eNOS, creating a feed-forward loop that exacerbates endothelial dysfunction, promotes further LDL infiltration, and ultimately drives plaque instability by impairing fibrous cap formation. This CD36/LOX-1-dependent, exosome-mediated crosstalk represents a critical, targetable axis distinct from the canonical macrophage-centric inflammatory pathway.",
+                "mechanism_explanation": "The refined mechanism builds upon the established cascade but introduces a novel, non-obvious ordering and cell-cell communication loop: 1) At arterial bifurcations, prolonged (>72h) oscillatory shear stress (<1 dyne/cm²) induces endothelial cobblestone morphology and dysfunction, permitting LDL infiltration and oxidation. 2) oxLDL is internalized by intimal VSMCs preferentially via the CD36 and LOX-1 scavenger receptors, but not SR-A, leading to intracellular cholesterol crystal formation and lysosomal destabilization. 3) This specific CD36/LOX-1-mediated uptake in VSMCs, but not macrophages, is necessary and sufficient to activate the NLRP3 inflammasome, producing active IL-1β. 4) NLRP3 activation in VSMCs triggers the selective loading of miR-21-5p (a known regulator of KLF2 and eNOS) into exosomes via an IL-1R/MyD88-dependent pathway. 5) These VSMC-derived exosomes are transported to and internalized by the overlying dysfunctional endothelium. 6) Exosomal miR-21-5p silences KLF2 and eNOS expression in endothelial cells, further reducing NO bioavailability, increasing adhesion molecule expression, and worsening endothelial barrier function. This creates a feed-forward loop where endothelial dysfunction promotes oxLDL formation, which activates VSMCs, which in turn secrete exosomes that further disable the endothelium. Concurrently, the gut microbiota exacerbates this loop by producing trimethylamine-N-oxide (TMAO), which amplifies NLRP3 inflammasome activation in macrophages and VSMCs. The balance of this vicious cycle determines fibrous cap stability (VSMC proliferation/collagen deposition) versus instability (impaired endothelial repair, necrotic core expansion).",
+                "experimental_suggestion": "Establish a longitudinal study in ApoE-/- mice with carotid artery partial ligation to induce disturbed flow. All procedures require IACUC approval with statistical power analysis to determine minimum sample sizes (n≥8/group) adhering to 3Rs principles. Primary endpoints: Endothelial dysfunction: quantified by carotid artery en face staining for VCAM-1 (% positive area), phospho-eNOS/eNOS ratio via Western blot, and ex vivo monocyte adhesion assay. Plaque stability: quantified by histomorphometry (cap-to-core ratio, collagen content via Picrosirius Red), and MMP-9 activity via zymography. Experimental groups: 1) Wild-type, 2) ApoE-/-, 3) ApoE-/- + CD36 inhibitor (sulfo-N-succinimidyl oleate), 4) ApoE-/- + NLRP3 inhibitor (MCC950), 5) ApoE-/- with VSMC-specific miR-21 knockout. Predictions: If the hypothesis is correct, CD36 inhibition will reduce VSMC-derived exosomal miR-21-5p by >70% and increase cap-to-core ratio by >40% compared to vehicle, without altering macrophage foam cell count. NLRP3 inhibition will reduce IL-1β levels by >50% and increase eNOS phosphorylation, but only in mice with intact VSMC miR-21. VSMC-specific miR-21 knockout will attenuate endothelial dysfunction (increase KLF2 expression 2-fold) and improve plaque stability despite hyperlipidemia. Validate using spatial transcriptomics of the ligated carotid to map miR-21 expression and single-cell RNA-seq to confirm VSMC-specific inflammasome activation and exosome uptake by endothelium.",
+                "relevance_to_query": "This hypothesis directly addresses the query by proposing a novel, specific causal linkage (VSMC-endothelium exosomal crosstalk) within the broad factors (hemodynamic forces, lipid metabolism, inflammation, VSMCs, regulatory miRNAs) that relate endothelial dysfunction to cardiovascular disease. It refines the understanding of how these factors interact in a feed-forward manner to drive atherosclerosis.",
+                "confidence": 0.75,
+                "refinement_rationale": "Addressed feedback by: 1) Introducing a novel, non-obvious feed-forward loop (VSMC exosomal miR-21 → endothelial KLF2/eNOS repression) as the core hypothesis. 2) Adding quantitative constraints (prolonged >72h, <1 dyne/cm² shear stress). 3) Defining precise experimental endpoints (VCAM-1, cap-to-core ratio) and explicit, falsifiable predictions for interventions. 4) Specifying a mechanism for one modulator (microbiota-derived TMAO amplifies NLRP3). 5) Including ethical compliance (IACUC, 3Rs) in methods. 6) Calibrating confidence (moderate due to novelty of exosomal crosstalk specificity) while maintaining plausibility of individual steps."
+            }
+        ]
+    },
+    {
+        "entity": "Cardiovascular Diseases",
+        "path_index": 1,
+        "edges": [
+            {
+                "head": "Epicardial Adipose Tissue Thickness",
+                "relation": "ASSOCIATED_WITH",
+                "tail": "essential hypertension",
+                "confidence": [
+                    0.85,
+                    0.15
+                ],
+                "evidence": [
+                    "Increased Epicardial Adipose Tissue Thickness as a Predictor for Hypertension: A Cross-Sectional Observational Study.",
+                    "Association of epicardial adipose tissue thickness by echocardiography and hypertension.",
+                    "Epicardial Adipose Tissue Accumulation and Essential Hypertension in Non-Obese Adults."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_2_16",
+                "subject": {
+                    "entity_id": "ent:e9fc9b7b516f",
+                    "entity_type": "BIOMARKER",
+                    "name": "Epicardial Adipose Tissue Thickness",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Increased thickness is described as a predictor for hypertension in a cross-sectional observational study."
+                },
+                "object": {
+                    "entity_id": "ent:71646b709e2d",
+                    "entity_type": "DISEASE",
+                    "name": "essential hypertension",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "essential hypertension",
+                        "hypertension"
+                    ],
+                    "description": "Condition in patients with abnormal endothelium-dependent vascular relaxation related to endothelium-derived nitric oxide."
+                },
+                "time_info": null
+            },
+            {
+                "head": "essential hypertension",
+                "relation": "DECREASES",
+                "tail": "endotheliumdependent vascular relaxation",
+                "confidence": [
+                    0.8,
+                    0.08
+                ],
+                "evidence": [
+                    "Role of endothelium-derived nitric oxide in the abnormal endotheliumdependent vascular relaxation of patients with essential hypertension.",
+                    "Oxidative stress and endothelial dysfunction in hypertension."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_17",
+                "subject": {
+                    "entity_id": "ent:71646b709e2d",
+                    "entity_type": "DISEASE",
+                    "name": "essential hypertension",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "essential hypertension",
+                        "hypertension"
+                    ],
+                    "description": "Condition in patients with abnormal endothelium-dependent vascular relaxation related to endothelium-derived nitric oxide."
+                },
+                "object": {
+                    "entity_id": "ent:de260bc77b57",
+                    "entity_type": "MECHANISM",
+                    "name": "endotheliumdependent vascular relaxation",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "endothelium-dependent vascular relaxation",
+                        "endothelium-dependent vasodilation",
+                        "endotheliumdependent vascular relaxation",
+                        "vasodilatory effects",
+                        "vasorelaxation"
+                    ],
+                    "description": "Effects of PVAT in which sympathetic nerve activation and sensory neurons are described as having a role according to electrical field stimulation assays."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Epicardial fat thickness impairs endothelial function via hypertension",
+                "hypothesis": "Increased epicardial adipose tissue thickness promotes the development of essential hypertension, which in turn directly decreases endothelium-dependent vascular relaxation, contributing to endothelial dysfunction and cardiovascular disease risk.",
+                "mechanism_explanation": "The path shows Epicardial Adipose Tissue Thickness is ASSOCIATED_WITH essential hypertension, and essential hypertension DECREASES endothelium-dependent vascular relaxation. This suggests a causal chain where epicardial fat accumulation may drive hypertension, and hypertension mechanistically impairs endothelial function by reducing nitric oxide bioavailability and increasing oxidative stress, as supported by the context discussing endothelial nitric oxide synthase regulation and oxidative stress in hypertension.",
+                "experimental_suggestion": "In a cohort study, measure epicardial adipose tissue thickness (via echocardiography or cardiac MRI), blood pressure, and endothelial function (via flow-mediated dilation) at baseline and after 2 years. Use mediation analysis to test if changes in blood pressure statistically mediate the association between epicardial fat thickness and impaired endothelial function.",
+                "relevance_to_query": "The hypothesis directly links a measurable factor (epicardial adipose tissue thickness) to endothelial dysfunction through the mechanistic intermediary of hypertension, addressing the query about factors related to cardiovascular diseases and endothelial dysfunction.",
+                "confidence": 0.85
+            },
+            {
+                "title": "Epicardial fat-derived mediators cause endothelial dysfunction",
+                "hypothesis": "Epicardial adipose tissue, through its increased thickness and associated pro-inflammatory secretory profile, contributes to essential hypertension, which subsequently reduces endothelium-dependent vascular relaxation by altering the balance of vasoactive mediators and increasing vascular oxidative stress.",
+                "mechanism_explanation": "The path links epicardial fat (a biomarker) to hypertension, and hypertension to decreased endothelial relaxation. The context provides mechanistic depth: epicardial fat is a source of inflammatory mediators (ref 118) and has altered adipokine expression (ref 111, 113). Hypertension is linked to oxidative stress and reduced NO bioavailability (ref 62, 65), which impairs endothelial relaxation. Thus, fat-derived factors may induce hypertension that disrupts endothelial signaling.",
+                "experimental_suggestion": "Collect epicardial adipose tissue explants from patients undergoing cardiac surgery (with/without hypertension). Condition media from these explants applied to human aortic endothelial cells or isolated murine aortic rings. Assess endothelial function (NO production, eNOS phosphorylation, vasorelaxation responses) and measure secretion of specific adipokines (e.g., leptin, resistin, reduced adiponectin) linked to hypertension pathways.",
+                "relevance_to_query": "It identifies epicardial adipose tissue as a source of pathogenic factors that can lead to hypertension and subsequent endothelial dysfunction, providing a specific tissue-based factor relevant to cardiovascular disease.",
+                "confidence": 0.8
+            },
+            {
+                "title": "Targeting epicardial fat to restore endothelial function",
+                "hypothesis": "Therapeutic reduction of epicardial adipose tissue thickness or modulation of its secretory phenotype will ameliorate essential hypertension and thereby improve endothelium-dependent vascular relaxation, offering a novel strategy to combat endothelial dysfunction in cardiovascular disease.",
+                "mechanism_explanation": "The associative and decreasing relations in the path imply that intervening on the upstream factor (epicardial fat thickness) could mitigate the downstream effect (impaired endothelial relaxation) by alleviating the intermediary condition (hypertension). The context supports the plasticity of epicardial fat (ref 110 on 'browning') and the central role of endothelial NO in vasorelaxation (ref 55, 56, 65).",
+                "experimental_suggestion": "In a diet-induced obese hypertensive mouse model, implement an intervention to reduce epicardial fat (e.g., via local delivery of a browning agent like β3-adrenergic agonist or via weight loss). Compare groups for changes in epicardial fat volume (histology/MRI), systolic blood pressure (telemetry), and endothelial-dependent vasorelaxation (ex vivo aortic ring assays to acetylcholine).",
+                "relevance_to_query": "It proposes a testable intervention on a specific factor (epicardial fat) to improve endothelial function, directly addressing potential therapeutic avenues related to the query's focus.",
+                "confidence": 0.75
+            }
+        ],
+        "contexts": "49. Silberman, M.; Barac, Y.D.; Yahav, H.; Wolfovitz, E.; Einav, S.; Resnick, N.; Binah, O. Shear stress-induced transcriptional regulation via hybrid promoters as a potential tool for promoting angiogenesis. Angiogenesis 2009, 12, 231-242. [CrossRef]\n50. Davis, M.E.; Grumbach, I.; Fukai, T.; Cutchins, A.; Harrison, D.G. Shear Stress Regulates Endothelial Nitric-oxide Synthase Promoter Activity through Nuclear Factor $\\kappa$ B Binding. J. Biol. Chem. 2004, 279, 163-168. [CrossRef]\n51. Drummond, G.; Cai, H.; Davis, M.E.; Ramasamy, S.; Harrison, D.G. Transcriptional and Posttranscriptional Regulation of Endothelial Nitric Oxide Synthase Expression by Hydrogen Peroxide. Circ. Res. 2000, 86, 347-354. [CrossRef]\n52. Almendro, N.; Bellón, T.; Rius, C.; Lastres, P.; Langa, C.; Corbí, A.; Bernabeu, C. Cloning of the human platelet endothelial cell adhesion molecule-1 promoter and its tissue-specific expression. Structural and functional characterization. J. Immunol. 1996, 157, 5411-5421. [PubMed]\n53. Houston, P.; White, B.P.; Campbell, C.J.; Braddock, M. Delivery and Expression of Fluid Shear Stress-Inducible Promoters to the Vessel Wall: Applications for Cardiovascular Gene Therapy. Hum. Gene Ther. 1999, 10, 3031-3044. [CrossRef] [PubMed]\n54. Landmesser, U.; Hornig, B.; Drexler, H. Endothelial Dysfunction in Hypercholesterolemia: Mechanisms, Pathophysiological Importance, and Therapeutic Interventions. Semin. Thromb. Hemost. 2000, 26, 529-538. [CrossRef] [PubMed]\n55. Archer, S.L.; Huang, J.M.; Hampl, V.; Nelson, D.P.; Shultz, P.J.; Weir, E.K. Nitric oxide and cGMP cause vasorelaxation by activation of a charybdotoxin-sensitive K channel by cGMP-dependent protein kinase. Proc. Natl. Acad. Sci. USA 1994, 91, 7583-7587. [CrossRef]\n56. Aggio, A.; Grassi, D.; Onori, E.; D’Alessandro, A.; Masedu, F.; Valenti, M.; Ferri, C. Endothelium/nitric oxide mechanism mediates vasorelaxation and counteracts vasoconstriction induced by low concentration of flavanols. Eur. J. Nutr. 2012, 52, 263-272. [CrossRef]\n57. Cooke, J.P.; Tsao, P.S. Is NO an endogenous antiatherogenic molecule? Arter. Thromb. A J. Vasc. Biol. 1994, 14, 653-655. [CrossRef]\n58. Libby, P. Current Concepts of the Pathogenesis of the Acute Coronary Syndromes. Circulation 2001, 104, 365-372. [CrossRef]\n59. Marx, N.; Sukhova, G.K.; Collins, T.; Libby, P.; Plutzky, J. PPAR $\\alpha$ Activators Inhibit Cytokine-Induced Vascular Cell Adhesion Molecule-1 Expression in Human Endothelial Cells. Circulation 1999, 99, 3125-3131. [CrossRef]\n60. Chen, J.-Y.; Ye, Z.-X.; Wang, X.-F.; Chang, J.; Yang, M.-W.; Zhong, H.; Hong, F.-F.; Yang, S.-L. Nitric oxide bioavailability dysfunction involves in atherosclerosis. Biomed. Pharmacother. 2018, 97, 423-428. [CrossRef]\n61. Carlström, M. Nitric oxide signalling in kidney regulation and cardiometabolic health. Nat. Rev. Nephrol. 2021, 17, 575-590. [CrossRef]\n62. Schulz, E.; Gori, T.; Münzel, T. Oxidative stress and endothelial dysfunction in hypertension. Hypertens. Res. 2011, 34, 665-673. [CrossRef] [PubMed]\n63. Förstermann, U.; Xia, N.; Li, H. Roles of Vascular Oxidative Stress and Nitric Oxide in the Pathogenesis of Atherosclerosis. Circ. Res. 2017, 120, 713-735. [CrossRef] [PubMed]\n64. Casino, P.R.; Kilcoyne, C.M.; A Quyyumi, A.; Hoeg, J.M.; A Panza, J. The role of nitric oxide in endothelium-dependent vasodilation of hypercholesterolemic patients. Circulation 1993, 88, 2541-2547. [CrossRef] [PubMed]\n65. A Panza, J.; Casino, P.R.; Kilcoyne, C.M.; A Quyyumi, A. Role of endothelium-derived nitric oxide in the abnormal endotheliumdependent vascular relaxation of patients with essential hypertension. Circulation 1993, 87, 1468-1474. [CrossRef] [PubMed]\n66. Alexander, R.W. Hypertension and the Pathogenesis of Atherosclerosis. Hypertension 1995, 25, 155-161. [CrossRef] [PubMed]\n67. Michel, C.C.; Curry, F.E. Microvascular Permeability. Physiol. Rev. 1999, 79, 703-761. [CrossRef]\n68. Rippe, B.; Haraldsson, B. Transport of macromolecules across microvascular walls: The two-pore theory. Physiol. Rev. 1994, 74, 163-219. [CrossRef] [PubMed]\n69. Rippe, B.; Rosengren, B.-I.; Carlsson, O.; Venturoli, D. Transendothelial Transport: The Vesicle Controversy. J. Vasc. Res. 2002, 39, 375-390. [CrossRef]\n70. Pappenheimer, J.R.; Renkin, E.M.; Borrero, L.M. Filtration, Diffusion and Molecular Sieving Through Peripheral Capillary Membranes. Am. J. Physiol. Content 1951, 167, 13-46. [CrossRef]\n71. Jang, E.; Robert, J.; Rohrer, L.; von Eckardstein, A.; Lee, W.L. Transendothelial transport of lipoproteins. Atheroscler. 2020, 315, 111-125. [CrossRef]\n72. Zhang, X.; Sessa, W.C.; Fernández-Hernando, C. Endothelial Transcytosis of Lipoproteins in Atherosclerosis. Front. Cardiovasc. Med. 2018, 5, 130. [CrossRef] [PubMed]\n73. Goldstein, J.L.; Brown, M.S. The LDL Receptor. Arterioscler. Thromb. Vasc. Biol. 2009, 29, 431-438. [CrossRef]\n74. Babitt, J.; Trigatti, B.; Rigotti, A.; Smart, E.J.; Anderson, R.G.W.; Xu, S.; Krieger, M. Murine SR-BI, a High Density Lipoprotein Receptor That Mediates Selective Lipid Uptake, Is N-Glycosylated and Fatty Acylated and Colocalizes with Plasma Membrane Caveolae. J. Biol. Chem. 1997, 272, 13242-13249. [CrossRef] [PubMed]\n75. Santibanez, J.F.; Blanco, F.J.; Garrido-Martin, E.M.; Sanz-Rodriguez, F.; del Pozo, M.A.; Bernabeu, C. Caveolin-1 interacts and cooperates with the transforming growth factor- $\\beta$ type I receptor ALK1 in endothelial caveolae. Cardiovasc. Res. 2008, 77, 791-799. [CrossRef] [PubMed]\n76. Rothberg, K.G.; Heuser, J.E.; Donzell, W.C.; Ying, Y.-S.; Glenney, J.R.; Anderson, R.G. Caveolin, a protein component of caveolae membrane coats. Cell 1992, 68, 673-682. [CrossRef]\n77. Fernández-Hernando, C.; Yu, J.; Suárez, Y.; Rahner, C.; Dávalos, A.; Lasunción, M.A.; Sessa, W.C. Genetic Evidence Supporting a Critical Role of Endothelial Caveolin-1 during the Progression of Atherosclerosis. Cell Metab. 2009, 10, 48-54. [CrossRef]\n105. Li W, Jin D, Takai S, et al. Impaired function of aorta and perivascular adipose tissue in IL-18deficient mice. American Journal of Physiology-Heart and Circulatory Physiology. 2019;317:H1142-H1156. [PubMed: 31518161]\n106. Talman AH, Psaltis PJ, Cameron JD, Meredith IT, Seneviratne SK, Wong DTL. Epicardial adipose tissue: far more than a fat depot. Cardiovasc Diagn Ther. 2014;4:416-429. [PubMed: 25610800]\n107. Marchington JM, Mattacks CA, Pond CM. Adipose tissue in the mammalian heart and pericardium: structure, foetal development and biochemical properties. Comp Biochem Physiol B. 1989;94:225-232. [PubMed: 2591189]\n108. Sacks HS, Fain JN, Holman B, et al. Uncoupling protein-1 and related messenger ribonucleic acids in human epicardial and other adipose tissues: epicardial fat functioning as brown fat. J Clin Endocrinol Metab. 2009;94:3611-3615. [PubMed: 19567523]\n109. Chatterjee Tapan K, Stoll Lynn L, Denning Gerene M, et al. Proinflammatory Phenotype of Perivascular Adipocytes. Circulation Research. 2009;104:541-549. [PubMed: 19122178]\n110. Aldiss P, Davies G, Woods R, Budge H, Sacks HS, Symonds ME. 'Browning' the cardiac and peri-vascular adipose tissues to modulate cardiovascular risk. International Journal of Cardiology. 2017;228:265-274. [PubMed: 27865196]\n111. Iacobellis G, Pistilli D, Gucciardo M, et al. Adiponectin expression in human epicardial adipose tissue in vivo is lower in patients with coronary artery disease. Cytokine. 2005;29:251-255. [PubMed: 15749025]\n112. Silaghi A, Achard V, Paulmyer-Lacroix O, et al. Expression of adrenomedullin in human epicardial adipose tissue: role of coronary status. Am J Physiol Endocrinol Metab. 2007;293:E1443-1450. [PubMed: 17878224]\n113. Teijeira-Fernandez E, Eiras S, Grigorian-Shamagian L, Fernandez A, Adrio B, Gonzalez-Juanatey JR. Epicardial adipose tissue expression of adiponectin is lower in patients with hypertension. Journal of Human Hypertension. 2008;22:856-863. [PubMed: 18650840]\n114. Le Jemtel TH, Samson R, Ayinapudi K, Singh T, Oparil S. Epicardial Adipose Tissue and Cardiovascular Disease. Curr Hypertens Rep. 2019;21:36. [PubMed: 30953236]\n115. Dicker D, Atar E, Kornowski R, Bachar GN. Increased Epicardial Adipose Tissue Thickness as a Predictor for Hypertension: A Cross-Sectional Observational Study. The Journal of Clinical Hypertension. 2013;15:893-898. [PubMed: 24102800]\n116. Eroğlu S, Sade LE, Yıldırır A, Demir O, Müderrisoğlu H. Association of epicardial adipose tissue thickness by echocardiography and hypertension. Turk Kardiyol Dern Ars. 2013;41:115-122. [PubMed: 23666298]\n117. Austys D, Dobrovolskij A, Jablonskienė V, Dobrovolskij V, Valevičienė N, Stukas R. Epicardial Adipose Tissue Accumulation and Essential Hypertension in Non-Obese Adults. Medicina (Kaunas). 2019;55.\n118. Mazurek Tomasz, Zhang LiFeng, Zalewski Andrew, et al. Human Epicardial Adipose Tissue Is a Source of Inflammatory Mediators. Circulation. 2003;108:2460-2466. [PubMed: 14581396]\n119. Iacobellis G, Ribaudo MC, Zappaterreno A, Iannucci CV, Leonetti F. Relation between epicardial adipose tissue and left ventricular mass. Am J Cardiol. 2004;94:1084-1087. [PubMed: 15476634]\n120. Iacobellis G, Leonetti F, Singh N, M Sharma A. Relationship of epicardial adipose tissue with atrial dimensions and diastolic function in morbidly obese subjects. International Journal of Cardiology. 2007;115:272-273. [PubMed: 16759715]\n121. George Thanassoulis, Massaro Joseph M., O’Donnell Christopher J., et al. Pericardial Fat Is Associated With Prevalent Atrial Fibrillation. Circulation: Arrhythmia and Electrophysiology. 2010;3:345-350. [PubMed: 20558845]\n122. Baker AR, da Silva NF, Quinn DW, et al. Human epicardial adipose tissue expresses a pathogenic profile of adipocytokines in patients with cardiovascular disease. Cardiovascular Diabetology. 2006;5:1. [PubMed: 16412224]\n123. Nguyen Dinh Cat A, Briones AM, Callera GE, et al. Adipocyte-derived factors regulate vascular smooth muscle cells through mineralocorticoid and glucocorticoid receptors. Hypertension. 2011;58:479-488. [PubMed: 21788604]\n",
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Mechanistic Framework Linking Epicardial Adipose Tissue Dysfunction, Endothelial Impairment, and Cardiovascular Disease",
+                "hypothesis": "Cardiovascular diseases and endothelial dysfunction are mechanistically linked through a pathological axis originating from dysfunctional epicardial adipose tissue (EAT), which, via its altered secretome (reduced adiponectin, increased inflammatory mediators), promotes endothelial oxidative stress, reduces nitric oxide (NO) bioavailability, and impairs shear stress-responsive transcriptional regulation (e.g., of eNOS and PECAM-1), thereby disrupting endothelial barrier function, enhancing lipoprotein transcytosis (potentially via caveolin-1-mediated pathways), and initiating atherosclerotic plaque formation, with this cascade being exacerbated by conditions like hypertension and hypercholesterolemia.",
+                "mechanism_explanation": "The provided contexts describe a cohesive biological narrative: 1) Epicardial/perivascular adipose tissue (EAT/PVAT) exhibits a proinflammatory phenotype in cardiovascular disease (CVD) states, with reduced protective adipokines (e.g., adiponectin) and increased inflammatory mediators (Mazurek et al., 2003; Baker et al., 2006; Chatterjee et al., 2009). 2) This dysfunctional secretome contributes to endothelial dysfunction, a key early event in atherosclerosis. 3) Endothelial dysfunction is characterized by oxidative stress and reduced NO bioavailability (Förstermann et al., 2017; Chen et al., 2018), which impairs vasodilation (Archer et al., 1994; Casino et al., 1993). 4) NO production is regulated by shear stress via transcriptional mechanisms involving specific promoters (Davis et al., 2004; Houston et al., 1999). 5) A dysfunctional endothelium has impaired barrier function, facilitating the transcytosis of atherogenic lipoproteins across the endothelium, a process potentially involving caveolae and caveolin-1 (Jang et al., 2020; Fernández-Hernando et al., 2009). 6) Hypertension and hypercholesterolemia are both causes and consequences of this endothelial dysfunction (Alexander, 1995; Landmesser et al., 2000), and are associated with increased EAT thickness (Dicker et al., 2013; Eroğlu et al., 2013). Thus, the contexts collectively support a hypothesis where dysfunctional EAT acts as a central pathogenic organ that disrupts multiple, interconnected endothelial homeostatic mechanisms.",
+                "experimental_suggestion": "Utilize a co-culture system of human epicardial adipocytes (from patients with and without CVD) and primary human aortic endothelial cells (HAECs) under controlled shear stress. Measure: 1) Secretome profile of adipocytes (adiponectin, IL-6, TNF-α). 2) Endothelial NO production, oxidative stress markers, and eNOS promoter activity using a reporter construct. 3) Endothelial monolayer integrity (transendothelial electrical resistance) and LDL transcytosis rates. 4) The role of caveolin-1 via siRNA knockdown in HAECs. Validate key findings in a murine model of diet-induced obesity with/without surgical EAT removal, assessing endothelial function (aortic ring vasodilation), atherosclerotic burden, and vascular inflammation.",
+                "relevance_to_query": "This comprehensive hypothesis directly addresses the query by synthesizing multiple factors implicated in the relationship between cardiovascular diseases and endothelial dysfunction. It identifies a central factor (dysfunctional epicardial adipose tissue) and delineates the downstream mechanistic pathways through which it influences endothelial health, including altered adipokine secretion, oxidative stress, nitric oxide signaling, shear stress response, and vascular barrier function, thereby providing an integrated answer to what factors are involved.",
+                "confidence": 0.85
+            }
+        ],
+        "feedback": [
+            {
+                "Novelty": {
+                    "score": "3/5",
+                    "rationale": "The hypothesis integrates well-established concepts (EAT dysfunction, endothelial impairment, oxidative stress) into a single narrative. The novelty lies in positioning EAT as the central, initiating pathogenic organ and explicitly linking its secretome to specific downstream transcriptional (shear stress response) and transcytotic (caveolin-1) mechanisms. However, the core components (EAT inflammation, endothelial dysfunction, NO bioavailability) are individually well-documented, making this a moderate, synthetic novelty.",
+                    "concerns": [
+                        "The central role of EAT as a driver is debated; it may also be a bystander or amplifier of vascular inflammation.",
+                        "The proposed linkage of EAT secretome to shear-stress transcriptional regulation is an under-specified and less common connection, but not entirely new."
+                    ],
+                    "suggestions": [
+                        "Explicitly differentiate this framework from prior models that focus on systemic risk factors (e.g., hypercholesterolemia) as the primary drivers, with EAT as a secondary contributor.",
+                        "Clarify the predicted temporal sequence: does EAT dysfunction precede measurable endothelial dysfunction in early pathogenesis?"
+                    ]
+                },
+                "Plausibility": {
+                    "score": "4/5",
+                    "rationale": "The mechanistic chain is coherent and aligns with established biomedical knowledge. Each step (altered EAT secretome -> endothelial inflammation/oxidative stress -> reduced NO -> impaired barrier function -> increased lipoprotein transcytosis) is supported by cited literature. The hypothesis acknowledges exacerbating conditions (hypertension, hypercholesterolemia). The causal direction from EAT to endothelium is plausible, though bidirectional influences exist.",
+                    "concerns": [
+                        "The hypothesis presents a linear cascade; in reality, these processes are highly interconnected with feedback loops (e.g., endothelial dysfunction can worsen EAT inflammation).",
+                        "The specific mechanistic link from the EAT secretome to the shear-stress-responsive transcriptional machinery (e.g., eNOS promoter) is not detailed and relies on an assumed connection via oxidative stress/inflammatory signaling."
+                    ],
+                    "suggestions": [
+                        "Acknowledge and diagram potential feedback loops within the hypothesis statement to enhance mechanistic completeness.",
+                        "Specify the proposed signaling pathways (e.g., NF-κB, JAK/STAT) by which EAT-derived inflammatory mediators might directly influence shear-stress-sensitive promoters."
+                    ]
+                },
+                "Grounding": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis is strongly grounded in the provided context, with specific citations supporting each major claim (EAT phenotype, endothelial dysfunction markers, NO biology, shear stress regulation, transcytosis, role of risk factors). The 'mechanism_explanation' provides a clear claim-to-evidence mapping. The confidence score (0.85) is appropriately calibrated.",
+                    "concerns": [
+                        "Some key linkages in the proposed axis, while plausible, are not directly cited. For example, no citation directly shows that the altered EAT secretome *causes* impaired shear-stress regulation of eNOS.",
+                        "The role of caveolin-1 in lipoprotein transcytosis is cited, but its specific regulation by the EAT secretome is not."
+                    ],
+                    "suggestions": [
+                        "Add a sentence noting which proposed linkages are inferential syntheses of separate literatures and require direct experimental validation.",
+                        "Cite review articles or primary studies that discuss adipose tissue signaling to endothelial transcriptional programs to bolster the less-direct connections."
+                    ]
+                },
+                "Testability": {
+                    "score": "5/5",
+                    "rationale": "The 'experimental_suggestion' section provides a highly testable, multi-tiered validation plan with clear in vitro and in vivo models, specific measurable endpoints (secretome profile, NO production, TEER, LDL transcytosis, eNOS promoter activity), and an intervention (siRNA knockdown, surgical EAT removal). Controls (patients without CVD, sham surgery) and expected discriminative outcomes are implied.",
+                    "concerns": [
+                        "The murine model of diet-induced obesity may confound systemic metabolic effects with specific EAT effects, even with removal surgery.",
+                        "Measuring 'shear-stress-responsive transcriptional regulation' in the co-culture system requires precise engineering of flow conditions."
+                    ],
+                    "suggestions": [
+                        "Specify the control for the murine experiment: e.g., compare EAT removal to perigonadal adipose tissue removal to establish depot-specificity.",
+                        "Detail the shear stress parameters (laminar vs. oscillatory, magnitude, duration) to be used in the co-culture system to test the transcriptional regulation claim."
+                    ]
+                },
+                "Specificity": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis is highly specific regarding actors (EAT, endothelial cells), direction (EAT dysfunction -> endothelial impairment), and mechanisms (altered secretome, oxidative stress, reduced NO, impaired shear stress response, caveolin-1-mediated transcytosis). It includes exacerbating conditions. The scope is bounded to the initiation of atherosclerotic plaque formation.",
+                    "concerns": [
+                        "Lacks quantitative or threshold parameters (e.g., what degree of secretome alteration is 'dysfunctional'?).",
+                        "The phrase 'potentially via caveolin-1-mediated pathways' introduces vagueness; it is not a definitive claim.",
+                        "Does not explicitly state non-applicable cases (e.g., does this apply to all vascular beds or primarily coronaries?)."
+                    ],
+                    "suggestions": [
+                        "Define a measurable operational definition of 'EAT dysfunction' for experimental purposes (e.g., adiponectin/IL-6 ratio below threshold X).",
+                        "Replace 'potentially via' with a stronger conditional statement: '...impairs barrier function, which enhances lipoprotein transcytosis; this transcytosis is hypothesized to be mediated by caveolin-1 upregulation.'",
+                        "Add a boundary condition: 'This axis is proposed to be most relevant in coronary and possibly large elastic arteries where EAT/PVAT is in direct anatomic contact with the vessel wall.'"
+                    ]
+                },
+                "SafetyEthics": {
+                    "score": "4/5",
+                    "rationale": "The proposed research uses standard in vitro and animal models. Human tissue sourcing (from patients) is implied, which carries standard ethical requirements. The hypothesis itself describes a pathological mechanism and does not propose unsafe or non-compliant interventions.",
+                    "concerns": [
+                        "The experimental plan involving human tissue requires explicit mention of ethical oversight (IRB, informed consent).",
+                        "The murine surgery (EAT removal) is a non-trivial procedure requiring specific biosafety and animal welfare considerations."
+                    ],
+                    "suggestions": [
+                        "Add to the experimental suggestion: 'Human tissue collection must be approved by an IRB with informed consent. Animal studies must follow IACUC protocols.'",
+                        "Briefly note potential confounders in human tissue studies (medications, comorbidities) that must be recorded and controlled for statistically."
+                    ]
+                },
+                "OverallSummary": {
+                    "Strengths": [
+                        "Mechanistically coherent and comprehensive synthesis of multiple established pathways.",
+                        "Excellent testability with a detailed, multi-modal experimental validation plan.",
+                        "Strong grounding in the provided scientific literature.",
+                        "Clearly addresses the query with an integrated framework."
+                    ],
+                    "Weaknesses": [
+                        "Novelty is moderate, being primarily an integrative synthesis rather than proposing a fundamentally new component.",
+                        "Some mechanistic links, while plausible, are not directly supported by citations and are presented linearly, omitting feedback.",
+                        "Lacks quantitative thresholds and some boundary conditions, reducing specificity."
+                    ],
+                    "PriorityMustFix": [
+                        "Clarify the novelty by explicitly contrasting this EAT-centric axis with other pathogenic models.",
+                        "Add essential ethical compliance statements (IRB, IACUC) to the experimental plan.",
+                        "Refine the specificity by adding boundary conditions (anatomic scope) and operational definitions for 'dysfunction'."
+                    ],
+                    "NiceToFix": [
+                        "Acknowledge and briefly describe potential feedback loops in the mechanism explanation.",
+                        "Specify shear stress parameters and surgical controls in the experimental suggestion to bolster testability.",
+                        "Replace tentative language ('potentially via') with a stronger hypothetical statement."
+                    ],
+                    "RiskFlags": [
+                        "None identified. The hypothesis describes basic/translational research on a disease mechanism with standard model systems."
+                    ],
+                    "EditInstructions": [
+                        "In the hypothesis statement, integrate one sentence on boundary conditions (e.g., '...primarily in coronary circulation...').",
+                        "In the experimental_suggestion, prefix the plan with a compliance statement.",
+                        "In the mechanism_explanation, add a short paragraph discussing the possibility of bidirectional feedback between EAT and the endothelium."
+                    ]
+                }
+            }
+        ],
+        "refined_hypotheses": [
+            {
+                "title": "REVISED: EAT-Centric Pathogenic Axis in Coronary Endothelial Dysfunction with Bidirectional Feedback",
+                "hypothesis": "In the early pathogenesis of coronary artery disease, dysfunctional epicardial/perivascular adipose tissue (EAT/PVAT) acts as a primary pathogenic organ that initiates endothelial impairment, distinct from models where systemic risk factors are the sole primary drivers. This EAT-centric axis is proposed to be most relevant in coronary and large elastic arteries where EAT is in direct anatomic contact with the vessel wall. EAT dysfunction, operationally defined by an adiponectin/IL-6 secretion ratio below a pathogenic threshold, drives a proinflammatory secretome that disrupts multiple interconnected endothelial homeostatic mechanisms: it induces oxidative stress and inflammatory signaling (e.g., via NF-κB) which directly impair shear-stress-responsive transcriptional regulation of eNOS, reduces NO bioavailability, and impairs vascular barrier function. This barrier dysfunction enhances the transcytosis of atherogenic lipoproteins, a process hypothesized to be mediated by caveolin-1 upregulation. This cascade creates a vicious cycle, as the resulting endothelial dysfunction and subendothelial lipoprotein accumulation further exacerbate local vascular inflammation, feeding back to worsen EAT dysfunction.",
+                "mechanism_explanation": "The hypothesis integrates established pathways into a cohesive, EAT-initiated narrative: 1) In CVD states, EAT exhibits a proinflammatory phenotype with reduced adiponectin and increased mediators like IL-6 and TNF-α (Mazurek et al., 2003; Baker et al., 2006). 2) This altered secretome acts on the adjacent endothelium. We propose specific signaling pathways: EAT-derived TNF-α/IL-6 can activate endothelial NF-κB (implied by Davis et al., 2004), which can repress shear-stress-induced eNOS promoter activity, providing a direct link between the secretome and transcriptional regulation. 3) Concurrently, oxidative stress (Förstermann et al., 2017) reduces NO bioavailability, impairing vasodilation (Archer et al., 1994). 4) The inflamed, dysfunctional endothelium has impaired barrier integrity, facilitating increased transcytosis of LDL, a process shown to involve caveolae and caveolin-1 (Jang et al., 2020; Fernández-Hernando et al., 2009). 5) The deposited lipoproteins and endothelial activation further produce chemokines/cytokines that can diffuse back to EAT, creating a positive feedback loop that amplifies EAT inflammation (a bidirectional relationship acknowledged here, though the initial driver is posited as EAT). 6) Systemic factors like hypertension and hypercholesterolemia (Alexander, 1995; Landmesser et al., 2000) are both causes and consequences, associated with increased EAT thickness (Dicker et al., 2013), and likely accelerate this local vicious cycle. The novelty lies in positioning anatomically localized EAT dysfunction as a primary instigator of this integrated cascade, explicitly linking its secretome to shear-stress transcription via inflammatory NF-κB signaling, and proposing a feed-forward loop with the endothelium.",
+                "experimental_suggestion": "All human tissue collection must be approved by an IRB with informed consent. Animal studies must follow IACUC protocols. Utilize a co-culture system of human epicardial adipocytes (from patients with/without CAD, with comorbidities/medications recorded) and primary human aortic endothelial cells (HAECs) under precisely controlled laminar shear stress (e.g., 15 dyn/cm² for 24h). Measure: 1) Secretome profile (adiponectin, IL-6, TNF-α) to define dysfunction operationally (e.g., adiponectin/IL-6 ratio < 0.5). 2) Endothelial NO production, ROS, and eNOS promoter activity (reporter construct). 3) Monolayer integrity (TEER) and LDL transcytosis rates. 4) Role of caveolin-1 via siRNA knockdown. Validate in a murine model: Compare ApoE-/- mice on high-fat diet subjected to surgical EAT removal vs. sham surgery vs. perigonadal fat removal (control for depot-specificity). Assess endothelial function (aortic ring vasodilation), atherosclerotic burden in the aortic root, and vascular inflammation.",
+                "relevance_to_query": "This revised hypothesis directly and comprehensively addresses the query by identifying and mechanistically detailing a central factor (dysfunctional epicardial adipose tissue) and the downstream pathways through which it contributes to endothelial dysfunction and cardiovascular disease. It incorporates additional factors like bidirectional feedback loops, specific signaling pathways, and anatomic boundary conditions, providing a more nuanced and testable integrated answer.",
+                "confidence": 0.85,
+                "refinement_rationale": "Addressed feedback by: 1) Explicitly contrasting the EAT-centric model with systemic driver models to clarify novelty. 2) Adding boundary conditions (coronary/large arteries). 3) Providing an operational definition for 'EAT dysfunction'. 4) Replacing tentative language ('potentially via') with a stronger hypothetical statement on caveolin-1. 5) Acknowledging and incorporating bidirectional feedback loops in the mechanism. 6) Specifying shear stress parameters and surgical controls (perigonadal fat removal) in the experimental plan. 7) Adding essential ethical compliance statements (IRB, IACUC). 8) Proposing a specific signaling link (NF-κB) from EAT secretome to shear-stress transcription."
+            }
+        ]
+    }
+]

@@ -28,6 +28,7 @@ class ReviewFetcherAgent(Agent):
         self.memory=get_memory()
         self.logger=get_global_logger()
         self.fetch=PubMedFetcher()
+        self.k=5
         super().__init__(client,model_name,self.system_prompt)
     
     def process(self,user_query:str):
@@ -45,7 +46,9 @@ class ReviewFetcherAgent(Agent):
         md_outputs=ocr_to_md_files(review_urls)
         # print("md_outputs=>",md_outputs)
         # md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
-        for md_output in md_outputs[0:2]:
+        # 过滤掉 None 值（OCR 失败的情况）
+        md_outputs = [md for md in md_outputs if md is not None]
+        for md_output in md_outputs[0:self.k]:
             paragraphs=split_md_by_mixed_count(md_output)
 
             # paragraphs=split_md_by_h2(md_output)
