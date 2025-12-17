@@ -312,6 +312,15 @@ class HypothesisGenerationAgent(Agent):
                     contexts+=self.memory.subgraphs[source].meta['text']+"\n"
                 modified_hyps = self.modify_hypothesis(given_hypotheses, contexts)
                 result["modified_hypotheses"] = modified_hyps
-        
+        timestamp=datetime.now().strftime("%Y%m%d%H%M")
+        with open(f'../../output/output_{timestamp}.json', 'w', encoding='utf-8') as f:
+            json.dump(
+                results, 
+                f, 
+                ensure_ascii=False, 
+                indent=4, 
+                # 只需要这一行 lambda
+                default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
+            )
         return results
         

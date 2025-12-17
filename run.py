@@ -38,7 +38,7 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251212-095930.json')
+    memory=load_memory_from_json('/home/nas3/biod/dongkun/snapshots/memory-20251212-095930.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
     hypothesis_agent = HypothesisGenerationAgent(
         client=client,
@@ -52,7 +52,8 @@ if __name__ == "__main__":
     for result in results:
         print("Generated Hypotheses:", result.get("hypotheses"))
         print("Modified Hypotheses:", result.get("modified_hypotheses"))
-    with open('output.json', 'w', encoding='utf-8') as f:
+    timestamp=datetime.now().strftime("%Y%m%d%H%M")
+    with open(f'output/output_{timestamp}.json', 'w', encoding='utf-8') as f:
         json.dump(
             results, 
             f, 
