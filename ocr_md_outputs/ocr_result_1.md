@@ -18,11 +18,11 @@ $^{1}$ Head and Neck Unit, The Royal Marsden NHS Foundation Trust, London, UK
 4Biobizkaia Health Research Institute, OSI Bilbao-Basurto, Bilbao, Spain
 5Centro de Investigacion en Red de Salud Mental (CIBERSAM), Madrid, Spain
 $^{6}$ Lung and Head &amp; Neck Tumors Unit. Medical Oncology Department, Vall d'Hebron University Hospital, Barcelona, Spain
-$^{7}$ Vall d'Hebron Institute of Oncology (VHIO), Barcelona, Spain
-$^{8}$ Radiotherapy Department, Cruces University Hospital, Barakaldo, Spain
-$^{9}$ Biobizkaia Health Research Institute, OSI Ezkerraldea Enkarterri Cruces, Barakaldo, Spain
-$^{10}$ Faculty of Medicine, University of the Basque Country, Leioa, Spain
-$^{11}$ Neuroscience Department, University of the Basque Country (UPV/EHU), Leioa, Spain
+7Vall d'Hebron Institute of Oncology (VHIO), Barcelona, Spain
+8Radiotherapy Department, Cruces University Hospital, Barakaldo, Spain
+9Biobizkaia Health Research Institute, OSI Ezkerraldea Enkarterri Cruces, Barakaldo, Spain
+10Faculty of Medicine, University of the Basque Country, Leioa, Spain
+11Neuroscience Department, University of the Basque Country (UPV/EHU), Leioa, Spain
 $^{12}$ Department of Psychiatry, University of Oxford, Oxford, UK
 *Correspondence to: Pablo Jimenez-Labaig, MD, Head and Neck Unit, The Royal Marsden NHS Foundation Trust, 203 Fulham Rd, London SW3 6JJ, UK (e-mail: pablo.jimenez@rmh.nhs.uk).
 These authors contributed equally to this work and share first authorship.
@@ -388,7 +388,7 @@ psychiatric practice and research. Psychiatry Res. 1989;28(2): 193-213. doi:10.1
 outcomes of mental health problems: a systematic review. BMC Psychiatry 2018;18(1):156. doi:10.1186/s12888-018-1736-5.
 77. American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders. 5th ed. Virginia, USA: American Psychiatric Association; 2013.
 78. Park S, Kang CH, Hwang Y, et al. Risk factors for postoperative anxiety and depression after surgical treatment for lung cancer. Eur J Cardiothorac Surg 2016;49(1):e16-e21. doi:10.1093/ejcts/ezv336.
-79. Florez CI, Jurado A, Rodriguez-Borrego MA. Nivel de ansiedade versus autocuidado no pré-operatório e pós-operatório do paciente laringectomizado total 1 artigo extraído da tese de doutorado "nivel de ansiedad versus nível de autocuidados en el paciente laringectomizado", aparecida à universidad de córdoba, córdoba, andalucia, espanha. 2016;24. https://search.proquest.com/docview/2719900092. doi:10.1590/1518-8345.0743.2707.
+79. Florez CI, Jurado A, Rodriguez-Borrego MA. Nivel de ansiedade versus autocuidado no pré-operatório e pós-operatório do paciente laringectomizado total 1 artigo extraído da tese de doutorado "nivel de ansiedad versus nível de autocuidados en el paciente laringectomizado", aparecida à universidad de córdoba, córdoba, andalúcia, espanha. 2016;24. https://search.proquest.com/docview/2719900092. doi:10.1590/1518-8345.0743.2707.
 80. Blanco-Piñero N, Antequera-Jurado R, Rodríguez-Franco L, Ibanez-Guerra E, Herrero-Salado TF, Sánchez-Gómez S. Alteraciones emocionales y psicopatológicas en pacientes oncológicos laringectomizados. Acta Otorinolaringol Esp. 2015; 66(4):210-217. doi:10.1016/j.otorri.2014.09.006.
 81. Schimansky S, Lang S, Beynon R, et al. Association between comorbidity and survival in head and neck cancer: results from head and neck 5000. Head Neck 2019;41(4):1053-1062. doi:10.1002/hed.25543.
 82. Keam B, Machiels J, Kim HR, et al. Pan-asian adaptation of the EHNS-ESMO-ESTRO clinical practice guidelines for the diagnosis, treatment and follow-up of patients with squamous cell carcinoma of the head and neck. ESMO Open 2021;6(6): 100309. doi:10.1016/j.esmoop.2021.100309.

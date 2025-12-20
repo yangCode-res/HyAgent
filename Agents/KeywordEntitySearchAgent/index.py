@@ -70,7 +70,7 @@ class KeywordEntitySearchAgent(Agent):
 
         self._load_biobert()
         self._build_entity_index()
-
+        print("keywords",self.keywords)
         # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
 
     # ---------------- BioBERT 相关 ----------------

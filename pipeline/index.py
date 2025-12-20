@@ -42,11 +42,11 @@ class Pipeline:
         pipeline.append(CausalExtractionAgent(self.client,self.model_name))
         pipeline.append(AlignmentTripleAgent(self.client,self.model_name))
         pipeline.append(SubgraphMerger(self.client,self.model_name))
-        pipeline.append(KeywordEntitySearchAgent(self.client,self.reason_model,keywords=self.core_entities))
-        pipeline.append(PathExtractionAgent(self.client,self.reason_model,query=self.clarified_query))
-        pipeline.append(HypothesisGenerationAgent(self.client,self.reason_model,query=self.clarified_query,max_paths=5,hypotheses_per_path=3))
-        pipeline.append(ReflectionAgent(self.client,self.reason_model))
-        pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.reason_model,query=self.clarified_query))
+        pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities))
+        pipeline.append(PathExtractionAgent(self.client,self.model_name,query=self.clarified_query))
+        pipeline.append(HypothesisGenerationAgent(self.client,self.model_name,query=self.clarified_query,max_paths=5,hypotheses_per_path=3))
+        pipeline.append(ReflectionAgent(self.client,self.model_name))
+        pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query))
         return pipeline
     def run(self):
         user_query=self.user_query
@@ -55,6 +55,7 @@ class Pipeline:
         clarified_query = response.get("clarified_question", user_query) # type: ignore
         self.clarified_query=clarified_query
         core_entities= response.get("core_entities", []) # type: ignore
+        print(f"Core Entities: {core_entities}")
         intention= response.get("main_intention", "") # type: ignore
         reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
         reviewfetcheragent.process(clarified_query)

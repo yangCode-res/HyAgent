@@ -33,8 +33,8 @@ class ReviewFetcherAgent(Agent):
     
     def process(self,user_query:str):
         strategy = self.generateMeSHStrategy(user_query)
-        reviews_metadata = self.fetchReviews(strategy, maxlen=20)
-        selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        reviews_metadata = self.fetchReviews(strategy, maxlen=30)
+        selected_reviews = self.selectReviews(reviews_metadata, topk=10)
         review_urls = []
         for pmid in selected_reviews:
             try:
@@ -48,6 +48,7 @@ class ReviewFetcherAgent(Agent):
         # md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
         # 过滤掉 None 值（OCR 失败的情况）
         md_outputs = [md for md in md_outputs if md is not None]
+        print("md_outputs=>",md_outputs)
         for md_output in md_outputs[0:self.k]:
             paragraphs=split_md_by_mixed_count(md_output)
 
