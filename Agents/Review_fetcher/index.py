@@ -32,6 +32,7 @@ class ReviewFetcherAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
     
     def process(self,user_query:str):
+<<<<<<< HEAD
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=30)
         selected_reviews = self.selectReviews(reviews_metadata, topk=10)
@@ -44,8 +45,22 @@ class ReviewFetcherAgent(Agent):
         print("review_urls=>",review_urls)
         review_urls=[url for url in review_urls if url is not None]
         md_outputs=ocr_to_md_files(review_urls)
+=======
+        # strategy = self.generateMeSHStrategy(user_query)
+        # reviews_metadata = self.fetchReviews(strategy, maxlen=20)
+        # selected_reviews = self.selectReviews(reviews_metadata, topk=5)
+        # review_urls = []
+        # for pmid in selected_reviews:
+        #     try:
+        #         review_urls.append(FindIt(pmid).url)
+        #     except:
+        #         self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+        # print("review_urls=>",review_urls)
+        # review_urls=[url for url in review_urls if url is not None]
+        # md_outputs=ocr_to_md_files(review_urls)
+>>>>>>> a5fa3b2871117026547e472c52b9b4e97040a753
         # print("md_outputs=>",md_outputs)
-        # md_outputs=["/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_1.md","/home/nas2/path/yangmingjian/code/ocr_md_outputs/ocr_result_2.md"]
+        md_outputs=["/home/nas3/biod/dongkun/HyAgent/ocr_md_outputs/ocr_result_1.md"]
         # 过滤掉 None 值（OCR 失败的情况）
         md_outputs = [md for md in md_outputs if md is not None]
         print("md_outputs=>",md_outputs)
@@ -59,9 +74,9 @@ class ReviewFetcherAgent(Agent):
                     meta={"text":content_chunk,"source":id}
                     s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                     self.memory.register_subgraph(s)
-        if len(review_urls) == 0:
-            self.logger.warning("No review URLs found")
-            sys.exit(1)
+        # if len(review_urls) == 0:
+        #     self.logger.warning("No review URLs found")
+        #     sys.exit(1)
         return 
 
 
@@ -92,12 +107,12 @@ Return ONLY the raw search query string compatible with PubMed. Do not include e
         print("mesh strategy=>",result)
         return str(result)
     
-    def fetchReviews(self,search_strategy:str,maxlen=20):
+    def fetchReviews(self,search_strategy:str,maxlen=1):
         pmids=self.fetch.pmids_for_query(str(search_strategy),retmax=maxlen)
         reviews_metadata = [self.fetch.article_by_pmid(pmid) for pmid in pmids]
         return reviews_metadata
     
-    def selectReviews(self,reviews_metadata, topk=5) -> List:
+    def selectReviews(self,reviews_metadata, topk=1) -> List:
         review_str='\n'.join(review.__str__() for review in reviews_metadata)
         selection_prompt = f"""
         From the following {len(reviews_metadata)} reviews, select the most relevant {topk} ones:

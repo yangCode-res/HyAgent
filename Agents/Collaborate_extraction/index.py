@@ -148,8 +148,9 @@ class CollaborationExtractionAgent(Agent):
         [
         {
             "head": "exact_entity_name",
-            "relation": "RELATIONSHIP_TYPE",
-            "tail": "exact_entity_name"
+            "relation": "RAW_RELATION_TEXT",
+            "tail": "exact_entity_name",
+            "relation_type":"RELATION_TYPE"
         }
         ]
         EXAMPLE:
@@ -159,7 +160,7 @@ class CollaborationExtractionAgent(Agent):
         Type 2 diabetes mellitus(-ASSOCIATED_WITH>)cardiovascular disease
         You could find out that the head entity name is not exactly matched with entity extraction results,so you need to modify it as follows:
         [
-          {"head": "T2DM", "relation": "ASSOCIATED_WITH", "tail": "cardiovascular disease"}
+          {"head": "T2DM", "relation": "ASSOCIATED_WITH", "tail": "cardiovascular disease", "relation_type":"ASSOCIATED_WITH"}
         ]"""
         prompt+=f"""
         Now please adjust the relationships based on the entities and resource paragraph below:

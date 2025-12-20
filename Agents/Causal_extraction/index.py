@@ -187,6 +187,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "imatinib",
     "relation": "INHIBITS",
     "tail": "BCR-ABL",
+    "relation_type": "NEGATIVE_REGULATE",
     "confidence": [0.99, 0.10],
     "evidence": [
       "Imatinib revolutionized CML treatment through its highly specific inhibition of BCR-ABL tyrosine kinase",
@@ -201,6 +202,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "imatinib",
     "relation": "TREATS",
     "tail": "CML",
+    "relation_type": "TREATS",
     "confidence": [0.98, 0.05],
     "evidence": [
       "Imatinib revolutionized CML treatment",
@@ -223,6 +225,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "autophagy deficiency",
     "relation": "PROMOTES",
     "tail": "tumorigenesis",
+    "relation_type": "PROMOTES",
     "confidence": [0.78, 0.15],
     "evidence": [
       "autophagy can act as a tumor suppressor in early stages by removing damaged organelles and preventing genomic instability",
@@ -236,6 +239,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "chloroquine",
     "relation": "INHIBITS",
     "tail": "autophagy",
+    "relation_type": "NEGATIVE_REGULATE",
     "confidence": [0.95, 0.12],
     "evidence": [
       "autophagy inhibition with chloroquine showed therapeutic benefit in 12 of 23 clinical trials reviewed"
@@ -257,6 +261,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "APOE ε4",
     "relation": "INCREASES_RISK",
     "tail": "Alzheimer's disease",
+    "relation_type": "CAUSES",
     "confidence": [0.92, 0.08],
     "evidence": [
       "APOE ε4 allele represents the strongest genetic risk factor for late-onset Alzheimer's disease",
@@ -271,6 +276,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "APOE ε4",
     "relation": "REDUCES",
     "tail": "Aβ clearance",
+    "relation_type": "NEGATIVE_REGULATE",
     "confidence": [0.88, 0.10],
     "evidence": [
       "The molecular mechanism involves reduced Aβ clearance and increased amyloid plaque formation, as demonstrated in transgenic mouse models and human CSF studies"
@@ -292,6 +298,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "PI3K",
     "relation": "PRODUCES",
     "tail": "PIP3",
+    "relation_type": "INTERACTS",
     "confidence": [0.98, 0.08],
     "evidence": [
       "receptor tyrosine kinases activate PI3K, generating PIP3 from PIP2"
@@ -304,6 +311,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "PIP3",
     "relation": "RECRUITS",
     "tail": "AKT",
+    "relation_type": "INTERACTS",
     "confidence": [0.97, 0.12],
     "evidence": [
       "PIP3 recruits AKT to the plasma membrane via its PH domain, where PDK1 and mTORC2 phosphorylate AKT at T308 and S473 respectively"
@@ -316,6 +324,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "AKT",
     "relation": "ACTIVATES",
     "tail": "mTORC1",
+    "relation_type": "POSITIVE_REGULATE",
     "confidence": [0.96, 0.15],
     "evidence": [
       "Activated AKT phosphorylates >100 substrate proteins, regulating diverse processes",
@@ -329,6 +338,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "everolimus",
     "relation": "INHIBITS",
     "tail": "mTOR",
+    "relation_type": "INHIBITS",
     "confidence": [0.99, 0.08],
     "evidence": [
       "This pathway is therapeutically targeted by multiple FDA-approved inhibitors including everolimus (mTOR inhibitor)"
@@ -350,6 +360,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "mitochondrial dysfunction",
     "relation": "ASSOCIATES_WITH",
     "tail": "autism spectrum disorder",
+    "relation_type": "ASSOCIATES_WITH",
     "confidence": [0.55, 0.20],
     "evidence": [
       "Children with autism spectrum disorder (ASD) show increased prevalence of mitochondrial abnormalities (5-80% depending on assessment criteria) compared to general population rates of 0.01%",
@@ -384,6 +395,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "dietary cholesterol",
     "relation": "INCREASES_RISK",
     "tail": "cardiovascular disease",
+    "relation_type": "ASSOCIATES_WITH",
     "confidence": [0.25, 0.08],
     "evidence": [
       "Early epidemiological studies suggested strong positive associations (Framingham Heart Study), leading to dietary guidelines limiting cholesterol intake",
@@ -398,6 +410,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "dietary cholesterol",
     "relation": "REGULATES",
     "tail": "endogenous cholesterol synthesis",
+    "relation_type": "INHIBITS",
     "confidence": [0.82, 0.88],
     "evidence": [
       "Mechanistic studies reveal that endogenous cholesterol synthesis is down-regulated when dietary intake increases, partially compensating for dietary sources"
@@ -419,6 +432,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "nivolumab",
     "relation": "SYNERGIZES_WITH",
     "tail": "ipilimumab",
+    "relation_type": "INTERACTS",
     "confidence": [0.94, 0.94],
     "evidence": [
       "nivolumab (anti-PD-1) plus ipilimumab (anti-CTLA-4) achieved superior outcomes compared to either monotherapy: median progression-free survival of 11.5 months versus 6.9 months for nivolumab alone and 2.9 months for ipilimumab alone (p<0.001)",
@@ -433,6 +447,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "nivolumab",
     "relation": "BLOCKS",
     "tail": "PD-1",
+    "relation_type": "INHIBITS",
     "confidence": [0.99, 0.10],
     "evidence": [
       "nivolumab (anti-PD-1)",
@@ -446,6 +461,7 @@ Return ONLY a valid JSON array. Each entry must include the semantic summary:
     "head": "ipilimumab",
     "relation": "BLOCKS",
     "tail": "CTLA-4",
+    "relation_type": "INHIBITS",
     "confidence": [0.99, 0.10],
     "evidence": [
       "ipilimumab (anti-CTLA-4)",
@@ -538,12 +554,13 @@ Now, evaluate the provided relationships based on the review text using this sys
                 head=eval.get("head","unknown")
                 relation=eval.get("relation","unknown")
                 tail=eval.get("tail","unknown")
+                relation_type=eval.get("relation_type","unknown")
                 confidence=eval.get("confidence",[0.0,0.0])
                 evidence=eval.get("evidence",[])
                 triple=subgraph.relations.find_Triple_by_head_and_tail(head,tail)
                 object=triple.object if triple else None
                 subject=triple.subject if triple else None
-                triples.append(KGTriple(head,relation,tail,confidence,evidence=evidence,mechanism="unknown",source=subgraph.id,subject=subject,object=object))
+                triples.append(KGTriple(head=head,relation=relation, tail=tail,relation_type=relation_type,confidence=confidence,evidence=evidence,mechanism="unknown",source=subgraph.id,subject=subject,object=object))
             subgraph.relations.reset()
             subgraph.relations.add_many(triples)
             self.memory.register_subgraph(subgraph)

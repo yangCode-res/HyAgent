@@ -5,6 +5,8 @@ from typing import Dict, List
 from collections import Counter
 from pipeline.index import Pipeline
 from openai import OpenAI
+from datetime import datetime
+import csv
 
 class Benchmark:
     def __init__(self, client: OpenAI, model_name: str, limit: int = 5):
@@ -161,17 +163,41 @@ class Benchmark:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
         return dp[m][n]
+    
+    def eval(self, output_path: str = "benchmark_eval.jsonl", to_csv: bool = False):
+        results = []
+        test_data = self.load_test_data(limit=self.limit)
+        for item in test_data:
+            scores, max_scores = self.runOneTestData(item)
+            results.append({
+                "background": item.get("background", ""),
+                "reference_hypothesis": item.get("hypothesis", ""),
+                "pipeline_scores": scores,
+                "max_overlap": max_scores,
+            })
 
+        if to_csv:
+            csv_path = Path(output_path).with_suffix(".csv")
+            with open(csv_path, "w", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow(["background", "reference_hypothesis", "max_jaccard", "max_precision",
+                                 "max_recall", "max_f1", "max_bleu_1", "max_rouge_l"])
+                for r in results:
+                    m = r["max_overlap"]
+                    writer.writerow([
+                        r["background"], r["reference_hypothesis"],
+                        m["jaccard"], m["precision"], m["recall"], m["f1"],
+                        m["bleu_1"], m["rouge_l"],
+                    ])
+        else:
+            with open(output_path, "w", encoding="utf-8") as f:
+                for r in results:
+                    # JSON Lines 便于后续 append/分析
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 # 测试代码
 if __name__ == "__main__":
-    benchmark = Benchmark(limit=1)
-    
-    # 测试重叠度计算
-    generated = "Different subgroups of depressive symptoms exist among Korean police officers. Drinking behaviors may contribute to depression."
-    reference = "Different subgroups of depressive symptoms exist among Korean police officers. Drinking behaviors may contribute to the at-risk subgroup of depressive symptoms."
-    
-    overlap_scores = benchmark.compute_overlap(generated, reference)
-    print("Overlap Scores:")
-    for key, value in overlap_scores.items():
-        print(f"  {key}: {value}")
+    client = OpenAI()  # 填好你的 client
+    benchmark = Benchmark(client=client, model_name="your-model", limit=10)
+    benchmark.eval(output_path="logs/benchmark_eval.jsonl")      # 写 JSONL
+    benchmark.eval(output_path="logs/benchmark_eval", to_csv=True)  # 写 CSV

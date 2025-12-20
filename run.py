@@ -54,15 +54,15 @@ if __name__ == "__main__":
     # for result in results:
     #     print("Generated Hypotheses:", result.get("hypotheses"))
     #     print("Modified Hypotheses:", result.get("modified_hypotheses"))
-    # reflectionAgent=ReflectionAgent(client=client, model_name=model_name,memory=memory)
-    # reflectionAgent.process()
-    # hypotheses_edit_agent = HypothesisEditAgent(
-    #     client=client,
-    #     model_name=model_name,
-    #     query=user_query,
-    #     memory=memory,
-    # )
-    # results = hypotheses_edit_agent.process()
+    # with open('output.json', 'w', encoding='utf-8') as f:
+    #     json.dump(
+    #         results, 
+    #         f, 
+    #         ensure_ascii=False, 
+    #         indent=4, 
+    #         # 只需要这一行 lambda
+    #         default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
+    #     )
     queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
     response = queryclarifyagent.process(user_query)
     clarified_query = response.get("clarified_question", user_query) # type: ignore
@@ -73,6 +73,8 @@ if __name__ == "__main__":
     # reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
     # reviewfetcheragent.process(clarified_query)
 
+    # entityAgent=EntityExtractionAgent(client=client, model=model_name)
+    # entityAgent.process()
     # entityAgent=EntityExtractionAgent(client=client, model=model_name)
     # entityAgent.process()
 
