@@ -32,7 +32,6 @@ class ReviewFetcherAgent(Agent):
         super().__init__(client,model_name,self.system_prompt)
     
     def process(self,user_query:str):
-<<<<<<< HEAD
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=30)
         selected_reviews = self.selectReviews(reviews_metadata, topk=10)
@@ -45,22 +44,7 @@ class ReviewFetcherAgent(Agent):
         print("review_urls=>",review_urls)
         review_urls=[url for url in review_urls if url is not None]
         md_outputs=ocr_to_md_files(review_urls)
-=======
-        # strategy = self.generateMeSHStrategy(user_query)
-        # reviews_metadata = self.fetchReviews(strategy, maxlen=20)
-        # selected_reviews = self.selectReviews(reviews_metadata, topk=5)
-        # review_urls = []
-        # for pmid in selected_reviews:
-        #     try:
-        #         review_urls.append(FindIt(pmid).url)
-        #     except:
-        #         self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
-        # print("review_urls=>",review_urls)
-        # review_urls=[url for url in review_urls if url is not None]
-        # md_outputs=ocr_to_md_files(review_urls)
->>>>>>> a5fa3b2871117026547e472c52b9b4e97040a753
-        # print("md_outputs=>",md_outputs)
-        md_outputs=["/home/nas3/biod/dongkun/HyAgent/ocr_md_outputs/ocr_result_1.md"]
+        # md_outputs=["/home/nas3/biod/dongkun/HyAgent/ocr_md_outputs/ocr_result_1.md"]
         # 过滤掉 None 值（OCR 失败的情况）
         md_outputs = [md for md in md_outputs if md is not None]
         print("md_outputs=>",md_outputs)

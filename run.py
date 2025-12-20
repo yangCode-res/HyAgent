@@ -23,7 +23,7 @@ from Agents.Query_clarify.index import QueryClarifyAgent
 from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
 from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
-from Agents.Path_extraction.index import PathExtractionAgent
+from Agents.Path_extraction.penalty import PathExtractionAgent
 from Agents.ReflectionAgent.index import ReflectionAgent
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
@@ -40,8 +40,11 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251216-180957.json')
-    user_query = "The prevalence of depressive symptoms is common among Korean police officers. (2) Four subgroups of depressive symptoms were identified: \"at-risk\", \"anhedonic\", \"somatic\", and \"minimal\". (3) Drinking behaviors were higher in the at-risk group, working hours were greater in the somatic group, and sleep quality and fatigue were related in the anhedonic group."
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251214-212723.json')
+    user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
+    path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,memory=memory,query=user_query)
+    path_extraction_agent.process()
+    memory.dump_json("./snapshots")
     # hypothesis_agent = HypothesisGenerationAgent(
     #     client=client,
     #     model_name=model_name,
@@ -63,11 +66,11 @@ if __name__ == "__main__":
     #         # 只需要这一行 lambda
     #         default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
     #     )
-    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
-    response = queryclarifyagent.process(user_query)
-    clarified_query = response.get("clarified_question", user_query) # type: ignore
-    core_entities= response.get("core_entities", []) # type: ignore
-    intention= response.get("main_intention", "") # type: ignore
+    # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    # response = queryclarifyagent.process(user_query)
+    # clarified_query = response.get("clarified_question", user_query) # type: ignore
+    # core_entities= response.get("core_entities", []) # type: ignore
+    # intention= response.get("main_intention", "") # type: ignore
     # print("Clarified Query:", clarified_query)
     # print("Core Entities:", core_entities)
     # reviewfetcheragent = ReviewFetcherAgent(client, model_name=model_name) # type: ignore
@@ -98,8 +101,8 @@ if __name__ == "__main__":
     # fusionAgent=SubgraphMerger(client=client, model_name=model_name,memory=memory)
     # fusionAgent.process()
     # memory.dump_json("./snapshots")
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
-    keywordAgent.process()
-    PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
-    PathExtractionAgent.process()
-    memory.dump_json("./snapshots")
+    # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
+    # keywordAgent.process()
+    # PathExtractionAgent=PathExtractionAgent(client=client, model_name=model_name,k=5,memory=memory,query=clarified_query)
+    # PathExtractionAgent.process()
+    # memory.dump_json("./snapshots")
