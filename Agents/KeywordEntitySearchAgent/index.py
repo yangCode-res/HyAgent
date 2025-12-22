@@ -365,7 +365,7 @@ class KeywordEntitySearchAgent(Agent):
                 if svec is None:
                     continue
                 sim = float(np.dot(q_vec, svec))
-                print("sim",sim)
+                # print("sim",sim)
                 # 调试：检查异常高的相似度
                 if sim > 0.999:
                     s_norm = np.linalg.norm(svec)
