@@ -2,7 +2,7 @@ import torch
 import numpy as np
 from transformers import AutoTokenizer, AutoModel
 from typing import List
-
+import math
 class BioBertTester:
     def __init__(self, model_path: str):
         self.model_path = model_path
@@ -94,6 +94,8 @@ class BioBertTester:
     def compute_similarity(self, vec_a, vec_b):
         vec_a = np.array(vec_a)
         vec_b = np.array(vec_b)
+        vec_a= self.l2_normalize(vec_a)
+        vec_b= self.l2_normalize(vec_b)
         norm_a = np.linalg.norm(vec_a)
         norm_b = np.linalg.norm(vec_b)
         if norm_a == 0 or norm_b == 0:
@@ -101,7 +103,12 @@ class BioBertTester:
         dot_product = np.dot(vec_a, vec_b)
         similarity = dot_product / (norm_a * norm_b)
         return similarity
-
+    @staticmethod
+    def l2_normalize(vec: np.ndarray) -> np.ndarray:
+        norm = np.linalg.norm(vec)
+        if norm == 0.0 or math.isnan(norm):
+            return vec
+        return vec / norm
 # ==========================================
 #              测试入口
 # ==========================================
@@ -110,8 +117,8 @@ if __name__ == "__main__":
 
     tester = BioBertTester(MODEL_PATH)
 
-    word1 = "Aspirin"
-    word2 = "Acetylsalicylic acid" 
+    word1 = "LGE"
+    word2 = "Tirzepatide" 
     word3 = "Femur"
     word4 = "Fractured bone"
 

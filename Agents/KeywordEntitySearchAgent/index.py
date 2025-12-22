@@ -1,7 +1,7 @@
 import math
 import json
 from typing import List, Dict, Tuple, Optional, Any
-
+import faiss
 import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
@@ -13,7 +13,7 @@ from Logger.index import get_global_logger
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 
-
+from tqdm import tqdm
 class KeywordEntitySearchAgent(Agent):
     """
     功能：
@@ -67,7 +67,7 @@ class KeywordEntitySearchAgent(Agent):
         self.entities: Dict[str, KGEntity] = {}
         # 每个实体对应多个 surface：(surface_text, embedding)
         self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray]]] = {}
-        
+        self.index=None
         # 标记是否已构建索引
         self._index_built = False
 
@@ -113,7 +113,53 @@ class KeywordEntitySearchAgent(Agent):
         outputs = self.biobert_model(**inputs)
         vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
         return vec
+    def get_embeddings(self, texts, batch_size=128):
+        """
+        [修复版] 批量获取 SAPBERT 向量
+        修复了索引错位导致不同实体获得相同向量(Score=1.0)的严重Bug。
+        """
+        if not texts: return np.array([])
+        
+        # 1. 确定性去重：使用 sorted 确保每次运行顺序一致，防止 set 的随机性
+        unique_texts = sorted(list(set(texts)))
+        
+        # 2. 建立映射表
+        text_to_idx = {t: i for i, t in enumerate(unique_texts)}
+        
+        all_embs = []
+        
+        # 3. 批量推理
+        # 使用 tqdm 显示进度
+        for i in tqdm(range(0, len(unique_texts), batch_size), desc="Encoding unique entities"):
+            batch = unique_texts[i : i + batch_size]
+            
+            # Tokenizer
+            inputs = self.biobert_tokenizer(batch, padding=True, truncation=True, 
+                                  max_length=64, return_tensors="pt").to(self.device)
+            
+            with torch.no_grad():
+                outputs = self.biobert_model(**inputs)
+                # 取 [CLS] token (batch_size, hidden_size)
+                cls_emb = outputs.last_hidden_state[:, 0, :]
+                all_embs.append(cls_emb.cpu().numpy())
+        
+        if not all_embs:
+            return np.array([])
+            
+        unique_embs = np.concatenate(all_embs, axis=0)
+        
+        # 4. 安全检查 (至关重要)
+        if len(unique_embs) != len(unique_texts):
+            raise RuntimeError(f"向量生成数量不匹配! 文本数: {len(unique_texts)}, 向量数: {len(unique_embs)}")
 
+        # 5. 映射回原始列表顺序
+        try:
+            final_embs = np.array([unique_embs[text_to_idx[t]] for t in texts])
+        except KeyError as e:
+            raise RuntimeError(f"索引映射失败，找不到键: {e}")
+            
+        return final_embs
+    
     @staticmethod
     def _l2_normalize(vec: np.ndarray) -> np.ndarray:
         norm = np.linalg.norm(vec)
@@ -131,9 +177,12 @@ class KeywordEntitySearchAgent(Agent):
             其中 surface_text = name 或 alias
         """
         triples = self.memory.relations.all()
+        #打印下triples的数量
+        print("triples",len(triples))
         seen_ids = set()
         for tri in triples:
             node = getattr(tri, "subject", None)
+        
             if node is None:
                 continue
             if not isinstance(node, KGEntity):
@@ -147,6 +196,7 @@ class KeywordEntitySearchAgent(Agent):
             # 收集 surfaces: name + aliases
             surfaces: List[str] = []
             name = getattr(ent, "name", None)
+
             if isinstance(name, str) and name.strip():
                 surfaces.append(name.strip())
             aliases = getattr(ent, "aliases", None) or []
@@ -159,6 +209,9 @@ class KeywordEntitySearchAgent(Agent):
 
             surface_vecs: List[Tuple[str, np.ndarray]] = []
             for s in surfaces:
+                if(s=="LGE"):
+                    print("s",s)
+                    test=self._encode_text(s)
                 emb = self._encode_text(s)
                 if emb is None:
                     continue
@@ -199,6 +252,11 @@ class KeywordEntitySearchAgent(Agent):
             return []
 
         q_vec = self._l2_normalize(q_vec)
+        
+        # 调试：检查 query 向量的范数是否为 1
+        q_norm = np.linalg.norm(q_vec)
+        if abs(q_norm - 1.0) > 1e-6:
+            self.logger.warning(f"[KeywordSearch] q_vec norm is not 1.0: {q_norm}")
 
         scored: List[Tuple[str, float, str, str]] = []
         for eid, surfaces in self.entity_surfaces.items():
@@ -208,6 +266,14 @@ class KeywordEntitySearchAgent(Agent):
                 if svec is None:
                     continue
                 sim = float(np.dot(q_vec, svec))
+                print("sim",sim)
+                # 调试：检查异常高的相似度
+                if sim > 0.999:
+                    s_norm = np.linalg.norm(svec)
+                    bzz=self._encode_text(surface_text)
+                    test=self._encode_text("Tirzepatide")
+                    print(f"[DEBUG] High similarity detected: keyword='{keyword}' surface='{surface_text}' sim={sim:.8f} q_norm={q_norm:.8f} s_norm={s_norm:.8f}")
+                
                 if sim > best_sim:
                     best_sim = sim
                     best_surface_text = surface_text
@@ -241,6 +307,27 @@ class KeywordEntitySearchAgent(Agent):
 
         return results
 
+    # ---------------- 辅助方法：提取 Markdown 代码块中的 JSON ----------------
+    def _extract_json_from_markdown(self, text: str) -> str:
+        """
+        额外处理：如果 LLM 返回的是 Markdown 代码块格式（如 ```json\n...\n```），
+        则提取其中的 JSON 内容。
+        """
+        if not isinstance(text, str):
+            return text
+        
+        text = text.strip()
+        
+        # 检测并提取 ```json ... ``` 或 ``` ... ``` 格式
+        import re
+        # 匹配 ```json 或 ``` 开头，``` 结尾的代码块
+        pattern = r'^```(?:json)?\s*\n?(.*?)\n?```$'
+        match = re.match(pattern, text, re.DOTALL | re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+        
+        return text
+
     # ---------------- LLM 在候选中选若干个实体 id ----------------
     def _llm_disambiguate(
         self,
@@ -267,8 +354,12 @@ class KeywordEntitySearchAgent(Agent):
 
         raw = self.call_llm(prompt)
         print("this is raw",raw)
+        
+        # 额外处理：提取 Markdown 代码块中的 JSON
+        cleaned_raw = self._extract_json_from_markdown(raw)
+        
         try:
-            obj = json.loads(raw)
+            obj = json.loads(cleaned_raw)
         except Exception as e:
             self.logger.warning(
                 f"[KeywordSearch][LLM] parse JSON failed: raw={raw!r}, error={e}"
@@ -298,6 +389,7 @@ class KeywordEntitySearchAgent(Agent):
                 break
 
         return uniq or None
+
 
     # ---------------- 对外接口：多 keyword，每个 keyword 返回 K 个实体 ----------------
     def process(
