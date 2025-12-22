@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
     tester = BioBertTester(MODEL_PATH)
 
-    word1 = "LGE"
+    word1 = "ARNI"
     word2 = "Tirzepatide" 
     word3 = "Femur"
     word4 = "Fractured bone"
