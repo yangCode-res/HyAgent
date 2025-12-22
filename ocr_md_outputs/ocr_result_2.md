@@ -1,718 +1,546 @@
-#
+HHS Public Access
 
-International Journal of Molecular Sciences
+Author manuscript
 
-MDPI
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-Review
+Published in final edited form as:
 
-# Homocysteine Metabolites, Endothelial Dysfunction, and Cardiovascular Disease
+JAMA. 2023 November 28; 330(20): 2000-2015. doi:10.1001/jama.2023.19897.
 
-Hieronim Jakubowski $^{1,2,*}$ and Łukasz Witucki $^{2}$
+# Obesity Management in Adults A Review
 
-$^{1}$ Department of Microbiology, Biochemistry and Molecular Genetics, International Center for Public Health, New Jersey Medical School, Rutgers University, Newark, NJ 07103, USA
-$^{2}$ Department of Biochemistry and Biotechnology, Poznań University of Life Sciences, 60-632 Poznań, Poland; lukasz.witucki@up.poznan.pl
-* Correspondence: jakubows@rutgers.edu
+Arielle Elmaleh-Sachs, MD, MS,
 
-Abstract: Atherosclerosis is accompanied by inflammation that underlies cardiovascular disease (CVD) and its vascular manifestations, including acute stroke, myocardial infarction, and peripheral artery disease, the leading causes of morbidity/mortality worldwide. The monolayer of endothelial cells formed on the luminal surface of arteries and veins regulates vascular tone and permeability, which supports vascular homeostasis. Endothelial dysfunction, the first step in the development of atherosclerosis, is caused by mechanical and biochemical factors that disrupt vascular homeostasis and induce inflammation. Together with increased plasma levels of low-density lipoprotein (LDL), diabetes, hypertension, cigarette smoking, infectious microorganisms, and genetic factors, epidemiological studies established that dysregulated metabolism of homocysteine (Hcy) causing hyperhomocysteinemia (HHcy) is associated with CVD. Patients with severe HHcy exhibit severe CVD and die prematurely due to vascular complications. Biochemically, HHcy is characterized by elevated levels of Hcy and related metabolites such as Hcy-thiolactone and N-Hcy-protein, seen in genetic and nutritional deficiencies in Hcy metabolism in humans and animals. The only known source of Hcy in humans is methionine released in the gut from dietary protein. Hcy is generated from S-adenosylhomocysteine (AdoHcy) and metabolized to cystathionine by cystathionine $\beta$-synthase (CBS) and to Hcy-thiolactone by methionyl-tRNA synthetase. Hcy-thiolactone, a chemically reactive thioester, modifies protein lysine residues, generating N-homocysteinylated (N-Hcy)-protein. N-Hcy-proteins lose their normal native function and become cytotoxic, autoimmunogenic, proinflammatory, prothrombotic, and proatherogenic. Accumulating evidence, discussed in this review, shows that these Hcy metabolites can promote endothelial dysfunction, CVD, and stroke in humans by inducing pro-atherogenic changes in gene expression, upregulating mTOR signaling, and inhibiting autophagy through epigenetic mechanisms involving specific microRNAs, histone demethylase PHF8, and methylated histone H4K20me1. Clinical studies, also discussed in this review, show that cystathionine and Hcy-thiolactone are associated with myocardial infarction and ischemic stroke by influencing blood clotting. These findings contribute to our understanding of the complex mechanisms underlying endothelial dysfunction, atherosclerosis, CVD, and stroke and identify potential targets for therapeutic intervention.
+Department of Medicine, Division of General Internal Medicine and Clinical Innovation, New York University Grossman School of Medicine, New York, New York; Department of Population Health, New York University Grossman School of Medicine, New York, New York; Family Health Centers at NYU Langone, New York, New York
 
-Keywords: homocysteine thiolactone; cystathionine; S-adenosylhomocysteine; endothelial dysfunction; cardiovascular disease; stroke; proteomics; antioxidant proteins; anti-inflammatory proteins; microRNA; histone demethylase PHF8; methylated histone H4K20me1
+Jessica L. Schwartz, MD, MHS,
 
-check for updates
+Division of General Internal Medicine, Johns Hopkins School of Medicine, Baltimore, Maryland
 
-Academic Editor: Tzong-Shyuan Lee
+Carolyn T. Bramante, MD, MPH,
 
-Received: 18 December 2024
+Division of General Internal Medicine, University of Minnesota Medical School, Minneapolis
 
-Revised: 10 January 2025
+Jacinda M. Nicklas, MD, MPH,
 
-Accepted: 14 January 2025
+Division of General Internal Medicine, University of Colorado School of Medicine, Aurora
 
-Published: 16 January 2025
+Kimberly A. Gudzune, MD, MPH,
 
-Citation: Jakubowski, H.; Witucki, L. Homocysteine Metabolites, Endothelial Dysfunction, and Cardiovascular Disease. Int. J. Mol. Sci. 2025, 26, 746. https://doi.org/10.3390/ijms26020746
+Division of General Internal Medicine, Johns Hopkins School of Medicine, Baltimore, Maryland
 
-Copyright: © 2025 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).
+Melanie Jay, MD, MS
 
-Int. J. Mol. Sci. 2025, 26, 746
+Department of Medicine, Division of General Internal Medicine and Clinical Innovation, New York University Grossman School of Medicine, New York, New York; Department of Population Health, New York University Grossman School of Medicine, New York, New York; New York Harbor Veteran Affairs, New York, New York
 
-https://doi.org/10.3390/ijms26020746
+# Abstract
 
-1. Introduction
+IMPORTANCE—Obesity affects approximately 42% of US adults and is associated with increased rates of type 2 diabetes, hypertension, cardiovascular disease, sleep disorders, osteoarthritis, and premature death.
 
-Cardiovascular disease and its vascular manifestations, such as acute myocardial infarction [1,2,3,4], stroke [5,6,7,8,9], and peripheral artery disease [10,11,12,13], are the main causes of morbidity and mortality in the Western world. In 2021, approximately 20 million people have died from CVD, a 62% increase compared to 1990 [14]. CVD is a multifactorial chronic inflammatory disease [15,16] involving interactions between circulating blood cells and other factors with the monolayer of endothelial cells in the lumen of blood vessels. The endothelium supports vascular homeostasis by regulating vascular tone and permeability. Impairment of vascular homeostasis caused by biochemical or mechanical factors leads to endothelial dysfunction and inflammation. According to the response-to-injury hypothesis [17], endothelial dysfunction represents the first step in atherosclerosis. Traditional CVD risk factors that can cause endothelial dysfunction and atherosclerosis include elevated low-density lipoprotein, cigarette smoking, hypertension, diabetes mellitus, infectious microorganisms, and genetic alterations. Although oxidized LDL has been suggested to play a key role in CVD, antioxidant strategies have failed to ameliorate atherosclerosis and reduce cardiovascular events, while findings in animals suggest a disconnect between lipoprotein oxidation and atherosclerosis, and it remains to be proven that oxidative events are a cause rather than a response to atherogenesis [18]. Thus, the failure of antioxidant therapy to reduce CVD events [19] highlights the need to identify novel risk factors for atherosclerosis and determine the mechanism underlying their involvement.
+OBSERVATIONS—A body mass index (BMI) of 25 or greater is commonly used to define overweight, and a BMI of 30 or greater to define obesity, with lower thresholds for Asian populations (BMI ≥25-27.5), although use of BMI alone is not recommended to determine individual risk. Individuals with obesity have higher rates of incident cardiovascular disease. In men with a BMI of 30 to 39, cardiovascular event rates are 20.21 per 1000 person-years compared with 13.72 per 1000 person-years in men with a normal BMI. In women with a BMI of 30 to 39.9, cardiovascular event rates are 9.97 per 1000 person-years compared with 6.37 per 1000 person-years in women with a normal BMI. Among people with obesity, 5% to 10% weight loss improves systolic blood pressure by about 3 mm Hg for those with hypertension, and may decrease hemoglobin A₁c by 0.6% to 1% for those with type 2 diabetes. Evidence-based obesity treatment includes interventions addressing 5 major categories: behavioral interventions, nutrition,
 
-Accumulating evidence indicates that chronically elevated levels of plasma total homocysteine (tHcy), that is, hyperhomocysteinemia (HHcy), are associated with endothelial dysfunction, inflammation, and CVD [16,20,21,22]. For example, children with severe HHcy due to homozygous CBS deficiency show impaired endothelial function in the systemic arteries (measured by flow-mediated dilatation), which is absent in their heterozygous parents [23]. In adults, moderate HHcy was associated with impaired endothelium-dependent vasodilation [24] and is a risk factor for arterial endothelial dysfunction in humans [25]. Additionally, the endothelial dysfunction caused by HHcy causes erectile dysfunction manifested by impaired blood flow at the penile level [26,27].
+Corresponding Author: Melanie Jay, MD, MS, Departments of Medicine and Population Health, New York University Grossman, School of Medicine, 550 First Ave, New York, NY 10016 (melanie.jay@nyulangone.org).
 
-Inflammation is observed in CBS-deficient patients [28,29,30] who have severe HHcy and suffer from atherothromboembosis, the major cause of death in these patients [31,32,33]. Endothelial dysfunction and inflammation are also observed in Cbs^{-/-} mice [28,34] that, like CBS^{-/-} deficient patients, have severe HHcy [21,35,36].
+physical activity, pharmacotherapy, and metabolic/bariatric procedures. Comprehensive obesity care plans combine appropriate interventions for individual patients. Multicomponent behavioral interventions, ideally consisting of at least 14 sessions in 6 months to promote lifestyle changes, including components such as weight self-monitoring, dietary and physical activity counseling, and problem solving, often produce 5% to 10% weight loss, although weight regain occurs in 25% or more of participants at 2-year follow-up. Effective nutritional approaches focus on reducing total caloric intake and dietary strategies based on patient preferences. Physical activity without calorie reduction typically causes less weight loss (2-3 kg) but is important for weight-loss maintenance. Commonly prescribed medications such as antidepressants (eg, mirtazapine, amitriptyline) and antihyperglycemics such as glyburide or insulin cause weight gain, and clinicians should review and consider alternatives. Antiobesity medications are recommended for nonpregnant patients with obesity or overweight and weight-related comorbidities in conjunction with lifestyle modifications. Six medications are currently approved by the US Food and Drug Administration for long-term use: glucagon-like peptide receptor 1 (GLP-1) agonists (semaglutide and liraglutide only), tirzepatide (a glucose-dependent insulinotropic polypeptide/GLP-1 agonist), phentermine-topiramate, naltrexone-bupropion, and orlistat. Of these, tirzepatide has the greatest effect, with mean weight loss of 21% at 72 weeks. Endoscopic procedures (ie, intragastric balloon and endoscopic sleeve gastroplasty) can attain 10% to 13% weight loss at 6 months. Weight loss from metabolic and bariatric surgeries (ie, laparoscopic sleeve gastrectomy and Roux-en-Y gastric bypass) ranges from 25% to 30% at 12 months. Maintaining long-term weight loss is difficult, and clinical guidelines support the use of long-term antiobesity medications when weight maintenance is inadequate with lifestyle interventions alone.
 
-Inflammation is also induced in endothelial cells by treatment with Hcy [37,38]. Treatment of human umbilical vein endothelial cells (HUVEC) with Hcy also induces endothelial activation/dysfunction by inhibiting nitric oxide production [39], protein S-nitrosylation [40], and upregulation of VCAM-1 expression [41,42].
+## CONCLUSION AND RELEVANCE
 
-HHcy is associated with an increased risk of CVD and stroke [20,22]. Many randomized clinical trials have assessed whether tHcy lowering by B vitamin supplementation could reduce the risk of CVD and stroke. Most of the Hcy-lowering trials were carried out in patients who have had a stroke or a CVD event. These trials showed that secondary tHcy lowering reduced the risk of stroke [43,44] but did not prevent myocardial infarction (MI) [45,46,47]. Additional analyses showed that stroke was prevented in patients not taking antiplatelet drugs [48,49,50,51], while risk of stroke was greater in patients taking antiplatelet drugs [52]. In one large primary prevention trial with over 20,000 hypertensive patients without a history of stroke or myocardial infarction, the patients were randomized into two groups: one treated with the antihypertensive drug enalapril (10 mg) and one treated with enalapril plus 0.8 mg folic acid. The trial was terminated prematurely after a 48-month median treatment time because of a significant difference in efficacy in the primary outcome of first stroke. There were 355 (3.4%) strokes in the enalapril group and 282 (2.7%) in the
+Obesity affects approximately 42% of adults in the US. Behavioral interventions can attain approximately 5% to 10% weight loss, GLP-1 agonists and glucose-dependent insulinotropic polypeptide/GLP-1 receptor agonists can attain approximately 8% to 21% weight loss, and bariatric surgery can attain approximately 25% to 30% weight loss. Comprehensive, evidence-based obesity treatment combines behavioral interventions, nutrition, physical activity, pharmacotherapy, and metabolic/bariatric procedures as appropriate for individual patients.
 
-enalapril/folic acid group; the hazard ratio for the first stroke was 0.79 (95% CI 0.68, 0.93), p = 0.003. These findings clearly show that tHcy-lowering B-vitamin therapy is beneficial for primary and secondary stroke prevention.
+Obesity, currently defined as a body mass index (BMI) of 30 or greater, affects 800 million people worldwide.^{1} In the United States, approximately 42% of adults have obesity,^{2} and obesity-related costs are estimated at $173 billion annually.^{3} Obesity is a chronic disease defined by excess adiposity with structural and functional consequences resulting in increased risk of comorbidities and premature mortality.^{4,5} Obesity is often associated with stigma, which impairs quality of life and increases morbidity.^{6} Obesity bias contributes to decreased use of preventive cancer screenings among patients with obesity, particularly in women.^{7} Weight loss improves glucose, lipids, blood pressure, and obesity-related comorbidities,^{4,5,8} and clinicians can offer multiple effective obesity treatments.^{9--11} This Review summarizes current evidence regarding the pathophysiology, diagnosis, and treatment of obesity.
 
-## 2. Hcy and Related Metabolites
+Methods
 
-The sulfur amino acid Hcy is an intermediary metabolite in the metabolic pathways of two canonical sulfur-containing amino acids participating in the genetic code: cysteine (Cys) and methionine (Met) (Figure 1).
+We reviewed 9 clinical practice guidelines from relevant medical associations published in the last 10 years.^{4--6,9--14} We then conducted a PubMed search on March 1, 2023, which identified 2418 obesity-related systematic reviews and meta-analyses published since 2018. We performed 3 additional PubMed searches on March 6, 2023, to identify systematic reviews of antiobesity medications published since 2018 (127 articles), clinical practice guidelines for obesity published since 2018 (135 articles), and randomized clinical trials (RCTs) published since 2021 on glucagon-like peptide 1 (GLP-1) and glucose-dependent insulinotropic polypeptide/GLP-1 receptor agonists to identify studies of newer medications (210 articles). We reviewed high-quality studies referenced in these articles as well as policy guidelines released during the writing of this article. A total of 126 articles were selected for this Review, consisting of 26 RCTs, 29 meta-analyses/systematic reviews, 14 longitudinal/population-based studies, 15 clinical practice guidelines, 4 policy guidelines, 2 cross-sectional studies, 2 study/intervention descriptions, and 34 narrative reviews. Highest-quality articles and those most relevant to general medical practice were prioritized for inclusion.
 
-The only source of Hcy in the human body is methionine released from dietary protein in the gut. Met is used to build new proteins and to provide the universal methyl donor S-adenosylmethionine (AdoMet), which is converted by cellular methylating enzymes to S-adenosylhomocysteine, the immediate precursor of Hcy in every organ of the human body (Figure 1). Hcy levels are controlled by two main reactions: re-methylation back to Met (reaction (i)), catalyzed by Met synthase (with methyltetrahydrofolate cofactor provided by the MTHFR enzyme) and betaine-Hcy methyltransferase (Figure 1), and transsulfuration to cysteine (reaction (ii)), catalyzed by CBS and cystathionine γ-lyase (CSE). Hcy, a non-coded sulfur-containing amino acid that does not participate in protein biosynthesis, is nevertheless incorporated into protein by post-translational mechanisms. Specifically, Hcy is selected in place of Met and forms an Hcy-AMP intermediate at the active center of methionyl-tRNA synthetase, which is then converted to Hcy-thiolactone, a chemically reactive cyclic thioester. Hcy-thiolactone modifies the ε-amino group of a protein lysine residue, generating N-Hcy-protein (Figure 1) in a process called N-homocysteinylation [59].
+## Epidemiology
 
-Historically, most clinical studies quantified plasma tHcy to evaluate associations of HHcy with CVD and stroke. Plasma tHcy is a composite marker that includes major oxidized Hcy forms, i.e. Hcy bound via disulfide bonds to plasma protein thiols (S-Hcy-protein) and to small molecular weight thiols (Hcy-S-S-Cys and Hcy-S-S-Hcy) [61]. Free reduced Hcy is a minor component that accounts for 1--2% of plasma tHcy.
+The prevalence of obesity worldwide increased between 1975 and 2014 from 3.2% to 10.8% in men and from 6.4% to 14.9% in women.^{15} By 2025, it is anticipated that 18% of men and 21% of women worldwide will have obesity.^{15} The prevalence of obesity in the US is higher: 17.4% of non-Hispanic Asian (22.4% using Asian-specific cutoffs^{16}), 49.6% of non-Hispanic Black, 44.8% of Hispanic, and 42.2% of non-Hispanic White adults have obesity.^{2} It is anticipated that by 2030, 48.9% of US adults will have obesity and that racial differences in rates of obesity will increase.^{17} The World Health Organization Acceleration Plan to Stop Obesity, adopted in 2022, outlines multisectoral policies, including taxes on sugar-sweetened beverages and subsidies to promote healthy diets, school nutrition reforms, and reductions in physical inactivity, with the goal of attaining a major reduction in obesity by 2030.^{1}
 
-However, tHcy does not include several other important Hcy metabolites such as Hcy-thiolactone, N-Hcy-protein, cystathionine, and AdoHcy. Because in HHcy, changes
+## Risk Factors
 
-occur not only in plasma tHcy levels but also in levels of Hcy-related metabolites, it is challenging to unequivocally assign the observed pathology to a specific metabolite.
+Obesity reflects a chronic energy imbalance, with greater calorie consumption than energy expenditure,^{18} and is influenced by multiple factors. Genetic variants are implicated in its development.^{19} Most forms of obesity have polygenic risk factors with several variants strongly associated with BMI, while obesity due to a single gene variant is rare.^{19} The environment influences the relationship between genetics and obesity risk.^{19} Adverse workplace, school, social, and home environments, known as “obesogenic environments,” affect physical and social structures.^{20} For example, greater availability of fast-food restaurants, poor neighborhood walkability, and perceived safety risks can limit physical activity and healthy food options.^{20} There is a bidirectional association between depression and obesity, wherein each diagnosis is associated with increased risk of developing the other.^{21} Additional risks include insufficient sleep and low socioeconomic status, in part
 
-Although the changes in Hcy-thiolactone [62,63], N-Hcy-protein [64,65], and cystathionine [66,67,68] reflect the changes in tHcy levels, the changes in AdoHcy [69] do not seem to follow the changes in tHcy. For example, serum AdoHcy is severely elevated in human CBS deficiency only when serum tHcy is above 100 μM [69]. However, in Cbs^{-/-} mice that had plasma tHcy as high as 296 μM, serum AdoHcy was not changed compared to wild type siblings, although the liver AdoHcy was severely elevated [70].
+mediated by chronic stress and food insecurity, which are commonly experienced by racial and ethnic minority populations.^{22}
 
-Nevertheless, several studies assessed associations of individual Hcy metabolites such as AdoHcy [71], cystathionine [66,67,72], and Hcy-thiolactone [73], as well as anti-N-Hcy-protein autoantibodies [74,75,76], with myocardial infarction, stroke, and mortality.
+## Pathophysiology of Obesity
 
-## 3. Hcy Metabolites, CVD, and Stroke
+Influenced by genetic expression, energy homeostasis is determined by feedback between circulating neuropeptide hormones and the central nervous system.^{19,23} The gut-brain axis responds to peripheral signals from the gastrointestinal tract, adipose tissue, and circulating hormones to stimulate or inhibit central neurons based on satiety or hunger.^{24} Dysregulation of this system develops in obesity, often leading to increased hunger and decreased satiety.^{18} Hormones involved in this process include leptin and ghrelin.^{18} Additionally, hormone response and metabolic adaptation promote weight regain.^{18}
 
-### 3.1. AdoHcy
+Obesity increases rates of comorbid conditions through pathophysiologic and mechanical changes related to excess adiposity and increased weight.^{23,24} Related conditions include asthma, type 2 diabetes, hypertension, obstructive sleep apnea, osteoarthritis, and cardiovascular disease (CVD).^{4,5} Compared with normal BMI, obesity is associated with higher rates of incident CVD events, eg, in a pooled cohort of adults aged 40 to 59 years with 856 523 person-years of follow-up, cardiovascular event rates were 20.21 per 1000 person-years in men with a BMI of 30 to 39.9 compared with 13.72 per 1000 person-years in men with a normal BMI.^{25} Cardiovascular event rates were 9.97 per 1000 person-years in women with a BMI of 30 to 39.9 compared with 6.37 per 1000 person-years in women with a normal BMI.^{25} Even among patients with obesity without other CVD risk factors, the long-term incidence of CVD is increased compared with people without obesity.^{26} Weight-related cardiometabolic abnormalities occur due to excess visceral adipose tissue (and possibly an impaired ability to deposit fat into the peripheral adipose tissue such as the gluteofemoral fat compartment), which secretes hormones and proinflammatory cytokines, leading to low-grade systemic inflammation.^{23,24,27} Lipid deposition into adipose tissue and occurrence of adiposity leads to anatomical changes such as increased pharyngeal soft tissue, contributing to obstructive sleep apnea or mechanical joint load that results in osteoarthritis.^{23}
 
-AdoHcy was discovered by Cantoni [77] and is the only known biological precursor of Hcy, which is formed in a reversible hydrolytic reaction catalyzed by adenosylhomocysteinase (AHCY, Figure 1) [78,79]. Metabolites such as Hcy-thiolactone, N-Hcy-protein, and Hcy upregulate the expression of the AHCY enzyme [80] and thus can influence AdoHcy levels. Because the accumulation of AdoHcy may inhibit methylation reactions [81] and thus contribute to CVD and stroke, AdoHcy was suggested to be a better indicator of vascular disease than Hcy [71]. This suggestion has been supported by a few studies that directly compared tHcy and plasma AdoHcy as indicators of vascular disease. For example, in patients on hemodialysis with end-stage renal disease (n = 25), plasma AdoHcy and tHcy were 1074 ± 55 nM and 36.6 ± 3.6 μM, respectively, significantly higher (44- and 5-fold, respectively, p < 0.001) compared to healthy control subjects (24.4 ± 1.1 nM and 6.8 ± 0.4 μM, respectively, n = 40). AdoMet was also significantly elevated compared to healthy controls (6-fold, 381 ± 32 vs. 60 ± 3 nM) [82]. In a study comparing adult renal patients (n = 36) and control subjects (n = 17), significantly fewer AdoHcy values (n = 4) than tHcy values (n = 10) overlapped between patients and controls. This was interpreted as suggesting that AdoHcy was a more sensitive indicator of renal insufficiency than was tHcy (89% vs. 72%, respectively, p = 0.034) [71].
+## Diagnosis and Classification of Obesity
 
-In 30 CVD patients, plasma AdoHcy was significantly elevated compared to 29 age- and sex-matched controls (40.0 ± 20.6 nM vs. 27.0 ± 6.7 nM, respectively, p = 0.0021), while tHcy was not (12.8 ± 4.9 μM for patients, 11.0 ± 3.2 μM for controls, p > 0.05) [83]. Plasma AdoMet (121.8 ± 42.9 nM for patients, 103.9 ± 21.8 nM for controls, p = 0.0493) and creatinine (110 ± 27 μM for patients, 97 ± 9 μM for controls, p = 0.0025) were both significantly elevated. However, plasma folate and vitamin B12 did not differ significantly between CVD patients and controls.
+Body mass index, calculated as weight in kilograms divided by height in meters squared, is most commonly used to classify obesity on a population level.^{28} The World Health Organization uses BMI to define overweight (25-29.99), class I obesity (30-34.99), class II obesity (35-39.99), and class III obesity (≥40).^{28} Among Asian populations, cardiometabolic diseases occur at lower BMI levels; therefore, some expert guidelines recommend lower BMI thresholds (guidelines differ in thresholds of BMI ≥25 and ≥27.5 for obesity).^{4,9,11} Clinical use of BMI is controversial, as it does not directly measure adiposity or account for individual differences in risk; therefore, additional measures can be used.^{29} For example, waist circumference is a marker of visceral adiposity associated with increased cardiometabolic risk,^{4,5} and guidelines recommend risk stratification based on waist circumference (≥102 cm for men and ≥88 cm for women) in patients with a BMI of 25 to 34.9.^{4--6} The Edmonton Obesity Staging System classifies risk based on several
 
-In children with renal disease, the glomerular filtration rate was significantly correlated with plasma AdoHcy but not with plasma tHcy [84], consistent with previous findings showing that AdoHcy was excreted in the urine, whereas tHcy was not [85]. Notably, in renal disease, plasma AdoHcy was not correlated with plasma tHcy [84]. Plasma AdoHcy, in contrast to plasma tHcy, was not associated with folate, vitamin B12, or vitamin B6 [86].
+factors independent of BMI^{6}; higher severity scores are associated with increased all-cause mortality (hazard ratio, 2.69; 95% CI, 1.98-3.67).^{30}
 
-In a study of chronic kidney disease (CKD) (stage 5 patients, n = 124, GFR range 1--11) and healthy controls (n = 47), sulfur-containing amino acid metabolites were examined in relation to renal function, protein-energy, inflammation wasting, and CVD [87]. The study found that AdoHcy and AdoMet, but not tHcy, were significantly elevated (p < 0.001) in CKD patients compared to controls. AdoMet and AdoHcy were inversely correlated with GFR but not with inflammation nor protein-energy wasting. These findings showed that only AdoHcy was independently associated with clinical signs of CVD, suggesting that
+Screening for secondary causes of obesity may be considered based on history and physical examination, including hormonal abnormalities (eg, hypothyroidism, hypercortisolism), psychiatric diagnoses (eg, binge eating disorder), iatrogenic obesity (eg, medications), and genetic syndromes (eg, proopiomelanocortin deficiency).^{4} Assessment for weight-related comorbidities such as nonalcoholic fatty liver disease or obstructive sleep apnea (Table 1) is important to guide referrals and treatment.^{4,14}
 
-AdoHcy might better reflect CVD risk associated with altered levels of sulfur-containing amino acid metabolites in CKD patients.
+## Patient-Centered Approach to Obesity Care
 
-To assess the role of sulfur-containing amino acid metabolites in CVD, a relationship of plasma SAH with coronary artery lesions was examined in individuals (n = 160; 40 to 80 years old) with chest pain and suspected CAD who underwent coronary angiography and were assigned to two groups: the atherosclerosis (AS) or CAD group [88]. Plasma AdoHcy was significantly elevated in the CAD group (23.09 ± 2.4 nM) vs. the AS group (19.2 ± 1.5 nM). In contrast, AdoMet, Hcy, folate, and vitamin B12 were similar in the CAD and AS groups, while the AdoMet/AdoHcy ratio was higher in the AS group compared to the CAD group (5.1 ± 0.7 vs. 4.1 ± 1.1, respectively). Lesions in coronary arteries were significantly associated with AdoHcy (β = 11.8 [95% CI: 5.88, 17.7, p < 0.05]). These findings suggest that plasma AdoHcy is a new potential early biomarker of CVD risk.
+Evidence-based counseling strategies can help initiate treatment discussions with patients. For example, the 5As^{6} (Assess, Advise, Agree, Assist, Arrange) can guide shared decision-making (Figure), and visits that use this approach are covered by Medicare for obesity. The clinician should begin by asking permission to talk to the patient about their weight and which terms the patient would prefer (ie, unhealthy weight, elevated BMI, overweight).^{34} Each “A” can occur when appropriate during the clinician-patient discussion and/or over several visits, and each additional counseling step is associated with increased patient motivation to lose weight (odds ratio, 1.31; 95% CI, 1.11-1.55).^{35} Patients are also more likely to lose weight when clinicians communicate using a supportive, nonjudgmental approach.^{36}
 
-To assess AdoHcy as a predictor of CAD outcomes, a relationship between plasma AdoHcy and CVD risk was studied in a prospective cohort of 1003 patients (21 to 87 years old) who underwent coronary angiography and were prospectively followed for 3 years [89]. During the follow-up, 93 patients suffered a cardiovascular event (a composite of nonfatal myocardial infarction, stroke, and CVD-related mortality; 32.7/1000 person-years). The hazard ratio (HR) of cardiovascular events adjusted for sex and age was 3.38 (95% CI: 2.12, 5.39) per 1-SD increase in the ln-transformed AdoHcy. HRs of cardiovascular events, adjusted for sex and age, across quartiles of AdoHcy were 1.0, 2.25, 2.72, and 3.40 (p-trend = 0.007). Additional adjustment for traditional CVD risk factors and plasma tHcy slightly changed these associations. Subgroup analyses stratified by sex, age, the extent of coronary stenosis, and other baseline covariates did not change the positive association of AdoHcy with the risk of CVD. The sex- and age-adjusted HRs of cardiovascular events across quartiles of tHcy were 1.00, 2.14, 2.47, and 2.44 (p-trend = 0.04). Notably, adjustments for traditional CVD risk factors and plasma AdoHcy abrogated the association of tHcy with CVD risk in those patients. Further, serum folate, but not vitamin B12, was significantly inversely associated with the risk of cardiovascular events (HR: 0.83; 95% CI: 0.78, 0.89). These findings show that plasma AdoHcy, but not tHcy, was independently associated with an increased risk of cardiovascular events of CVD among patients undergoing coronary angiography.
+Establishing a supportive environment for patients with obesity can be facilitated with examination tables and chairs that accommodate all body sizes.^{37} Staff training on obesity and bias may improve the patient experience, including asking patients' permission to be weighed and providing alternatives including weighing in a private room or self-report of weight.^{37} Given disparities in obesity prevalence by race, ethnicity, and income,^{17} equitable access to obesity treatment must be considered.^{38} Clinicians should be aware of health insurance coverage, governmental nutrition programs, social determinants of health, psychosocial stressors, and weight and racial discrimination when treating obesity.^{38}
 
-A more recent study revealed the mechanism by which AdoHcy can cause endothelial dysfunction [90].
+## Weight-Loss Goals
 
-As discussed above, elevated AdoHcy, the immediate precursor of Hcy (Figure 1), is associated with an increased risk of CVD and the development/progression of atherosclerosis. However, the manner by which AdoHcy can cause endothelial dysfunction was unclear. To answer this question, Apolipoprotein E-deficient (apoE^{-/-}) mice were studied. The mice received a dietary supplement containing the AdoHcy hydrolase (Ahcy) inhibitor adenosine dialdehyde or were intravenously injected with a retrovirus expressing Ahcy shRNA. These approaches, along with the heterozygous Ahcy gene knockout (Ahcy^{+/-}) mouse model, were used to upregulate plasma AdoHcy and to examine the role of AdoHcy in aortic endothelial dysfunction.
+Setting personal weight-loss targets can increase the rate of achieving at least 10% weight loss at 12 months compared with not setting goals (68.2% vs 31.8% in a study of 24 447 patients with obesity).^{39} Weight-loss goals should be individualized to patient preference, body composition, and comorbidities.^{5,8} A 5% weight loss may reduce systolic and diastolic blood pressure by 3 mm Hg and 2 mm Hg among those with hypertension, respectively; 5% to 10% loss may decrease hemoglobin A_{1c} by 0.6% to 1.0% among those with type 2 diabetes and can increase high-density lipoprotein cholesterol level by 2 mg/dL [0.052 mmol/L].^{5,8} A 10% to 15% loss may be required to improve other conditions (eg, hepatic steatosis, obstructive sleep apnea).^{8} Weight loss beyond 15% is associated with lower rates of all-cause mortality among those who undergo bariatric surgery and greater weight loss is associated with improved quality of life.^{8}
 
-These treatments significantly increased plasma AdoHcy in Ahcy^{+/-} mice and in ApoE^{-/-} mice after dietary administration of adenosine dialdehyde or intravenous injection with Ahcy shRNA. Ahcy^{+/-} mice or apoE^{-/-} mice with Ahcy inhibition showed impaired endothelium-dependent vascular relaxation and decreased nitric oxide bioavailability after treatment with acetylcholine; this was completely abolished by the administration of the endothelial nitric oxide synthase inhibitor N(G)-nitro-l-arginine methyl ester. Furthermore, SAHH inhibition induced production of reactive oxygen species and p66shc expression in the mouse aorta and human aortic endothelial cells. Antioxidants and p66shc siRNA prevented SAHH inhibition-induced generation of reactive oxygen
+##
 
-species and attenuated the impaired endothelial vasomotor responses in high-AdoHcy mice. Moreover, inhibition of the AHcy enzyme induced hypomethylation in the p66shc gene promoter and inhibited expression of DNA methyltransferase 1. Overexpression of DNA methyltransferase 1, induced by transduction with an adenovirus vector, ameliorated upregulation of p66shc induced by AHcy enzyme inhibition.
+Selecting Treatment Options
 
-The relationship between plasma AdoHcy levels and endothelial dysfunction was also investigated in human patients with coronary artery disease and healthy control individuals. AdoHcy levels were inversely associated with flow-mediated dilation and hypomethylation of the p66shc gene promoter and positively associated with oxidative stress levels in patients with coronary artery disease and healthy control subjects. Taken together, these findings indicate that the inhibition of the AHcy enzyme elevates plasma AdoHcy levels and induces endothelial dysfunction via epigenetic upregulation of the p66shc-mediated oxidative stress pathway, thereby providing a novel molecular insight into mechanisms of endothelial injury associated with elevated AdoHcy that may contribute to the development of atherosclerosis and CVD.
+Evidence-based obesity treatment combines interventions that can be organized into 5 major categories: behavioral interventions, nutrition, physical activity, pharmacotherapy, and bariatric procedures.^{4--6,9--13} Comprehensive obesity care plans should include interventions from all appropriate categories, individualized at the patient level (Table 2).
 
-Taken together, the studies suggest that elevated plasma AdoHcy may be a more sensitive indicator of CVD than plasma tHcy.
+### Behavioral Interventions
 
-### Hcy-Lowering B-Vitamins Do Not Lower Plasma AdoHcy
+All patients with obesity (or overweight with a cardiometabolic abnormality) should be offered or referred to intensive, multicomponent behavioral interventions within primary care, community settings or to evidence-based commercial programs (Table 3).^{4,6,13} Moderate- to high-intensity programs include 12 or more sessions in the first year (ideally ≥14 sessions in 6 months), followed by a maintenance phase for up to 24 months.^{5,11,13} The Diabetes Prevention Program is covered by Medicare for eligible beneficiaries with prediabetes,^{63} while coverage by Medicaid varies by state; commercial health insurance plans may provide coverage for some weight-loss programs. Interventions include group, individual, or technology-based delivery for lifestyle changes, education, peer support, coaching, self-monitoring, cognitive restructuring, and goal setting.^{4,64} Interventions may also address insufficient sleep and chronic stress, which can negatively affect appetite and metabolism.^{65} Moderate- to high-intensity interventions often produce 5% to 10% weight loss (mean, -2.39 kg; 95% CI, -2.86 kg to -1.93 kg),^{64} with maximal loss achieved between 6 and 12 months.^{5,13,64,66} Frequent self-weighing improves weight loss and weight loss maintenance.^{5,67,68}
 
-Although tHcy is a risk factor for CVD in studies that did not adjust for AdoHcy, lowering tHcy by folate and B-vitamin treatments generally failed to reduce myocardial infarction events in secondary prevention trials [45,46]. As discussed above, several studies suggest that elevated plasma AdoHcy may be a more sensitive indicator of CVD than plasma tHcy [71]. Notably, in contrast to plasma tHcy, AdoHcy did not correlate with folate [86], suggesting that folate supplementation may not lower AdoHcy [91], a potential Hcy-independent risk factor for CVD [89]. To determine whether B-vitamin treatment can affect plasma AdoHcy and AdoMet, healthy participants (≥65 years old, n = 276) with tHcy > 13 μM were randomized to receive a daily supplement containing folate (1 mg), vitamin B12 (500 μg), and vitamin B6 (10 mg), or placebo, for 2 years [91]. Plasma AdoHcy and AdoMet were quantified in the first 50 participants in each treatment group. Plasma tHcy was attenuated by 4.4 μM (95% CI 3.2, 5.6; p < 0.001) at 2 years in the B-vitamin group compared to the placebo group, while plasma AdoMet and AdoHcy did not significantly change between the two groups during a 2-year treatment. These findings show that tHcy-lowering B-vitamin treatment did not affect plasma AdoHcy or AdoMet levels, which can account for the failure of such treatment to lower the frequency of AMI events in clinical trials [91]. In a study in CAD patients, tHcy-lowering B-vitamin treatment did not affect Hcy-thiolactone levels, a risk factor for AMI [73].
+Weight regain is common after program cessation; in a study of 3739 participants, more than 25% of participants regained 2% or more of weight at 2-year follow-up.^{46} Weight loss typically plateaus after 6 months due to metabolic adaption and hormonal changes contributing to decreased adherence, but metabolic adaptation usually slows after 12 months.^{18,67}
 
-### 3.2. Free Reduced Hcy
+### Nutritional Approaches
 
-### 3.2.1. Physiological Increments of Plasma tHcy Induce Vascular Endothelial Dysfunction in Healthy Humans
+Reduced caloric intake (500- to 750-kcal/d deficit, adjusted for individual body weight and activity) is advised for weight reduction.^{5} Specific strategies that can reduce energy intake and promote weight-loss maintenance include portion control, reduction or elimination of ultraprocessed foods (eg, sugar-sweetened beverages), and increased fruit and vegetable intake.^{67} Evidence-based healthy eating approaches can be selected based on individual preference, metabolic risk, and likelihood of long-term adherence.^{4,5,11} Table 3 provides examples of evidence-based dietary strategies associated with weight loss; additional plans such as DASH (Dietary Approaches to Stop Hypertension), when combined with caloric reduction, can also be considered.^{4} High-protein shakes or bars to replace 1 or 2 meals a day improves weight loss compared with diet alone (mean difference, -1.44 kg; 95% CI, -2.48 kg to -0.39 kg).^{5,69} However, very low-calorie diets (≤800 kcal/d) should be offered only under close medical supervision.^{5} While some evidence demonstrates weight loss and improved CVD risk factors with other popular weight-loss approaches (eg, time-
 
-An oral methionine load test with a single dose of 100 mg/kg of Met is a widely used diagnostic tool to detect impaired Hcy metabolism in patients with various clinical conditions [92]. The administration of Met causes endothelial dysfunction and leads to a higher and more-prolonged increase in plasma tHcy in patients with CVD than in healthy controls. An abnormal Met load test is an independent risk factor for coronary, peripheral, and cerebral vascular disease [93]. In this test, tHcy increases to at least 2- to 3-fold higher levels than normal.
+restricted eating, intermittent fasting, ketogenic diet),^{70--72} clinical practice guidelines have not endorsed these strategies, and they may require dietitian support.
 
-To examine the effects of lower, more physiologic increments of tHcy on endothelial function, a low-dose oral Met load or dietary animal protein injection was used in healthy volunteers (18 to 59 years old, n = 18; eleven male, seven female) [68]. Changes in endothe
+### Physical Activity
 
-ial function were assessed by measurements of brachial artery flow-mediated and glyceryl trinitrate-induced dilatation. There was an inverse relationship between physiological increments in plasma tHcy level and the flow-mediated dilatation. After (1) oral L-Met (10, 25, and 100 mg/kg), (2) dietary animal protein (lean chicken 551 ± 30 g, comprising 3.2 ± 0.2 g Met), and (3) Met-free amino acid mix (100 mg/kg), there was a dose-dependent increase in tHcy (from 9.4 ± 1.3 to 12.2 ± 2.1, 17.6 ± 2.6, and 26.1 ± 4.2 μM, respectively; p < 0.001) and a reduction in flow-mediated dilatation (4.1 ± 0.8 to 2.1 ± 0.8, 0. 3 ± 0.8, and -0.7 ± 0.8%, respectively; p < 0.001) at 4 h. Compared with a usual meal, animal protein increased plasma tHcy (9.6 ± 0.8 to 11.2 ± 0.9 μM, p = 0.005) and reduced flow-mediated dilatation (4.5 ± 0.7% to 0.9 ± 0.6%, p = 0.003). Met-free amino acid mix did not induce any changes. Glyceryl trinitrate-induced dilatation was unaffected throughout. These findings show that small physiological increments in plasma tHcy after low-dose Met or dietary animal protein induced vascular endothelial dysfunction, suggesting that protein intake-induced increments in plasma tHcy may impair vascular function, which could accelerate the development and progression of atherosclerosis [94].
+Given its modest effect on weight, physical activity is not used as a stand-alone obesity treatment but helps with weight maintenance and cardiometabolic health.^{73} Moderate-intensity aerobic exercise (defined as 50% to 70% of maximal heart rate) is associated with decreased visceral adiposity and modest weight loss (mean effect of -2 kg to -3 kg).^{73,74} Resistance training (muscle strengthening) preserves lean/fat-free mass during weight loss.^{73,74} Clinical guidelines recommend that all patients participate in 150 to 300 min/wk of moderate or 75 to 150 min/wk of vigorous physical activity, as well as resistance training 2 to 3 times a week.^{4,5,40} Clinicians can encourage nonsedentary behaviors throughout the day, such as walking for 2 minutes each hour or use of stairs.^{75} Additional tools such as wearable activity trackers can encourage increased physical activity of an additional 1800 steps per day on average, or 0.5 to 1.5 kg of weight loss.^{76}
 
-### 3.2.2. Reduced Hcy Is Associated with Vascular Endothelial Dysfunction in Healthy Humans
+### Weight-Gain Effect of Common Medications
 
-Most studies of Hcy in vascular disease have used plasma tHcy, a composite marker that includes Hcy bound via disulfide bonds to plasma protein thiols (protein-bound oxidized Hcy-S-Hcy-protein, the major component) and to small molecular weight thiols (free oxidized Hcy-Hcy-S-S-Cys Hcy-S-S-Hcy), and free reduced Hcy (a minor component) [61] as the sole index of the Hcy status. To determine which of these Hcy metabolites is associated with endothelial dysfunction, one study examined relationships between vascular endothelial function and tHcy, protein-bound oxidized Hcy, free oxidized Hcy, and reduced Hcy in healthy human volunteers (n = 14, ten men, four women) [95]. Brachial artery flow-mediated dilatation was measured at baseline and 30, 60, 120, 240, and 360 min after oral (1) L-Met (50 mg/kg), (2) L-Hcy (5 mg/kg), and (3) placebo. Plasma tHcy, protein-bound oxidized, free oxidized, and reduced Hcy were quantified at each time point, and nitroglycerin-induced dilatation was assessed at 0, 120, and 360 min. Flow-mediated dilatation fell, and tHcy, protein-bound oxidized, free oxidized, and reduced Hcy levels increased after oral Hcy and oral Met (all p < 0.05 for difference in the time course vs. placebo). There was a reciprocal relationship between flow-mediated dilatation and reduced Hcy during both Hcy and Met loading. In both loading experiments, peak reduction in flow-mediated dilatation coincided with maximal reduced Hcy levels. In contrast, there was no consistent relationship between flow-mediated dilatation and free oxidized Hcy, protein-bound oxidized Hcy, or related species. Nitroglycerin-induced dilatation was unchanged by oral Hcy or oral Met (p > 0.10 compared with placebo). These findings show that during oral Met or oral Hcy loading, only free reduced Hcy was closely associated with endothelial dysfunction and suggest that free reduced Hcy impairs vascular function in vivo while oxidized Hcy disulfide species do not [95].
+Many commonly used medications are associated with weight gain.^{12} Medication classes promoting weight gain include antihyperglycemics (eg, glyburide, insulin), antidepressants (eg, amitriptyline, mirtazapine), antipsychotics (eg, olanzapine, quetiapine), antiepileptics (eg, gabapentin, carbamazepine), β-blockers, progesterone-based contraceptives, corticosteroids, and antiretroviral therapy (eg, protease inhibitors).^{12,77} Many weight gain-promoting medications increase the risk of weight-related complications, including CVD, diabetes, and hepatic steatosis.^{78}
 
-The toxicity of the free reduced Hcy species to human endothelium is most likely due to the universal metabolic conversion of Hcy to Hcy-thiolactone; also demonstrated in HUVEC [96] as well as in humans [63,73] and mice [64,97]. Notably; Hcy-thiolactone was shown to be more cytotoxic than Hcy to human endothelial cells [87] and more neurotoxic than Hcy in mice [98,99]. That the toxicity of the free reduced Hcy species resulted from its metabolism to Hcy-thiolactone is supported by findings in rat embryos showing that L-stereoisomers of Hcy and Hcy-thiolactone, as well as D-stereoisomer of Hcy-thiolactone, were toxic, whereas metabolically inactive D-stereoisomer of Hcy (which is not recognized by methionyl-tRNA synthetase and thus cannot be metabolized to Hcy-thiolactone) was not [100]. Levels of free reduced Hcy in plasma are kept low at 1--2% of tHcy [61] by
+When initiating medications, clinicians should select therapies least likely to cause weight gain amongoptions with similar efficacy.^{12} When prescribing medications that promote weight gain, clinicians should counsel patients on the risk of weight gain, discuss lifestyle modifications, and monitor weight trajectory (eg, unintentional weight gain >2 kg in a month, ≥7% increase from baseline body weight).^{77} Metformin (1000 mg total daily dose) and topiramate (100 mg/d) counteract the effects of some weight gain-promoting agents, particularly antipsychotics and can be considered as adjunctive therapy (topiramate: mean difference, -3.76 kg; 95% CI, -4.92 kg to -2.69 kg; metformin: mean difference, -3.27 kg; 95% CI, -4.66 kg to -1.89 kg).^{79,80}
 
-Int.J.Mol.Sci.2025,26,746
+### Antiobesity Medications
 
-its facile oxidation to disulfides, mostly with the major plasma proteins albumin and  $\gamma$ -globulin [101,102].
+Significant advances in pharmacotherapy for obesity treatment have occurred with increasing numbers of medications approved by the US Food and Drug Administration (FDA). Among individuals with inadequate response to lifestyle modifications, guidelines recommend initiating an antiobesity medication in nonpregnant patients with obesity or with overweight (BMI ≥27) and weight-related complications (Table4).^{4,10,11} When initiating therapy, clinicians should consider dual health benefits of antiobesity medications. For example, in patients with diabetes, a GLP-1 receptor agonist can improve glycemic control and promote weight loss. Patients should be counseled that antiobesity medications must be used in conjunction with lifestyle changes and may need to be used lifelong since weight
 
-The toxicity of Hcy-thiolactone is mostly due to its ability to chemically modify the  $\varepsilon$ -amino group of lysine residues in proteins, forming N-Hcy-proteins with altered or impaired structure and function [39]. N-Hcy-proteins exhibit pro-immunogenic [74,103], pro-amyloidogenic [104], pro-atherogenic [80], and pro-thrombogenic [105] properties and have been linked to CVD [73], stroke [74], Alzheimer's disease [106], and cancer [107,108].
+again is common on discontinuation.^{10,96} Use of weight-loss supplements, such as green tea extract or herbs, is not recommended.^{6,97}
 
-# 4. Hcy Is Metabolized to Hcy-Thiolactone and N-Hcy-Protein in Human Endothelial Cells
+### GLP-1 Receptor Agonists (Semaglutide and Liraglutide)
 
-The damage to vascular endothelium plays a key role in atherosclerosis [16]. HUVEC, used often as a model vascular cells, have been reported to possess Hcy-thiolactone-hydrolyzing activity on the basis of experiments using streptomycin supplemented media [109]. To identify factors affecting Hcy-thiolactone formation in HUVEC, we used radiolabeled [35S]Met or [35S]Hcy as precursors [96]. We found that Met and Hcy were metabolized to Hcy-thiolactone in HUVEC (Figure 2), which then chemically modified  $\varepsilon$ -amino groups of protein lysine residues, generating N-Hcy-protein (Figure 3). We also found that supplementation of culture media (M199) with folic acid abrogated the metabolic conversion of Met to Hcy and Hcy-thiolactone (Figure 2).
+GLP-1 receptor agonists mimic the effects of GLP-1. After eating, GLP-1 acts on the hypothalamus to suppress appetite, delay gastric emptying, increase glucose-dependent insulin release, decrease glucagon secretion, and increase pancreatic β-cell growth.^{98}
+
+Subcutaneous semaglutide was FDA approved to treat obesity in 2021 and is dosed once weekly.^{10} The STEP trials examined the efficacy of semaglutide. The STEP 1 and STEP 3 trials included individuals with obesity without diabetes (mean BMI, 38).^{81,99} In these clinical trials, mean weight loss at 68 weeks was 14.9% (placebo, 2.4%; difference, 12.4%; 95% CI, 11.5%-13.4%) and 16.0% (placebo, 5.7%; difference, 10.3%; 95% CI, 8.6%-12.0%), respectively.^{81,99} In STEP 1, participants were encouraged to follow a reduced-calorie diet and participate in 150 min/wk of physical activity.^{81} In STEP 3, participants started with low-calorie meal replacements for 8 weeks followed by a reduced-calorie diet, a goal of 200 min/wk of physical activity, and 30 individual visits with a dietitian.^{99} After cessation of semaglutide, participants regained significant amounts of weight.^{96,100} Among participants followed up for an additional 52 weeks after completing 68 weeks of semaglutide treatment, mean weight regain was 11.6% of lost weight.^{100} In the STEP 4 trial, participants completed 20 weeks of semaglutide treatment and were transitioned to placebo for an additional 48 weeks.^{96} Mean weight regain was 6.9% of lost weight during the placebo administration.^{96} These results suggest that long-term use is necessary.^{96,100} In a clinical trial that randomized 667 adults with obesity without diabetes to either semaglutide or placebo for 68 weeks, mean weight loss with 50 mg/d oral semaglutide was 15.1% vs 2.4% for placebo.^{89} Oral semaglutide is not yet FDA approved for obesity alone.^{89}
+
+Subcutaneous liraglutide was FDA approved to treat obesity in 2014.^{10} In an RCT of 3731 individuals with obesity, compared with placebo, liraglutide achieved a mean weight loss of 8.0% at 56 weeks (difference, 5.4%; 95% CI, 5.8%-5.0%).^{85} Although it is dosed daily, it is widely used and preferred for some patients due to cost and availability. Systematic reviews and meta-analyses of GLP-1 receptor agonists reported that subcutaneous semaglutide reduced weight and improved weight-related comorbidities significantly more than liraglutide and was associated with lower rates of gastrointestinal adverse events.^{101,102}
+
+Both GLP-1 receptor agonists have been shown in a meta-analysis to decrease risk of CVD events in adults with overweight or obesity without diabetes (at follow-up of 32-160 weeks, 8.7% of participants receiving GLP-1 receptor agonists and 11.2% receiving placebo had an event).^{82} The SELECT study showed that in 17 604 participants with CVD, with a BMI of 27 or greater, and without diabetes, those randomized to semaglutide, 2.4 mg, vs placebo had a lower composite incidence of death due to cardiovascular events, nonfatal myocardial infarction, or nonfatal stroke at 39.8 months (hazard ratio, 0.80; 95% CI, 0.72-0.90).^{103} Among 529 patients with heart failure and preserved ejection fraction,
+
+ompared with placebo, semaglutide reduced heart failure-related symptoms and improved physical limitations.^{104}
+
+### Tirzepatide
+
+Tirzepatide is a synthetic peptide with dual-hormone agonistic activity at the GLP-1 receptor, like semaglutide, and additionally at the glucose-dependent insulinotropic polypeptide receptor. Tirzepatide is dosed subcutaneously once weekly.^{42} An RCT of 2539 adults with obesity and without diabetes randomized participants to 1 of 4 groups: 15 mg, 10 mg, or 5 mg of tirzepatide or placebo; all participants received lifestyle counseling sessions, a reduced-calorie diet, and physical activity for 72 weeks.^{42} At 72-week follow-up, mean weight loss for tirzepatide was 20.9% for 15 mg of tirzepatide, 19.5% for 10 mg of tirzepatide, 15.0% for 5 mg of tirzepatide, and 3.1% for placebo.^{42} Tirzepatide was FDA approved for treatment of obesity in November 2023. A recent meta-analysis of RCTs that included 12 371 adults with overweight or obesity without diabetes reported that 15 mg weekly of tirzepatide was associated with greater weight loss compared with 2.4 mg weekly of subcutaneous semaglutide (mean difference, 5.1%; 95% CI, 0.6%-9.8%) and 3 mg daily of subcutaneous liraglutide (mean difference, 13.0%; 95% CI, 8.8%-17.4%).^{105}
+
+### Phentermine-Topiramate
+
+Combined oral phentermine-topiramate was FDA approved in 2012 for obesity.^{10} Phentermine, a noradrenergic drug, reduces appetite and affects food intake via the enhancement of norepinephrine release and blockade of norepinephrine reuptake.^{106} Topiramate's exact weight-loss mechanism is unknown but is thought to alter appetite and decrease energy intake.^{106} A clinical trial randomized 1267 individuals with a BMI of 35 or greater to phentermine-topiramate, 3.75/23 mg/d; phentermine-topiramate, 15/92 mg/d; or placebo.^{107} At 56-week follow-up, weight loss was 5.1% with the lower dose of phentermine-topiramate, 10.9% with the higher dose of phentermine-topiramate, and 1.6% in the placebo group.^{107} In systematic reviews, phentermine-topiramate was associated with greater weight loss compared with orlistat and naltrexone-bupropion.^{108,109} Since topiramate is also used to prevent migraines, phentermine-topiramate may be considered in patients with obesity and migraine headaches.^{10}
+
+### Naltrexone-Bupropion
+
+The combination of oral naltrexone-bupropion was FDA approved for obesity in 2014.^{10} Bupropion stimulates hypothalamic proopiomelanocortin neurons while naltrexone simultaneously blocks opioid-mediated proopiomelanocortin autoinhibition, which reduces reactivity to food cues and improves dysregulation of eating control in mesolimbic pathways.^{41} Both the Contrave Obesity Research I and II trials were conducted among individuals with a BMI of 30 to 45 ora BMI of 27 to 45 with dyslipidemia or hypertension (1742 and 1496 participants, respectively).^{110,111} Groups receiving naltrexone-bupropion, 32/360 mg/d, achieved significant 56-week weight loss compared with placebo (approximately 6% and 1%, respectively).^{110,111} Naltrexone-bupropion may be considered in patients with obesity and comorbid depression or desire for smoking cessation or alcohol use reduction.^{10}
+
+###
+
+Orlistat
+
+Orlistat is a pancreatic lipase inhibitor oral medication that prevents triglycerides from being hydrolyzed, thus deceasing the absorption of free fatty acids. Orlistat was FDA approved for obesity in 1999.^{10} Mean weight loss with orlistat is 2.8% to 4.8%, and gastrointestinal adverse effects are frequent, including flatulence, steatorrhea, and diarrhea.^{10,109} Orlistat may cause malabsorption of fat-soluble vitamins; thus, patients should take a multivitamin containing vitamins A, D, E, and K 2 hours apart from orlistat daily.^{10} Recent American Gastroenterological Association guidelines conditionally recommended against orlistat use given its modest weight loss and gastrointestinal adverse effects.^{10} It is available over the counter and may be appropriate for certain patients (eg, when other antiobesity medications are contraindicated, unavailable, or unaffordable).
+
+### Gelesis100
+
+Gelesis100 is a nonsurgical device that was FDA approved in 2019 to treat obesity. It is a superabsorbent orally administered hydrogel capsule that releases cellulose and citric acid particles, thereby increasing bulk in the stomach and creating a sensation of satiety.^{10} An RCT of 436 participants showed a mean weight loss of 2.1% more with Gelesis100 compared with placebo (P < .001), and 59% of those receiving Gelesis100 attained 5% or greater weight loss compared with 42% of those receiving placebo (P < .001).^{112} It is indicated for those with a BMI of 25 to 40; given limited knowledge due to its recency, guidelines do not currently recommend its use.^{10} Gastrointestinal adverse effects occurred in 38% of Gelesis100 participants and 28% of placebo participants.^{112}
+
+### Antiobesity Medications Approved by the FDA for Short-Term Use
+
+Four sympathomimetic oral amines, phentermine, diethylpropion, benzphetamine, and phendimetrazine are currently FDA approved for short-term use (12 weeks).^{10,113,114} These agents increase norepinephrine, leading to appetite suppression.^{113} While use beyond 12 weeks is common, local laws and state medical boards should be consulted.^{12} Phentermine is the most commonly prescribed antiobesity medication^{115} and is an affordable alternative to other therapies, but it has sympathomimetic effects.^{116} Therefore, clinicians should avoid these medications in patients with a history of coronary artery disease, uncontrolled hypertension, glaucoma, and history of substance use disorder.^{12,116} Phentermine and diethylpropion are Schedule IV controlled substances but are associated with low risk of dependency or abuse.^{113,114,116} A recent review found that phentermine was not associated with increased risk of major adverse cardiac events compared with usual care.^{108}
+
+### Medications Commonly Used Off Label for Long-Term Treatment
+
+Table 4 lists several medications that are commonly used off label to treat obesity. Medications commonly used off label for obesity include Mounjaro (tirzepatide injection), Ozempic (semaglutide injection), Rybelsus (oral semaglutide), and Victoza (liraglutide injection). These brand names are approved by the FDA for diabetes only, and health insurance coverage may be restricted to their FDA-approved indication.
+
+###
+
+Metformin
+
+In RCTs and prospective studies, oral metformin was associated with approximately 3% weight loss, and approximately 25% to 50% of participants achieve at least 5% weight loss.^{94} The Diabetes Prevention Program randomized 3234 adults without diabetes to metformin, placebo, or intensive lifestyle intervention for the primary outcome of preventing diabetes.^{93} The mean weight loss at 15-year follow-up was 6.2% (95% CI, 5.2%-7.2%) for metformin, 3.7% (95% CI, 3.1%-4.4%) for intensive lifestyle intervention, and 2.8% for placebo (95% CI, 1.3%-4.4%).^{93} Doses of metformin greater than 1500 mg are associated with the greatest weight loss.^{93,94} Metformin's pleiotropic effects include decreased inflammation, increased insulin and leptin sensitivity, and decreased hunger and ghrelin levels, especially with twice-daily dosing.^{94} Metformin is widely available and inexpensive. Metformin is frequently offered to patients with prediabetes, polycystic ovary syndrome, and overweight/obesity and to mitigate weight gain due to antipsychotic medication, although it is not FDA approved for these diagnoses.^{94}
+
+### Challenges to Prescribing Antiobesity Medications in Clinical Practice
+
+Medicare currently excludes coverage of FDA-approved antiobesity medications for a diagnosis of obesity alone. Often these medications are costly. Global shortages of some medications currently exist, especially GLP-1 receptor agonists. More studies are needed to determine dosing for weight loss vs weight maintenance and long-term use beyond studied time periods.
+
+### Bariatric Endoscopic Procedures
+
+Currently, 2 bariatric endoscopic procedures are FDA approved: intragastric balloons and endoscopic sleeve gastroplasty.
+
+Intragastric balloons occupy space in the stomach, delay gastric emptying, and increasing satiety.^{117} Patients with a BMI of 30 to 40 are eligible and typically require an upper endoscopy to place the balloon and fill it with saline. The devices are removed via endoscopy after 6 to 8 months. In a clinical trial of 255 patients with a BMI of 30 to 40 randomized to lifestyle intervention plus balloon (placed for 6 months) vs lifestyle intervention alone, lifestyle intervention plus balloon reduced weight by 10.2% (range, 9.6%-29.2%) compared with 3.3% (range, 5.4%-19%) for lifestyle intervention alone at 6 months.^{117} Six months after balloon removal, patients regained some weight, with 7.6% vs 3.1% total weight loss.^{117} Adverse effects include nausea/vomiting (20%) and abdominal pain (7%).^{118}
+
+Endoscopic sleeve gastroplasty is an organ-sparing, transoral endoscopic procedure designed to reduce stomach volume. In an RCT of 209 patients with obesity randomized to endoscopic sleeve gastroplasty plus lifestyle modifications (reduced-calorie diet and physical activity counseling) vs lifestyle modifications alone for 52 weeks,^{119} endoscopic sleeve gastroplasty achieved 13.6% weight loss compared with 0.8% with lifestyle modifications alone.^{119}
+
+###
+
+th procedures should be considered based on patient preference, eligibility, benefits, risks, procedural contraindications (eg, hiatal hernia, gastric ulcers), and specialist availability.^{118}
+
+### Metabolic and Bariatric Surgery
+
+While previously limited to persons with a BMI of 40 or greater or patients with a BMI of 35 or greater with weight-related comorbidity, recent guidelines recommend that metabolic and bariatric surgery should be considered for patients with a BMI of 35 or greater and patients with a BMI of 30 to 34.9 who have concurrent metabolic disease. Lower weight thresholds should be applied to Asian populations.^{9} For those with a BMI of less than 35, a trial of nonsurgical therapy is recommended prior to referral for metabolic and bariatric surgery.^{9} After referral to metabolic and bariatric surgery, patients are often evaluated by the surgical clinic, and time to surgery is determined by their preoperative evaluations and health insurance requirements for evaluations. Presurgical nutrition and mental health evaluations are recommended, with additional evaluations determined by the surgeon.^{9}
+
+Two metabolic and bariatric procedures comprise more than 90% of all surgeries: (1) laparoscopic sleeve gastrectomy (LSG), in which approximately 85% of the stomach is removed by separation along the greater curvature, and (2) Roux-en-Y gastric bypass (RYGB) surgery, in which a small gastric pouch is connected directly to the jejunum.^{43} Both are typically performed laparoscopically Expected 12-month weight loss is approximately 25% after LSG and approximately 30% after RYGB, with sustained weight loss at 5 years.^{44,120} Early complications include anastomotic leaks (LSG: 1%-7%; RYGB: 0.6%-4.4%), stenosis (LSG: 1%-9%; RYGB: 8%-19%), postoperative bleeding (11%), and venous thromboembolic events (incidence not reported); late complications include internal hernia and marginal ulceration (RYGB: 2.5%-5%).^{121} Pre- and post-metabolic and bariatric surgery screening and supplementation for micronutrients (thiamin, vitamin B_{12}, folate, iron, vitamin D, calcium, vitamin A, vitamin E, vitamin K, zinc, and copper) is recommended; typical doses vary based on surgical procedure.^{45}
+
+## Follow-Up
+
+Arranging follow-up visits for patients can promote weight loss, potentially by influencing behavior change and accountability.^{122} In the outpatient setting, close follow-up, ideally every 4 to 6 weeks, enables clinicians and care teams to support lifestyle changes and address adverse effects or complications of antiobesity medications. Procedural and surgical follow-up is determined by bariatric teams.
+
+## Weight-Loss Maintenance and Long-Term Obesity Management
+
+Maintaining weight loss is difficult and may be supported by continued clinical intervention.^{123} In longitudinal observational studies, people who successfully maintain weight often use behavioral strategies, such as physical activity, regular self-weighing,^{67} a reduced-calorie diet, and a consistent eating pattern.^{124,125} Patients may need to increase their physical activity (>200 min/wk is often required).^{5} As pharmacotherapy produces greater weight-loss maintenance than lifestyle alone (eg, STEP 3 Trial: difference, 10.3%; 95% CI, 8.6%-12.0%),^{12,99} clinical guidelines support long-term antiobesity medication
+
+use.^{4,10} Similar to other chronic diseases, lifelong monitoring and treatment escalation may be required overtime. For example, rapid weight regain after bariatric surgery may signal a need for additional intervention, such as antiobesity medications.^{9,126}
+
+## Limitations
+
+This Review has several limitations. First, some relevant studies may have been missed. Second, a formal quality assessment of the literature was not performed. Third, many RCTs included relatively few people from racial and ethnic minority groups and relatively small proportions of men.^{81,99} Fourth, some RCTs had relatively poor follow-up rates or short durations.^{13,64} Fifth, some medications used for obesity, such as lisdexamfetamine for binge eating disorder or setmelanotide for rare forms of obesity, were beyond the scope of this Review.
+
+## Conclusions
+
+Obesity affects approximately 42% of adults in the US. Behavioral interventions can attain approximately 5% to 10% weight loss, GLP-1 and glucose-dependent insulinotropic polypeptide/GLP-1 receptor agonists attain approximately 8% to 21% weight loss, and bariatric surgery attains approximately 25% to 30% weight loss. Comprehensive, evidence-based obesity treatment combines behavioral interventions, nutrition, physical activity, pharmacotherapy, and metabolic/bariatric procedures as appropriate for individual patients.
+
+## REFERENCES
+
+1. World Health Organization. WHO acceleration plan to stop obesity. Updated July 3, 2023. Accessed August 24, 2023. https://www.who.int/publications/i/item/9789240075634
+2. Hales CM, Carroll MD, Fryar CD, Ogden CL. Prevalence of obesity and severe obesity among adults: United States, 2017-2018. NCHS Data Brief. 2020;(360):1--8.
+3. Ward ZJ, Bleich SN, Long MW, Gortmaker SL. Association of body mass index with health care expenditures in the United States by age and sex. PLoS One. 2021;16(3):e0247307. doi:10.1371/journal.pone.0247307 [PubMed: 33760880]
+4. Garvey WT, Mechanick JI, Brett EM, et al. ; Reviewers of the AACE/ACE Obesity Clinical Practice Guidelines. American Association of Clinical Endocrinologists and American College of Endocrinology Comprehensive clinical practice guidelines for medical care of patients with obesity. Endocr Pract. 2016;22(suppl 3):1--203. doi:10.4158/EP161365.GL
+5. Jensen MD, Ryan DH, Apovian CM, et al. ; American College of Cardiology/American Heart Association Task Force on Practice Guidelines; Obesity Society. 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and the Obesity Society. Circulation. 2014;129(25)(suppl 2):S102--S138. doi:10.1161/01.cir.0000437739.71477.ee [PubMed: 24222017]
+6.
+
+Elmaleh-Sachs et al.
+
+6. Wharton S, Lau DCW, Vallis M, et al. Obesity in adults: a clinical practice guideline. CMAJ. 2020;192(31):E875-E891. doi:10.1503/cmaj.191707 [PubMed: 32753461]
+7. Graham Y, Hayes C, Cox J, Mahawar K, Fox A, Yemm H. A systematic review of obesity as a barrier to accessing cancer screening services. Obes Sci Pract. 2022;8(6):715-727. doi:10.1002/osp4.606 [PubMed: 36483123]
+8. Ryan DH, Yockey SR. Weight loss and improvement in comorbidity: differences at 5%, 10%, 15%, and over. Curr Obes Rep. 2017;6(2):187-194. doi:10.1007/s13679-017-0262-y [PubMed: 28455679]
+9. Eisenberg D, Shikora SA, Aarts E, et al. 2022 American Society for Metabolic and Bariatric Surgery (ASMBS) and International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO): indications for metabolic and bariatric surgery. Surg Obes Relat Dis. 2022;18(12):1345-1356. doi:10.1016/j.soard.2022.08.013 [PubMed: 36280539]
+10. Grunvald E, Shah R, Hernaez R, et al.; AGA Clinical Guidelines Committee. AGA clinical practice guideline on pharmacological interventions for adults with obesity. Gastroenterology. 2022;163(5):1198-1225. doi:10.1053/j.gastro.2022.08.045 [PubMed: 36273831]
+11. American Diabetes Association Professional Practice Committee. Obesity and weight management for the prevention and treatment of type 2 diabetes: standards of medical care in diabetes-2022. Diabetes Care. 2022;45(suppl 1):S113-S124. doi:10.2337/dc22-S008 [PubMed: 34964843]
+12. Apovian CM, Aronne LJ, Bessesen DH, et al.; Endocrine Society. Pharmacological management of obesity: an Endocrine Society clinical practice guideline. J Clin Endocrinol Metab. 2015;100(2):342-362. doi:10.1210/jc.2014-3415 [PubMed: 25590212]
+13. Curry SJ, Krist AH, Owens DK, et al.; US Preventive Services Task Force. Behavioral weight loss interventions to prevent obesity-related morbidity and mortality in adults: US Preventive Services Task force recommendation statement. JAMA. 2018;320(11):1163-1171. doi:10.1001/jama.2018.13022 [PubMed: 30326502]
+14. Department of Veterans Affairs; Department of Defense. VA/DoD Clinical Practice Guideline for the Management of Adult Overweight and Obesity. Version 3.0. Published 2020. Accessed June 19, 2023. https://www.healthquality.va.gov/guidelines/CD/obesity/VADoDobesityCPGFinal5087242020.pdf
+15. NCD Risk Factor Collaboration. Trends in adult body-mass index in 200 countries from 1975 to 2014: a pooled analysis of 1698 population-based measurement studies with 19-2 million participants. Lancet. 2016;387(10026):1377-1396. doi:10.1016/S0140-6736(16)30054-X [PubMed: 27115820]
+16. Shah NS, Luncheon C, Kandula NR, et al. Heterogeneity in obesity prevalence among Asian American adults. Ann Intern Med. 2022;175(11):1493-1500. doi:10.7326/M22-0609 [PubMed: 36191316]
+17. Ward ZJ, Bleich SN, Cradock AL, et al. Projected U.S. state-level prevalence of adult obesity and severe obesity. N Engl J Med. 2019;381(25):2440-2450. doi:10.1056/NEJMsa1909301 [PubMed: 31851800]
+18. Oussaada SM, van Galen KA, Cooiman MI, et al. The pathogenesis of obesity. Metabolism. 2019;92:26-36. doi:10.1016/j.metabol.2018.12.012 [PubMed: 30639246]
+19. Loos RJF, Yeo GSH. The genetics of obesity: from discovery to biology. Nat Rev Genet. 2022;23(2):120-133. doi:10.1038/s41576-021-00414-z [PubMed: 34556834]
+20. Lovasi GS, Hutson MA, Guerra M, Neckerman KM. Built environments and obesity in disadvantaged populations. Epidemiol Rev. 2009;31:7-20. doi:10.1093/epirev/mxp005 [PubMed: 19589839]
+21. Luppino FS, de Wit LM, Bouvy PF, et al. Overweight, obesity, and depression: a systematic review and meta-analysis of longitudinal studies. Arch Gen Psychiatry. 2010;67(3):220-229. doi:10.1001/archgenpsychiatry.2010.2 [PubMed: 20194822]
+22. Anekwe CV, Jarrell AR, Townsend MJ, Gaudier GI, Hiserodt JM, Stanford FC. Socioeconomics of obesity. Curr Obes Rep. 2020;9(3):272-279. doi:10.1007/s13679-020-00398-7 [PubMed: 32627133]
+23. Heymsfield SB, Wadden TA. Mechanisms, pathophysiology, and management of obesity. N Engl J Med. 2017;376(3):254-266. doi:10.1056/NEJMra1514009 [PubMed: 28099824]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+Page 15
+
+24. Kessler C. Pathophysiology of obesity. Nuts Clin North Am. 2021;56(4):465-478. doi:10.1016/j.cnur.2021.08.001
+25. Khan SS, Ning H, Wilkins JT, et al. Association of body mass index with lifetime risk of cardiovascular disease and compression of morbidity. JAMA Cardiol. 2018;3(4):280-287. doi:10.1001/jamacardio.2018.0022 [PubMed: 29490333]
+26. Iacobini C, Pugliese G, Blasetti Fantauzzi C, Federici M, Menini S. Metabolically healthy versus metabolically unhealthy obesity. Metabolism. 2019;92:51-60. doi:10.1016/j.metabol.2018.11.009 [PubMed: 30458177]
+27. Lotta LA, Wittemans LBL, Zuber V, et al. Association of genetic variants related to gluteofemoral vs abdominal fat distribution with type 2 diabetes, coronary disease, and cardiovascular risk factors. JAMA. 2018;320(24):2553-2563. doi:10.1001/jama.2018.19329 [PubMed: 30575882]
+28. Obesity: preventing and managing the global epidemic: report of a WHO consultation. World Health Organ Tech Rep Ser. 2000;894:1-253.
+29. American Medical Association. AMA adopts new policy clarifying role of BMI as a measure in medicine. Updated June 14, 2023. Accessed July 17, 2023. https://www.ama-assn.org/press-center/press-releases/ama-adopts-new-policy-clarifying-role-bmi-measure-medicine
+30. Padwal RS, Pajewski NM, Allison DB, Sharma AM. Using the Edmonton Obesity Staging System to predict mortality in a population-representative cohort of people with overweight and obesity. CMAJ. 2011;183(14):E1059-E1066. doi:10.1503/cmaj.110387 [PubMed: 21844111]
+31. Fitzpatrick SL, Wischenka D, Appelhans BM, et al. An evidence-based guide for obesity treatment in primary care. Am J Med. 2016;129(1):115.e1-115.e7. doi:10.1016/j.amjmed.2015.07.015
+32. Centers for Medicare &amp; Medicaid Services. CMS Manual System publication 100-04: Medicare claims processing: transmittal 2421: intensive behavioral therapy for obesity. Published March 7, 2012. Accessed April 3, 2023. https://www.cms.gov/Regulations-and-Guidance/Guidance/Transmittals/downloads/R2421CP.pdf
+33. Serdula MK, Khan LK, Dietz WH. Weight loss counseling revisited. JAMA. 2003;289(14):1747-1750. doi:10.1001/jama.289.14.1747 [PubMed: 12684339]
+34. Gallagher C, Corl A, Dietz WH. Weight can't wait: a guide to discussing obesity and organizing treatment in the primary care setting. Obesity (Silver-Spring). 2021;29(5):821-824. doi:10.1002/oby.23154 [PubMed: 33899338]
+35. Jay M, Gillespie C, Schlair S, Sherman S, Kalet A. Physicians' use of the 5As in counseling obese patients: is the quality of counseling associated with patients' motivation and intention to lose weight? BMC Health Serv Res. 2010;10:159. doi:10.1186/1472-6963-10-159 [PubMed: 20534160]
+36. Gudzune KA, Bennett WL, Cooper LA, Bleich SN. Perceived judgment about weight can negatively influence weight loss: a cross-sectional study of overweight and obese patients. Prev Med. 2014;62:103-107. doi:10.1016/j.ypmed.2014.02.001 [PubMed: 24521530]
+37. Phelan SM, Burgess DJ, Yeazel MW, Hellerstedt WL, Griffin JM, van Ryn M. Impact of weight bias and stigma on quality of care and outcomes for patients with obesity. Obes Rev. 2015;16(4):319-326. doi:10.1111/obr.12266 [PubMed: 25752756]
+38. Herbozo S, Brown KL, Burke NL, LaRose JG. a call to reconceptualize obesity treatment in service of health equity: review of evidence and future directions. Curr Obes Rep. 2023;12(1):24-35. doi:10.1007/s13679-023-00493-5 [PubMed: 36729299]
+39. Avery A, Langley-Evans SC, Harrington M, Swift JA. Setting targets leads to greater long-term weight losses and "unrealistic" targets increase the effect in a large community-based commercial weight management group. J Hum Nutr Diet. 2016;29(6):687-696. doi:10.1111/jhn.12390 [PubMed: 27302147]
+40. Piercy KL, Troiano RP, Ballard RM, et al. The Physical Activity Guidelines for Americans. JAMA. 2018;320(19):2020-2028. doi:10.1001/jama.2018.14854 [PubMed: 30418471]
+41. Sherman MM, Ungureanu S, Rey JA. Naltrexone/bupropion ER (Contrave): newly approved treatment option for chronic weight management in obese adults. P T. 2016;41(3):164-172. [PubMed: 26957883]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+42. Jastreboff AM, Aronne LJ, Ahmad NN, et al. ; SURMOUNT-1 Investigators. Tirzepatide once weekly for the treatment of obesity. N Engl J Med. 2022;387(3):205–216. doi:10.1056/NEJMoa2206038 [PubMed: 35658024]
+43. Peterli R, Wolnerhanssen BK, Peters T, et al. Effect of laparoscopic sleeve gastrectomy vs laparoscopic Roux-en-Y gastric bypass on weight loss in patients with morbid obesity: the SM-BOSS randomized clinical trial. JAMA. 2018;319(3):255–265. doi:10.1001/jama.2017.20897 [PubMed: 29340679]
+44. Bramante C, Wise E, Chaudhry Z. Care of the patient after metabolic and bariatric surgery. Ann Intern Med. 2022;175(5):ITC65-ITC80. doi:10.7326/AITC202205170 [PubMed: 35533387]
+45. Parrott J, Frank L, Rabena R, Craggs-Dino L, Isom KA, Greiman L. American Society for Metabolic and Bariatric Surgery integrated health nutritional guidelines for the surgical weight loss patient 2016 update: micronutrients. Surg Obes Relat Dis. 2017;13(5):727–741. doi:10.1016/j.soard.2016.12.018 [PubMed: 28392254]
+46. Chao AM, Wadden TA, Berkowitz RI, et al. ; Look AHEAD Research Group. Weight change 2 years after termination of the intensive lifestyle intervention in the Look AHEAD study. Obesity (Silver-Spring). 2020;28(5):893–901. doi:10.1002/oby.22769 [PubMed: 32320144]
+47. Chao AM, Quigley KM, Wadden TA. Dietary interventions for obesity: clinical and mechanistic findings. J Clin Invest. 2021;131(1):e140065. doi:10.1172/JCI140065 [PubMed: 33393504]
+48. US Department of Agriculture; US Department of Health and Human Services. Dietary Guidelines for Americans, 2020-2025. 9th ed. Published December 2020. Accessed April 3, 2023. https://www.dietaryguidelines.gov/sites/default/files/2021-03/Dietary_Guidelines_for_Americans-2020-2025.pdf
+49. Gudzune KA, Doshi RS, Mehta AK, et al. Efficacy of commercial weight-loss programs: an updated systematic review. Ann Intern Med. 2015;162(7):501–512. doi:10.7326/M14-2238 [PubMed: 25844997]
+50. Johnston BC, Kanters S, Bandayrel K, et al. Comparison of weight loss among named diet programs in overweight and obese adults: a meta-analysis. JAMA. 2014;312(9):923–933. doi:10.1001/jama.2014.10397 [PubMed: 25182101]
+51. Laudenslager M, Chaudhry ZW, Rajagopal S, Clynes S, Gudzune KA. Commercial weight loss programs in the management of obesity: an update. Curr Obes Rep. 2021;10(2):90–99. doi:10.1007/s13679-021-00428-y [PubMed: 33609270]
+52. Diabetes Prevention Program Research Group. The Diabetes Prevention Program (DPP): description of lifestyle intervention. Diabetes Care. 2002;25(12):2165–2171. doi:10.2337/diacare.25.12.2165 [PubMed: 12453955]
+53. Ackermann RT, Liss DT, Finch EA, et al. A randomized comparative effectiveness trial for preventing type 2 diabetes. Am J Public Health. 2015;105(11):2328–2334. doi:10.2105/AJPH.2015.302641 [PubMed: 26378828]
+54. Diabetes Prevention Program Research Group. Long-term effects of lifestyle intervention or metformin on diabetes development and microvascular complications over 15-year follow-up: the Diabetes Prevention Program Outcomes Study. Lancet Diabetes Endocrinol. 2015;3(11):866–875. doi:10.1016/S2213-8587(15)00291-0 [PubMed: 26377054]
+55. Zhou X, Siegel KR, Ng BP, et al. Cost-effectiveness of diabetes prevention interventions targeting high-risk individuals and whole populations: a systematic review. Diabetes Care. 2020;43(7):1593–1616. doi:10.2337/dci20-0018 [PubMed: 33534726]
+56. Department of Veterans Affairs. MOVE! weight management program. Accessed July 14, 2023. https://www.move.va.gov/MOVE/networkbook.asp#fullworkbook
+57. Tran E, Dale HF, Jensen C, Lied GA. Effects of plant-based diets on weight status: a systematic review. Diabetes Metab Syndr Obes. 2020;13:3433–3448. doi:10.2147/DMSO.S272802 [PubMed: 33061504]
+58. Lichtenstein AH, Appel LJ, Vadiveloo M, et al. 2021 Dietary guidance to improve cardiovascular health: a scientific statement from the American Heart Association. Circulation. 2021;144(23):e472–e487. doi:10.1161/CIR.0000000000001031 [PubMed: 34724806]
+59. Ge L, Sadeghirad B, Ball GDC, et al. Comparison of dietary macronutrient patterns of 14 popular named dietary programmes for weight and cardiovascular risk factor reduction in
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+adults: systematic review and network meta-analysis of randomised trials. BMJ. 2020;369:m696. doi:10.1136/bmj.m696 [PubMed: 32238384]
+60. Willems AEM, Sura-de Jong M, van Beek AP, Nederhof E, van Dijk G. Effects of macronutrient intake in obesity: a meta-analysis of low-carbohydrate and low-fat diets on markers of the metabolic syndrome. Nutr Rev. 2021;79(4):429-444. doi:10.1093/nutrit/nuaa044 [PubMed: 32885229]
+61. Salas-Salvado J, Diaz-Lopez A, Ruiz-Canela M, et al.; PREDIMED-Plus Investigators. Effect of a lifestyle intervention program with energy-restricted Mediterranean diet and exercise on weight loss and cardiovascular risk factors: one-year results of the PREDIMED-Plus trial. Diabetes Care. 2019;42(5):777-788. doi:10.2337/dc18-0836 [PubMed: 30389673]
+62. Maciejewski ML, Shepherd-Banigan M, Raffa SD, Weidenbacher HJ. Systematic review of behavioral weight management program MOVE! for veterans. Am J Prev Med. 2018;54(5):704-714. doi:10.1016/j.amepre.2018.01.029 [PubMed: 29550164]
+63. Gudzune KA, Clark JM. Role of commercial weight-loss programs in medical management of obesity. Endocrinol Metab Clin North Am. 2020;49(2):275-287. doi:10.1016/j.ecl.2020.02.006 [PubMed: 32418590]
+64. LeBlanc ES, Patnode CD, Webber EM, Redmond N, Rushkin M, O'Connor EA. Behavioral and pharmacotherapy weight loss interventions to prevent obesity-related morbidity and mortality in adults: updated evidence report and systematic review for the US Preventive Services Task Force. JAMA. 2018;320(11):1172-1191. doi:10.1001/jama.2018.7777 [PubMed: 30326501]
+65. Duan D, Kim LJ, Jun JC, Polotsky VY. Connecting insufficient sleep and insomnia with metabolic dysfunction. Ann N Y Acad Sci. 2023;1519(1):94-117. doi:10.1111/nyas.14926 [PubMed: 36373239]
+66. Knowler WC, Barrett-Connor E, Fowler SE, et al.; Diabetes Prevention Program Research Group. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. N Engl J Med. 2002;346(6):393-403. doi:10.1056/NEJMoa012512 [PubMed: 11832527]
+67. Varkevisser RDM, van Stralen MM, Kroeze W, Ket JCF, Steenhuis IHM. Determinants of weight loss maintenance: a systematic review. Obes Rev. 2019;20(2):171-211. doi:10.1111/obr.12772 [PubMed: 30324651]
+68. Butryn ML, Phelan S, Hill JO, Wing RR. Consistent self-monitoring of weight: a key component of successful weight loss maintenance. Obesity (Silver Spring). 2007;15(12):3091-3096. doi:10.1038/oby.2007.368 [PubMed: 18198319]
+69. Astbury NM, Piernas C, Hartmann-Boyce J, Lapworth S, Aveyard P, Jebb SA. A systematic review and meta-analysis of the effectiveness of meal replacements for weight loss. Obes Rev. 2019;20(4):569-587. doi:10.1111/obr.12816 [PubMed: 30675990]
+70. Patikorn C, Roubal K, Veettil SK, et al. Intermittent fasting and obesity-related health outcomes: an umbrella review of meta-analyses of randomized clinical trials. JAMA Netw Open. 2021;4(12):e2139558. doi:10.1001/jamanetworkopen.2021.39558 [PubMed: 34919135]
+71. Jayawardena R, Swarnamali H, Ranasinghe P, Hills AP Impact of portion-control plates (PCP) on weight reduction: a systematic review and meta-analysis of intervention studies. Obes Res Clin Pract. 2021;15(2):106-113. doi:10.1016/j.orcp.2021.01.008 [PubMed: 33589390]
+72. Choi YJ, Jeon SM, Shin S. Impact of a ketogenic diet on metabolic parameters in patients with obesity or overweight and with or without type 2 diabetes: a meta-analysis of randomized controlled trials. Nutrients. 2020;12(7):2005. doi:10.3390/nu12072005 [PubMed: 32640608]
+73. Oppert JM, Bellicha A, van Baak MA, et al. Exercise training in the management of overweight and obesity in adults: synthesis of the evidence and recommendations from the European Association for the Study of Obesity Physical Activity Working Group. Obes Rev. 2021;22(suppl 4):e13273. doi:10.1111/obr.13273 [PubMed: 34076949]
+74. Bellicha A, van Baak MA, Battista F, et al. Effect of exercise training on weight loss, body composition changes, and weight maintenance in adults with overweight or obesity: an overview of 12 systematic reviews and 149 studies. Obes Rev. 2021;22(suppl 4):e13256. doi:10.1111/obr.13256 [PubMed: 33955140]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+75. Sallis R, Franklin B, Joy L, Ross R, Sabgir D, Stone J. Strategies for promoting physical activity in clinical practice. Prog Cardiovasc Dis. 2015;57(4):375-386. doi:10.1016/j.pcad.2014.10.003 [PubMed: 25459975]
+76. Ferguson T, Olds T, Curtis R, et al. Effectiveness of wearable activity trackers to increase physical activity and improve health: a systematic review of systematic reviews and meta-analyses. Lancet Digit Health. 2022;4(8):e615-e626. doi:10.1016/S2589-7500(22)00111-X [PubMed: 35868813]
+77. Wharton S, Raiber L, Serodio KJ, Lee J, Christensen RA. Medications that cause weight gain and alternatives in Canada: a narrative review. Diabetes Metab Syndr Obes. 2018;11:427-438. doi:10.2147/DMSO.S171365 [PubMed: 30174450]
+78. Verhaegen AA, Van Gaal LF. Drugs affecting body weight, body fat distribution, and metabolic function-mechanisms and possible therapeutic or preventive measures: an update. Curr Obes Rep. 2021;10(1):1-13. doi:10.1007/s13679-020-00419-5 [PubMed: 33400222]
+79. Goh KK, Chen CH, Lu ML. Topiramate mitigates weight gain in antipsychotic-treated patients with schizophrenia: meta-analysis of randomised controlled trials. Int J Psychiatry Clin Pract. 2019;23(1):14-32. doi:10.1080/13651501.2018.1449864 [PubMed: 29557263]
+80. de Silva VA, Suraweera C, Ratnatunga SS, Dayabandara M, Wanniarachchi N, Hanwella R. Metformin in prevention and treatment of antipsychotic induced weight gain: a systematic review and meta-analysis. BMC Psychiatry. 2016;16(1):341. doi:10.1186/s12888-016-1049-5 [PubMed: 27716110]
+81. Wilding JPH, Batterham RL, Calanna S, et al.; STEP 1 Study Group. Once-weekly semaglutide in adults with overweight or obesity. N Engl J Med. 2021;384(11):989-1002. doi:10.1056/NEJMoa2032183 [PubMed: 33567185]
+82. Leite AR, Angélico-Gonçalves A, Vasques-Nóvoa F, et al. Effect of glucagon-like peptide-1 receptor agonists on cardiovascular events in overweight or obese adults without diabetes: a meta-analysis of placebo-controlled randomized trials. Diabetes Obes Metab. 2022;24(8):1676-1680. doi:10.1111/dom.14707 [PubMed: 35373878]
+83. Aronne LJ, Wadden TA, Peterson C, Winslow D, Odeh S, Gadde KM. Evaluation of phentermine and topiramate versus phentermine/topiramate extended-release in obese adults. Obesity (Silver Spring). 2013;21(11):2163-2171. doi:10.1002/oby.20584 [PubMed: 24136928]
+84. Lei XG, Ruan JQ, Lai C, Sun Z, Yang X. Efficacy and safety of phentermine/topiramate in adults with overweight or obesity: a systematic review and meta-analysis. Obesity (Silver Spring). 2021;29(6):985-994. doi:10.1002/oby.23152 [PubMed: 33864346]
+85. Pi-Sunyer X, Astrup A, Fujioka K, et al.; SCALE Obesity and Prediabetes NN8022-1839 Study Group. A randomized, controlled trial of  $3.0\mathrm{mg}$  of liraglutide in weight management. N Engl J Med. 2015;373(1):11-22. doi:10.1056/NEJMoa1411892 [PubMed: 26132939]
+86. Holt SR, Tobin DG. Pharmacotherapy for alcohol use disorder. Med Clin North Am. 2018;102(4):653-666. doi:10.1016/j.mcna.2018.02.008 [PubMed: 29933821]
+87. Sjöström L, Rissanen A, Andersen T, et al.; European Multicentre Orlistat Study Group. Randomised placebo-controlled trial of orlistat for weight loss and prevention of weight regain in obese patients. Lancet. 1998;352(9123):167-172. doi:10.1016/S0140-6736(97)11509-4 [PubMed: 9683204]
+88. Cercato C, Roizenblatt VA, Leança CC, et al. A randomized double-blind placebo-controlled study of the long-term efficacy and safety of diethylpropion in the treatment of obese subjects. Int J Obes (Lond). 2009;33(8):857-865. doi:10.1038/ijo.2009.124 [PubMed: 19564877]
+89. Knop FK, Aroda VR, do Vale RD, et al.; OASIS 1 Investigators. Oral semaglutide 50 mg taken once per day in adults with overweight or obesity (OASIS 1): a randomised, double-blind, placebo-controlled, phase 3 trial. Lancet. 2023;402(10403):705-719. doi:10.1016/S0140-6736(23)01185-6 [PubMed: 37385278]
+90. Sorli C, Harashima SI, Tsoukas GM, et al. Efficacy and safety of once-weekly semaglutide monotherapy versus placebo in patients with type 2 diabetes (SUSTAIN 1): a double-blind, randomised, placebo-controlled, parallel-group, multinational, multicentre phase 3a trial. Lancet Diabetes Endocrinol. 2017;5(4):251-260. doi:10.1016/S2213-8587(17)30013-X [PubMed: 28110911]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+91. Garber A, Henry R, Ratner R, et al. ; LEAD-3 (Mono) Study Group. Liraglutide versus glimepiride monotherapy for type 2 diabetes (LEAD-3 Mono): a randomised, 52-week, phase III, double-blind, parallel-treatment trial. Lancet. 2009;373(9662):473-481. doi:10.1016/S0140-6736(08)61246-5 [PubMed: 18819705]
+92. Gadde KM, Parker CB, Maner LG, et al. Bupropion for weight loss: an investigation of efficacy and tolerability in overweight and obese women. Obes Res. 2001;9(9):544-551. doi:10.1038/oby.2001.71 [PubMed: 11557835]
+93. Apolzan JW, Venditti EM, Edelstein SL, et al. ; Diabetes Prevention Program Research Group. Long-term weight loss with metformin or lifestyle intervention in the Diabetes Prevention Program Outcomes Study. Ann Intern Med. 2019;170(10):682-690. doi:10.7326/M18-1605 [PubMed: 31009939]
+94. Igel LI, Sinha A, Saunders KH, Apovian CM, Vojta D, Aronne LJ. Metformin: an old therapy that deserves a new indication for the treatment of obesity. Curr Atheroscler Rep. 2016;18(4):16. doi:10.1007/s11883-016-0568-3 [PubMed: 26888066]
+95. National Institute of Child Health and Human Development. Drugs and Lactation Database (LacMed). Published 2006. Accessed April 10, 2023. https://www.ncbi.nlm.nih.gov/books/NBK501922/
+96. Rubino D, Abrahamsson N, Davies M, et al. ; STEP 4 Investigators. Effect of continued weekly subcutaneous semaglutide vs placebo on weight loss maintenance in adults with overweight or obesity: the STEP 4 randomized clinical trial. JAMA. 2021;325(14):1414-1425. doi:10.1001/jama.2021.3224 [PubMed: 33755728]
+97. Semlitsch T, Stigler FL, Jeitler K, Horvath K, Siebenhofer A. Management of overweight and obesity in primary care—a systematic overview of international evidence-based guidelines. Obes Rev. 2019;20(9):1218-1230. doi:10.1111/obr.12889 [PubMed: 31286668]
+98. Nolen-Doerr E, Stockman MC, Rizo I. Mechanism of glucagon-like peptide 1 improvements in type 2 diabetes mellitus and obesity. Curr Obes Rep. 2019;8(3):284-291. doi:10.1007/s13679-019-00350-4 [PubMed: 31124035]
+99. Wadden TA, Bailey TS, Billings LK, et al. ; STEP 3 Investigators. Effect of subcutaneous semaglutide vs placebo as an adjunct to intensive behavioral therapy on body weight in adults with overweight or obesity: the STEP 3 randomized clinical trial. JAMA. 2021;325(14):1403-1413. doi:10.1001/jama.2021.1831 [PubMed: 33625476]
+100. Wilding JPH, Batterham RL, Davies M, et al. ; STEP 1 Study Group. Weight regain and cardiometabolic effects after withdrawal of semaglutide: the STEP 1 trial extension. Diabetes Obes Metab. 2022;24(8):1553-1564. doi:10.1111/dom.14725 [PubMed: 35441470]
+101. Moore PW, Malone K, VanValkenburg D, et al. GLP-1 agonists for weight loss: pharmacology and clinical implications. Adv Ther. 2023;40(3):723-742. doi:10.1007/s12325-022-02394-w [PubMed: 36566341]
+102. Guo X, Zhou Z, Lyu X, et al. The antiobesity effect and safety of GLP-1 receptor agonist in overweight/obese patients without diabetes: a systematic review and meta-analysis. Horm Metab Res. 2022;54(7):458-471. doi:10.1055/a-1844-1176 [PubMed: 35512849]
+103. Lincoff AM, Brown-Frandsen K, Colhoun HM, et al. Semaglutide and cardiovascular outcomes in obesity without diabetes. N Engl J Med. Published online November 11, 2023. doi:10.1056/NEJMoa2307563
+104. Kosiborod MN, Abildstrøm SZ, Borlaug BA, et al. ; STEP-HFpEF Trial Committees and Investigators. Semaglutide in patients with heart failure with preserved ejection fraction and obesity. N Engl J Med. 2023;389(12):1069-1084. doi:10.1056/NEJMoa2306963 [PubMed: 37622681]
+105. Alkhezi OS, Alahmed AA, Alfayez OM, Alzuman OA, Almutairi AR, Almohammed OA. Comparative effectiveness of glucagon-like peptide-1 receptor agonists for the management of obesity in adults without diabetes: a network meta-analysis of randomized clinical trials. Obes Rev. 2023;24(3):e13543. doi:10.1111/obr.13543 [PubMed: 36579723]
+106. Alfaris N, Minnick AM, Hopkins CM, Berkowitz RI, Wadden TA. Combination phentermine and topiramate extended release in the management of obesity. Expert Opin Pharmacother. 2015;16(8):1263-1274. doi:10.1517/14656566.2015.1041505 [PubMed: 25958964]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+107. Allison DB, Gadde KM, Garvey WT, et al. Controlled-release phentermine/topiramate in severely obese adults: a randomized controlled trial (EQUIP). Obesity (Silver Spring). 2012;20(2):330-342. doi:10.1038/oby.2011.330 [PubMed: 22051941]
+108. Ahmad NN, Robinson S, Kennedy-Martin T, Poon JL, Kan H. Clinical outcomes associated with anti-obesity medications in real-world practice: a systematic literature review. Obes Rev. 2021;22(11):e13326. doi:10.1111/obr.13326 [PubMed: 34423889]
+109. Shi Q, Wang Y, Hao Q, et al. Pharmacotherapy for adults with overweight and obesity: a systematic review and network meta-analysis of randomised controlled trials. Lancet. 2022;399(10321):259-269. doi:10.1016/S0140-6736(21)01640-8 [PubMed: 34895470]
+110. Greenway FL, Fujioka K, Plodkowski RA, et al.; COR-I Study Group. Effect of naltrexone plus bupropion on weight loss in overweight and obese adults (COR-I): a multicentre, randomised, double-blind, placebo-controlled, phase 3 trial. Lancet. 2010;376(9741):595-605. doi:10.1016/S0140-6736(10)60888-4 [PubMed: 20673995]
+111. Apovian CM, Aronne L, Rubino D, et al.; COR-II Study Group. A randomized, phase 3 trial of naltrexone SR/bupropion SR on weight and obesity-related risk factors (COR-II). Obesity (Silver Spring). 2013;21(5):935-943. doi:10.1002/oby.20309 [PubMed: 23408728]
+112. Greenway FL, Aronne LJ, Raben A, et al. A randomized, double-blind, placebo-controlled study of gelesis100: a novel nonsystemic oral hydrogel for weight loss. Obesity (Silver Spring). 2019;27(2):205-216. doi:10.1002/oby.22347 [PubMed: 30421844]
+113. Phentermine. In: LiverTox: Clinical and Research Information on Drug-Induced Liver Injury. National Institute of Diabetes and Digestive and Kidney Diseases; 2012.
+114. Bray GA, Ryan DH. Update on obesity pharmacotherapy. Ann N Y Acad Sci. 2014;1311:1-13. doi:10.1111/nyas.12328 [PubMed: 24641701]
+115. Yanovski SZ, Yanovski JA. Progress in pharmacotherapy for obesity. JAMA. 2021;326(2):129-130. doi:10.1001/jama.2021.9486 [PubMed: 34160571]
+116. Pilitsi E, Farr OM, Polyzos SA, et al. Pharmacotherapy of obesity: available medications and drugs under investigation. Metabolism. 2019;92:170-192. doi:10.1016/j.metabol.2018.10.010 [PubMed: 30391259]
+117. Courcoulas A, Abu Dayyeh BK, Eaton L, et al. Intragastric balloon as an adjunct to lifestyle intervention: a randomized controlled trial. Int J Obes (Lond). 2017;41(3):427-433. doi:10.1038/ijo.2016.229 [PubMed: 28017964]
+118. Qureshi H, Saeed N, Jovani M. Updates in endoscopic bariatric and metabolic therapies. J Clin Med. 2023;12(3):1126. doi:10.3390/jcm12031126 [PubMed: 36769774]
+119. Abu Dayyeh BK, Bazerbachi F, Vargas EJ, et al.; MERIT Study Group. Endoscopic sleeve gastroplasty for treatment of class 1 and 2 obesity (MERIT): a prospective, multicentre, randomised trial. Lancet. 2022;400(10350):441-451. doi:10.1016/S0140-6736(22)01280-6 [PubMed: 35908555]
+120. Sharples AJ, Mahawar K. Systematic review and meta-analysis of randomised controlled trials comparing long-term outcomes of Roux-en-Y gastric bypass and sleeve gastrectomy. Obes Surg. 2020;30(2):664-672. doi:10.1007/s11695-019-04235-2 [PubMed: 31724116]
+121. Lim R, Beekley A, Johnson DC, Davis KA. Early and late complications of bariatric operation. Trauma Surg Acute Care Open. 2018;3(1):e000219. doi:10.1136/tsaco-2018-000219 [PubMed: 30402562]
+122. Alexander SC, Cox ME, Boling Turer CL, et al. Do the five A's work when physicians counsel about weight loss? Fam Med. 2011;43(3):179-184. [PubMed: 21380950]
+123. Svetkey LP, Stevens VJ, Brantley PJ, et al.; Weight Loss Maintenance Collaborative Research Group. Comparison of strategies for sustaining weight loss: the Weight Loss Maintenance randomized controlled trial. JAMA. 2008;299(10):1139-1148. doi:10.1001/jama.299.10.1139 [PubMed: 18334689]
+124. Wing RR, Phelan S. Long-term weight loss maintenance. Am J Clin Nutr. 2005;82(1) (suppl):222S-225S. doi:10.1093/ajcn/82.1.222S [PubMed: 16002825]
+125. Paixão C, Dias CM, Jorge R, et al. Successful weight loss maintenance: a systematic review of weight control registries. Obes Rev. 2020;21(5):e13003. doi:10.1111/obr.13003 [PubMed: 32048787]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+126. Redmond IP, Shukla AP, Aronne LJ. Use of weight loss medications in patients after bariatric surgery. Curr Obes Rep. 2021;10(2):81-89. doi:10.1007/s13679-021-00425-1 [PubMed: 33492629]
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
 
 ![img-0.jpeg](img-0.jpeg)
-Figure 2. Metabolic conversion of [35S]Met to [35S]Hcy and [35S]Hcy thiolactone in HUVEC cultures: effect of supplementation with folic acid. HUVEC cultures were radiolabeled with  $5\mu \mathrm{M}$  [35S]Met (10,000 Ci/mol). Time courses of [35S]Hcy thiolactone (A) and [35S]Hcy (B) synthesis in the absence (■) and presence (●) of  $10~\mu \mathrm{M}$  folic acid are shown. Reproduced with permission from ref. [96].
+Figure. 5A Framework (Assess, Advise, Agree, Assist, Arrange) for Obesity Counseling in the Outpatient Setting $^{6,31-33}$
 
-![img-1.jpeg](img-1.jpeg)
+BMI indicates body mass index (calculated as weight in kilograms divided by height in meters squared);  $\mathrm{HbA_{1c}}$ , hemoglobin  $\mathrm{A_{1c}}$ .
 
-That Hcy was linked via its carboxyl group to amino groups of protein by isopeptide bonds was confirmed by the sensitivity of the N-Hcy-protein to Edman degradation [96], a protein chemistry procedure which removes N-linked amino acids from protein [110].
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-Int.J.Mol.Sci.2025,26,746
+Elmaleh-Sachs et al.
 
-![img-2.jpeg](img-2.jpeg)
+Table 1.
+Evidence-Based Screening Recommendations for Weight-Related Comorbidities $^{4,6,14}$
 
-![img-3.jpeg](img-3.jpeg)
-
-![img-4.jpeg](img-4.jpeg)
-Figure 3. Incorporation of Hcy into protein in HUVEC cultures. Confluent HUVEC cultures were labeled for  $48\mathrm{h}$  with 3 to  $100~\mu \mathrm{M}$  [35S]Hcy (330 to 5000 Ci/mol). Shown are levels of protein-Hcy  $(\bullet)$  and protein-Met  $(\bullet)$  in intracellular (A) and extracellular (B) proteins as a function of [35S]Hcy concentration and levels of Hcy thiolactone as a function of [35S]Hcy (C) and non-radio-labelled Met (D) concentration. Reproduced with permission from ref. [96].
-
-![img-5.jpeg](img-5.jpeg)
-
-# Hcy-Thiolactone Turnover in HUVEC Culture Media
-
-Hcy-thiolactone is slowly turned over in cell-free culture medium with a half-life of  $3\mathrm{h}$  at  $37^{\circ}\mathrm{C}$ ; the presence of HUVEC had no effect on Hcy-thiolactone turnover (Figure 4A). We found that the turnover Hcy-thiolactone was greatly accelerated by the antibiotic streptomycin (Figure 4B), routinely added to the culture media at  $0.1\mathrm{mg/mL} = 147~\mu\mathrm{M}$  to prevent microbial contamination of cell cultures, which precludes studies of Hcy-thiolactone metabolism in experiments using streptomycin supplemented media [96]. All cell culture experiments with Hcy-thiolactone discussed in this review have been carried out in the absence of the streptomycin supplement.
-
-![img-6.jpeg](img-6.jpeg)
-Figure 4. Turnover of Hcy-thiolactone in HUVEC cultures. [35S]Hcy-thiolactone  $(5\mu \mathrm{M})$  was incubated in M199 supplemented with  $15\%$  dialyzed FBS, heparin, and bovine endothelial cell growth factor in the absence  $(\bullet)$  or presence  $(\square)$  of confluent cells (A) or in the absence  $(\bullet)$  or presence  $(\square)$  of  $0.1\mathrm{mg / mL} = 147~\mu \mathrm{M}$  streptomycin (B). Reproduced with permission from ref. [96].
-
-![img-7.jpeg](img-7.jpeg)
-
-In later studies, HJ showed that streptomycin easily reacts with Hcy-thiolactone, forming 1,3-tetrahydrothiazine-4-carboxylic acid adducts, as do other aldehydes such
-
-Int.J.Mol.Sci.2025,26,746
-
-as formaldehyde, acetaldehyde, and pyridoxal  $5^{\prime}$ -phosphate [111] or pyridoxal, o-phthalaldehyde, and all trans retinal [112] (Figure 5).
-
-![img-8.jpeg](img-8.jpeg)
-Figure 5. Hcy-thiolactone reacts with streptomycin and other aldehydes. [35S]Hcy-thiolactone (10 mM) was incubated with or without 5 mM aldehyde (pH 7.4, 23 °C, 30 min) and analyzed by thin-layer chromatography on a cellulose plate. An autoradiogram of the plate is shown. Lane 1, control, no aldehyde; lane 2, streptomycin; lane 3, pyridoxal; lane 4, pyridoxal 5'phosphate; lane 5, o-phthalaldehyde, 2.5% ethanol; lane 6, all-trans retinal, 75% ethanol; lane 7, control, no aldehyde, 75% ethanol [113]. Products of Hcy-thiolactone reactions with electrophilic aldehydes (streptomycin, pyridoxal 5'-phosphate) or hydrophobic aldehydes (pyridoxal, o-phthalaldehyde, all-trans retinal) stay at the origin or migrate with the solvent front, respectively. Reproduced with permission from ref. [114].
-
-# 5. Factors Affecting the Accumulation of Hcy-Thiolactone and N-HCY-Protein in HUVEC Cultures
-
-The accumulation of Hcy-thiolactone was positively correlated with Hcy concentrations and was inhibited with increasing concentration of non-radio-labelled Met, which is consistent with Hcy-thiolactone synthesis at the active site of MetRS (Figure 3). The accumulation of N-Hcy-protein increased with increasing concentration of Hcy. Notably, N-Hcy-protein accumulation was inhibited by the supplementation with folic acid and high-density lipoprotein (HDL) [96], which is consistent with the role of folates in the re-methylation of Hcy to Met [16] and with the role of paraoxonase 1 (PON1), a component of HDL, in Hcy-thiolactone hydrolysis [112].
-
-# 6. Hcy-Thiolactone and N-Hcy Protein Induce Proatherogenic Changes in Gene Expression in Human Vascular Endothelial Cells
-
-In HHcy, changes occur not only in plasma tHcy levels but also in levels of individual Hcy-related metabolites. To identify mechanisms by which HHcy disrupts normal cellular function and ultimately causes disease, the influence of individual metabolites—Hcy, Hcy-thiolactone, and N-Hcy-protein—on gene expression was examined in HUVEC using microarray, RT-qPCR, and bioinformatic approaches [80]. Each metabolite can cause metabolite-specific alterations in gene expression and individually contribute to endothelial dysfunction induced by HHcy. Defining metabolite-specific changes in endothelial cell gene expression will allow us to uncover molecular pathways involved in the HHcy-related pathology and to identify potential targets for pharmacological interventions aiming at preventing or treating cardiovascular and neurological disorders associated with HHcy.
-
-We found that the treatments with N-Hcy-protein, Hcy-thiolactone, and Hcy induced unique gene expression patterns in HUVEC. Specifically, Hcy-thiolactone treatments influenced the largest number of genes  $(n = 113)$ . N-Hcy-protein and Hcy affected the expression of 47 and 30 genes, respectively. All three metabolites changed the expression of twenty-one genes, and  $75\%$  of changes were in the same direction. Notably, N-Hcy-protein, Hcy-thiolactone, and Hcy upregulated the expression of genes
-
-Int.J.Mol.Sci.2025,26,746
-
-encoding enzymes participating in sulfur amino acid and one-carbon metabolism such as AHCY, CBS, 5-methyltetrahydrofolate-homocysteine methyltransferase (MTR), and 5-methyltetrahydrofolate-homocysteine methyltransferase reductase (MTRR) [80].
-
-Chromatin organization, one-carbon metabolism, and lipid-related processes were the three top molecular pathways significantly influenced by Hcy-thiolactone  $(- \log P$ -value  $= 20 - 31)$ . Top pathways significantly influenced by all three metabolites—Hcy, Hcy-thiolactone, and N-Hcy-protein—were blood coagulation, lipid metabolism, wound healing, cysteine and methionine metabolism, and sulfur amino acid biosynthesis  $(- \log P$ -value  $= 4 - 14)$ . These diseases are highlighted by red outlines in Figure 6.
-
-![img-9.jpeg](img-9.jpeg)
-Figure 6. Molecular pathways affected by Hcy, Hcy-thiolactone, and N-Hcy-protein identified by DAVID tool. The analysis utilized  $p$  value 0.05, and Benjamini Hochberg, Bonferroni, and FDR corrections were applied to minimize the number of false positives. Reproduced with permission from ref. [80].
-
-The top disease associated with all three metabolites—Hcy, Hcy-thiolactone, and N-Hcy-protein—was 'atherosclerosis, coronary heart disease'  $(- \log p$ -value  $= 9 - 16)$ . The top disease associated with two metabolites—Hcy-thiolactone and N-Hcy-protein—was 'cardiovascular disease'  $(- \log p$ -value  $= 9 - 10)$ . 'Myocardial infarction' was the top disease associated only with Hcy-thiolactone  $[- \log (p$  value)  $= 8]$ . These diseases are highlighted by red outlines in Figure 7. The relationship between Hcy-thiolactone and myocardial infarction revealed by microarray gene expression analyses in HUVEC has been confirmed by a large randomized prospective study that found that Hcy-thiolactone was a predictor of future myocardial infarction events [50].
-
-These findings indicate that each Hcy metabolite uniquely modulates gene expression in pathways important for vascular homeostasis and identify new genes and pathways that are linked to HHcy-induced endothelial dysfunction and vascular disease [80].
-
-Int.J.Mol.Sci.2025,26,746
-
-![img-10.jpeg](img-10.jpeg)
-Figure 7. Diseases associated with Hcy-thiolactone, N-Hcy-protein, and Hcy were identified from effects of these metabolites on gene expression in human vascular endothelial cells. Reproduced with permission from ref. [80].
-
-# 7. Hcy Metabolites Impair mTOR Signaling and Autophagy via Microrna-Mediated Mechanism in Human Endothelial Cells and Cbs $^{-/-}$  Mice
-
-MicroRNAs (miRs), small non-coding RNAs, regulate gene expression at the mRNA level [115]. Dysregulated miR expression can contribute to endothelial dysfunction [116] and associated diseases, including CVD [117] and stroke [118].
-
-Plant homeodomain finger protein 8 (PHF8) is a histone de-methylase that maintains homeostasis of the mTOR signaling by demethylating H4K20me1, an important epigenetic mTOR regulator [119]. PHF8, located on the X chromosome, is associated with severe intellectual disability [120], autism spectrum disorder, and attention deficit hyperactivity disorder [121]. PHF8 expression is regulated by miR-22-3p [122] and miR-1229-3p [123], which bind to PHF8  $3^{\prime}$  UTR. HHcy due to Cbs deficiency in mice and mouse neuroblastoma cells downregulated PHF8 expression [124].
-
-The mTOR signaling is a key regulator of cellular metabolism and survival. In nutrient abundance, mTOR stimulates anabolic processes such as protein biosynthesis and inhibits catabolic processes such as autophagy. A preponderance of evidence shows that dysregulated mTOR signaling plays a key role in atherosclerosis and CVD [125,126].
-
-Autophagy, an evolutionarily conserved cellular process involving the degradation and recycling of damaged proteins and organelles, occurs continuously at basal levels and contributes to the maintenance of cellular homeostasis. Impaired autophagy leads to the accumulation of damaged proteins and abnormal protein aggregates and is associated with vascular, metabolic, and neurodegenerative diseases [127].
-
-To elucidate how individual Hcy metabolites can induce endothelial dysfunction associated with HHcy, mTOR signaling and autophagy were studied in HUVEC treated with Hcy, Hcy-thiolactone, and N-Hcy-protein. Each of those metabolites downregulated the histone demethylase PHF8 expression by upregulating miR-22-3p and miR-1229-3p (Figure 8), which target  $3^{\prime}$  UTR of PHF8 mRNA in HUVEC [128].
-
-Int.J.Mol.Sci.2025,26,746
-
-![img-11.jpeg](img-11.jpeg)
-(A)
-
-![img-12.jpeg](img-12.jpeg)
-(D)
-
-![img-13.jpeg](img-13.jpeg)
-(G)
-
-![img-14.jpeg](img-14.jpeg)
-(B)
-
-![img-15.jpeg](img-15.jpeg)
-(E)
-
-![img-16.jpeg](img-16.jpeg)
-(H)
-
-![img-17.jpeg](img-17.jpeg)
-(C)
-
-![img-18.jpeg](img-18.jpeg)
-(F)
-
-![img-19.jpeg](img-19.jpeg)
-(I)
-Figure 8. Effects of N-Hcy-protein, Hcy-thiolactone, and Hcy on the expression of PHF8, miR-22-3p, and miR-1229-3p in the absence (A-C) or presence (D-I) of miR inhibitors. (A-C) HUVEC were treated with N-Hcy-protein (N-Hcy), Hcy-thiolactone (HTL), or Hcy for  $24\mathrm{h}$  and PHF8 mRNA (A), miR-22-3p (B), and miR-1229-3p (C) were quantified by RT-qPCR. Untreated cells were used as controls. (D-I) HUVEC were transfected with were transfected with Thermo Scientific mirVanaTM miRNA Mimic, Negative Control #1 (Control), inhibitor of miR-22-3p (D,F,G), or inhibitor of miR-1229-3p (E,H,I) for  $4\mathrm{h}$ . The cells transfected with a miR inhibitor were then untreated (Control+) or treated with N-Hcy-protein, Hcy-thiolactone, or Hcy in methionine-free M199/dialyzed FBS medium for  $24\mathrm{h}$ . The expression of miR-22-3p (D), miR-1229-3p (E), and PHF8 mRNA (F,H) was quantified by RT-qPCR. GAPDH mRNA was used as a reference for PHF8 mRNA. 18S rRNA and U6 snRNA were used as references for miR quantification. Bar plots in panels (G) and (I) show the expression of PHF8 protein quantified by western blotting. GAPDH was used as a reference protein. Representative images of western blots are shown above the bar plots in panels (G) and (I). Each assay was repeated three times (technical repeats) in three independent experiments (biological repeats). Mean SD values for each treatment group are shown.  $p$ -values were calculated by Kruskal-Wallis nonparametric test (A-C) or Mann-Whitney test (D-I).  $*p &lt; 0.05$ ,  $\*\*p &lt; 0.01$ . The numbers above bars show  $p$ -values from 0.06 to 0.19. NS, not significant; N-Hcy, N-Hcy-protein. Reproduced with permission from ref. [128].
-
-Binding sites for miR-22-3p [122] and miR-1229-3p [123] in the  $3^{\prime}$  PHF8 UTR, suggested in other biological systems, were confirmed in HUVEC by dual luciferase assays (Figures 9 and 10).
-
-Int.J.Mol.Sci.2025,26,746
-
-![img-20.jpeg](img-20.jpeg)
-Figure 9. Validation of PHF8  $3^{\prime}$  UTR target sites for miR-1229-3p (A) and miR-22-3p (B) in HUVEC: inhibitors of miR-1229-3p or miR-22-3p stimulate the activity of native but not mutant PHF8  $3^{\prime}$  UTR in a dual luciferase assay. HUVEC were transfected with PHF8  $3^{\prime}$  UTR plasmid containing native or mutated (mutated nucleotide highlighted in yellow) binding site for miR-1229-3p (A) or miR-22-3p (B) in the absence or presence of miR-1229-3p inhibitor or miR-22-3p inhibitor, respectively. The firefly and renilla luminescence were quantified using a Dual-Glo® Luciferase Assay System (Promega, USA), and the firefly/renilla ratios calculated.  $p$ -values were from the Mann Whitney test.  $^{*}p &lt; 0.05$ . Adapted with permission from the Supplementary Material in ref. [128].
-
-![img-21.jpeg](img-21.jpeg)
-
-![img-22.jpeg](img-22.jpeg)
-Figure 10. Hcy metabolites inhibit binding of miR-1229-3p and miR-22-3p to PHF8  $3^{\prime}$  UTR, assessed in HUVEC by the dual luciferase assay. HUVEC were transfected with a PHF8  $3^{\prime}$  UTR-containing plasmid in the absence or presence of a miR inhibitor, rinsed twice with PBS, overlaid with M199 medium without methionine (Thermo Scientific) containing  $5\%$  dialyzed FBS (Millipore Sigma) and were treated with N-Hcy-protein, Hcy-thiolactone, or Hcy for  $24\mathrm{h}$ , or untreated (Control, Control+), and the firefly/renilla luminescence ratios calculated. (A) PHF8  $3^{\prime}$  UTR containing native binding site for miR-1229-3p, (B) PHF8  $3^{\prime}$  UTR containing mutated binding site for miR-1229-3p, (C) miR-1229-3p inhibitor and PHF8  $3^{\prime}$  UTR containing native binding site for miR-1229-3p, (D) PHF8  $3^{\prime}$  UTR containing native binding site for miR-22-3p, (E) PHF8  $3^{\prime}$  UTR containing mutated binding site for miR-22-3p, (F) miR-22-3p inhibitor and PHF8  $3^{\prime}$  UTR containing native binding site for miR-22-3p.  $t$  test:  $^{*}p &lt; 0.05$ ,  $^{**}p &lt; 0.01$ ,  $^{***}p &lt; 0.001$ . Mann-Whitney test:  $^{*}p &lt; 0.05$ ,  $^{**}p &lt; 0.01$ , or  $^{***}p &lt; 0.0001$ . Reproduced with permission from the Supplementary Material in ref. [128].
-
-![img-23.jpeg](img-23.jpeg)
-
-At the same time, treatments with Hcy metabolites upregulated H4K20me1, mTOR, and phospho-mTOR. Autophagy-related proteins (BECN1, ATG5, ATG7, lipidated LC3-II, and LC3-II/LC3-I ratio) were significantly downregulated by at least one of these
-
-Int.J.Mol.Sci.2025,26,746
-
-metabolites. Similar changes in the expression of miR-22-3p, Phf8, mTOR- and autophagy-related proteins/mRNAs were also found in vivo in hearts of severely HHcy  $\mathrm{Cbs}^{- / - }$  mice, which show endothelial dysfunction. Inhibitors of miR-22-3p or miR-1229-3p ameliorated the influence of Hcy metabolites on the miR expression, as well as on PHF8, H4K20me1, mTOR, and autophagy-related proteins/mRNAs in HUVEC. These findings identify a new mechanism in which Hcy-thiolactone, N-Hcy-protein, and Hcy upregulate miR-22-3p and miR-1229-3p expression, which then dysregulate the PHF8/H4K20me1/mTOR/autophagy pathway, important for vascular homeostasis (Figure 11).
-
-![img-24.jpeg](img-24.jpeg)
-Figure 11. Hypothetical pathway leading to autophagy inhibition and endothelial dysfunction in HHcy. Hcy metabolites upregulate miR22-3p and miR-1229-3p in human endothelial cells and miR22-3p in  $\mathrm{Cbs}^{- / - }$  mouse heart. These miRs downregulate the histone demethylase PHF8, thereby elevating H4K20me1, a positive regulator of mTOR. Upregulation of mTOR and pmTOR inhibits autophagy in human endothelial cells and mouse heart. Up and down arrows show the direction of changes. Hcy, homocysteine; mTOR, mammalian target of rapamycin; pmTOR, phospho-mTOR; PHF8, Plant homeodomain finger protein 8. Reproduced with permission from the Supplementary Material in ref. [128].
-
-# 8. Hcy-Thiolactone Predicts Acute Myocardial Infarction in CAD Patients
-
-To evaluate Hcy-thiolactone as a risk marker of acute myocardial infarction (AMI), urinary Hcy-thiolactone was quantified in a cohort of CAD patients [73] participating in a large-scale, prospective, randomized, controlled Western Norway B Vitamin Intervention Trial (WENBIT) [45,46]. Patients underwent coronary angiography for stable angina pectoris and were randomized into four groups that received (1)  $0.8\mathrm{mg}$  folic acid  $+0.4\mathrm{mg}$  vitamin  $\mathrm{B}12 + 40\mathrm{mg}$  vitamin B6; (2) folic acid  $+$  vitamin B12; (3) vitamin B6 alone; or (4) placebo. Urine samples were collected from over 2000 of these patients at baseline, at one year, and at the end of study. During a median 4.7-year follow-up, 183 patients  $(8.9\%)$  had AMI. We found that urinary Hcy-thiolactone was not affected by folate/B12 or B6 supplementation. Kaplan-Meier analyses showed greater frequency of AMI in patients with low pyridoxic acid (Figure 12) [73].
-
-Int.J.Mol.Sci.2025,26,746
-
-![img-25.jpeg](img-25.jpeg)
-Figure 12. Kaplan-Meier analysis of survival without acute myocardial infraction (AMI) in CAD patients. High Hcy-thiolactone levels reduce survival free of AMI in patients with low pyridoxic acid (A) but not in patients with high pyridoxic acid (B). Reproduced with permission from the Supplementary Material in ref. [73].
-
-![img-26.jpeg](img-26.jpeg)
-
-Cox regression analysis showed that baseline urinary Hcy-thiolactone/creatinine ratio was significantly associated with AMI during follow-up [50]. This association was not affected by tHcy and was strong in patients with low pyridoxic acid (adjusted HR = 2.72, 95% CI = 1.47–5.03,  $p = 0.0001$ ;  $P_{\text{interaction}} = 0.020$ ). Interaction between Hcy-thiolactone and pyridoxic acid is illustrated in Figure 13 [73].
-
-![img-27.jpeg](img-27.jpeg)
-Figure 13. Interaction between Hcy-thiolactone/creatinine and pyridoxic acid in AMI. Low pyridoxic acid: AMI risk increases from  $9.3\%$  in the 1st HTL quintile to  $18.0\%$  in the 5th HTL quintile. High pyridoxic acid: no effect. Reproduced with permission from the Supplementary Material in ref. [73].
-
-B-vitamin/folate treatments did not affect the AMI risk association with Hcy-thiolactone/creatinine.
-
-Notably, these findings are consistent with bioinformatic analyses of the changes in gene expression induced by Hcy-thiolactone, N-Hcy-protein, and Hcy in HUVEC. Specifically, the bioinformatic analyzes showed that the disease category 'myocardial infarction' was strongly associated with Hcy-thiolactone, but not with tHcy, and that 'cardiovascular disease' category was associated with Hcy-thiolactone and Hcy, while the 'cerebrovascular disease' and 'atherosclerosis, coronary heart disease' categories were associated with all three metabolites, Hcy-thiolactone, N-Hcy-protein, and Hcy [80] (Figure 7). The in vitro findings in HUVECs [80], together with the in vivo findings in humans [73], suggest Hcy-thiolactone plays an important role in CVD.
-
-Int.J.Mol.Sci.2025,26,746
-
-In addition to predicting AMI, Hcy-thiolactone/creatinine is significantly inversely correlated with serum PON1 activity, consistent with the ability of PON1 to detoxify Hcy-thiolactone [98,112]. Individuals with low serum paraoxonase activity have significantly higher Hcy-thiolactone/creatinine compared with the high-activity individuals [129]. Carriers of the high-activity PON1-192R allele have significantly lower urinary Hcy-thiolactone/creatinine than the low-acidity PON1-192Q carriers. The dependence of Hcy-thiolactone/creatinine on PON1 suggests that detoxification of Hcy-thiolactone is a plausible molecular mechanism contributing to the cardio-protective role of HDL/PON1 (Figure 14).
-
-![img-28.jpeg](img-28.jpeg)
-Figure 14. Proposed involvement of homocysteine (Hcy)-thiolactone and N-Hcy-protein in vascular disease. HHcy increases the synthesis of Hcy-thiolactone and the accumulation of damaged N-Hcy-protein, which cause proatherogenic gene expression, an autoimmune response, atherosclerosis, and thrombosis. These processes finally lead to major adverse vascular events, such as myocardial infarction, stroke, or death. By hydrolyzing Hcy-thiolactone, Hcy-thiolactonases (HTases), such as high-density lipoprotein (HDL)/paraoxonase 1 (PON1), bleomycin hydrolase (BLMH), or biphenyl hydrolase-like (BPHL), prevent these events. AMI, acute myocardial infarction; Met, methionine; MetRS, methionyl-tRNA synthetase. Reproduced with permission from ref. [59].
-
-Taken together, these findings show that urinary Hcy-thiolactone is a predictor of AMI in CAD patients, independent of plasma tHcy and traditional risk factors, but related to vitamin B6 metabolism and possibly PON1 activity. Furter, these findings are also consistent with the association of low PON1 arylesterase and Hcy-thiolactonase activities with cardiovascular outcomes [130] and mortality [131], respectively, observed in other studies (discussed below).
-
-# 9. Hcy-Thiolactone Influences Prognostic Value of Fibrin Clot Structure/Function in CAD Patients
-
-Thrombosis caused by an underlying vascular dysfunction is a major contributor to CVD. The formation of a platelet-rich thrombus occurring in the occlusive arterial disease is supported by a fibrin network formation that results from complex interactions between the coagulation cascade components. Preponderance of evidence suggests that the structure
-
-Int.J.Mol.Sci.2025,26,746
-
-and function of the fibrin clot is associated with CVD development and progression. For instance, the dense structure of the fibrin clot, reflected in increased maximum absorbance and longer clot lysis time, has been found in CVD patients [132]. As factors influencing fibrin clot properties are not fully understood, the identification of new factors is important in assessing CVD risk and the development of new treatment strategies [133].
-
-A recent study examined the influence of sulfur-containing metabolites on fibrin clot function and structure by using fibrin clot lysis time (CLT) and clot maximum absorbance (Absmax), respectively, as measures of fibrin clot properties in relation to outcomes in CAD patients participating in a large, randomized, prospective WENBIT trial [134]. The study found that urinary homocysteine (uHcy)-thiolactone and plasma cysteine (pCys) at baseline were significantly associated with CLT, while plasma tHcy was significantly associated with Absmax. These new associations were independent of the well-known CLT-associated factors (fibrinogen, triglycerides, vitamin E, glomerular filtration rate, body mass index, age, sex, plasma creatinine, CRP, HDL-C, ApoA1, and previous diseases).
-
-The study also found that supplementation with folic acid, vitamin B12, and vitamin B6 did not influence Absmax or CLT. Kaplan-Meier analyses showed that elevated baseline CLT and Absmax were associated with worse outcomes (Figure 15).
-
-![img-29.jpeg](img-29.jpeg)
-
-![img-30.jpeg](img-30.jpeg)
-
-![img-31.jpeg](img-31.jpeg)
-Figure 15. Kaplan-Meier analysis of outcome events according to Absmax and CLT cutoffs. (A) Survival free of AMI in CLT group 0  $(\mathrm{CLT} \leq 397.5\mathrm{s})$  and group 1  $(\mathrm{CLT} &gt; 397.5)$  vs. time (days). (B) Survival without mortality in CLT group 0  $(\mathrm{CLT} \leq 532.5\mathrm{s})$  and group 1  $(\mathrm{CLT} &gt; 532.5\mathrm{s})$ . (C) Survival free of AMI in Absmax group 0  $(\mathrm{Absmax} \leq 0.025)$  and group 1  $(\mathrm{Absmax} &gt; 0.025)$  vs. time (days). (D) Survival without mortality in Absmax group 0  $(\mathrm{Absmax} \leq 0.169)$  and group 1  $(\mathrm{Absmax} &gt; 0.169)$ . Reproduced with permission from ref. [134].
-
-![img-32.jpeg](img-32.jpeg)
-
-Cox regression analyses showed that baseline Absmax and CLT (&gt;cutoff) predicted AMI (Absmax: HR 3.22, CI 1.19-8.69;  $p = 0.021$ . CLT: HR 1.58, 95% CI 1.10-2.28;  $p = 0.013$ ) and mortality (Absmax: 2.39, 95% CI 1.17-4.92;  $p = 0.017$ . CLT: HR 2.54, 95% CI 1.40-4.63;  $p = 0.002$ ). These associations were significant after adjustments for other prognostic biomarkers. Cox regression analysis showed that uHcy-thiolactone and Cys, but not tHcy, were significant AMI predictors in models with CLT. These findings identified uHcy-thiolactone and plasma Cys as new determinants of CLT, as an important predictor of adverse CAD outcomes. Notably, folate/B-vitamin supplementation did not influence CLT and Absmax, which may explain the lack of efficacy of Hcy-lowering therapy in CAD.
-
-In addition to predicting AMI, Hcy-thiolactone/creatinine was significantly inversely correlated with serum PON1 activity, which is consistent with the ability of PON1 to detoxify Hcy-thiolactone [98,112]. Individuals with low serum paraoxonase activity have significantly higher Hcy-thiolactone/creatinine compared with the high activity individuals [109]. Carriers of the high activity PON1-192R allele have significantly lower urinary Hcy-thiolactone/creatinine than the low acidity PON1-192Q carriers [129]. The dependence of Hcy-thiolactone/creatinine on PON1 suggests that detoxification of Hcy-thiolactone is a plausible molecular mechanism contributing to the cardio-protective role of HDL/PON1 (Figure 14).
-
-Taken together, our findings show that urinary Hcy-thiolactone is a predictor of AMI in CAD patients, independent of plasma tHcy and traditional risk factors, but related to vitamin B6 metabolism and possibly PON1 activity. Moreover, our findings are also consistent with the association of low PON1 arylesterase and Hcy-thiolactonase activities with cardiovascular outcomes [130] and mortality [131], respectively, observed in other studies (discussed below).
-
-## 10. Hcy-Thiolactone Is Associated with Macro Vasculopathy
-
-The first clinical study to address the role of a specific Hcy metabolite, Hcy-thiolactone, involved 120 Chinese patients with type 2 diabetes and 40 healthy controls [135]. This study found that plasma Hcy-thiolactone and tHcy are associated with the development and progression of macro vasculopathy (MAVP). Specifically, plasma Hcy-thiolactone and tHcy are significantly elevated in patients with type 2 diabetes relative to healthy controls (Hcy-thiolactone: 3.38 [2.94 and 4.73] vs. 2.91 [2.77 and 3.08] nM, p < 0.05; tHcy [25th and 75th quartiles]: 9.28 [7.51 and 11.82] vs. 5.64 [5.17 and 8.00] μM, p = 0.01). In diabetic patients with MAVP, plasma Hcy-thiolactone and tHcy levels are significantly higher compared with patients without MAVP (Hcy-thiolactone: 4.27 [3.02 and 5.11] vs. 3.12 [2.63 and 3.77] nM, p < 0.05; Hcy: 10.36 [7.67 and 12.45] vs. 7.85 [6.76 and 10.52] μM, p < 0.05). Furthermore, plasma Hcy-thiolactone is positively correlated with urinary excretion of albumin (r = 0.285, p = 0.007), duration of diabetes (r = 0.249, p = 0.019), age (r = 0.233, p = 0.028), and fibrinogen (r = 0.289, p = 0.034) and negatively correlated with HDL (r = -0.223, p = 0.037) [135], which is consistent with the ability of HDL-associated PON1 to hydrolyze Hcy-thiolactone [88]. Binary logistic regression showed that Hcy-thiolactone, tHcy, smoking, serum triglyceride, and urinary albumin/creatinine were significantly associated with the diabetic MAVP risk (p < 0.05) [135]. The association of Hcy-thiolactone with MAVP risk suggests a molecular mechanism that underlies the toxicity of HHcy to vascular endothelium (Figure 14).
-
-Another study found that Hcy-thiolactone levels were elevated in the vitreous of eyes in patient with proliferative diabetic retinopathy [136]. Notably, this study also found that Hcy-thiolactonase activity of PON1 is elevated in the vitreous of the retinopathy patients, suggesting activation of a protective response in the diseased eye.
-
-## 11. Hcy-Thiolactonase Activity of PON1 Is Associated with CAD Mortality
-
-A prognostic value of baseline Hcy-thiolactonase activity of serum PON1 and tHcy levels for all-cause mortality was examined in a prospective study involving Japanese patients (n = 315, 82.7% male, mean age 66 years) who underwent percutaneous coronary intervention for stable coronary artery disease or acute coronary syndrome [131]. During the median follow-up of 10.5 years, 73 patients (24.5%) died. Kaplan--Meier analysis showed that low Hcy-thiolactonase activity and high tHcy levels were associated with mortality risk. This study provided the first evidence of higher mortality after percutaneous intervention in patients with low serum Hcy-thiolactonase activity.
-
-## 12. Hcy-Thiolactone and Other Sulfur-Containing Amino Acid Metabolites Are Associated with Fibrin Clot Properties and the Risk of Ischemic Stroke
-
-As discussed in Section 6 above, plasma cysteine, tHcy, and urinary Hcy-thiolactone influence fibrin clot properties in CAD patients and are linked to CVD [134]. To assess the role of Hcy-thiolactone and other sulfur-containing amino acid metabolites as determinants of fibrin clot properties in relation to stroke, fibrin clot maximum absorbance (Absmax), and CLT, plasma and urine from ischemic stroke patients (45.0% women, age 68 ± 12 years, n = 191) and healthy individuals (59.7% women, age 50 ± 17 years, n = 291) were analyzed [137]. Levels of plasma and urinary sulfur-containing amino acid metabolites and fibrin clot properties were significantly different in stroke patients compared to healthy controls. Correlations between fibrin Absmax and CLT observed in healthy male (R^{2} = 0.439, p = 0.000) and female (R^{2} = 0.245, p = 0.000) participants, as well as in female stroke patients (R^{2} = 0.187, p = 0.000), were abrogated in male ischemic stroke patients (R^{2} = 0.008, p = ns). In healthy participants, fibrin Absmax correlated with age both in females and males, while fibrin CLT correlated with age only in female participants; these correlations were abrogated in ischemic stroke patients [137].
-
-In ischemic stroke patients, multiple regression analysis showed that plasma metabolites such as (p)CysGly, pMet, as well as MTHFR A1298C polymorphism, were associated with fibrin Absmax, while urinary metabolites such as (u)HTL, uCysGly, and pCysGly were significantly associated with fibrin CLT. In healthy individuals, multiple regression analysis showed that two metabolites, uHTL and uGSH, were significantly associated with fibrin Absmax, while pGSH and CBS T833C 844ins68 polymorphism were associated with fibrin CLT [137].
-
-Logistic regression analysis showed that urinary metabolites such as uHTL and uHcy, plasma metabolites such as pCysGly and pGSH, as well as MTHFR C677T polymorphism and fibrin Absmax were independently associated with stroke (Table 1) [137].
-
-Adjustments for earlier diseases did not affect these associations (Model 2, Table 1). Other adjustments for GFR, glucose, LDL cholesterol, HDL cholesterol, and triglycerides, also did not affect these associations (Model 3, Table 1), except for uHcy, which was not significantly associated with stroke in Model 3. The associations of sulfur-containing amino acid metabolites and MTHFR C677T polymorphism with ischemic stroke were independent of other metabolites and traditional stroke risk factors such as lipid measures, GFR, glucose, age, sex, early CAD, MI, hypertension, diabetes, and other heart diseases.
-
-Logistic regression analysis in a model adjusted for anti-N-Hcy autoantibodies [51], age, and sex also showed that fibrin Absmax, but not CLT, was significantly associated with ischemic stroke (p = 0.049, Model 1, Table 1). The association of fibrin Absmax with stroke became stronger in models adjusted for earlier diseases (p = 0.007, Model 2, Table 1) and for GFR, glucose, LDL cholesterol, HDL cholesterol, and triglycerides (Model 3, Table 1). These findings show that the association of fibrin Absmax with ischemic stroke was independent of sulfur-containing amino acid metabolites and traditional stroke risk factors such as lipid measures, glucose, GFR, age, sex, and earlier CAD, MI, hypertension, diabetes, and other heart diseases (Table 1) [137].
-
-Int.J.Mol.Sci.2025,26,746
-
-Table 1. Determinants of ischemic stroke.
-
-|  Variable (n = 491; Stroke n = 200, Controls n = 291) | Bivariate Correlations | Logistic Regression  |   |   |   |   |   |   |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|   |   |   |  Model 1 |   | Model 2 |   | Model 3  |   |
-|   |  β | p | B | p | B | p | B | p  |
-|  uHTL #42 | -0.16 | 0.000 | -0.01 | 0.010 | -0.01 | 0.008 | -0.01 | 0.007  |
-|  uHcy #39 | 0.19 | 0.000 | 0.10 | 0.035 | 0.12 | 0.031 | 0.10 | 0.078  |
-|  uCys #40 | 0.19 | 0.000 | 0.01 | 0.027 | 0.01 | 0.045 | 0.01 | 0.039  |
-|  uCysGly #41 | 0.06 | 0.189 |  | ns |  | ns |  | ns  |
-|  uGSH #63 | -0.23 | 0.000 | -0.11 | 0.003 | -0.31 | 0.025 | -0.13 | 0.005  |
-|  uCreatinine #43 | -0.07 | 0.127 |  | ns |  | ns |  | ns  |
-|  pHcy #31 | 0.24 | 0.000 |  | ns |  | ns |  | ns  |
-|  pCys #32 | 0.26 | 0.000 | 0.01 | 0.000 | 0.01 | 0.001 | 0.01 | 0.003  |
-|  pCysGly #33 | -0.11 | 0.016 | -0.08 | 0.005 | -0.08 | 0.011 | -0.07 | 0.035  |
-|  pGSH #62 | -0.16 | 0.000 |  | ns |  | ns |  | ns  |
-|  pCreatinine #68 | 0.32 | 0.000 | 0.04 | 0.000 | 0.04 | 0.001 |  | ns  |
-|  Age #2 | 0.53 | 0.000 | 0.06 | 0.000 | 0.05 | 0.001 | 0.05 | 0.003  |
-|  Sex #3 | 0.17 | 0.000 |  | ns |  | ns |  | ns  |
-|  Anti-N-Hcy #64 | 0.14 | 0.002 |  | ns |  | ns |  | ns  |
-|  GFR #30 | -0.45 | 0.000 |  |  |  |  |  | ns  |
-|  Glucose #61 | 0.24 | 0.000 |  |  |  |  |  | ns  |
-|  LDL cholesterol #27 | -0.18 | 0.000 |  |  |  |  |  | ns  |
-|  HDL cholesterol #28 | -0.28 | 0.000 |  |  |  |  |  | ns  |
-|  Triglycerides #29 | 0.11 | 0.008 |  |  |  |  |  | ns  |
-|  Hypertension #8 | 0.52 | 0.000 |  |  | 1.28 | 0.000 | 1.20 | 0.001  |
-|  Other heart disease #10 | 0.28 | 0.000 |  |  | 1.23 | 0.024 | 1.13 | 0.046  |
-|  Early CAD #5 | 0.48 | 0.000 |  |  |  | ns |  | ns  |
-|  Early MI #6 | 0.20 | 0.000 |  |  |  | ns |  | ns  |
-|  Diabetes #9 | 0.31 | 0.000 |  |  |  | ns |  | ns  |
-|  MTHFR C677T #13 | 0.07 | 0.088 | 0.54 | 0.037 | -0.67 | 0.023 | -0.69 | 0.029  |
-|  MTHFR A1298C #14 | 0.05 | 0.282 |  | ns |  | ns |  | ns  |
-|  CBS T833C 844ins68 #17 | -0.06 | 0.135 |  | ns |  | ns |  | ns  |
-|  Fibrin CLT #36 | 0.16 | 0.001 |  | ns |  | ns |  | ns  |
-|  Fibrin Absmax #37 | 0.21 | 0.000 | 7.1 | 0.049 | 10.6 | 0.007 | 10.9 | 0.010  |
-|  Variables included in each model are shown by numerical or textual entries. Ischemic stroke was coded as 1, no stroke as 0. |   |   | -2 log likelihood = 311.8, Cox & Snell R² = 0.48, Nagelkerke R² = 0.64; % Correct 84.5 |   | -2 log likelihood = 266.9, Cox & Snell R² = 0.52, Nagelkerke R² = 0.71; % Correct 87.6 |   | -2 log likelihood = 250.8, Cox & Snell R² = 0.53, Nagelkerke R² = 0.71; % Correct 87.6  |   |
-
-GFR, glomerular filtration rate; CAD coronary artery disease; MI, myocardial infarction; CLT, clot lysis time; LDL, low-density lipoprotein; Anti  $N$ -Hcy, anti- $N$ -Hcy-protein autoantibody. Hcy, homocysteine; HTL, Hcy-thiolactone; Cys, cysteine; CysGly, cysteinylglycine; Absmax, maximum absorbance at 335 nm; ns, non-significant. Urinary and plasma metabolites are shown by a letter 'u' or 'p', respectively, preceding the metabolite's name. Reproduced with permission from ref. [137].
-
-These findings suggest that HTL and other sulfur-containing amino acid metabolites can affect fibrin clot properties as well as the risk of ischemic stroke. Sulfur-containing amino acid metabolites such as uHTL, uGSH, and pCysGly were associated both with fibrin clot properties and stroke, suggesting that these metabolites can promote stroke by promoting unfavorable fibrin clot properties. Other sulfur-containing amino acid metabolites, such as uHcy, uCys, and pCys, and factors such as MTHFR C677T polymorphism were associated with stroke without influencing fibrin clot properties. Targeting sulfur-
-
-Int.J.Mol.Sci.2025,26,746
-
-containing amino acid metabolites and their urinary excretion might be a useful therapeutic strategy to mitigate prothrombotic phenotypes that increase the risk of stroke.
-
-One of these sulfur-containing amino acid metabolites, uHTL, has been previously shown to affect fibrin clot properties [134] and predict MI in CAD patients [73], suggesting that HTL can contribute to stroke and CAD via similar mechanisms involving protein modification by N-homocysteinylation [59].
-
-# 13. Hcy, Hcy-Thiolactone, and Related Metabolites Are Severely Elevated in CBS Deficiency
-
-CBS deficiency essentially eliminates the transsulfuration pathway (ii) and increases the flow of Hcy through the re-methylation (i) and the Hcy-thiolactone (iii) pathways (Figure 1). As a result, Met, Hcy, and related metabolites such as Hcy-thiolactone, N-Hcy-Lys, N-Hcy-protein, and S-Hcy-protein are severely elevated in CBS deficiency in both humans and mice (Table 2).
-
-Table 2. CBS deficiency elevates plasma Hcy and related metabolites in humans and mice. Data were compiled from refs. [40,66,68-70,83,84,138].
-
-|  Metabolite | Humans |   | Mice  |   |
-| --- | --- | --- | --- | --- |
-|   |  CBS-/- | CBS+/+ | Cbs-/- | Cbs+/+  |
-|   |  μM | μM | μM | μM  |
-|  Hcy-thiolactone | 0.0144 | 0.0004 (0.168)† | (10.8)† | 0.0037 (0.136)†  |
-|  Ne-Hcy-Lys | 0.56 | <0.1 |  | 0.40  |
-|  N-Hcy-protein | 3.0a; 12.1a,b | 0.49c | 16.6 (11.4d)† | 1.89 (0.34d)†  |
-|  S-Hcy-protein |  | 9.80c | 90 (142.0e)† | (5.8e)†  |
-|  Hcy |  | 0.25 | 20 | <0.2 WK2009  |
-|  Hcy-S-S-Hcy + Hcy-S-S-Cys |  | 1.90 | 130 | 0.4 WK2009  |
-|  tHcyf | 124.8; 48.5; 294.0b (1108.7)† | 7.4; 12.0 (2.5)† | 296, 272 (4104.0)† | 5.5, 3.0 (45.0)†  |
-|  Cystathionine, μM | 0.040 | 0.157 | 0.43 | 1  |
-|  Cys, μM | 136 | 289 | 80 | 100  |
-|  Met, μM | 160; 819.9 (1586.1)† | 22.4; 10.9 (9.7)† | 528.6 (1542.4)† | 35.4 (240.4)†  |
-|  AdoMet, μM | 0.488 | 0.107; 0.109 (10.2)† |  |   |
-
-† Urinary concentrations are shown in parentheses. a Mostly N-Hcy-albumin and N-Hcy-fibrinogen. b Noncompliant patient. c Most of the plasma protein-bound Hcy is carried on albumin and IgG. d N-Hcy-MUP; MUP, major urinary protein. e S-Hcy-MUP. f tHcy is the sum of free reduced Hcy (0.25 μM), Hcy-S-S-Hcy + Hcy-S-S-Cys (1.9 μM), an S-Hcy-protein (9.8 μM).
-
-The relative increase in Hcy-thiolactone due to CBS deficiency (patients, 36-fold; mice, 3000-fold) exceeds the increase in tHcy (patients, 25-fold; mice, 90-fold). Hcy-thiolactone is efficiently cleared by excretion into urine in the kidney, a characteristic of waste or harmful products of metabolism [62]. This leads to much higher Hcy-thiolactone concentrations in urine than in plasma (420-fold in humans and 37-fold in mice). Notably,  $\mathrm{Cbs}^{- / - }$  mice have the highest concentration of Hcy-thiolactone  $(10~\mu \mathrm{M})$  (Table 2).
-
-N-Hcy-protein increases 6- and 25-fold in  $\mathrm{CBS}^{- / - }$  patients and  $\mathrm{Cbs}^{- / - }$  mice, respectively. In humans, the concentrations of tHcy are higher in plasma than in urine, whereas in mice, tHcy is lower in plasma than in urine (Table 2), suggesting less efficient reabsorption of Hcy in mice, compared with human renal tubules.
-
-In CBS deficiency, tHcy also accumulates in urine (where it was originally detected by the nitroprusside reaction), which led to the term "homocystinuria" associated with this disease [139]. Modern quantitative assays show that urinary tHcy concentrations
-
-are severely elevated in CBS deficiency (in mM range) and greatly exceed plasma tHcy concentrations, both in CBS^{-/-} patients and Cbs^{-/-} mice (Table 2).
-
-## 14. Protein N-Homocysteinylation in CBS Deficiency
-
-N-homocysteinylation is an emerging post-translational modification formed in a reaction of Hcy-thiolactone with ε-amino group of a protein lysine residue and generating N-Hcy-Hcy-protein levels that are significantly elevated in the plasma of CBS^{-/-} patients [140] and Cbs^{-/-} mice [64,97] (Table 1). N-Hcy-protein is also severely elevated in the livers of Cbs^{-/-} mice (51.6-fold) [64]. Levels of N-Hcy-protein are positively associated with tHcy levels in human and mouse plasma [64,101] and mouse liver [64]. In another model of HHcy, the Pcft^{-/-} mouse, N-Hcy-protein is also elevated in the brain (1.2-fold), heart (2.8-fold), lungs (1.6-fold), kidney (1.8-fold), liver (3.7-fold [64]), and plasma (24.8-fold [64]), as was tHcy in these tissues (page 63 in ref. [141]).
-
-Serum albumin is the major target of N-homocysteinylation in human plasma [101,140]. N-Hcy-albumin easily forms aggregates in vitro [140], with amyloid-like morphology seen on scanning electron microscopy pictures [104]. Mass spectrometry analysis showed that lysine-525 in the 525KHcyQTALVELVK534 peptide is the major modification site of CBS^{-/-} patients and that K525 is the major site of N-homocysteinylation [142]. Quantitative LC/MS analyses of the albumin peptide containing the modification KHcy525 (m/z 651.3) showed that the extent of the KHcy525 modification were 4-fold higher in CBS-deficient patients compared with healthy individuals and that there was a significant positive correlation between KHcy525 and tHcy [143]. Subsequent mass spectrometry analyses identified two additional modifications, KHcy137 and KHcy212 (Table 2), in human serum albumin from CBS-deficient patients and healthy controls [144]. The KHcy525 modification was found in essentially all studied in participants (43 out of 44), including those with normal tHcy levels (9.9 μM), while the KHcy137 modification was found in participants with plasma tHcy ≥ 35, and the KHcy212 was found only in those with plasma tHcy ≥ 131 μM.
-
-Notably, N-homocysteinylation of some albumin lysine residues in mice was found to be sex-specific. For instance, the KHcy212 modification is significantly higher in male than female Cbs^{-/-} and Cbs^{+/-} mice. This suggests that the sex-dependent KHcy212 modification in albumin may have an important biological function in mice that is not affected by Cbs genotype [145].
-
-Mass spectrometry analyses also identified specific N-Hcy-lysine residues in fibrinogen from CBS^{-/-} patients [105] and collagen from Cbs^{-/-} mice (Table 2). The modification by N-homocysteinylation impairs normal function and generates damaged proteins that acquire the ability to form toxic, amyloid-like [104] aggregates [140], inducing an autoimmune response [74] and thromboembolism [103,105]. The accumulation of N-Hcy-protein dysregulates mTOR signalling and autophagy in HUVEC [128] and induces proatherogenic changes in gene expression in HUVEC [80], the plasma of CBS^{-/-} patients [29,146] and mice [29], and the hearts of Cbs^{-/-} mice [137] (see the following sections).
-
-## 15. CBS Deficiency, Thromboembolism, N-Hcy-Fibrinogen, and Stroke
-
-Thromboembolism is a major feature of CBS deficiency and a major cause of death in the affected individuals. CBS-deficient patients have a 50% chance of a vascular event by the age of 30 [31] and about one-third of them (32%) suffer thromboembolic stroke [31]. Other vascular thromboembolic incidents in CBS-deficient patients occur in the heart (4%), peripheral veins (51%), and arteries (11%). Little is known regarding the mechanisms leading to the onset of ischemic stroke in CBS-deficient patients [143]. As discussed below, the dysregulated proteostasis involving pro-thrombotic N-Hcy-fibrinogen [105] and other proteins participating in blood coagulation [30] could contribute to the pro-thrombotic
-
-phenotype of CBS-deficient patients and explain why they are prone to have a stroke at a young age.
-
-### 15.1. Pro-Thrombotic N-Hcy-Fibrinogen Is Elevated in CBS Deficiency
-
-Fibrinogen, a major blood clotting protein, is composed of two copies of three polypeptide chains, Aα, Bβ, Cγ, connected by twenty-nine disulfide bonds. During blood coagulation, soluble fibrinogen is converted to an insoluble fibrin clot by thrombin-catalyzed removal of fibrinopeptides from the Aα and Bβ chains. Fibrinogen is N-homocysteinylated in vivo in the human blood [101,140,147], and the extent of this modification significantly increases in CBS-deficient patients [65]. Mass spectrometry analyses show that in CBS-deficient patients, fibrinogen is N-homocysteinylated on three lysine residues: α-Lys562, β-Lys344, and γ-Lys385 (Table 2). These KHcy modifications were also identified in N-Hcy-fibrinogen prepared in vitro by the modification of native fibrinogen with Hcy-thiolactone.
-
-The fibrinogen α-K562 residue is in an unstructured region of the αC domain involved in tPA and plasminogen binding. Thus, the formation of modified α-KHcy562 in fibrinogen in CBS^{-/-} patients [105] would lead to a loss of function and generate a pro-thrombotic fibrinogen. Indeed, in vitro studies provide evidence that N-homocysteinylation impairs fibrinogen function and that N-Hcy-fibrinogen is pro-thrombotic. Specifically, the N-Hcy-fibrin clots formed from N-Hcy-fibrinogen lyse slower than the clots from native fibrinogen. The slower lysis is caused by impaired activation of plasminogen by N-Hcy-fibrin [103]. Confocal microscopy of the N-Hcy-fibrin clots showed a denser structure with increased branching, relative to unmodified fibrin [148,149], which can account for slower lysis of N-Hcy-fibrin clots than control unmodified fibrin clots.
-
-The disulfide bonds are essential for fibrinogen structure and function [150]. As fibrinogen contains twenty-nine such bonds, it is possible that Hcy could interfere with their formation. Such interference has been observed in human and mouse serum albumins. Specifically, S-thiolation by Hcy of Cys90 and Cys101 residues of human serum albumin, normally involved in intramolecular disulfide bonds, has been reported in patients with hyperlipidemia and Cbs^{-/-} and Cse^{-/-} mice [151]. However, there is no evidence for Hcy interfering with the formation of disulfide bonds in fibrinogen in humans or mice.
-
-### 15.2. Stroke in CBS Deficiency vs. Stroke in the General Population
-
-Recent evidence from proteomic studies using label-free mass spectrometry suggests that ischemic strokes in CBS-deficient patients are related to ischemic strokes in the general population [30]. Specifically, a majority of the differentiating proteins affected by CBS deficiency (22 out of 40 proteins) were also affected in ischemic stroke patients, while 18 other differentiating proteins were CBS deficiency-specific, not affected in ischemic stroke (Table 3).
-
-These findings suggest that CBS deficiency and ischemic stroke, particularly the cardioembolic stroke subtype, share similar molecular mechanisms. Both pathologies are associated with molecular networks that contain proteins showing strong interactions with NFκB and affect blood clotting (e.g. CPB2, FBLN, F2, KLKB1, SERPINF2), immune response (e.g. IGHD, IGK@), and inflammation (e.g. FCN3, SAA1, TTR) (Figure 16) [30].
-
-Int.J.Mol.Sci.2025,26,746
-
-Table 3. Stroke subtype-specific, Hcy-dependent CBS deficiency-specific, and Hcy-independent CBS deficiency-affected proteins *
-
-|  Cardioembolic vs. Large-Vessel Stroke (n = 10) | Cardioembolic vs. Lacunar Stroke (n = 6) | Large-Vessel vs. Lacunar Stroke (n = 6) | CBS-/- vs. Control  |   |
-| --- | --- | --- | --- | --- |
-|   |   |   |  Hcy-Dependent (n = 18) | Hcy-Independent† (n = 22)  |
-|  APCS | AMBP | APOL1 | APOA1 | AFM  |
-|  APOM | APOA4 | C5 | APOC3 | AHSG  |
-|  C1QA | FCN3‡ | GSN‡ | APOH | APOC1  |
-|  C4BPA | ITIH4 | GPX3‡ | C1R | APOM  |
-|  CPB2‡ | LBP | H2AFJ | C1S | C9  |
-|  FBLN1‡ | PF4 | IGK@‡ | CFI | CBP2  |
-|  IGKV1D-12 |  |  | HEL0213 | CLU  |
-|  KLKB1‡ |  |  | HPX | F2  |
-|  SERPINF2‡ |  |  | IGHV3-7 | HEL-S-51, GC  |
-|  F2‡ |  |  | IGHD | F13B  |
-|   |  |  | IGHV3-7 | FBLN1  |
-|   |  |  | IGH@ | FCN3  |
-|   |  |  | IGJ; JCHAIN | GPX3  |
-|   |  |  | IGKV2D-24 | GSN  |
-|   |  |  | ITIH2 | IGK@  |
-|   |  |  | ORM2 | KNG  |
-|   |  |  | SERPINC1 | KLKB1  |
-|   |  |  | cDNA FLJ53075, like KNG1 | SAA1  |
-|   |  |  |  | HEL111, TTR  |
-|   |  |  |  | SERPINA1  |
-|   |  |  |  | SERPIND1  |
-|   |  |  |  | SERPINF2  |
-
-* Data adapted from ref. [14]. † Proteins also affected in ischemic stroke patients. ‡ Proteins also affected in CBS deficiency.
-
-![img-33.jpeg](img-33.jpeg)
-Figure 16. Canonical pathways associated with ischemic stroke subtypes and CBS deficiency were identified by IPA. Benjamini-Hochberg, Bonferroni, and false discovery rate (FDR) corrections were applied to minimize the number of false positives. Reproduced with permission from ref. [30].
-
-These findings can also explain cardiovascular/neurological pathology, such as thrombosis, which affects the brain vasculature in CBS-deficient patients. For example, proteins affected by CBS deficiency are known to be involved in the processes linked to the heart and brain pathologies. These processes include acute phase (e.g. AHSG, ORM2, SAA1, and SERPINA1) and immune responses (e.g. IGHD, IGJ, APC, C4BPA, IGHV3-72, IGK, and IGKV2D-24), as well as blood coagulation (e.g. APOH, C1S, C1R, CF1, CBP2, F2, F13B, FBLN1, KNG, SERPINC1, SERPIND1, and SERPINF2), and lipid/cholesterol transport/metabolism (APOA1, APOC1, APOC3, and APOM) (Table 3) [30]. Some of the CBS deficiency-responsive coagulation factors identified by label-free mass spectrometry (Table 3), such as anti-thrombin SERPINC1 and coagulation factor F13B, have been identified in two siblings in earlier studies [152].
-
-Comparative analysis of CBS deficiency vs. ischemic stroke proteomes suggests that some changes in the CBS deficiency proteome (i.e. those involving the 18 CBS deficiency-specific proteins; Table 3) were related to elevated Hcy and anti-N-Hcy-protein autoantibody levels, whereas other changes were not (i.e. those involving the 22 proteins also affected in ischemic stroke patients). Thus, CBS deficiency has two effects: Hcy-related, involving a set of 18 specific proteins, and Hcy-independent, involving a set of 22 other proteins that were also affected in patients with different ischemic stroke subtypes, in whom Hcy and anti-N-Hcy-protein autoantibody levels were not elevated [30].
-
-## 16. Conclusions
-
-The proteomic, transcriptomic, and biochemical studies discussed in this review provide new insights into the roles of individual Hcy-related metabolites by identifying proteins, microRNAs, and molecular pathways affected by each of these metabolites in human endothelial cells, humans, and mouse models. Accumulating evidence, discussed above, strongly suggests that each of the Hcy-related metabolites can contribute to endothelial dysfunction and influence the development and progression of CVD and stroke by dysregulating epigenetic mechanisms controlling fundamental cellular processes such as mTOR signaling and autophagy. Importantly, Hcy-related metabolites such as Hcy-thiolactone [73] and AdoHcy [89] that are known to be associated with CVD outcomes were not affected by tHcy-lowering B-vitamin therapy [73,91], clearly suggesting that the therapy misses at least some of the important pathogenic Hcy-related metabolites. These findings underscore the need for future studies of Hcy-related metabolites and mechanisms of their action in various biological systems.
-
-Conceptualization, H.J. data curation, H.J. and Ł.W.; writing—original draft preparation, H.J.; writing—review and editing, H.J. and Ł.W.; supervision, H.J.; project administration, H.J. and Ł.W.; funding acquisition, H.J. All authors have read and agreed to the published version of the manuscript.
-
-Supported in part by grants 2018/29/B/NZ4/00771, 2019/33/B/NZ4/01760, and 2021/43/B/NZ4/00339 from the National Science Center, Poland, and Grant 17GRNT32910002 from the American Heart Association.
-
-The data that support the findings of this study are available in the methods of this article.
-
-No conflicts of interest, financial or otherwise, are declared by the authors.
-
-Int.J.Mol.Sci.2025,26,746
-
-# Abbreviations
-
-|  AdoHcy | S-adenosylhomocysteine  |
+|  Comorbiditiesa | Screening method/diagnostic criteria  |
 | --- | --- |
-|  AdoMet | S-adenosylmethionine  |
-|  AHCY | Adenosylhomocysteinase  |
-|  AMI | Acute myocardial infarction  |
-|  ApoE | Apolipoprotein E  |
-|  Blmh | Bleomycin hydrolase  |
-|  Bphl | Biphenyl hydrolase-like  |
-|  CBS | Cystathionine β-synthase  |
-|  CLT | Clot lysis time  |
-|  CSE | Cystathionine γ-lyase  |
-|  CKD | Chronic kidney disease  |
-|  CVD | Cardiovascular disease  |
-|  Cys | Cysteine  |
-|  Hcy | Homocysteine  |
-|  HDL | High-density lipoprotein  |
-|  HHcy | Hyperhomocysteinemia  |
-|  HR | Hazard ratio  |
-|  HUVEC | Human umbilical vein endothelial cells  |
-|  LDL | Low-density lipoprotein  |
-|  MAVP | Macro vasculopathy  |
-|  Met | Mehionine  |
-|  MetRS | Methionyl-tRNA synthetase  |
-|  MI | Myocardial infarction  |
-|  miR | MicroRNA  |
-|  MTR | Methyltetrahydrofolate-homocysteine methyltransferase  |
-|  MTRR | 5-Methyltetrahydrofolate-homocysteine methyltransferase reductase  |
-|  N-Hcy-protein | N-homocysteinylated protein  |
-|  pCys | Plasma cysteine  |
-|  pCysGly | Plasma cysteinylglycine  |
-|  Phf8 | Plant homeodomain finger protein 8  |
-|  Pon1 | Paraoxonase 1  |
-|  SAM | S-adenosylmethionine  |
-|  tHcy | Total homocysteine  |
-|  uGSH | Urinary glutathione  |
-|  uHcy | Urinary homocysteine  |
-|  WENBIT | Western Norway B Vitamin Intervention Trial  |
+|  Asthma/respiratory disease | History, physical examination; spirometry as indicated  |
+|  Diabetes | Fasting plasma glucose ≥126 mg/dL; hemoglobin A1c ≥6.5%; 2-h oral glucose tolerance test  |
+|  Dyslipidemia | Lipid panel that includes triglycerides, HDL-C, LDL-C, total cholesterol, and non-HDL-C  |
+|  Gastroesophageal reflux disease | History; endoscopy as indicated  |
+|  Hypertension | Sitting blood pressure ≥130/80 mm Hg  |
+|  Metabolic syndrome | Three or more of the following: waist circumference ≥88 cm for women, ≥102 cm for men; triglycerides ≥150 mg/dL; fasting plasma glucose ≥100 mg/dL; blood pressure ≥130/85 mm Hg; HDL-C <40 mg/dL in men, <50 mg/dL in women  |
+|  Nonalcoholic fatty liver disease/nonalcoholic steatohepatitis | Liver function tests; consider calculation of Fibrosis-4 Index; imaging as indicated  |
+|  Obstructive sleep apnea | Neck circumference, clinical screening questionnaires (eg, STOP-BANG score); polysomnography as indicated  |
+|  Osteoarthritis | History, physical examination (eg, weight-bearing joints); radiography as indicated  |
+|  Prediabetes | Fasting plasma glucose 100-125 mg/dL, hemoglobin A1c 5.7%-6.4%, 2-h oral glucose tolerance test  |
 
-# References
+Abbreviations: HDL-C, high-density lipoprotein-cholesterol; LDL-C, low-density lipoprotein-cholesterol.
+SI conversions: To convert total, HDL-, LDL-, and non-HDL cholesterol to millimoles per liter, multiply by 0.0259; to convert triglycerides to millimoles per liter, multiply by 0.0113.
+aThe Association of Clinical Endocrinologists and the American College of Endocrinology guidelines also recommend screening for cardiovascular disease, polycystic ovary syndrome, female infertility, male hypogonadism, urinary stress incontinence, depression, anxiety, binge eating disorder, and stigmatization. These should be evaluated as indicated or consider referral to a specialist.
 
-1. Homem, F.; Reveles, A.; Amaral, A.; Coutinho, V.; Gonçalves, L. Improving Transitional Care after Acute Myocardial Infarction: A Scoping Review. Health Care Sci. 2024, 3, 312-328. [CrossRef] [PubMed]
-2. Rallidis, S.; Jovanovic, A.; Rallidis, L. Distinctive characteristics, risk factors, and prevention of premature myocardial infarction: A narrative review. J. Family Med. Prim. Care 2024, 13, 3509-3517. [CrossRef] [PubMed]
-3. Zhu, L.; Liu, Y.; Wang, K.; Wang, N. Regulated Cell Death in Acute Myocardial Infarction: Molecular Mechanisms and Therapeutic Implications. Ageing Res. Rev. 2024, 104, 102629. [CrossRef]
-4. Manzo-Silberman, S.; Hawranek, M.; Banerjee, S.; Kaluzna-Oleksy, M.; Alasnag, M.; Paradies, V.; Parapid, B.; Sabouret, P.; Wolczenko, A.; Kunadian, V.; et al. Call to Action for Acute Myocardial Infarction in Women: International Multi-Disciplinary Practical Roadmap. Eur. Heart J. Open 2024, 4, oeae087. [CrossRef]
-5. Yadava, S.; Reddy, D.H.; Nakka, V.P.; Anusha, V.L.; Dumala, N.; Viswanadh, M.K.; Chakravarthi, G.; Nalluri, B.N.; Ramakrishna, K. Unravelling Neuroregenerative and Neuroprotective Roles of Wnt/β-Catenin Pathway in Ischemic Stroke: Insights into Molecular Mechanisms. Neuroscience 2025, 565, 527-547. [CrossRef] [PubMed]
-6. Mai, L.M.; Joundi, R.A.; Katsanos, A.H.; Selim, M.; Shoamanesh, A. Pathophysiology of Intracerebral Hemorrhage: Recovery Trajectories. Stroke 2024. [CrossRef] [PubMed]
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-Int.J.Mol.Sci.2025,26,746
+Elmaleh-Sachs et al.
 
-7. Liu, Y.; Wu, L.; Peng, W.; Mao, X. Glial Polarization in Neurological Diseases: Molecular Mechanisms and Therapeutic Opportunities. Ageing Res. Rev. 2024, 104, 102638. [CrossRef]
-8. Huang, Z.; Xu, P.; Hess, D.C.; Zhang, Q. Cellular Senescence as a Key Contributor to Secondary Neurodegeneration in Traumatic Brain Injury and Stroke. Transl. Neurodegener. 2024, 13, 61. [CrossRef] [PubMed]
-9. Yu, M.; Xiong, Y.; He, H.; Deng, Y. The Mechanism of Acetylation-Mediated Fusion of Lysosomes with Autophagosomes in Neurons after Ischemic Stroke. Life Sci. 2024, 362, 123305. [CrossRef] [PubMed]
-10. Liga, R.; Hostalrich, A.; Gimelli, A.; Ricco, J.B. Guidelines at a Crossroad: Comparing European and American Guidelines Regarding the Use of Imaging in Peripheral Vascular Arterial Disease and Aortic Disease. Eur. Heart J. Imaging Methods Pract. 2024, 2, qyae123. [CrossRef]
-11. de Klerk, P.S.; Pacor, J.M.; Soukas, P. Shockwave for Peripheral Artery Disease: An Update on Trial Data. J. Cardiovasc. Surg. 2024, 65, 420-438. [CrossRef] [PubMed]
-12. Poredos, P.; Mikhailidis, D.P.; Paraskevas, K.I.; Blinc, A.; Antignani, P.L.; Stanek, A.; Mansilha, A.; Cevc, M. Management of Arterial Hypertension in Patients with Peripheral Arterial Disease. Int. Angiol. 2024, 43, 541-547. [CrossRef]
-13. Thomas, V.E.; Beckman, J.A. Racial and Socioeconomic Health Disparities in Peripheral Artery Disease. J. Am. Heart Assoc. 2024, 13, e031446. [CrossRef] [PubMed]
-14. Martin, S.S.; Aday, A.W.; Almarzooq, Z.I.; Anderson, C.A.M.; Arora, P.; Avery, C.L.; Baker-Smith, C.M.; Barone Gibbs, B.; Beaton, A.Z.; Boehme, A.K.; et al. 2024 Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association. Circulation 2024, 149, e347-e913. [CrossRef]
-15. Libby, P. Inflammation in Atherosclerosis. Nature 2002, 420, 868-874. [CrossRef]
-16. Ross, R. Atherosclerosis—An Inflammatory Disease. N. Engl. J. Med. 1999, 340, 115-126. [CrossRef] [PubMed]
-17. Buja, L.M.; Nikolai, N. Anitschkow and the Lipid Hypothesis of Atherosclerosis. Cardiovasc. Pathol. 2014, 23, 183-184. [CrossRef] [PubMed]
-18. Stocker, R.; Keaney, J.F. Role of Oxidative Modifications in Atherosclerosis. Physiol. Rev. 2004, 84, 1381-1478. [CrossRef]
-19. Leopold, J.A. Antioxidants and Coronary Artery Disease: From Pathophysiology to Preventive Therapy. *Coron. Artery Dis.* 2015, 26, 176-183. [CrossRef]
-20. Maron, B.A.; Loscalzo, J. The Treatment of Hyperhomocysteinemia. Annu. Rev. Med. 2009, 60, 39-54. [CrossRef]
-21. Esse, R.; Barroso, M.; Tavares de Almeida, I.; Castro, R. The Contribution of Homocysteine Metabolism Disruption to Endothelial Dysfunction: State-of-the-Art. Int. J. Mol. Sci. 2019, 20, 867. [CrossRef]
-22. Smith, A.D.; Refsum, H. Homocysteine—From Disease Biomarker to Disease Prevention. J. Intern. Med. 2021, 290, 826-854. [CrossRef]
-23. Celermajer, D.S.; Sorensen, K.; Ryalls, M.; Robinson, J.; Thomas, O.; Leonard, J.V.; Deanfield, J.E. Impaired Endothelial Function Occurs in the Systemic Arteries of Children with Homozygous Homocystinuria but Not in Their Heterozygous Parents. J. Am. Coll. Cardiol. 1993, 22, 854-858. [CrossRef] [PubMed]
-24. Tawakol, A.; Omland, T.; Gerhard, M.; Wu, J.T.; Creager, M.A. Hyperhomocyst(e)Inemia Is Associated with Impaired Endothelium-Dependent Vasodilation in Humans. Circulation 1997, 95, 1119-1121. [CrossRef]
-25. Woo, K.S.; Chook, P.; Lolin, Y.I.; Cheung, A.S.; Chan, L.T.; Sun, Y.Y.; Sanderson, J.E.; Metreweli, C.; Celermajer, D.S. Hyperhomocyst(e)Inemia Is a Risk Factor for Arterial Endothelial Dysfunction in Humans. Circulation 1997, 96, 2542-2544. [CrossRef] [PubMed]
-26. Salvio, G.; Ciarloni, A.; Cordoni, S.; Cutini, M.; Delli Muti, N.; Finocchi, F.; Firmani, F.; Giovannini, L.; Perrone, M.; Balercia, G. Homocysteine Levels Correlate with Velocimetric Parameters in Patients with Erectile Dysfunction Undergoing Penile Duplex Ultrasound. Andrology 2022, 10, 733-739. [CrossRef]
-27. Salvio, G.; Ciarloni, A.; Cutini, M.; Balercia, G. Hyperhomocysteinemia: Focus on Endothelial Damage as a Cause of Erectile Dysfunction. Int. J. Mol. Sci. 2021, 22, 418. [CrossRef] [PubMed]
-28. Keating, A.K.; Freehauf, C.; Jiang, H.; Brodsky, G.L.; Stabler, S.P.; Allen, R.H.; Graham, D.K.; Thomas, J.A.; Van Hove, J.L.K.; Maclean, K.N. Constitutive Induction of Pro-Inflammatory and Chemotactic Cytokines in Cystathionine Beta-Synthase Deficient Homocystinuria. Mol. Genet. Metab. 2011, 103, 330-337. [CrossRef]
-29. Sikora, M.; Lewandowska, I.; Marczak, L.; Bretes, E.; Jakubowski, H. Cystathionine  $\beta$ -Synthase Deficiency: Different Changes in Proteomes of Thrombosis-Resistant Cbs-/- Mice and Thrombosis-Prone CBS-/- Humans. Sci. Rep. 2020, 10, 10726. [CrossRef] [PubMed]
-30. Sikora, M.; Lewandowska, I.; Kupc, M.; Kubalska, J.; Graban, A.; Marczak, L.; Kazmierski, R.; Jakubowski, H. Serum Proteome Alterations in Human Cystathionine  $\beta$ -Synthase Deficiency and Ischemic Stroke Subtypes. Int. J. Mol. Sci. 2019, 20, 3096. [CrossRef]
-31. Mudd, S.H.; Skovby, F.; Levy, H.L.; Pettigrew, K.D.; Wilcken, B.; Pyeritz, R.E.; Andria, G.; Boers, G.H.; Bromberg, I.L.; Cerone, R. The Natural History of Homocystinuria Due to Cystathionine Beta-Synthase Deficiency. Am. J. Hum. Genet. 1985, 37, 1-31. [PubMed]
+Table 2.
+Components of Comprehensive, Evidence-Based Weight Management for Adults With Obesity4,5,9,13,14,40-47a
 
-Int.J.Mol.Sci.2025,26,746
+|  Approach | Eligible patientsb | Description or examples | Mean weight loss at 12-24 moC | Other considerations  |
+| --- | --- | --- | --- | --- |
+|  Multicomponent intensive behavioral lifestyle interventions13 | ·BMI ≥50 ·BMI ≥25 with obesity-associated comorbidityd | ·Evidence-based approaches include goal setting, self-monitoring (eg, food intake, physical activity, daily body weight), dietary change, stimulus control, stress management, cognitive therapy13,14 ·Multicomponent interventions combine these approaches and are delivered by trained facilitators, often referred from a primary care setting13 ·Intensive programs are administered over 1-2 y with ≥12-14 sessions in 6 mo3 (see Table 3 for examples of programs) | 1%-9%4,5,13 | Higher intensity of weight loss instruction is associated with greater weight loss vs low- and moderate-intensity interventions4  |
+|  Nutritional intervention | ·BMI ≥30 ·BMI ≥25 with obesity-associated comorbidityd | ·Restricting/eliminating certain types of foods to create calorie deficit5 ·Generally 1200-1500 kcal/d for women and 1500-1800 kcal/d for men5; very low-calorie diets (<800 kcal/d) require specialized medical supervision5 ·Clinicians can provide counseling or refer to dietician ·See more details on 3 evidence-based diet patterns in Table 3 | 3%-8%; 10% with very low-calorie diets47 | Specific dietary recommendations need to account for patient preference and potential for long-term adherence  |
+|  Physical activity | All adults regardless of BMI40 | ·≥50 min/wk moderate-intensity physical activity (30 min 5 times per wk), or 75-150 min/wk vigorous-intensity physical activity40 ·Resistance exercise 2-3 times per wk4 ·>200 min/wk is associated with better maintenance of weight loss3 | 1%-3%4 | Exercise should be individualized to patients' health and physical limitations and increased as patient is able to tolerate intensity to reach goals4  |
+|  Pharmacotherapye | ·BMI ≥30 ·BMI ≥27 with obesity-associated comorbidity5 ·Consider with inadequate response to lifestyle therapy and/or presence of mild to moderate obesity complications4 | Medications vary in terms of administration and dosage (minimum-maximum dose): ·FDA approved for long-term use ·Semaglutide (0.25-2.4 mg/wk subcutaneously) ·Phentermine-topiramate ER (3.75/23 mg/d to 15/92 mg/d orally) ·Liraglutide (0.6-3 mg/d subcutaneously) ·Naltrexone-bupropion ER (8 mg/90 mg daily to 16 mg/180 mg twice daily orally) ·Orlistat (60-120 mg 3 times daily orally) ·FDA approved for short-term use ·Diethylpropion (IR: 25 mg 3 times daily; ER: 75 mg/d orally) ·Phentermine (8 mg/d to 8 mg 3 times daily or 15-37.5 mg/d orally) ·Commonly used off label ·Tirzepatide (2.5-15 mg/wk subcutaneously) ·Semaglutide (3-50 mg/d orally) (50-mg/d oral dose not yet available) ·Topiramate (12.5-200 mg/d in 1 to 2 divided doses) ·Semaglutide (0.25-2.0 mg/wk subcutaneously) ·Liraglutide (0.6-1.8 mg/d subcutaneously) ·Bupropion (SR: 100-200 mg twice daily orally; ER: 150-450 mg/d orally) ·Metformin (500-2500 mg/d orally) | 5% (naltrexone-bupropion, 32 mg/360 mg daily)41 to 21% (tirzepatide, 15 mg once weekly)42f | ·See Table 4; adverse effects can often be avoided with slow dose titration or reducing dose to last tolerated dose ·Administer concurrent with lifestyle interventions  |
+|  Metabolic and bariatric surgery | ·BMI ≥35 ·BMI ≥30 with obesity-associated comorbidity9 ·Consider with inadequate response to lifestyle therapy | ·Laparoscopic sleeve gastrectomy: approximately 85% of stomach removed by separation along greater curvature43 ·Roux-en-Y gastric bypass: small gastric pouch connected directly to jejunum43 | 25%-35%5,44 | ·Major complications <5%44,45 ·Long-term monitoring necessary for risks related to nutritional deficiency and bone health45 ·Administer concurrent with lifestyle interventions  |
 
-32. Majtan, T.; Park, I.; Carrillo, R.S.; Bublil, E.M.; Kraus, J.P. Engineering and Characterization of an Enzyme Replacement Therapy for Classical Homocystinuria. Biomacromolecules 2017, 18, 1747-1761. [CrossRef]
-33. Orendác, M.; Zeman, J.; Stabler, S.P.; Allen, R.H.; Kraus, J.P.; Bodamer, O.; Stöckler-Ipsiroglu, S.; Kvasnicka, J.; Kozich, V. Homocystinuria Due to Cystathionine Beta-Synthase Deficiency: Novel Biochemical Findings and Treatment Efficacy. J. Inherit. Metab. Dis. 2003, 26, 761-773. [CrossRef]
-34. Utyro, O.; Perla-Kaján, J.; Jakubowski, H. The Cbs Locus Affects the Expression of Senescence Markers and mtDNA Copy Number, but Not Telomere Dynamics in Mice. Int. J. Mol. Sci. 2020, 21, 2520. [CrossRef]
-35. Lentz, S.R. Mechanisms of Homocysteine-Induced Atherothrombosis. J. Thromb. Haemost. 2005, 3, 1646-1654. [CrossRef] [PubMed]
-36. Dayal, S.; Lentz, S.R. Murine Models of Hyperhomocysteinemia and Their Vascular Phenotypes. Arterioscler. Thromb. Vasc. Biol. 2008, 28, 1596-1605. [CrossRef]
-37. Poddar, R.; Sivasubramanian, N.; DiBello, P.M.; Robinson, K.; Jacobsen, D.W. Homocysteine Induces Expression and Secretion of Monocyte Chemoattractant Protein-1 and Interleukin-8 in Human Aortic Endothelial Cells: Implications for Vascular Disease. Circulation 2001, 103, 2717-2723. [CrossRef] [PubMed]
-38. Kerkeni, M.; Tnani, M.; Chuniaud, L.; Miled, A.; Maaroufi, K.; Trivin, F. Comparative Study on in Vitro Effects of Homocysteine Thiolactone and Homocysteine on HUVEC Cells: Evidence for a Stronger Proapoptotic and Proinflammative Homocysteine Thiolactone. Mol. Cell. Biochem. 2006, 291, 119-126. [CrossRef]
-39. Stamler, J.S.; Osborne, J.A.; Jaraki, O.; Rabbani, L.E.; Mullins, M.; Singel, D.; Loscalzo, J. Adverse Vascular Effects of Homocysteine Are Modulated by Endothelium-Derived Relaxing Factor and Related Oxides of Nitrogen. J. Clin. Investig. 1993, 91, 308-318. [CrossRef] [PubMed]
-40. Chen, Y.; Zhao, S.; Wang, Y.; Li, Y.; Bai, L.; Liu, R.; Fan, J.; Liu, E. Homocysteine Reduces Protein S-Nitrosylation in Endothelium. Int. J. Mol. Med. 2014, 34, 1277-1285. [CrossRef] [PubMed]
-41. Carluccio, M.A.; Ancora, M.A.; Massaro, M.; Carluccio, M.; Scoditti, E.; Distante, A.; Storelli, C.; De Caterina, R. Homocysteine Induces VCAM-1 Gene Expression through NF-kappaB and NAD(P)H Oxidase Activation: Protective Role of Mediterranean Diet Polyphenolic Antioxidants. Am. J. Physiol. Heart Circ. Physiol. 2007, 293, H2344-H2354. [CrossRef] [PubMed]
-42. Lonn, E.; Yusuf, S.; Arnold, M.J.; Sheridan, P.; Pogue, J.; Micks, M.; McQueen, M.J.; Probstfield, J.; Fodor, G.; Held, C.; et al. Homocysteine Lowering with Folic Acid and B Vitamins in Vascular Disease. N. Engl. J. Med. 2006, 354, 1567-1577. [CrossRef] [PubMed]
-43. Spence, J.D.; Bang, H.; Chambless, L.E.; Stampfer, M.J. Vitamin Intervention for Stroke Prevention Trial: An Efficacy Analysis. Stroke 2005, 36, 2404-2409. [CrossRef] [PubMed]
-44. Saposnik, G.; Ray, J.G.; Sheridan, P.; McQueen, M.; Lonn, E.; HOPE 2 Investigators. Homocysteine-lowering therapy and stroke risk, severity, and disability: Additional findings from the HOPE 2 trial. Stroke 2009, 40, 1365-1372. [CrossRef] [PubMed]
-45. Ebbing, M.; Bleie, Ø.; Ueland, P.M.; Nordrehaug, J.E.; Nilsen, D.W.; Vollset, S.E.; Refsum, H.; Pedersen, E.K.R.; Nygård, O. Mortality and Cardiovascular Events in Patients Treated with Homocysteine-Lowering B Vitamins After Coronary Angiography: A Randomized Controlled Trial. JAMA 2008, 300, 795-804. [CrossRef] [PubMed]
-46. Ebbing, M.; Bønaa, K.H.; Arnesen, E.; Ueland, P.M.; Nordrehaug, J.E.; Rasmussen, K.; Njølstad, I.; Nilsen, D.W.; Refsum, H.; Tverdal, A.; et al. Combined Analyses and Extended Follow-up of Two Randomized Controlled Homocysteine-Lowering B-Vitamin Trials. J. Intern. Med. 2010, 268, 367-382. [CrossRef]
-47. Bønaa, K.H.; Njølstad, I.; Ueland, P.M.; Schirmer, H.; Tverdal, A.; Steigen, T.; Wang, H.; Nordrehaug, J.E.; Arnesen, E.; Rasmussen, K.; et al. Homocysteine Lowering and Cardiovascular Events after Acute Myocardial Infarction. N. Engl. J. Med. 2006, 354, 1578-1588. [CrossRef]
-48. Wald, D.S.; Morris, J.K.; Wald, N.J. Reconciling the Evidence on Serum Homocysteine and Ischaemic Heart Disease: A Meta-Analysis. PLoS ONE 2011, 6, e16473. [CrossRef] [PubMed]
-49. Hankey, G.J. Anticoagulant Therapy for Patients with Ischaemic Stroke. Nat. Rev. Neurol. 2012, 8, 319-328. [CrossRef] [PubMed]
-50. Hankey, G.J.; Eikelboom, J.W.; Yi, Q.; Lees, K.R.; Chen, C.; Xavier, D.; Navarro, J.C.; Ranawaka, U.K.; Uddin, W.; Ricci, S.; et al. Antiplatelet Therapy and the Effects of B Vitamins in Patients with Previous Stroke or Transient Ischaemic Attack: A Post-Hoc Subanalysis of VITATOPS, a Randomised, Placebo-Controlled Trial. Lancet Neurol. 2012, 11, 512-520. [CrossRef] [PubMed]
-51. Park, J.-H.; Saposnik, G.; Ovbiagele, B.; Markovic, D.; Towfighi, A. Effect of B-Vitamins on Stroke Risk among Individuals with Vascular Disease Who Are Not on Antiplatelets: A Meta-Analysis. Int. J. Stroke 2016, 11, 206-211. [CrossRef]
-52. Arshi, B.; Ovbiagele, B.; Markovic, D.; Saposnik, G.; Towfighi, A. Differential Effect of B-Vitamin Therapy by Antiplatelet Use on Risk of Recurrent Vascular Events after Stroke. Stroke 2015, 46, 870-873. [CrossRef]
-53. Froese, D.S.; Fowler, B.; Baumgartner, M.R. Vitamin B12, Folate, and the Methionine Remethylation Cycle-Biochemistry, Pathways, and Regulation. J. Inherit. Metab. Dis. 2019, 42, 673-685. [CrossRef] [PubMed]
-54. Pellanda, H. Betaine Homocysteine Methyltransferase (BHMT)-Dependent Remethylation Pathway in Human Healthy and Tumoral Liver. Clin. Chem. Lab. Med. 2013, 51, 617-621. [CrossRef]
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-Int.J.Mol.Sci.2025,26,746
+Elmaleh-Sachs et al.
 
-55. Lan, X.; Field, M.S.; Stover, P.J. Cell Cycle Regulation of Folate-Mediated One-Carbon Metabolism. Wiley Interdiscip. Rev. Syst. Biol. Med. 2018, 10, e1426. [CrossRef]
-56. Román, G.C.; Mancera-Páez, O.; Bernal, C. Epigenetic Factors in Late-Onset Alzheimer's Disease: MTHFR and CTH Gene Polymorphisms, Metabolic Transsulfuration and Methylation Pathways, and B Vitamins. Int. J. Mol. Sci. 2019, 20, 319. [CrossRef] [PubMed]
-57. Corona-Trejo, A.; Gonsebatt, M.E.; Trejo-Solis, C.; Campos-Peña, V.; Quintas-Granados, L.I.; Villegas-Vázquez, E.Y.; Daniel Reyes-Hernández, O.; Hernández-Abad, V.J.; Figueroa-González, G.; Silva-Adaya, D. Transsulfuration Pathway: A Targeting Neuromodulator in Parkinson's Disease. Rev. Neurosci. 2023, 34, 915–932. [CrossRef]
-58. Mangoni, A.A.; Zinellu, A. Transsulfuration and Folate Pathways in Rheumatoid Arthritis: A Systematic Review and Meta-Analysis. Eur. J. Clin. Investig. 2024, 54, e14158. [CrossRef]
-59. Jakubowski, H. Homocysteine Modification in Protein Structure/Function and Human Disease. Physiol. Rev. 2019, 99, 555-604. [CrossRef]
-60. Jakubowski, H. Homocysteine Thiolactone Detoxifying Enzymes and Alzheimer's Disease. Int. J. Mol. Sci. 2024, 25, 8095. [CrossRef]
-61. Mudd, S.H.; Finkelstein, J.D.; Refsum, H.; Ueland, P.M.; Malinow, M.R.; Lentz, S.R.; Jacobsen, D.W.; Brattström, L.; Wilcken, B.; Wilcken, D.E.; et al. Homocysteine and Its Disulfide Derivatives: A Suggested Consensus Terminology. Arterioscler. Thromb. Vasc. Biol. 2000, 20, 1704-1706. [CrossRef]
-62. Chwatko, G.; Jakubowski, H. Urinary Excretion of Homocysteine-Thiolactone in Humans. Clin. Chem. 2005, 51, 408-415. [CrossRef] [PubMed]
-63. Chwatko, G.; Boers, G.H.J.; Strauss, K.A.; Shih, D.M.; Jakubowski, H. Mutations in Methylenetetrahydrofolate Reductase or Cystathionine Beta-Synthase Gene, or a High-Methionine Diet, Increase Homocysteine Thiolactone Levels in Humans and Mice. FASEB J. 2007, 21, 1707-1713. [CrossRef] [PubMed]
-64. Jakubowski, H.; Perla-Kaján, J.; Finnell, R.H.; Cabrera, R.M.; Wang, H.; Gupta, S.; Kruger, W.D.; Kraus, J.P.; Shih, D.M. Genetic or Nutritional Disorders in Homocysteine or Folate Metabolism Increase Protein N-Homocysteinylation in Mice. FASEB J. 2009, 23, 1721-1727. [CrossRef] [PubMed]
-65. Jakubowski, H.; Boers, G.H.J.; Strauss, K.A. Mutations in Cystathionine  $\beta$ -Synthase or Methylenetetrahydrofolate Reductase Gene Increase N-Homocysteinylated Protein Levels in Humans. FASEB J. 2008, 22, 4071-4076. [CrossRef]
-66. Dhar, I.; Svingen, G.F.T.; Ueland, P.M.; Lysne, V.; Svenningsson, M.M.; Tell, G.S.; Nygård, O.K. Plasma Cystathionine and Risk of Incident Stroke in Patients with Suspected Stable Angina Pectoris. J. Am. Heart Assoc. 2018, 7, e008824. [CrossRef] [PubMed]
-67. Dhar, I.; Svingen, G.F.T.; Pedersen, E.R.; DeRatt, B.; Ulvik, A.; Strand, E.; Ueland, P.M.; Bønaa, K.H.; Gregory, J.F.; Nygård, O.K. Plasma Cystathionine and Risk of Acute Myocardial Infarction among Patients with Coronary Heart Disease: Results from Two Independent Cohorts. Int. J. Cardiol. 2018, 266, 24-30. [CrossRef]
-68. Stabler, S.P.; Lindenbaum, J.; Savage, D.G.; Allen, R.H. Elevation of Serum Cystathionine Levels in Patients with Cobalamin and Folate Deficiency. Blood 1993, 81, 3404-3413. [CrossRef]
-69. Stabler, S.P.; Korson, M.; Jethva, R.; Allen, R.H.; Kraus, J.P.; Spector, E.B.; Wagner, C.; Mudd, S.H. Metabolic Profiling of Total Homocysteine and Related Compounds in Hyperhomocysteinemia: Utility and Limitations in Diagnosing the Cause of Puzzling Thrombophilia in a Family. JIMD Rep. 2013, 11, 149-163. [CrossRef]
-70. Gupta, S.; Kühnisch, J.; Mustafa, A.; Lhotak, S.; Schlachterman, A.; Slifker, M.J.; Klein-Szanto, A.; High, K.A.; Austin, R.C.; Kruger, W.D. Mouse Models of Cystathionine Beta-Synthase Deficiency Reveal Significant Threshold Effects of Hyperhomocysteinemia. FASEB J. 2009, 23, 883-893. [CrossRef]
-71. Wagner, C.; Koury, M.J. S-Adenosylhomocysteine: A Better Indicator of Vascular Disease than Homocysteine? Am. J. Clin. Nutr. 2007, 86, 1581-1585. [CrossRef]
-72. Dhar, I.; Lysne, V.; Svingen, G.F.T.; Ueland, P.M.; Gregory, J.F.; Bønaa, K.H.; Nygård, O.K. Elevated Plasma Cystathionine Is Associated with Increased Risk of Mortality among Patients with Suspected or Established Coronary Heart Disease. Am. J. Clin. Nutr. 2019, 109, 1546-1554. [CrossRef] [PubMed]
-73. Borowczyk, K.; Piechocka, J.; Glowacki, R.; Dhar, I.; Midtun, Ø.; Tell, G.S.; Ueland, P.M.; Nygård, O.; Jakubowski, H. Urinary Excretion of Homocysteine Thiolactone and the Risk of Acute Myocardial Infarction in Coronary Artery Disease Patients: The WENBIT Trial. J. Intern. Med. 2019, 285, 232-244. [CrossRef]
-74. Undas, A.; Perla, J.; Lacinski, M.; Trzeciak, W.; Kazmierski, R.; Jakubowski, H. Autoantibodies against N-Homocysteinylated Proteins in Humans: Implications for Atherosclerosis. Stroke 2004, 35, 1299-1304. [CrossRef] [PubMed]
-75. Undas, A.; Jankowski, M.; Twardowska, M.; Padjas, A.; Jakubowski, H.; Szczeklik, A. Antibodies to N-Homocysteinylated Albumin as a Marker for Early-Onset Coronary Artery Disease in Men. Thromb. Haemost. 2005, 93, 346-350. [CrossRef] [PubMed]
-76. Undas, A.; Stepien, E.; Glowacki, R.; Tisonczyk, J.; Tracz, W.; Jakubowski, H. Folic Acid Administration and Antibodies against Homocysteinylated Proteins in Subjects with Hyperhomocysteinemia. Thromb. Haemost. 2006, 96, 342-347. [CrossRef] [PubMed]
+|  Approach | Eligible patientsb | Description or examples | Mean weight loss at 12-24 mo c | Other considerations  |
+| --- | --- | --- | --- | --- |
+|   | and/or presence of severe obesity complications4 |   |  |   |
+|  Abbreviations: BMI, body mass index (calculated as weight in kilograms divided by height in meters squared); ER, extended release; FDA, US Food and Drug Administration; IR, immediate release; SR, sustained release.  |   |   |   |   |
+|  aInterventions should be used simultaneously or serially with long-term follow-up. Randomized trials cannot fully replicate clinical care, in which clinicians see patients over long periods and add or adjust weight-loss approaches for individual patients. All patients undergoing weight-loss interventions should engage in nutrition, physical activity, and/or behavioral interventions.  |   |   |   |   |
+|  bLower thresholds in Asian populations.  |   |   |   |   |
+|  cExpected ranges are approximate based on meta-analysis and clinical guidelines, generally in a 12- to 24-month time frame.  |   |   |   |   |
+|  dObesity-related comorbidity is defined based on the presence of at least 1 risk factor, including abnormal blood glucose levels, hypertension, and dyslipidemia.  |   |   |   |   |
+|  eSee Table 4 for detailed information.  |   |   |   |   |
+|  fRange is listed for antiobesity medications FDA approved for long-term use.  |   |   |   |   |
 
-Int.J.Mol.Sci.2025,26,746
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-77. De La Haba, G.; Cantoni, G.L. The Enzymatic Synthesis of S-Adenosyl-L-Homocysteine from Adenosine and Homocysteine. J. Biol. Chem. 1959, 234, 603-608. [CrossRef]
-78. Kusakabe, Y.; Ishihara, M.; Umeda, T.; Kuroda, D.; Nakanishi, M.; Kitade, Y.; Gouda, H.; Nakamura, K.T.; Tanaka, N. Structural Insights into the Reaction Mechanism of S-Adenosyl-L-Homocysteine Hydrolase. Sci. Rep. 2015, 5, 16641. [CrossRef] [PubMed]
-79. Brzezinski, K.; Dauter, Z.; Jaskolski, M. High-Resolution Structures of Complexes of Plant S-Adenosyl-L-Homocysteine Hydrolase (Lupinus Luteus). Acta Crystallogr. D Biol. Crystallogr. 2012, 68, 218-231. [CrossRef]
-80. Gurda, D.; Handschuh, L.; Kotkowiak, W.; Jakubowski, H. Homocysteine Thiolactone and N-Homocysteinylated Protein Induce pro-Atherogenic Changes in Gene Expression in Human Vascular Endothelial Cells. *Amino Acids* 2015, 47, 1319-1339. [CrossRef] [PubMed]
-81. Finkelstein, J.D.; Kyle, W.E.; Harris, B.J. Methionine Metabolism in Mammals: Regulatory Effects of S-Adenosylhomocysteine. Arch. Biochem. Biophys. 1974, 165, 774-779. [CrossRef]
-82. Loehrer, F.M.; Angst, C.P.; Brunner, F.P.; Haefeli, W.E.; Fowler, B. Evidence for Disturbed S-Adenosylmethionine: S-Adenosylhomocysteine Ratio in Patients with End-Stage Renal Failure: A Cause for Disturbed Methylation Reactions? Nephrol. Dial. Transplant. 1998, 13, 656-661. [CrossRef] [PubMed]
-83. Kerins, D.M.; Koury, M.J.; Capdevila, A.; Rana, S.; Wagner, C. Plasma S-Adenosylhomocysteine Is a More Sensitive Indicator of Cardiovascular Disease than Plasma Homocysteine. Am. J. Clin. Nutr. 2001, 74, 723-739. [CrossRef]
-84. Jabs, K.; Koury, M.J.; Dupont, W.D.; Wagner, C. Relationship between Plasma S-Adenosylhomocysteine Concentration and Glomerular Filtration Rate in Children. Metabolism 2006, 55, 252-257. [CrossRef]
-85. van Guldener, C.; Donker, A.J.; Jakobs, C.; Teerlink, T.; de Meer, K.; Stehouwer, C.D. No Net Renal Extraction of Homocysteine in Fasting Humans. *Kidney Int.* 1998, 54, 166-169. [CrossRef]
-86. Becker, A.; Smulders, Y.M.; Teerlink, T.; Struys, E.A.; de Meer, K.; Kostense, P.J.; Jakobs, C.; Dekker, J.M.; Nijpels, G.; Heine, R.J.; et al. S-Adenosylhomocysteine and the Ratio of S-Adenosylmethionine to S-Adenosylhomocysteine Are Not Related to Folate, Cobalamin and Vitamin B6 Concentrations. Eur. J. Clin. Investig. 2003, 33, 17-25. [CrossRef]
-87. Valli, A.; Carrero, J.J.; Qureshi, A.R.; Garibotto, G.; Barany, P.; Axelsson, J.; Lindholm, B.; Stenvinkel, P.; Anderstam, B.; Suliman, M.E. Elevated Serum Levels of S-Adenosylhomocysteine, but Not Homocysteine, Are Associated with Cardiovascular Disease in Stage 5 Chronic Kidney Disease Patients. Clin. Chim. Acta 2008, 395, 106-110. [CrossRef]
-88. Huang, X.; Lv, X.; Song, H.; Yang, Q.; Sun, Y.; Zhang, W.; Yu, X.; Dong, S.; Yao, W.; Li, Y.; et al. The Relationship between S-Adenosylhomocysteine and Coronary Artery Lesions: A Case Control Study. Clin. Chim. Acta 2017, 471, 314-320. [CrossRef]
-89. Xiao, Y.; Zhang, Y.; Wang, M.; Li, X.; Su, D.; Qiu, J.; Li, D.; Yang, Y.; Xia, M.; Ling, W. Plasma S-Adenosylhomocysteine Is Associated with the Risk of Cardiovascular Events in Patients Undergoing Coronary Angiography: A Cohort Study. Am. J. Clin. Nutr. 2013, 98, 1162-1169. [CrossRef]
-90. Xiao, Y.; Xia, J.; Cheng, J.; Huang, H.; Zhou, Y.; Yang, X.; Su, X.; Ke, Y.; Ling, W. Inhibition of S-Adenosylhomocysteine Hydrolase Induces Endothelial Dysfunction via Epigenetic Regulation of P66shc-Mediated Oxidative Stress Pathway. Circulation 2019, 139, 2260-2277. [CrossRef]
-91. Green, T.J.; Skeaff, C.M.; McMahon, J.A.; Venn, B.J.; Williams, S.M.; Devlin, A.M.; Innis, S.M. Homocysteine-Lowering Vitamins Do Not Lower Plasma S-Adenosylhomocysteine in Older People with Elevated Homocysteine Concentrations. Br. J. Nutr. 2010, 103, 1629-1634. [CrossRef] [PubMed]
-92. Krupkova-Meixnerova, L.; Vesela, K.; Vitova, A.; Janosikova, B.; Andel, M.; Kozich, V. Methionine-Loading Test: Evaluation of Adverse Effects and Safety in an Epidemiological Study. Clin. Nutr. 2002, 21, 151-156. [CrossRef] [PubMed]
-93. Clarke, R.; Daly, L.; Robinson, K.; Naughten, E.; Cahalane, S.; Fowler, B.; Graham, I. Hyperhomocysteinemia: An Independent Risk Factor for Vascular Disease. N. Engl. J. Med. 1991, 324, 1149-1155. [CrossRef] [PubMed]
-94. Chambers, J.C.; Obeid, O.A.; Kooner, J.S. Physiological Increments in Plasma Homocysteine Induce Vascular Endothelial Dysfunction in Normal Human Subjects. Arterioscler. Thromb. Vasc. Biol. 1999, 19, 2922-2927. [CrossRef]
-95. Chambers, J.C.; Ueland, P.M.; Wright, M.; Dore, C.J.; Refsum, H.; Kooner, J.S. Investigation of Relationship between Reduced, Oxidized, and Protein-Bound Homocysteine and Vascular Endothelial Function in Healthy Human Subjects. Circ. Res. 2001, 89, 187-192. [CrossRef]
-96. Jakubowski, H.; Zhang, L.; Bardeguez, A.; Aviv, A. Homocysteine Thiolactone and Protein Homocysteinylation in Human Endothelial Cells: Implications for Atherosclerosis. Circ. Res. 2000, 87, 45-51. [CrossRef] [PubMed]
-97. Jakubowski, H. Quantification of Urinary S- and N-Homocysteinylated Protein and Homocysteine-Thiolactone in Mice. Anal. Biochem. 2016, 508, 118-123. [CrossRef]
-98. Borowczyk, K.; Shih, D.M.; Jakubowski, H. Metabolism and Neurotoxicity of Homocysteine Thiolactone in Mice: Evidence for a Protective Role of Paraoxonase 1. J. Alzheimer's Dis. 2012, 30, 225-231. [CrossRef]
-99. Borowczyk, K.; Tisonczyk, J.; Jakubowski, H. Metabolism and Neurotoxicity of Homocysteine Thiolactone in Mice: Protective Role of Bleomycin Hydrolase. *Amino. Acids* 2012, 43, 1339-1348. [CrossRef] [PubMed]
+Elmaleh-Sachs et al.
 
-Int.J.Mol.Sci.2025,26,746
+Table 3.
+Examples of Intensive Multicomponent Programs and Nutritional Approaches for Weight Reduction
 
-100. van Aerts, L.A.; Klaasboer, H.H.; Postma, N.S.; Pertijs, J.C.; Copius Peereboom, J.H.; Eskes, T.K.; Noordhoek, J. Stereospecific in Vitro Embryotoxicity of L-Homocysteine in Pre- and Post-Implantation Rodent Embryos. Toxicol. In Vitro 1993, 7, 743-749. [CrossRef]
-101. Jakubowski, H. Homocysteine Is a Protein Amino Acid in Humans: IMPLICATIONS FOR HOMOCYSTEINE-LINKED DISEASE. J. Biol. Chem. 2002, 277, 30425-30428. [CrossRef]
-102. Hortin, G.L.; Seam, N.; Hoehn, G.T. Bound Homocysteine, Cysteine, and Cysteinylglycine Distribution between Albumin and Globulins. Clin. Chem. 2006, 52, 2258-2264. [CrossRef] [PubMed]
-103. Sauls, D.L.; Lockhart, E.; Warren, M.E.; Lenkowski, A.; Wilhelm, S.E.; Hoffman, M. Modification of Fibrinogen by Homocysteine Thiolactone Increases Resistance to Fibrinolysis: A Potential Mechanism of the Thrombotic Tendency in Hyperhomocysteinemia. Biochemistry 2006, 45, 2480-2487. [CrossRef]
-104. Paoli, P.; Sbrana, F.; Tiribilli, B.; Caselli, A.; Pantera, B.; Cirri, P.; De Donatis, A.; Formigli, L.; Nosi, D.; Manao, G.; et al. Protein N-Homocysteinylation Induces the Formation of Toxic Amyloid-like Protofibrils. J. Mol. Biol. 2010, 400, 889-907. [CrossRef]
-105. Sikora, M.; Marczak, L.; Kubalska, J.; Graban, A.; Jakubowski, H. Identification of N-Homocysteinylation Sites in Plasma Proteins. Amino Acids 2014, 46, 235-244. [CrossRef]
-106. Witucki, L.; Jakubowski, H. Homocysteine Metabolites Inhibit Autophagy, Elevate Amyloid Beta, and Induce Neuropathy by Impairing Phf8/H4K20me1-Dependent Epigenetic Regulation of mTOR in Cystathionine  $\beta$ -Synthase-Deficient Mice. J. Inherit. Metab. Dis. 2023, 46, 1114-1130. [CrossRef]
-107. Wang, D.; Zhao, R.; Qu, Y.Y.; Mei, X.Y.; Zhang, X.; Zhou, Q.; Li, Y.; Yang, S.B.; Zuo, Z.G.; Chen, Y.M.; et al. Colonic Lysine Homocysteinylation Induced by High-Fat Diet Suppresses DNA Damage Repair: Cell Reports. Cell Rep. 2018, 25, 398-412. [CrossRef]
-108. Jakubowski, H. Protein N-Homocysteinylation and Colorectal Cancer. Trends Cancer 2019, 5, 7-10. [CrossRef]
-109. Dudman, N.P.; Hicks, C.; Lynch, J.F.; Wilcken, D.E.; Wang, J. Homocysteine Thiolactone Disposal by Human Arterial Endothelial Cells and Serum in Vitro. Arterioscler. Thromb. 1991, 11, 663-670. [CrossRef] [PubMed]
-110. Chang, J.Y. Manual Micro-Sequence Analysis of Polypeptides Using Dimethylaminoazobenzene Isothiocyanate. Methods Enzymol. 1983, 91, 455–466. [CrossRef]
-111. Jakubowski, H. Mechanism of the Condensation of Homocysteine Thiolactone with Aldehydes. Chem. Eur. J. 2006, 12, 8039-8043. [CrossRef]
-112. Jakubowski, H. Calcium-Dependent Human Serum Homocysteine Thiolactone Hydrolase. A Protective Mechanism against Protein N-Homocysteinylation. J. Biol. Chem. 2000, 275, 3957-3962. [CrossRef]
-113. Jakubowski, H. Molecular Basis of Homocysteine Toxicity in Humans. Cell. Mol. Life Sci. 2004, 61, 470-487. [CrossRef]
-114. Jakubowski, H. Metabolism of Homocysteine Thiolactone in Human Cell Cultures. Possible Mechanism for Pathological Consequences of Elevated Homocysteine Levels. J. Biol. Chem. 1997, 272, 1935-1942. [CrossRef] [PubMed]
-115. Olejniczak, M.; Urbanek, M.O.; Jaworska, E.; Witucki, L.; Szczesniak, M.W.; Makalowska, I.; Krzyzosiak, W.J. Sequence-Non-Specific Effects Generated by Various Types of RNA Interference Triggers. Biochim. Biophys. Acta 2016, 1859, 306-314. [CrossRef] [PubMed]
-116. Minjares, M.; Wu, W.; Wang, J.-M. Oxidative Stress and MicroRNAs in Endothelial Cells under Metabolic Disorders. *Cells* 2023, 12, 1341. [CrossRef]
-117. Zhou, S.S.; Jin, J.P.; Wang, J.Q.; Zhang, Z.G.; Freedman, J.H.; Zheng, Y.; Cai, L. miRNAS in Cardiovascular Diseases: Potential Biomarkers, Therapeutic Targets and Challenges. Acta Pharmacol. Sin. 2018, 39, 1073-1084. [CrossRef] [PubMed]
-118. Mens, M.M.J.; Heshmatollah, A.; Fani, L.; Ikram, M.A.; Ikram, M.K.; Ghanbari, M. Circulatory MicroRNAs as Potential Biomarkers for Stroke Risk: The Rotterdam Study. Stroke 2021, 52, 945-953. [CrossRef] [PubMed]
-119. Chen, X.; Wang, S.; Zhou, Y.; Han, Y.; Li, S.; Xu, Q.; Xu, L.; Zhu, Z.; Deng, Y.; Yu, L.; et al. Phf8 Histone Demethylase Deficiency Causes Cognitive Impairments through the mTOR Pathway. Nat. Commun. 2018, 9, 114. [CrossRef]
-120. Laumonnier, F.; Holbert, S.; Ronce, N.; Faravelli, F.; Lenzner, S.; Schwartz, C.E.; Lespinasse, J.; Esch, H.V.; Lacombe, D.; Goizet, C.; et al. Mutations in PHF8 Are Associated with X Linked Mental Retardation and Cleft Lip/Cleft Palate. J. Med. Genet. 2005, 42, 780-786. [CrossRef]
-121. Sobering, A.K.; Bryant, L.M.; Li, D.; McGaughran, J.; Maystadt, I.; Moortgat, S.; Graham, J.M.; van Haeringen, A.; Ruivenkamp, C.; Cuperus, R.; et al. Variants in PHF8 Cause a Spectrum of X-Linked Neurodevelopmental Disorders and Facial Dysmorphology. HGG Adv. 2022, 3, 100102. [CrossRef] [PubMed]
-122. Cai, M.-Z.; Wen, S.-Y.; Wang, X.-J.; Liu, Y.; Liang, H. MYC Regulates PHF8, Which Promotes the Progression of Gastric Cancer by Suppressing miR-22-3p. Technol. Cancer Res. Treat. 2020, 19, 1533033820967472. [CrossRef]
-123. Helwak, A.; Kudla, G.; Dudnakova, T.; Tollervey, D. Mapping the Human miRNA Interactome by CLASH Reveals Frequent Noncanonical Binding. Cell 2013, 153, 654-665. [CrossRef] [PubMed]
-124. Witucki, L.; Jakubowski, H. Depletion of Paraoxonase 1 (Pon1) Dysregulates mTOR, Autophagy, and Accelerates Amyloid Beta Accumulation in Mice. Cells 2023, 12, 746. [CrossRef]
+|  Approach | Mean 12-mo weight loss (95% CI) vs control, kg | Overview | Other benefits and considerations | Dietary Guidelines for Americans recommended48  |
+| --- | --- | --- | --- | --- |
+|  Intensive multicomponent programs  |   |   |   |   |
+|  Weight Watchers49 | 5.9 (3.9-8.1)50 | ·Food tracking with points to reduce calorie intake ·Activity tracking ·Self-monitoring ·Group sessions ·Optional online coaching | ·Decrease in hemoglobin A1c; appropriate for patients with prediabetes6 ·Low cost, cost-effective51 | No  |
+|  Diabetes Prevention Program52 | 2.3 (1.1-3.4)53 | ·16-Session curriculum delivered by a lifestyle coach over 6 mo in groups ·Self-monitoring of weight at least weekly ·Food tracking, setting calorie goals ·≥50 min/wk of moderate physical activity | ·Decrease in incidence of type 2 diabetes at 2.8 y vs placebo; appropriate for patients with impaired fasting glucose or prediabetes54 ·Decrease in blood pressure, lipids, markers of inflammation4 ·Covered for eligible Medicare beneficiaries; may be covered by other insurers55 ·Low cost, cost-effective55 | No  |
+|  Veterans Affairs MOVE! program56 | Not reporteda | ·Workbook with 16 lifestyle behavioral modules can be delivered remotely or in person via group sessions or by one-on-one counseling by various clinicians, depending on resources at local Veterans Affairs site ·Curriculum includes goal setting, nutrition education, and self-monitoring, among other topics | ·Program designed for veterans and available at all Veterans Affairs hospitals ·Delivered by Veterans Health Administration for patients with body mass index ≥25 ·Workbook and other materials (eg, food diaries and mobile application) are publicly available; written materials in English and Spanish | No  |
+|  Nutritional approaches  |   |   |   |   |
+|  Low-fat vegan- or vegetarian-style diet57 | 6.6 (3.4-9.8)50 | ·10%-25% of calories from fat ·Eliminate meat and fish; may include eggs/dairy ·Often low in saturated fats, high in fiber | ·Increase in insulin sensitivity57 ·Potential reduced environmental impact58 | Yes  |
+|  Low-carbohydrate diet59 | 6.4 (3.9-8.9)50 | <40% of calories from carbohydrates | ·Decrease in SBP, DBP, glucose, insulin resistance, and triglycerides59,60 ·Increase in HDL-C59,60 | No  |
+|  Mediterranean diet4 | 2.5 (1.9-3.1)61 | ·Focus on dark green vegetables, fruits, nuts, and legumes ·Moderate to high intake of fish and seafood ·Low intake of red meat and dairy fat ·Use of extra virgin olive oil as main source of dietary fat | ·Decrease in SBP, DBP, LDL-C,59 hemoglobin A1c, and triglycerides61 ·Increase in HDL-C61 ·Potential reduced environmental impact58 | Yes  |
 
-Int.J.Mol.Sci.2025,26,746
+Abbreviations: DBP, diastolic blood pressure; HDL-C, high-density lipoprotein cholesterol; LDL-C, low-density lipoprotein cholesterol; SBP, systolic blood pressure.
+a Since this program was implemented at all Veterans Affairs sites, randomized clinical trials with 12-month outcomes compared with usual care have not been completed. Data from a systematic review of comparative effectiveness of prospective and retrospective studies found a mean weight loss of  $0.13 - 3.3\mathrm{kg}$  .62
 
-125. Kaldirim, M.; Lang, A.; Pfeiler, S.; Fiegenbaum, P.; Kelm, M.; Bonner, F.; Gerdes, N. Modulation of mTOR Signaling in Cardiovascular Disease to Target Acute and Chronic Inflammation. Front. Cardiovasc. Med. 2022, 9, 907348. [CrossRef] [PubMed]
-126. Samidurai, A.; Kukreja, R.C.; Das, A. Emerging Role of mTOR Signaling-Related miRNAs in Cardiovascular Diseases. Oxidative Med. Cell. Longev. 2018, 2018, 41902. [CrossRef]
-127. Mei, X.; Qi, D.; Zhang, T.; Zhao, Y.; Jin, L.; Hou, J.; Wang, J.; Lin, Y.; Xue, Y.; Zhu, P.; et al. Inhibiting MARSs Reduces Hyperhomocysteinemia-Associated Neural Tube and Congenital Heart Defects. EMBO Mol. Med. 2020, 12, e9469. [CrossRef]
-128. Witucki, L.; Jakubowski, H. Homocysteine Metabolites Impair the PHF8/H4K20me1/mTOR/Autophagy Pathway by Upregulating the Expression of Histone Demethylase PHF8-Targeting microRNAs in Human Vascular Endothelial Cells and Mice. FASEB J. 2024, 38, e70072. [CrossRef] [PubMed]
-129. Perla-Kaján, J.; Borowczyk, K.; Głowacki, R.; Nygård, O.; Jakubowski, H. Paraoxonase 1 Q192R Genotype and Activity Affect Homocysteine Thiolactone Levels in Humans. FASEB J. 2018, 32, 6019-6024. [CrossRef] [PubMed]
-130. Kunutsor, S.K.; Bakker, S.J.L.; James, R.W.; Dullaart, R.P.F. Serum Paraoxonase-1 Activity and Risk of Incident Cardiovascular Disease: The PREVEND Study and Meta-Analysis of Prospective Population Studies. Atherosclerosis 2016, 245, 143-154. [CrossRef]
-131. Hassan, A.; Dohi, T.; Miyauchi, K.; Ogita, M.; Kurano, M.; Ohkawa, R.; Nakamura, K.; Tamura, H.; Isoda, K.; Okazaki, S.; et al. Prognostic Impact of Homocysteine Levels and Homocysteine Thiolactonase Activity on Long-Term Clinical Outcomes in Patients Undergoing Percutaneous Coronary Intervention. J. Cardiol. 2017, 69, 830-835. [CrossRef] [PubMed]
-132. Undas, A.; Ariëns, R.A. Fibrin Clot Structure and Function: A Role in the Pathophysiology of Arterial and Venous Thromboembolic Diseases. Arterioscler. Thromb. Vasc. Biol. 2011, 31, e88-e99. [CrossRef] [PubMed]
-133. Carter, A.M.; Cymbalista, C.M.; Spector, T.D.; Grant, P.J. EuroCLOT Investigators Heritability of Clot Formation, Morphology, and Lysis: The EuroCLOT Study. Arterioscler. Thromb. Vasc. Biol. 2007, 27, 2783-2789. [CrossRef] [PubMed]
-134. Sikora, M.; Skrzydlewski, P.; Perla-Kajan, J.; Jakubowski, H. Homocysteine Thiolactone Contributes to the Prognostic Value of Fibrin Clot Structure/Function in Coronary Artery Disease. PLoS ONE 2022, 17, e0275956. [CrossRef] [PubMed]
-135. Gu, W.; Lu, J.; Yang, G.; Dou, J.; Mu, Y.; Meng, J.; Pan, C. Plasma Homocysteine Thiolactone Associated with Risk of Macrovasculopathy in Chinese Patients with Type 2 Diabetes Mellitus. Adv. Ther. 2008, 25, 914-924. [CrossRef]
-136. Barathi, S.; Angayarkanni, N.; Pasupathi, A.; Natarajan, S.K.; Pukraj, R.; Dhupper, M.; Velpandian, T.; Muralidharan, C.; Sivashanmugham, M. Homocysteinethiolactone and Paraoxonase. Diabetes Care 2010, 33, 2031-2037. [CrossRef]
-137. Sikora, M.; Bretes, E.; Perla-Kajan, J.; Utyro, O.; Borowczyk, K.; Piechocka, J.; Glowacki, R.; Wojtasz, I.; Kazmierski, R.; Jakubowski, H. Homocysteine Thiolactone and Other Sulfur-Containing Amino Acid Metabolites Are Associated with Fibrin Clot Properties and the Risk of Ischemic Stroke. Sci. Rep. 2024, 14, 11222. [CrossRef]
-138. Stabler, S.P.; Allen, R.H. Quantification of Serum and Urinary S-Adenosylmethionine and S-Adenosylhomocysteine by Stable-Isotope-Dilution Liquid Chromatography-Mass Spectrometry. Clin. Chem. 2004, 50, 365-372. [CrossRef]
-139. Carson, N.A.; Dent, C.E.; Field, C.M.; Gaull, G.E. Homocystinuria: Clinical and Pathological Review of Ten Cases. J. Pediatr. 1965, 66, 565-583. [CrossRef] [PubMed]
-140. Jakubowski, H. Protein Homocysteinylation: Possible Mechanism Underlying Pathological Consequences of Elevated Homocysteine Levels. FASEB J. 1999, 13, 2277-2283. [CrossRef] [PubMed]
-141. Jakubowski, H. Homocysteine in Protein Structure/Function and Human Disease: Chemical Biology of Homocysteine-Containing Proteins; Springer: Vienna, Austria, 2013; ISBN 978-3-7091-1409-4.
-142. Glowacki, R.; Jakubowski, H. Cross-Talk between Cys34 and Lysine Residues in Human Serum Albumin Revealed by N-Homocysteinylation. J. Biol. Chem. 2004, 279, 10864-10871. [CrossRef]
-143. Sikora, M.; Marczak, L.; Twardowski, T.; Stobiecki, M.; Jakubowski, H. Direct Monitoring of Albumin Lysine-525 N-Homocysteinylation in Human Serum by Liquid Chromatography/Mass Spectrometry. Anal. Biochem. 2010, 405, 132-134. [CrossRef]
-144. Marczak, L.; Sikora, M.; Stobiecki, M.; Jakubowski, H. Analysis of Site-Specific N-Homocysteinylation of Human Serum Albumin in Vitro and in Vivo Using MALDI-ToF and LC-MS/MS Mass Spectrometry. J. Proteomics 2011, 74, 967-974. [CrossRef] [PubMed]
-145. Sikora, M.; Marczak, L.; Perla-Kajan, J.; Jakubowski, H. Sex Affects N-Homocysteinylation at Lysine Residue 212 of Albumin in Mice. Scientific Reports. Sci. Rep. 2019, 9, 2669. [CrossRef] [PubMed]
-146. Maclean, K.N.; Sikora, J.; Kožich, V.; Jiang, H.; Greiner, L.S.; Kraus, E.; Krijt, J.; Crnic, L.S.; Allen, R.H.; Stabler, S.P.; et al. Cystathionine Beta-Synthase Null Homocystinuric Mice Fail to Exhibit Altered Hemostasis or Lowering of Plasma Homocysteine in Response to Betaine Treatment. Mol. Genet. Metab. 2010, 101, 163-171. [CrossRef] [PubMed]
-147. Jakubowski, H. Homocysteine Thiolactone: Metabolic Origin and Protein Homocysteinylation in Humans. J. Nutr. 2000, 130, 377S-381S. [CrossRef]
-148. Genoud, V.; Lauricella, A.M.; Kordich, L.C.; Quintana, I. Impact of Homocysteine-Thiolactone on Plasma Fibrin Networks. J. Thromb. Thrombolysis. 2014, 38, 540-545. [CrossRef]
-149. Zábczyk, M.; Ariëns, R.A.S.; Undas, A. Fibrin Clot Properties in Cardiovascular Disease: From Basic Mechanisms to Clinical Practice. Cardiovasc. Res. 2023, 119, 94-111. [CrossRef]
+JAMA. Author manuscript; available in PMC 2024 August 15.
 
-Int. J. Mol. Sci. 2025, 26, 746
+Elmaleh-Sachs et al.
 
-150. Blombäck, B. Fibrinogen and Fibrin--Proteins with Complex Roles in Hemostasis and Thrombosis. Thromb. Res. 1996, 83, 1-75. [CrossRef]
-151. Nakashima, F.; Shibata, T.; Kamiya, K.; Yoshitake, J.; Kikuchi, R.; Matsushita, T.; Ishii, I.; Giménez-Bastida, J.A.; Schneider, C.; Uchida, K. Structural and Functional Insights into S-Thiolation of Human Serum Albumins. Sci. Rep. 2018, 8, 932. [CrossRef] [PubMed]
-152. Schienle, H.W.; Seitz, R.; Rohner, I.; Lerch, L.; Krumpholz, B.; Krauss, G.; Fowler, B.; Baumgartner, R.; Willenbockel, U.; Egbring, R. Coagulation Factors and Markers of Activation of Coagulation in Homocystinuria (HOCY): A Study in Two Siblings. Blood Coagul. Fibrinolysis 1994, 5, 873-878. [CrossRef]
+Table 4.
+Antiobesity Medication Management, Ordered by Greatest Difference in Percentage Weight Loss
 
-Disclaimer/Publisher's Note: The statements, opinions and data contained in all publications are solely those of the individual author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to people or property resulting from any ideas, methods, instructions or products referred to in the content.
+|  Medications (trial) | Mechanism of action | Mean weight loss from baselinea | Dosingb | Additional benefits | Most common adverse effects (placebo, treatment)c,d | Monitoringd | Contraindicationsd | Mean 30-d retail cost, $ (dose)e  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  FDA approved for long-term use10  |   |   |   |   |   |   |   |   |
+|  Tirzepatide (SURMOUNT-142) | Dual-hormone agonistic activity at GLP-1 and glucose-dependent insulinotropic polypeptide receptors, regulating energy balance by signals in CNS and adipose tissue42 | Treatment: 20.9%; placebo: 3.1%; difference, 17.8% with 15 mg at 72 wk | • Starting dose: 2.5 mg/wk subcutaneously • Titration speed: not faster than every 4 wk • Titration: by 2.5 mg • Maximum dose: 15 mg/wk subcutaneously | • Improved: waist circumference, blood pressure, hemoglobin A1c, lipid profile42 • Consider use in patients with impaired glucose tolerance | Nausea (10%, 31%), diarrhea (7%, 23%), vomiting (2%, 12%), constipation (6%, 12%), alopecia (1%, 6%), abdominal pain (3%, 5%) | • Glucose if taking insulin or sulfonylurea • Hydration if gastrointestinal adverse effects • Signs/symptoms of pancreatitis or gallbladder disorders • Anticipatory guidance about symptoms of thyroid mass | • Personal or family history of medullary thyroid carcinoma • MEN type 2 | 1022-1221 (15 mg)  |
+|  Semaglatide, subcutaneous (STEP 181) | Activates GLP-1 receptor, with metabolic effects on glucose-dependent stimulation of insulin secretion, delayed gastric emptying10 | Treatment: 14.9%; placebo: 2.4%; difference, 12.5% with 2.4 mg at 68 wk | • Starting dose: 0.25 mg/wk subcutaneously • Titration speed: not faster than every 4 wk • Doses: 0.25, 0.5, 1.0, 1.7 mg/wk • Maximum dose: 2.4 mg/wk subcutaneously | • Improved: waist circumference, blood pressure, hemoglobin A1c, CVD events, lipid profile41,82 • Consider use in patients with impaired glucose tolerance | Nausea (17%, 44%), diarrhea (16%, 32%), constipation (10%, 23%), dyspepsia (4%, 10%), vomiting (7%, 25%) | • Glucose if taking insulin or sulfonylurea • Hydration if gastrointestinal adverse effects • Signs/symptoms of pancreatitis or gallbladder disorders • Diabetic retinopathy | • Personal or family history of medullary thyroid carcinoma • MEN type 2 • History of pancreatitis is a precaution but not a contraindication | 1333-1648 (2.4 mg)  |
+|  Phentermine-topiramate ER (EQUATE83) | Phentermine increases norepinephrine in CNS, topiramate modulates GABA receptors in the CNS10,12 | Treatment: 9.2%; placebo: 1.7%; difference, 7.5% with 15 mg/92 mg at 28 wk | • Starting dose: 3.75 mg/23 mg daily • Next dose: 7.5 mg/46 mg daily for 12 wk • Titration speed: not faster than every 2 wk • Titration amount: by 3.75 mg/23 mg • Maximum dose: 15 mg/92 mg daily | • Improved: waist circumference, systolic blood pressure, hemoglobin A1c, lipid profile83,84 • Consider use in patients with comorbid migraines10 | Paresthesia (4%, 23%), dry mouth (0%, 19%), constipation (8%, 16%), headache (13%, 16%), insomnia (5%, 10%), dizziness (2%, 8%) | • Heart rate, blood pressure • Serum bicarbonate • Symptoms of acute metabolic acidosis, nephrolithiasis, suicidality, or angle-closure glaucoma • Potassium if taking potassium-sparing diuretic • Dermatologic reactions | • CVD • Uncontrolled hypertension • Untreated hyperthyroidism • History of glaucoma, calcium-phosphate nephrolithiasis • Within 14 d of MAOI use | 98-214 (15 mg/92 mg)  |
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+Author Manuscript
+
+Author Manuscript
+
+Author Manuscript
+
+|  Medications (trial) | Mechanism of action | Mean weight loss from baselinea | Dosingb | Additional benefits | Most common adverse effects (placebo, treatment)c,d | Monitoringd | Contraindicationsd | Mean 30-d retail cost, $ (dose)e  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  Liraglutide (SCALE83) | Activates GLP-1 receptor, with metabolic effects on glucose-dependent stimulation of insulin secretion, delayed gastric emptying10 | Treatment: 8.0%; placebo: 2.6%; difference, 5.4% with 3 mg at 56 wk | Starting dose: 0.6 mg/d subcutaneously Titration speed: not faster than weekly Titration: by 0.6 mg Maximum dose: 3 mg/d subcutaneously | Improved: waist circumference, blood pressure, hemoglobin A1c, CVD events, lipid profile82,85 Consider use in patients with impaired glucose tolerance | Nausea (15%, 40%), diarrhea (9%, 21%), constipation (9%, 20%), dyspepsia (5, 10%), vomiting (4%, 16%) | Glucose if taking insulin or sulfonylurea Signs/symptoms of pancreatitis or gallbladder disorders Worsening depression, suicidal thoughts, behavior change Heart rate | Personal or family history of medullary thyroid cancer MEN type 2 Pancreatitis is a precaution but not a contraindication | 1333-1498 (3 mg)  |
+|  Naltrexone-bupropion ER (COR-II41)f | Bupropion activates proopiomelanocortin neurons in the hypothalamus, naltrexone blocks opioid-mediated proopiomelanocortin autoinhibition | Treatment: 5.6%; placebo: 1.2%; difference, 4.4% with 32 mg/360 mg at 56 wk | Starting dose: 8 mg/90 mg daily Titration speed: not faster than weekly Titration amount: by 8 mg/90 mg Maximum dose: 32 mg/360 mg daily (dosed as 16 mg/180 mg twice daily) | Improved: waist circumference, hemoglobin A1c in type 2 diabetes, lipid profile41 Consider use in patients interested in reducing tobacco or alcohol use10,86 | Nausea (7%, 33%), constipation (7%, 19%), headache (10%, 18%), vomiting (3%, 11%), dizziness (3%, 10%), insomnia (6%, 9%), dry mouth (2%, 8%), diarrhea (5%, 7%) | Heart rate, blood pressure Kidney and liver function Depression, suicidal ideation, anxiety, mania, panic attacks | Uncontrolled hypertension History of seizures At risk of alcohol withdrawal Bulimia or anorexia nervosa Within 14 d of MAOI use Long-term opioid use | 99-698 (8 mg/90 mg; 4 tablets/d)  |
+|  Orlistat (European Multicenter Orlistat Study87) | Gastric and pancreatic lipase inhibitor with decreased absorption of triglycerides10 | Treatment: 10.2%; placebo: 6.1%; difference, 4.1% with 120 mg 3 times daily at 52 wk | 60 mg 3 times daily 120 mg 3 times daily | Improved: blood pressure, glucose, lipid profile87 Consider if patient has chronic constipationg | Steatorrhea (5%, 31%), increased defecation (7%, 20%), oily spotting (1%, 18%), liquid stool (10%, 13%), fecal urgency (3%, 10%), flatus with discharge (0%, 7%), fecal incontinence (0%, 7%) | Fat-soluble vitamin levels (A, D, E, K) Liver function if symptoms of hepatic impairment Administer multivitamin 2 h apart from orlistat | Deficiency in fat-soluble vitamins Calcium oxalate nephrolithiasis Chronic malabsorption Cholestasis | 49-67 (Over the counter) 280-597 (Prescription)  |
+
+FDA approved for short-term use (12 wk) 10
+
+|  Diethylpropion88 | Increases norepinephrine release in CNS10 | Treatment: 9.8%; placebo: 3.2%; difference, 6.6% with 50 mg twice daily at 24 wk | IR: 25 mg 3 times daily before meals ER: 75 mg/d | Waist circumference improved88 | Dry mouth (41%, 69%), insomnia (22%, 53%), constipation (14%, 39%), headache (25%, 33%), dizziness (9%, 14%) Incidence of all adverse effects | Can cause direct cardiac myocyte toxicity Heart rate, blood pressure Mood | Sedative use Susceptibility to amphetamines CVD Avoid use with ethanol Use within 1 y of another anorectic medication | 19-60 (Generic; 75 mg ER)  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+Author Manuscript
+
+Author Manuscript
+
+Author Manuscript
+
+|  Medications (trial) | Mechanism of action | Mean weight loss from baselinea | Dosingb | Additional benefits | Most common adverse effects (placebo, treatment)c,d | Monitoringd | Contraindicationsd | Mean 30-d retail cost, $ (dose)e  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|   |  |  |  |  | decreased at 3-6 mo |  |  |   |
+|  Phentermine (EQUATE83) | Increases norepinephrine release in CNS10 | Treatment: 6.1%; placebo: 1.7%; difference, 4.4% with 15 mg at 28 wk | • Starting dose: 8 mg/d (tablet) or 15 mg/d (capsule) • Titration speed: not faster than every 2 wk • Titration: can combine 8 mg + 15 mg as 23 mg or increase from 15 mg to 30 mg • Maximum dose: 37.5 mg/d | Nonsignificant reduction in systolic and diastolic blood pressure and waistline vs placebo for 7.5 mg and 15 mg phentermine83 | Paresthesia (4%, 5%), dry mouth (0%, 12%), headache (13%, 10%), constipation (8%, 8%), insomnia (6%, 11%), dizziness (2%, 3%) | Heart rate, blood pressure | • CVD • Uncontrolled hypertension • Untreated hyperthyroidism • Within 14 d of MAOI use | • 12-17 (Generic; 37.5 mg) • 15-27 (Brand name; 8 mg)  |
+|  Commonly used off label  |   |   |   |   |   |   |   |   |
+|  Semaglutide, 50 mg oral (OASIS 189) | Activates GLP-1 receptor, with metabolic effects on glucose-dependent stimulation of insulin secretion, delayed gastric emptying10 | Treatment: 15.1%; placebo: 2.4%; difference, 12.7% with 50 mg at 68 wk | • Starting dose: 3 mg/d • Titration speed: not faster than every 4 wk • Titration: 7 mg, 14 mg, 25 mg, 50 mg • Maximum dose: 50 mg/d | • Improved: waist circumference, blood pressure, hemoglobin A1c, lipid profile89 • Consider use in patients with impaired glucose tolerance | Nausea (15%, 52%), constipation (15%, 28%), diarrhea (17%, 27%), vomiting (4%, 24%) | Not reported | Not reported | 926-1041 (7 mg)  |
+|  Topiramate (EQUATE83) | Topiramate modulates GABA receptors in CNS10 | Treatment: 6.4%; placebo: 1.7%; difference, 4.7% with 92 mg at 28 wk | • Starting dose (IR): 12.5 mg/d to 25 mg/d • Titration speed: not faster than weekly • Titration amount: by 25 mg • Maximum dose (IR): 200 mg twice daily | Consider use in patients with migraines, antipsychotic-induced weight gain, binge eating disorder, alcohol use disorder10,79,86 | Paresthesia (4%, 22%), dry mouth (0%, 7%), constipation (8%, 6%), insomnia (6%, 5%), dizziness (2%, 4%) | • Symptoms of acute angle-closure glaucoma • Acute metabolic acidosis • Nephrolithiasis • Depression, anxiety, suicidal ideation | Use with care if history of glaucoma, metabolic acidosis, calcium phosphate kidney stones | 9-37 (Generic)  |
+|  Semaglutide (SUSTAIN 167,90)b | Activates GLP-1 receptor, with metabolic effects on glucose-dependent stimulation of insulin secretion, delayed gastric emptying10 | Treatment: 4.7%; placebo: 1.1%; difference, 3.6% with 1.0 mg at 30 wk in patients with type 2 diabetes | • Starting dose: 0.25 mg/wk subcutaneously • Titration speed: not faster than every 4 wk • Doses: 0.25, 0.5, 1.0, 2.0 mg/wk • Maximum dose: 2 mg/wk subcutaneously | • Improved: waist circumference, blood pressure, hemoglobin A1c, CVD events, lipid profile90 • Consider use in patients with impaired glucose tolerance | Nausea (8%, 24%), diarrhea (2%, 11%), constipation (1%, 4%), vomiting (2%, 7%) | • Glucose if taking insulin or sulfonylurea • Signs/symptoms of pancreatitis or gallbladder disorders • Diabetic retinopathy | • Personal or family history of medullary thyroid carcinoma • MEN type 2 • Pancreatitis is a precaution but not a contraindication | 926-1041 (2 mg)  |
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+|  Medications (trial) | Mechanism of action | Mean weight loss from baselinea | Dosingb | Additional benefits | Most common adverse effects (placebo, treatment)c,d | Monitoringd | Contraindicationsd | Mean 30-d retail cost, $ (dose)e  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  Liraglutide (LEAD-39)j | Activates GLP-1 receptor, with metabolic effects on glucose-dependent stimulation of insulin secretion, delayed gastric emptying10 | Treatment (1.8 mg): 2.6%; control (glimepiride, 8 mg): +1.2%; difference, 3.8% at 52 wk in patients with type 2 diabetes | • Starting dose: 0.6 mg/d subcutaneously • Titration speed: not faster than weekly • Titration: by 0.6 mg • Maximum dose: 1.8 mg/d subcutaneously | • Improved: waist circumference, blood pressure, hemoglobin A1c91 • Consider use in patients with impaired glucose tolerance | Nausea (8%, 29%), diarrhea (9%, 19%), constipation (5%, 11%), vomiting (4%, 9%) (glimepiride; no placebo in this study) | • Glucose if taking insulin or sulfonylurea • Signs/symptoms of pancreatitis or gallbladder disorders • Worsening depression, suicidal thoughts, behavior change • Heart rate | Pancreatitis is a precaution but not a contraindication | 1104-1340 (3 mg)  |
+|  Bupropion92 | Bupropion activates proopiomelanocortin neurons in the hypothalamus41 | Treatment: 4.9% (up to 12.9% with gradual increase to 200 mg twice daily at 24 wk); placebo: 1.3%; difference, 3.6% with 200 mg SR twice daily at 8 wk (n = 50) | • Starting dose (SR): 100 mg/d • Titration speed: not faster than every 2 wk • Maximum dose: 200 mg twice daily • Starting dose (ER): 150 mg/d • Titration speed: every 1 to 2 wk • Maximum dose: 450 mg/d | Consider use in patients with depression, seasonal affective disorder, anxiety, attention-deficit/hyperactivity disorder, dysthymia if indicated | Insomnia (4%, 20%), dry mouth (20%, 52%), rash (0%, 8%), nervousness (4%, 16%) | • Blood pressure • Depression, suicidal ideation, anxiety, mania, panic attacks • Because bupropion lowers seizure threshold, it should be weaned slowly | • Uncontrolled hypertension • Seizure disorder • Bulimia or anorexia nervosa • Within 14 d of MAOI use | 5-27 (Generic; 300 mg ER)  |
+|  Metformin (Diabetes Prevention Program Outcomes Study93) | Increased insulin and leptin sensitivity, decreased hunger and ghrelin levels94 | Treatment: 6.2%; placebo, 2.8%; difference, 3.5% with 1500 mg at 15 y | • Both IR and ER can be taken once or twice daily • For IR and ER: • Starting dose: 500 mg/d • Titration speed: not faster than weekly • Titration amount: by 500 mg • Dose: 2500 mg/d | • Hemoglobin A1c improved94 • Consider use in patients with polycystic ovary syndrome, antipsychotic-induced weight gain, impaired glucose tolerance, or chronic constipation94g | • Gastrointestinal adverse effects in 10%-20% (treatment group) • Some patients tolerate one formulation but not the other • Taking at the end of a meal can reduce risk of adverse effects | • Glucose if taking insulin or sulfonylurea • Vitamin B12 after long-term use • Reassess dose if glomerular filtration rate decreases to <45 mL/min | • Advanced cirrhosis (class C) • Glomerular filtration rate <30 mL/min • Heart failure with poor perfusion | • 3-13 (Generic) • IR is less expensive than ER  |
+
+Abbreviations: ER, extended release; CNS, central nervous system; CVD, cardiovascular disease; GABA,  $\gamma$ -aminobutyric acid; GLP-1, glucagon-like peptide 1; IR, immediate release; MAOI, monoamine oxidase inhibitor; MEN, multiple endocrine neoplasia; SR, sustained release.
+${}^{a}$  Rounded to the first decimal place,presented for maximum dose or as indicated.
+Weight loss may vary by dose. Suggested titration by manufacturer is presented; titration should be personalized to patients and based on weight loss. If a patient is losing  $\leq 1$  lb per week while taking a given dose, dose titration may not be needed unless that weight loss has slowed.
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Elmaleh-Sachs et al.
+
+JAMA. Author manuscript; available in PMC 2024 August 15.
+
+Most common adverse effects are presented with frequencies in the placebo and treatment groups from the primary clinical trial for the maximum dose reported. Most adverse effects are less frequent with lower doses. For all medications, slow dose titration may mitigate adverse effects. For GLP-1 receptor agonists and glucose-dependent insulinotropic polypeptide/GLP-1 receptor agonists, consider behavior modification, including reduced portion size and increased fiber intake. For metformin, taking with meals can mitigate adverse effects.
+For comprehensive information on adverse effects, monitoring, and contraindications, please refer to prescribing information for each medication. Reproductive considerations and use during pregnancy and lactation: metformin is used to improve fertility and recommended by the American College of Obstetricians and Gynecologists as a second-line medication for diabetes during pregnancy; it is safe during lactation.[95] All other antiobesity medications should not be used during pregnancy or lactation. Women of reproductive age should be counseled on the use of effective contraception. GLP-1 receptor agonists: safety during pregnancy and lactation is not fully known. These medications can decrease the effectiveness of oral contraceptives because of delayed gastric emptying; addition of barrier method is recommended for 4 weeks after initiation of a GLP-1 receptor agonist and after each dose increase. Phentermine-topiramate: topiramate can cause fetal malformations. The US Food and Drug Administration label for phentermine-topiramate recommends testing for pregnancy at initiation and monthly thereafter; however, neither phentermine nor topiramate individually has a recommendation for monthly pregnancy testing.
+Prices are average retail price (without insurance) accessed at GoodRx.com on April 11, 2023, and July 15, 2023; lower prices are often available with coupons or by mail order.
+Naltrexone is sometimes prescribed off label as a single agent without bupropion, but not as often as bupropion is prescribed off label.
+Expert opinion based on clinical experience.
+Percentage weight loss manually calculated from mean weight loss in kilograms and mean kilograms at baseline.

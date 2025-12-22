@@ -58,34 +58,40 @@ class ReviewFetcherAgent(Agent):
                     meta={"text":content_chunk,"source":id}
                     s = Subgraph(subgraph_id=subgraph_id,meta=meta)
                     self.memory.register_subgraph(s)
-        # if len(review_urls) == 0:
-        #     self.logger.warning("No review URLs found")
-        #     sys.exit(1)
+        if len(review_urls) == 0:
+            self.logger.warning("No review URLs found")
+            sys.exit(1)
         return 
 
 
     def generateMeSHStrategy(self,user_query:str)->str:
         prompt = f"""
-As an expert Biomedical Information Specialist, generate a comprehensive PubMed search strategy for the following research question.
+As an expert Biomedical Information Specialist, generate a high-recall PubMed search strategy to find **Reviews** and **Systematic Reviews** relevant to the user's query.
 
-**Question:** {user_query}
+**User Query:** {user_query}
 
-**Instructions:**
-1. **Identify Key Concepts:** Break the user's query into 2-3 main concepts (e.g., Target Molecule + Disease/Condition).
-2. **Expand Terms (Crucial):** For EACH concept, construct a sub-query using 'OR' to combine:
-   - **MeSH Terms** (e.g., "Breast Neoplasms"[MeSH Terms])
-   - **Keywords in Title/Abstract** (e.g., "breast cancer"[Title/Abstract], "breast tumor"[Title/Abstract])
-   - **Specific Names:** If the query mentions a specific cell line (e.g., MCF-7) or drug code, include it as a keyword.
-3. **Combine Concepts:** Join the main concept sub-queries with 'AND'.
-4. **Apply Filters:**
-   - Limit to **Reviews** and **Systematic Reviews**.
-   - Limit to articles published in the **last 5 years** (e.g., 2020-2025).
+**Critical Rules for Logic:**
+1. **Simplify Concepts:** Extract ONLY the **2 most critical concepts** (usually **Intervention** and **Outcome**).
+   - *Example:* For "Tirzepatide vs Semaglutide in obesity for CV outcomes in US insurance data", the ONLY concepts are: (Tirzepatide OR Semaglutide) AND (Cardiovascular Outcomes).
+   - **IGNORE** geographic locations (e.g., "USA", "China").
+   - **IGNORE** data sources (e.g., "insurance claims", "hospital records").
+   - **IGNORE** specific study designs in the query text (e.g., "cohort", "RCT") because we will apply a Review filter later.
+   - **IGNORE** specific dates mentioned in the text (e.g., "2018-2025") as we will use a date filter.
+
+2. **Handle Comparisons:** If the query compares two drugs (e.g., Drug A vs Drug B), combine them into **ONE** concept using **OR** (e.g., `("Drug A" OR "Drug B")`), rather than splitting them with AND. This ensures we catch reviews discussing the whole class or either drug.
+
+3. **Handle Population (P):** Do NOT create a separate 'AND' block for the disease (e.g., Diabetes/Obesity) *unless* the drugs are used for multiple wildly different conditions. For GLP-1s, the disease is implied by the outcome (CV risk), so adding "AND Diabetes" might restrict results too much. **Prioritize Broad Search.**
+
+**Step-by-Step Construction:**
+1. **Concept 1 (Intervention/Exposure):** Expand with MeSH + Keywords + Brand Names + CAS/Drug Codes.
+2. **Concept 2 (Outcome/Main Topic):** Expand with MeSH + Keywords (Synonyms).
+3. **Combine:** (Concept 1) AND (Concept 2).
+4. **Filters:**
+   - Apply "Review"[Publication Type] OR "Systematic Review"[Publication Type].
+   - Apply Date Range: "2020/01/01"[Date - Publication] : "3000"[Date - Publication] (Last 5+ years).
 
 **Output format:**
-Return ONLY the raw search query string compatible with PubMed. Do not include explanations or markdown formatting.
-
-**Example Logic:**
-(Concept A [MeSH] OR Keyword A [TiAb] OR Synonym A [TiAb]) AND (Concept B [MeSH] OR Keyword B [TiAb]) AND (Filter: Reviews) AND (Filter: Date)
+Return ONLY the raw search query string. No markdown, no explanations.
 """
         result=self.call_llm(prompt)
         print("mesh strategy=>",result)

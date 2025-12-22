@@ -30,14 +30,30 @@ class KnowledgeGraph:
         self.sort_by_confidence()
     
     def add_edge(self,triple:KGTriple):
+        # 处理 subject
+        if triple.subject is None:
+            self.logger.warning(f"Skipping triple with None subject: {triple}")
+            return
         if isinstance(triple.subject, KGEntity):
             subj = triple.subject.entity_id
+        elif isinstance(triple.subject, dict):
+            subj = KGEntity(**triple.subject).entity_id
         else:
-            subj =KGEntity(**triple.subject).entity_id
+            self.logger.warning(f"Skipping triple with invalid subject type: {type(triple.subject)}")
+            return
+        
+        # 处理 object
+        if triple.object is None:
+            self.logger.warning(f"Skipping triple with None object: {triple}")
+            return
         if isinstance(triple.object, KGEntity):
             obj = triple.object.entity_id
-        else:
+        elif isinstance(triple.object, dict):
             obj = KGEntity(**triple.object).entity_id
+        else:
+            self.logger.warning(f"Skipping triple with invalid object type: {type(triple.object)}")
+            return
+        
         if subj not in self.Graph:
             self.Graph[subj]=[]
             self.Graph[subj].append((obj,triple))

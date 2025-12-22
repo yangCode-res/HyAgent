@@ -13,7 +13,7 @@ from Agents.ReflectionAgent.index import ReflectionAgent
 from Agents.HypothesisGenerationAgent.index import HypothesisGenerationAgent
 from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
-from Agents.Path_extraction.index import PathExtractionAgent
+from Agents.Path_extraction.penalty import PathExtractionAgent
 from Agents.Hypotheses_Edit.index import HypothesisEditAgent
 from Store.index import get_memory
 from Logger.index import get_global_logger
@@ -21,6 +21,7 @@ from Memory.index import Memory
 from typing import Optional
 from Agents.Query_clarify.index import QueryClarifyAgent
 from Agents.Review_fetcher.index import ReviewFetcherAgent
+from Memory.index import load_memory_from_json
 load_dotenv()
 class Pipeline:
     def __init__(self,user_query:str,client:OpenAI,model_name:str,memory:Optional[Memory]=None):
@@ -48,7 +49,16 @@ class Pipeline:
         pipeline.append(ReflectionAgent(self.client,self.model_name))
         pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query))
         return pipeline
+    def get_goOn(self,memory:Memory):
+        pipeline=[]
+        pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities,memory=memory))
+        pipeline.append(PathExtractionAgent(client=self.client, model_name=self.model_name,k=20,memory=memory,query=self.clarified_query))
+        pipeline.append(HypothesisGenerationAgent(self.client,self.model_name,query=self.clarified_query,max_paths=5,hypotheses_per_path=3,memory=memory))
+        pipeline.append(ReflectionAgent(self.client,self.model_name,memory=memory))
+        pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query,memory=memory))
+        return pipeline
     def run(self):
+        memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251221-184939.json')
         user_query=self.user_query
         queryclarifyagent = QueryClarifyAgent(self.client, self.model_name) # type: ignore
         response = queryclarifyagent.process(user_query)
@@ -57,11 +67,14 @@ class Pipeline:
         core_entities= response.get("core_entities", []) # type: ignore
         print(f"Core Entities: {core_entities}")
         intention= response.get("main_intention", "") # type: ignore
-        reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
-        reviewfetcheragent.process(clarified_query)
+        print("intention=>",intention)
+        print("clarified_query=>",clarified_query)
+        # reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
+        # reviewfetcheragent.process(clarified_query)
+
         self.core_entities=core_entities
         self.intention=intention
-        self.pipeline=self.get_pipeline()
+        self.pipeline=self.get_goOn(memory)
         for agent in self.pipeline:
             print(f"Running agent: {agent.__class__.__name__}")
             agent.process()

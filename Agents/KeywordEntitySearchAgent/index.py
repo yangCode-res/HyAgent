@@ -35,7 +35,7 @@ class KeywordEntitySearchAgent(Agent):
         keywords: List[str],            # ⭐ 多个关键词
         memory: Optional[Memory] = None,
         top_k_default: int = 3,         # ⭐ 每个 keyword 最终保留多少个实体
-        candidate_pool_size: int = 10,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
+        candidate_pool_size: int = 40,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
     ):
         system_prompt = (
             "You are a biomedical entity-linking agent. "
@@ -67,9 +67,13 @@ class KeywordEntitySearchAgent(Agent):
         self.entities: Dict[str, KGEntity] = {}
         # 每个实体对应多个 surface：(surface_text, embedding)
         self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray]]] = {}
+        
+        # 标记是否已构建索引
+        self._index_built = False
 
         self._load_biobert()
-        self._build_entity_index()
+        # 注意：不在 __init__ 中构建索引，延迟到 process() 时构建
+        # 因为此时 SubgraphMerger 可能还没执行，memory.relations 可能是空的
         print("keywords",self.keywords)
         # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
 
@@ -310,6 +314,11 @@ class KeywordEntitySearchAgent(Agent):
           kw2candidates:    {keyword: [(KGEntity, score, best_surface, source), ...]}
         并在最后输出一张总表格日志（info），过程不刷 info，只在异常时打 warning/error。
         """
+        # 延迟构建索引：确保在 SubgraphMerger 执行后才构建
+        if not self._index_built:
+            self._build_entity_index()
+            self._index_built = True
+        
         kw2best_entities: Dict[str, List[KGEntity]] = {}
         kw2best_scores: Dict[str, List[float]] = {}
         kw2candidates: Dict[str, List[Tuple[KGEntity, float, str, str]]] = {}

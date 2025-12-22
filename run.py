@@ -42,7 +42,7 @@ if __name__ == "__main__":
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
     memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251214-212723.json')
     user_query = "Cardiovascular diseases and endothelial dysfunction may be related to what factors?"
-    path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,memory=memory,query=user_query)
+    path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,k=20,memory=memory,query=user_query)
     path_extraction_agent.process()
     memory.dump_json("./snapshots")
     # hypothesis_agent = HypothesisGenerationAgent(
