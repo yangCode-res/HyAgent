@@ -1,9 +1,13 @@
+from enum import unique
 import math
 import json
 from typing import List, Dict, Tuple, Optional, Any
 
 import numpy as np
+import tqdm
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 import torch
+import faiss
 from transformers import AutoModel, AutoTokenizer
 
 from Store.index import get_memory
@@ -58,10 +62,14 @@ class KeywordEntitySearchAgent(Agent):
         self.keywords: List[str] = keywords
         self.top_k_default: int = top_k_default
         self.candidate_pool_size: int = candidate_pool_size
-
-        self.biobert_dir = BioBertPath
-        self.biobert_model = None
-        self.biobert_tokenizer = None
+        #faiss index 相关
+        self.index=None#faiss index
+        self.id2entity={}#faiss index 2 entity
+        self.str_2_entity={}#entity name 2 KGEntity
+        # SapBERT 相关
+        self.Sapbert_dir = BioBertPath
+        self.Sapbert_model = None
+        self.Sapbert_tokenizer = None
 
         # 全局实体索引
         self.entities: Dict[str, KGEntity] = {}
@@ -71,46 +79,137 @@ class KeywordEntitySearchAgent(Agent):
         # 标记是否已构建索引
         self._index_built = False
 
-        self._load_biobert()
+        self._load_Sapbert()
         # 注意：不在 __init__ 中构建索引，延迟到 process() 时构建
         # 因为此时 SubgraphMerger 可能还没执行，memory.relations 可能是空的
         print("keywords",self.keywords)
         # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
 
-    # ---------------- BioBERT 相关 ----------------
-    def _load_biobert(self) -> None:
+    def build_index(self,Triples:List[KGTriple]):
+        self.str_2_entity={}
+        for triple in Triples:
+            subject=triple.subject
+            object=triple.object
+            if subject and isinstance(subject,KGEntity):
+                self.str_2_entity[subject.name]=subject
+                for alias in subject.aliases or []:
+                    self.str_2_entity[alias]=subject
+            if object and isinstance(object,KGEntity):
+                self.str_2_entity[object.name]=object
+                for alias in object.aliases or []:
+                    self.str_2_entity[alias]=object
+        unique_entities=list(self.str_2_entity.keys())
+        self.id2entity={i:name for i,name in enumerate(unique_entities)}
+
+        embeddings=self.get_embeddings(unique_entities)
+        faiss.normalize_L2(embeddings)
+        self.index=faiss.IndexFlatIP(embeddings.shape[1])
+        self.index.add(embeddings)
+
+
+    def get_embeddings(self, texts: List[str], batch_size=128):
+        if not texts:
+            return np.array([])
+        
+        # 这里的去重逻辑可以保留，但因为 build_index 传入的已经是唯一的 key list，
+        # 其实可以直接处理 texts，减少排序开销。但为了通用性，保留也无妨。
+        unique_texts = sorted(list(set(texts)))
+        text_to_idx = {t: i for i, t in enumerate(unique_texts)}
+        
+        all_embs = []
+        
+        for i in tqdm(range(0, len(unique_texts), batch_size), desc="Encoding entities"):
+            batch = unique_texts[i : i + batch_size]
+            
+            inputs = self.Sapbert_tokenizer(batch, padding=True, truncation=True, 
+                                  max_length=64, return_tensors="pt").to(self.device)
+            
+            with torch.no_grad():
+                outputs = self.Sapbert_model(**inputs)
+                cls_emb = outputs.last_hidden_state[:, 0, :]
+                all_embs.append(cls_emb.cpu().numpy())
+        
+        if not all_embs:
+            return np.array([])
+            
+        unique_embs = np.concatenate(all_embs, axis=0)
+
+        # 映射回原始顺序
         try:
-            self.biobert_tokenizer = AutoTokenizer.from_pretrained(
-                self.biobert_dir,
+            # 这一步确保返回的向量顺序与输入 texts 顺序严格一致
+            final_embs = np.array([unique_embs[text_to_idx[t]] for t in texts])
+        except KeyError as e:
+            raise RuntimeError(f"索引映射失败: {e}")
+            
+        return final_embs
+    
+    def link_entity(self, entity: str, top_k: int = 5, threshold = 0.9)  -> List[Tuple[KGEntity, float, str, str]]:
+        if self.index is None or not self.entities:
+            return []
+        
+        # 1. 获取向量
+        emb = self.get_embeddings([entity])
+        if emb.size == 0:
+            return []
+            
+        # 2. 转换为 float32 (FAISS 要求)
+        emb = emb.astype('float32')
+        
+        # 3. 归一化 (使用 faiss 统一的方法)
+        faiss.normalize_L2(emb) 
+        
+        # 4. 搜索
+        D, I = self.index.search(emb, top_k)
+        
+        results = []
+        # D[0], I[0] 因为输入是一个 query
+        for dist, idx in zip(D[0], I[0]):
+            if dist >= threshold:
+                name = self.id2entity.get(idx)
+                if name:
+                    # 5. 从 self.entities 获取对象
+                    ent = self.str_2_entity.get(name)
+                    if ent:
+                        # 简单的去重，防止同一个实体因为不同别名被多次召回
+                        if ent not in results:
+                            results.append((ent, dist, name, "unknown"))
+                            
+        return results
+
+    # ---------------- BioBERT 相关 ----------------
+    def _load_Sapbert(self) -> None:
+        try:
+            self.Sapbert_tokenizer = AutoTokenizer.from_pretrained(
+                self.Sapbert_dir,
                 local_files_only=True,
             )
-            self.biobert_model = AutoModel.from_pretrained(
-                self.biobert_dir,
+            self.Sapbert_model = AutoModel.from_pretrained(
+                self.Sapbert_dir,
                 local_files_only=True,
             )
-            self.biobert_model.eval()
+            self.Sapbert_model.eval()
         except Exception as e:
             # 这是致命问题，打 error
             self.logger.error(
                 f"[KeywordSearch][BioBERT] load failed ({e}), keyword search will not work properly."
             )
-            self.biobert_model = None
-            self.biobert_tokenizer = None
+            self.Sapbert_model = None
+            self.Sapbert_tokenizer = None
 
     @torch.no_grad()
     def _encode_text(self, text: str) -> Optional[np.ndarray]:
-        if not self.biobert_model or not self.biobert_tokenizer:
+        if not self.Sapbert_model or not self.Sapbert_tokenizer:
             return None
         text = (text or "").strip()
         if not text:
             return None
-        inputs = self.biobert_tokenizer(
+        inputs = self.Sapbert_tokenizer(
             text,
             return_tensors="pt",
             truncation=True,
             max_length=128,
         )
-        outputs = self.biobert_model(**inputs)
+        outputs = self.Sapbert_model(**inputs)
         vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
         return vec
 
@@ -326,14 +425,14 @@ class KeywordEntitySearchAgent(Agent):
         # 用于最后汇总日志的一行一行记录
         # 列：Keyword | Rank | EntityID | EntityName | MatchedSurface | SurfaceType | Similarity
         table_rows: List[List[Any]] = []
-
+        self.build_index(self.memory.relations.all())
         for kw in self.keywords:
             kw = (kw or "").strip()
             if not kw:
                 continue
 
             # 1) BioBERT 相似度检索；候选池大小 = candidate_pool_size
-            candidates = self._search_top_k_for_keyword(
+            candidates = self.link_entity(
                 kw,
                 top_k=self.candidate_pool_size,
             )
