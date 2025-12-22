@@ -4,7 +4,7 @@ import json
 from typing import List, Dict, Tuple, Optional, Any
 
 import numpy as np
-import tqdm
+from tqdm import tqdm
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 import torch
 import faiss
@@ -70,7 +70,7 @@ class KeywordEntitySearchAgent(Agent):
         self.Sapbert_dir = BioBertPath
         self.Sapbert_model = None
         self.Sapbert_tokenizer = None
-
+        self.device="cpu"
         # 全局实体索引
         self.entities: Dict[str, KGEntity] = {}
         # 每个实体对应多个 surface：(surface_text, embedding)
@@ -90,6 +90,10 @@ class KeywordEntitySearchAgent(Agent):
         for triple in Triples:
             subject=triple.subject
             object=triple.object
+            if subject is None or object is None:
+                continue
+            subject=KGEntity(**subject)
+            object=KGEntity(**object)
             if subject and isinstance(subject,KGEntity):
                 self.str_2_entity[subject.name]=subject
                 for alias in subject.aliases or []:
