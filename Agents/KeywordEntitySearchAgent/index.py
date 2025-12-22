@@ -102,6 +102,9 @@ class KeywordEntitySearchAgent(Agent):
         self.id2entity={i:name for i,name in enumerate(unique_entities)}
 
         embeddings=self.get_embeddings(unique_entities)
+        # 确保数据类型正确且内存连续
+        embeddings = embeddings.astype('float32')
+        embeddings = np.ascontiguousarray(embeddings)
         faiss.normalize_L2(embeddings)
         self.index=faiss.IndexFlatIP(embeddings.shape[1])
         self.index.add(embeddings)
@@ -152,8 +155,9 @@ class KeywordEntitySearchAgent(Agent):
         if emb.size == 0:
             return []
             
-        # 2. 转换为 float32 (FAISS 要求)
+        # 2. 转换为 float32 并确保内存连续 (FAISS 要求)
         emb = emb.astype('float32')
+        emb = np.ascontiguousarray(emb)
         
         # 3. 归一化 (使用 faiss 统一的方法)
         faiss.normalize_L2(emb) 
