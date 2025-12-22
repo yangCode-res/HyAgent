@@ -102,6 +102,8 @@ class BioBertTester:
         similarity = dot_product / (norm_a * norm_b)
         return similarity
 
+
+
 # ==========================================
 #              测试入口
 # ==========================================
