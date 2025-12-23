@@ -246,7 +246,7 @@ class EntityExtractionAgent(Agent):
             '      "confidence": 0.0,\n'
             '      "normalized_id": "ontology:identifier or N/A",\n'
             '      "aliases": ["synonym1", "synonym2"]\n'
-            '      "description": "20-word single-sentence description grounded ONLY in the document; if insufficient evidence, use \"N/A\""\n'
+            '      "description": "20-word single-sentence description grounded in the document; if insufficient evidence, provide a standard biomedical definition based on general knowledge."\n'
             "    }\n"
             "  ]\n"
             "}"

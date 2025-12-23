@@ -35,7 +35,7 @@ class KeywordEntitySearchAgent(Agent):
         keywords: List[str],            # ⭐ 多个关键词
         memory: Optional[Memory] = None,
         top_k_default: int = 3,         # ⭐ 每个 keyword 最终保留多少个实体
-        candidate_pool_size: int = 10,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
+        candidate_pool_size: int = 50,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
     ):
         system_prompt = (
             "You are a biomedical entity-linking agent. "
@@ -95,22 +95,35 @@ class KeywordEntitySearchAgent(Agent):
 
     @torch.no_grad()
     def _encode_text(self, text: str) -> Optional[np.ndarray]:
-        if(text=="ARNI"):
-            print("text",text)
-            test=text
         if not self.biobert_model or not self.biobert_tokenizer:
             return None
+
         text = (text or "").strip()
         if not text:
             return None
+
+        # 如果你有 self.device，就可以加上 .to(self.device)
         inputs = self.biobert_tokenizer(
             text,
             return_tensors="pt",
             truncation=True,
             max_length=128,
         )
+
         outputs = self.biobert_model(**inputs)
-        vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
+        token_embeddings = outputs.last_hidden_state  # [1, seq_len, hidden]
+
+        # attention_mask: [1, seq_len] -> [1, seq_len, 1]
+        attention_mask = inputs["attention_mask"].unsqueeze(-1)  # padding 位置是 0
+
+        # 把 padding token 的向量置零后做加权平均
+        masked_embeddings = token_embeddings * attention_mask  # [1, seq_len, hidden]
+        sum_embeddings = masked_embeddings.sum(dim=1)          # [1, hidden]
+        # 有效 token 个数
+        sum_mask = attention_mask.sum(dim=1).clamp(min=1e-9)   # [1, 1]
+
+        mean_embedding = (sum_embeddings / sum_mask).squeeze(0)  # [hidden]
+        vec = mean_embedding.cpu().numpy()
         return vec
 
     @staticmethod
@@ -210,7 +223,7 @@ class KeywordEntitySearchAgent(Agent):
                 if svec is None:
                     continue
                 sim = float(np.dot(q_vec, svec))
-                if(sim>0.999):
+                if(sim==1.0):
                     print("sim",sim)
                     print("surface_text",surface_text)
                 if sim > best_sim:
