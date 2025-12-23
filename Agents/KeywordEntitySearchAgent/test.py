@@ -243,6 +243,25 @@ class KeywordEntitySearchAgent(Agent):
             self.entity_surfaces[eid] = surface_vecs
 
         # 不在这里打印 info，避免过程日志刷屏
+    def _extract_json_from_markdown(self, text: str) -> str:
+        """
+        额外处理：如果 LLM 返回的是 Markdown 代码块格式（如 ```json\n...\n```），
+        则提取其中的 JSON 内容。
+        """
+        if not isinstance(text, str):
+            return text
+        
+        text = text.strip()
+        
+        # 检测并提取 ```json ... ``` 或 ``` ... ``` 格式
+        import re
+        # 匹配 ```json 或 ``` 开头，``` 结尾的代码块
+        pattern = r'^```(?:json)?\s*\n?(.*?)\n?```$'
+        match = re.match(pattern, text, re.DOTALL | re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+        
+        return text
 
     def _search_top_k_for_keyword(
         self,
@@ -362,6 +381,7 @@ class KeywordEntitySearchAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
 
         raw = self.call_llm(prompt)
+        raw= self._extract_json_from_markdown(raw)
         print("this is raw",raw)
         try:
             obj = json.loads(raw)

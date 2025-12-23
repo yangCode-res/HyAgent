@@ -1,0 +1,218 @@
+[
+    {
+        "entity": "Tirzepatide",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "tirzepatide",
+                "relation": "improve",
+                "tail": "lipoprotein biomarkers",
+                "relation_type": null,
+                "confidence": [
+                    0.85,
+                    0.05
+                ],
+                "evidence": [
+                    "The dual glucose-dependent insulinotropic peptide and glucagon-like peptide-1 receptor agonist, tirzepatide, improves lipoprotein biomarkers associated with insulin resistance and cardiovascular risk in patients with type 2 diabetes."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_5_27",
+                "subject": {
+                    "entity_id": "ent:62a2e23fb317",
+                    "entity_type": "DRUG",
+                    "name": "tirzepatide",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "LY3298176",
+                        "Mounjaro",
+                        "tirzepatide",
+                        "Zepbound"
+                    ],
+                    "description": "Highly effective compound developed as an oligo-hormonal agonist providing weight loss far exceeding that reported with pure GLP-1 RAs."
+                },
+                "object": {
+                    "entity_id": "ent:65807b9eb8d2",
+                    "entity_type": "BIOMARKER",
+                    "name": "lipoprotein biomarkers",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "biomarkers"
+                    ],
+                    "description": "Biomarkers associated with insulin resistance and cardiovascular risk that were improved by tirzepatide in patients with type 2 diabetes."
+                },
+                "time_info": null
+            },
+            {
+                "head": "lipoprotein biomarkers",
+                "relation": "assess",
+                "tail": "chronic heart failure",
+                "relation_type": null,
+                "confidence": [
+                    0.9,
+                    0.1
+                ],
+                "evidence": [
+                    "Serial assessment of biomarkers and heart failure outcomes in patients with atrial fibrillation.",
+                    "Biomarkers in heart failure clinical trials. A review from the Biomarkers Working Group of the Heart Failure Association of the European Society of Cardiology."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_24",
+                "subject": {
+                    "entity_id": "ent:65807b9eb8d2",
+                    "entity_type": "BIOMARKER",
+                    "name": "lipoprotein biomarkers",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "biomarkers"
+                    ],
+                    "description": "Biomarkers associated with insulin resistance and cardiovascular risk that were improved by tirzepatide in patients with type 2 diabetes."
+                },
+                "object": {
+                    "entity_id": "ent:2901acd48f41",
+                    "entity_type": "DISEASE",
+                    "name": "chronic heart failure",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "acute heart failure",
+                        "CHF",
+                        "chronic heart failure",
+                        "failing heart",
+                        "Heart Disease",
+                        "heart failure",
+                        "HF",
+                        "hospitalizations for heart failure",
+                        "severe heart failure"
+                    ],
+                    "description": "Condition studied in relation to preserved vs. reduced ejection fraction in the DIAST-CHF study."
+                },
+                "time_info": null
+            },
+            {
+                "head": "chronic heart failure",
+                "relation": "associate with",
+                "tail": "rapid up-titration of guideline-directed medical therapies",
+                "relation_type": null,
+                "confidence": [
+                    0.95,
+                    0.95
+                ],
+                "evidence": [
+                    "Association between a hospitalization for heart failure and the initiation/discontinuation of guideline-recommended treatments: An analysis from the Swedish Heart Failure Registry.",
+                    "Safety, tolerability and efficacy of up-titration of guideline-directed medical therapies for acute heart failure (STRONG-HF): A multinational, open-label, randomised, trial.",
+                    "Optimization of evidence-based heart failure medications after an acute heart failure admission: A secondary analysis of the STRONG-HF randomized clinical trial.",
+                    "Uptitrating treatment after heart failure hospitalization across the spectrum of left ventricular ejection fraction."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_39",
+                "subject": {
+                    "entity_id": "ent:2901acd48f41",
+                    "entity_type": "DISEASE",
+                    "name": "chronic heart failure",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "acute heart failure",
+                        "CHF",
+                        "chronic heart failure",
+                        "failing heart",
+                        "Heart Disease",
+                        "heart failure",
+                        "HF",
+                        "hospitalizations for heart failure",
+                        "severe heart failure"
+                    ],
+                    "description": "Condition studied in relation to preserved vs. reduced ejection fraction in the DIAST-CHF study."
+                },
+                "object": {
+                    "entity_id": "ent:ffa47aa56ee8",
+                    "entity_type": "TREATMENT",
+                    "name": "rapid up-titration of guideline-directed medical therapies",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "rapid up-titration of guideline-directed medical therapy"
+                    ],
+                    "description": "A treatment approach whose impact on quality of life is analyzed in a clinical trial following an admission for acute heart failure."
+                },
+                "time_info": null
+            },
+            {
+                "head": "rapid up-titration of guideline-directed medical therapies",
+                "relation": "treat",
+                "tail": "acute heart failure",
+                "relation_type": null,
+                "confidence": [
+                    0.88,
+                    0.1
+                ],
+                "evidence": [
+                    "Safety, tolerability and efficacy of up-titration of guideline-directed medical therapies for acute heart failure (STRONG-HF): A multinational, open-label, randomised, trial.",
+                    "Optimization of evidence-based heart failure medications after an acute heart failure admission: A secondary analysis of the STRONG-HF randomized clinical trial.",
+                    "Safety, tolerability and efficacy of up-titration of guideline-directed medical therapies for acute heart failure in elderly patients: A sub-analysis of the STRONG-HF randomized clinical trial.",
+                    "NT-proBNP and high intensity care for acute heart failure: The STRONG-HF trial."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_39",
+                "subject": {
+                    "entity_id": "ent:ffa47aa56ee8",
+                    "entity_type": "TREATMENT",
+                    "name": "rapid up-titration of guideline-directed medical therapies",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "rapid up-titration of guideline-directed medical therapy"
+                    ],
+                    "description": "A treatment approach whose impact on quality of life is analyzed in a clinical trial following an admission for acute heart failure."
+                },
+                "object": {
+                    "entity_id": "ent:8359c86021c3",
+                    "entity_type": "DISEASE",
+                    "name": "acute heart failure",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "acute heart failure",
+                        "AHF",
+                        "heart failure",
+                        "HF"
+                    ],
+                    "description": "Condition mentioned in the context of safety, tolerability and efficacy of up-titration of guideline-directed medical therapies in a multinational trial."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Tirzepatide's lipoprotein improvement reduces acute HF risk via enabling rapid GDMT titration",
+                "hypothesis": "Tirzepatide's improvement of lipoprotein biomarkers (e.g., reducing atherogenic lipoproteins) in patients with elevated cardiovascular risk leads to enhanced stability in chronic heart failure, which in turn enables the safe and effective rapid up-titration of guideline-directed medical therapies (GDMT), ultimately reducing the incidence and severity of subsequent acute heart failure episodes.",
+                "mechanism_explanation": "The path links tirzepatide (DRUG) to improved lipoprotein biomarkers (BIOMARKER). Improved lipid profiles are associated with better vascular health and myocardial stability in chronic heart failure (DISEASE). A more stable chronic HF state is associated with the ability to tolerate rapid up-titration of GDMT (TREATMENT), a strategy proven to improve outcomes. This aggressive treatment then directly treats and prevents decompensation into acute heart failure (DISEASE). The path suggests a causal chain where the drug's metabolic effect creates a physiological condition permissive for intensive therapy, which then yields the final clinical benefit.",
+                "experimental_suggestion": "Conduct a randomized controlled trial in patients with type 2 diabetes, obesity, and chronic heart failure. Compare tirzepatide vs. placebo, with both groups undergoing a protocolized, rapid GDMT up-titration strategy (e.g., based on STRONG-HF). Primary endpoint: composite of acute HF hospitalization or cardiovascular death. Key mechanistic secondary endpoints: serial lipoprotein profiles, biomarkers of HF stability (e.g., NT-proBNP), and proportion of patients achieving target GDMT doses.",
+                "relevance_to_query": "The query focuses on comparing the effectiveness of tirzepatide and semaglutide in patients with elevated CV risk. This hypothesis proposes a specific, testable mechanism (lipoprotein-mediated HF stability enabling intensive therapy) by which tirzepatide could provide superior cardiovascular outcomes, particularly in preventing acute HF, which is a major driver of morbidity and mortality in this population.",
+                "confidence": 0.75
+            },
+            {
+                "title": "Lipoprotein biomarkers as mediators of tirzepatide's effect on GDMT efficacy in HF",
+                "hypothesis": "The degree of improvement in specific lipoprotein biomarkers (e.g., apoB, LDL-C, triglycerides) induced by tirzepatide serves as a predictive biomarker for the success and safety of subsequent rapid GDMT up-titration in patients with chronic heart failure, mediating the drug's ultimate benefit on acute HF outcomes.",
+                "mechanism_explanation": "The path posits that tirzepatide improves lipoprotein biomarkers, which are then used to assess chronic heart failure. In this context, 'assess' can be interpreted as the biomarker level providing prognostic information about the HF state. A better biomarker profile (indicating less residual metabolic risk and inflammation) is associated with a higher likelihood of tolerating rapid GDMT up-titration. This successful treatment then directly targets acute HF. Thus, the lipoprotein change is not just a side effect but a mechanistic mediator that identifies patients who will benefit most from and safely receive intensive HF therapy.",
+                "experimental_suggestion": "Perform a prospective cohort study nested within a trial of rapid GDMT up-titration in patients with T2D and chronic HF. Measure detailed lipoprotein profiles (via NMR spectroscopy) at baseline and after 3 months of tirzepatide therapy. Analyze the association between the magnitude of lipoprotein improvement (e.g., reduction in triglyceride-rich lipoproteins) and (a) the achieved dose intensity of GDMT at 6 months, and (b) the risk of GDMT intolerance or adverse events (e.g., worsening renal function, hypotension) during up-titration.",
+                "relevance_to_query": "This hypothesis addresses the query's need for better evidence to guide treatment decisions. It suggests that monitoring lipoprotein response to tirzepatide could stratify patients who are optimal candidates for aggressive HF management, providing a personalized medicine approach to using incretin therapies in high-risk populations.",
+                "confidence": 0.7
+            },
+            {
+                "title": "Tirzepatide enables a synergistic treatment strategy for cardiometabolic-HF",
+                "hypothesis": "Tirzepatide creates a synergistic therapeutic loop for cardiometabolic heart failure: its direct improvement of atherogenic lipoproteins reduces myocardial and vascular strain, which stabilizes chronic HF and permits rapid optimization of GDMT; the enhanced GDMT then further improves hemodynamics and cardiac function, creating a more favorable metabolic environment that may augment tirzepatide's ongoing benefits, collectively preventing acute HF.",
+                "mechanism_explanation": "The path outlines a sequential but potentially reinforcing mechanism. Tirzepatide's action on lipoproteins (improve) positively influences the chronic HF state (assess/associate with). This improved stability is critically linked to (associate with) the feasibility of rapid GDMT intensification. The GDMT (treat) directly addresses acute HF. The hypothesis extends this by proposing that the improved cardiac output and reduced filling pressures from GDMT may improve systemic perfusion and insulin sensitivity, potentially enhancing the drug's metabolic effects (e.g., on lipoproteins), forming a positive feedback loop that sustains long-term benefit.",
+                "experimental_suggestion": "Design a mechanistic clinical trial with three arms: (1) Tirzepatide + standard GDMT titration, (2) Placebo + rapid GDMT titration (STRONG-HF protocol), (3) Tirzepatide + rapid GDMT titration. Use cardiac MRI and invasive hemodynamics at baseline and 6 months to measure changes in cardiac structure/function, vascular stiffness, and myocardial energetics. Correlate these changes with serial lipoproteinomics and insulin sensitivity measures (hyperinsulinemic-euglycemic clamp) to map the proposed synergistic interactions.",
+                "relevance_to_query": "The query seeks to understand the comparative effectiveness of incretin therapies. This hypothesis posits that tirzepatide's unique effect might not just be additive but synergistic with foundational HF therapies, suggesting its value could be greatest when integrated into an intensive, guideline-directed treatment paradigm for high-risk patients with intertwined metabolic and cardiac disease.",
+                "confidence": 0.65
+            }
+        ],
+        "contexts": "180. Wilson JM, Nikooienejad A, Robins DA, Roell WC, Riesmeyer JS, Haupt A, et al. The dual glucose-dependent insulinotropic peptide and glucagon-like peptide-1 receptor agonist, tirzepatide, improves lipoprotein biomarkers associated with insulin resistance and cardiovascular risk in patients with type 2 diabetes. Diabetes Obes Metab. (2020) 22:2451-9. doi: 10.1111/dom.14174\n181. Noguieras R, Pérez-Tilve D, Veyrat-Durebex C, Morgan DA, Varela L, Haynes WG, et al. Direct control of peripheral lipid deposition by CNS GLP-1 receptor signaling is mediated by the sympathetic nervous system and blunted in diet-induced obesity. J Neurosci. (2009) 29:5916-25. doi: 10.1523/JNEUROSCI.5977-08.2009\n182. Merchenthaler I, Lane M, Shughrue P. Distribution of pre-pro-glucagon and glucagon-like peptide-1 receptor messenger RNAs in the rat central nervous system. J Comp Neurol. (1999) 403:261-80. doi: 10.1002/(ISSN)1096-9861\n183. Ross CA, Ruggiero DA, Joh TH, Park DH, Reis DJ. Rostral ventrolateral medulla: selective projections to the thoracic autonomic cell column from the region containing C1 adrenaline neurons. J Comp Neurol. (1984) 228:168-85. doi: 10.1002/cne.902280204\n184. Gebhard B, Holst JJ, Biegelmayer C, Miholic J. Postprandial GLP-1, norepinephrine, and reactive hypoglycemia in dumping syndrome. *Dig Dis Sci.* (2001) 46:1915-23. doi: 10.1023/A:1010635131228\n185. Li X, Zhang D, Vatner DF, Goedeke L, Hirabara SM, Zhang Y, et al. Mechanisms by which adiponectin reverses high fat diet-induced insulin resistance in mice. Proc Natl Acad Sci U.S.A. (2020) 117:32584-93.\n186. Varol C, Zvibel I, Spektor L, Mantelmacher FD, Vugman M, Thurm T, et al. Long-acting glucose-dependent insulinotropic polypeptide ameliorates obesity-induced adipose tissue inflammation. J Immunol. (2014) 193:4002-9. doi: 10.4049/jimmunol.1401149\n187. Xiong X, Lu W, Qin X, Luo Q, Zhou W. Downregulation of the GLP-1/CREB/adiponectin pathway is partially responsible for diabetes-induced dysregulated vascular tone and VSMC dysfunction. BioMed Pharmacother. (2020) 127:110218. doi: 10.1016/j.biopa.2020.110218\n188. Simental-Mendia LE, Sanchez-Garcia A, Linden-Torres E, Simental-Mendia M. Impact of glucagon-like peptide-1 receptor agonists on adiponectin concentrations: A meta-analysis of randomized controlled trials. Br J Clin Pharmacol. (2021) 87:4140-9.\n189. Thomas MK, Nikooienejad A, Bray R, Cui X, Wilson J, Duffin K, et al. Dual GIP and GLP-1 receptor agonist tirzepatide improves beta-cell function and insulin sensitivity in type 2 diabetes. J Clin Endocrinol Metab. (2021) 106:388-96. doi: 10.1210/clinen/dgaa863\n190. Lee CJ, Mao H, Thieu VT, Lando LF, Thomas MK. Tirzepatide as monotherapy improved markers of beta-cell function and insulin sensitivity in type 2 diabetes (SURPASI-S). J Endocr Soc. (2023) 7:bvu0056. doi: 10.1210/jendoa/bvu0056\n191. Goralska J, Rázny U, Polus A, Dzirośniska A, Gruca A, Zdienicka A, et al. Enhanced GIP secretion in obesity is associated with biochemical alteration and miRNA contribution to the development of liver steatosis. Nutrients. (2020) 12. doi: 10.3390/nu12020476\n192. Pyke C, Heller RS, Kirk RK, Ørskov C, Reedtz-Runge S, Kaastrup P, et al. GLP-1 receptor localization in monkey and human tissue: novel distribution revealed with extensively validated monoclonal antibody. Endocrinology. (2014) 155:1280-90. doi: 10.1210/en.2013-1934\n193. Panjwani N, Mulvihill EE, Longuet C, Yusta B, Campbell JE, Brown TJ, et al. GLP-1 receptor activation indirectly reduces hepatic lipid accumulation but does not attenuate development of atherosclerosis in diabetic male ApoE(-/-) mice. Endocrinology. (2013) 154:127-39. doi: 10.1210/en.2012-1937\n194. Rakipovski G, Rolin B, Nøhr J, Klewe I, Frederiksen KS, Augustin R, et al. The GLP-1 analogs liraglutide and semaglutide reduce atherosclerosis in apoE. JACC Basic Transl Sci. (2018) 3:844-57. doi: 10.1016/j.jacbts.2018.09.004\n195. Ben-Shlomo S, Zvibel I, Shnell M, Shlomai A, Chepurko E, Halpern Z, et al. Glucagon-like peptide-1 reduces hepatic lipogenesis via activation of AMP-activated protein kinase. J Hepatol. (2011) 54:1214-23. doi: 10.1016/j.jhep.2010.09.032\n196. Weyer C, Funahashi T, Tanaka S, Hotta K, Matsuzawa Y, Pratley RE, et al. Hypoadiponectinemia in obesity and type 2 diabetes: close association with insulin resistance and hyperinsulinemia. J Clin Endocrinol Metab. (2001) 86:1930-5. doi: 10.1210/jcen.86.5.7463\n197. Sposito AC, Berwanger O, de Carvalho LSF, Saraiva JFK. GLP-1RAs in type 2 diabetes: mechanisms that underlie cardiovascular effects and overview of cardiovascular outcome data. Cardiovasc Diabetol. (2018) 17:157. doi: 10.1186/s12933-018-0800-2\n198. Meier JJ, Gethmann A, Götze O, Galwitz B, Holst JJ, Schmidt WE, et al. Glucagon-like peptide 1 abolishes the postprandial rise in triglyceride concentrations and lowers levels of non-esterified fatty acids in humans. Diabetologia. (2006) 49:452-8. doi: 10.1007/s00125-005-0126-y\n199. Lincoff AM, Brown-Frandsen K, Colhoun HM, Deanfield J, Emerson SS, Esburg S, et al. Semaglutide and cardiovascular outcomes in obesity without diabetes. N Engl J Med. (2023) 389:2221-32. doi: 10.1056/NEJMoa2307563\n200. Iastreboff AM, Aronne LJ, Ahmad NN, Wharton S, Connery L, Alves B, et al. Tirzepatide once weekly for the treatment of obesity. N Engl J Med. (2022) 387:205-16. doi: 10.1056/NEJMoa2206038\n201. Armstrong MJ, Gaunt P, Aithal GP, Barton D, Hull D, Parker R, et al. Liraglutide safety and efficacy in patients with non-alcoholic steatohepatitis (LEAN): a multicentre, double-blind, randomised, placebo-controlled phase 2 study. Lancet. (2016) 387:679-90. doi: 10.1016/S0140-6736(15)00803-X\n202. Newsome PN, Buchholtz K, Cusi K, Linder M, Okanoue Y, Ratziu V, et al. A placebo-controlled trial of subcutaneous semaglutide in nonalcoholic steatohepatitis. N Engl J Med. (2021) 384:1113-24. doi: 10.1056/NEJMoa2028395\n203. Loomba R, Hartman ML, Lawitz EJ, Vuppalanchi R, Boursier J, Bugianesi E, et al. Tirzepatide for metabolic dysfunction-associated steatohepatitis with liver fibrosis. N Engl J Med. (2024). doi: 10.1056/NEJMoa2401943\n204. Skov J, Dejgaard A, Frøkær J, Holst JJ, Jonassen T, Rittig S, et al. Glucagon-like peptide-1 (GLP-1): effect on kidney hemodynamics and renin-angiotensin-aldosterone system in healthy men. J Clin Endocrinol Metab. (2013) 98:E664-71. doi: 10.1210/jc.2012-3855\n205. Kim M, Platt MJ, Shibasaki T, Quaggin SE, Backx PH, Seino S, et al. GLP-1 receptor activation and Epac3 link atrial natriuretic peptide secretion to control of blood pressure. Nat Med. (2013) 19:567-75. doi: 10.1038/nm.3128\n206. Smits MM, Ten Kulve JS, van Bloemendaal L, Tonneijck L, Musker MHA, Kramer MHH, et al. GLP-1 receptor agonists do not affect sodium intake: Exploratory analyses from two randomized clinical trials. Nutrition. (2019) 67-68:110524. doi: 10.1016/j.nut.2019.06.005\n207. Gutzwiller JP, Tschopp S, Bock A, Zehnder CE, Huber AR, Kreyenbuehl M, et al. Glucagon-like peptide 1 induces natriuresis in healthy subjects and in insulin-resistant obese men. J Clin Endocrinol Metab. (2004) 89:3055-61. doi: 10.1210/jc.2003-031403\n208. Lovshin JA, Barnie A, DeAlmeida A, Logan A, Zinman B, Drucker DJ. Liraglutide promotes natriuresis but does not increase circulating levels of atrial natriuretic peptide in hypertensive subjects with type 2 diabetes. Diabetes Care. (2015) 38:132-9. doi: 10.2337/dc14-1958\n209. Gallwitz B, Vaag A, Palahati A, Madsbad S. Adding liraglutide to oral antidiabetic drug therapy: onset of treatment effects over time. Int J Clin Pract. (2010) 64:267-76. doi: 10.1111/j.1742-1241.2009.02265.x\n210. Yang W, Chen L, Ji Q, Liu X, Ma J, Tandon N, et al. Liraglutide provides similar glycaemic control as glimepiride (both in combination with metformin) and reduces body weight and systolic blood pressure in Asian population with type 2 diabetes from China, South Korea and India: a 16-week, randomized, double-blind, active control trial(*). Diabetes Obes Metab. (2011) 13:81-8. doi: 10.1111/dom.2011.13.issue-1\n211. de Lemos JA, Linetzky B, le Roux CW, Laflin LJ, Vongputanasin W, Fan L, et al. Tirzepatide reduces 24-hour ambulatory blood pressure in adults with body mass index  $\\geq 27\\mathrm{kg / m}$ . Hypertension. (2024).\n212. Buse JB, Henry RR, Han J, Kim DD, Fineman MS, Baron AD, et al. Effects of exenatide (exendin-4) on glycemic control over 30 weeks in sulfonylurea-treated patients with type 2 diabetes. Diabetes Care. (2004) 27:2628-35. doi: 10.2337/diacare.27.11.2628\n213. DeFronzo RA, Ratner RE, Han J, Kim DD, Fineman MS, Baron AD. Effects of exenatide (exendin-4) on glycemic control and weight over 30 weeks in metformin-treated patients with type 2 diabetes. Diabetes Care. (2005) 28:1092-100. doi: 10.2337/diacare.28.5.1092\n214. Guja C, Frias JP, Somogyi A, Jabbour S, Wang H, Hardy E, et al. Effect of exenatide QW or placebo, both added to titrated insulin glargine, in uncontrolled type 2 diabetes: The DURATION-7 randomized study. Diabetes Obes Metab. (2018) 20:1602-14. doi: 10.1111/dom.13266\n215. Bolli GB, Munteanu M, Dotsenko S, Niemoeller E, Boka G, Wu Y, et al. Efficacy and safety of lixisenatide once daily vs. placebo in people with Type 2 diabetes insufficiently controlled on metformin (GetGoal-F1). Diabetes Med. (2014) 31:176-84. doi: 10.1111/dme.12328\n216. Riddle MC, Aronson R, Home P, Marre M, Niemoeller E, Miossec P, et al. Adding once-daily lixisenatide for type 2 diabetes inadequately controlled by established basal insulin: a 24-week, randomized, placebo-controlled comparison (GetGoal-L). Diabetes Care. (2013) 36:2489-96. doi: 10.2337/dc12-2454\n217. Reusch J, Stewart MW, Perkins CM, Cirkel DT, Ye J, Perry CR, et al. Efficacy and safety of once-weekly glucagon-like peptide 1 receptor agonist albiglutide (HARMONY 1 trial): 52-week primary endpoint results from a randomized, double-blind, placebo-controlled trial in patients with type 2 diabetes mellitus not controlled on pioglitazone, with or without metformin. Diabetes Obes Metab. (2014) 16:1257-64. doi: 10.1111/dom.12382\n218. Wysham C, Blevins T, Arakaki R, Colon G, Garcia P, Atisso C, et al. Efficacy and safety of dulaglutide added onto pioglitazone and metformin versus exenatide in type 2 diabetes in a randomized controlled trial (AWARD-1). Diabetes Care. (2014) 37 (8):2159-67. doi: 10.2337/dc13-2760\n219. Marre M, Shaw J, Brändle M, Behakar WM, Kamaruddin NA, Strand J, et al. Liraglutide, a once-daily human GLP-1 analogue, added to a sulphonylurea over 26 weeks produces greater improvements in glycaemic and weight control compared with adding rosiglitazone or placebo in subjects with Type 2 diabetes (LEAD-1 SU). Diabetes Med. (2009) 26:268-78. doi: 10.1111/j.1464-5491.2009.02666.x\n220. Sorli C, Harashima SI, Tsoukas GM, Unger J, Karsbøl JD, Hansen T, et al. Efficacy and safety of once-weekly semaglutide monotherapy versus placebo in patients with type 2 diabetes (SUSTAIN 1): a double-blind, randomised, placebo-controlled, parallel-group, multinational, multicentre phase 3a trial. Lancet Diabetes Endocrinol. (2017) 5:251-60. doi: 10.1016/S2213-8587(17)30013-X\net al. Venoarterial extracorporeal membrane oxygenation in patients with infarct-related cardiogenic shock: An individual patient data meta-analysis of randomised trials. The Lancet. 2023;402:1338-1346. doi:10.1016/S0140-6736(23)01607-0\n389. Park H, Yang JH, Ahn JM, Kang DY, Lee PH, Kim TO, et al. Early left atrial venting versus conventional treatment for left ventricular decompression during venoarterial extracorporeal membrane oxygenation support: The EVOLVE-ECMO randomized clinical trial. Eur J Heart Fail 2023;25: 2037-2046. doi:10.1002/ejhf.3014\n390. Varshney AS, Berg DD, Zhou G, Sinnenberg L, Hirji S, DeFilippis EM, et al. Bridging strategies and cardiac replacement outcomes in patients with acute decompensated heart failure-related cardiogenic shock. Eur J Heart Fail 2023;25:425-435. doi:10.1002/EJHF.2762\n391. Schrage B, Lund LH, Benson L, Braunschweig F, Ferreira JP, Dahlstrom U, et al. Association between a hospitalization for heart failure and the initiation/discontinuation of guideline-recommended treatments: An analysis from the Swedish Heart Failure Registry. Eur J Heart Fail 2023;25:25-1144. doi:10.1002/EJHF.2928\n392. Mebazaa A, Davison B, Chioncel O, Cohen-Solal A, Diaz R, Filippatos G, et al. Safety, tolerability and efficacy of up-titration of guideline-directed medical therapies for acute heart failure (STRONG-HF): A multinational, open-label, randomised, trial. Lancet (London, England) 2022;400: 1938-1952. doi:10.1016/S0140-6736(22)02076-1\n393. Cotter G, Deniau B, Davison B, Edwards C, Adamo M, Arrigo M, et al. Optimization of evidence-based heart failure medications after an acute heart failure admission: A secondary analysis of the STRONG-HF randomized clinical trial. JAMA Cardiol 2024;9:114-124. doi:10.1001/jamacardio.2023.4553\n394. Arrigo M, Biegus J, Asakage A, Mebazaa A, Davison B, Edwards C, et al. Safety, tolerability and efficacy of up-titration of guideline-directed medical therapies for acute heart failure in elderly patients: A sub-analysis of the STRONG-HF randomized clinical trial. Eur J Heart Fail 2023;25: 1145-1155. doi:10.1002/EJHF.2920\n395. Pagnesi M, Metra M, Cohen-Solal A, Edwards C, Adamo M, Tomasoni D, et al. Uptitrating treatment after heart failure hospitalization across the spectrum of left ventricular ejection fraction. J Am Coll Cardiol 2023;81: 2131-2144. doi:10.1016/j.jacc.2023.03.426\n396. Adamo M, Pagnesi M, Mebazaa A, Davison B, Edwards C, Tomasoni D, et al. NT-proBNP and high intensity\n\ncare for acute heart failure: The STRONG-HF trial. Eur Heart J 2023; 44:2947-2962. doi:10.1093/eurheartj/ehad335\n397. Pagnesi M, Vilamajo OAG, Meirino A, Dumont CA, Mebazaa A, Davison B, et al. Blood pressure and intensive treatment up-titration after acute heart failure hospitalization: Insights from the STRONG-HF trial. Eur J Heart Fail 2024; doi:10.1002/ejhf.3174\n398. Celutkiene J, Cerlinskaite-Bajore K, Cotter G, Edwards C, Adamo M, Arrigo M, et al. Impact of rapid up-titration of guideline-directed medical therapies on quality of life: Insights from the STRONG-HF trial. Circ Heart Fail 2024;17:e011221. doi:10.1161/CIRCHEARTFAILURE.123.011221\n399. Ter Maaten JM, Mebazaa A, Davison B, Edwards C, Adamo M, Arrigo M, et al. Early changes in renal function during rapid up-titration of guideline-directed medical therapy following an admission for acute heart failure. Eur J Heart Fail 2023;25:2230-2242. doi:10.1002/ejhf.3074\n400. Kerwagen F, Koehler K, Vettorazzi E, Stangl V, Koehler M, Halle M, et al. Remote patient management of heart failure across the ejection fraction spectrum: A pre-specified analysis of the TIM-HF2 trial. Eur J Heart Fail 2023;25:1671-1681. doi:10.1002/ejhf.2948\n401. Zito A, Princi G, Romiti GF, Galli M, Basili S, Liuzzo G, et al. Device-based remote monitoring strategies for congestion-guided management of patients with heart failure: A systematic review and meta-analysis. Eur J Heart Fail 2022;24:2333-2341. doi:10.1002/ejhf.2655\n402. Assmus B, Angermann CE, Alkhlout B, Asselbergs FW, Schnupp S, Brugts JJ, et al. Effects of remote haemodynamic-guided heart failure management in patients with different subtypes of pulmonary hypertension: Insights from the MEMS-HF study. Eur J Heart Fail 2022;24:2320-2330. doi:10.1002/EJHF.2656\n403. Brugts JJ, Radhoe SP, Clephas PRD, Aydin D, van Gent MWF, Szymanski MK, et al. Remote haemodynamic monitoring of pulmonary artery pressures in patients with chronic heart failure (MONITOR-HF): A randomised clinical trial. The Lancet. 2023;401: 2113-2123. doi:10.1016/S0140-6736(23)00923-6\n404. D'Amario D, Meerkin D, Restivo A, Ince H, Sievert H, Wiese A, et al. Safety, usability, and performance of a wireless left atrial pressure monitoring system in patients with heart failure: The VECTOR-HF trial. Eur J Heart Fail 2023;25:902-911. doi:10.1002/EJHF.2869\n405. Ivey-Miranda JB, Wetterling F, Gaul R, Sheridan S, Asher JL, Rao VS, et al.\n\nESC Heart Failure 2025; 12: 8-42\n\nDOI: 10.1002/ehf2.14857\n\nA. Beghini et al.\n\nChanges in inferior vena cava area represent a more sensitive metric than changes in filling pressures during experimental manipulation of intravascular volume and tone. Eur J Heart Fail\n\n2022;24:455-462. doi:10.1002/EJHF.2395\n406. Sheridan WS, Wetterling F, Testani JM, Borlaug BA, Fudim M, Damman K, et al. Safety and performance of a novel im\n\nplantable sensor in the inferior vena cava under acute and chronic intravascular volume modulation. Eur J Heart Fail 2023;25:754-763. doi:10.1002/EJHF.2822\n\nESC Heart Failure 2025; 12: 8-42\n\nDOI: 10.1002/ehf2.14857\n107. Surendra K, Nurnberg S, Bremer JP, Knorr MS, Uckert F, Wenzel JP, et al. Pragmatic screening for heart failure in the general population using an electrocardiogram-based neural network. ESC Heart Fail. 2023;10:975-984.\n108. de la Espriella R, Amiguet M, Minana G, Rodriguez JC, Moyano P, Segarra D, et al. Bending oxygen saturation index and risk of worsening heart failure events in chronic heart failure. Eur J Heart Fail 2022;24:2108-2117. doi:10.1002/ejhf.2651\n109. Anker MS, Potthoff SK, Lena A, Porthun J, Hadzibegovic S, Evertz R, et al. Cardiovascular health-related quality of life in cancer: A prospective study comparing the ESC HeartQoL and EORTC QLQ-C30 questionnaire. Eur J Heart Fail 2023;25:1635-1647. doi:10.1002/ejhf.2951\n110. Bhatt AS, Kosiborod MN, Vaduganathan M, Claggett BL, Miao ZM, Kulac LJ, et al. Effect of dapagliflozin on health status and quality of life across the spectrum of ejection fraction: Participant-level pooled analysis from the DAPA-HF and DELIVER trials. Eur J Heart Fail 2023;25:981-988. doi:10.1002/ejhf.2909\n111. Butler J, Spertus JA, Bamber L, Khan MS, Roessig L, Vlajnic V, et al. Defining changes in physical limitation from the patient perspective: Insights from the VITALITY-HFpEF randomized trial. Eur J Heart Fail 2022;24:843-850. doi:10.1002/ejhf.2481\n112. Johansson I, Balasubramanian K, Bangdiwala S, Melniczuk L, Hage C, Sharma SK, et al. Factors associated with health-related quality of life in heart failure in 23 000 patients from 40 countries: Results of the G-CHF research programme. Eur J Heart Fail 2022;24:1478-1490. doi:10.1002/ejhf.2535\n113. Lindberg F, Lund LH, Benson L, Dahlstrom U, Karlstrom P, Linde C, et al. Trajectories in New York Heart Association functional class in heart failure across the ejection fraction spectrum: Data from the Swedish Heart Failure Registry. Eur J Heart Fail 2022; 24:2093-2104. doi:10.1002/ejhf.2644\n114. Savarese G, Lindenfeld J, Stolfo D, Adams K, Ahmad T, Desai NR, et al. Use of patient-reported outcomes in heart failure: From clinical trials to routine practice. Eur J Heart Fail 2023;25: 139-151. doi:10.1002/ejhf.2778\n115. Zannad F, Alikhaani J, Alikhaani S, Butler J, Gordon J, Jensen K, et al. Patient-reported outcome measures and patient engagement in heart failure clinical trials: Multi-stakeholder perspectives. Eur J Heart Fail 2023;25: 478-487. doi:10.1002/ejhf.2828\n116. Bayes-Genis A, Aimo A, Jhund P, Richards M, de Boer RA, Arfsten H, et al. Biomarkers in heart failure clinical trials. A review from the Biomarkers\n\nWorking Group of the Heart Failure Association of the European Society of Cardiology. Eur J Heart Fail 2022;24: 1767-1777. doi:10.1002/ejhf.2675\n117. Klingenberg R, Holtkamp F, Grün D, Frey A, Jahns V, Jahns R, et al. Use of serial changes in biomarkers vs. baseline levels to predict left ventricular remodelling after STEMI. ESC Heart Fail 2023;10:432-441.\n118. Aleshcheva G, Baumeier C, Harms D, Bock C-T, Escher F, Schulthesis H-P. MicroRNAs as novel biomarkers and potential therapeutic options for inflammatory cardiomyopathy. ESC Heart Fail. 2023;10:3410-3418. doi:10.1002/ehf2.14523\n119. Oyama K, Giugliano RP, Ruff CT, Berg DD, Jarolim P, Tang M, et al. Serial assessment of biomarkers and heart failure outcomes in patients with atrial fibrillation. Eur J Heart Fail 2023;25: 832-841. doi:10.1002/ejhf.2844\n120. Pocock SJ, Ferreira JP, Packer M, Zannad F, Filippatos G, Kondo T, et al. Biomarker-driven prognostic models in chronic heart failure with preserved ejection fraction: The EMPEROR-Preserved trial. Eur J Heart Fail 2022;24: 1869-1878. doi:10.1002/EJHF.2607\n121. McDowell K, Campbell R, Simpson J, Cunningham JW, Desai AS, Jhund PS, et al. Incremental prognostic value of biomarkers in PARADIGM-HF. Eur J Heart Fail 2023;25:1406-1414. doi:10.1002/EJHF.2887\n122. Bayes-Genis A, Lupón J, Revuelta-Lopez E, Llibre C, Gastelurrutia P, Domingo M, et al. Evolocumab has no effects on heart failure with reduced ejection fraction injury biomarkers: The EVO-HF trial. Eur J Heart Fail 2023;25:1439-1443. doi:10.1002/ejhf.2932\n123. Tsutsui H, Albert NM, Coats AJS, Anker SD, Bayes-Genis A, Butler J, et al. Natriuretic peptides: Role in the diagnosis and management of heart failure: A scientific statement from the Heart Failure Association of the European Society of Cardiology, Heart Failure Society of America and Japanese Heart Failure Society. Eur J Heart Fail 2023; 25:616-631. doi:10.1002/EJHF.2848\n124. Myhre PL, Liu Y, Kulac LJ, Claggett BL, Prescott MF, Felker GM, et al. Changes in mid-regional pro-adrenomedullin during treatment with sacubitril/valsartan. Eur J Heart Fail 2023;25: 1396-1405. doi:10.1002/ejhf.2957\n125. Parvan R, Hosseinpour M, Moradi Y, Devaux Y, Cataliotti A, da Silva GJJ. Diagnostic performance of microRNAs in the detection of heart failure with reduced or preserved ejection fraction: A systematic review and meta-analysis. Eur J Heart Fail 2022;24:2212-2225. doi:10.1002/ejhf.2700\n126. Wagh V, Nguemo F, Kiseleva Z, Mader RM, Hescheler J, Mohl W. Circulating microRNAs and cardiomyocyte prolif\n\nESC Heart Failure 2025; 12: 8-42\n\nDOI: 10.1002/ehf2.14857\n\nA. Beghini et al.\n\neration in heart failure patients related to 10 years survival. ESC Heart Fail. 2023;10:3559-3572.\n",
+        "modified_hypotheses": [
+            {
+                "title": "Integrated Cardiometabolic and Hemodynamic Benefits of Incretin-Based Therapies",
+                "hypothesis": "Tirzepatide and semaglutide exert superior cardiovascular benefits in high-risk patients through a synergistic, multi-organ mechanism that integrates direct metabolic improvements (enhanced insulin sensitivity, reduced hepatic lipogenesis, increased adiponectin) with indirect hemodynamic regulation (natriuresis, blood pressure reduction, sympathetic nervous system modulation), leading to comprehensive attenuation of atherosclerosis, myocardial stress, and vascular dysfunction beyond what would be predicted from glycemic control or weight loss alone.",
+                "mechanism_explanation": "The provided contexts describe multiple parallel and interconnected pathways: 1) Direct metabolic actions (GLP-1/GIP receptor agonism improves beta-cell function, insulin sensitivity, reduces hepatic lipid accumulation via AMPK, and increases adiponectin secretion, reversing insulin resistance and inflammation). 2) Central nervous system-mediated effects (CNS GLP-1R signaling influences peripheral lipid deposition via the sympathetic nervous system, connecting to cardiovascular autonomic control). 3) Cardiovascular and renal hemodynamic effects (GLP-1R activation promotes natriuresis, potentially via atrial natriuretic peptide, and reduces blood pressure, with evidence from both GLP-1RAs and tirzepatide). 4) Direct anti-atherosclerotic effects (GLP-1 analogs reduce atherosclerosis in models). These distinct mechanistic arms—metabolic, autonomic, hemodynamic, and vascular—are not isolated but interact (e.g., improved insulin sensitivity and adiponectin reduce vascular inflammation and dysfunction, while natriuresis and BP reduction decrease cardiac afterload and myocardial oxygen demand). The dual GIP/GLP-1 receptor agonism of tirzepatide may amplify these integrated effects compared to selective GLP-1RAs like semaglutide, particularly in metabolic pathways.",
+                "experimental_suggestion": "Conduct a randomized, controlled trial in patients with type 2 diabetes and elevated CV risk, comparing tirzepatide, semaglutide, and placebo. Use serial, multi-modal assessments: 1) Metabolic (hyperinsulinemic-euglycemic clamps, hepatic fat quantification by MRI-PDFF, adiponectin levels), 2) Hemodynamic (24-hour ambulatory BP, invasive hemodynamics or non-invasive cardiac output monitoring to assess systemic vascular resistance, renal sodium handling studies), 3) Vascular (carotid IMT, endothelial function via flow-mediated dilation, coronary CT angiography for plaque burden), and 4) Biomarker panels (NT-proBNP, hs-CRP, ANP). Correlate early changes (e.g., at 3-6 months) in these integrated parameters with long-term hard CV outcomes (MACE) and heart failure hospitalizations over 2-3 years to establish causal mechanistic links to effectiveness.",
+                "relevance_to_query": "The user's query focuses on comparing the real-world effectiveness of tirzepatide and semaglutide in patients with elevated cardiovascular risk, acknowledging the lack of head-to-head trials. This comprehensive hypothesis provides a mechanistic framework for why these drugs might differ in their effectiveness, moving beyond indirect comparisons of trial results. It suggests that superior effectiveness for one agent may stem from a more potent or balanced activation of the integrated metabolic-hemodynamic-vascular axis, which could be differentially engaged in the heterogeneous populations described in the user's cohort studies (e.g., those with obesity, diabetes, and varying degrees of heart failure risk). Testing this hypothesis would directly inform the biological plausibility underlying any effectiveness differences observed in the user's real-world analyses.",
+                "confidence": 0.85
+            }
+        ]
+    }
+]

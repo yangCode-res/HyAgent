@@ -11,7 +11,7 @@ from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
-
+from tqdm import tqdm
 
 class PathExtractionAgent(Agent):
     """
@@ -79,37 +79,73 @@ class PathExtractionAgent(Agent):
         - 以每个实体为起点搜索路径，
         - 将找到的路径写回 Memory。
         - 最后输出一张简洁的表格日志：每个起点对应的路径长度。
+        （已加入进度条 / 进度日志）
         """
         keyword_entity_map = self.memory.get_keyword_entity_map()
-        summary_rows: List[Dict[str, Any]] = []
 
+        # 先扁平化成任务列表，方便统计总数和做进度条
+        tasks: List[Tuple[str, Any]] = []
         for keyword, ent_list in keyword_entity_map.items():
             for ent_data in ent_list:
-                if isinstance(ent_data, KGEntity):
-                    start_entity = ent_data
-                else:
-                    start_entity = KGEntity(**ent_data)
+                tasks.append((keyword, ent_data))
 
-                node_path, edge_path = self.find_path_with_edges(
-                    start=start_entity,
-                    k=self.k,
-                    adj=self.knowledge_graph.Graph,
-                )
+        if not tasks:
+            self.logger.info("[PathExtraction] No key entities found to extract paths.")
+            return
 
-                if node_path:
-                    path_len = len(node_path)
-                    # 写回 Memory
-                    self.memory.add_extracted_path(keyword, node_path, edge_path)
-                else:
-                    path_len = 0
+        total = len(tasks)
+        summary_rows: List[Dict[str, Any]] = []
 
-                summary_rows.append(
-                    {
-                        "keyword": keyword,
-                        "entity_name": getattr(start_entity, "name", "") or "",
-                        "entity_id": getattr(start_entity, "entity_id", "") or "",
-                        "path_len": path_len,
-                    }
+        # 尝试使用 tqdm 进度条；如果环境里没有 tqdm，则退化为普通循环 + 进度日志
+        try:
+            from tqdm import tqdm  # type: ignore
+            iterator = tqdm(tasks, desc="Extracting KG paths", unit="entity")
+            use_tqdm = True
+            self.logger.info(
+                f"[PathExtraction] Start extracting paths for {total} entities (k={self.k}) with tqdm progress bar."
+            )
+        except Exception:
+            iterator = tasks
+            use_tqdm = False
+            self.logger.info(
+                f"[PathExtraction] Start extracting paths for {total} entities (k={self.k}). "
+                f"tqdm not available, fallback to periodic log updates."
+            )
+
+        for idx, (keyword, ent_data) in enumerate(iterator, start=1):
+            # 保持原来的实体构造逻辑
+            if isinstance(ent_data, KGEntity):
+                start_entity = ent_data
+            else:
+                start_entity = KGEntity(**ent_data)
+
+            node_path, edge_path = self.find_path_with_edges(
+                start=start_entity,
+                k=self.k,
+                adj=self.knowledge_graph.Graph,
+            )
+
+            if node_path:
+                path_len = len(node_path)
+                # 写回 Memory
+                self.memory.add_extracted_path(keyword, node_path, edge_path)
+            else:
+                path_len = 0
+
+            summary_rows.append(
+                {
+                    "keyword": keyword,
+                    "entity_name": getattr(start_entity, "name", "") or "",
+                    "entity_id": getattr(start_entity, "entity_id", "") or "",
+                    "path_len": path_len,
+                }
+            )
+
+            # 如果没有 tqdm，就每 N 个任务打印一次进度
+            if not use_tqdm and (idx % 20 == 0 or idx == total):
+                pct = idx / total * 100
+                self.logger.info(
+                    f"[PathExtraction] Progress: {idx}/{total} entities processed ({pct:.1f}%)."
                 )
 
         # 统一输出一个总表
