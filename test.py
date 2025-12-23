@@ -3,7 +3,7 @@ import numpy as np
 from transformers import AutoTokenizer, AutoModel
 from typing import List
 import math
-class BioBertTester:
+class SapBertTester:
     def __init__(self, model_path: str):
         self.model_path = model_path
         self.device = self._get_device()
@@ -80,7 +80,7 @@ class BioBertTester:
             return_tensors="pt",
             padding=True,
             truncation=True,
-            max_length=128
+            max_length=256
         )
 
         # 关键：确保数据也移动到了选定的 device (例如 cuda:5)
@@ -91,6 +91,34 @@ class BioBertTester:
             vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
         return vec
 
+    def get_main_pooling(self,texts:List[str])->np.ndarray:
+        if not texts:
+            return np.array([])
+
+        print(f"🔄 Encoding {len(texts)} texts...")
+        
+        inputs = self.tokenizer(
+            texts,
+            return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=256
+        )
+
+        # 关键：确保数据也移动到了选定的 device (例如 cuda:5)
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+        with torch.no_grad():
+            outputs = self.model(**inputs)
+            hidden_states = outputs.last_hidden_state  # (batch_size, seq_len, hidden_size)
+            attention_mask = inputs['attention_mask']  # (batch_size, seq_len)
+
+            input_mask_expanded = attention_mask.unsqueeze(-1).expand(hidden_states.size()).float()
+            sum_embeddings = torch.sum(hidden_states * input_mask_expanded, 1)
+            sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+            vec = (sum_embeddings / sum_mask).cpu().numpy()
+        return vec
+    
     def compute_similarity(self, vec_a, vec_b):
         vec_a = np.array(vec_a)
         vec_b = np.array(vec_b)
@@ -113,40 +141,52 @@ class BioBertTester:
 #              测试入口
 # ==========================================
 if __name__ == "__main__":
-    MODEL_PATH = "/home/nas2/path/models/biobert-base-cased-v1.1" 
+    MODEL_PATH = "/home/nas2/path/models/SapBERT-from-PubMedBERT-fulltext" 
 
-    tester = BioBertTester(MODEL_PATH)
+    tester = SapBertTester(MODEL_PATH)
 
-    word1 = "ARNI"
-    word2 = "Tirzepatide" 
-    word3 = "Femur"
-    word4 = "Fractured bone"
+    word1 = "Tirzepatide"
+    word2 = "[UNK]"
+    word3 = "diarrhea"
+    word4 = "Semaglutide"
 
-    all_texts = [word1, word2, word3, word4]
+    sentence=word1+"[SEP]"+"Tirzepatide is a novel medication that combines dual action on the GIP and GLP-1 receptors, designed to improve blood sugar control and promote weight loss in individuals with type 2 diabetes."
+    sentence2=word4+"[SEP]"+"Semaglutide is a GLP-1 receptor agonist that helps regulate blood sugar levels and support weight loss in people with type 2 diabetes, while also reducing the risk of cardiovascular events."
+    sentence_unrelated="The mitochondrion is a double-membrane-bound organelle found in most eukaryotic organisms. Mitochondria generate most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy."
+    sentence3 = "diabetes"+"[SEP]"+"Diabetes is a chronic condition where the body either cannot produce enough insulin or cannot effectively use the insulin it produces, leading to high blood sugar levels."
+    all_texts = [word1, word2,word3,word4]
     
-    embeddings = tester.get_embeddings(all_texts)
-    
+    embeddings = tester.get_main_pooling(all_texts)
+
     vec1 = embeddings[0]
     vec2 = embeddings[1]
     vec3 = embeddings[2]
     vec4 = embeddings[3]
-
+    vec1_pooling=tester.get_main_pooling([word1])[0]
+    sentence_pooling=tester.get_main_pooling([sentence])[0]
+    sentence2_pooling=tester.get_main_pooling([sentence2])[0]
+    sentence3_pooling=tester.get_main_pooling([sentence3])[0]
+    sentence_unrelated_pooling=tester.get_main_pooling([sentence_unrelated])[0]
     print("\n" + "="*40)
     print("🧪 Similarity Test Results")
     print("="*40)
 
-    sim_high = tester.compute_similarity(vec1, vec2)
-    sim_low = tester.compute_similarity(vec3, vec4)
-    sim_cross = tester.compute_similarity(vec1, vec3)
+    sim_sentence2=tester.compute_similarity(sentence_pooling, sentence2_pooling)
+    sim_unrelated=tester.compute_similarity(sentence_pooling, sentence_unrelated_pooling)
+    # Tirzepatide+描述 vs 认识的 diabetes（统一采用 mean pooling 以保持可比性）
+    diabetes_pooling = tester.get_main_pooling([sentence3])[0]
+    sim_sentence_diabetes = tester.compute_similarity(sentence_pooling, diabetes_pooling)
 
-    print(f"1️⃣  Pair: '{word1}' vs '{word2}'")
-    print(f"   Similarity: {sim_high:.4f}")
-    print("-" * 40)
+    print(f"5️⃣  Pair: Sentence1 vs Sentence2")
+    print(f"   Similarity: {sim_sentence2:.4f}")
+    print("="*40 + "\n")
 
-    print(f"2️⃣  Pair: '{word3}' vs '{word4}'")
-    print(f"   Similarity: {sim_low:.4f}")
-    print("-" * 40)
+    print(f"6️⃣  Pair: Sentence1 vs Unrelated Sentence")
+    print(f"   Similarity: {sim_unrelated:.4f}")
+    print("="*40 + "\n")
+
+    print(f"7️⃣  Pair: Sentence1 (Tirzepatide+desc) vs Diabetes+description")
+    print(f"   Similarity: {sim_sentence_diabetes:.4f}")
+    print("="*40 + "\n")
+
     
-    print(f"3️⃣  Pair: '{word1}' vs '{word3}'")
-    print(f"   Similarity: {sim_cross:.4f}")
-    print("="*40)
