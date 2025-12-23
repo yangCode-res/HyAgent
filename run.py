@@ -22,7 +22,7 @@ from Agents.Task_scheduler.index import TaskSchedulerAgent
 from Agents.Query_clarify.index import QueryClarifyAgent
 from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
-from Agents.KeywordEntitySearchAgent.test import KeywordEntitySearchAgent
+from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
 from Agents.Path_extraction.penalty import PathExtractionAgent
 from Agents.ReflectionAgent.index import ReflectionAgent
 from Logger.index import get_global_logger

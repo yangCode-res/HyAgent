@@ -6,7 +6,7 @@ Nat Rev Endocrinol. Author manuscript; available in PMC 2024 January 23.
 
 Published in final edited form as:
 
-Nat Rev Endocrinol. 2023 March; 19(3): 164-176. doi:10.1038/s41574-022-00757-5.
+Nat Rev Endocrinol. 2023 March ; 19(3): 164-176. doi:10.1038/s41574-022-00757-5.
 
 # Glucose metabolism after bariatric surgery: implications for T2DM remission and hypoglycaemia
 

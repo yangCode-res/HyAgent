@@ -1,3 +1,4 @@
+from difflib import SequenceMatcher
 from enum import unique
 import math
 import json
@@ -11,7 +12,7 @@ import faiss
 from transformers import AutoModel, AutoTokenizer
 
 from Store.index import get_memory
-from Config.index import BioBertPath
+from Config.index import BioBertPath,pubmedbertPath
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory
@@ -67,7 +68,7 @@ class KeywordEntitySearchAgent(Agent):
         self.id2entity={}#faiss index 2 entity
         self.str_2_entity={}#entity name 2 KGEntity
         # SapBERT 相关
-        self.Sapbert_dir = BioBertPath
+        self.Sapbert_dir = pubmedbertPath
         self.Sapbert_model = None
         self.Sapbert_tokenizer = None
         self.device='cpu'
@@ -94,8 +95,10 @@ class KeywordEntitySearchAgent(Agent):
                 continue
             if object is None:
                 continue
-            subject=KGEntity(**subject)
-            object=KGEntity(**object)
+            if isinstance(subject,dict):
+                subject=KGEntity(**subject)
+            if isinstance(object,dict):
+                object=KGEntity(**object)
             self.str_2_entity[subject.name]=subject
             for alias in subject.aliases or []:
                 self.str_2_entity[alias]=subject
@@ -105,57 +108,61 @@ class KeywordEntitySearchAgent(Agent):
         unique_entities=list(self.str_2_entity.keys())
         self.id2entity={i:name for i,name in enumerate(unique_entities)}
 
-        embeddings=self.get_embeddings(unique_entities)
+        # 使用 (name, description) 作为双序列输入，融合描述语义
+        text_pairs: List[Tuple[str, str]] = []
+        for name in unique_entities:
+            ent = self.str_2_entity.get(name)
+            desc = getattr(ent, "description", "") or ""
+            text_pairs.append((name, desc))
+
+        embeddings = self.get_vec(text_pairs)
         # 确保数据类型正确且内存连续
         embeddings = embeddings.astype('float32')
         embeddings = np.ascontiguousarray(embeddings)
         faiss.normalize_L2(embeddings)
-        self.index=faiss.IndexFlatIP(embeddings.shape[1])
+        self.index = faiss.IndexFlatIP(embeddings.shape[1])
         self.index.add(embeddings)
 
 
-    def get_embeddings(self, texts: List[str], batch_size=128):
-        if not texts:
+    def get_vec(self, text_pairs: List[Tuple[str, str]], batch_size: int = 128) -> np.ndarray:
+        """
+        统一的向量化入口。
+        无论 Index 还是 Query，都走这里，确保 Pooling 逻辑一致。
+        """
+        if not text_pairs:
             return np.array([])
-        
-        # 这里的去重逻辑可以保留，但因为 build_index 传入的已经是唯一的 key list，
-        # 其实可以直接处理 texts，减少排序开销。但为了通用性，保留也无妨。
-        unique_texts = sorted(list(set(texts)))
-        text_to_idx = {t: i for i, t in enumerate(unique_texts)}
-        
+
         all_embs = []
-        
-        for i in tqdm(range(0, len(unique_texts), batch_size), desc="Encoding entities"):
-            batch = unique_texts[i : i + batch_size]
-            
-            inputs = self.Sapbert_tokenizer(batch, padding=True, truncation=True, 
-                                  max_length=64, return_tensors="pt").to(self.device)
-            
+        for i in tqdm(range(0, len(text_pairs), batch_size), desc="Encoding"):
+            batch = text_pairs[i : i + batch_size]
+            texts = [t for t, _ in batch]
+            descs = [d for _, d in batch] # 如果没有描述，传空字符串
+
+            inputs = self.Sapbert_tokenizer(
+                texts,
+                text_pair=descs, # Tokenizer 会自动处理空描述的情况
+                padding=True,
+                truncation=True,
+                max_length=128, # 不需要太长，关键信息在前
+                return_tensors="pt",
+            ).to(self.device)
+
             with torch.no_grad():
                 outputs = self.Sapbert_model(**inputs)
+                # 【关键】统一使用 [CLS] token，这是 SapBERT 的原生训练方式
                 cls_emb = outputs.last_hidden_state[:, 0, :]
                 all_embs.append(cls_emb.cpu().numpy())
-        
+
         if not all_embs:
             return np.array([])
-            
-        unique_embs = np.concatenate(all_embs, axis=0)
-
-        # 映射回原始顺序
-        try:
-            # 这一步确保返回的向量顺序与输入 texts 顺序严格一致
-            final_embs = np.array([unique_embs[text_to_idx[t]] for t in texts])
-        except KeyError as e:
-            raise RuntimeError(f"索引映射失败: {e}")
-            
-        return final_embs
+        return np.concatenate(all_embs, axis=0)
     
-    def link_entity(self, entity: str, top_k: int = 5, threshold = 0.9)  -> List[Tuple[KGEntity, float, str, str]]:
+    def link_entity(self, entity: str, entity_desc:str="", top_k: int = 5)  -> List[Tuple[KGEntity, float, str, str]]:
         if self.index is None or not self.entities:
             return []
         
         # 1. 获取向量
-        emb = self.get_embeddings([entity])
+        emb = self.get_vec([(entity, entity_desc)])  # 与索引构建一致：name+desc 双序列
         if emb.size == 0:
             return []
             
@@ -166,24 +173,47 @@ class KeywordEntitySearchAgent(Agent):
         # 3. 归一化 (使用 faiss 统一的方法)
         faiss.normalize_L2(emb) 
         
-        # 4. 搜索
+        # 4. 搜索（单个 query）
         D, I = self.index.search(emb, top_k)
         
         results = []
-        # D[0], I[0] 因为输入是一个 query
+        seen_ids = set()  # 用于去重
+        
         for dist, idx in zip(D[0], I[0]):
-            if dist >= threshold:
-                name = self.id2entity.get(idx)
-                if name:
-                    # 5. 从 self.entities 获取对象
-                    ent = self.str_2_entity.get(name)
-                    if ent:
-                        # 简单的去重，防止同一个实体因为不同别名被多次召回
-                        if ent not in results:
-                            results.append((ent, dist, name, "unknown"))
+            # FAISS 有时填充 -1，需要过滤
+            if idx == -1: continue
+                
+            name = self.id2entity.get(idx)
+            if name:
+                ent = self.str_2_entity.get(name)
+                if ent:
+                    # 5. 正确的去重逻辑：基于 ID 或 对象本身
+                    if ent.entity_id not in seen_ids:
+                        seen_ids.add(ent.entity_id)
+                        # 将 dist 转为 float，防止 numpy 类型导致序列化问题
+                        sim=0.5*float(dist)+0.5*self._string_similarity(entity, name)
+                        if name!=ent.name:
+                            results.append((ent, sim, name, "aliases"))
+                        elif name==ent.name:
+                            results.append((ent, sim, name, "name"))
+                        else:
+                            results.append((ent, sim, name, "unknown"))
                             
         return results
-
+    
+    @staticmethod
+    def _string_similarity(a: str, b: str) -> float:
+        """
+        字符串相似度（多路召回里的“字符串重复率”部分）。
+        这里用 difflib.SequenceMatcher 的 ratio，主要度量字符级重叠程度。
+        """
+        a = (a or "").lower().strip()
+        b = (b or "").lower().strip()
+        if not a or not b:
+            return 0.0
+        if a == b:
+            return 1.0
+        return SequenceMatcher(None, a, b).ratio()
     # ---------------- BioBERT 相关 ----------------
     def _load_Sapbert(self) -> None:
         try:
@@ -204,22 +234,6 @@ class KeywordEntitySearchAgent(Agent):
             self.Sapbert_model = None
             self.Sapbert_tokenizer = None
 
-    @torch.no_grad()
-    def _encode_text(self, text: str) -> Optional[np.ndarray]:
-        if not self.Sapbert_model or not self.Sapbert_tokenizer:
-            return None
-        text = (text or "").strip()
-        if not text:
-            return None
-        inputs = self.Sapbert_tokenizer(
-            text,
-            return_tensors="pt",
-            truncation=True,
-            max_length=128,
-        )
-        outputs = self.Sapbert_model(**inputs)
-        vec = outputs.last_hidden_state[:, 0, :].squeeze(0).cpu().numpy()
-        return vec
     def get_embeddings(self, texts, batch_size=128):
         """
         [修复版] 批量获取 SAPBERT 向量
@@ -267,6 +281,38 @@ class KeywordEntitySearchAgent(Agent):
             
         return final_embs
     
+    @torch.no_grad()
+    def _encode_text(self, text: str) -> Optional[np.ndarray]:
+        if not self.Sapbert_model or not self.Sapbert_tokenizer:
+            return None
+
+        text = (text or "").strip()
+        if not text:
+            return None
+
+        # 如果你有 self.device，就可以加上 .to(self.device)
+        inputs = self.Sapbert_tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=128,
+        )
+
+        outputs = self.Sapbert_model(**inputs)
+        token_embeddings = outputs.last_hidden_state  # [1, seq_len, hidden]
+
+        # attention_mask: [1, seq_len] -> [1, seq_len, 1]
+        attention_mask = inputs["attention_mask"].unsqueeze(-1)  # padding 位置是 0
+
+        # 把 padding token 的向量置零后做加权平均
+        masked_embeddings = token_embeddings * attention_mask  # [1, seq_len, hidden]
+        sum_embeddings = masked_embeddings.sum(dim=1)          # [1, hidden]
+        # 有效 token 个数
+        sum_mask = attention_mask.sum(dim=1).clamp(min=1e-9)   # [1, 1]
+
+        mean_embedding = (sum_embeddings / sum_mask).squeeze(0)  # [hidden]
+        vec = mean_embedding.cpu().numpy()
+        return vec
     @staticmethod
     def _l2_normalize(vec: np.ndarray) -> np.ndarray:
         norm = np.linalg.norm(vec)
@@ -530,10 +576,11 @@ class KeywordEntitySearchAgent(Agent):
             kw = (kw or "").strip()
             if not kw:
                 continue
-
-            # 1) BioBERT 相似度检索；候选池大小 = candidate_pool_size
+            
+            # 1) SapBERT 相似度检索；候选池大小 = candidate_pool_size
             candidates = self.link_entity(
                 kw,
+                entity_desc="Semaglutide is a GLP-1 receptor agonist that helps regulate blood sugar levels and support weight loss in people with type 2 diabetes, while also reducing the risk of cardiovascular events.",
                 top_k=self.candidate_pool_size,
             )
             kw2candidates[kw] = candidates
@@ -598,6 +645,10 @@ class KeywordEntitySearchAgent(Agent):
                     best_scores = [sim]
 
             kw2best_entities[kw] = best_entities
+            # 确保输出按相似度降序；LLM 返回的顺序可能未按分数排序
+            if best_entities:
+                paired = sorted(zip(best_entities, best_scores), key=lambda x: x[1], reverse=True)
+                best_entities, best_scores = map(list, zip(*paired))
             kw2best_scores[kw] = best_scores
 
             # 写入 memory：一个 keyword 对应 K 个 best_entities
