@@ -12,7 +12,7 @@ from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-
+from difflib import SequenceMatcher
 
 class KeywordEntitySearchAgent(Agent):
     """
@@ -66,13 +66,21 @@ class KeywordEntitySearchAgent(Agent):
         # 全局实体索引
         self.entities: Dict[str, KGEntity] = {}
         # 每个实体对应多个 surface：(surface_text, embedding)
-        self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray]]] = {}
+        # 每个实体对应多个 surface：(surface_text, embedding, is_unknown)
+        self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray, bool]]] = {}
 
         self._load_biobert()
         self._build_entity_index()
+        # 默认权重（两侧都不是 UNK 时）
+        self.bert_weight: float = 0.7
+        self.string_weight: float = 0.3
 
-        # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
+        # 任一侧是 all [UNK] 时使用的权重（降低 BERT 权重）
+        self.bert_weight_unknown: float = 0.5
+        self.string_weight_unknown: float = 0.5
 
+        # 任一侧是 all [UNK] 时，BERT 相似度固定成一个常数
+        self.unk_fixed_sim: float = 0.5
     # ---------------- BioBERT 相关 ----------------
     def _load_biobert(self) -> None:
         try:
@@ -125,14 +133,59 @@ class KeywordEntitySearchAgent(Agent):
         mean_embedding = (sum_embeddings / sum_mask).squeeze(0)  # [hidden]
         vec = mean_embedding.cpu().numpy()
         return vec
+    def _is_all_unk(self, text: str) -> bool:
+        """
+        判断一个 text 经 tokenizer 后，除去 [CLS]/[SEP]/[PAD] 等特殊 token，
+        是否全部都是 [UNK]。如果是，返回 True。
+        """
+        if not self.biobert_tokenizer:
+            return False
 
+        text = (text or "").strip()
+        if not text:
+            return False
+
+        inputs = self.biobert_tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=128,
+        )
+        input_ids = inputs["input_ids"][0]  # [seq_len]
+        tokens = self.biobert_tokenizer.convert_ids_to_tokens(input_ids)
+
+        # 收集 tokenizer 的特殊 token
+        special_tokens = set()
+        for attr in ["cls_token", "sep_token", "pad_token", "bos_token", "eos_token", "mask_token"]:
+            tok = getattr(self.biobert_tokenizer, attr, None)
+            if tok is not None:
+                special_tokens.add(tok)
+
+        # 去掉特殊 token，剩下的才算“内容 token”
+        content_tokens = [t for t in tokens if t not in special_tokens]
+
+        unk_tok = self.biobert_tokenizer.unk_token or "[UNK]"
+        # 有内容 token 且全部都是 [UNK]，才算 unknown
+        return bool(content_tokens) and all(t == unk_tok for t in content_tokens)
     @staticmethod
     def _l2_normalize(vec: np.ndarray) -> np.ndarray:
         norm = np.linalg.norm(vec)
         if norm == 0.0 or math.isnan(norm):
             return vec
         return vec / norm
-
+    @staticmethod
+    def _string_similarity(a: str, b: str) -> float:
+        """
+        字符串相似度（多路召回里的“字符串重复率”部分）。
+        这里用 difflib.SequenceMatcher 的 ratio，主要度量字符级重叠程度。
+        """
+        a = (a or "").lower().strip()
+        b = (b or "").lower().strip()
+        if not a or not b:
+            return 0.0
+        if a == b:
+            return 1.0
+        return SequenceMatcher(None, a, b).ratio()
     # ---------------- 建索引（name + aliases 多 surface） ----------------
     def _build_entity_index(self) -> None:
         """
@@ -172,13 +225,15 @@ class KeywordEntitySearchAgent(Agent):
             if not surfaces:
                 continue  # 没有任何有效文本，不建索引
 
-            surface_vecs: List[Tuple[str, np.ndarray]] = []
+            surface_vecs: List[Tuple[str, np.ndarray, bool]] = []
             for s in surfaces:
+                # 先判断这个 surface 是否是 all [UNK]
+                is_unk = self._is_all_unk(s)
                 emb = self._encode_text(s)
                 if emb is None:
                     continue
                 emb_norm = self._l2_normalize(emb)
-                surface_vecs.append((s, emb_norm))
+                surface_vecs.append((s, emb_norm, is_unk))
 
             if not surface_vecs:
                 continue  # 所有 surface 都没成功编码
@@ -189,7 +244,6 @@ class KeywordEntitySearchAgent(Agent):
 
         # 不在这里打印 info，避免过程日志刷屏
 
-    # ---------------- 针对单个 keyword 的 BioBERT Top-K 检索 ----------------
     def _search_top_k_for_keyword(
         self,
         keyword: str,
@@ -198,8 +252,13 @@ class KeywordEntitySearchAgent(Agent):
         """
         返回：
           [(KGEntity, best_sim, best_surface_text, surface_source), ...]
-        其中 best_sim 是 keyword 与该实体 [name + aliases] 多个 surface 中最大相似度；
-        surface_source 取值：'name' / 'alias' / 'unknown'
+        其中 best_sim 是 “融合后的最终相似度”：
+            final_sim = w_bert * bert_sim + w_str * string_sim
+
+        - 正常情况：w_bert=0.7, w_str=0.3
+        - 若 keyword 或 surface 任一侧是 all [UNK]：
+              * bert_sim 固定为 self.unk_fixed_sim
+              * w_bert 降为 0.5，w_str 提高到 0.5
         """
         if top_k is None:
             top_k = self.candidate_pool_size
@@ -208,26 +267,46 @@ class KeywordEntitySearchAgent(Agent):
             self.logger.warning("[KeywordSearch] entity_surfaces is empty, return [].")
             return []
 
+        # 编码 query，并检测是否 all [UNK]
         q_vec = self._encode_text(keyword)
         if q_vec is None:
             self.logger.warning(f"[KeywordSearch] failed to encode keyword='{keyword}'")
             return []
 
         q_vec = self._l2_normalize(q_vec)
+        q_is_unknown = self._is_all_unk(keyword)
 
         scored: List[Tuple[str, float, str, str]] = []
+
         for eid, surfaces in self.entity_surfaces.items():
             best_sim = -1.0
             best_surface_text = ""
-            for surface_text, svec in surfaces:
+
+            for surface_text, svec, s_is_unknown in surfaces:
                 if svec is None:
                     continue
-                sim = float(np.dot(q_vec, svec))
-                if(sim==1.0):
-                    print("sim",sim)
-                    print("surface_text",surface_text)
-                if sim > best_sim:
-                    best_sim = sim
+
+                # --------- 1) BERT 相似度部分 ----------
+                if q_is_unknown or s_is_unknown:
+                    # 只要 query 或 surface 有任一侧是 all [UNK]
+                    # ① BERT 相似度固定为常数（没有语义信息）
+                    # ② 同时降低 BERT 权重，提高字符串权重
+                    bert_sim = self.unk_fixed_sim
+                    w_bert = self.bert_weight_unknown       # 0.5
+                    w_str = self.string_weight_unknown      # 0.5
+                else:
+                    bert_sim = float(np.dot(q_vec, svec))
+                    w_bert = self.bert_weight               # 0.7
+                    w_str = self.string_weight              # 0.3
+
+                # --------- 2) 字符串相似度部分 ----------
+                string_sim = self._string_similarity(keyword, surface_text)
+
+                # --------- 3) 融合相似度 ----------
+                final_sim = w_bert * bert_sim + w_str * string_sim
+
+                if final_sim > best_sim:
+                    best_sim = final_sim
                     best_surface_text = surface_text
 
             if best_sim < 0.0:
@@ -237,7 +316,7 @@ class KeywordEntitySearchAgent(Agent):
             if ent is None:
                 continue
 
-            # 判断这个 surface 来自 name 还是 alias
+            # 判断 best_surface_text 来自 name 还是 alias
             source = "unknown"
             if isinstance(ent.name, str) and best_surface_text == ent.name.strip():
                 source = "name"
@@ -246,7 +325,7 @@ class KeywordEntitySearchAgent(Agent):
 
             scored.append((eid, best_sim, best_surface_text, source))
 
-        # 按相似度排序，取前 top_k
+        # 按最终融合相似度排序
         scored.sort(key=lambda x: x[1], reverse=True)
         top_scored = scored[:top_k]
 
@@ -258,7 +337,6 @@ class KeywordEntitySearchAgent(Agent):
             results.append((ent, sim, best_surface_text, source))
 
         return results
-
     # ---------------- LLM 在候选中选若干个实体 id ----------------
     def _llm_disambiguate(
         self,
