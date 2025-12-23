@@ -327,6 +327,7 @@ class HypothesisGenerationAgent(Agent):
                         # 只需要这一行 lambda
                         default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
                     )
-        self.memory.add_hypothesesDir(f'output/output_hypothesis{time}.json')
+        if self.memory:
+            self.memory.add_hypothesesDir(f'output/output_hypothesis{time}.json')
         return results
         

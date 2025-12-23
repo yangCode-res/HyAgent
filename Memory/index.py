@@ -485,7 +485,7 @@ class Memory:
             }
         )
     def add_hypothesesDir(self, hypothesesDir: str) -> None:
-        self.hypothesesDir = hypothesesDir
+        self.hypothesesdir = hypothesesDir
     def get_extracted_paths(self) -> List[dict]:
         """
         返回所有已存的路径记录，每条记录为 {'nodes': [...], 'edges': [...]}。
