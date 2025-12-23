@@ -1,652 +1,506 @@
-frontiers in Endocrinology
+HHS Public Access
 
-REVIEW
-published: 07 July 2021
-doi: 10.3389/fendo.2021.645563
+Author manuscript
 
-Check for updates
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
 
-# Safety of Semaglutide
+Published in final edited form as:
 
-Mark M. Smits and Daniël H. Van Raalte*
+Annu Rev Nutr. 2024 August; 44(1): 289-312. doi:10.1146/annurev-nutr-061121-101547.
 
-Diabetes Center, Department of Internal Medicine, Amsterdam University Medical Center, Amsterdam, Netherlands
+# Nutritional Challenges and Treatment After Bariatric Surgery
 
-The glucagon-like peptide-1 receptor agonist (GLP-1RA) semaglutide is the most recently approved agent of this drug class, and the only GLP-1RA currently available as both subcutaneous and oral formulation. While GLP-1RAs effectively improve glycemic control and cause weight loss, potential safety concerns have arisen over the years. For semaglutide, such concerns have been addressed in the extensive phase 3 registration trials including cardiovascular outcome trials for both subcutaneous (SUSTAIN: Semaglutide Unabated Sustainability in Treatment of Type 2 Diabetes) and oral (PIONEER: Peptide InnOvatioN for the Early diabEtes tReatment) semaglutide and are being studied in further trials and registries, including real world data studies. In the current review we discuss the occurrence of adverse events associated with semaglutide focusing on hypoglycemia, gastrointestinal side effects, pancreatic safety (pancreatitis and pancreatic cancer), thyroid cancer, gallbladder events, cardiovascular aspects, acute kidney injury, diabetic retinopathy (DRP) complications and injection-site and allergic reactions and where available, we highlight potential underlying mechanisms. Furthermore, we discuss whether effects are specific for semaglutide or a class effect. We conclude that semaglutide induces mostly mild-to-moderate and transient gastrointestinal disturbances and increases the risk of biliary disease (cholelithiasis). No unexpected safety issues have arisen to date, and the established safety profile for semaglutide is similar to that of other GLP-1RAs where definitive conclusions for pancreatic and thyroid cancer cannot be drawn at this point due to low incidence of these conditions. Due to its potent glucose-lowering effect, patients at risk for deterioration of existing DRP should be carefully monitored if treated with semaglutide, particularly if also treated with insulin. Given the beneficial metabolic and cardiovascular actions of semaglutide, and the low risk for severe adverse events, semaglutide has an overall favorable risk/benefit profile for patient with type 2 diabetes.
+Violeta Moize $^{1,2}$, Blandine Laferrère $^{3}$, Sue Shapses $^{4,5}$
 
-Keywords: glucagon-like peptide-1 receptor agonist (GLP-1RA), oral, subcutaneous, semaglutide, type 2 diabetes, safety
+$^{1}$Obesity Unit, Hospital Clinic Barcelona and Institut d'Investigacions Biomèdiques August Pi Sunyer (IDIBAPS), Barcelona, Spain
+$^{2}$Centro de Investigación Biomédica en Red de Diabetes y Enfermedades Metabólicas Asociadas (CIBERDEM), Madrid, Spain
+$^{3}$Nutrition and Obesity Research Center, Division of Endocrinology, Department of Medicine, Columbia University Irving Medical Center, New York, NY, USA
+$^{4}$Department of Nutritional Sciences and New Jersey Institute for Food, Nutrition, and Health, Rutgers University, New Brunswick, New Jersey, USA
+$^{5}$Department of Medicine, Rutgers Robert Wood Johnson Medical School, New Brunswick, New Jersey, USA
 
-# INTRODUCTION
+# Abstract
 
-With an alarming increase in type 2 diabetes (T2D) prevalence as well as its associated complications (1), the need for adequate treatment strategies for this devastating disease has never been higher. However, apart from studying the potential beneficial effects of new glucose-lowering agents, regulators and clinicians are increasingly focusing on long-term safety aspects. One of the newer antihyperglycemic drug classes receiving such scrutiny on safety are the glucagon-like
+Bariatric surgery is an important weight loss tool in individuals with severe obesity. It is currently the most effective long-term weight loss treatment that lowers obesity-related comorbidities. It also has significant physiological and nutritional consequences that can result in gastrointestinal complications and micronutrient deficiencies. After gastric bypass, clinical events that negatively affect nutritional status include malabsorption, dumping syndrome, kidney stones, altered intestinal bile acid availability, bowel obstruction, ulcers, gastroesophageal reflux, and bacterial overgrowth. Risk factors for poor nutritional status and excessive loss of lean body mass and bone include reduced dietary quality and inadequate intake, altered nutrient absorption, and poor patient compliance with nutrient supplementation. There are unique concerns in adolescents, older individuals, and individuals who become pregnant postoperatively. With careful management, health-care professionals can assist with long-term weight loss success and minimize the risk of acute and long-term nutrition complications after bariatric surgery.
 
-# OPEN ACCESS
+# Keywords
 
-**Edited by:**
-Francesco Giorgino,
-University of Bari Aldo Moro, Italy
+bariatric surgery; gastrointestinal; nutritional deficiencies; obesity; nutrition therapy; weight loss
 
-**Reviewed by:**
-Bo Ahrén,
-Lund University, Sweden
-Asimina Mitrakou-Fanariotou,
-National and Kapodistrian
-University of Athens, Greece
-Burkhard J. Göke,
-Medical School Hamburg, Germany
+This work is licensed under a Creative Commons Attribution 4.0 International License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited. See credit lines of images or other third-party material in this article for license information.
 
-**\*Correspondence:**
-Daniël H. Van Raalte
-d.vanraalte@amsterdamumc.nl
+Shapses@rutgers.edu
 
-**Specialty section:**
-This article was submitted to
-Clinical Diabetes,
-a section of the journal
-Frontiers in Endocrinology
+DISCLOSURE STATEMENT
 
-**Received:** 23 December 2020
-**Accepted:** 19 April 2021
-**Published:** 07 July 2021
+The authors are not aware of any affiliations, memberships, funding, or financial holdings that might be perceived as affecting the objectivity of this review.
 
-**Citation:**
-Smits MM and Van Raalte DH (2021)
-Safety of Semaglutide.
-Front. Endocrinol. 12:645563.
-doi: 10.3389/fendo.2021.645563
+## INTRODUCTION
 
-Frontiers in Endocrinology | www.frontiersin.org
-July 2021 | Volume 12 | Article 645563
+Obesity is a chronic disease characterized by excessive adipose tissue storage. It is often complicated by many comorbidities, including but not limited to type 2 diabetes mellitus (T2DM), hypertension, hyperlipidemia, cardiovascular disease (CVD), cancer, chronic kidney disease, hypoventilation syndrome, debilitating osteoarthritis, nonalcoholic fatty liver disease or steatohepatitis, severe acid reflux, and obstructive sleep apnea (7). These comorbidities negatively affect an individual's quality of life and increase health-care costs. Obesity occurs worldwide, with some lower-income countries experiencing the highest increases in recent years (102, 103, 152). No country has reported a decline in obesity rates among their population. It is estimated that by 2035, over 4 billion people worldwide will be classified as overweight and obese [body mass index (BMI) ≥ 25 kg/m^{2}], compared to over 2.6 billion in 2020. This represents an increase in obesity from 38% to over 50% of the global population during this 15-year period (155). The prevalence of obesity alone (BMI ≥ 30 kg/m^{2}) is expected to rise from 14% to 24% during the same period, affecting nearly 2 billion adults, children, and adolescents by 2035 (155). Obesity rates are greater in adult women than men and in individuals with low education and socioeconomically disadvantaged groups. The sharpest increase in obesity is anticipated among children and adolescents, particularly boys (7, 129, 155).
 
-peptide-1 (GLP-1) receptor agonists (GLP-1RAs). These agents are based on the gut-derived incretin hormone GLP-1, which is a potent stimulator of insulin, while suppressing glucagon secretion (2). In combination with inhibiting effects on gastric emptying and hepatic gluconeogenesis (3), GLP-1RA effectively reduce glucose levels (4). Several agents are now available after the first agent received marketing approval in 2005. Within the class of GLP-1RAs, substantial differences exist in drug structure, efficacy, dosing interval and even adverse effects (5). Nevertheless, in general, a decrease in HbA_{1c} of 1--1.5% is observed, as well as beneficial effects on body weight, blood pressure and lipid profile (4). However, partly due to the widespread presence of GLP-1 receptors, several adverse effects have been observed, of which pancreatitis, pancreatic cancer and thyroid cancer were initially flagged as safety alerts (6).
+The exact cause of obesity is not fully understood; however, there appears to be a complex interplay of factors such as genetics, neurohormonal mechanisms, obesogenic medications, sociocultural practices and beliefs, environmental factors, life experiences, and psychological factors (7). Food consumption patterns, urban development, sedentary behavior, and other lifestyle habits also influence obesity rates (129). To date, the best noninvasive interventions are dietary management and behavioral changes. Comprehensive, multicomponent interventions with intensive behavioral counseling and pharmaceutical approaches can produce meaningful weight loss (8). The incretin mimetics (e.g. glucagon-like peptide-1 receptor agonists) have shown success with significant weight loss (60, 153). However, because of side effects and cost, compliance decreasing over time, and weight regain occurring after medication cessation, long-term weight loss success remains to be determined. Currently, the most effective long-term weight loss treatment for severe obesity is bariatric surgery (BS), which is associated with a total weight loss of 15--30%, mostly sustained over time (20, 75).
 
-The most recently approved GLP-1RAs is semaglutide. This agent is somewhat special among GLP-1RAs given that it is the only drug available as both subcutaneous injection (similar to all other GLP-1RAs) and as an oral formulation. Moreover, with years of development after marketing approval of the first GLP-1RA, the registration trials with semaglutide could focus on the already known potential safety risks of this drug class. In this review, as part of a supplement on semaglutide, we will detail the safety aspects of this drug.
+Several studies have demonstrated that BS is associated with a favorable impact on all-cause and cardiovascular mortality, incidence of first occurrence of fatal or nonfatal CVD events, prevention and remission of T2DM, and quality of life (2, 118, 127). Consideration of BS as a therapy for severe obesity should be based on the balance of its benefits versus complications. The current laparoscopic approach for all BS procedures has resulted in a marked decrease in complication rates (106). Potential nutritional and gastrointestinal complications after BS are influenced by presurgical and postsurgical factors, surgical technique, postoperative weight loss, and patient adherence to nutritional follow-up (161). Patient education about the need for lifetime medical follow-up is crucial to detect and address nutritional problems to prevent severe malnutrition or other medical complications.
 
-## Semaglutide
+BARIATRIC SURGERY AS A TREATMENT OF SEVERE OBESITY
 
-Semaglutide has been developed based on the vast body of research behind the development of liraglutide (7). Compared to liraglutide, which is administered once daily, semaglutide has an even longer half-life, allowing for once weekly administration. While a significant improvement over once or twice daily subcutaneous administration, the injecting route could be a barrier for some potential users. An absorption enhancer was discovered (sodium N-[8-(2-hydroxybenzoyl) aminocaprylate] or SNAC), which, when co-administered with semaglutide, was demonstrated to give therapeutic levels of the latter (8). SNAC helps to protect semaglutide from proteolytic degradation in the stomach and facilitates its absorption across the gastric mucosa by transient effects on transcellular pathways (8). At equivalent levels of exposure, similar glycemic and weight responses have been seen with both oral and subcutaneous semaglutide (9).
+Because of the health benefits of BS, the use of this therapeutic approach for severe and complex obesity has increased (6, 118). However, it is important to acknowledge that BS carries risks, particularly in terms of nutritional complications due to changes in food intake and anatomical alterations (75, 92).
 
-Both the subcutaneous and oral formulations of semaglutide have undergone extensive phase 3 clinical testing (Table 1). For the once-weekly subcutaneous formulation, the SUSTAIN program (Semaglutide Unabated Sustainability in Treatment of Type 2 Diabetes) included 13 separate randomized clinical phase 3a and 3b trials (10--13, 22, 25--32) SUSTAIN 1 through 10 were global international trials, while three additional trials were specific for China and Japan. In four studies, semaglutide was compared with placebo, with differing patient populations. SUSTAIN-6 is the cardiovascular outcome trial (CVOT) of subcutaneous semaglutide (28).
+To ensure the best outcomes and minimize surgical complications, specific criteria have been established for selecting suitable candidates for BS. Thorough preparation is necessary before undergoing the procedure, as it is a life-altering intervention for managing obesity. Potential candidates undergo a multidisciplinary evaluation, including medical, psychological, nutritional, and functional assessments, to determine their eligibility and safety for surgery. Additional medical evaluations may involve cardiac, respiratory, metabolic, gastrointestinal, and sleep apnea testing. It is recommended that patients engage in behavioral interventions prior to BS and maintain those behavioral changes after BS as well (75).
 
-The PIONEER program (Peptide InnOvatioN for the Early diabEtes tReatment) comprised 10 individual trials comparing once-daily oral semaglutide with placebo (six studies) or active comparator in different populations (14--21, 23, 24). Similar to the SUSTAIN program, PIONEER 6, was the CVOT (19). PIONEER 9 and 10 are specific to the Japanese population (12, 13). The SOUL (A Heart Disease Study of Semaglutide in Patients with Type 2 Diabetes) study is a larger CVOT with oral semaglutide that is currently ongoing (NCT03914326).
+Obesity is a requirement to be eligible for BS and is defined by BMI as class 1 (30--<35 kg/m^{2}), class 2 (>35--40 kg/m^{2}), and class 3 or severe obesity (>40 kg/m^{2}). It is important to note that BMI has limitations since it is not a perfect reflection of body fat, and the threshold of obesity may not be generalized to people in Asia (22, 121). BS is indicated in individuals aged 18 years old and above a BMI of 35 kg/m^{2}, who have at least one obesity-related complication, or for patients with a BMI of 40 kg/m^{2} or higher, regardless of the presence of obesity-related complications (39). BS may also be beneficial for patients with a BMI between 30 and 34.9 kg/m^{2}, especially in patients of Asian descent who have unsuccessfully tried nonsurgical weight loss methods and experience obesity-related complications, particularly T2DM. The indication for surgery in these patients depends on the specific obesity-related complications and the potential long-term benefits compared to existing medical interventions (13, 20). Indications of BS in adolescents with severe complicated obesity are comparable to those of adults. However, the type of BS procedure has unique considerations and should reflect current pediatric guidelines (106). Additional information about adolescents is given below.
 
-Combining all individual studies, the SUSTAIN program contained almost 12,000 participants, with over 9,500 subjects in the PIONEER program. With treatment duration of at least 26 weeks, this accounts of many patient years of follow-up, allowing an adequate review of the safety of semaglutide.
+The choice of surgery type should be made in collaboration with a multidisciplinary team and consider the patient's medical condition, anticipated outcomes, and benefits versus risks. Special attention should be given to patients with uncontrolled diabetes, type 1 diabetes, and insulin-treated diabetes. Short- and long-term remission (or the absence thereof) probabilities should be defined, as well as diabetes management during the perioperative period. Smoking cessation before BS is mandatory and should be maintained lifelong to reduce the risks of postoperative complications. Overall, BS combined with behavioral interventions in individuals with severe obesity is currently the most effective option for long-term weight loss and the control of chronic conditions.
 
-## Adverse Effects of Semaglutide
+### Bariatric Surgery Procedures
 
-Semantically, the on-target effects of GLP-1RAs are those effects leading to a reduction in glucose levels. Any other effect can be considered as a pleiotropic, off-target effect, or in the case of unwanted actions, adverse effects (Figure 1). Many of the (adverse) class effects are shared among the different GLP-1RA, however, differences do occur. For semaglutide, one could expect a different side-effect profile for the oral versus the subcutaneous formulation. Apart from the obvious—tablets will not induce injection-site reactions—it could be suggested that higher portal levels induce more gastrointestinal disturbances. Moreover, with the maximum oral dosage plasma levels are lower compared with the maximal subcutaneous dose (oral 20 mg yields plasma levels of ~25 nM, subcutaneous 1 mg yields plasma levels of ~45 nM (33, 34)). Worth noting is that no data comparing the pharmacokinetic profile of both formulations against each other are available. In the following sections, the adverse reactions and safety issues of semaglutide, both oral and subcutaneous, will be discussed. We will discuss the risk of hypoglycemia, gastrointestinal side effects including previous reports on increased risk for pancreatitis and pancreas cancer, thyroid cancer, gallbladder stones, effects on the cardiovascular system, acute kidney injury, diabetic retinopathy risks and allergies/injection-site reactions (Table 2).
+Initially, BS techniques were categorized as restrictive, malabsorptive, or a combination of both, based on their presumed mechanisms for weight loss. However, these classifications
 
-### Hypoglycemia
+have become outdated as it is now known that restriction and malabsorption may not be the only factors leading to significant and sustainable weight loss. Due to a better understanding of the metabolic changes resulting from different surgical interventions in the digestive system, BS is now commonly referred to as metabolic surgery. This term highlights that the surgical alteration of a normal organ modifies its function, partially influencing weight loss and other health benefits. For many years, Roux-en-Y gastric bypass (RYGB) was the most frequently performed BS procedure, followed by vertical sleeve gastrectomy (SG), adjustable gastric band (AGB), and, finally, biliopancreatic diversion (BPD), or its variant, duodenal switch (DS) (6) (Figure 1). SG has gained popularity and is currently the most performed surgical procedure. Mean postoperative weight loss at 1--2 years for RYGB, SG, and BPD ranges between 14% and 35%. Weight loss tends to be lower after AGB. The percentage of total weight loss decreases after 5 years to about 20% for RYGB and SG and 12% for AGB (9, 75). Current surgical techniques (Figure 2) are detailed below.
 
-Given that the aim of GLP-1RA therapy is mainly to reduce blood glucose levels, it is conceivable that these agents could cause hypoglycemia. However, since GLP-1RA mainly lower blood glucose by stimulating glucose-dependent insulin secretion, hypoglycemia is an infrequent problem. In addition, the inhibition of glucagon release does not occur under hypoglycemic conditions (35). In SUSTAIN-6, severe or plasma glucose-confirmed (<56 mg/dl [3.1 mol/L]) hypoglycemia occurred in similar rates between patients with semaglutide (23.1% in the 0.5 mg group and 21.7% in the 1 mg group) and placebo (21.2%) (28). In comparison, in SUSTAIN-4, severe or confirmed hypoglycemia occurred in 11% of insulin glargine-treated patients, compared with 4--6% in the semaglutide-treated patients (26). Importantly, in SUSTAIN-4 it is reported that hypoglycemia predominantly occurred in subjects using sulfonylurea agents (26). To illustrate: in the group of subjects randomized to semaglutide 1 mg, 9% of subjects using a s sulfonylurea had a severe or blood-glucose
+RYGB has been performed and studied extensively. It involves dividing the stomach into an upper gastric pouch (15--30 mL) and a lower gastric remnant. The gastric pouch is then connected to the jejunum, while the excluded biliary limb is reconnected to the bowel (88) (Figure 2a). In SG, the stomach is vertically transected, creating a high-pressure gastric tube and leaving a pouch of up to 200 mL. The pylorus is preserved, serving as the connection between the reduced stomach and the gut. Laparoscopic SG is now most commonly performed (Figure 2b). With AGB, a silastic band is placed around the stomach below the gastroesophageal junction and can be tightened or loosened using a subcutaneous access port and saline solution (Figure 2c). BPD and DS are procedures that involve a gastric component to reduce gastric volume and an intestinal component to decrease nutrient absorption. BPD includes a partial horizontal gastrectomy, while DS involves a vertical gastrectomy similar to SG. The small bowel is divided, and anastomoses are created to redirect the digestive tract (Figure 2d).
 
-TABLE 1 | Overview of Phase 3 studies of oral semaglutide (PIONEER) and subcutaneous semaglutide (SUSTAIN) (10-32).
+Single anastomosis duodenal-ileal bypass with sleeve (SADI-S) was introduced as a simplified alternative to BPD/DS (115) and has shown effectiveness in weight loss and resolving obesity-related comorbidities (114, 138, 143). It has also been successful as a primary procedure or revisional surgery (37, 116). As in all surgical procedures, there is potential for complications. However, side effects have been well tolerated and postoperative short- and long-term complications have appeared to be minimal (114, 123, 138).
 
-|  Trial | Treatment arms | Key inclusion criteria | Trial duration; blinded or open-label | Primary endpoint/outcome | Key baseline characteristics (mean values) | Trial product discontinuation/rescue medication use (proportion of patients)  |
-| --- | --- | --- | --- | --- | --- | --- |
-|  PIONEER 1 | Oral semaglutide 3 mg | n=175 | 26-week; blinded | Change in HbA_{1c} from baseline to week 26 | Age: 55 years, HbA_{1c}; 8.0% (63 mmol/mol), duration of T2D: 3.5 years | 3% / 7% 8% / 2% 7% / 1% 5% / 15%  |
-|   | Oral semaglutide 7 mg | n=175 |  |  |  |   |
-|   | Oral semaglutide 14 mg | n=175 |  |  |  |   |
-|   | Placebo | n=178 |  |  |  |   |
-|  PIONEER 2 | Oral semaglutide 14 mg | n=410 | 52-week; open-label | Change in HbA_{1c} from baseline to week 26 | Age: 58 years, HbA_{1c}; 8.1% (65 mmol/mol), duration of T2D: 7.4 years | 18% / 8% 11% / 11%  |
-|   | Empagliflozin 25 mg | n=409 |  |  |  |   |
-|  PIONEER 3 | Oral semaglutide 3 mg | n=466 | 78-week; blinded | Change in HbA_{1c} from baseline to week 26 | Age: 58 years, HbA_{1c}; 8.3% (67 mmol/mol), duration of T2D: 7.6 years | 17% / 34% 15% / 22% 19% / 10% 13% / 28%  |
-|   | Oral semaglutide 7 mg | n=464 |  |  |  |   |
-|   | Oral semaglutide 14 mg | n=465 |  |  |  |   |
-|   | Sitagliptin 100 mg | n=466 |  |  |  |   |
-|  PIONEER 4 | Oral semaglutide 14 mg | n=285 | 52-week; blinded | Change in HbA_{1c} from baseline to week 26 | Age: 56 years, HbA_{1c}; 8.0% (64 mmol/mol), duration of T2D: 7.6 years | 15% / 7% 13% / 6% 12% / 30%  |
-|   | Liraglutide 1.8 mg (s.c.) | n=284 |  |  |  |   |
-|   | Placebo | n=142 |  |  |  |   |
-|  PIONEER 5 | Oral semaglutide 14 mg | n=163 | 26-week; blinded | Change in HbA_{1c} from baseline to week 26 | Age: 70 years, HbA_{1c}; 8.0% (64 mmol/mol), duration of T2D: 14.0 years | 18% / 4% 12% / 10%  |
-|   | Placebo | n=161 |  |  |  |   |
-|  PIONEER 6 (CVOT) | Oral semaglutide 14 mg | n=1591 | Age ≥50 years with CVD/CKD or age ≥60 years with CV risk factors | Event-driven; blinded | 3-point composite MACE | 15% / NR 10% / NR  |
-|   | Placebo | n=1592 |  |  |  |   |
-|  PIONEER 7 | Oral semaglutide (flexible 3, 7 or 14 mg) | n=253 | 52-week; open-label | Proportion of patients with HbA_{1c} <7.0% at week 52 | Age: 57 years, HbA_{1c}; 8.3% (67 mmol/mol), duration of T2D: 8.8 years | 17% / 3% 9% / 16%  |
-|   | Sitagliptin 100 mg | n=251 |  |  |  |   |
-|  PIONEER 8 | Oral semaglutide 3 mg | n=184 | 52-week; blinded | Change in HbA_{1c} from baseline to week 26 | Age: 61 years, HbA1c; 8.2% (66 mmol/mol), duration of T2D: 15.0 years | 13% / 29% 19% / 18% 20% / 17% 12% / 36%  |
-|   | Oral semaglutide 7 mg | n=181 |  |  |  |   |
-|   | Oral semaglutide 14 mg | n=181 |  |  |  |   |
-|   | Placebo | n=184 |  |  |  |   |
-|  PIONEER 9 | Oral semaglutide 3 mg | n=49 | 52-week; open-label | Change in HbA_{1c} from baseline to week 26 | Age: 59 years, HbA_{1c}; 8.2% (66 mmol/mol), duration of T2D: 7.6 years | 8% / 14% 2% / 10% 6% / 8% 8% / 6%  |
-|   | Oral semaglutide 7 mg | n=49 |  |  |  |   |
-|   | Oral semaglutide 14 mg | n=48 |  |  |  |   |
-|   | Liraglutide 0.9 mg (s.c.) | n=48 |  |  |  |   |
-|   | Placebo | n=49 |  |  |  |   |
-|  PIONEER 10 | Oral semaglutide 3 mg | n=131 | 52-week; open-label | Number of treatment-emergent adverse events at week 57 | Age: 58 years, HbA_{1c}; 8.3% (67 mmol/mol), duration of T2D: 9.4 years | 5% / 17% 7% / 6% 12% / 2% 6% / 9%  |
-|   | Oral semaglutide 7 mg | n=132 |  |  |  |   |
-|   | Oral semaglutide 14 mg | n=130 |  |  |  |   |
-|   | Dulaglutide 0.75 mg (s.c.) | n=65 |  |  |  |   |
-|  SUSTAIN 1 | S.c. semaglutide 0.5 mg | n=128 | 30-week; blinded | Change in HbA_{1c} from baseline to week 30 | Age: 54 years, HbA_{1c}; 8.1% (65 mmol/mol), duration of T2D: 4.2 years | 13% / 5% 12% / 5% 11% / 21%  |
-|   | S.c. semaglutide 1 mg | n=130 |  |  |  |   |
-|   | Placebo | n=129 |  |  |  |   |
-|  SUSTAIN 2 | S.c. semaglutide 0.5 mg | n=409 | 56-week; blinded | Change in HbA_{1c} from baseline to week 56 | Age: 55 years, HbA_{1c}; 8.1% (65 mmol/mol), duration of T2D: 6.6 years | 6% / 5% 5% / 2% 5% / 20%  |
-|   | S.c. semaglutide 1 mg | n=409 |  |  |  |   |
-|   | Sitagliptin 100 mg | n=407 |  |  |  |   |
-|  SUSTAIN 3 | S.c. semaglutide 1 mg | n=404 | 56-week; open-label | Change in HbA_{1c} from baseline to week 56 | Age: 57 years, HbA_{1c}; 8.3% (68 mmol/mol), duration of T2D: 9.2 years | 20% / 7% 21% / 12%  |
-|   | Exenatide ER 2.0 mg | n=405 |  |  |  |   |
+Single-anastomosis gastric bypass (also known as omega loop gastric bypass/mini-gastric bypass/single-anastomosis bypass) is a procedure that has gained popularity, particularly in Europe and Asia (50). Several studies have demonstrated that it is a rapid, safe, and effective bariatric operation. It consists of a restrictive gastric pouch and a jejunal bypass with a single anastomosis, leading to significant fat malabsorption.
 
-(Continued)
+In addition to bariatric procedures, endoscopic bariatric therapies are nonsurgical procedures that are also used for weight loss. Endoscopic sleeve gastroplasty (ESG; 16--20% weight loss) and intragastric balloon (IGB; about 6% weight loss) are nonsurgical procedures that reduce stomach size, along with aspiration therapy. These therapies are typically not reimbursed by insurance and do not produce as much weight loss as bariatric surgical
 
-TABLE 1 | Continued
+resections. They are performed in individuals with a lower BMI (30--35 or greater) who may not be eligible for other procedures or as part of research trials.
 
-|  Trial | Treatment arms |   | Key inclusion criteria | Trial duration; blinded or open-label | Primary endpoint/outcome | Key baseline characteristics (mean values) | Trial product discontinuation/ rescue medication use (proportion of patients)  |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-|  SUSTAIN 4 | S.c. semaglutide 0.5 mg | n=362 | Treated with metformin ± sulfonylurea, HbA1c 7.0-10.0% | 30-week; open-label | Change in HbA1c from baseline to week 30 | Age: 57 years, HbA1c: 8.2 (66 mmol/mol), duration of T2D: 8.6 years | 14% / 17%  |
-|   |  S.c. semaglutide 1 mg | n=360 |   |   |   |   | 16% / 18%  |
-|   |  Insulin glargine | n=360 |   |   |   |   | 9% / 9%  |
-|  SUSTAIN 5 | S.c. semaglutide 0.5 mg | n=132 | Treated with insulin ± metformin, HbA1c 7.0-10.0% | 30-week; blinded | Change in HbA1c from baseline to week 30 | Age: 59 years, HbA1c: 8.4% (68 mmol/mol), duration of T2D: 13.3 years | 11% / 2%  |
-|   |  S.c. semaglutide 1 mg | n=131 |   |   |   |   | 13% / <1%  |
-|   |  Placebo | n=133 |   |   |   |   | 10% / 14%  |
-|  SUSTAIN 6 (CVOT) | S.c. semaglutide 0.5 mg | n=826 | Age ≥50 years with CVD/CKD or age ≥60 years with CV risk factors | Duration (104-week) and event-driven; blinded | 3-point composite MACE | Age: 65 years, HbA1c: 8.7%, duration of T2D: 13.9 years | 19.9% / NR  |
-|   |  S.c. semaglutide 1 mg | n=822 |   |   |   |   | 22.6% / NR  |
-|   |  Placebo | n=1649 |   |   |   |   | 18.8% / NR  |
-|  SUSTAIN 7* | S.c. semaglutide 0.5 mg | n=301 | Treated with metformin, HbA1c 7.0-10.5% | 10-week; open-label | Change in HbA1c from baseline to week 40 | Age: 66 years, HbA1c: 8.2% (66 mmol/mol), duration of T2D: 7.4 years | 16% / 1%  |
-|   |  S.c. semaglutide 1 mg | n=300 |   |   |   |   | 17% / 2%  |
-|   |  Dulaglutide 0.75 mg (s.c.) | n=299 |   |   |   |   | 9% / 5%  |
-|   |  Dulaglutide 1.5 mg (s.c.) | n=299 |   |   |   |   | 12% / 2%  |
-|  SUSTAIN 8* | S.c. semaglutide 1 mg | n=394 | Treated with metformin, HbA1c 7.0-10.5% | 52-week; blinded | Change in HbA1c from baseline to week 52 | Age: 57 years, HbA1c: 8.3% (67 mmol/mol), duration of T2D: 7.4 years | 16% / 7%  |
-|   |  Canagliflozin 300 mg | n=394 |   |   |   |   | 13% / 7%  |
-|  SUSTAIN 9* | S.c. semaglutide 1 mg | n=151 | Treated with metformin ± SGLT2i, HbA1c 7.0-10% | 30-week; blinded | Change in HbA1c from baseline to week 30 | Age: 57 years, HbA1c: 8.0% (64 mmol/mol), duration of T2D: 9.7 years | 15% / 0.7%  |
-|   |  Placebo | n=151 |   |   |   |   | 8% / 5.3%  |
-|  SUSTAIN 10* | S.c. semaglutide 1 mg | n=290 | Treated with 1-3 OADs, HbA1c 7.0-11.0% | 30-week; blinded | Change in HbA1c from baseline to week 30 | Age: 60 years, HbA1c: 8.2%, duration of T2D: 9.3 years | 14.1% / 1.4%  |
-|   |  Iraglutide 1.2 mg (s.c.) | n=287 |   |   |   |   | 9.1% / 4.2%  |
-|  SUSTAIN JAPAN 'Sitagliptin' | S.c. semaglutide 0.5 mg | n=103 | Treated with diet and exercise with HbA1c 7.0-10.5%, or OAD monotherapy with HbA1c 6.5-9.5% | 30-week; open-label | Number of treatment-emergent adverse events at week 30 | Age: 58 years, HbA1c: 8.1%, duration of T2D: 8.0 years | 2.9% / 0.9%  |
-|   |  S.c. semaglutide 1 mg | n=102 |   |   |   |   | 14.7% / 0  |
-|   |  Sitagliptin 100 mg | n=103 |   |   |   |   | 2.9% / 4.9%  |
-|  SUSTAIN JAPAN 'Individual' | S.c. semaglutide 0.5 mg | n=239 | Treated with diet and exercise, or OAD monotherapy, HbA1c 7.0-10.5% | 56-week; open-label | Number of treatment-emergent adverse events at week 56 | Age: 59 years, HbA1c: 8.1% (65 mmol/mol), duration of T2D: 8.8 years | 6.3% / 0%  |
-|   |  S.c. semaglutide 1 mg | n=241 |   |   |   |   | 14.1% / 0.4%  |
-|   |  Additional OAD (investigators discretion) | n=120 |   |   |   |   | 5.9% / 6.7%  |
-|  SUSTAIN China | S.c. semaglutide 0.5 mg | n=287 | Treated with metformin, HbA1c 7.0-10.5% | 30-week; blinded | Change in HbA1c from baseline to week 30 | Age: 53 years, HbA1c: 8.1%, Duration of T2D: 6.4 years | NR / 3.1%  |
-|   |  S.c. semaglutide 1 mg | n=290 |   |   |   |   | NR / 1.4%  |
-|   |  Sitagliptin 100 mg | n=290 |   |   |   |   | NR / 6.6%  |
+### Surgical Complications/Adverse Events
 
-*Phase 3b trials all others are phase 3a trials CKD, chronic kidney disease; CV, cardiovascular; CVOT, cardiovascular outcomes trial; CVD, cardiovascular disease; ER, extended release; MACE, major adverse cardiovascular event; NR, not reported; OAD, oral antidiabetic drug; s.c, subcutaneous; SGLT2i, sodium-glucose co-transporter-2 inhibitor; T2D, type 2 diabetes.
+Each surgical procedure has unique complications that can lead to nutritional deficiencies. Early complications of RYGB, SG, and BPD/DS include anastomotic leaks, small bowel obstruction, and dumping syndrome. The US National Patient-Centered Clinical Research Network consisting of 33,560 adults indicated that interventions, operations, and hospitalizations are relatively common after BS. Incidence increases after RYGB when compared to SG (29). Hernias, stomal stenosis, and staple line complications can occur weeks to months after the surgery. All of these complications typically require surgical intervention. Even though AGB is a less invasive procedure, adverse events such as band slippage, erosion, or prolapse require revisional surgery. The 30-day rates of major adverse events in a large study using the US National Patient-Centered Clinical Research Network were 5.0% for RYGB, 2.6% for SG, and 2.9% for AGB (9, 10). The AGB procedure necessitates band adjustment and often fails to induce weight loss in many patients, which may be a factor in the decline of AGB in recent years.
 
-Smits and Van Raalte
+Adverse events from endoscopic procedures consist of mild to moderate symptoms such as abdominal pain and nausea (43). However, serious adverse events can occur. For example, complications from ESG include intraabdominal collection, hemorrhage requiring intervention, and refractory symptoms requiring reversal (135). There are fewer serious adverse events with IGBs than ESG, although there can be increased vomiting, nausea, and abdominal pain (110). The most common adverse events for aspiration therapy are postoperative abdominal pain, irritation at the tube site, peristomal granulation tissue, and nausea. These can generally be resolved with conservative management.
 
-Safety of Semaglutide
+### Obesity-Related Comorbidities
+
+Surgical weight loss is accompanied by amelioration or resolution of most obesity-associated comorbidities such as dyslipidemia, hypertension, sleep apnea, fatty liver, and T2DM, regardless of surgery type. Improvement of these conditions is proportional to the magnitude of weight loss (16, 30). The procedures (RYGB, BPD, and SG) that show the greatest weight loss result in higher rates of remission of comorbidities.
+
+The resolution of T2DM is perhaps the most spectacular one (17). Individuals with known short duration of T2DM (<2--4 years), with low glycosylated hemoglobin, that is controlled with few antidiabetic agents and who are not on insulin (i.e. who have substantial remaining beta cell function) are the most likely to experience diabetes remission. These patients typically undergo BPD, RYGB, or SG and lose a significant amount of weight. T2DM can go into remission for a few years in up to 80% of cases (25, 63, 83, 87, 128). The rate of remission varies greatly among publications due to vastly different cohorts in terms of T2DM duration and postsurgery date of assessment (128). Remission or improvement of T2DM for any duration is a relief for patients. As BS also improves dyslipidemia and blood pressure, overall CVD risk decreases substantially. Another benefit of surgical weight loss is the prevention of the development of T2DM in individuals with prediabetes (128).
+
+The mechanisms of surgical weight loss and the resolution of complications, including diabetes, are not fully understood. The enhancement of the postprandial release of satiety gut peptides (84) and the change in reward brain control (132) may contribute to the larger weight loss after RYGB, BPD, and SG procedures when compared to AGB. In addition, the enhancement of incretins contributes to the improvement of beta cell function (48). Other mechanisms involving the microbiome (35), bile acids (4), decreased liver fat, decreased visceral fat (57), or a change in lipid absorption (62) could contribute to metabolic improvement and decreased cardiovascular risk (67).
+
+## NUTRITIONAL CONSIDERATIONS ASSOCIATED WITH BARIATRIC SURGERY
+
+The risk of the development of nutritional deficiencies is influenced by various factors before, during, and after BS. Pre-existing impaired nutritional status is associated with postoperative nutritional deficiencies and metabolic complications (11, 34). Therefore, identifying and correcting nutritional deficiencies prior to surgery should be part of the comprehensive preoperative intervention (75, 79, 92). BS results in significant changes to gastrointestinal anatomy, which affects gut physiology and nutrient intake. Regardless of the surgical procedure, all patients experience changes in eating behaviors, including reduced portion sizes, and taste preferences. The potential for diarrhea and persistent vomiting contributes to reduced energy intake and limited intake of essential vitamins, minerals, and proteins. The combination of these factors results in a nutrient deficit (68, 73). The extent of nutrient malabsorption depends on the specific surgical technique, including the size of the stomach pouch, bypassing of the stomach, alterations in small intestine anatomy, and the length of the common channel (28, 92).
+
+Along with these changes, reduced acid secretion due to gastric resection further impairs nutrient extraction and absorption modifications (28). Although the degree of impact on nutrition absorption may vary among different surgical procedures, all of them have been shown to negatively impact serum levels of iron, vitamin B_{1} (thiamin), folate, vitamin B_{12}, and vitamin D, increasing deficiency risk (92). Studies on nutritional deficiencies have guided appropriate nutritional management (75, 92, 93, 99). It is generally understood that bypassing a longer segment of the intestine increases the risk of developing nutritional deficiencies. This makes resolving deficiencies more challenging, particularly in the long-term (53, 92). Importantly, adherence to nutritional supplementation (131) and regular medical follow-up after BS (19, 75, 100) play crucial roles in managing nutritional health.
+
+Gastrointestinal symptoms such as dumping syndrome and gastroesophageal reflux can also have nutritional implications and contribute to changes in the gastrointestinal system (141). While data are available on the nutritional impact of popular procedures such as SG, RYGB, and BPD/DS, further research is needed to better understand the nutritional side effects of other surgical weight loss procedures and weight loss medications (92, 98).
+
+Sustained negative energy balance is needed to promote weight loss. Dietary changes after BS entail calorie restriction. The protein content of the diet plays a crucial role during surgical weight loss. Adequate protein intake has been associated with the retention of
+
+lean body mass (LBM) (1, 78), satiety (84), thermogenesis (42), glucose homeostasis (specifically circulating levels of branched-chain amino acids after BS) (89), and the prevention of malnutrition (15). Due to the exclusion of the duodenum and proximal jejunum, where protein absorption primarily occurs, protein status can be significantly affected by BS (73, 75, 99). Furthermore, anatomical changes in the gastric pouch, including altered gastric acid secretion and pepsin production, affect the optimal digestion and absorption of dietary protein (15). It is widely acknowledged that not only the total amount of protein but also the presence of all essential amino acids in the diet are necessary for optimal protein synthesis and balance (105).
+
+Malabsorption following BS can lead to increased nitrogen losses in feces, which may reach as high as 3.5 g/day compared to the normal estimated nitrogen loss of only 0.4 g/day. Increased nitrogen losses in feces may result in a negative nitrogen balance, where the body mobilizes protein stores from visceral tissues, impacting protein turnover. The decrease in LBM during weight loss can downregulate metabolic processes such as protein turnover and the basal metabolic rate, which may compromise long-term weight management (109). Conversely, a long-term negative nitrogen balance can lead to the loss of lean tissue, particularly affecting the adult population prone to developing sarcopenia, which is further discussed below.
+
+## GASTROINTESTINAL TRACT CHANGES AND NUTRITIONAL COMPLICATIONS
+
+### Malabsorption and Nutrient Deficiencies
+
+Because RYGB, SG, and BPD/DS procedures alter the anatomy of the normal gastrointestinal tract and the ability to absorb nutrients, they raise postoperative nutritional risk. Despite high energy intakes, many people with obesity have micronutrient deficiencies even before surgery due to low-nutrient-density diets (49). Therefore, it is imperative that patients adhere to their individualized nutritional supplementation prescribed by their health-care team. There is a long history of vitamin and mineral deficiencies in postoperative BS patients (14, 16). The most common deficiencies are iron, vitamin B_{12}, folate, thiamin, vitamin D, and calcium (Ca) (11, 49).
+
+In patients with lipid or fat malabsorption, fat-soluble vitamin deficiency ensues. In contrast to BPD/DS, both RYGB and SG result in less fat malabsorption and very little carbohydrate malabsorption (91). For most micronutrients, studies have found similar micronutrient deficiencies present after both the RYGB and SG procedures, which is plausible because both procedures have similar malabsorptive aspects (66, 77). These studies and others found that the most common deficiencies in this patient population include vitamin D, iron, and vitamins B_{6}, B_{12}, and B_{1}. However, one study indicated that patients with SG had higher hemoglobin (but not other iron markers), magnesium, and zinc compared to RYGB (and the AGB procedure) but lower folate levels (140). However, others have reported lower iron and vitamin B_{12} after SG (58). The pathological conditions associated with micronutrient deficiencies after BS are discussed below and shown in Table 1.
+
+### Vitamin B_{1}, or Thiamin, Deficiency
+
+The most common water-soluble vitamin deficiency in the BS population is B_{1}, which is usually caused by low dietary vitamin B_{1} intake and hyperemesis. If left untreated, vitamin B_{1} deficiency can result in wet, dry, or cerebral beriberi. Wet beriberi is characterized by cardiac symptoms, including hypertension and tachycardia, while dry and cerebral beriberi result in neurological outcomes ranging from mental confusion to psychosis. Beriberi tends to develop 1--3 months after BS and has been reported to occur more often in females than males (136). It is possible to correct pre-existing deficiencies and prevent further deficiencies of thiamin with pre- and postoperative care.
+
+### Anemia
+
+Anemia is reported after BS using malabsorption procedures. It is likely related to the type of surgery and the duration reported after surgery (134) but may be related to the presence of iron deficiency prior to surgery (55). Anemia can be secondary to high use of a postoperative proton pump inhibitor (PPI) in patients. PPI usage can lead to a reduction in hydrochloric acid production, which prevents the conversion of iron to the absorbable ferrous form as described in patients with laparoscopic SG (58). Iron deficiency anemia is a frequent problem in premenopausal women, often requiring parenteral iron therapy (52, 148). While iron deficiency is a major cause for anemia after BS, deficiency of vitamin B_{12} and folate, as well as zinc, copper, and selenium deficiencies, can also contribute (151). However, it is possible that many of these nutrient deficiencies are present before surgery because most studies do not examine preoperative to postoperative changes to specifically link the onset of anemia to BS.
+
+### Dumping Syndrome
+
+A common intestinal complication after BS is dumping syndrome (101), which can occur following RYGB or SG (18). Dumping syndrome is the rapid passage of gastric contents into the small intestine, which commonly occurs with the consumption of simple carbohydrates, and can cause postprandial hypoglycemia or gastrointestinal disturbances. Treatment of dumping syndrome--induced hypoglycemia includes dietary counseling to decrease rapid carbohydrate intake and increase fibers and proteins in meals and snacks and the use of acarbose to slow glucose absorption (146), but there is no currently approved medication. After surgery, patients should be monitored for symptoms of dumping syndrome to prevent hypoglycemia and minimize gastrointestinal disturbances. Severe postprandial hypoglycemia can also occur and may be debilitating (112).
+
+### Bowel Obstruction
+
+A possible risk factor with any abdominal surgery procedure, including bariatric procedures, is bowel obstruction. The etiologies range from blood clots to intestinal adhesions (41). Patients often have acute obstructions with symptoms of abdominal pain. Obstructions can occur after all types of BS, and therefore symptoms should be monitored since many require surgical intervention (95).
+
+Ulcers and Gastroesophageal Reflux
+
+Ulcers are one of the most common complications following bariatric procedures, especially RYGB, and typically present with gastrointestinal bleeding and severe abdominal pain (74). One study found that ulcers occurred in 3.5% of the population at an average of 7 months after surgery. All were successfully treated with PPIs and sucralfate therapy (32). Patient history of diabetes or peptic ulcers is a risk factor for marginal ulcers (139). While patients with BS are typically prescribed PPIs proactively, some patients still require surgical or other pharmacological interventions (81). Patients should be advised to avoid smoking and the use of nonsteroidal anti-inflammatory drugs, which increase the risk of ulceration (36). Ulcers that occur after BS can be treated proactively with pharmacotherapy and practicing general healthy habits to reduce the number of patients requiring additional surgical interventions. Gastroesophageal reflux disease (GERD) may improve in patients with obesity who undergo BS and weight loss, yet long-term follow-up suggests that there is a risk for GERD and Barrett's esophagus after SG. The postoperative incidence of GERD, esophagitis, and Barrett's esophagus can be up to 60% (69), with significant variability among groups (113). GERD after SG can be treated with standard nutritional management, although there may be a need for surgical revision or conversion to RYGB (125).
+
+### Kidney Stones
+
+Malabsorptive surgeries are associated with a higher risk of kidney stones after surgery (107). Besides kidney stones, there is a long-term risk of hyperoxaluria and oxalate nephropathy after BS. The risk of new kidney stone events doubles compared with unoperated obese controls (71). Early recognition of these complications with dietary manipulations can successfully reduce oxalate excretion and potential stones. Importantly, the net effect on long-term kidney health and chronic kidney disease risk is often positive after BS when considering the resolution of diabetes and the reduction in pathologic albuminuria (46).
+
+### Altered Intestinal Bile Acid Availability
+
+Circulating bile acids increase after surgical procedures (such as RYGB and SG) to raise the blunted levels related to severe obesity. Bile acids, whose functions cover intestinal lipid absorption and various aspects of metabolic regulation, may also play a role in the mechanisms regulating weight loss and glycemic improvements after BS. Bile acids have been shown to have numerous metabolic effects after surgery, such as increasing energy expenditure and gut hormone production, reducing food intake, and improving gluconeogenesis and insulin resistance (104, 144). Overall, the rise in bile acids may explain why fat malabsorption is not as compromised after RYGB surgery and why glycemic control is improved compared to other types of surgeries (i.e. BPD/DS).
+
+### Microbiome and Bacterial Overgrowth
+
+The gut microbiome actively plays a role in obesity and conditions such as diabetes and inflammation. For example, the transfer of gut microbiota from obese rodents to germ-free controls leads to an increase in food intake and body weight in nonobese controls (145). Zhang et al. (159) were the first to show a decrease in Clostridium bacteria (phylum
+
+Firmicutes) after RYGB compared with controls. RYGB surgery reverses the gut microbiota from an obese to a lean phenotype. RYGB-induced changes in the gut microbiota show the standard decrease in the phylum Firmicutes that accompanies weight loss with dieting alone. Microbial sequencing analyses indicate that there is also a decrease in the Bifidobacteriaceae family, and an overabundance of the phyla Proteobacteria and Bacteroidetes, the family Streptococcaceae, and the species Akkermansia muciniphila and Streptococcus salivarius (27, 33, 82, 97). Importantly, these RYGB findings suggest that gut bacteria correlate with energy intake, high body weight, and inflammation and insulin resistance. Evidence also shows that the RYGB-induced modifications of gut microbiota are associated with changes in white adipose tissue gene expression (64). Hence, a change in the gut microbiota may ameliorate obesity-related symptoms and diseases after RYGB or other bariatric procedures.
+
+The hypochlorhydria and pH-induced increases in the gut after RYGB can be expected to affect the gut microorganisms and may also influence vitamin deficiencies after BS. Because microbial changes after BS vary due to the type of surgery and potential confounders such as baseline diet, medications, and T2DM, the individualized response is less predictable (33).
+
+Probiotic supplementation can alter the microbiota and has been examined to a limited extent after BS. In an early study, Woodard et al. (154) showed that supplementation with Lactobacillus probiotics (phylum Firmicutes) compared to placebo led to less breath hydrogen production and bacterial overgrowth and greater weight loss in post-RYGB patients. Others have shown that probiotic supplementation with Lactobacillus acidophilus and Bifidobacterium lactis Bi-07 was beneficial to markers of the metabolic profile (108). A meta-analysis (150) examining 11 randomized controlled trials (RCTs) indicates that probiotics taken after BS may improve lipid metabolism and liver enzymes and reduce food intake and body weight; severe side effects were not observed (150). Prebiotics have also been evaluated yet have not consistently shown positive effects on the gut microbiota (44, 157). One RCT suggested that a combination of prebiotics (inulin and oligofructose) and probiotics (yogurt) can be beneficial in the early postoperative period (21). A greater understanding of the gut microbiome may explain health outcomes after BS. It may also contribute to defining new treatment modalities in obese patients who elect to undergo BS or those who choose nonsurgical options.
+
+### Bone Loss
+
+Bone loss occurs with moderate weight loss (120, 160) and is greater after BS procedures, which is attributed to both the extent of weight loss and other factors such as the type of surgery and extent of malabsorption (76, 158). In addition, vertebral bone strength and density are reduced in adolescents after sleeve gastrectomy (56). A reduction in estrogen, an increase in circulating parathyroid hormone (PTH) and bone resorption, and reduced Ca absorption are some factors contributing to the bone loss (23, 51, 126).
+
+There is a dramatic 33% decrease in Ca absorption at 6 months after RYGB surgery in women consuming 1.5 g/day of Ca and 400 IUs of vitamin D. In a subsequent study, researchers found that even with optimization of vitamin D status, Ca absorption decreased dramatically (117) and the results were similar in patients with SG and RYGB procedures (156). In addition, a prebiotic (soluble corn fiber) was given for 2 months to patients with a
+
+history of gastric bypass (~5 years earlier). In this double-blind RCT, the soluble corn fiber did not improve Ca absorption, but those with greater microbial diversity after treatment showed higher Ca absorption (157).
+
+The effects of BS on areal and volumetric bone mineral density (BMD) and microarchitecture occur within the first months. Deterioration progresses over time (26, 45, 158). A meta-analysis of 22 studies with 1,905 patients with obesity who underwent SG found that they had lower BMD at the hip and femoral neck but not at the lumbar spine (59). Thus far, there is no evidence that serum 25-hydroxy-vitamin D [25(OH)D] levels or dietary supplementation of vitamin D or Ca intake modifies the extent of bone loss (45, 51, 126). This is consistent with our early findings of elevated bone resorption and secondary hyperparathyroidism four years after RYGB compared to weight- and age-matched controls, despite a modest intake of calcium and vitamin D (51). One study observed no change in serum PTH or 25(OH)D one year after RYGB surgery, despite doubling dietary calcium and vitamin D intake to approximately 2,350 mg/day and 1,700 IU/day, respectively (45).
+
+Fracture risk is increased after BS, but this is generally limited to malabsorptive procedures (3, 72, 96) (Figure 3). Restrictive procedures generally do not increase fracture risk, which can be partially attributed to normal nutrient absorption after these procedures but may also be due to less weight loss compared to malabsorptive procedures or a lack of long-term studies. A meta-analysis of observational studies compared fracture risk between subjects who underwent BS (all types) (n = 116,205) and nonsurgical patients (n = 134,637) (24). There was a 20% increased risk of any fractures in the BS group compared to the control group (24). Overall, the type of BS, the amount of weight loss, and older age, but not necessarily higher-than-normal serum 25(OH)D levels, influence the extent of bone loss and fracture, as well as indices of bone resorption, serum PTH, and calcium absorption.
+
+## SPECIAL POPULATIONS AND CLINICAL CIRCUMSTANCES
+
+### Pregnancy
+
+The weight loss and reduction in adipose tissue resulting from BS in women of reproductive age have been shown to significantly improve fertility (122). However, it is important to consider that the compromised nutrient absorption following BS, combined with increased nutrient and energy demands during pregnancy, can exacerbate deficiencies and affect maternal and fetal growth and development (85). While there are specific nutrient considerations, such as vitamins A, D, C, E, B_{9}, and B_{12}, zinc, thiamin, iodine, and omega-3s (147), to ensure a normal and safe development of the fetus, there is currently no consensus on adequate supplementation.
+
+Limited evidence suggests that specific vitamin and mineral supplements tailored for pregnancy after RYGB can result in higher blood serum levels of ferritin, hemoglobin, vitamin B_{12}, and vitamin D compared to standard pregnancy multivitamins (133). As these customized BS supplements are relatively new in the market, further studies are needed to confirm these findings. It is recommended to wait until 12--18 months after BS, once maximal weight loss and weight stabilization have been achieved, before considering pregnancy. The first year after BS is critical for ensuring adequate nutrient status (75,
+
+93). Ideally, planning for pregnancy should occur prior to BS to ensure not only sufficient nutrient intake and adherence to prescribed supplements but also the adoption of a healthy eating pattern by the woman during pregnancy (47). Supplementation should be tailored and prescribed by a specialist who can provide comprehensive evaluation and follow-up, as both excessive and deficient doses of certain micronutrients can have detrimental effects (147). Nutritional status should be closely monitored before pregnancy, during pregnancy, and throughout lactation to ensure the safety of both the mother and the baby (130, 137).
+
+### Adolescents
+
+Well-designed prospective observational studies indicate that weight loss surgery is a safe and effective treatment option for pediatric patients younger than 18 years old, particularly when performed in specialized metabolic and BS centers that have experience working with youth and their families (54). Regular monitoring of dietary adherence and nutritional assessment, as well as education, is crucial for adolescents undergoing surgery due to their changing body composition, growth, and sexual development (40). Recent data revealing the presence of multiple micronutrient deficiencies following metabolic surgery and BS emphasize the importance of ongoing and long-term monitoring (54, 94). It should be noted that malabsorptive procedures are associated with a higher prevalence of nutritional deficiencies after surgery, underscoring the significance of receiving care from specialized centers (111). A comprehensive approach to care, involving shared decision making that is nonstigmatizing and includes the patient and their family, is essential in addressing obesity as a chronic condition throughout the individual's life span. This approach also necessitates transition planning to adult care for adolescents with obesity, ensuring continuity of care and support (124).
+
+### Older Adults
+
+Age is a risk factor for sarcopenic obesity in BS candidates, which is particularly prevalent among women aged 60 years and older (80). Sarcopenia, characterized by significant changes in body composition, can have substantial implications for older adults seeking weight loss surgery. It is associated with physical disability, frailty, diminished quality of life, and increased mortality (31). BS leads to a loss of approximately 8 kg of LBM within the first year after surgery, with a significant proportion of LBM loss occurring in the initial three months. This loss of LBM coincides with a period of reduced energy and protein intake (90). Consequently, the early postoperative period presents an optimal opportunity to implement interventions targeting LBM preservation. Interventions may involve prehabilitation programs for individuals identified with sarcopenia before weight loss surgery, or rehabilitation programs for those who develop sarcopenia during follow-up due to factors such as aging, loss of LBM resulting from weight loss, inadequate protein intake, and insufficient physical activity. These programs should include individualized prescriptions for protein intake and strength training (12).
+
+Various tests and tools are available to assess and characterize sarcopenia in clinical practice and research. Incorporating these assessments into the evaluation of older adults undergoing weight loss surgery is crucial (90). Additionally, it is valuable to include clinical outcomes, such as physical rehabilitation, muscle strength, and muscle function, to better understand
+
+the long-term effects of BS on overall health, considering its impact on sarcopenia and related factors (90).
+
+## NUTRITIONAL MANAGEMENT AFTER BARIATRIC SURGERY: THE IMPORTANCE OF AN INTEGRATED PROGRAM
+
+People living with more extreme forms of obesity undergoing BS should be encouraged to participate in a well-structured, specific, and interdisciplinary patient-centered program, including primary care physicians (70, 92). Nutritional complications can be prevented or managed with preoperative assessment and education with high-quality information to enhance patient empowerment and promote self-management (142). Recent qualitative data indicate that adopting person-centered care techniques positively influences patients' experience with micronutrients and overall nutrition care (70). Dietary management of the common nutritional complications is outlined in Table 2.
+
+### Preoperative Management
+
+A preoperative nutritional assessment is crucial as it allows for the identification and correction of any deficiencies (93, 99). Moreover, it provides an opportunity to establish a strong patient-provider relationship. After all types of bariatric procedures, it is recommended to take a complete multivitamin and mineral supplement daily, containing essential nutrients such as thiamin, iron, selenium, zinc, and copper (93, 99). Based on limited evidence, current BS guidelines for SG and RYGB suggest a minimum of 60--80 g/day of dietary protein or 1.0--1.5 g/kg of ideal body weight as an achievable and meaningful target to minimize postsurgical complications (75, 99). Procedures with a higher risk of protein-energy malnutrition may require a protein intake of 90 g/day or up to 2.1 g/kg of ideal body weight. However, due to the limited stomach capacity and increased satiety experienced after BS, achieving these protein targets solely through diet can be challenging. Therefore, dietary protein supplementation has been suggested as a valuable tool to meet daily protein needs (99).
+
+### Postoperative Management
+
+To optimize outcomes and prevent complications, access to specialized dietetic support is crucial for individuals with obesity undergoing BS (92). Nutritionists or dietitians will regularly monitor laboratory analyses and individualize and adjust nutritional supplementation as needed (75, 93, 99, 100). Patients should commit to a lifetime of regular monitoring of nutritional intake, dietary and nutritional assessments, identification of obstacles, problem-solving, and ongoing support by either specialized bariatric centers or trained primary care providers (92, 99, 100).
+
+After completion of the program, long-term follow-up should include annual monitoring of nutritional status as part of a shared care model (92, 99). Adherence to bariatric support groups in the long-term has also been shown to be beneficial for weight loss outcomes (5).
+
+As with other chronic conditions, the management of obesity requires an interdisciplinary approach that includes primary care physicians (70, 75, 92, 93, 99, 100). Dietitians or
+
+nutritionists play a critical role in assessing and providing ongoing nutrition care for patients who have undergone BS. Their continuous assessment and involvement are integral to ensuring successful long-term bariatric care (92, 100).
+
+### Nutrition Support: Enteral and Parenteral Nutrition
+
+Parenteral nutrition (PN) or enteral nutrition (EN) may be necessary to help treat surgical complications from BS and/or malnutrition occurring from a distinct pathology of the gut in patients who have had these procedures (38). BS-related complications can result in malnutrition/failure to thrive with vitamin deficiencies. In a retrospective review, one study identified patients in a home EN database and found that it was typically given by nasogastric tube (149). Home EN was most common after RYGB (74%) compared to other types of BS. Patients were able to meet about 95% of their energy and protein goals. In addition, home PN was primarily administered to patients with RYGB (72%), and the average age of patients in a large database was 52 years old (80% female) (86). Weight increased by 8 kg from the initiation of home PN to the end of treatment, and serum albumin increased from 2.8 to 3.7 g/dL (86).
+
+Both EN and PN can improve nutritional status in the malnourished post-BS patient who is at high nutritional risk and be used as a bridge to better health (38). EN/PN should begin within 3--7 days when it is clear the patient is unable to meet energy needs with normal oral intake. All patients should be given a hypocaloric formula (50--70% of calculated needs) with a moderately high protein intake (1.2 g/kg per day). Home EN/PN can be considered; however, severe malnutrition or the presence of hypoglycemia should prompt hospitalization. Adherence to the clinical practice guidelines (which are routinely updated) by the American or European professional societies is recommended (75).
+
+## CONCLUSIONS
+
+BS is an important tool for weight loss in individuals with severe obesity. It has significant physiological and nutritional consequences that bring a unique mix of new medical and nutritional requirements in this population. Many nutritional deficiencies and complications can be prevented or corrected with careful monitoring and management. Future nonsurgical targets to treat obesity may include a focus on taste/food preferences, gut microbiota, bile acid signaling, and methods to preserve beta cell function and decrease hepatic glucose output, among others. Nonsurgical interventions that mimic the metabolic benefits of BS are a future direction for the obesity field. The glucagon-like peptide-1 (GLP-1) receptor agonists and GLP-1 in combination with glucose-dependent insulinotropic polypeptide (GIP) dual agonists or GLP-1/GIP/glucagon triple receptor agonists are examples of pharmacologic options that can be used with lifestyle changes to target a wider BMI range (60, 61, 153). These pharmacologic options result in a percent weight loss approaching the magnitude of surgical weight loss, but compliance decreases over time, and therefore it is likely that long-term success will involve a combination of techniques (65) using individualized patient care. Monitoring nutritional status to avoid deficiency conditions that are associated with greater and faster weight loss is needed to complement all of these strategies. There is also a need for health-care professionals to be given the resources to
+
+Moize et al.
+
+address the long-term concerns in these patients, including ongoing support to maintain a healthy body weight throughout the life span. Action must be decisive, people centered, and integrated to increase our chances of successfully preventing and treating severe obesity.
+
+# ACKNOWLEDGMENTS
+
+This research was supported by the US Department of Agriculture's National Institute of Food and Agriculture (0153866) (to S.S., Principal Investigator).
+
+# LITERATURE CITED
+
+1. Abdeen G, le Roux CW. 2016. Mechanism underlying the weight loss and complications of Roux-en-Y gastric bypass. Rev. Obes. Surg. 26(2):410-21
+2. Adams TD, Meeks H, Fraser A, Davidson LE, Holmen J, et al. 2023. Long-term all-cause and cause-specific mortality for four bariatric surgery procedures. Obesity 31(2):574-85 [PubMed: 36695060]
+3. Ahlin S, Peltonen M, Sjöholm K, Anveden Å, Jacobson P, et al. 2020. Fracture risk after three bariatric surgery procedures in Swedish obese subjects: up to 26 years follow-up of a controlled intervention study. J. Intern. Med. 287(5):546-57 [PubMed: 32128923]
+4. Albaugh VL, Banan B, Antoun J, Xiong Y, Guo Y, et al. 2019. Role of bile acids and GLP-1 in mediating the metabolic improvements of bariatric surgery. Gastroenterology 156(4):1041-51 [PubMed: 30445014]
+5. Andreu A, Jimenez A, Vidal J, Ibarzabal A, De Hollanda A, et al. 2020. Bariatric support groups predicts long-term weight loss. Obes. Surg. 30(6):2118-23 [PubMed: 32030615]
+6. Angrisani L, Santonicola A, Iovino P, Formisano G, Buchwald H, Scopinaro N. 2015. Bariatric surgery worldwide 2013. Obes. Surg. 25(10):1822-32 [PubMed: 25835983]
+7. Apovian CM. 2016. Obesity: definition, comorbidities, causes, and burden. Am. J. Manag. Care 22(Suppl. 7):176-85
+8. Apovian CM, Garvey WT, Ryan DH. 2015. Challenging obesity: patient, provider, and expert perspectives on the roles of available and emerging nonsurgical therapies. Obesity 23(Suppl. 2):S1-26
+9. Arterburn D, Wellman R, Emiliano A, Smith SR, Odegaard AO, et al. 2018. Comparative effectiveness and safety of bariatric procedures for weight loss: a PCORnet cohort study. Ann. Intern. Med. 169(11):741-50 [PubMed: 30383139]
+10. Arterburn DE, Telem DA, Kushner RF, Courcoulas AP. 2020. Benefits and risks of bariatric surgery in adults: a review. JAMA 324(9):879-87 [PubMed: 32870301]
+11. Bal BS, Finelli FC, Shope TR, Koch TR. 2012. Nutritional deficiencies after bariatric surgery. Nat. Rev. Endocrinol. 8(9):544-56 [PubMed: 22525731]
+12. Batsis JA, Gill LE, Masutani RK, Adachi-Mejia AM, Blunt HB, et al. 2017. Weight loss interventions in older adults with obesity: a systematic review of randomized controlled trials since 2005. J. Am. Geriatr. Soc. 65(2):257-68 [PubMed: 27641543]
+13. Brethaue SA. 2013. Bariatric surgery in class I obesity (body mass index  $30 - 35\mathrm{kg} / \mathrm{m}^2$ ). Surg. Obes. Relat. Dis. 9(1):e1-10 [PubMed: 23265765]
+14. Brolin RE, Gorman RC, Milgrim LM, Kenler HA. 1991. Multivitamin prophylaxis in prevention of post-gastric bypass vitamin and mineral deficiencies. Int. J. Obes. 15(10):661-67 [PubMed: 1752727]
+15. Brolin RE, LaMarca LB, Kenler HA, Cody RP. 2002. Malabsorptive gastric bypass in patients with superobesity. J. Gastrointest. Surg. 6(2):195-205 [PubMed: 11992805]
+16. Buchwald H, Avidor Y, Braunwald E, Jensen MD, Pories W, et al. 2004. Bariatric surgery: a systematic review and meta-analysis. JAMA 292(14):1724-37 [PubMed: 15479938]
+17. Buchwald H, Estok R, Fahrbach K, Banel D, Jensen MD, et al. 2009. Weight and type 2 diabetes after bariatric surgery: systematic review and meta-analysis. Am. J. Med. 122(3):248-56 [PubMed: 19272486]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+Page 16
+
+18. Buchwald H, Ikramuddin S, Dorman RB, Schone JL, Dixon JB. 2011. Management of the metabolic/bariatric surgery patient. Am. J. Med. 124(12):1099–105 [PubMed: 22014789]
+19. Busetto L, Dicker D, Azran C, Batterham RL, Farpour-Lambert N, et al. 2017. Practical recommendations of the Obesity Management Task Force of the European Association for the Study of Obesity for the Post-Bariatric Surgery Medical Management. Obes. Facts 10(6):597–632 [PubMed: 29207379]
+20. Busetto L, Dixon J, De Luca M, Shikora S, Pories W, Angrisani L. 2014. Bariatric surgery in class I obesity: a position statement from the International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO). Obes. Surg. 24(4):487–519 [PubMed: 24638958]
+21. Calikoglu F, Barbaros U, Uzum AK, Tutuncu Y, Satman I. 2021. The metabolic effects of pre-probiotic supplementation after Roux-en-Y gastric bypass (RYGB) surgery: a prospective, randomized controlled study. Obes. Surg. 31(1):215–23 [PubMed: 32803709]
+22. Camhi SM, Bray GA, Bouchard C, Greenway FL, Johnson WD, et al. 2011. The relationship of waist circumference and BMI to visceral, subcutaneous, and total body fat: sex and race differences. Obesity 19(2):402–8 [PubMed: 20948514]
+23. Carrasco F, Basfi-Fer K, Rojas P, Csendes A, Papapietro K, et al. 2018. Calcium absorption may be affected after either sleeve gastrectomy or Roux-en-Y gastric bypass in premenopausal women: a 2-y prospective study. Am. J. Clin. Nutr. 108(1):24–32 [PubMed: 29878034]
+24. Chaves Pereira de Holanda N, de Lima Carlos I, Chaves de Holanda Limeira C, Cesarino de Sousa D, Serra de Lima Junior FA, et al. 2022. Fracture risk after bariatric surgery: a systematic literature review and meta-analysis. Endocr. Pract. 28(1):58–69 [PubMed: 34563701]
+25. Chikunguwo SM, Wolfe LG, Dodson P, Meador JG, Baugh N, et al. 2010. Analysis of factors associated with durable remission of diabetes after Roux-en-Y gastric bypass. Surg. Obes. Relat. Dis. 6(3):254–59 [PubMed: 20303324]
+26. Coates PS, Fernstrom JD, Fernstrom MH, Schauer PR, Greenspan SL. 2004. Gastric bypass surgery for morbid obesity leads to an increase in bone turnover and a decrease in bone mass. J. Clin. Endocrinol. Metab. 89(3):1061–65 [PubMed: 15001587]
+27. Coimbra VOR, Crovesy L, Ribeiro-Alves M, Faller ALK, Mattos F, Rosado EL. 2022. Gut microbiota profile in adults undergoing bariatric surgery: a systematic review. Nutrients 14(23):4979 [PubMed: 36501007]
+28. Coluzzi I, Raparelli L, Guarnacci L, Paone E, Del Genio G, et al. 2016. Food intake and changes in eating behavior after laparoscopic sleeve gastrectomy. Obes. Surg. 26(9):2059–67 [PubMed: 26744284]
+29. Courcoulas A, Coley RY, Clark JM, McBride CL, Cirelli E, et al. 2020. Interventions and operations 5 years after bariatric surgery in a cohort from the US National Patient-Centered Clinical Research Network Bariatric Study. JAMA Surg. 155(3):194–204 [PubMed: 31940024]
+30. Courcoulas AP, King WC, Belle SH, Berk P, Flum DR, et al. 2018. Seven-year weight trajectories and health outcomes in the Longitudinal Assessment of Bariatric Surgery (LABS) study. JAMA Surg. 153(5):427–34 [PubMed: 29214306]
+31. Cruz-Jentoft AJ, Bahat G, Bauer J, Boirie Y, Bruyère O, et al. 2019. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing 48(4):16–31 [PubMed: 30312372]
+32. Dallal RM, Bailey LA. 2006. Ulcer disease after gastric bypass surgery. Surg. Obes. Relat. Dis. 2(4):455–59 [PubMed: 16925380]
+33. Davies NK, O'Sullivan JM, Plank LD, Murphy R. 2019. Altered gut microbiome after bariatric surgery and its association with metabolic benefits: a systematic review. Surg. Obes. Relat. Dis. 15(4):656–65 [PubMed: 30824335]
+34. de Lima CVG, de Carvalho Costa MJ, da Conceicao Rodrigues Goncalves M, Soares Sousa B. 2013. Micronutrient deficiencies in the pre-bariatric surgery. Arq. Bras. Cir. Dig. 26(Suppl. 1):63–66 [PubMed: 24463902]
+35. Debédat J, Clément K, Aron-Wisnewsky J. 2019. Gut microbiota dysbiosis in human obesity: impact of bariatric surgery. Curr. Obes. Rep. 8(3):229–42 [PubMed: 31197613]
+36. Di Palma A, Liu B, Maeda A, Anvari M, Jackson T, Okrainec A. 2021. Marginal ulceration following Roux-en-Y gastric bypass: risk factors for ulcer development, recurrence and need for revisional surgery. Surg. Endosc. 35(5):2347–53 [PubMed: 32424625]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+Page 17
+
+37. Dijkhorst PJ, Boerboom AB, Janssen IMC, Swank DJ, Wiezer RMJ, et al. 2018. Failed sleeve gastrectomy: single anastomosis duodenoileal bypass or Roux-en-Y gastric bypass? A multicenter cohort study. Obes. Surg. 28(12):3834–42 [PubMed: 30066245]
+38. Dodell GB, Albu JB, Attia L, McGinty J, Pi-Sunyer FX, Laferrère B. 2012. The bariatric surgery patient: lost to follow-up; from morbid obesity to severe malnutrition. Endocr. Pract. 18(2):e21–25 [PubMed: 22138075]
+39. Donato KA. 1998. Executive summary of the clinical guidelines on the identification, evaluation, and treatment of overweight and obesity in adults. Arch. Intern. Med. 158(17):1855–67 [PubMed: 9759681]
+40. Elahmedi MO, Alqahtani AR. 2017. Evidence base for multidisciplinary care of pediatric/adolescent bariatric surgery patients. Curr. Obes. Rep. 6(3):266–77 [PubMed: 28755177]
+41. Elms L, Moon RC, Varnadore S, Teixeira AF, Jawad MA. 2014. Causes of small bowel obstruction after Roux-en-Y gastric bypass: a review of 2,395 cases at a single institution. Surg. Endosc. 28(5):1624–28 [PubMed: 24380988]
+42. Faria SL, Faria OP, Buffington C, de Almeida Cardeal M, Rodrigues de Gouvêa H. 2012. Energy expenditure before and after Roux-en-Y gastric bypass. Obes. Surg. 22(9):1450–55 [PubMed: 22592393]
+43. Fayad L, Adam A, Schweitzer M, Cheskin LJ, Ajayi T, et al. 2019. Endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: a case-matched study. Gastrointest. Endosc. 89(4):782–88 [PubMed: 30148991]
+44. Fernandes R, Beserra BTS, Mocellin MC, Kuntz MGF, Da Rosa JS, et al. 2016. Effects of prebiotic and synbiotic supplementation on inflammatory markers and anthropometric indices after Roux-en-Y gastric bypass: a randomized, triple-blind, placebo-controlled pilot study. J. Clin. Gastroenterol. 50(3):208–17 [PubMed: 25909598]
+45. Fleischer J, Stein EM, Bessler M, Della Badia M, Restuccia N, et al. 2008. The decline in hip bone density after gastric bypass surgery is associated with extent of weight loss. J. Clin. Endocrinol. Metab. 93(10):3735–40 [PubMed: 18647809]
+46. Friedman AN, Wahed AS, Wang J, Courcoulas AP, Dakin G, et al. 2018. Effect of bariatric surgery on CKD risk. J. Am. Soc. Nephrol. 29(4):1289–300 [PubMed: 29335242]
+47. Gao X, Zheng Q, Jiang X, Chen X, Liao Y, Pan Y. 2023. The effect of diet quality on the risk of developing gestational diabetes mellitus: a systematic review and meta-analysis. Front. Public Health 10:1062304 [PubMed: 36699870]
+48. Garber AJ. 2011. Incretin effects on $\beta$-cell function, replication, and mass: the human perspective. Diabetes Care 34(Suppl. 2):S258–63 [PubMed: 21525465]
+49. Gasmi A, Bjørklund G, Mujawdiya PK, Semenova Y, Peana M, et al. 2022. Micronutrients deficiencies in patients after bariatric surgery. Eur. J. Nutr. 61(1):55–67 [PubMed: 34302218]
+50. Georgiadou D, Sergentanis TN, Nixon A, Diamantis T, Tsigris C, Psaltopoulou T. 2014. Efficacy and safety of laparoscopic mini gastric bypass. A systematic review. Surg. Obes. Relat. Dis. 10(5):984–91 [PubMed: 24913595]
+51. Goode LR, Brolin RE, Chowdhury HA, Shapses SA. 2004. Bone and gastric bypass surgery: effects of dietary calcium and vitamin D. Obes. Res. 12(1):40–47 [PubMed: 14742841]
+52. Gowanlock Z, Lezhanska A, Conroy M, Crowther M, Tiboni M, et al. 2020. Iron deficiency following bariatric surgery: a retrospective cohort study. Blood Adv. 4(15):3639–47 [PubMed: 32766854]
+53. Hamdan K, Somers S, Chand M. 2011. Management of late postoperative complications of bariatric surgery. Br. J. Surg. 98(10):1345–55 [PubMed: 21887775]
+54. Hampl SE, Hassink SG, Skinner AC, Armstrong SC, Barlow SE, et al. 2023. Clinical practice guideline for the evaluation and treatment of children and adolescents with obesity. Pediatrics 151(2):e2022060640 [PubMed: 36622115]
+55. Hegarty C, Breen C, Fearon NM, Heneghan HM, Docherty NG, Gletsu Miller N. 2021. Assessment of baseline rates of functional and absolute iron deficiency in bariatric surgery candidates: a retrospective study. Surg. Obes. Relat. Dis. 17(12):2009–14 [PubMed: 34620564]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+56. Huber FA, Singhal V, Tuli S, Becetti I, López López AP, et al. 2023. Two-year skeletal effects of sleeve gastrectomy in adolescents with obesity assessed with quantitative CT and MR spectroscopy. Radiology 307(5):e223256 [PubMed: 37310246]
+57. Hunt SC, Davidson LE, Adams TD, Ranson L, McKinlay RD, et al. 2021. Associations of visceral, subcutaneous, epicardial, and liver fat with metabolic disorders up to 14 years after weight loss surgery. Metab. Syndr. Relat. Disord. 19(2):83-92 [PubMed: 33136533]
+58. Jamil O, Gonzalez-Heredia R, Quadri P, Hassan C, Masur M, et al. 2020. Micronutrient deficiencies in laparoscopic sleeve gastrectomy. Nutrients 12(9):2896 [PubMed: 32971950]
+59. Jaruvongvanich V, Vantanasiri K, Upala S, Ungprasert P. 2019. Changes in bone mineral density and bone metabolism after sleeve gastrectomy: a systematic review and meta-analysis. Surg. Obes. Relat. Dis. 15(8):1252-60 [PubMed: 31311755]
+60. Jastreboff AM, Aronne LJ, Ahmad NN, Wharton S, Connery L, et al. 2022. Tirzepatide once weekly for the treatment of obesity. N. Engl. J. Med. 387(3):205-16 [PubMed: 35658024]
+61. Jastreboff AM, Kaplan LM, Frías JP, Wu Q, Du Y, et al. 2023. Triple-hormone-receptor agonist retatrutide for obesity—a phase 2 trial. N. Engl. J. Med. 389(6):514-26 [PubMed: 37366315]
+62. Jegatheesan P, Seyssel K, Stefanoni N, Rey V, Schneiter P, et al. 2020. Effects of gastric bypass surgery on postprandial gut and systemic lipid handling. Clin. Nutr. ESPEN 35:95-102 [PubMed: 31987128]
+63. Jiménez A, Casamitjana R, Flores L, Viaplana J, Corcelles R, et al. 2012. Long-term effects of sleeve gastrectomy and Roux-en-Y gastric bypass surgery on type 2 diabetes mellitus in morbidly obese subjects. Ann. Surg. 256(6):1023-29 [PubMed: 22968072]
+64. Kong LC, Tap J, Aron-Wisnewsky J, Pelloux V, Basdevant A, et al. 2013. Gut microbiota after gastric bypass in human obesity: increased richness and associations of bacterial genera with adipose tissue genes. Am. J. Clin. Nutr. 98(1):16-24 [PubMed: 23719559]
+65. Kramer CK, Retnakaran M, Viana LV. 2024. Effect of glucagon-like peptide-1 receptor agonists (GLP-1RA) on weight loss following bariatric treatment. J. Clin. Endocrinol. Metab. 109:e1634-41 [PubMed: 38488042]
+66. Krzizek EC, Brix JM, Stöckl A, Parzer V, Ludvik B. 2021. Prevalence of micronutrient deficiency after bariatric surgery. Obes. Facts 14(2):197-204 [PubMed: 33794530]
+67. Laferrère B, Pattou F. 2018. Weight-independent mechanisms of glucose control after Roux-en-Y gastric bypass. Front. Endocrinol. 9:530
+68. Laurenius A, Larsson I, Bueter M, Melanson KJ, Bosaeus I, et al. 2012. Changes in eating behaviour and meal pattern following Roux-en-Y gastric bypass. Int. J. Obes. 36(3):348-55
+69. Leslie D, Wise E, Sheka A, Abdelwahab H, Irey R, et al. 2021. Gastroesophageal reflux disease outcomes after vertical sleeve gastrectomy and gastric bypass. Ann. Surg. 274(4):646-53 [PubMed: 34506320]
+70. Lewis CA, de Jersey S, Hiatt J, Osland EJ, Hickman IJ. 2023. Patient experiences with micronutrient and overall nutrition management after bariatric surgery: identifying facilitators and barriers to implementing care. Surg. Obes. Relat. Dis. 19(9):1030-40 [PubMed: 36948975]
+71. Lieske JC, Mehta RA, Milliner DS, Rule AD, Bergstralh EJ, Sarr MG. 2015. Kidney stones are common after bariatric surgery. *Kidney Int.* 87(4):839-45 [PubMed: 25354237]
+72. Lu CW, Chang YK, Chang HH, Kuo CS, Huang CT, et al. 2015. Fracture risk after bariatric surgery: a 12-year nationwide cohort study. Medicine 94(48):e2087 [PubMed: 26632892]
+73. Mahan LK, Raymond LJ. 2017. Krause's Food &amp; the Nutrition Care Process. St. Louis, MO: Elsevier. 14th ed.
+74. Martinino A, Bhandari M, Abouelazayem M, Abdellatif A, Koshy RM, Mahawar K. 2022. Perforated marginal ulcer after gastric bypass for obesity: a systematic review. Surg. Obes. Relat. Dis. 18(9):1168-75 [PubMed: 35810084]
+75. Mechanick JI, Apovian C, Brethauer S, Garvey WT, Joffe AM, et al. 2020. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures—2019 update: cosponsored by American Association of Clinical Endocrinologists/American College of Endocrinology, The Obesity Society, American Society for Metabolic &amp; Bariatric Surgery, Obesity Medicine Association, and American Society of Anesthesiologists. Surg. Obes. Relat. Dis. 16(2):175-247 [PubMed: 31917200]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+76. Mele C, Caputo M, Ferrero A, Daffara T, Cavigiolo B, et al. 2022. Bone response to weight loss following bariatric surgery. Front. Endocrinol. 13:921353
+77. Moizé V, Andreu A, Flores L, Torres F, Ibarzabal A, et al. 2013. Long-term dietary intake and nutritional deficiencies following sleeve gastrectomy or Roux-en-Y gastric bypass in a Mediterranean population. J. Acad. Nutr. Diet. 113(3):400-10 [PubMed: 23438491]
+78. Moizé V, Andreu A, Rodríguez L, Flores L, Ibarzabal A, et al. 2013. Protein intake and lean tissue mass retention following bariatric surgery. Clin. Nutr. 32(4):550-55 [PubMed: 23200926]
+79. Moizé V, Deulofeu R, Torres F, de Osaba JM, Vidal J. 2011. Nutritional intake and prevalence of nutritional deficiencies prior to surgery in a Spanish morbidly obese population. Obes. Surg. 21(9):1382-88 [PubMed: 21298509]
+80. Molero J, Moizé V, Flores L, De Hollanda A, Jiménez A, Vidal J. 2020. The impact of age on the prevalence of sarcopenic obesity in bariatric surgery candidates. Obes. Surg. 30(6):2158-64 [PubMed: 32249368]
+81. Moon RC, Teixeira AF, Goldbach M, Jawad MA. 2014. Management and treatment outcomes of marginal ulcers after Roux-en-Y gastric bypass at a single high volume bariatric center. Surg. Obes. Relat. Dis. 10(2):229-34 [PubMed: 24462313]
+82. Morales-Marroquin E, Hanson B, Greathouse L, de la Cruz-Munoz N, Messiah SE. 2020. Comparison of methodological approaches to human gut microbiota changes in response to metabolic and bariatric surgery: a systematic review. Obes. Rev. 21(8):e13025 [PubMed: 32249534]
+83. Moriconi D, Manca ML, Anselmino M, Rebelos E, Bellini R, et al. 2022. Predictors of type 2 diabetes relapse after Roux-en-Y gastric bypass: a ten-year follow-up study. Diabetes Metab. 48(1):101282 [PubMed: 34547450]
+84. Morínigo R, Moizé V, Musri M, Lacy AM, Navarro S, et al. 2006. Glucagon-like peptide-1, peptide YY, hunger, and satiety after gastric bypass surgery in morbidly obese subjects. J. Clin. Endocrinol. Metab. 91(5):1735-40 [PubMed: 16478824]
+85. Mousa A, Naqash A, Lim S. 2019. Macronutrient and micronutrient intake during pregnancy: an overview of recent evidence. Nutrients 11(2):443 [PubMed: 30791647]
+86. Mundi MS, Vallumsetla N, Davidson JB, McMahon MT, Bonnes SL, Hurt RT. 2017. Use of home parenteral nutrition in post-bariatric surgery-related malnutrition. J. Parenter. Enteral Nutr. 41(7):1119-24
+87. Nannipieri M, Mari A, Anselmino M, Baldi S, Barsotti E, et al. 2011. The role of beta-cell function and insulin sensitivity in the remission of type 2 diabetes after gastric bypass surgery. J. Clin. Endocrinol. Metab. 96(9):e1372-79 [PubMed: 21778221]
+88. Neff KJ, Olbers T, le Roux CW. 2013. Bariatric surgery: the challenges with candidate selection, individualizing treatment and clinical outcomes. BMC Med. 11:8 [PubMed: 23302153]
+89. Newgard CB. 2012. Interplay between lipids and branched-chain amino acids in development of insulin resistance. Cell Metab. 15(5):606-14 [PubMed: 22560213]
+90. Nuijten MAH, Eijsvogels TMH, Monpellier VM, Janssen IMC, Hazebroek EJ, Hopman MTE. 2022. The magnitude and progress of lean body mass, fat-free mass, and skeletal muscle mass loss following bariatric surgery: a systematic review and meta-analysis. Obes. Rev. 23(1):e13370 [PubMed: 34664391]
+91. Odstrcil EA, Martinez JG, Santa Ana CA, Xue B, Schneider RE, et al. 2010. The contribution of malabsorption to the reduction in net energy absorption after long-limb Roux-en-Y gastric bypass. Am. J. Clin. Nutr. 92(4):704-13 [PubMed: 20739420]
+92. O'Kane M 2021. Nutritional consequences of bariatric surgery—prevention, detection and management. Curr. Opin. Gastroenterol. 37(2):135-44 [PubMed: 33332915]
+93. O'Kane M, Parretti HM, Pinkney J, Welbourn R, Hughes CA, et al. 2020. British Obesity and Metabolic Surgery Society Guidelines on perioperative and postoperative biochemical monitoring and micronutrient replacement for patients undergoing bariatric surgery—2020 update. Obes. Rev. 21(11):e13087 [PubMed: 32743907]
+94. Olbers T, Beamish AJ, Gronowitz E, Flodmark CE, Dahlgren J, et al. 2017. Laparoscopic Roux-en-Y gastric bypass in adolescents with severe obesity (AMOS): a prospective, 5-year, Swedish nationwide study. Lancet Diabetes Endocrinol. 5(3):174-83 [PubMed: 28065734]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+95. Ong AW, Myers SR. 2020. Early postoperative small bowel obstruction: a review. Am. J. Surg. 219(3):535-39 [PubMed: 31735260]
+96. Paccou J, Martignène N, Lespessailles E, Babykina E, Pattou F, et al. 2020. Gastric bypass but not sleeve gastrectomy increases risk of major osteoporotic fracture: French population-based cohort study. J. Bone Miner. Res. 35(8):1415-23 [PubMed: 32187759]
+97. Paganelli FL, Luyer M, Hazelbag CM, Uh HW, Rogers MRC, et al. 2019. Roux-Y gastric bypass and sleeve gastrectomy directly change gut microbiota composition independent of surgery type. Sci. Rep. 9(1):10979 [PubMed: 31358818]
+98. Pan XH, Tan B, Chin YH, Lee ECZ, Kong G, Chong B, et al. 2024. Efficacy and safety of tirzepatide, GLP-1 receptor agonists, and other weight loss drugs in overweight and obesity: a network meta-analysis. Obesity 32:840-56 [PubMed: 38413012]
+99. Parrott J, Frank L, Rabena R, Craggs-Dino L, Isom KA, Greiman L. 2017. American Society for Metabolic and Bariatric Surgery integrated health nutritional guidelines for the surgical weight loss patient 2016 update: micronutrients. Surg. Obes. Relat. Dis. 13(5):727-41 [PubMed: 28392254]
+100. Parrott JM, Craggs-Dino L, Faria SL, O'Kane M. 2020. The optimal nutritional programme for bariatric and metabolic surgery. Curr. Obes. Rep. 9(3):326-38 [PubMed: 32451780]
+101. Patience N, Sheehan A, Cummings C, Patti ME. 2022. Medical nutrition therapy and other approaches to management of post-bariatric hypoglycemia: a team-based approach. Curr. Obes. Rep. 11(4):277-86 [PubMed: 36074258]
+102. Phelps NH, Singleton RK, Zhou B, Heap RA, Mishra A, et al. (NCD Risk Factor Collab.). 2024. Worldwide trends in underweight and obesity from 1990 to 2022: a pooled analysis of 3663 population-representative studies with 222 million children, adolescents, and adults. Lancet 403:1027-50 [PubMed: 38432237]
+103. Popkin BM, Adair LS, Ng SW. 2012. Global nutrition transition and the pandemic of obesity in developing countries. Nutr. Rev. 70(1):3-21 [PubMed: 22221213]
+104. Pournaras DJ, Glicksman C, Vincent RP, Kuganolipava S, Alaghband-Zadeh J, et al. 2012. The role of bile after Roux-en-Y gastric bypass in promoting weight loss and improving glycaemic control. Endocrinology 153(8):3613-19 [PubMed: 22673227]
+105. Powanda MC. 1977. Changes in body balances of nitrogen and other key nutrients: description and underlying mechanisms. Am. J. Clin. Nutr. 30(8):1254-68 [PubMed: 70166]
+106. Pratt JSA, Browne A, Browne NT, Bruzoni M, Cohen M, et al. 2018. ASMBS pediatric metabolic and bariatric surgery guidelines, 2018. Surg. Obes. Relat. Dis. 14(7):882-901 [PubMed: 30077361]
+107. Prochaska M, Worcester E. 2020. Risk factors for kidney stone formation following bariatric surgery. Kidney360 1(12):1456-61 [PubMed: 34085046]
+108. Ramos MRZ, Felicidade I, de Oliveira Carlos L, Wagner NRF, Mantovani MS, et al. 2022. Effect of probiotic supplementation on plasma metabolite profile after Roux-Y gastric bypass: a prospective, randomized, double-blind, placebo-controlled clinical trial. Int. J. Obes. 46(11):2006-12
+109. Ravussin E, Lillioja S, Knowler WC, Christin L, Freymond D, et al. 1988. Reduced rate of energy expenditure as a risk factor for body-weight gain. N. Engl. J. Med. 318(8):467-72 [PubMed: 3340128]
+110. Reja D, Zhang C, Sarkar A. 2022. Endoscopic bariatrics: current therapies and future directions. Transl. Gastroenterol. Hepatol. 7:21 [PubMed: 35548475]
+111. Ryder JR, Gross AC, Fox CK, Kaizer AM, Rudser KD, et al. 2018. Factors associated with long-term weight-loss maintenance following bariatric surgery in adolescents with severe obesity. Int. J. Obes. 42(1):102-7
+112. Salehi M, Vella A, McLaughlin T, Patti ME. 2018. Hypoglycemia after gastric bypass surgery: current concepts and controversies. J. Clin. Endocrinol. Metab. 103(8):2815-26 [PubMed: 30101281]
+113. Salminen P, Gronroos S, Helmiö M, Hurme S, Juuti A, et al. 2022. Effect of laparoscopic sleeve gastrectomy versus Roux-en-Y gastric bypass on weight loss, comorbidities, and reflux at 10 years in adult patients with obesity: the SLEEVEPASS randomized clinical trial. JAMA Surg. 157(8):656-66 [PubMed: 35731535]
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+114. Sánchez-Pernaute A, Rubio Herrera MA, Pérez-Aguirre ME, Talavera P, Cabrerizo L, et al. 2010. Single anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S). One to three-year follow-up. Obes. Surg. 20(12):1720–26 [PubMed: 20798995]
+115. Sánchez-Pernaute A, Rubio Herrera MA, Pérez-Aguirre E, García Pérez JC, Cabrerizo L, et al. 2007. Proximal duodenal-ileal end-to-side bypass with sleeve gastrectomy: proposed technique. Obes. Surg. 17(12):1614–18 [PubMed: 18040751]
+116. Sánchez-Pernaute A, Rubio MA, Pérez N, Marcuello C, Torres A, Pérez-Aguirre E. 2020. Single-anastomosis duodenoileal bypass as a revisional or second-step operation after sleeve gastrectomy. Surg. Obes. Relat. Dis. 16(10):1491–96 [PubMed: 32665113]
+117. Schafer AL, Weaver CM, Black DM, Wheeler AL, Chang H, et al. 2015. Intestinal calcium absorption decreases dramatically after gastric bypass surgery despite optimization of vitamin D status. J. Bone Miner. Res. 30(8):1377–85 [PubMed: 25640580]
+118. Schauer PR, Bhatt DL, Kirwan JP, Wolski K, Aminian A, et al. 2017. Bariatric surgery versus intensive medical therapy for diabetes—5-year outcomes. N. Engl. J. Med. 376(7):641–51 [PubMed: 28199805]
+119. Shapses SA, Mauro T, Brolin RE. 2015. Nutritional concerns for bariatric surgery. In Preventive Nutrition: The Comprehensive Guide for Health Professionals, ed. Bendich A, Deckelbaum RJ, pp. 439–55. New York: Humana Press/Springer. 5th ed.
+120. Shapses SA, Sukumar D. 2012. Bone metabolism in obesity and weight loss. Annu. Rev. Nutr. 32:287–309 [PubMed: 22809104]
+121. Sharma AM, Campbell-Scherer DL. 2017. Redefining obesity: beyond the numbers. Obesity 25(4):660–61 [PubMed: 28349662]
+122. Shawe J, Ceulemans D, Akhter Z, Neff K, Hart K, et al. 2019. Pregnancy after bariatric surgery: consensus recommendations for periconception, antenatal and postnatal care. Obes. Rev. 20(11):1507–22 [PubMed: 31419378]
+123. Shoar S, Poliakin L, Rubenstein R, Saber AA. 2018. Single anastomosis duodeno-ileal switch (SADIS): a systematic review of efficacy and safety. Obes. Surg. 28(1):104–13 [PubMed: 28823074]
+124. Shrewsbury VA, Baur LA, Nguyen B, Steinbeck KS. 2014. Transition to adult care in adolescent obesity: a systematic review and why it is a neglected topic. Int. J. Obes. 38(4):475–79
+125. Silecchia G, Iossa A. 2021. GERD and Barrett's esophagus as indications for revisional surgery after sleeve gastrectomy: experience of a bariatric center of excellence IFSO-EC and narrative review. Expert Rev. Endocrinol. Metab. 16(5):229–35 [PubMed: 34420434]
+126. Sinha N, Shieh A, Stein EM, Strain G, Schulman A, et al. 2011. Increased PTH and 1.25(OH)2D levels associated with increased markers of bone turnover following bariatric surgery. Obesity 19(12):2388–93 [PubMed: 21617641]
+127. Sjöström L 2013. Review of the key results from the Swedish Obese Subjects (SOS) trial—a prospective controlled intervention study of bariatric surgery. J. Intern. Med. 273(3):219–34 [PubMed: 23163728]
+128. Sjöström L, Peltonen M, Jacobson P, Ahlin S, Andersson-Assarsson J, et al. 2014. Association of bariatric surgery with long-term remission of type 2 diabetes and with microvascular and macrovascular complications. JAMA 311(22):2297–304 [PubMed: 24915261]
+129. Skelton JA, Irby MB, Grzywacz JG, Miller G. 2011. Etiologies of obesity in children: nature and nurture. Pediatr. Clin. North Am. 58(6):1333–54 [PubMed: 22093854]
+130. Slater C, Morris L, Ellison J, Syed AA. 2017. Nutrition in pregnancy following bariatric surgery. Nutrients 9(12):1338 [PubMed: 29292743]
+131. Smelt HJM, Heusschen L, Theel W, van Rutte PWJ, Nijboer T, et al. 2021. Factors affecting patient adherence to multivitamin intake after bariatric surgery: a multicentre survey study from the patient's perspective. Obes. Surg. 31(10):4316–26 [PubMed: 34304380]
+132. Smith KR, Papantoni A, Veldhuizen MG, Kamath V, Harris C, et al. 2020. Taste-related reward is associated with weight loss following bariatric surgery. J. Clin. Investig. 130(8):4370–81 [PubMed: 32427584]
+133. Snoek K, van de Woestijne N, Willemsen S, Klaassen R, Galjaard S, et al. 2022. The impact of preconception gastric bypass surgery on maternal micronutrient status before and during
+
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+pregnancy: a retrospective cohort study in the Netherlands between 2009 and 2019. Nutrients 14(4):736 [PubMed: 35215386]
+134. Steenackers N, Van der Schueren B, Mertens A, Lannoo M, Grauwet T, et al. 2018. Iron deficiency after bariatric surgery: What is the real problem? Proc. Nutr. Soc. 77(4):445-55 [PubMed: 29619914]
+135. Storm AC, Abu Dayyeh BK. 2019. Endoscopic sleeve gastroplasty for obesity: defining the risk and reward after more than 1600 procedures. Gastrointest. Endosc. 89(6):1139-40 [PubMed: 31104746]
+136. Stroh C, Meyer F, Manger T. 2014. Beriberi, a severe complication after metabolic surgery—review of the literature. Obes. Facts 7(4):246-52 [PubMed: 25095897]
+137. Sukumar N, Rafnsson SB, Kandala NB, Bhopal R, Yajnik CS, Saravanan P. 2016. Prevalence of vitamin B-12 insufficiency during pregnancy and its effect on offspring birth weight: a systematic review and meta-analysis. Am. J. Clin. Nutr. 103(5):1232-51 [PubMed: 27076577]
+138. Surve A, Cottam D, Medlin W, Richards C, Belnap L, et al. 2020. Long-term outcomes of primary single-anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S). Surg. Obes. Relat. Dis. 16(11):1638-46 [PubMed: 32843266]
+139. Sverdén E, Mattsson F, Sondén A, Leinsköld T, Tao W, et al. 2016. Risk factors for marginal ulcer after gastric bypass surgery for obesity: a population-based cohort study. Ann. Surg. 263(4):733-37 [PubMed: 26106845]
+140. Syn NL, Lee PC, Kovalik JP, Tham KW, Ong HS, et al. 2020. Associations of bariatric interventions with micronutrient and endocrine disturbances. JAMA Netw. Open 3(6):e205123 [PubMed: 32515795]
+141. Tack J, Deloose E. 2014. Complications of bariatric surgery: dumping syndrome, reflux and vitamin deficiencies. Best Pract. Res. Clin. Gastroenterol. 28(4):741-49 [PubMed: 25194187]
+142. Tang TS, Funnell MM, Brown MB, Kurlander JE. 2010. Self-management support in "real-world" settings: an empowerment-based intervention. Patient Educ. Couns. 79(2):178-84 [PubMed: 19889508]
+143. Torres A, Rubio MA, Ramos-Leví AM, Sánchez-Pernaute A. 2017. Cardiovascular risk factors after single anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S): a new effective therapeutic approach? Curr. Atheroscler. Rep. 19(12):58 [PubMed: 29116413]
+144. Tu J, Wang Y, Jin L, Huang W. 2022. Bile acids, gut microbiota and metabolic surgery. Front. Endocrinol. 13:929530
+145. Turnbaugh PJ, Ridaura VK, Faith JJ, Rey FE, Knight R, Gordon JI. 2009. The effect of diet on the human gut microbiome: a metagenomic analysis in humanized gnotobiotic mice. Sci. Transl. Med. 1(6):6ra14
+146. van Beek AP, Emous M, Laville M, Tack J. 2017. Dumping syndrome after esophageal, gastric or bariatric surgery: pathophysiology, diagnosis, and management. Obes. Rev. 18(1):68-85 [PubMed: 27749997]
+147. Vanheule G, Ceulemans D, Vynckier A-K, De Mulder P, Van Den Driessche M, Devlieger R. 2021. Micronutrient supplementation in pregnancies following bariatric surgery: a practical review for clinicians. Obes. Surg. 31(10):4542-54 [PubMed: 34304377]
+148. Varma S, Baz W, Badine E, Nakhl F, McMullen H, et al. 2008. Need for parenteral iron therapy after bariatric surgery. Surg. Obes. Relat. Dis. 4(6):715-19 [PubMed: 18586567]
+149. Velapati SR, Schroeder SE, Schroeder DR, Buttar NS, Mohamed Elfadil O, et al. 2021. Use of home enteral nutrition in malnourished post-bariatric surgery patients. J. Parenter. Enteral Nutr. 45(5):1023-31
+150. Wang Y, Zheng Y, Kuang L, Yang K, Xie J, et al. 2023. Effects of probiotics in patients with morbid obesity undergoing bariatric surgery: a systematic review and meta-analysis. Int. J. Obes. 47(11):1029-42
+151. Weng TC, Chang CH, Dong YH, Chang YC, Chuang LM. 2015. Anaemia and related nutrient deficiencies after Roux-en-Y gastric bypass surgery: a systematic review and meta-analysis. BMJ Open 5(7):e006964
+152. WHO (World Health Organ.). 2021. Obesity and overweight. Fact Sheet, WHO, Geneva. https:// www.who.int/news-room/fact-sheets/detail/obesity-and-overweight
+
+Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+
+153. Wilding JPH, Batterham RL, Calanna S, Davies M, Van Gaal LF, et al. 2021. Once-weekly semaglutide in adults with overweight or obesity. N. Engl. J. Med. 384(11):989-1002 [PubMed: 33567185]
+154. Woodard GA, Encarnacion B, Downey JR, Peraza J, Chong K, et al. 2009. Probiotics improve outcomes after Roux-en-Y gastric bypass surgery: a prospective randomized trial. J. Gastrointest. Surg. 13(7):1198-204 [PubMed: 19381735]
+155. World Obes. Fed. 2023. World obesity atlas 2023. Rep., World Obes. Fed., London. https://s3-eu-west-1.amazonaws.com/wof-files/World_Obesity_Atlas_2023_Report.pdf
+156. Wu KC, Cao S, Weaver CM, King NJ, Patel S, et al. 2023. Intestinal calcium absorption decreases after laparoscopic sleeve gastrectomy despite optimization of vitamin D status. J. Clin. Endocrinol. Metab. 108(2):351-60 [PubMed: 36196648]
+157. Wu KC, Cao S, Weaver CM, King NJ, Patel S, et al. 2022. Prebiotic to improve calcium absorption in postmenopausal women after gastric bypass: a randomized controlled trial. J. Clin. Endocrinol. Metab. 107(4):1053-64 [PubMed: 34888663]
+158. Yu EW. 2014. Bone metabolism after bariatric surgery. J. Bone Miner. Res. 29(7):1507-18. [PubMed: 24677277] Erratum. 2018. J. Bone Miner. Res. 33(5):959 [PubMed: 29727494]
+159. Zhang H, DiBaise JK, Zuccolo A, Kudrna D, Braidotti M, et al. 2009. Human gut microbiota in obesity and after gastric bypass. PNAS 106(7):2365-70 [PubMed: 19164560]
+160. Zibellini J, Seimon RV, Lee CM, Gibson AA, Hsu MS, et al. 2015. Does diet-induced weight loss lead to bone loss in overweight or obese adults? A systematic review and meta-analysis of clinical trials. J. Bone Miner. Res. 30(12):2168-78 [PubMed: 26012544]
+161. Ziegler O, Sirveaux MA, Brunaud L, Reibel N, Quilliot D. 2009. Medical follow up after bariatric surgery: nutritional and drug issues. General recommendations for the prevention and treatment of nutritional deficiencies. Diabetes Metab. 35(6 Pt. 2):544-57 [PubMed: 20152742]
+
+Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
+Page 24
+
+# SUMMARY POINTS
+
+1. Bariatric surgery is an important weight loss tool in individuals with severe obesity and is currently the most effective long-term weight loss treatment that lowers obesity-related comorbidities.
+2. Bariatric surgery also has significant physiological and nutritional consequences that can result in gastrointestinal complications and micronutrient deficiencies.
+3. Common clinical events negatively affecting nutritional status include malabsorption, dumping syndrome, kidney stones, altered intestinal bile acid availability, bowel obstruction, ulcers, gastroesophageal reflux, and bacterial overgrowth.
+4. Reduced dietary quality and intake, altered nutrient absorption, and inadequate protein intake and vitamin/mineral supplementation are risk factors for poor nutritional status and excess loss of lean body mass and bone.
+5. There are unique concerns in adolescents, older individuals, and individuals who become pregnant postoperatively.
+6. Successful long-term weight loss will likely require a combination of weight loss techniques and will need to be individualized.
+7. With careful management, health-care professionals can minimize the risk of acute and long-term nutrition complications after bariatric surgery.
+
+Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+
+Moize et al.
 
 ![img-0.jpeg](img-0.jpeg)
-FIGURE 1 | Potential adverse effects associated with GLP1-RAs.
+Figure 1. Bariatric surgical procedures (percent per year) for sleeve gastrectomy (SG), Roux-en-Y gastric bypass (RYGB), adjustable gastric band (AGB), biliopancreatic diversion (BPD), and endoscopic bariatric therapies (balloons and other procedures to reduce stomach size). Data from the American Society for Metabolic and Bariatric Surgery were used to create this figure (https://asms.org/resources/estimate-of-bariatric-surgery-numbers).
 
-confirmed hypoglycemia, versus  $2\%$  in those not using a sulfonylurea. Similarly, in SUSTAIN-3, the majority of hypoglycemic events were reported in subjects concomitantly receiving sulfonylureas in both the semaglutide  $1.0 \mathrm{mg}$  and exenatide ER  $2.0 \mathrm{mg}$  groups. For oral semaglutide, the percentage of patients with severe hypoglycemia was  $1.4\%$  with oral semaglutide and  $0.8\%$  with placebo in PIONEER 6 (19). Here all severe hypoglycemic events occurred in patients receiving concomitant insulin or sulfonylurea therapy at the time of the event. In other phase 3 trials, no increase in hypoglycemia risk was observed versus comparator groups, including other GLP-1RAs (18-21, 23, 33-36).
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
 
-Real world data with respect to hypoglycemia are limited to a single observational cohort from Canada (36). In 815 individuals who started semaglutide therapy and were followed for 6 months, there was no change in overall reported hypoglycemia. Although the group of concomitant insulin users also reported no change in hypoglycemia occurrence, this could have been mitigated by the on average  $10 - 20\%$  reduction in total daily insulin dosage (36). Sulfonylurea users did not experience an increase in hypoglycemia events.
+Moize et al.
 
-Thus, the risk of hypoglycemia appears to be low with subcutaneous and oral semaglutide by themselves, yet the risk is increased when combined with sulfonylurea and/or insulin therapy. Several experts advise to lower the dose of sulfonylurea and short-acting and low-acting insulin analogues prior to or during titration of GLP-1RA therapy, to reduce the risk of (severe) hypoglycemia (37).
-
-# Gastrointestinal (GI) Adverse Effects
-
-In the phase 3 trials, both oral and subcutaneous semaglutide were associated with gastrointestinal disturbances, such as nausea, vomiting and diarrhea, well-known effects from this drug class. When compared with placebo, subcutaneous semaglutide for 30 weeks induced nausea in 11.4 to  $20\%$  of the semaglutide-treated patients (placebo  $3.3 - 8\%$ ), vomiting in 4 to  $11.5\%$  (placebo  $2 - 3\%$ ) and diarrhea in 4.5 to  $11.3\%$  (placebo  $1.5 - 6\%$ ) (10, 27, 31). In SUSTAIN 6, where generally older patients with comorbid conditions were treated for 104 weeks, the incidence of GI disturbances was somewhat higher (28). For oral semaglutide, the placebo-controlled trials found nausea ranged between 5.1 and  $23.2\%$  (placebo  $5.6 - 7.1\%$ ), vomiting between 2.9 and  $9.9\%$  (placebo  $2.2 - 3.8\%$ ) and diarrhea between 5.1 and  $15\%$  (placebo  $2.2 - 8\%$ ) during the on-treatment period (14, 17, 21). These rates were not different when focusing on Japanese patients [PIONEER 9 (23)], but appeared higher in patients with T2D, reduced kidney function (estimated glomerular filtration rate [GFR] of  $30 - 59 \mathrm{ml} / \mathrm{min}$ ) and comorbidities in PIONEER 5 (18).
-
-In one phase 2 trial, subcutaneous and oral semaglutide were compared with each other (38). Here, patients were randomized to oral semaglutide (at a dose of 5, 10, 20 or  $40\mathrm{mg}$  once daily), subcutaneous semaglutide  $(1\mathrm{mg}$  once weekly) or placebo. As discussed below, this study also assessed the effect of dose escalation in two additional groups. Unfortunately, the currently advocated oral treatment doses of 7 and  $14\mathrm{mg}$  were not included. When comparing oral  $20\mathrm{mg}$  to subcutaneous 1
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
-
-Table 2 | Adverse effects and safety risks in phase 3 trials (10-32).
-
-|  Treatment arms | Incidence of AE, n (%) |   |   |   |   |   |   |   |   |   |   | % of patients with AE leading to trial product discontinuation  |   |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|   |  Any | Severe or confirmed symptomatic hypoglycemic episode* | Gastrointestinal |   |   | Pancreas |   | Gallbladder | Thyroid | Diabetic retinopathy | Acute kidney Injury | Any AE, n (%) | Gastrointestinal, %  |
-|   |   |   |  Nausea | Vomiting | Diarrhea | Pancreatitis | Pancreatic cancer  |   |   |   |   |   |   |
-|  PIONEER 1 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 3 mg | 101 (57.7) | 5 (2.9) | 14 (8.0) | 5 (2.9) | 15 (8.6) | 0 |  | NR | 0 | 1 (0.6%) | 0 | 4 (2.3) | 75  |
-|  Oral semaglutide 7 mg | 93 (53.1) | 2 (1.1) | 9 (5.1) | 8 (4.6) | 9 (5.1) | 0 |  | NR | 0 | 6 (3.4%) | 0 | 7 (4.0) | 57  |
-|  Oral semaglutide 14 mg | 99 (56.6) | 1 (0.6) | 28 (16.0) | 12 (6.9) | 9 (5.1) | 0 |  | NR | 0 | 2 (1.1%) | 1 (0.6) | 13 (7.4) | 69  |
-|  Placebo | 99 (55.6) | 1 (0.6) | 10 (5.6) | 4 (2.2) | 4 (2.2) | 0 |  | NR | 0 | 3 (1.7%) | 1 (0.6) | 4 (2.2) | 25  |
-|  PIONEER 2 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 14 mg | 289 (70.5) | 7 (1.7) | 81 (19.8) | 30 (7.3) | 38 (9.3) | 1 (0.2) | 0 | NR | 0 | 14 (3.4) | 2 (0.5) | 44 (10.7) | 75  |
-|  Empagliflozin 25 mg | 283 (69.2) | 8 (2.0) | 10 (2.4) | 7 (1.7) | 13 (3.2) | 1 (0.2) | 0 | NR | 0 | 5 (1.2%) | 1 (0.2) | 18 (4.4) | 17  |
-|  PIONEER 3 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 3 mg | 370 (79.4) | 23 (4.9) | 34 (7.3) | 13 (2.8) | 45 (9.7) | 1 (0.2) | 0 | NR | 0 | 27 (5.8) | 3 (0.6) | 26 (5.6) | 42  |
-|  Oral semaglutide 7 mg | 363 (78.2) | 24 (5.2) | 62 (13.4) | 28 (6.0) | 53 (11.4) | 1 (0.2) | 0 | NR | 0 | 24 (5.2) | 2 (0.4) | 27 (5.8) | 56  |
-|  Oral semaglutide 14 mg | 370 (79.6) | 36 (7.7) | 70 (15.1) | 42 (9.0) | 57 (12.3) | 1 (0.2) | 1 (0.2) | NR | 0 | 16 (3.4) | 5 (1.1) | 54 (11.6) | 59  |
-|  Sitagliptin 100 mg | 388 (83.3) | 39 (8.4) | 32 (6.9) | 19 (4.1) | 37 (7.9) | 1 (0.2) | 1 (0.2) | NR | 0 | 27 (5.8) | 3 (0.6) | 24 (5.2) | 50  |
-|  PIONEER 4 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 14 mg | 229 (80) | 2 (1) | 56 (20) | 25 (9) | 43 (15) | 0 | 0 | NR | 1 (0.4) | 8 (3) | 0 | 31 (11) | 71  |
-|  Liraglutide 1.8 mg (s.c.) | 211 (74) | 7 (2) | 51 (18) | 13 (5) | 31 (11) | 1 (0.4) | 1 (0.4) | NR | 1 (0.4) | 4 (1) | 1 (0.4) | 26 (9) | 65  |
-|  Placebo | 95 (67) | 3 (2) | 5 (4) | 3 (2) | 11 (8) | 1 (0.7) | 0 | NR | 0 | 2 (1) | 1 | 5 (4) | 60  |
-|  PIONEER 5 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 14 mg | 122 (75) | 9 (6) | 31 (19) | 19 (12) | 17 (10) | 0 | 0 | NR | 0 | 5 (3) | 3 (1.8) | 24 (15) | 79  |
-|  Placebo | 109 (68) | 3 (2) | 12 (7) | 6 (4) | 6 (4) | 0 | 0 | NR | 0 | 2 (1) | 1 (0.6) | 8 (5) | 38  |
-|  PIONEER 6 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 14 mg | NR | NR | NR | NR | NR | 1 (0.1) | 0 | NR | 2 (0.1) | 93 (5.8) | 32 (2.0) | 184 (11.6) | 59  |
-|  Placebo | NR | NR | NR | NR | NR | 3 (0.2) | 0 | NR | 0 | 76 (4.8) | 37 (2.3) | 104 (6.5) | 25  |
-
-(Continued)
-
-TABLE 2 | Continued
-
-|  Treatment arms | Incidence of AE, n (%) |   |   |   |   |   |   |   |   |   |   | % of patients with AE leading to trial product discontinuation  |   |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|   |  Any | Severe or confirmed symptomatic hypoglycemic episode* | Gastrointestinal |   |   | Pancreas |   | Gallbladder | Thyroid | Diabetic retinopathy | Acute kidney Injury | Any AE, n (%) | Gastrointestinal, %  |
-|   |   |   |  Nausea | Vomiting | Diarrhea | Pancreatitis | Pancreatic cancer  |   |   |   |   |   |   |
-|  PIONEER 7 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide (flexible 3, 7 or 14 mg) | 197 (78) | 14 (5.5) | 53 (21) | 14 (6) | 22 (9) | 0 | 0 | NR | 0 | 6 (2.4) | 1 (0.4) | 22 (9) | 64  |
-|  Sitagliptin 100 mg | 172 (69) | 14 (5.6) | 6 (2) | 3 (1) | 8 (3) | 0 | 0 | NR | 0 | 6 (2.4) | 0 | 8 (3) | 25  |
-|  PIONEER 8 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 3 mg | 137 (74.5) | 52 (28.3) | 21 (11.4) | 11 (6.0) | 16 (8.7) | 0 | 0 | NR | 0 | 7 (3.8) | 2 (1.1) | 13 (7.1) | 69  |
-|  Oral semaglutide 7 mg | 142 (78.5) | 47 (26.0) | 30 (16.6) | 14 (7.7) | 22 (12.2) | 0 | 0 | NR | 0 | 8 (4.4) | 1 (0.6) | 16 (8.8) | 75  |
-|  Oral semaglutide 14 mg | 151 (83.4) | 48 (26.5) | 42 (23.2) | 18 (9.9) | 27 (14.9) | 0 | 0 | NR | 0 | 9 (5.0) | 0 | 24 (13.3) | 79  |
-|  Placebo | 139 (75.5) | 54 (29.3) | 13 (7.1) | 7 (3.8) | 11 (6.0) | 0 | 0 | NR | 0 | 8 (4.3) | 0 | 5 (2.7) | 20  |
-|  PIONEER 9 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 3 mg | 37 (76) | 0 | 2 (4) | NR | 4 (8) | 0 | 0 | NR | 0 | 0 | 0 | 1 (2) | 100  |
-|  Oral semaglutide 7 mg | 37 (76) | 0 | 5 (10) | NR | 1 (2) | 0 | 0 | NR | 1 | 1 (2.0) | 0 | 1 (2) | 100  |
-|  Oral semaglutide 14 mg | 34 (71) | 0 | 4 (8) | NR | 3 (6) | 0 | 0 | NR | 0 | 1 (2.1) | 0 | 2 (4) | 100  |
-|  Liraglutide 0.9 mg (s.c.) | 32 (67) | 2 (4.2) | 0 | NR | 2 (4) | 0 | 0 | NR | 0 | 0 | 0 | 0 | 0  |
-|  Placebo | 39 (80) | 0 | 1 (2) | NR | 1 (2) | 0 | 0 | NR | 0 | 2 (4.1) | 0 | 0 | 0  |
-|  PIONEER 10 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  Oral semaglutide 3 mg | 101 (77) | 3 (2) | 7 (5) | 3 (2) | 2 (2) | 0 | 0 | 2 (2) | 0 | 9 (7) | 0 | 4 (3) | 50  |
-|  Oral semaglutide 7 mg | 106 (80) | 3 (2) | 11 (8) | 6 (5) | 2 (2) | 0 | 0 | 1 (1) | 0 | 12 (9) | 0 | 8 (6) | 50  |
-|  Oral semaglutide 14 mg | 111 (85) | 4 (3) | 12 (9) | 9 (7) | 10 (8) | 0 | 0 | 0 | 0 | 7 (5) | 0 | 8 (6) | 63  |
-|  Dulaglutide 0.75 mg (s.c.) | 53 (82) | 0 | 6 (9) | 1 (2) | 4 (6) | 0 | 0 | 1 (2) | 0 | 3 (5) | 0 | 2 (3) | 50  |
-|  SUSTAIN 1 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 82 (64) | 0 | 26 (20) | 5 (4) | 16 (13) | 0 | 0 | 3 (2) | 0 | NR | 0 | 8 (6) | 63  |
-|  S.c. semaglutide 1 mg | 73 (56) | 0 | 31 (24) | 9 (7) | 14 (11) | 0 | 0 | 1 (<1) | 0 | NR | 0 | 7 (5) | 57  |
-|  Placebo | 69 (53) | 3 (2) | 10 (8) | 2 (2) | 3 (2) | 0 | 0 | 0 | 0 | NR | 0 | 3 (2) | 33  |
-|  SUSTAIN 2 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 306 (75) | 7 (2) | 73 (18) | 33 (8) | 54 (13) | 3 (1%) | NR | 1 (<1) | 0 | 1 (<1) | NR | 33 (8) | 82  |
-|  S.c. semaglutide 1 mg | 292 (71) | 2 (<1) | 72 (18) | 41 (10) | 53 (13) | 1 (<1) | NR | 7 (2) | 1 | 0 | NR | 39 (10) | 79  |
-|  Sitagliptin 100 | 292 (72) | 5 (1) | 30 (7) | 11 (3) | 29 (7) | 0 | NR | 6 (1) | 0 | 3 (1) | NR | 12 (3) | 25  |
-
-(Continued)
-
-Table 2 | Continued
-
-|  Treatment arms | Incidence of AE, n (%) |   |   |   |   |   |   |   |   |   |   | % of patients with AE leading to trial product discontinuation  |   |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|   |  Any | Severe or confirmed symptomatic hypoglycemic episode* | Gastrointestinal |   |   | Pancreas |   | Gallbladder | Thyroid | Diabetic retinopathy | Acute kidney Injury | Any AE, n (%) | Gastrointestinal, %  |
-|   |   |   |  Nausea | Vomiting | Diarrhea | Pancreatitis | Pancreatic cancer  |   |   |   |   |   |   |
-|  SUSTAIN 3 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 1 mg | 303 (75) | 33 (8.2) | 90 (22.3) | 29 (7.2) | 46 (11.4) | 2 (<1) | NR | 6 (1%) | NR | NR | NR | 38 (9.4) | NR  |
-|  Exenatide ER 2.0 mg | 309 (76.3) | 33 (8.1) | 48 (11.9) | 25 (6.2) | 34 (8.4) | 3 (<1) | NR | 2 (<1) | NR | NR | NR | 29 (7.2) | NR  |
-|  SUSTAIN 4 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 253 (70) | 16 (4) | 77 (21) | 24 (7) | 59 (16) | 2 (1) | 1 (<1) | 1 (<1) | NR | 1 (<1) | NR | 20 (6) | 55  |
-|  S.c. semaglutide 1 mg | 264 (73) | 20 (6) | 80 (22) | 37 (10) | 69 (19) | 0 | 0 | 2 (1) | NR | 0 | NR | 27 (8) | 70  |
-|  Insulin glargine | 235 (65) | 38 (11) | 13 (4) | 11 (3) | 16 (4) | 0 | 0 | 0 | NR | 1 (<1) | NR | 4 (1) | 0  |
-|  SUSTAIN 5 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 91 (68.9) | 11 (8.3) | 15 (11.4) | 8 (6.1) | 6 (4.5) | 0 | 0 | 3 (2.3) | 0 | (3.0) | NR | 6 (4.5) | NR  |
-|  S.c. semaglutide 1 mg | 84 (64.1) | 14 (10.7) | 22 (16.8) | 15 (11.5) | 9 (6.9) | 0 | 0 | 1 (0.8) | 0 | (0.8) | NR | 8 (6.1) | NR  |
-|  Placebo | 77 (57.9) | 7 (5.3) | 6 (4.5) | 4 (3.0) | 2 (1.5) | 0 | 0 | 0 | 0 | 0 | NR | 1 (0.8) | NR  |
-|  SUSTAIN 6 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 740 (89.6) | 191 (23.1) | 143 (17.3) | 14 (1.7) | 15 (1.8) | 6 (0.7) | 0 | 25 (3) | 0 |  | 42 (5.1) | 95 (11.5) | 49  |
-|  S.c. semaglutide 1 mg | 732 (89.1) | 178 (21.7) | 180 (21.9) | 23 (2.8) | 19 (2.3) | 3 (0.4) | 1 (0.1) | 17 (2.1) | 0 | 50 (3.0) | 23 (2.8) | 119 (14.5) | 65  |
-|  Placebo | 1484 (90) | 350 (21.2) | 129 (7.8) | 5 (0.3) | 7 (0.4) | 12 (0.7) | 4 (0.2) | 39 (2.3) | 0 | 29 (1.8) | 34 (4.1) | 110 (6.7) | 16  |
-|  SUSTAIN 7 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 0.5 mg | 204 (68) | 2 (1) | 68 (23) | 31 (10) | 43 (14) | 0 | 0 | 2 (1) | 1 (<1) | 2 (1) | NR | 24 (8) | 67  |
-|  S.c. semaglutide 1 mg | 207 (69) | 5 (2) | 63 (21) | 31 (10) | 41 (14) | 0 | 0 | 4 (1) | 0 | 2 (1) | NR | 29 (10) | 62  |
-|  Dulaglutide 0.75 mg (s.c.) | 186 (62) | 3 (1) | 39 (13) | 12 (4) | 23 (8) | 0 | 0 | 4 (1) | 0 | 2 (1) | NR | 14 (5) | 43  |
-|  Dulaglutide 1.5 mg (s.c.) | 221 (74) | 5 (2) | 60 (20) | 29 (10) | 53 (18) | 0 | 0 | 8 (3) | 1 (<1) | 3 (1) | NR | 20 (7) | 70  |
-|  SUSTAIN 8 |  |  |  |  |  |  |  |  |  |  |  |  |   |
-|  S.c. semaglutide 1 mg | 298 (76) | 53 (14) | 89 (23) | 50 (13) | 60 (15) | NR | NR | NR | NR | 9 (2) | 4 (1) | 38 (10) | 68  |
-|  Canagliflozin 300 mg | 283 (72) | 32 (8) | 26 (7) | 9 (2) | 37 (9) | NR | NR | NR | NR | 15 (4) | 0 | 20 (5) | 20  |
-
-(Continued)
-
-TABLE 2 | Continued
-
-Treatment arms
-Incidence of AE, n (%)
-
-% of patients with AE leading to trial product discontinuation
-
-|   | Any | Severe or confirmed symptomatic hypoglycemic episode* | Gastrointestinal |   |   | Pancreas |   | Gallbladder | Thyroid | Diabetic retinopathy | Acute kidney Injury | Any AE, n (%) | Gastrointestinal, %  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|   |   |   |  Nausea | Vomiting | Diarrhea | Pancreatitis | Pancreatic cancer  |   |   |   |   |   |   |
-|  SUSTAIN 9  |   |   |   |   |   |   |   |   |   |   |   |   |   |
-|  S.c. semaglutide 1 mg | 104(69.3) | 17 (11.3) | 29(19.3) | 14 (9.3) | 17 (11.3) | 0 | 0 | NR | NR | 3 (2.0) | 1 (0.7) | 13 (8.7) | 77  |
-|  Placebo | 91(60.3) | 3 (2.0) | 5 (3.3) | 3 (2.0) | 9 (6.0) | 0 | 0 | NR | NR | 8 (5.3) | 0 | 3 (2.0) | 0  |
-|  SUSTAIN 10  |   |   |   |   |   |   |   |   |   |   |   |   |   |
-|  S.c. semaglutide 1 mg | 204(70.6) | 5 (1.7) | 63(21.8) | 30 (10.4) | 45 (15.6) | 0 | NR | NR | NR | 3 (1.0) | NR | 33(11.4) | 67  |
-|  Liraglutide 1.2 mg (s.c.) | 190(66.2) | 7 (2.4) | 45(15.7) | 23 (8.0) | 35 (12.2) | 2 (0.7%) | NR | NR | NR | 4 (1.4) | NR | 19 (6.6) | 58  |
-|  SUSTAIN JAPAN 'SITA'  |   |   |   |   |   |   |   |   |   |   |   |   |   |
-|  S.c. semaglutide 0.5 mg | 77(74.8) | 0 | (10.7) |  | (6.8%) | 0 | 0 | 1 (1.0) | 0 | 4 (3.9) | NR | 3 (2.9) | NR  |
-|  S.c. semaglutide 1 mg | 73(71.6) | 1 (1.0) | (12.7) |  | (8.8%) | 0 | 0 | 3 (2.9) | 0 | 2 (1.9) | NR | 11(10.8) | NR  |
-|  Sitagliptin 100 mg | 68(66.0) | 0 | 0 |  | (1.9%) | 0 | 1 (1.0) | 0 | 0 | 4 (3.9) | NR | 2 (1.9) | NR  |
-|  SUSTAIN JAPAN 'INDIVIDUAL'  |   |   |   |   |   |   |   |   |   |   |   |   |   |
-|  S.c. semaglutide 0.5 mg | 206(86.2) | 3 (1.3) | 29(12.1) | 13 (5.4) | 24 (10.0) | 0 | 0 | 4 (1.7%) | 0 | 11 (4.6) | NR | 14 (5.9) | NR  |
-|  S.c. semaglutide 1 mg | 212(88) | 6 (2.5) | 46(19.1) | 14 (5.8) | 38 (15.8) | 0 | 0 | 2 (0.8%) | 0 | 16 (6.6) | NR | 26(10.8) | NR  |
-|  Additional OAD (investigators discretion) | 86(71.7) | 2 (1.7) | 1 (0.8) | 2 (1.7) | 8 (6.7) | 0 | 0 | 0 | 0 | 6 (5.0) | NR | 4 (3.3) | NR  |
-|  SUSTAIN China  |   |   |   |   |   |   |   |   |   |   |   |   |   |
-|  S.c. semaglutide 0.5 mg | 209(72.8%) | 2 (0.7%) | 22(7.7%) | 14 (4.9%) | 58(20.2%) | 0 | 0 | NR | NR | 19 (6.6%) | NR | 17(5.9%) | 59  |
-|  S.c. semaglutide 1 mg | 216(74.5%) | 6 (2.1%) | 39(13.4%) | 19 (6.6%) | 49(16.9%) | 1 (0.3%) | 0 | NR | NR | 14 (4.8%) | NR | 31(10.7%) | 68  |
-|  Sitagliptin 100 mg | 199(68.6%) | 4 (1.4%) | 5(1.7%) | 3 (1.0%) | 20(6.9%) | 0 | 0 | NR | NR | 10 (3.4%) | NR | 6(2.1%) | 17  |
-
-AE, adverse event; ER, extended release; NR, not reported; OAD, oral antidiabetic drug; s.c. subcutaneous.
-An independent external adjudication committee (EAC) validated prespecified categories of adverse events (including deaths, selected cardiovascular events, malignant neoplasms, thyroid diseases [malignant thyroid neoplasms and C-cell hyperplasia], acute kidney injury, acute pancreatitis, and lactic acidosis) except in SUSTAIN 10 where there was no adjudication.
-*An episode that was severe according to the ADA classification (requires assistance of another person to actively administer carbohydrate, glucagon, or other corrective action) or an episode with confirmed blood glucose value &lt;56 mg/dL and symptoms consistent with hypoglycemia.
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-mg, the total amount of gastrointestinal disturbances was similar (56% versus 54%, respectively). This was also true for nausea (34% versus 32%), vomiting (16% versus 9%) and diarrhea (20% versus 14%). The proportion of patients with premature discontinuation because of adverse events appeared higher for oral semaglutide 20 mg (27%) than for subcutaneous semaglutide 1 mg (14%). All numbers were similar between the 10 and 20 mg oral dose, except for treatment discontinuation, which was 12% for the lower dosage.
-
-Importantly, for both formulations, higher doses are often associated with more frequent GI adverse effects. For this reason, a dose escalation scheme is advised, starting with a low dose (3 mg). As a clear example in the abovementioned phase 2 study (38), 77% of patients experienced GI adverse effects when a fast 2-week dose escalation was used to reach 40 mg compared with 54% in the slower 8-week dose-escalation group. Generally, the GI complaints with semaglutide occur in the first 8-12 weeks of treatment during dose escalation [in contrast to for example liraglutide, where they occur within 2 weeks (17, 32)], and wane over time (Figure 2). Overall, the adverse effects are mild to moderate in severity and often self-limiting.
-
-Nevertheless, GI complaints are the main adverse-event related cause of drug discontinuation in the phase-3 trials, with rates up to 12% (Table 2). Moreover, cohorts with real-world data show similar numbers. In one retrospective study where 189 patients with T2DM starting subcutaneous semaglutide, 9.5% discontinued therapy because of GI complaints, while in 5.8% such adverse effects limited uptitration (39). In another cohort where 164 T2DM patients were switched from a different GLP-1RA therapy to semaglutide, 10.4% discontinued semaglutide because of adverse GI effects (40). Combined, data from clinical trials and clinical practice suggest that approximately 10% of patients will discontinue semaglutide because of GI complaints, which may be a bit higher compared to other GLP-1 analogues.
-
-Apart from gradual dose titration, data on how to prevent or treat GI disturbances with GLP-1RA are limited. Patients can be counseled to eat slowly with reduced portion size per meal, stop eating when they experience satiety, and to avoid high-fat food (41). Anti-emetic therapy has been found effective in healthy subjects (42), but are not common practice since long-term data are not available. Interestingly, in one systematic analysis, background use of metformin was associated with more nausea and vomiting when using a GLP-1RA (43). However, whether this is also true for the combination with semaglutide, or whether lowering the dose of metformin has effect, has not been studied.
-
-The mechanisms behind nausea/vomiting and diarrhea are incompletely understood. For nausea, a relation with the inhibiting effects on gastric emptying seems plausible. However, nausea also occurs in the fasting state (44), and is not related to measures of gastric emptying speed after meal ingestion (45). An effect on the central nervous system has been suggested as a recent study with modified exenatide—with reduced brain penetrance—showed less vomiting in musk shrews, despite retaining effects on glucose control (46). For diarrhea, studies are lacking. In one study, osmotic diarrhea occurred 8 h after infusion of GLP-1 peptide (47), and GLP-1RAs have been shown to reduce intestinal uptake of glucose and lipids (48, 49). Also, in patients with type 1 diabetes, liraglutide reduced colon transit time (50). So, hypothetically, semaglutide could induce diarrhea by altering nutrient absorption or intestinal motility.
-
-Finally, although nausea and vomiting are perhaps unwanted effects, they may also be partly responsible for aspects of the drug's efficacy as indicated above. As such, in some studies, nausea induced by GLP-1RAs is linked to weight loss (51, 52). For example, obese subjects treated with high-dose liraglutide who experienced (transient) nausea had on average 2.9 kg (95% CI 0.5–5.3) more weight loss compared to those without GI events (51). In a mediation analysis of the SUSTAIN 1 to 5 trials,
-
-A Time to onset of first Nausea event (oral and subcutaneous semaglutide)
-FIGURE 2 | Course of nausea with semaglutide. GLP-1RA, including semaglutide, cause nausea in about one third of treated patients, which is both dose- and time-dependent. In panel (A), a direct comparison between subcutaneous and oral semaglutide is shown, as well as different doses of oral semaglutide, for the first occurrence of nausea. In panel (B), the course of the occurrence of nausea is shown for subcutaneous semaglutide. Data for panel (A) are derived from the phase-2 trial (38), for panel (B) data are shown from (26). GLP-1RA, glucagon-like peptide-1 receptor agonist.
+a
 ![img-1.jpeg](img-1.jpeg)
-Oral semaglutide 2.5 mg Oral semaglutide 40 mg
-Oral semaglutide 5 mg Oral semaglutide 40 mg 8-week dose escalation
-Oral semaglutide 10 mg Oral semaglutide 40 mg 2-week dose escalation
-Oral semaglutide 20 mg Subcutaneous semaglutide
+Dvides the stomach into an upper gastric pouch and a lower remnant that is connected to the jejunum
 
-B Patients experiencing Nausea (subcutaneous semaglutide)
+b
+Figure 2.
 ![img-2.jpeg](img-2.jpeg)
-Subcutaneous semaglutide 0.5 mg Subcutaneous semaglutide 1.0 mg Insulin glargine
+A procedure in which surgical staplers are used to remove  $80\%$  of the stomach, making it much smaller
 
-Frontiers in Endocrinology | www.frontiersin.org
+c
+![img-3.jpeg](img-3.jpeg)
+A device made of silicone that is placed around the top part of the stomach to limit the amount of food a person can eat
 
-July 2021 | Volume 12 | Article 645563
+d
+![img-4.jpeg](img-4.jpeg)
+Biliopancreatic diversion with duodenal switch
+Begins with the creation of a tube-shaped stomach pouch similar to the sleeve gastrectomy, but uses less small intestine, resulting in greater malabsorption
 
-a small component (0.07 to 0.5 kg) of the total treatment difference in weight loss was explained by nausea or vomiting (52). In contrast, when combining data from SUSTAIN 3, 7 and 10, the occurrence of nausea and vomiting was not associated with superior weight loss (53). Whether this route plays a role in the beneficial effects of GLP-1RA on body weight needs further studying.
+Bariatric surgeries: (a) Roux-en-Y gastric bypass, (b) sleeve gastrectomy, (c) adjustable gastric banding, and (d) biliopancreatic diversion with duodenal switch. Figure adapted with permission from Dr. Walter Pories.
 
-### Pancreatic Adverse Events: Pancreatitis and Pancreatic Cancer
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
 
-Within years of the introduction of GLP-1RAs, these agents were linked to the occurrence of acute pancreatitis, and suggested to potentially cause pancreatic cancer (6). In the subsequent years, many pharmacovigilance and database studies followed, with conflicting results (54--60). Given the nature of observational studies, data could have been confounded, since patients with diabetes whom have an indication for GLP-1RA therapy often have concomitant risk factors for pancreatitis (notably obesity, longer diabetes duration and co-medication). As such, the longer term CVOTs were a welcome addition to the discussion. When focusing on semaglutide, no signals of pancreatic AEs were present with blinded adjudication. In SUSTAIN 6, acute pancreatitis occurred in 9 semaglutide-treated patients, and in 12 placebo-treated patients. Pancreatic cancer occurred in one and four patients, respectively (28). In PIONEER 6, acute pancreatitis occurred in one semaglutide-treated patient, and in three placebo-treated patients (19). The incidence of pancreatic cancer was not reported. When combining all phase 3a data, pancreatitis occurred in five semaglutide-treated patients in PIONEER (six in the comparator group), and in 15 patients in SUSTAIN (13 in the comparator group). However, it is possible that for a relatively rare complication (the background incidence of pancreatitis and pancreatic cancer in T2D patients is 422 and 15--24 per 100,000 person-years, respectively (61, 62)), the CVOTs and phase 3 studies are of insufficient power to show differences between groups. When combining all available CVOT data (including those from non-semaglutide GLP-1RAs) in a meta-analysis, a hazard ratio of 1.05 (95% confidence interval [CI] 0.78--1.40) was found for pancreatitis and 1.12 (95% CI 0.77--1.63) for pancreatic cancer (63). These data thus argue against an effect of GLP-1RA on pancreatitis and pancreatic cancer incidence. However, one can wonder whether the follow-up duration in the CVOTs (ranging from a median of 1.3 to 5.4 years) is long enough for patients to develop pancreatic cancer.
+Moize et al.
 
-While establishing (the absence of) a link with pancreatitis and pancreatic cancer in large clinical studies was one aspect in this field of research, others focused on animal studies and more mechanistic findings. One consistent finding is a subtle and asymptomatic increase in plasma lipase and amylase level (64, 65), which occurs within hours of administration (66). In a 26-week randomized controlled trial, oral semaglutide dose-dependently increased lipase levels by 9 to 55% and subcutaneous semaglutide by 36% (38). An increase in enzyme levels was not associated with occurrence of pancreatic events in trials with liraglutide (67, 68). Moreover, our group previously demonstrated that the liraglutide-induced increase in pancreatic enzymes is not associated with changes in pancreatic exocrine function or pancreas size measured by magnetic resonance imaging (69). Such studies have not yet been conducted for semaglutide.
+![img-5.jpeg](img-5.jpeg)
+Figure 3. Fracture risk 5-15 years after bariatric procedures. Abbreviations: AGB, adjustable gastric band; RYGB, Roux-en-Y gastric bypass; SG, sleeve gastrectomy.
 
-A handful of preclinical studies showed that GLP-1RAs induce pancreatic inflammation, cellular proliferation and intra-epithelial neoplasia (PanIN) (70--72). However, the majority of animal studies did not find any effect of GLP-1RAs on pancreatic physiology, even with doses up to 240 the normal human dose (73--76). Preclinical studies with semaglutide also found no adverse signals in pancreatic tissue (76). Although pancreatic adverse events are difficult to completely rule out, an assessment by the FDA and the EMA concluded that a causal association between incretin-based drugs and pancreatitis or pancreatic cancer is inconsistent with the current data (77).
+Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
 
-### Thyroid Cancer
+Moize et al.
 
-Both formulations of semaglutide have received an official box warning for thyroid C-cell tumors in the US. This caution is solely based on data from rodent studies and is not unique for semaglutide amongst the GLP-1RA. In rodents, the thyroid C-cells (neuroendocrine parafollicular cells which secrete calcitonin) highly express the GLP-1 receptor (78). Stimulation leads to upregulation of the calcitonin gene expression, calcitonin synthesis, C-cell hyperplasia, and increased risk of medullary adenomas and carcinomas (78). Initial studies found expression of the GLP-1 receptor in healthy human thyroid tissue, as well as in medullary thyroid carcinoma (MTC) and C-cell hyperplasia (79, 80). However, these studies were later refuted, as incompletely validated GLP-1 receptor antisera were used (81). When using validated antibodies, the GLP-1 receptor is only marginally expressed in thyroids of non-human primates and humans (78, 82). Supporting this is the observation that monkeys treated with >60 times the human dose of liraglutide do not develop C-cell abnormalities after 20 months (78).
+Table 1 Nutritional conditions after bariatric surgery and management
 
-In the SUSTAIN program, three adjudicated events of malignant thyroid neoplasm were identified, two in semaglutide-treated patients (combined n = 5,933), and one in the comparator group (n = 4,736) (10--13, 22, 26--32). None of these were medullary carcinoma. Serum calcitonin was measured during these trials, and no notable difference in mean levels was seen between the treatment arms. In the PIONEER program, four thyroid malignancies occurred in semaglutide-treated patients, versus one in the comparator group (14--21, 23, 24). In one instance, a MTC developed in a patient with preexisting nodules and elevated calcitonin at baseline (19). When looking at long-term data from the LEADER trials, the CVOT for liraglutide, there was no difference between liraglutide and placebo regarding calcitonin levels and C-cell malignancies (83).
+|  Disease/Condition | Symptoms | Management  |
+| --- | --- | --- |
+|  Beriberi | Wet beriberi: tachycardia, shortness of breath, hypertension Dry and cerebral beriberi: mental confusion, loss of sensation in the limbs, pain or tingling | Thiamin (B1) supplementation The dietary recommended intake for thiamin in multivitamins should be adequate  |
+|  Anemia | Iron, B12, and folate deficiency | Additional supplementation may be needed above a daily multivitamin for folate and B12; take iron with vitamin C to enhance absorption  |
+|  Dumping syndrome | Early: postprandial hypoglycemia Late: nausea, diarrhea, loss of consciousness | Early: limit simple carbohydrate intake; consider acarbose or other alpha-glucosidase inhibitors Late: treat for diarrhea (e.g., increase fluids, reduce fats, avoid lactose, consider Lomotil)  |
+|  Bowel obstruction | Nausea, vomiting, abdominal pain | Surgical intervention  |
+|  Gastric ulceration | Abdominal pain, bleeding | Proton pump inhibitors, sucralfate therapy, surgical intervention  |
+|  Bone loss | Reduced bone mineral density and increased fractures | Vitamin D and calcium supplementation (plus weight-bearing physical activity) Consume dietary and supplemental calcium to a total of 1–1.5 g/day (avoid >2 g/day) Treat vitamin D deficiency with standard recommendations  |
 
-It should be noted that MTC is rare (estimated incidence of 0.2 cases per 100,000 patient-years), and as such, it is very difficult to definitively rule out an association between GLP-1RA and thyroid malignancies. Therefore, regulatory authorities required additional pharmacovigilance activities, by systematically monitoring the annual incidence of MTC in the US for at least 15 years (MTC-
+Conditions with the most evidence include the following: Roux-en-Y gastric bypass, adjustable gastric band, vertical sleeve gastrectomy, and biliopancreatic diversion/duodenal switch. Table adapted from Shapses et al. (119) with permission from Springer Nature.
 
-22341, results expected by 2035--2037). In the meantime, semaglutide is contraindicated in patients with a personal or family history of MTC, as well as in patients with multiple endocrine neoplasia (MEN) type 2 in the US.
+Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
 
-### Gallbladder
+Moize et al.
 
-In the SCALE-trial, high-dose liraglutide for the treatment of obesity was associated with an increased risk of gallbladder events compared to placebo (2.5% versus 1.0% of patients, respectively) (84). Based on AEs as reported in the European EudraVigilance database, gallbladder disease is likely not limited to liraglutide, but affects all incretin-based therapies (85). A recent meta-analysis observed an increased risk of 28% for cholelithiasis with GLP-1RA treatment (86), but a breakdown for each agent was not given. In the SUSTAIN program, 83 patients (1.4%) treated with semaglutide developed a gallbladder event, compared with 39 patients (1.9%) in the placebo group (10, 27, 28, 31, 32). The events mainly included cholelithiasis. In the PIONEER program, cholelithiasis occurred more often in the semaglutide-treated group (0.6% versus 0.1% with placebo), while the risk of cholecystitis was similar (data derived from the summary of product characteristics (SmPC) (87), as the manuscripts did not describe these data). Importantly, none of the gallbladder events have been linked to mortality. Cholelithiasis has been included in the SmPC of both subcutaneous and oral semaglutide).
+Table 2
+Dietary management of gastrointestinal symptoms
 
-Initially the gallbladder events were attributed to GLP-1RA-induced weight loss, as for example in the SCALE and LEADER trials, the patients with gallbladder events had more than average weight loss (84, 88). However, as gallbladder disease is not an issue with sodium-glucose co-transporter-2 (SGLT-2) inhibitors (with similar weight loss) (89), and gallbladder events also occurred in GLP-1RA-treated patients well after weight reduction (90), other mechanisms are possibly in play. One option could be lower gallbladder motility, which enhances biliary sludge formation and bile stones. In acute intervention studies, exenatide and albiglutide reduced cholecystokinin-induced gallbladder emptying (91, 92). However, after 12-week liraglutide intervention, we were unable to demonstrate an effect on gallbladder emptying (93), while Nexøe-Larsen et al. observed that liraglutide prolonged the time to reach maximum gallbladder emptying (94). Another mechanism is a change in bile salts, leading to supersaturated bile. While we observed changes in deoxycholic acid levels in plasma and fecal samples after liraglutide treatment, the clinical relevance remains unclear (93). Fascinatingly, exendin-4 appears to stimulate cholangiocyte proliferation through the GLP-1 receptor, hereby preventing cholangiocyte apoptosis in models of bile acid-induced damage and models of ductopenic cholangiopathies (95, 96). Although these data are considered beneficial, it also indicates that GLP-1RA could have direct adverse effects on the biliary tree. What the exact mechanism is behind the gallbladder events requires further study, but probably encompasses a combination of factors.
+|  Symptom | Management  |
+| --- | --- |
+|  Dysphagia causing coughing or choking | Eat slowly, avoid dry or hard foods (such as crackers or meat) Add more semisoft foods and avoid acidic or spicy foods, as needed  |
+|  Vomiting | Eat small bites and chew slowly Separate fluids when consuming a meal Eat small, regular meals (every 2–4 h) and rehydrate Monitor electrolytes  |
+|  Dehydration | Consume 1.5 L/day or more of water, especially after exercise and when exposed to hot weather or conditions Greater fluid intake can also be achieved with adding flavors (lemon, herbs) to water  |
+|  Constipation | Increase fluids and fiber; consider medications  |
 
-### Cardiovascular
-
-All GLP-1RAs increase heart rate, and this is not different for semaglutide. In SUSTAIN 6, a placebo-corrected heart rate increase of 2.75 beats per minute (bpm) was observed for semaglutide 0.5 mg, and 3.2 bpm for the 1.0 mg dosage (97). This increase was not associated with adverse cardiac events.
-
-In addition, no increase in cardiovascular outcomes were observed in SUSTAIN 6 and PIONEER 6, which is reassuring given the initial fear of adverse cardiac events with increased resting heart rates. Large epidemiological studies have found that an increase in 5 bpm is associated with an increase of 17% in mortality (98). It is unclear whether this association holds true for drug-induced heart-rate acceleration. The α-blocking agent doxazosin increases heart rate by ~25% (99), and is associated with an increase in heart failure incidence (compared with the diuretic agent chlorthalidone) (100). In contrast, lowering heart rate by approximately 10 bpm using the cardiac funny-channel inhibitor ivabradine did not affect mortality in patients with stable coronary artery disease. At this point, it is clear that the beneficial effects of GLP-1RA on cardiovascular risk factors and physiology outweigh a potential risk of the associated heart rate increase. Liraglutide has been on the market for 10 years, but cardiovascular safety beyond this has not been studied yet.
-
-The increase in heart rate is also of importance in patients with heart failure (HF). While the semaglutide CVOTs did not show an increased incidence of hospitalization for HF compared to placebo (101), in earlier smaller studies with liraglutide in patients with HF with reduced left ventricular ejection fraction, the GLP-1RA was associated with increased incidence of serious cardiac events (rhythm disorders, worsening of HF) (102, 103). Since patients with HF with New York Heart Association class IV were excluded from the CVOTs, it is unclear whether safety risks could occur in semaglutide-treated patients. However, a recent meta-analysis of all current CVOTs, showed that GLP-1RAs as a group were associated with a (non-significant) reduction in HF (104).
-
-Several clinical mechanistic trials provided conflicting evidence while aiming to understand the GLP-1RA-induced heart rate-increase. Some studies found systemic vasodilation (with likely consequent reflex tachycardia), while others failed to show this (105--107). Similarly, discrepant findings are available for activation of the (cardiac) sympathetic nervous system (106, 108--111). Our own group previously hypothesized a direct effect of GLP-1RAs on sino-atrial cells (106), after exclusion of other potential causes. This postulation was later confirmed in a mouse model, where stimulation of GLP-1 receptors on atrial cells induced a chronotropic effect, but only when neuronal input was present (112).
-
-Most novel drugs also undergo testing for their effect on the QT interval, as QT prolongation is a marker for potential ventricular fibrillation. Compared with placebo, subcutaneous semaglutide had no effect on this ECG measure in healthy volunteers, with doses above what is used in daily practice (113).
-
-### Acute Kidney Injury
-
-Initial case reports suggested that GLP-1RA treatment could cause acute kidney injury (AKI) in some patients (114). Mechanistically, this was explained by dehydration caused by nausea, vomiting and diarrhea (see above). Also, very recently it was shown that the GLP-1RA, dulaglutide decreased fluid
-
-intake (115). Furthermore, GLP-1RA potentially further compromise fluid homeostasis by increasing renal sodium excretion (116). Combined, this could induce renal failure, especially in frail patients or those with medication such as renin--angiotensin--aldosterone system inhibitors, non-steroidal anti-inflammatory drugs or diuretic drugs.
-
-In the SUSTAIN program, acute kidney failure was only reported in SUSTAIN 6, where its occurrence was similar between semaglutide and placebo (28). In PIONEER, AKI was a safety event of interest, and reported in all papers (14, 17--19, 21, 23). In PIONEER 6, AKI occurred in 2.0% of patients treated with oral semaglutide and 2.3% of placebo-treated patients (19). Whether this is statistically or clinically significant has not been evaluated yet.
-
-In contrast to the incidental cases of AKI, the CVOTs mainly demonstrate a beneficial effect on renal outcomes, likely because of effects on cardiovascular risk factors (117). As recently reviewed, GLP-1RAs reduce progression to macro-albuminuria and lead to (subtle) reductions in the decline in renal function (118). In a recent post-hoc analysis of SUSTAIN 6, semaglutide was associated with less events of nephropathy, independent of baseline blood pressure (119). Thus, while it is conceivable yet not statistically confirmed that semaglutide could cause AKI in selected patients, there is plenty of evidence that it reduces nephropathy in the long term. A dedicated kidney trial (the FLOW study; NCT03819153) is currently ongoing, studying the effects of subcutaneous semaglutide on renal outcomes in people with T2D and chronic kidney disease.
-
-### Diabetic Retinopathy
-
-In the SUSTAIN-6 trial, an increase in DRP complications, defined as a composite of need for retinal photocoagulation or treatment with intravitreal agents or vitreous hemorrhage or diabetes-related-blindness, was reported for semaglutide compared to placebo (hazard ratio 1.76; 95% CI 1.11--2.78). In a large systemic review and network analysis, including several GLP-1RAs, subcutaneous semaglutide was the only glucose-lowering drug for which this signal was observed (120). However, in the LEADER trial, a non-significant trend towards DRP was observed for liraglutide (121). In PIONEER 6, unadjudicated DRP occurred in 5.8% of oral semaglutide-treated patients and in 4.8% of the placebo-treated patients (19).
-
-Villsbol and colleagues further investigated the DRP signal in the SUSTAIN program (122). In SUSTAIN-6, nearly 30% of patients had previous documented DRP, with 6% proliferative DRP. This percentage was not surprising given the inclusion of patients with previous cardiovascular disease, usually associated with long-standing diabetes. In semaglutide-treated patients, 3% (versus 1.8% in the placebo group) of patients reached an adjudicated endpoint of DRP. Across all DRP categories as indicated above, more events with semaglutide were noted. Participants that were prone to develop DRP had pre-existing DRP, longer diabetes duration, higher HbA_{1c} levels at baseline, and more often used insulin therapy. Particularly, participants with pre-existing DRP who were using insulin therapy had the highest risk for a new DRP event.
-
-This analysis further assessed whether the increase in DRP was a GLP-1 specific effect, or rather caused by a robust and early glucose lowering as suggested by several other studies, where acute and large reductions in glucose concentrations may initially and transiently worsen DRP, yet prevent or delay onset or progression of DRP in the long term (123--128). Patients that met a DRP endpoint had strongest glucose lowering during the trial, independent of their randomization to semaglutide or placebo. A post-hoc mediation analysis adjusting for HbA_{1c} reduction at week 16 showed that glucose reduction at this time point explained the increased incidence. Limitations of DRP assessment during the trial were the absence of assessment of retinal changes over time, while the severity was not graded on baseline. Nevertheless, based on the data brought forward, it seems safe to conclude that the phenomenon of early worsening of pre-existing DRP was secondary to the initial and rapid improvement in glycemic control that occurred in SUSTAIN-6. This was confirmed in the recent AngioSafe study which showed no effect of GLP-1RA therapy on angiogenesis and no association between GLP-1 exposure and severe DRP was shown (129).
-
-Currently, a large trial is ongoing assessing the long-term effects of semaglutide on DRP in patients with T2D as primary outcome (FOCUS trial, NCT03811561). This study will provide important data with respect to semaglutide safety on the retina. Until that time, caution should be exercised when using semaglutide in patients with DRP. It may be sensible to perform a fundoscopy prior to semaglutide therapy, and existing DRP should be treated where necessary. In addition, given the strong effects of semaglutide on glucose levels, down titrating insulin will prevent rapid decreases in glucose concentrations thereby reducing the risk of acute DRP worsening.
-
-### Injection-Site and Allergic Reactions
-
-Although every subcutaneous injection can induce injection-site reactions, there are no signals that this is higher with semaglutide compared with placebo (130). In phase 3 studies, any site reaction was present in 0.6% of patients on the 0.5 mg dose, 0.3% on the 1 mg dose, and 0.8% in the comparator groups. The local site reaction includes bruising, discoloration, induration, and pain (130). In SUSTAIN-6, none of these injection site-reactions was considered severe, and it was never a reason to withhold therapy.
-
-Given the immunogenic potential of protein-based drugs, it is important to monitor allergic reactions with GLP-1RAs. Allergic reactions were reported in four patients in the SUSTAIN program. However, at closer inspection, these reactions were more likely caused by the (concomitant) use of angiotensin-converting enzyme inhibitors or an infection (130). Across the phase 3a PIONEER trials, less subjects with oral semaglutide (2.9%) had allergic reactions compared with the comparators (4.6%) (131). No cases of anaphylactic reactions have yet been attributed to semaglutide; one patient using semaglutide had an anaphylactic shock attributed to cefazolin in SUSTAIN-6.
-
-Effects of Semaglutide Compared to Other GLP-1 Receptor Agonists
-
-The group of GLP-1RA contains several agents, and their adverse effect profile is not identical. This could be due to differences in pharmacokinetic profile (short- vs long-acting) and due to structural differences. Exendin-derived agents, i.e. exenatide and lixisenatide, are based on a protein derived from saliva of the Gila monster, and only share roughly 50% of the homology of GLP-1, which could trigger immunogenicity. The more frequent injection site reactions with exenatide once weekly (22%) compared with semaglutide (1.2%) in SUSTAIN-3 could be a consequence of this (22).
-
-The head-to-head studies within the SUSTAIN and PIONEER programs allow some comparison of the adverse effect profile (Table 2). With these data, the safety profiles of rare potential events (e.g. pancreatitis, thyroid cancer, kidney injury, etc.) and hypoglycemia risk are comparable for semaglutide, dulaglutide, exenatide once weekly and liraglutide. However, semaglutide appears to be associated with more frequent nausea and vomiting. In SUSTAIN-3, 41.8% of patients with subcutaneous semaglutide had GI adverse effects, compared with 33.3% in exenatide once weekly (22). In SUSTAIN-7, nausea or vomiting occurred similarly for semaglutide 0.5 mg and 1 mg and dulaglutide 1.5 mg (43--48%), yet less frequent with dulaglutide 0.75 mg (33%) (29). In SUSTAIN-10, 21.8% of semaglutide-patients had nausea, compared to 15.7% of liraglutide-patients (32).
-
-For oral semaglutide, the data are similar. In PIONEER-9, oral semaglutide induced nausea in up to 10% of patients, whereas none of the liraglutide patients had nausea (liraglutide was low-dose however) (23). Compared with dulaglutide in PIONEER-10, nausea rates were similar, yet oral semaglutide was more frequently associated with vomiting (14 mg dose semaglutide: 7%, dulaglutide 0.75 mg 2%) (24).
-
-Finally, in a network meta-analysis, several short- and long-acting GLP-1RA were compared regarding efficacy and side effect profile. Compared with lixisenatide, exenatide twice daily, liraglutide, albiglutide and dulaglutide, semaglutide is associated with highest nausea and vomiting rates, yet also with highest rates of improvement in glycemic control and weight loss (132).
-
-Whether the more rare adverse events differ between the different agents can only be answered by using observational cohort data from a very large group of patients and a longer follow-up time. Since semaglutide is relatively new, these data are not available yet. It should be stressed that guidelines do not favor the prescription of one GLP-1 RA over another, although clinicians are advised to select a compound with proven cardiovascular benefit.
-
-## Discussion
-
-Since the finding that the thiazolidinedione rosiglitazone increased cardiovascular events, much weight has been placed on the safety of novel glucose-lowering drugs. For all new drugs, a thorough safety profile needs to be established, with particular emphasis on cardiovascular safety. While safety within the phase 3 program is sufficient for marketing authorization (although the risk of cardiovascular events should not exceed a hazard ratio of 1.8 according to a guidance document that was released by the FDA at that time), it is the post-marketing phase in which rare adverse events and any other potential safety risks are identified or resolved. The same FDA document mandates post-marketing trials to demonstrate that the novel agent does not increase cardiovascular risk by more than 30% compared to placebo (henceforth these trials were named ‘cardiovascular outcome trial'), if premarketing studies did not already demonstrate this.
-
-Although designed for cardiovascular safety, other safety aspects may also be assessed in CVOTs. Moreover, after marketing approval, several databases can be employed to understand safety risks. In this regard, case reports and studies using adverse event databases (such as the FDA Adverse Event Reporting System and European Eudravigilance) frequently are the first signals of potential safety risks. With GLP-1RA, these encompassed AKI, pancreatitis, pancreatic cancer and thyroid cancer (6, 114). While awaiting the CVOTs, results from several health care database studies (insurance claims, hospital registry, etc.) were published, and were somewhat conflicting. With the totality of the evidence, many of the feared safety risks were nuanced or refuted.
-
-As semaglutide is one of the youngest GLP-1RA, it was possible to prospectively monitor for the rarer adverse events in the phase 3 program and CVOT. As detailed in the current review, semaglutide appears not to increase the risk of pancreatitis (yet nevertheless it has been added to the SmPC to align with health authorities expectations on class labeling), but it is associated with more events of cholelithiasis. Although current data argue against an increased risk of pancreatic cancer and thyroid cancer with semaglutide, it can be debated whether the background incidence of these disorders is too low to fully conclude the absence of an association.
-
-Even though the route of administration, their drug formulation and the dosage differ, the AE profile appears not to be very different between subcutaneous and oral semaglutide. One important co-product in oral semaglutide, SNAC, can be toxic at high doses (133). However, at the SNAC dosage of 300 mg per tablet of oral semaglutide, it is well below the toxic dose of 1.8 g/kg/day observed in monkeys, where it caused nausea and diarrhea (133). Post-marketing surveillance will help to elucidate whether the subcutaneous and oral variant differ in their real-world safety profile.
-
-Most data reported in this review are from phase 3 clinical trials. Whether all of these data can be extrapolated to clinical practice remains a matter of debate. In RCTs, there are tightly regulated cohorts based on stringent in- and exclusion criteria, thereby reducing generalizability. Moreover, the frequent visits and calls during a study could improve patient coherence. However, real-world evidence—where available—has not shown major differences in for example hypoglycemia rate or drug discontinuation (36, 39, 40).
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-# CONCLUSION
-
-Over the years, the use of GLP-1RAs has first been associated with several adverse events, which were later mostly nuanced or refuted. As one of the newer agents within the class, the safety of semaglutide—both the subcutaneous and oral formulation—has been scrutinized in the phase 3 programs and CVOTs. Compared with placebo and active comparator, semaglutide induces mostly mild and transient gastrointestinal disturbances, and increases the risk of cholelithiasis. However, no major safety concerns have arisen to date, although definitive conclusions for pancreatic cancer, thyroid cancer and DRP complications cannot be drawn at this point. When compared with the beneficial effects of these drugs on glucose metabolism, blood pressure, body weight and cardiovascular (and potentially even renal) endpoints, these
-
-agents have an overall beneficial risk/benefit-profile for treatment of patients with T2D.
-
-# AUTHOR CONTRIBUTIONS
-
-The authors drafted all versions of the article, and provided final approval for submission. All authors contributed to the article and approved the submitted version.
-
-# FUNDING
-
-This article was supported by Novo Nordisk, who was provided with the opportunity to perform a medical accuracy review.
-
-# REFERENCES
-
-1. International Diabetes Federation. IDF Diabetes Atlas 2019 (2019). Available at: https://www.diabetesatlas.org/data/en/region/3/eur.html.
-2. Holst JJ. The Physiology of Glucagon-Like Peptide 1. Physiol Rev (2007) 87:1409-39. doi: 10.1152/physrev.00034.2006
-3. Smits MM, Tonneijck L, Muskiet MHA, Kramer MHH, Cahen DL, van Raalte DH. Gastrointestinal Actions of GLP-1 Based Therapies: Glycaemic Control Beyond the Pancreas. Diabetes Obes Metab (2016) 18:178-85. doi: 10.1111/dom.12593
-4. Hussein H, Zaccardi F, Khunti K, Davies MJ, Patsko E, Dhalwani NN, et al. Efficacy and Tolerability of Sodium-Glucose Co-Transporter-2 Inhibitors and Glucagon-Like Peptide-1 Receptor Agonists: A Systematic Review and Network Meta-Analysis. Diabetes Obes Metab (2020) 22:1035-46. doi: 10.1111/dom.14008
-5. Lyseng-Williamson KA. Glucagon-Like Peptide-1 Receptor Agonists in Type 2 Diabetes: Their Use and Differential Feature. Clin Drug Investig (2019) 39:805-19. doi: 10.1007/s40261-019-00826-0
-6. Elashoff M, Matveyenko AV, Gier B, Elashoff R, Butler PC. Pancreatitis, Pancreatic, and Thyroid Cancer With Glucagon-Like Peptide-1-Based Therapies. Gastroenterology (2011) 141:150-6. doi: 10.1053/j.gastro.2011.02.018
-7. Knudsen LB, Lau J. The Discovery and Development of Liraglutide and Semaglutid. Front Endocrinol (Lausanne) (2019) 10:155. doi: 10.3389/fendo.2019.00155
-8. Buckley ST, Bækdal TA, Vegge A, Maarbjerg SJ, Pyke C, Ahnfelt-Ronne J, et al. Transcellular Stomach Absorption of a Derivatized Glucagon-Like Peptide-1 Receptor Agonist. Sci Transl Med (2018) 10:eaar7047. doi: 10.1126/scitransmed.aar7047
-9. Overgaard R, Navarria A, Hertz C, Ingwersen S. Similar Efficacy and Gastrointestinal Tolerability Versus Exposure for Oral and Subcutaneous Semaglutide, in: The 55th Annual Meeting of the European Association for the Study of Diabetes (EASD Virtual Meeting), Abstract #777. Diabetologia (2019) 62:1-600. doi: 10.1007/s00125-019-4946-6
-10. Sorli C, Harashima S, Tsoukas GM, Unger J, Karsbøl JD, Hansen T, et al. Efficacy and Safety of Once-Weekly Semaglutide Monotherapy Versus Placebo in Patients With Type 2 Diabetes (SUSTAIN 1): A Double-Blind, Randomised, Placebo-Controlled, Parallel-Group, Multinational, Multicentre Phase 3a Trial. Lancet Diabetes Endocrinol (2017) 5:251-60. doi: 10.1016/S2213-8587(17)30013-X
-11. Ahren B, Masmiquel L, Kumar H, Sargin M, Karsbol JD, Jacobsen SH, et al. Efficacy and Safety of Once-Weekly Semaglutide Versus Once-Daily Sitagliptin as an Add-on to Metformin, Thiazolidinediones, or Both, in Patients With Type 2 Diabetes (SUSTAIN 2): A 56-Week, Double-Blind, Phase 3a, Randomised Trial. Lancet Diabetes Endocrinol (2017) 5:341-54. doi: 10.1016/S2213-8587(17)30092-X
-12. Seino Y, Terauchi Y, Osonoi T, Yabe D, Abe N, Nishida T, et al. Safety and Efficacy of Semaglutide Once Weekly vs Sitagliptin Once Daily, Both as
-
-Monotherapy in J Apanese People With Type 2 Diabetes. Diabetes Obes Metab (2018) 20:378-88. doi: 10.1111/dom.13082
-13. Kaku K, Yamada Y, Watada H, Abiko A, Nishida T, Zacho J, et al. Safety and Efficacy of Once-Weekly Semaglutide vs Additional Oral Antidiabetic Drugs in Japanese People With Inadequately Controlled Type 2 Diabetes: A Randomized Trial. Diabetes Obes Metab (2018) 20:1202-12. doi: 10.1111/dom.13218
-14. Aroda VR, Rosenstock J, Terauchi Y, Altuntas Y, Lalic NM, Morales Villegas EC, et al. PIONEER 1: Randomized Clinical Trial of the Efficacy and Safety of Oral Semaglutide Monotherapy in Comparison With Placebo in Patients With Type 2 Diabet. Diabetes Care (2019) 42:1724-32. doi: 10.2337/dc19-0749
-15. Rodbard HW, Rosenstock J, Canani LH, Deerochanawong C, Gumprecht J, Lindberg SØ, et al. Oral Semaglutide Versus Empagliflozin in Patients With Type 2 Diabetes Uncontrolled on Metformin: The PIONEER 2 Trial. Diabetes Care (2019) 42:2272-81. doi: 10.2337/dc19-0883
-16. Rosenstock J, Allison D, Birkenfeld AL, Blicher TM, Deenadayalan S, Jacobsen JB, et al. Effect of Additional Oral Semaglutide vs Sitagliptin on Glycated Hemoglobin in Adults With Type 2 Diabetes Uncontrolled With Metformin Alone or With Sulfonylure. JAMA (2019) 321:1466. doi: 10.1001/jama.2019.2942
-17. Pratley R, Amod A, Hoff ST, Kadowaki T, Lingvay I, Nauck M, et al. Oral Semaglutide Versus Subcutaneous Liraglutide and Placebo in Type 2 Diabetes (PIONEER 4): A Randomised, Double-Blind, Phase 3a Trial. Lancet (2019) 394:39-50. doi: 10.1016/S0140-6736(19)31271-1
-18. Mosenzon O, Blicher TM, Rosenlund S, Eriksson JW, Heller S, Hels OH, et al. Efficacy and Safety of Oral Semaglutide in Patients With Type 2 Diabetes and Moderate Renal Impairment (PIONEER 5): A Placebo-Controlled, Randomised, Phase 3a Trial. Lancet Diabetes Endocrinol (2019) 7:515-27. doi: 10.1016/S2213-8587(19)30192-5
-19. Husain M, Birkenfeld AL, Donsmark M, Dungan K, Eliaschewitz FG, Franco DR, et al. Oral Semaglutide and Cardiovascular Outcomes in Patients With Type 2 Diabetes. N Engl J Med (2019) 381:841-51. doi: 10.1056/NEJMoa1901118
-20. Pieber TR, Bode B, Mertens A, Cho YM, Christiansen E, Hertz CL, et al. Efficacy and Safety of Oral Semaglutide With Flexible Dose Adjustment Versus Sitagliptin in Type 2 Diabetes (PIONEER 7): A Multicentre, Open-Label, Randomised, Phase 3a Trial. Lancet Diabetes Endocrinol (2019) 7:528-39. doi: 10.1016/S2213-8587(19)30194-9
-21. Zinman B, Aroda VR, Buse JB, Cariou B, Harris SB, Hoff ST, et al. Efficacy, Safety, and Tolerability of Oral Semaglutide Versus Placebo Added to Insulin With or Without Metformin in Patients With Type 2 Diabetes: The PIONEER 8 Trial. Diabetes Care (2019) 42:2262-71. doi: 10.2337/dc19-0898
-22. Ahmann AJ, Capehorn M, Charpentier G, Dotta F, Henkel E, Lingvay I, et al. Efficacy and Safety of Once-Weekly Semaglutide Versus Exenatide ER in Subjects With Type 2 Diabetes (SUSTAIN 3): A 56-Week, Open-Label, Randomized Clinical Trial. Diabetes Care (2018) 41:258-66. doi: 10.2337/dc17-0417
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-23. Yamada Y, Katagiri H, Hamamoto Y, Deenadayalan S, Navarria A, Nishijima K, et al. Dose-Response, Efficacy, and Safety of Oral Semaglutide Monotherapy in Japanese Patients With Type 2 Diabetes (PIONEER 9): A 52-Week, Phase 2/3a, Randomised, Controlled Trial. Lancet Diabetes Endocrinol (2020) 8:377-91. doi: 10.1016/S2213-8587(20)30075-9
-24. Yabe D, Nakamura J, Kaneto H, Deenadayalan S, Navarria A, Gislum M, et al. Safety and Efficacy of Oral Semaglutide Versus Dulaglutide in Japanese Patients With Type 2 Diabetes (PIONEER 10): An Open-Label, Randomised, Active-Controlled, Phase 3a Trial. Lancet Diabetes Endocrinol (2020) 8:392-406. doi: 10.1016/S2213-8587(20)30074-7
-25. Ji L, Dong X, Li Y, Li Y, Lim S, Liu M, et al. Efficacy and Safety of Once-Weekly Semaglutide vs Once-Daily Sitagliptin as Add-on to Metformin in Patients With Type 2 Diabetes (SUSTAIN China): A 30-Week Double-Blind, Phase 3a, Randomised Trial. Diabetes Obes Metab (2020) 23:404-14. doi: 10.1111/dom.14232
-26. Aroda VR, Bain SC, Cariou B, Piletić M, Rose L, Axelsen M, et al. Efficacy and Safety of Once-Weekly Semaglutide Versus Once-Daily Insulin Glargine as Add-on to Metformin (With or Without Sulfonylureas) in Insulin-Naive Patients With Type 2 Diabetes (SUSTAIN 4): A Randomised, Open-Label, Parallel-Group, Multicentre, Mul. Lancet Diabetes Endocrinol (2017) 5:355-66. doi: 10.1016/S2213-8587(17)30085-2
-27. Rodbard HW, Lingvay I, Reed J, de la Rosa R, Rose L, Sugimoto D, et al. Semaglutide Added to Basal Insulin in Type 2 Diabetes (SUSTAIN 5): A Randomized, Controlled Trial. J Clin Endocrinol Metab (2018) 103:2291-301. doi: 10.1210/jc.2018-00070
-28. Marso SP, Bain SC, Consoli A, Eliaschewitz FG, Jodar E, Leiter LA, et al. Semaglutide and Cardiovascular Outcomes in Patients With Type 2 Diabetes. N Engl J Med (2016) 375:1834-44. doi: 10.1056/NEJMoa1607141
-29. Pratley RE, Aroda VR, Lingvay I, Lüdemann J, Andreassen C, Navarria A, et al. Semaglutide Versus Dulaglutide Once Weekly in Patients With Type 2 Diabetes (SUSTAIN 7): A Randomised, Open-Label, Phase 3b Trial. Lancet Diabetes Endocrinol (2018) 6:275-86. doi: 10.1016/S2213-8587(18)30024-X
-30. Lingvay I, Catarig A-M, Frias JP, Kumar H, Lausvig NL, le Roux CW, et al. Efficacy and Safety of Once-Weekly Semaglutide Versus Daily Canagliflozin as Add-on to Metformin in Patients With Type 2 Diabetes (SUSTAIN 8): A Double-Blind, Phase 3b, Randomised Controlled Trial. Lancet Diabetes Endocrinol (2019) 7:834-44. doi: 10.1016/S2213-8587(19)30311-0
-31. Zinman B, Bhosekar V, Busch R, Holst I, Ludvik B, Thielke D, et al. Semaglutide Once Weekly as Add-on to SGLT-2 Inhibitor Therapy in Type 2 Diabetes (SUSTAIN 9): A Randomised, Placebo-Controlled Trial. Lancet Diabetes Endocrinol (2019) 7:356-67. doi: 10.1016/S2213-8587(19)30066-X
-32. Capehorn MS, Catarig A-M, Furberg JK, Janez A, Price HC, Tadayon S, et al. Efficacy and Safety of Once-Weekly Semaglutide 1.0 Mg vs Once-Daily Liraglutide 1.2 Mg as Add-on to 1-3 Oral Antidiabetic Drugs in Subjects With Type 2 Diabetes (SUSTAIN 10). Diabetes Metab (2020) 46:100-9. doi: 10.1016/j.diabet.2019.101117
-33. Ikushima I, Jensen L, Flint A, Nishida T, Zacho J. Irie S. A Randomized Trial Investigating the Pharmacokinetics, Pharmacodynamics, and Safety of Subcutaneous Semaglutide Once-Weekly in Healthy Male Japanese and Caucasian Subject. Adv Ther (2018) 35:531-44. doi: 10.1007/s12325-018-0677-1
-34. Granhall C, Donsmark M, Blicher TM, Golor G, Søndergaard FL, Thomsen M, et al. Safety and Pharmacokinetics of Single and Multiple Ascending Doses of the Novel Oral Human GLP-1 Analogue, Oral Semaglutide, in Healthy Subjects and Subjects With Type 2 Diabetes. Clin Pharmacokinet (2019) 58:781-91. doi: 10.1007/s40262-018-0728-4
-35. Korsatko S, Jensen L, Brunner M, Sach-Friedl S, Tarp MD, Holst AG, et al. Effect of Once-Weekly Semaglutide on the Counterregulatory Response to Hypoglycaemia in People With Type 2 Diabetes: A Randomized, Placebo-Controlled, Double-Blind, Crossover Trial. Diabetes Obes Metab (2018) 20:2565-73. doi: 10.1111/dom.13422
-36. Brown RE, Bech PG, Aronson R. Semaglutide Once Weekly in People With Type 2 Diabetes: Real-World Analysis of the Canadian LMC Diabetes Registry (SPARE Study). Diabetes Obes Metab (2020) 22:2013-20. doi: 10.1111/dom.14117
-37. Romera I, Cebrian-Cuenca A, Alvarez-Guisasola F, Gomez-Peralta F. Reviriego J. A Review of Practical Issues on the Use of Glucagon-Like
-
-Peptide-1 Receptor Agonists for the Management of Type 2 Diabet. Diabetes Ther (2019) 10:5-19. doi: 10.1007/s13300-018-0535-9
-38. Davies M, Pieber TR, Hartoft-Nielsen M-L, Hansen OKH, Jabbour S, Rosenstock J. Effect of Oral Semaglutide Compared With Placebo and Subcutaneous Semaglutide on Glycemic Control in Patients With Type 2 Diabetes. JAMA (2017) 318:1460. doi: 10.1001/jama.2017.14752
-39. Williams DM, Ruslan AM, Khan R, Vijayasingam D, Iqbal F, Shaikh A, et al. Real-World Clinical Experience of Semaglutide in Secondary Care Diabetes: A Retrospective Observational Stud. Diabetes Ther (2021) 12:801-11. doi: 10.1007/s13300-021-01015-z
-40. Jain AB, Kanters S, Khurana R, Kissock J, Severin N, Stafford SG. Real-World Effectiveness Analysis of Switching From Liraglutide or Dulaglutide to Semaglutide in Patients With Type 2 Diabetes Mellitus: The Retrospective REALISE-DM Stud. Diabetes Ther (2021) 12:527-36. doi: 10.1007/s13300-020-00984-x
-41. Shomali M. Optimizing the Care of Patients With Type 2 Diabetes Using Incretin-Based Therapy: Focus on GLP-1 Receptor Agonist. Clin Diabetes (2014) 32:32-43. doi: 10.2337/diaclin.32.1.32
-42. Ellero C, Han J, Bhavsar S, Cirincione BB, Deyoung MB, Gray AL, et al. Prophylactic Use of Anti-Emetic Medications Reduced Nausea and Vomiting Associated With Exenatide Treatment: A Retrospective Analysis of an Open-Label, Parallel-Group, Single-Dose Study in Healthy Subjects. Diabetes Med (2010) 27:1168-73. doi: 10.1111/j.1464-5491.2010.03085.x
-43. Bettge K, Kahle M, Abd El Aziz MS, Meier JJ, Nauck MA. Occurrence of Nausea, Vomiting and Diarrhoea Reported as Adverse Events in Clinical Trials Studying Glucagon-Like Peptide-1 Receptor Agonists: A Systematic Analysis of Published Clinical Trials. Diabetes Obes Metab (2017) 19:336-47. doi: 10.1111/dom.12824
-44. Linnebjerg H, Park S, Kothare PA, Trautmann ME, Mace K, Fineman M, et al. Effect of Exenatide on Gastric Emptying and Relationship to Postprandial Glycemia in Type 2 Diabetes. Regul Pept (2008) 151:123-9. doi: 10.1016/j.regpep.2008.07.003
-45. Willms B, Werner J, Holst JJ, Orskov C, Creutzfeldt W, Nauck MA. Gastric Emptying, Glucose Responses, and Insulin Secretion After a Liquid Test Meal: Effects of Exogenous Glucagon-Like Peptide-1 (GLP-1)-(7-36) Amide in Type 2 (Noninsulin-Dependent) Diabetic Patients. J Clin Endocrinol Metab (1996) 81:327-32. doi: 10.1210/jcem.81.1.8550773
-46. Borner T, Workinger JL, Tinsley IC, Fortin SM, Stein LM, Chepurny OG, et al. Coordination of a GLP-1 Receptor Agonist for Glycemic Control Without Emes. Cell Rep (2020) 31:107768. doi: 10.1016/j.celrep.2020.107768
-47. Gutzwiller J-P, Hruz P, Huber AR, Hamel C, Zehnder C, Drewe J, et al. Glucagon-Like Peptide-1 is Involved in Sodium and Water Homeostasis in Humans. Digestion (2006) 73:142-50. doi: 10.1159/000094334
-48. Deane AM, Chapman MJ, Fraser RJL, Summers MJ, Daknic AV, Storey JP, et al. Effects of Exogenous Glucagon-Like Peptide-1 on Gastric Emptying and Glucose Absorption in the Critically Ill: Relationship to Glycemia. Crit Care Med (2010) 38:1261-9. doi: 10.1097/CCM.0b013e3181d9d87a
-49. Xiao C, Bandsma RHJ, Dash S, Szeto L, Lewis GF. Exenatide, a Glucagon-Like Peptide-1 Receptor Agonist, Acutely Inhibits Intestinal Lipoprotein Production in Healthy Humans. Arterioscler Thromb Vasc Biol (2012) 32:1513-9. doi: 10.1161/ATVBAHA.112.246207
-50. Wegeberg A-ML, Hansen CS, Farmer AD, Karmisholt JS, Drewes AM, Jakobsen PE, et al. Liraglutide Accelerates Colonic Transit in People With Type 1 Diabetes and Polyneuropathy: A Randomised, Double-Blind, Placebo-Controlled Trial. United Eur Gastroenterol J (2020) 8(6):695-704. doi: 10.1177/2050640620925968
-51. Lean MEJ, Carraro R, Finer N, Hartvig H, Lindegaard ML, Rossner S, et al. Tolerability of Nausea and Vomiting and Associations With Weight Loss in a Randomized Trial of Liraglutide in Obese, non-Diabetic Adults. Int J Obes (2014) 38:689-97. doi: 10.1038/ijo.2013.149
-52. Ahren B, Atkin SL, Charpentier G, Warren ML, Wilding JPH, Birch S, et al. Semaglutide Induces Weight Loss in Subjects With Type 2 Diabetes Regardless of Baseline BMI or Gastrointestinal Adverse Events in the SUSTAIN 1 to 5 Trials. Diabetes Obes Metab (2018) 20:2210-9. doi: 10.1111/dom.13353
-53. Lingvay I, Hansen T, Macura S, Marre M, Nauck MA, de la Rosa R, et al. Superior Weight Loss With Once-Weekly Semaglutide Versus Other Glucagon-Like Peptide-1 Receptor Agonists is Independent of
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-Gastrointestinal Adverse Events. BMJ Open Diabetes Res Care (2020) 8: e001706. doi: 10.1136/bmjdrc-2020-001706
-54. Dore DD, Bloomgren GL, Wenten M, Hoffman C, Clifford CR, Quinn SG, et al. A Cohort Study of Acute Pancreatitis in Relation to Exenatide Use. Diabetes Obes Metab (2011) 13:559-66. doi: 10.1111/j.1463-1326.2011. 01376.x
-55. Funch D, Gydesen H, Tornøe K, Major-Pedersen A, Chan KA. A Prospective, Claims-Based Assessment of the Risk of Pancreatitis and Pancreatic Cancer With Liraglutide Compared to Other Antidiabetic Drugs. Diabetes Obes Metab (2014) 16:273-5. doi: 10.1111/dom.12230
-56. Garg R, Chen W, Pendergrass M. Acute Pancreatitis in Type 2 Diabetes Treated With Exenatide or Sitagliptin: A Retrospective Observational Pharmacy Claims Analysis. Diabetes Care (2010) 33:2349-54. doi: 10.2337/dc10-0482
-57. Giorda CB, Picariello R, Nada E, Tartaglino B, Marafetti L, Costa G, et al. Incretin Therapies and Risk of Hospital Admission for Acute Pancreatitis in an Unselected Population of European Patients With Type 2 Diabetes: A Case-Control Study. Lancet Diabetes Endocrinol (2014) 2:111-5. doi: 10.1016/S2213-8587(13)70147-5
-58. Li L, Shen J, Bala MM, Busse JW, Ebrahim S, Vandvik PO, et al. Incretin Treatment and Risk of Pancreatitis in Patients With Type 2 Diabetes Mellitus: Systematic Review and Meta-Analysis of Randomised and Non-Randomised Studies. BMJ (2014) 348:g2366. doi: 10.1136/bmj.g2366
-59. Wenten M, Gaebler JA, Hussein M, Pelletier EM, Smith DB, Girase P, et al. Relative Risk of Acute Pancreatitis in Initiators of Exenatide Twice Daily Compared With Other Anti-Diabetic Medication: A Follow-Up Study. Diabetes Med (2012) 29:1412-8. doi: 10.1111/j.1464-5491.2012.03652.x
-60. Singh S, Chang H-Y, Richards TM, Weiner JP, Clark JM, Segal JB. Glucagonlike Peptide 1-Based Therapies and Risk of Hospitalization for Acute Pancreatitis in Type 2 Diabetes Mellitus: A Population-Based Matched Case-Control Study. JAMA Intern Med (2013) 173:534-9. doi: 10.1001/jamainternmed.2013.2720
-61. Noel RA, Braun DK, Patterson RE, Bloomgren GL. Increased Risk of Acute Pancreatitis and Biliary Disease Observed in Patients With Type 2 Diabetes: A Retrospective Cohort Study. Diabetes Care (2009) 32:834-8. doi: 10.2337/dc08-1755
-62. Koo D-H, Han K-D, Park C-Y. The Incremental Risk of Pancreatic Cancer According to Fasting Glucose Levels: Nationwide Population-Based Cohort Stud. J Clin Endocrinol Metab (2019) 104:4594-9. doi: 10.1210/jc.2019-00033
-63. Cao C, Yang S, Zhou Z. GLP-1 Receptor Agonists and Pancreatic Safety Concerns in Type 2 Diabetic Patients: Data From Cardiovascular Outcome Trials. Endocrine (2020) 68:518-25. doi: 10.1007/s12020-020-02223-6
-64. Lando HM, Alattar M, Dua AP. Elevated Amylase and Lipase Levels in Patients Using Glucagonlike Peptide-1 Receptor Agonists or DipeptidylPeptidase-4 Inhibitors in the Outpatient Setting. Endocr Pract (2012) 18:472-7. doi: 10.4158/EP11290.OR
-65. Tokuyama H, Kawamura H, Fujimoto M, Kobayashi K, Nieda M, Okazawa T, et al. A Low-Grade Increase of Serum Pancreatic Exocrine Enzyme Levels by Dipeptidyl Peptidase-4 Inhibitor in Patients With Type 2 Diabetes. Diabetes Res Clin Pract (2013) 100:e66-9. doi: 10.1016/j.diabres.2013.03.034
-66. Smits MM, Tonneijck L, Muskiet MHA, Diamant M, Kramer MHH, Cahen DL, et al. Acute Plasma Amylase Increase After Glucagon-Like Peptide -1 Receptor Agonist Exenatide Administration in Type 2 Diabetes. Diabetes Med (2017) 34:591-2. doi: 10.1111/dme.13160
-67. Steinberg WM, Rosenstock J, Wadden TA, Donsmark M, Jensen CB, DeVries JH. Impact of Liraglutide on Amylase, Lipase, and Acute Pancreatitis in Participants With Overweight/Obesity and Normoglycemia, Prediabetes, or Type 2 Diabetes: Secondary Analyses of Pooled Data From the SCALE Clinical Development Progra. Diabetes Care (2017) 40:839-48. doi: 10.2337/dc16-2684
-68. Steinberg WM, Buse JB, Ghorbani MLM, Ørsted DD, Nauck MALEADER Steering Committee, et al. Amylase, Lipase, and Acute Pancreatitis in People With Type 2 Diabetes Treated With Liraglutide: Results From the LEADER Randomized Trial. Diabetes Care (2017) 40:966-72. doi: 10.2337/dc16-2747
-69. Smits MM, Tonneijck L, Muskiet MHA, Kramer MHH, Pieters-Van Den Bos IC, Vendrik KEW, et al. Pancreatic Effects of Liraglutide or Sitagliptin in Overweight Patients With Type 2 Diabetes: A 12-Week Randomized,
-
-Placebo-Controlled Trial. Diabetes Care (2017) 40:301-8. doi: 10.2337/dc16-0836
-70. Nachnani JS, Bulchandani DG, Nookala A, Herndon B, Molteni A, Pandya P, et al. Biochemical and Histological Effects of Exendin-4 (Exenatide) on the Rat Pancreas. Diabetologia (2010) 53:153-9. doi: 10.1007/s00125-009-1515-4
-71. Gier B, Matveyenko AV, Kirakossian D, Dawson D, Dry SM, Butler PC. Chronic GLP-1 Receptor Activation by Exendin-4 Induces Expansion of Pancreatic Duct Glands in Rats and Accelerates Formation of Dysplastic Lesions and Chronic Pancreatitis in the Kras(G12D) Mouse Model. Diabetes (2012) 61:1250-62. doi: 10.2337/db11-1109
-72. Ellenbroek JH, Tons HAM, Westerouen van Meeteren MJA, de Graaf N, Hanegraaf MA, Rabelink TJ, et al. Glucagon-Like Peptide-1 Receptor Agonist Treatment Reduces Beta Cell Mass in Normoglycaemic Mice. Diabetologia (2013) 56:1980-6. doi: 10.1007/s00125-013-2957-2
-73. Nyborg NCB, Mølck A-M, Madsen LW, Knudsen LB. The Human GLP-1 Analog Liraglutide and the Pancreas: Evidence for the Absence of Structural Pancreatic Changes in Three Species. Diabetes (2012) 61:1243-9. doi: 10.2337/db11-0936
-74. Tatarkiewicz K, Belanger P, Gu G, Parkes D, Roy D. No Evidence of Drug-Induced Pancreatitis in Rats Treated With Exenatide for 13 Weeks. Diabetes Obes Metab (2013) 15:417-26. doi: 10.1111/dom.12040
-75. Vrang N, Jelsing J, Simonsen L, Jensen AE, Thorup I, Søeborg H, et al. The Effects of 13 Wk of Liraglutide Treatment on Endocrine and Exocrine Pancreas in Male and Female ZDF Rats: A Quantitative and Qualitative Analysis Revealing No Evidence of Drug-Induced Pancreatitis. Am J Physiol Endocrinol Metab (2012) 303:E253-64. doi: 10.1152/ajpendo.00182.2012
-76. Gotfredsen CF, Molck A-M, Thorup I, Nyborg NCB, Salanti Z, Knudsen LB, et al. The Human GLP-1 Analogs Liraglutide and Semaglutide: Absence of Histopathological Effects on the Pancreas in Nonhuman Primate. Diabetes (2014) 63:2486-97. doi: 10.2337/db13-1087
-77. Egan AG, Blind E, Dunder K, de Graeff PA, Hummer BT, Bourcier T, et al. Pancreatic Safety of Incretin-Based Drugs-FDA and EMA Assessment. N Engl J Med (2014) 370:794-7. doi: 10.1056/NEJMp1314078
-78. Bjerre Knudsen L, Madsen LW, Andersen S, Almholt K, de Boer AS, Drucker DJ, et al. Glucagon-Like Peptide-1 Receptor Agonists Activate Rodent Thyroid C-Cells Causing Calcitonin Release and C-Cell Proliferation. Endocrinology (2010) 151:1473-86. doi: 10.1210/en.2009-1272
-79. Gier B, Butler PC, Lai CK, Kirakossian D, DeNicola MM, Yeh MW. Glucagon Like Peptide-1 Receptor Expression in the Human Thyroid Glan. J Clin Endocrinol Metab (2012) 97:121-31. doi: 10.1210/jc.2011-2407
-80. Körner M, Stöckli M, Waser B, Reubi JC. GLP-1 Receptor Expression in Human Tumors and Human Normal Tissues: Potential for In Vivo Targeting. J Nucl Med (2007) 48:736-43. doi: 10.2967/jnumed.106.038679
-81. Pyke C, Knudsen LB. The Glucagon-Like Peptide-1 Receptor-or Not? Endocrinology (2013) 154:4-8. doi: 10.1210/en.2012-2124
-82. Waser B, Blank A, Karamitopoulou E, Perren A, Reubi JC. Glucagon-Like-Peptide-1 Receptor Expression in Normal and Diseased Human Thyroid and Pancreas. Mod Pathol (2014) 28:391-402. doi: 10.1038/modpathol.2014.113
-83. Hegedüs L, Sherman SI, Tuttle RM, von Scholten BJ, Rasmussen S, Karsbøl JD, et al. No Evidence of Increase in Calcitonin Concentrations or Development of C-Cell Malignancy in Response to Liraglutide for Up to 5 Years in the LEADER Trial. Diabetes Care (2018) 41:620-2. doi: 10.2337/dc17-1956
-84. Pi-Sunyer X, Astrup A, Fujioka K, Greenway F, Halpern A, Krempf M, et al. A Randomized, Controlled Trial of 3.0 Mg of Liraglutide in Weight Management. N Engl J Med (2015) 373:11-22. doi: 10.1056/NEJMoa1411892
-85. Pizzimenti V, Giandalia A, Cucinotta D, Russo GT, Smits M, Cutroneo PM, et al. Incretin-Based Therapy and Acute Cholecystitis: A Report of 12-48 Reports and EudraVigilance Spontaneous Adverse Drug Reaction Reporting Database. J Clin Pharm Ther (2016) 41:116-8. doi: 10.1111/jcpt.12373
-86. Nreu B, Dicembrini I, Tinti F, Mannucci E, Monami M. Cholelithiasis in Patients Treated With Glucagon-Like Peptide-1 Receptor: An Updated Meta-Analysis of Randomized Controlled Trials. Diabetes Res Clin Pract (2020) 161:108087. doi: 10.1016/j.diabres.2020.108087
-87. Committee for Medicinal Products for Human Use (CHMP). Assessment Report "Rybelsu" (EM/95374/2020) (2020). Available at: https://www.ema.europa.eu/en/documents/assessment-report/rybelsus-epar-public-assessment-report_en.pdf.
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-88. Nauck MA, Muus Ghorbani ML, Kreiner E, Saevereid HA, Buse JB. Effects of Liraglutide Compared With Placebo on Events of Acute Gallbladder or Biliary Disease in Patients With Type 2 Diabetes at High Risk for Cardiovascular Events in the LEADER Randomized Trial. Diabetes Care (2019) 42:1912-20. doi: 10.2337/dc19-0415
-89. Wiviott SD, Raz I, Bonaca MP, Mosenzon O, Kato ET, Cahn A, et al. Dapagliflozin and Cardiovascular Outcomes in Type 2 Diabetes. N Engl J Med (2019) 380:347-57. doi: 10.1056/NEJMoa1812389
-90. Le Roux CW, Astrup AV, Fujioka K, Greenway FL, Lau DCW, Van Gaal L, et al. 3 Years of Liraglutide Versus Placebo for Type 2 Diabetes Risk Reduction and Weight Management in Individuals With Prediabetes: A Randomised, Double-Blind Trial. Lancet (2017) 389:1399-409. doi: 10.1016/S0140-6736(17)30069-7
-91. Keller J, Trautmann ME, Haber H, Tham LS, Hunt T, Mace K, et al. Effect of Exenatide on Cholecystokinin-Induced Gallbladder Emptying in Fasting Healthy Subjects. Regul Pept (2012) 179:77-83. doi: 10.1016/j.regpep.2012.08.005
-92. Shaddinger BC, Young MA, Billiard J, Collins DA, Hussaini A, Nino A. Effect of Albiglutide on Cholecystokinin-Induced Gallbladder Emptying in Healthy Individuals: A Randomized Crossover Stud. J Clin Pharmacol (2017) 57:1322-9. doi: 10.1002/jcph.940
-93. Smits MM, Tonneijck L, Muskiet MHA, Hoekstra T, Kramer MHH, Diamant M, et al. Biliary Effects of Liraglutide and Sitagliptin, a 12-Week Randomized Placebo-Controlled Trial in Type 2 Diabetes Patients. Diabetes Obes Metab (2016) 18:1217-25. doi: 10.1111/dom.12748
-94. Nexøe-Larsen CC, Sørensen PH, Hausner H, Agersnap M, Baekdal M, Brønden A, et al. Effects of Liraglutide on Gallbladder Emptying: A Randomized, Placebo-Controlled Trial in Adults With Overweight or Obesity. Diabetes Obes Metab (2018) 20:2557-64. doi: 10.1111/dom.13420
-95. Marzioni M, Alpini G, Saccomanno S, Candelaresi C, Venter J, Rychlicki C, et al. Exendin-4, a Glucagon-Like Peptide 1 Receptor Agonist, Protects Cholangiocytes From Apoptosis. Gut (2009) 58:990-7. doi: 10.1136/gut.2008.150870
-96. Marzioni M, Alpini G, Saccomanno S, Candelaresi C, Venter J, Rychlicki C, et al. Glucagon-Like Peptide-1 and its Receptor Agonist Exendin-4 Modulate Cholangiocyte Adaptive Response to Cholestasis. Gastroenterology (2007) 133:244-55. doi: 10.1053/j.gastro.2007.04.007
-97. Seufert J, Nauck M, Rosenstock J, Hansen T, Vrazic H, Vilsboll T. P2857Increase in Pulse Rate With Semaglutide did Not Result in Increased Adverse Cardiac Events in Subjects With Type 2 Diabetes in the SUSTAIN 6 Cardiovascular Outcomes Trial. Eur Heart J (2018) 39 (Supplement 1):39. doi: 10.1093/eurheartj/ehy565.P2857
-98. Hozawa A, Ohkubo T, Kikuya M, Ugajin T, Yamaguchi J, Asayama K, et al. Prognostic Value of Home Heart Rate for Cardiovascular Mortality in the General Population: The Ohasama Study. Am J Hypertens (2004) 17:1005-10. doi: 10.1016/j.amjhyper.2004.06.019
-99. van Bloemendaal L, ten Kulve JS, La Fleur SE, Ijzerman RG, Diamant M. Effects of Glucagon-Like Peptide 1 on Appetite and Body Weight: Focus on the CNS. J Endocrinol (2014) 221:T1-T16. doi: 10.1530/JOE-13-0414
-100. ten Kulve JS, Veltman DJ, van Bloemendaal L, Barkhof F, Drent ML, Diamant M, et al. Liraglutide Reduces CNS Activation in Response to Visual Food Cues Only After Short-Term Treatment in Patients With Type 2 Diabetes. Diabetes Care (2016) 39:214-21. doi: 10.2337/dc15-0772
-101. Husain M, Bain SC, Jeppesen OK, Lingvay I, Sörrig R, Treppendahl MB, et al. Semaglutide (SUSTAIN and PIONEER) Reduces Cardiovascular Events in Type 2 Diabetes Across Varying Cardiovascular Risk. Diabetes Obes Metab (2020) 22:442-51. doi: 10.1111/dom.13955
-102. Margulies KB, Hernandez AF, Redfield MM, Givertz MM, Oliveira GH, Cole R, et al. Effects of Liraglutide on Clinical Stability Among Patients With Advanced Heart Failure and Reduced Ejection Fractio. JAMA (2016) 316:500. doi: 10.1001/jama.2016.10260
-103. Jorsal A, Kistorp C, Holmager P, Tougaard RS, Nielsen R, Hanselmann A, et al. Effect of Liraglutide, a Glucagon-Like Peptide-1 Analogue, on Left Ventricular Function in Stable Chronic Heart Failure Patients With and Without Diabetes (LIVE)-A Multicentre, Double-Blind, Randomised, Placebo-Controlled Trial. Eur J Heart Fail (2017) 19:69-77. doi: 10.1002/ejhf.657
-104. Ghosh-Swaby OR, Goodman SG, Leiter LA, Cheng A, Connelly KA, Fitchett D, et al. Glucose-Lowering Drugs or Strategies, Atherosclerotic
-
-Cardiovascular Events, and Heart Failure in People With or at Risk of Type 2 Diabetes: An Updated Systematic Review and Meta-Analysis of Randomised Cardiovascular Outcome Trials. Lancet Diabetes Endocrinol (2020) 8:418-35. doi: 10.1016/S2213-8587(20)30038-3
-105. Mendis B, Simpson E, MacDonald I, Mansell P. Investigation of the Haemodynamic Effects of Exenatide in Healthy Male Subjects. Br J Clin Pharmacol (2012) 74:437-44. doi: 10.1111/j.1365-2125.2012.04214.x
-106. Smits MM, Tonneijck L, Muskiet MHA, Hoekstra T, Kramer MHH, Diamant M, et al. Heart Rate Acceleration With GLP-1 Receptor Agonists in Type 2 Diabetes Patients: An Acute and 12-Week Randomised, Double-Blind, Placebo-Controlled Trial. Eur J Endocrinol (2017) 176:77-86. doi: 10.1530/EJE-16-0507
-107. Smits MM, Muskiet MHA, Tonneijck L, Hoekstra T, Kramer MHH, Diamant M, et al. Exenatide Acutely Increases Heart Rate in Parallel With Augmented Sympathetic Nervous System Activation in Healthy Overweight Males. Br J Clin Pharmacol (2016) 81:613-20. doi: 10.1111/bcp.12843
-108. Cacciatori V, Zoppini G, Bellavere F, Rigolon R, Thomaseth K, Pichiri I, et al. Long-Acting GLP-1 Receptor Agonist Exenatide Influence on the Autonomic Cardiac Sympatho-Vagal Balanc. J Endocr Soc (2018) 2:53-62. doi: 10.1210/js.2017-00300
-109. Kumarathurai P, Anholm C, Larsen BS, Olsen RH, Madsbad S, Kristiansen O, et al. Effects of Liraglutide on Heart Rate and Heart Rate Variability: A Randomized, Double-Blind, Placebo-Controlled Crossover Stud. Diabetes Care (2017) 40:117-24. doi: 10.2337/dc16-1580
-110. Bharucha AE, Charkoudian N, Andrews CN, Camilleri M, Sletten D, Zinsmeister AR, et al. Effects of Glucagon-Like Peptide-1, Yohimbine, and Nitrergic Modulation on Sympathetic and Parasympathetic Activity in Humans. Am J Physiol Regul Integr Comp Physiol (2008) 295:R874-80. doi: 10.1152/ajpregu.00153.2008
-111. Nakatani Y, Kawabe A, Matsumura M, Aso Y, Yasu T, Banba N, et al. Effects of GLP-1 Receptor Agonists on Heart Rate and the Autonomic Nervous System Using Holter Electrocardiography and Power Spectrum Analysis of Heart Rate Variability. Diabetes Care (2016) 39:e22-3. doi: 10.2337/dc15-1437
-112. Baggio LL, Ussher JR, McLean BA, Cao X, Kabir MG, Mulvihill EE, et al. The Autonomic Nervous System and Cardiac GLP-1 Receptors Control Heart Rate in Mice. Mol Metab (2017) 6:1339-49. doi: 10.1016/j.molmet.2017.08.010
-113. Demmel V, Sandberg-Schaal A, Jacobsen JB, Golor G, Pettersson J, Flint A. No QTc Prolongation With Semaglutide: A Thorough QT Study in Healthy Subject. Diabetes Ther (2018) 9:1441-56. doi: 10.1007/s13300-018-0442-0
-114. Lopez-Ruiz A, del Peso-Gilsanz C, Meoro-Avilés A, Soriano-Palao J, Andreu A, Cabezuelo J, et al. Acute Renal Failure When Exenatide is Co-Administered With Diuretics and Angiotensin II Blockers. Pharm World Sci (2010) 32:559-61. doi: 10.1007/s11096-010-9423-8
-115. Winzeler B, da Conceicao I, Refardt J, Sailer CO, Dutilh G, Christ-Crain M. Effects of Glucagon-Like Peptide-1 Receptor Agonists on Fluid Intake in Healthy Volunteers. Endocrine (2020) 70:292-8. doi: 10.1007/s12020-020-02394-2
-116. Lovshin JA, Barnie A, DeAlmeida A, Logan A, Zinman B, Drucker DJ. Liraglutide Promotes Natriuresis But Does Not Increase Circulating Levels of Atrial Natriuretic Peptide in Hypertensive Subjects With Type 2 Diabetes. Diabetes Care (2015) 38:132-9. doi: 10.2337/dc14-1958
-117. Muskiet MHA, Tonneijck L, Smits MM, van Baar MJB, Kramer MHH, Hoorn EJ, et al. GLP-1 and the Kidney: From Physiology to Pharmacology and Outcomes in Diabetes. Nat Rev Nephrol (2017) 13:605-28. doi: 10.1038/nrneh.2017.123
-118. Mosterd CM, Bjornstad P, van Raalte DH. Nephroprotective Effects of GLP-1 Receptor Agonists: Where do We Stand? J Nephrol (2020) 33:965-75. doi: 10.1007/s40620-020-00738-9
-119. Leiter LA, Bain SC, Bhatt DL, Buse JB, Mazer CD, Pratley RE, et al. The Effect of Glucagon-Like Peptide-1 Receptor Agonists Liraglutide and Semaglutide on Cardiovascular and Renal Outcomes Across Baseline Blood Pressure Categories: Analysis of the LEADER and SUSTAIN 6 Trials. Diabetes Obes Metab (2020) 22:1690-5. doi: 10.1111/dom.14079
-120. Tsapas A, Avgerinos I, Karagiannis T, Malandris K, Manolopoulos A, Andreadis P, et al. Comparative Effectiveness of Glucose-Lowering Drugs for Type 2 Diabete. Ann Intern Med (2020) 173:278-86. doi: 10.7326/M20-0864
-121. Marso SP, Daniels GH, Brown-Frandsen K, Kristensen P, Mann JFEE, Nauck MA, et al. Liraglutide and Cardiovascular Outcomes in Type 2
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
-
-Smits and Van Raalte
-
-Safety of Semaglutide
-
-Diabetes. N Engl J Med (2016) 375:311-22. doi: 10.1056/NEJMoa1603827
-122. Vilsbøll T, Bain SC, Leiter LA, Lingvay I, Matthews D, Simó R, et al. Semaglutide, Reduction in Glycated Haemoglobin and the Risk of Diabetic Retinopathy. Diabetes Obes Metab (2018) 20:889-97. doi: 10.1111/dom.13172
-123. UK Prospective Diabetes Study Group. Intensive Blood-Glucose Control With Sulphonylureas or Insulin Compared With Conventional Treatment and Risk of Complications in Patients With Type 2 Diabetes (UKPDS 33). UK Prospective Diabetes Study (UKPDS) Grou. Lancet (1998) 352:837-53. doi: 10.1016/S0140-6736(98)07019-6
-124. The Diabetes Control and Complications Trial Research Group. The Effect of Intensive Treatment of Diabetes on the Development and Progression of Long-Term Complications in Insulin-Dependent Diabetes Mellitus. N Engl J Med (1993) 329:977-86. doi: 10.1056/NEJM199309303291401
-125. Gorman DM, le Roux CW, Docherty NG. The Effect of Bariatric Surgery on Diabetic Retinopathy: Good, Bad, or Bot? Diabetes Metab J (2016) 40:354. doi: 10.4093/dmj.2016.40.5.354
-126. The Kroc Collaborative Study Group. Blood Glucose Control and the Evolution of Diabetic Retinopathy and Albuminuria. N Engl J Med (1984) 311:365-72. doi: 10.1056/NEJM198408093110604
-127. Lauritzen T, Frost-Larsen K, Larsen H-W, Deckert T. Two-Year Experience With Continuous Subcutaneous Insulin Infusion in Relation to Retinopathy and Neuropathy. Diabetes (1985) 34:74-9. doi: 10.2337/diab.34.3.S74
-128. Dahl-Jorgensen K. Near-Normoglycemia and Late Diabetic Complications. The Oslo Study. Acta Endocrinol Suppl (Copenh) (1987) 284:1-38. doi: 10.1530/acta.0.115S007
-129. Gaborit B, Julla J-B, Besbes S, Proust M, Vincentelli C, Alos B, et al. Glucagon-Like Peptide 1 Receptor Agonists, Diabetic Retinopathy and Angiogenesis: The AngioSafe Type 2 Diabetes Study. J Clin Endocrinol Metab (2020) 105:e1549-60. doi: 10.1210/clinem/dgz069
-
-130. FDA Briefing Document, Endocrinologic and Metabolic Drugs Advisory Committee Meeting (EMDA) (2017). Available at: https://www.fda.gov/media/108291/download.
-131. Committee for Medicinal Products for Human Use (CHM). In: . Assessment Report "Rybelsus" (EM/95374/2020). Available at: https://www.ema.europa.eu/en/medicines/human/EPAR/rybelsus
-132. Witkowski M, Wilkinson L, Webb N, Weids A, Glah D, Vrazic H. A Systematic Literature Review and Network Meta-Analysis Comparing Once-Weekly Semaglutide With Other GLP-1 Receptor Agonists in Patients With Type 2 Diabetes Previously Receiving Basal Insuli. Diabetes Ther (2018) 9:1233-51. doi: 10.1007/s13300-018-0428-y
-133. McCartney F, Gleeson JP, Brayden DJ. Safety Concerns Over the Use of Intestinal Permeation Enhancers: A Mini-Review. Tissue Barriers (2016) 4: e1176822. doi: 10.1080/21688370.2016.1176822
-
-Conflict of Interest: DVR has acted as a consultant and received honoraria from Boehringer Ingelheim, Eli Lilly, Merck, Novo Nordisk and Sanofi and has received research operating funds from the Boehringer Ingelheim-Eli Lilly Diabetes Alliance, MSD, AstraZeneca and Novo Nordisk.
-
-The remaining author declares that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
-
-The authors declare that this article received funding from Novo Nordisk. The funder had the following involvement in the article: medical writing support.
-
-Copyright © 2021 Smits and Van Raalte. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
-
-Frontiers in Endocrinology | www.frontiersin.org
-
-July 2021 | Volume 12 | Article 645563
+Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.

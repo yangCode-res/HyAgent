@@ -82,7 +82,8 @@ class SapBertTester:
             truncation=True,
             max_length=256
         )
-
+        tokens=self.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
+        print("tokens",tokens)
         # 关键：确保数据也移动到了选定的 device (例如 cuda:5)
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
 
@@ -141,7 +142,7 @@ class SapBertTester:
 #              测试入口
 # ==========================================
 if __name__ == "__main__":
-    MODEL_PATH = "/home/nas2/path/models/SapBERT-from-PubMedBERT-fulltext" 
+    MODEL_PATH = "/home/nas2/path/models/SapBERT-from-PubMedBERT-fulltext"
 
     tester = SapBertTester(MODEL_PATH)
 
