@@ -4,7 +4,7 @@ import json
 from typing import List, Dict, Tuple, Optional, Any
 import faiss
 import numpy as np
-import tqdm
+from tqdm import tqdm
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 import torch
 import faiss
