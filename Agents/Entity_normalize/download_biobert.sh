@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # ===== 配置 =====
-MODEL_ID="cambridgeltl/SapBERT-from-PubMedBERT-fulltext"
+MODEL_ID="NeuML/pubmedbert-base-embeddings"
 HF_MIRROR="https://hf-mirror.com"          # 国内镜像域名
 BASE_DIR="/home/nas2/path/models"          # 你想放模型的目录
-TARGET_DIR="${BASE_DIR}/SapBERT-from-PubMedBERT-fulltext"
+TARGET_DIR="${BASE_DIR}/pubmedbert-base-embeddings"
 
 mkdir -p "$TARGET_DIR"
 cd "$TARGET_DIR"
