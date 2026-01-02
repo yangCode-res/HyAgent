@@ -1,506 +1,1754 @@
-HHS Public Access
+Cochrane Library
+
+Cochrane Database of Systematic Reviews
+
+# Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Kay AW, Ness T, Verkuijl SE, Viney K, Brands A, Masini T, González Fernández L, Eisenhut M, Detjen AK, Mandalakas AM, Steingart KR, Takwoingi Y
+
+Kay AW, Ness T, Verkuijl SE, Viney K, Brands A, Masini T, González Fernández L, Eisenhut M, Detjen AK, Mandalakas AM, Steingart KR, Takwoingi Y.
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children.
+Cochrane Database of Systematic Reviews 2022, Issue 9. Art. No.: CD013359.
+DOI: 10.1002/14651858.CD013359.pub3.
+
+www.cochranelibrary.com
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+Wiley
+
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+Cochrane Database of Systematic Reviews
+
+# TABLE OF CONTENTS
+
+ABSTRACT ... 1
+PLAIN LANGUAGE SUMMARY ... 3
+SUMMARY OF FINDINGS ... 5
+BACKGROUND ... 9
+Figure 1. ... 11
+OBJECTIVES ... 13
+METHODS ... 13
+RESULTS ... 17
+Figure 2. ... 18
+Figure 3. ... 19
+Figure 4. ... 20
+Figure 5. ... 22
+Figure 6. ... 24
+Figure 7. ... 27
+Figure 8. ... 28
+Figure 9. ... 29
+DISCUSSION ... 29
+AUTHORS' CONCLUSIONS ... 32
+ACKNOWLEDGEMENTS ... 33
+REFERENCES ... 34
+CHARACTERISTICS OF STUDIES ... 43
+DATA ... 70
+Test 1. Xpert Ultra, sputum, all ages, culture ... 74
+Test 2. Xpert Ultra, sputum, all ages, composite reference standard ... 75
+Test 3. Xpert Ultra, sputum, &lt; 1 year, culture ... 75
+Test 4. Xpert Ultra, sputum, &lt; 1 year, composite reference standard ... 75
+Test 5. Xpert Ultra, sputum, 1–4 years, culture ... 75
+Test 6. Xpert Ultra, sputum, 1–4 years, composite reference standard ... 76
+Test 7. Xpert Ultra, sputum, 5–9 years, culture ... 76
+Test 8. Xpert Ultra, sputum, 5–9 years, composite reference standard ... 76
+Test 9. Xpert Ultra, sputum, 10–14 years, culture ... 76
+Test 10. Xpert Ultra, sputum, 10–14 years, composite reference standard ... 77
+Test 11. Xpert Ultra, sputum, 0–9 years, culture ... 77
+Test 12. Xpert Ultra, sputum, 0–9 years, composite reference standard ... 77
+Test 13. Xpert Ultra, sputum, HIV-positive, all ages, culture ... 77
+Test 14. Xpert Ultra, sputum, HIV-positive, all ages, composite reference standard ... 78
+Test 15. Xpert Ultra, sputum, HIV-negative, all ages, culture ... 78
+Test 16. Xpert Ultra, sputum, HIV-negative, all ages, composite reference standard ... 78
+Test 17. Xpert Ultra, sputum, HIV-positive, 0–9 years, culture ... 78
+Test 18. Xpert Ultra, sputum, HIV-positive, 0–9 years, composite reference standard ... 78
+Test 19. Xpert Ultra, sputum, HIV-negative, 0–9 years, culture ... 79
+Test 20. Xpert Ultra, sputum, HIV-negative, 0–9 years, composite reference standard ... 79
+Test 21. Xpert Ultra, sputum, severe pneumonia, all ages, culture ... 79
+Test 22. Xpert Ultra, sputum, severe pneumonia, all ages, composite reference standard ... 79
+Test 23. Xpert Ultra, sputum, severe pneumonia, 0–9 years, culture ... 79
+Test 24. Xpert Ultra, sputum, severe pneumonia, 0–9 years, composite reference standard ... 80
+Test 25. Xpert Ultra, sputum, severe malnutrition, all ages, culture ... 80
+Test 26. Xpert Ultra, sputum, severe malnutrition, all ages, composite reference standard ... 80
+Test 27. Xpert Ultra, sputum, severe malnutrition, 0–9 years, culture ... 80
+Test 28. Xpert Ultra, sputum, severe malnutrition, 0–9 years, composite reference standard ... 80
+Test 29. Xpert Ultra, gastric aspirate, all ages, culture ... 81
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+Test 30. Xpert Ultra, gastric aspirate, all ages, composite reference standard 81
+Test 31. Xpert Ultra, gastric aspirate, &lt; 1 year, culture 81
+Test 32. Xpert Ultra, gastric aspirate, &lt; 1 year, composite reference standard 81
+Test 33. Xpert Ultra, gastric aspirate, 1-4 years, culture 82
+Test 34. Xpert Ultra, gastric aspirate, 1-4 years, composite reference standard 82
+Test 35. Xpert Ultra, gastric aspirate, 5-9 years, culture 82
+Test 36. Xpert Ultra, gastric aspirate, 5-9 years, composite reference standard 82
+Test 37. Xpert Ultra, gastric aspirate, 10-14 years, culture 82
+Test 38. Xpert Ultra, gastric aspirate, 10-14 years, composite reference standard 83
+Test 39. Xpert Ultra, gastric aspirate, 0-9 years, culture 83
+Test 40. Xpert Ultra, gastric aspirate, 0-9 years, culture, trace results excluded 83
+Test 41. Xpert Ultra, gastric aspirate, 0-9 years, composite reference standard 83
+Test 42. Xpert Ultra, gastric aspirate, HIV-positive, all ages, culture 83
+Test 43. Xpert Ultra, gastric aspirate, HIV-positive, all ages, composite reference standard 84
+Test 44. Xpert Ultra, gastric aspirate, HIV-negative, all ages, culture 84
+Test 45. Xpert Ultra, gastric aspirate, HIV-negative, all ages, composite reference standard 84
+Test 46. Xpert Ultra, gastric aspirate, HIV positive, 0-9 years, culture 84
+Test 47. Xpert Ultra, gastric aspirate, HIV positive, 0-9 years, composite reference standard 84
+Test 48. Xpert Ultra, gastric aspirate, HIV negative, 0-9 years, culture 85
+Test 49. Xpert Ultra, gastric aspirate, HIV negative, 0-9 years, composite reference standard 85
+Test 50. Xpert Ultra, gastric aspirate, severe malnutrition, all ages, culture 85
+Test 51. Xpert Ultra, gastric aspirate, severe malnutrition, all ages, composite reference standard 85
+Test 52. Xpert Ultra, gastric aspirate, severe malnutrition, 0-9 years, culture 85
+Test 53. Xpert Ultra, gastric aspirate, severe malnutrition, 0-9 years, composite reference standard 86
+Test 54. Xpert Ultra, stool, all ages, culture 86
+Test 55. Xpert Ultra, stool, all ages, composite reference standard 86
+Test 56. Xpert Ultra, stool, &lt; 1 year, culture 86
+Test 57. Xpert Ultra, stool, &lt; 1 year, composite reference standard 86
+Test 58. Xpert Ultra, stool, 1-4 years, culture 87
+Test 59. Xpert Ultra, stool, 1-4 years, composite reference standard 87
+Test 60. Xpert Ultra, stool, 5-9 years, culture 87
+Test 61. Xpert Ultra, stool, 5-9 years, composite reference standard 87
+Test 62. Xpert Ultra, stool, 10-14 years, culture 87
+Test 63. Xpert Ultra, stool, 10-14 years, composite reference standard 88
+Test 64. Xpert Ultra, stool, 0-9 years, culture 88
+Test 65. Xpert Ultra, stool, 0-9 years, culture, trace results excluded 88
+Test 66. Xpert Ultra, stool, 0-9 years, composite reference standard 88
+Test 67. Xpert Ultra, stool, HIV-positive, all ages, culture 88
+Test 68. Xpert Ultra, stool, HIV-negative, all ages, culture 89
+Test 69. Xpert Ultra, stool, HIV-positive, 0-9 years, culture 89
+Test 70. Xpert Ultra, stool, severe malnutrition, all ages, culture 89
+Test 71. Xpert Ultra, stool, severe malnutrition, all ages, composite reference standard 89
+Test 72. Xpert Ultra, stool, severe malnutrition, 0-9 years, culture 89
+Test 73. Xpert Ultra, stool, severe malnutrition, 0-9 years, composite reference standard 89
+Test 74. Xpert Ultra, nasopharyngeal aspirate, all ages, culture 90
+Test 75. Xpert Ultra, nasopharyngeal aspirate, all ages, composite reference standard 90
+Test 76. Xpert Ultra, nasopharyngeal aspirate, &lt; 1 year, culture 90
+Test 77. Xpert Ultra, nasopharyngeal aspirate, &lt; 1 year, composite reference standard 90
+Test 78. Xpert Ultra, nasopharyngeal aspirate, 1-4 years, culture 90
+Test 79. Xpert Ultra, nasopharyngeal aspirate, 1-4 years, composite reference standard 91
+Test 80. Xpert Ultra, nasopharyngeal aspirate, 5-9 years, culture 91
+Test 81. Xpert Ultra, nasopharyngeal aspirate, 5-9 years, composite reference standard 91
 
-Author manuscript
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-Published in final edited form as:
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+Cochrane Database of Systematic Reviews
 
-Annu Rev Nutr. 2024 August; 44(1): 289-312. doi:10.1146/annurev-nutr-061121-101547.
+Test 82. Xpert Ultra, nasopharyngeal aspirate, 10–14 years, culture 91
+Test 83. Xpert Ultra, nasopharyngeal aspirate, 10–14 years, composite reference standard 91
+Test 84. Xpert Ultra, nasopharyngeal aspirate, 0–9 years, culture 92
+Test 85. Xpert Ultra, nasopharyngeal aspirate, 0–9 years, composite reference standard 92
+Test 86. Xpert Ultra, nasopharyngeal aspirate, HIV-positive, all ages, culture 92
+Test 87. Xpert Ultra, nasopharyngeal aspirate, HIV-positive, all ages composite reference standard 92
+Test 88. Xpert Ultra, nasopharyngeal aspirate, HIV-negative, culture 92
+Test 89. Xpert Ultra, nasopharyngeal aspirate, HIV-negative, composite reference standard 93
+Test 90. Xpert Ultra, nasopharyngeal aspirate, HIV-positive, 0–9 years, culture 93
+Test 91. Xpert Ultra, nasopharyngeal aspirate, HIV-positive, 0–9 years, composite reference standard 93
+Test 92. Xpert Ultra, nasopharyngeal aspirate, HIV-negative, 0–9 years, culture 93
+Test 93. Xpert Ultra, nasopharyngeal aspirate, HIV-negative, 0–9 years, composite reference standard 93
+Test 94. Xpert Ultra, nasopharyngeal aspirate, severe pneumonia, all ages, culture 94
+Test 95. Xpert Ultra, nasopharyngeal aspirate, severe pneumonia, all ages, composite reference standard 94
+Test 96. Xpert Ultra, nasopharyngeal aspirate, severe pneumonia, 0–9 years, culture 94
+Test 97. Xpert Ultra, nasopharyngeal aspirate, severe pneumonia, 0–9 years, composite reference standard 94
+Test 98. Xpert Ultra, nasopharyngeal aspirate, severe malnutrition, all ages, culture 94
+Test 99. Xpert Ultra, nasopharyngeal aspirate, severe malnutrition, all ages, composite reference standard 94
+Test TST-100. Xpert Ultra, nasopharyngeal aspirate, severe malnutrition, 0–9 years, culture 95
+Test TST-101. Xpert Ultra, nasopharyngeal aspirate, severe malnutrition, 0–9 years, composite reference standard 95
+Test TST-102. Xpert Ultra, nasopharyngeal, rifampicin resistance 95
+Test TST-103. Xpert Ultra, all specimens, rifampicin resistance 95
 
-# Nutritional Challenges and Treatment After Bariatric Surgery
+ADDITIONAL TABLES 95
+APPENDICES 103
+Figure 10. 114
+WHAT'S NEW 114
+HISTORY 115
+CONTRIBUTIONS OF AUTHORS 115
+DECLARATIONS OF INTEREST 115
+SOURCES OF SUPPORT 116
+DIFFERENCES BETWEEN PROTOCOL AND REVIEW 116
+INDEX TERMS 117
 
-Violeta Moize $^{1,2}$, Blandine Laferrère $^{3}$, Sue Shapses $^{4,5}$
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-$^{1}$Obesity Unit, Hospital Clinic Barcelona and Institut d'Investigacions Biomèdiques August Pi Sunyer (IDIBAPS), Barcelona, Spain
-$^{2}$Centro de Investigación Biomédica en Red de Diabetes y Enfermedades Metabólicas Asociadas (CIBERDEM), Madrid, Spain
-$^{3}$Nutrition and Obesity Research Center, Division of Endocrinology, Department of Medicine, Columbia University Irving Medical Center, New York, NY, USA
-$^{4}$Department of Nutritional Sciences and New Jersey Institute for Food, Nutrition, and Health, Rutgers University, New Brunswick, New Jersey, USA
-$^{5}$Department of Medicine, Rutgers Robert Wood Johnson Medical School, New Brunswick, New Jersey, USA
+#
 
-# Abstract
+Cochrane Library
 
-Bariatric surgery is an important weight loss tool in individuals with severe obesity. It is currently the most effective long-term weight loss treatment that lowers obesity-related comorbidities. It also has significant physiological and nutritional consequences that can result in gastrointestinal complications and micronutrient deficiencies. After gastric bypass, clinical events that negatively affect nutritional status include malabsorption, dumping syndrome, kidney stones, altered intestinal bile acid availability, bowel obstruction, ulcers, gastroesophageal reflux, and bacterial overgrowth. Risk factors for poor nutritional status and excessive loss of lean body mass and bone include reduced dietary quality and inadequate intake, altered nutrient absorption, and poor patient compliance with nutrient supplementation. There are unique concerns in adolescents, older individuals, and individuals who become pregnant postoperatively. With careful management, health-care professionals can assist with long-term weight loss success and minimize the risk of acute and long-term nutrition complications after bariatric surgery.
+Trusted evidence. Informed decisions. Better health.
 
-# Keywords
+Cochrane Database of Systematic Reviews
 
-bariatric surgery; gastrointestinal; nutritional deficiencies; obesity; nutrition therapy; weight loss
+[Diagnostic Test Accuracy Review]
 
-This work is licensed under a Creative Commons Attribution 4.0 International License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited. See credit lines of images or other third-party material in this article for license information.
+# Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children
 
-Shapses@rutgers.edu
+Alexander W Kay¹, Tara Ness¹, Sabine E Verkuijl², Kerri Viney², Annemieke Brands², Tiziana Masini², Lucia González Fernández¹, Michael Eisenhut³, Anne K Detjen⁴, Anna M Mandalakas¹, Karen R Steingart⁵ᵃ, Yemisi Takwoing⁶ᵈ
 
-DISCLOSURE STATEMENT
+¹The Global Tuberculosis Program, Texas Children's Hospital, Section of Global and Immigrant Health, Department of Pediatrics, Baylor College of Medicine, Houston, Texas, USA. ²Global TB Programme, World Health Organization, Geneva, Switzerland. ³Paediatric Department, Luton &amp; Dunstable University Hospital NHS Foundation Trust, Luton, UK. ⁴Health Section, UNICEF, New York, New York, USA. ⁵Honorary Research Fellow, Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK. ⁶Test Evaluation Research Group, Institute of Applied Health Research, University of Birmingham, Birmingham, UK
 
-The authors are not aware of any affiliations, memberships, funding, or financial holdings that might be perceived as affecting the objectivity of this review.
+ᵈThese authors contributed equally to this work
 
-## INTRODUCTION
+Contact: Alexander W Kay, alexander.kay@bcm.edu.
 
-Obesity is a chronic disease characterized by excessive adipose tissue storage. It is often complicated by many comorbidities, including but not limited to type 2 diabetes mellitus (T2DM), hypertension, hyperlipidemia, cardiovascular disease (CVD), cancer, chronic kidney disease, hypoventilation syndrome, debilitating osteoarthritis, nonalcoholic fatty liver disease or steatohepatitis, severe acid reflux, and obstructive sleep apnea (7). These comorbidities negatively affect an individual's quality of life and increase health-care costs. Obesity occurs worldwide, with some lower-income countries experiencing the highest increases in recent years (102, 103, 152). No country has reported a decline in obesity rates among their population. It is estimated that by 2035, over 4 billion people worldwide will be classified as overweight and obese [body mass index (BMI) ≥ 25 kg/m^{2}], compared to over 2.6 billion in 2020. This represents an increase in obesity from 38% to over 50% of the global population during this 15-year period (155). The prevalence of obesity alone (BMI ≥ 30 kg/m^{2}) is expected to rise from 14% to 24% during the same period, affecting nearly 2 billion adults, children, and adolescents by 2035 (155). Obesity rates are greater in adult women than men and in individuals with low education and socioeconomically disadvantaged groups. The sharpest increase in obesity is anticipated among children and adolescents, particularly boys (7, 129, 155).
+Editorial group: Cochrane Infectious Diseases Group.
 
-The exact cause of obesity is not fully understood; however, there appears to be a complex interplay of factors such as genetics, neurohormonal mechanisms, obesogenic medications, sociocultural practices and beliefs, environmental factors, life experiences, and psychological factors (7). Food consumption patterns, urban development, sedentary behavior, and other lifestyle habits also influence obesity rates (129). To date, the best noninvasive interventions are dietary management and behavioral changes. Comprehensive, multicomponent interventions with intensive behavioral counseling and pharmaceutical approaches can produce meaningful weight loss (8). The incretin mimetics (e.g. glucagon-like peptide-1 receptor agonists) have shown success with significant weight loss (60, 153). However, because of side effects and cost, compliance decreasing over time, and weight regain occurring after medication cessation, long-term weight loss success remains to be determined. Currently, the most effective long-term weight loss treatment for severe obesity is bariatric surgery (BS), which is associated with a total weight loss of 15--30%, mostly sustained over time (20, 75).
+Publication status and date: New, published in Issue 9, 2022.
 
-Several studies have demonstrated that BS is associated with a favorable impact on all-cause and cardiovascular mortality, incidence of first occurrence of fatal or nonfatal CVD events, prevention and remission of T2DM, and quality of life (2, 118, 127). Consideration of BS as a therapy for severe obesity should be based on the balance of its benefits versus complications. The current laparoscopic approach for all BS procedures has resulted in a marked decrease in complication rates (106). Potential nutritional and gastrointestinal complications after BS are influenced by presurgical and postsurgical factors, surgical technique, postoperative weight loss, and patient adherence to nutritional follow-up (161). Patient education about the need for lifetime medical follow-up is crucial to detect and address nutritional problems to prevent severe malnutrition or other medical complications.
+Citation: Kay AW, Ness T, Verkuijl SE, Viney K, Brands A, Masini T, González Fernández L, Eisenhut M, Detjen AK, Mandalakas AM, Steingart KR, Takwoingi Y. Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children. Cochrane Database of Systematic Reviews 2022, Issue 9. Art. No.: CD013359. DOI: 10.1002/14651858.CD013359.pub3.
 
-BARIATRIC SURGERY AS A TREATMENT OF SEVERE OBESITY
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration. This is an open access article under the terms of the Creative Commons Attribution-Non-Commercial Licence, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.
 
-Because of the health benefits of BS, the use of this therapeutic approach for severe and complex obesity has increased (6, 118). However, it is important to acknowledge that BS carries risks, particularly in terms of nutritional complications due to changes in food intake and anatomical alterations (75, 92).
+# ABSTRACT
 
-To ensure the best outcomes and minimize surgical complications, specific criteria have been established for selecting suitable candidates for BS. Thorough preparation is necessary before undergoing the procedure, as it is a life-altering intervention for managing obesity. Potential candidates undergo a multidisciplinary evaluation, including medical, psychological, nutritional, and functional assessments, to determine their eligibility and safety for surgery. Additional medical evaluations may involve cardiac, respiratory, metabolic, gastrointestinal, and sleep apnea testing. It is recommended that patients engage in behavioral interventions prior to BS and maintain those behavioral changes after BS as well (75).
+# Background
 
-Obesity is a requirement to be eligible for BS and is defined by BMI as class 1 (30--<35 kg/m^{2}), class 2 (>35--40 kg/m^{2}), and class 3 or severe obesity (>40 kg/m^{2}). It is important to note that BMI has limitations since it is not a perfect reflection of body fat, and the threshold of obesity may not be generalized to people in Asia (22, 121). BS is indicated in individuals aged 18 years old and above a BMI of 35 kg/m^{2}, who have at least one obesity-related complication, or for patients with a BMI of 40 kg/m^{2} or higher, regardless of the presence of obesity-related complications (39). BS may also be beneficial for patients with a BMI between 30 and 34.9 kg/m^{2}, especially in patients of Asian descent who have unsuccessfully tried nonsurgical weight loss methods and experience obesity-related complications, particularly T2DM. The indication for surgery in these patients depends on the specific obesity-related complications and the potential long-term benefits compared to existing medical interventions (13, 20). Indications of BS in adolescents with severe complicated obesity are comparable to those of adults. However, the type of BS procedure has unique considerations and should reflect current pediatric guidelines (106). Additional information about adolescents is given below.
+Every year, an estimated one million children and young adolescents become ill with tuberculosis, and around 226,000 of those children die. Xpert MTB/RIF Ultra (Xpert Ultra) is a molecular World Health Organization (WHO)-recommended rapid diagnostic test that simultaneously detects Mycobacterium tuberculosis complex and rifampicin resistance. We previously published a Cochrane Review 'Xpert MTB/RIF and Xpert MTB/RIF Ultra assays for tuberculosis disease and rifampicin resistance in children'. The current review updates evidence on the diagnostic accuracy of Xpert Ultra in children presumed to have tuberculosis disease. Parts of this review update informed the 2022 WHO updated guidance on management of tuberculosis in children and adolescents.
 
-The choice of surgery type should be made in collaboration with a multidisciplinary team and consider the patient's medical condition, anticipated outcomes, and benefits versus risks. Special attention should be given to patients with uncontrolled diabetes, type 1 diabetes, and insulin-treated diabetes. Short- and long-term remission (or the absence thereof) probabilities should be defined, as well as diabetes management during the perioperative period. Smoking cessation before BS is mandatory and should be maintained lifelong to reduce the risks of postoperative complications. Overall, BS combined with behavioral interventions in individuals with severe obesity is currently the most effective option for long-term weight loss and the control of chronic conditions.
+# Objectives
 
-### Bariatric Surgery Procedures
+To assess the diagnostic accuracy of Xpert Ultra for detecting: pulmonary tuberculosis, tuberculous meningitis, lymph node tuberculosis, and rifampicin resistance, in children with presumed tuberculosis.
 
-Initially, BS techniques were categorized as restrictive, malabsorptive, or a combination of both, based on their presumed mechanisms for weight loss. However, these classifications
+# Secondary objectives
 
-have become outdated as it is now known that restriction and malabsorption may not be the only factors leading to significant and sustainable weight loss. Due to a better understanding of the metabolic changes resulting from different surgical interventions in the digestive system, BS is now commonly referred to as metabolic surgery. This term highlights that the surgical alteration of a normal organ modifies its function, partially influencing weight loss and other health benefits. For many years, Roux-en-Y gastric bypass (RYGB) was the most frequently performed BS procedure, followed by vertical sleeve gastrectomy (SG), adjustable gastric band (AGB), and, finally, biliopancreatic diversion (BPD), or its variant, duodenal switch (DS) (6) (Figure 1). SG has gained popularity and is currently the most performed surgical procedure. Mean postoperative weight loss at 1--2 years for RYGB, SG, and BPD ranges between 14% and 35%. Weight loss tends to be lower after AGB. The percentage of total weight loss decreases after 5 years to about 20% for RYGB and SG and 12% for AGB (9, 75). Current surgical techniques (Figure 2) are detailed below.
+To investigate potential sources of heterogeneity in accuracy estimates. For detection of tuberculosis, we considered age, comorbidity (HIV, severe pneumonia, and severe malnutrition), and specimen type as potential sources.
 
-RYGB has been performed and studied extensively. It involves dividing the stomach into an upper gastric pouch (15--30 mL) and a lower gastric remnant. The gastric pouch is then connected to the jejunum, while the excluded biliary limb is reconnected to the bowel (88) (Figure 2a). In SG, the stomach is vertically transected, creating a high-pressure gastric tube and leaving a pouch of up to 200 mL. The pylorus is preserved, serving as the connection between the reduced stomach and the gut. Laparoscopic SG is now most commonly performed (Figure 2b). With AGB, a silastic band is placed around the stomach below the gastroesophageal junction and can be tightened or loosened using a subcutaneous access port and saline solution (Figure 2c). BPD and DS are procedures that involve a gastric component to reduce gastric volume and an intestinal component to decrease nutrient absorption. BPD includes a partial horizontal gastrectomy, while DS involves a vertical gastrectomy similar to SG. The small bowel is divided, and anastomoses are created to redirect the digestive tract (Figure 2d).
+To summarize the frequency of Xpert Ultra trace results.
 
-Single anastomosis duodenal-ileal bypass with sleeve (SADI-S) was introduced as a simplified alternative to BPD/DS (115) and has shown effectiveness in weight loss and resolving obesity-related comorbidities (114, 138, 143). It has also been successful as a primary procedure or revisional surgery (37, 116). As in all surgical procedures, there is potential for complications. However, side effects have been well tolerated and postoperative short- and long-term complications have appeared to be minimal (114, 123, 138).
+# Search methods
 
-Single-anastomosis gastric bypass (also known as omega loop gastric bypass/mini-gastric bypass/single-anastomosis bypass) is a procedure that has gained popularity, particularly in Europe and Asia (50). Several studies have demonstrated that it is a rapid, safe, and effective bariatric operation. It consists of a restrictive gastric pouch and a jejunal bypass with a single anastomosis, leading to significant fat malabsorption.
+We searched the Cochrane Infectious Diseases Group Specialized Register, MEDLINE, Embase, three other databases, and three trial registers without language restrictions to 9 March 2021.
 
-In addition to bariatric procedures, endoscopic bariatric therapies are nonsurgical procedures that are also used for weight loss. Endoscopic sleeve gastroplasty (ESG; 16--20% weight loss) and intragastric balloon (IGB; about 6% weight loss) are nonsurgical procedures that reduce stomach size, along with aspiration therapy. These therapies are typically not reimbursed by insurance and do not produce as much weight loss as bariatric surgical
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
 
-resections. They are performed in individuals with a lower BMI (30--35 or greater) who may not be eligible for other procedures or as part of research trials.
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-### Surgical Complications/Adverse Events
+Cochrane Library Trusted evidence. Informed decisions. Better health.
 
-Each surgical procedure has unique complications that can lead to nutritional deficiencies. Early complications of RYGB, SG, and BPD/DS include anastomotic leaks, small bowel obstruction, and dumping syndrome. The US National Patient-Centered Clinical Research Network consisting of 33,560 adults indicated that interventions, operations, and hospitalizations are relatively common after BS. Incidence increases after RYGB when compared to SG (29). Hernias, stomal stenosis, and staple line complications can occur weeks to months after the surgery. All of these complications typically require surgical intervention. Even though AGB is a less invasive procedure, adverse events such as band slippage, erosion, or prolapse require revisional surgery. The 30-day rates of major adverse events in a large study using the US National Patient-Centered Clinical Research Network were 5.0% for RYGB, 2.6% for SG, and 2.9% for AGB (9, 10). The AGB procedure necessitates band adjustment and often fails to induce weight loss in many patients, which may be a factor in the decline of AGB in recent years.
+Cochrane Database of Systematic Reviews
 
-Adverse events from endoscopic procedures consist of mild to moderate symptoms such as abdominal pain and nausea (43). However, serious adverse events can occur. For example, complications from ESG include intraabdominal collection, hemorrhage requiring intervention, and refractory symptoms requiring reversal (135). There are fewer serious adverse events with IGBs than ESG, although there can be increased vomiting, nausea, and abdominal pain (110). The most common adverse events for aspiration therapy are postoperative abdominal pain, irritation at the tube site, peristomal granulation tissue, and nausea. These can generally be resolved with conservative management.
+# Selection criteria
 
-### Obesity-Related Comorbidities
+Cross-sectional and cohort studies and randomized trials that evaluated Xpert Ultra in HIV-positive and HIV-negative children under 15 years of age. We included ongoing studies that helped us address the review objectives. We included studies evaluating sputum, gastric, stool, or nasopharyngeal specimens (pulmonary tuberculosis), cerebrospinal fluid (tuberculous meningitis), and fine needle aspirate or surgical biopsy tissue (lymph node tuberculosis). For detecting tuberculosis, reference standards were microbiological (culture) or composite reference standard; for stool, we also included Xpert Ultra performed on a routine respiratory specimen. For detecting rifampicin resistance, reference standards were drug susceptibility testing or MTBDRplus.
 
-Surgical weight loss is accompanied by amelioration or resolution of most obesity-associated comorbidities such as dyslipidemia, hypertension, sleep apnea, fatty liver, and T2DM, regardless of surgery type. Improvement of these conditions is proportional to the magnitude of weight loss (16, 30). The procedures (RYGB, BPD, and SG) that show the greatest weight loss result in higher rates of remission of comorbidities.
+# Data collection and analysis
 
-The resolution of T2DM is perhaps the most spectacular one (17). Individuals with known short duration of T2DM (<2--4 years), with low glycosylated hemoglobin, that is controlled with few antidiabetic agents and who are not on insulin (i.e. who have substantial remaining beta cell function) are the most likely to experience diabetes remission. These patients typically undergo BPD, RYGB, or SG and lose a significant amount of weight. T2DM can go into remission for a few years in up to 80% of cases (25, 63, 83, 87, 128). The rate of remission varies greatly among publications due to vastly different cohorts in terms of T2DM duration and postsurgery date of assessment (128). Remission or improvement of T2DM for any duration is a relief for patients. As BS also improves dyslipidemia and blood pressure, overall CVD risk decreases substantially. Another benefit of surgical weight loss is the prevention of the development of T2DM in individuals with prediabetes (128).
+Two review authors independently extracted data and, using QUADAS-2, assessed methodological quality judging risk of bias separately for each target condition and reference standard. For each target condition, we used the bivariate model to estimate summary sensitivity and specificity with 95% confidence intervals (CIs). We stratified all analyses by type of reference standard. We summarized the frequency of Xpert Ultra trace results; trace represents detection of a very low quantity of Mycobacterium tuberculosis DNA. We assessed certainty of evidence using GRADE.
 
-The mechanisms of surgical weight loss and the resolution of complications, including diabetes, are not fully understood. The enhancement of the postprandial release of satiety gut peptides (84) and the change in reward brain control (132) may contribute to the larger weight loss after RYGB, BPD, and SG procedures when compared to AGB. In addition, the enhancement of incretins contributes to the improvement of beta cell function (48). Other mechanisms involving the microbiome (35), bile acids (4), decreased liver fat, decreased visceral fat (57), or a change in lipid absorption (62) could contribute to metabolic improvement and decreased cardiovascular risk (67).
+# Main results
 
-## NUTRITIONAL CONSIDERATIONS ASSOCIATED WITH BARIATRIC SURGERY
+We identified 14 studies (11 new studies since the previous review). For detection of pulmonary tuberculosis, 335 data sets (25,937 participants) were available for analysis. We did not identify any studies that evaluated Xpert Ultra accuracy for tuberculous meningitis or lymph node tuberculosis. Three studies evaluated Xpert Ultra for detection of rifampicin resistance. Ten studies (71%) took place in countries with a high tuberculosis burden based on WHO classification. Overall, risk of bias was low.
 
-The risk of the development of nutritional deficiencies is influenced by various factors before, during, and after BS. Pre-existing impaired nutritional status is associated with postoperative nutritional deficiencies and metabolic complications (11, 34). Therefore, identifying and correcting nutritional deficiencies prior to surgery should be part of the comprehensive preoperative intervention (75, 79, 92). BS results in significant changes to gastrointestinal anatomy, which affects gut physiology and nutrient intake. Regardless of the surgical procedure, all patients experience changes in eating behaviors, including reduced portion sizes, and taste preferences. The potential for diarrhea and persistent vomiting contributes to reduced energy intake and limited intake of essential vitamins, minerals, and proteins. The combination of these factors results in a nutrient deficit (68, 73). The extent of nutrient malabsorption depends on the specific surgical technique, including the size of the stomach pouch, bypassing of the stomach, alterations in small intestine anatomy, and the length of the common channel (28, 92).
+# Detection of pulmonary tuberculosis
 
-Along with these changes, reduced acid secretion due to gastric resection further impairs nutrient extraction and absorption modifications (28). Although the degree of impact on nutrition absorption may vary among different surgical procedures, all of them have been shown to negatively impact serum levels of iron, vitamin B_{1} (thiamin), folate, vitamin B_{12}, and vitamin D, increasing deficiency risk (92). Studies on nutritional deficiencies have guided appropriate nutritional management (75, 92, 93, 99). It is generally understood that bypassing a longer segment of the intestine increases the risk of developing nutritional deficiencies. This makes resolving deficiencies more challenging, particularly in the long-term (53, 92). Importantly, adherence to nutritional supplementation (131) and regular medical follow-up after BS (19, 75, 100) play crucial roles in managing nutritional health.
+Sputum, 5 studies
 
-Gastrointestinal symptoms such as dumping syndrome and gastroesophageal reflux can also have nutritional implications and contribute to changes in the gastrointestinal system (141). While data are available on the nutritional impact of popular procedures such as SG, RYGB, and BPD/DS, further research is needed to better understand the nutritional side effects of other surgical weight loss procedures and weight loss medications (92, 98).
+Xpert Ultra summary sensitivity verified by culture was 75.3% (95% CI 64.3 to 83.8; 127 participants; high-certainty evidence), and specificity was 97.1% (95% CI 94.7 to 98.5; 1054 participants; high-certainty evidence).
 
-Sustained negative energy balance is needed to promote weight loss. Dietary changes after BS entail calorie restriction. The protein content of the diet plays a crucial role during surgical weight loss. Adequate protein intake has been associated with the retention of
+Gastric aspirate, 7 studies
 
-lean body mass (LBM) (1, 78), satiety (84), thermogenesis (42), glucose homeostasis (specifically circulating levels of branched-chain amino acids after BS) (89), and the prevention of malnutrition (15). Due to the exclusion of the duodenum and proximal jejunum, where protein absorption primarily occurs, protein status can be significantly affected by BS (73, 75, 99). Furthermore, anatomical changes in the gastric pouch, including altered gastric acid secretion and pepsin production, affect the optimal digestion and absorption of dietary protein (15). It is widely acknowledged that not only the total amount of protein but also the presence of all essential amino acids in the diet are necessary for optimal protein synthesis and balance (105).
+Xpert Ultra summary sensitivity verified by culture was 70.4% (95% CI 53.9 to 82.9; 120 participants; moderate-certainty evidence), and specificity was 94.1% (95% CI 84.8 to 97.8; 870 participants; moderate-certainty evidence).
 
-Malabsorption following BS can lead to increased nitrogen losses in feces, which may reach as high as 3.5 g/day compared to the normal estimated nitrogen loss of only 0.4 g/day. Increased nitrogen losses in feces may result in a negative nitrogen balance, where the body mobilizes protein stores from visceral tissues, impacting protein turnover. The decrease in LBM during weight loss can downregulate metabolic processes such as protein turnover and the basal metabolic rate, which may compromise long-term weight management (109). Conversely, a long-term negative nitrogen balance can lead to the loss of lean tissue, particularly affecting the adult population prone to developing sarcopenia, which is further discussed below.
+Stool, 6 studies
 
-## GASTROINTESTINAL TRACT CHANGES AND NUTRITIONAL COMPLICATIONS
+Xpert Ultra summary sensitivity verified by culture was 56.1% (95% CI 39.1 to 71.7; 200 participants; moderate-certainty evidence), and specificity was 98.0% (95% CI 93.3 to 99.4; 1232 participants; high certainty-evidence).
 
-### Malabsorption and Nutrient Deficiencies
+Nasopharyngeal aspirate, 4 studies
 
-Because RYGB, SG, and BPD/DS procedures alter the anatomy of the normal gastrointestinal tract and the ability to absorb nutrients, they raise postoperative nutritional risk. Despite high energy intakes, many people with obesity have micronutrient deficiencies even before surgery due to low-nutrient-density diets (49). Therefore, it is imperative that patients adhere to their individualized nutritional supplementation prescribed by their health-care team. There is a long history of vitamin and mineral deficiencies in postoperative BS patients (14, 16). The most common deficiencies are iron, vitamin B_{12}, folate, thiamin, vitamin D, and calcium (Ca) (11, 49).
+Xpert Ultra summary sensitivity verified by culture was 43.7% (95% CI 26.7 to 62.2; 46 participants; very low-certainty evidence), and specificity was 97.5% (95% CI 93.6 to 99.0; 489 participants; high-certainty evidence).
 
-In patients with lipid or fat malabsorption, fat-soluble vitamin deficiency ensues. In contrast to BPD/DS, both RYGB and SG result in less fat malabsorption and very little carbohydrate malabsorption (91). For most micronutrients, studies have found similar micronutrient deficiencies present after both the RYGB and SG procedures, which is plausible because both procedures have similar malabsorptive aspects (66, 77). These studies and others found that the most common deficiencies in this patient population include vitamin D, iron, and vitamins B_{6}, B_{12}, and B_{1}. However, one study indicated that patients with SG had higher hemoglobin (but not other iron markers), magnesium, and zinc compared to RYGB (and the AGB procedure) but lower folate levels (140). However, others have reported lower iron and vitamin B_{12} after SG (58). The pathological conditions associated with micronutrient deficiencies after BS are discussed below and shown in Table 1.
+Xpert Ultra sensitivity was lower against a composite than a culture reference standard for all specimen types other than nasopharyngeal aspirate, while specificity was similar against both reference standards.
 
-### Vitamin B_{1}, or Thiamin, Deficiency
+# Interpretation of results
 
-The most common water-soluble vitamin deficiency in the BS population is B_{1}, which is usually caused by low dietary vitamin B_{1} intake and hyperemesis. If left untreated, vitamin B_{1} deficiency can result in wet, dry, or cerebral beriberi. Wet beriberi is characterized by cardiac symptoms, including hypertension and tachycardia, while dry and cerebral beriberi result in neurological outcomes ranging from mental confusion to psychosis. Beriberi tends to develop 1--3 months after BS and has been reported to occur more often in females than males (136). It is possible to correct pre-existing deficiencies and prevent further deficiencies of thiamin with pre- and postoperative care.
+In theory, for a population of 1000 children:
 
-### Anemia
+- where 100 have pulmonary tuberculosis in sputum (by culture):
 
-Anemia is reported after BS using malabsorption procedures. It is likely related to the type of surgery and the duration reported after surgery (134) but may be related to the presence of iron deficiency prior to surgery (55). Anemia can be secondary to high use of a postoperative proton pump inhibitor (PPI) in patients. PPI usage can lead to a reduction in hydrochloric acid production, which prevents the conversion of iron to the absorbable ferrous form as described in patients with laparoscopic SG (58). Iron deficiency anemia is a frequent problem in premenopausal women, often requiring parenteral iron therapy (52, 148). While iron deficiency is a major cause for anemia after BS, deficiency of vitamin B_{12} and folate, as well as zinc, copper, and selenium deficiencies, can also contribute (151). However, it is possible that many of these nutrient deficiencies are present before surgery because most studies do not examine preoperative to postoperative changes to specifically link the onset of anemia to BS.
+- 101 would be Xpert Ultra-positive, and of these, 26 (26%) would not have pulmonary tuberculosis (false positive); and
+- 899 would be Xpert Ultra-negative, and of these, 25 (3%) would have tuberculosis (false negative).
 
-### Dumping Syndrome
+- where 100 have pulmonary tuberculosis in gastric aspirate (by culture):
 
-A common intestinal complication after BS is dumping syndrome (101), which can occur following RYGB or SG (18). Dumping syndrome is the rapid passage of gastric contents into the small intestine, which commonly occurs with the consumption of simple carbohydrates, and can cause postprandial hypoglycemia or gastrointestinal disturbances. Treatment of dumping syndrome--induced hypoglycemia includes dietary counseling to decrease rapid carbohydrate intake and increase fibers and proteins in meals and snacks and the use of acarbose to slow glucose absorption (146), but there is no currently approved medication. After surgery, patients should be monitored for symptoms of dumping syndrome to prevent hypoglycemia and minimize gastrointestinal disturbances. Severe postprandial hypoglycemia can also occur and may be debilitating (112).
+- 123 would be Xpert Ultra-positive, and of these, 53 (43%) would not have pulmonary tuberculosis (false positive); and
+- 877 would be Xpert Ultra-negative, and of these, 30 (3%) would have tuberculosis (false negative).
 
-### Bowel Obstruction
+- where 100 have pulmonary tuberculosis in stool (by culture):
 
-A possible risk factor with any abdominal surgery procedure, including bariatric procedures, is bowel obstruction. The etiologies range from blood clots to intestinal adhesions (41). Patients often have acute obstructions with symptoms of abdominal pain. Obstructions can occur after all types of BS, and therefore symptoms should be monitored since many require surgical intervention (95).
+- 74 would be Xpert Ultra-positive, and of these, 18 (24%) would not have pulmonary tuberculosis (false positive); and
+- 926 would be Xpert Ultra-negative, and of these, 44 (5%) would have tuberculosis (false negative).
 
-Ulcers and Gastroesophageal Reflux
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
 
-Ulcers are one of the most common complications following bariatric procedures, especially RYGB, and typically present with gastrointestinal bleeding and severe abdominal pain (74). One study found that ulcers occurred in 3.5% of the population at an average of 7 months after surgery. All were successfully treated with PPIs and sucralfate therapy (32). Patient history of diabetes or peptic ulcers is a risk factor for marginal ulcers (139). While patients with BS are typically prescribed PPIs proactively, some patients still require surgical or other pharmacological interventions (81). Patients should be advised to avoid smoking and the use of nonsteroidal anti-inflammatory drugs, which increase the risk of ulceration (36). Ulcers that occur after BS can be treated proactively with pharmacotherapy and practicing general healthy habits to reduce the number of patients requiring additional surgical interventions. Gastroesophageal reflux disease (GERD) may improve in patients with obesity who undergo BS and weight loss, yet long-term follow-up suggests that there is a risk for GERD and Barrett's esophagus after SG. The postoperative incidence of GERD, esophagitis, and Barrett's esophagus can be up to 60% (69), with significant variability among groups (113). GERD after SG can be treated with standard nutritional management, although there may be a need for surgical revision or conversion to RYGB (125).
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-### Kidney Stones
+Cochrane Library Trusted evidence. Informed decisions. Better health.
 
-Malabsorptive surgeries are associated with a higher risk of kidney stones after surgery (107). Besides kidney stones, there is a long-term risk of hyperoxaluria and oxalate nephropathy after BS. The risk of new kidney stone events doubles compared with unoperated obese controls (71). Early recognition of these complications with dietary manipulations can successfully reduce oxalate excretion and potential stones. Importantly, the net effect on long-term kidney health and chronic kidney disease risk is often positive after BS when considering the resolution of diabetes and the reduction in pathologic albuminuria (46).
+Cochrane Database of Systematic Reviews
 
-### Altered Intestinal Bile Acid Availability
+- where 100 have pulmonary tuberculosis in nasopharyngeal aspirate (by culture):
 
-Circulating bile acids increase after surgical procedures (such as RYGB and SG) to raise the blunted levels related to severe obesity. Bile acids, whose functions cover intestinal lipid absorption and various aspects of metabolic regulation, may also play a role in the mechanisms regulating weight loss and glycemic improvements after BS. Bile acids have been shown to have numerous metabolic effects after surgery, such as increasing energy expenditure and gut hormone production, reducing food intake, and improving gluconeogenesis and insulin resistance (104, 144). Overall, the rise in bile acids may explain why fat malabsorption is not as compromised after RYGB surgery and why glycemic control is improved compared to other types of surgeries (i.e. BPD/DS).
+- 66 would be Xpert Ultra-positive, and of these, 22 (33%) would not have pulmonary tuberculosis (false positive); and
+- 934 would be Xpert Ultra-negative, and of these, 56 (6%) would have tuberculosis (false negative).
 
-### Microbiome and Bacterial Overgrowth
+# Detection of rifampicin resistance
 
-The gut microbiome actively plays a role in obesity and conditions such as diabetes and inflammation. For example, the transfer of gut microbiota from obese rodents to germ-free controls leads to an increase in food intake and body weight in nonobese controls (145). Zhang et al. (159) were the first to show a decrease in Clostridium bacteria (phylum
+Xpert Ultra sensitivity was 100% (3 studies, 3 participants; very low-certainty evidence), and specificity range was 97% to 100% (3 studies, 128 participants; low-certainty evidence).
 
-Firmicutes) after RYGB compared with controls. RYGB surgery reverses the gut microbiota from an obese to a lean phenotype. RYGB-induced changes in the gut microbiota show the standard decrease in the phylum Firmicutes that accompanies weight loss with dieting alone. Microbial sequencing analyses indicate that there is also a decrease in the Bifidobacteriaceae family, and an overabundance of the phyla Proteobacteria and Bacteroidetes, the family Streptococcaceae, and the species Akkermansia muciniphila and Streptococcus salivarius (27, 33, 82, 97). Importantly, these RYGB findings suggest that gut bacteria correlate with energy intake, high body weight, and inflammation and insulin resistance. Evidence also shows that the RYGB-induced modifications of gut microbiota are associated with changes in white adipose tissue gene expression (64). Hence, a change in the gut microbiota may ameliorate obesity-related symptoms and diseases after RYGB or other bariatric procedures.
+# Trace results
 
-The hypochlorhydria and pH-induced increases in the gut after RYGB can be expected to affect the gut microorganisms and may also influence vitamin deficiencies after BS. Because microbial changes after BS vary due to the type of surgery and potential confounders such as baseline diet, medications, and T2DM, the individualized response is less predictable (33).
+Xpert Ultra trace results, regarded as positive in children by WHO standards, were common. Xpert Ultra specificity remained high in children, despite the frequency of trace results.
 
-Probiotic supplementation can alter the microbiota and has been examined to a limited extent after BS. In an early study, Woodard et al. (154) showed that supplementation with Lactobacillus probiotics (phylum Firmicutes) compared to placebo led to less breath hydrogen production and bacterial overgrowth and greater weight loss in post-RYGB patients. Others have shown that probiotic supplementation with Lactobacillus acidophilus and Bifidobacterium lactis Bi-07 was beneficial to markers of the metabolic profile (108). A meta-analysis (150) examining 11 randomized controlled trials (RCTs) indicates that probiotics taken after BS may improve lipid metabolism and liver enzymes and reduce food intake and body weight; severe side effects were not observed (150). Prebiotics have also been evaluated yet have not consistently shown positive effects on the gut microbiota (44, 157). One RCT suggested that a combination of prebiotics (inulin and oligofructose) and probiotics (yogurt) can be beneficial in the early postoperative period (21). A greater understanding of the gut microbiome may explain health outcomes after BS. It may also contribute to defining new treatment modalities in obese patients who elect to undergo BS or those who choose nonsurgical options.
+# Authors' conclusions
 
-### Bone Loss
+We found Xpert Ultra sensitivity to vary by specimen type, with sputum having the highest sensitivity, followed by gastric aspirate and stool. Nasopharyngeal aspirate had the lowest sensitivity. Xpert Ultra specificity was high against both microbiological and composite reference standards. However, the evidence base is still limited, and findings may be imprecise and vary by study setting. Although we found Xpert Ultra accurate for detection of rifampicin resistance, results were based on a very small number of studies that included only three children with rifampicin resistance. Therefore, findings should be interpreted with caution. Our findings provide support for the use of Xpert Ultra as an initial rapid molecular diagnostic in children being evaluated for tuberculosis.
 
-Bone loss occurs with moderate weight loss (120, 160) and is greater after BS procedures, which is attributed to both the extent of weight loss and other factors such as the type of surgery and extent of malabsorption (76, 158). In addition, vertebral bone strength and density are reduced in adolescents after sleeve gastrectomy (56). A reduction in estrogen, an increase in circulating parathyroid hormone (PTH) and bone resorption, and reduced Ca absorption are some factors contributing to the bone loss (23, 51, 126).
+# PLAIN LANGUAGE SUMMARY
 
-There is a dramatic 33% decrease in Ca absorption at 6 months after RYGB surgery in women consuming 1.5 g/day of Ca and 400 IUs of vitamin D. In a subsequent study, researchers found that even with optimization of vitamin D status, Ca absorption decreased dramatically (117) and the results were similar in patients with SG and RYGB procedures (156). In addition, a prebiotic (soluble corn fiber) was given for 2 months to patients with a
+## Xpert Ultra for diagnosing tuberculosis and rifampicin resistance in children
 
-history of gastric bypass (~5 years earlier). In this double-blind RCT, the soluble corn fiber did not improve Ca absorption, but those with greater microbial diversity after treatment showed higher Ca absorption (157).
+### Why is improving the diagnosis of tuberculosis important?
 
-The effects of BS on areal and volumetric bone mineral density (BMD) and microarchitecture occur within the first months. Deterioration progresses over time (26, 45, 158). A meta-analysis of 22 studies with 1,905 patients with obesity who underwent SG found that they had lower BMD at the hip and femoral neck but not at the lumbar spine (59). Thus far, there is no evidence that serum 25-hydroxy-vitamin D [25(OH)D] levels or dietary supplementation of vitamin D or Ca intake modifies the extent of bone loss (45, 51, 126). This is consistent with our early findings of elevated bone resorption and secondary hyperparathyroidism four years after RYGB compared to weight- and age-matched controls, despite a modest intake of calcium and vitamin D (51). One study observed no change in serum PTH or 25(OH)D one year after RYGB surgery, despite doubling dietary calcium and vitamin D intake to approximately 2,350 mg/day and 1,700 IU/day, respectively (45).
+Every year, an estimated one million children and young adolescents become ill with tuberculosis, and around 226,000 die from the disease. Tuberculosis is caused by the bacterium *Mycobacterium tuberculosis* and mostly affects the lungs (pulmonary tuberculosis), though it can affect other sites in the body (extrapulmonary tuberculosis). Signs and symptoms of pulmonary tuberculosis include cough, fever, night sweats, and weight loss. Signs and symptoms of extrapulmonary tuberculosis depend on the site of disease. When detected early and treated effectively, tuberculosis is largely curable.
 
-Fracture risk is increased after BS, but this is generally limited to malabsorptive procedures (3, 72, 96) (Figure 3). Restrictive procedures generally do not increase fracture risk, which can be partially attributed to normal nutrient absorption after these procedures but may also be due to less weight loss compared to malabsorptive procedures or a lack of long-term studies. A meta-analysis of observational studies compared fracture risk between subjects who underwent BS (all types) (n = 116,205) and nonsurgical patients (n = 134,637) (24). There was a 20% increased risk of any fractures in the BS group compared to the control group (24). Overall, the type of BS, the amount of weight loss, and older age, but not necessarily higher-than-normal serum 25(OH)D levels, influence the extent of bone loss and fracture, as well as indices of bone resorption, serum PTH, and calcium absorption.
+Not recognizing tuberculosis (false negative) early may result in delayed diagnosis and treatment, severe illness, and death. An incorrect tuberculosis diagnosis (false positive) may result in anxiety, unnecessary treatment (which can involve medication side effects), and the possibility of missing alternative diagnoses which warrant treatment.
 
-## SPECIAL POPULATIONS AND CLINICAL CIRCUMSTANCES
+### What was the aim of this review?
 
-### Pregnancy
+To determine the accuracy of Xpert Ultra in children with symptoms of tuberculosis for diagnosing pulmonary tuberculosis, tuberculous meningitis (affecting membranes that surround the brain and spinal cord), lymph node tuberculosis (a painful swelling of one or more lymph nodes, which are bean-shaped structures that help fight infection), and rifampicin resistance.
 
-The weight loss and reduction in adipose tissue resulting from BS in women of reproductive age have been shown to significantly improve fertility (122). However, it is important to consider that the compromised nutrient absorption following BS, combined with increased nutrient and energy demands during pregnancy, can exacerbate deficiencies and affect maternal and fetal growth and development (85). While there are specific nutrient considerations, such as vitamins A, D, C, E, B_{9}, and B_{12}, zinc, thiamin, iodine, and omega-3s (147), to ensure a normal and safe development of the fetus, there is currently no consensus on adequate supplementation.
+### What did this review study?
 
-Limited evidence suggests that specific vitamin and mineral supplements tailored for pregnancy after RYGB can result in higher blood serum levels of ferritin, hemoglobin, vitamin B_{12}, and vitamin D compared to standard pregnancy multivitamins (133). As these customized BS supplements are relatively new in the market, further studies are needed to confirm these findings. It is recommended to wait until 12--18 months after BS, once maximal weight loss and weight stabilization have been achieved, before considering pregnancy. The first year after BS is critical for ensuring adequate nutrient status (75,
+Xpert Ultra, a World Health Organization-recommended rapid test that simultaneously detects tuberculosis and rifampicin resistance in adults and children with tuberculosis symptoms. Rifampicin is an important medicine used to treat tuberculosis. For tuberculosis diagnosis, we assessed results against two different benchmarks: tuberculosis culture (a method used to grow bacteria on nutrient-rich media) and a composite definition based on symptoms, chest X-ray, sputum microscopy (examination under a microscope of mucus and other matter coughed up from the lungs), and culture. For rifampicin resistance detection, we assessed results against drug susceptibility testing or line probe assay (a rapid laboratory-based test for detecting tuberculosis bacteria).
 
-93). Ideally, planning for pregnancy should occur prior to BS to ensure not only sufficient nutrient intake and adherence to prescribed supplements but also the adoption of a healthy eating pattern by the woman during pregnancy (47). Supplementation should be tailored and prescribed by a specialist who can provide comprehensive evaluation and follow-up, as both excessive and deficient doses of certain micronutrients can have detrimental effects (147). Nutritional status should be closely monitored before pregnancy, during pregnancy, and throughout lactation to ensure the safety of both the mother and the baby (130, 137).
+### What were the main results in this review?
 
-### Adolescents
+We included 14 studies. For pulmonary tuberculosis, we analysed 335 data sets (around 26,000 participants). No studies evaluated Xpert Ultra accuracy for tuberculous meningitis or lymph node tuberculosis. Three studies evaluated Xpert Ultra accuracy for detection of rifampicin resistance.
 
-Well-designed prospective observational studies indicate that weight loss surgery is a safe and effective treatment option for pediatric patients younger than 18 years old, particularly when performed in specialized metabolic and BS centers that have experience working with youth and their families (54). Regular monitoring of dietary adherence and nutritional assessment, as well as education, is crucial for adolescents undergoing surgery due to their changing body composition, growth, and sexual development (40). Recent data revealing the presence of multiple micronutrient deficiencies following metabolic surgery and BS emphasize the importance of ongoing and long-term monitoring (54, 94). It should be noted that malabsorptive procedures are associated with a higher prevalence of nutritional deficiencies after surgery, underscoring the significance of receiving care from specialized centers (111). A comprehensive approach to care, involving shared decision making that is nonstigmatizing and includes the patient and their family, is essential in addressing obesity as a chronic condition throughout the individual's life span. This approach also necessitates transition planning to adult care for adolescents with obesity, ensuring continuity of care and support (124).
+For a population of 1000 children:
 
-### Older Adults
+- where 100 have pulmonary tuberculosis in sputum according to culture results:
 
-Age is a risk factor for sarcopenic obesity in BS candidates, which is particularly prevalent among women aged 60 years and older (80). Sarcopenia, characterized by significant changes in body composition, can have substantial implications for older adults seeking weight loss surgery. It is associated with physical disability, frailty, diminished quality of life, and increased mortality (31). BS leads to a loss of approximately 8 kg of LBM within the first year after surgery, with a significant proportion of LBM loss occurring in the initial three months. This loss of LBM coincides with a period of reduced energy and protein intake (90). Consequently, the early postoperative period presents an optimal opportunity to implement interventions targeting LBM preservation. Interventions may involve prehabilitation programs for individuals identified with sarcopenia before weight loss surgery, or rehabilitation programs for those who develop sarcopenia during follow-up due to factors such as aging, loss of LBM resulting from weight loss, inadequate protein intake, and insufficient physical activity. These programs should include individualized prescriptions for protein intake and strength training (12).
+- 101 would be Xpert Ultra-positive, and of these, 26 (26%) would not have pulmonary tuberculosis (false positive); and
 
-Various tests and tools are available to assess and characterize sarcopenia in clinical practice and research. Incorporating these assessments into the evaluation of older adults undergoing weight loss surgery is crucial (90). Additionally, it is valuable to include clinical outcomes, such as physical rehabilitation, muscle strength, and muscle function, to better understand
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
 
-the long-term effects of BS on overall health, considering its impact on sarcopenia and related factors (90).
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-## NUTRITIONAL MANAGEMENT AFTER BARIATRIC SURGERY: THE IMPORTANCE OF AN INTEGRATED PROGRAM
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+Cochrane Database of Systematic Reviews
 
-People living with more extreme forms of obesity undergoing BS should be encouraged to participate in a well-structured, specific, and interdisciplinary patient-centered program, including primary care physicians (70, 92). Nutritional complications can be prevented or managed with preoperative assessment and education with high-quality information to enhance patient empowerment and promote self-management (142). Recent qualitative data indicate that adopting person-centered care techniques positively influences patients' experience with micronutrients and overall nutrition care (70). Dietary management of the common nutritional complications is outlined in Table 2.
+- 899 would be Xpert Ultra-negative, and of these, 25 (3%) would have tuberculosis (false negative).
 
-### Preoperative Management
+- where 100 have pulmonary tuberculosis in gastric aspirate (collection of lung and oral secretions from the stomach) according to culture results:
+- 97 would be Xpert Ultra-positive, and of these, 27 (28%) would not have pulmonary tuberculosis (false positive); and
+- 903 would be Xpert Ultra-negative, and of these, 30 (3%) would have tuberculosis (false negative).
 
-A preoperative nutritional assessment is crucial as it allows for the identification and correction of any deficiencies (93, 99). Moreover, it provides an opportunity to establish a strong patient-provider relationship. After all types of bariatric procedures, it is recommended to take a complete multivitamin and mineral supplement daily, containing essential nutrients such as thiamin, iron, selenium, zinc, and copper (93, 99). Based on limited evidence, current BS guidelines for SG and RYGB suggest a minimum of 60--80 g/day of dietary protein or 1.0--1.5 g/kg of ideal body weight as an achievable and meaningful target to minimize postsurgical complications (75, 99). Procedures with a higher risk of protein-energy malnutrition may require a protein intake of 90 g/day or up to 2.1 g/kg of ideal body weight. However, due to the limited stomach capacity and increased satiety experienced after BS, achieving these protein targets solely through diet can be challenging. Therefore, dietary protein supplementation has been suggested as a valuable tool to meet daily protein needs (99).
+- where 100 have pulmonary tuberculosis in stool according to culture results:
+- 74 would be Xpert Ultra-positive and of these, 18 (24%) would not have pulmonary tuberculosis (false positive); and
+- 926 would be Xpert Ultra-negative, and of these, 44 (5%) would have tuberculosis (false negative).
 
-### Postoperative Management
+- where 100 have pulmonary tuberculosis in nasopharyngeal aspirate (secretions from the uppermost part of the throat, behind the nose) according to culture results:
+- 66 would be Xpert Ultra-positive, and of these, 22 (33%) would not have pulmonary tuberculosis (false positive); and
+- 934 would be Xpert Ultra-negative, and of these, 56 (6%) would have tuberculosis (false negative).
 
-To optimize outcomes and prevent complications, access to specialized dietetic support is crucial for individuals with obesity undergoing BS (92). Nutritionists or dietitians will regularly monitor laboratory analyses and individualize and adjust nutritional supplementation as needed (75, 93, 99, 100). Patients should commit to a lifetime of regular monitoring of nutritional intake, dietary and nutritional assessments, identification of obstacles, problem-solving, and ongoing support by either specialized bariatric centers or trained primary care providers (92, 99, 100).
+Xpert Ultra accurately detected rifampicin resistance, but there were few studies and only three children with rifampicin resistance included.
 
-After completion of the program, long-term follow-up should include annual monitoring of nutritional status as part of a shared care model (92, 99). Adherence to bariatric support groups in the long-term has also been shown to be beneficial for weight loss outcomes (5).
+## How confident are we in the results of this review?
 
-As with other chronic conditions, the management of obesity requires an interdisciplinary approach that includes primary care physicians (70, 75, 92, 93, 99, 100). Dietitians or
+For pulmonary tuberculosis, we are fairly confident because we included studies from different countries and used two different benchmarks, though neither is perfect. However, the evidence base is still limited and there were few studies with few children for one of the specimen types (nasopharyngeal aspirate).
 
-nutritionists play a critical role in assessing and providing ongoing nutrition care for patients who have undergone BS. Their continuous assessment and involvement are integral to ensuring successful long-term bariatric care (92, 100).
+For rifampicin resistance, we identified few studies with very few children with rifampicin resistance, so we are less confident.
 
-### Nutrition Support: Enteral and Parenteral Nutrition
+## What children do the results of this review apply to?
 
-Parenteral nutrition (PN) or enteral nutrition (EN) may be necessary to help treat surgical complications from BS and/or malnutrition occurring from a distinct pathology of the gut in patients who have had these procedures (38). BS-related complications can result in malnutrition/failure to thrive with vitamin deficiencies. In a retrospective review, one study identified patients in a home EN database and found that it was typically given by nasogastric tube (149). Home EN was most common after RYGB (74%) compared to other types of BS. Patients were able to meet about 95% of their energy and protein goals. In addition, home PN was primarily administered to patients with RYGB (72%), and the average age of patients in a large database was 52 years old (80% female) (86). Weight increased by 8 kg from the initiation of home PN to the end of treatment, and serum albumin increased from 2.8 to 3.7 g/dL (86).
+Children and young adolescents (birth to 14 years) who are HIV-positive or HIV-negative, with signs or symptoms of pulmonary tuberculosis. The results also apply to children with severe pneumonia or malnutrition and tuberculosis symptoms. In this review, we did not identify any studies that evaluated Xpert Ultra accuracy for tuberculous meningitis or lymph node tuberculosis.
 
-Both EN and PN can improve nutritional status in the malnourished post-BS patient who is at high nutritional risk and be used as a bridge to better health (38). EN/PN should begin within 3--7 days when it is clear the patient is unable to meet energy needs with normal oral intake. All patients should be given a hypocaloric formula (50--70% of calculated needs) with a moderately high protein intake (1.2 g/kg per day). Home EN/PN can be considered; however, severe malnutrition or the presence of hypoglycemia should prompt hospitalization. Adherence to the clinical practice guidelines (which are routinely updated) by the American or European professional societies is recommended (75).
+## What are the implications of this review?
 
-## CONCLUSIONS
+The results suggest that Xpert Ultra in sputum, gastric aspirate, stool, and nasopharyngeal aspirate is an accurate method for detecting pulmonary tuberculosis and rifampicin resistance in children.
 
-BS is an important tool for weight loss in individuals with severe obesity. It has significant physiological and nutritional consequences that bring a unique mix of new medical and nutritional requirements in this population. Many nutritional deficiencies and complications can be prevented or corrected with careful monitoring and management. Future nonsurgical targets to treat obesity may include a focus on taste/food preferences, gut microbiota, bile acid signaling, and methods to preserve beta cell function and decrease hepatic glucose output, among others. Nonsurgical interventions that mimic the metabolic benefits of BS are a future direction for the obesity field. The glucagon-like peptide-1 (GLP-1) receptor agonists and GLP-1 in combination with glucose-dependent insulinotropic polypeptide (GIP) dual agonists or GLP-1/GIP/glucagon triple receptor agonists are examples of pharmacologic options that can be used with lifestyle changes to target a wider BMI range (60, 61, 153). These pharmacologic options result in a percent weight loss approaching the magnitude of surgical weight loss, but compliance decreases over time, and therefore it is likely that long-term success will involve a combination of techniques (65) using individualized patient care. Monitoring nutritional status to avoid deficiency conditions that are associated with greater and faster weight loss is needed to complement all of these strategies. There is also a need for health-care professionals to be given the resources to
+Using Xpert Ultra in sputum, gastric aspirate, stool, and nasopharyngeal aspirate, the risk of missing a diagnosis of pulmonary tuberculosis (confirmed by culture) is low, suggesting that only a small number of children will not receive treatment. The risk of incorrectly diagnosing a child as having pulmonary tuberculosis is slightly higher. This may result in some children receiving unnecessary treatment.
 
-Moize et al.
+## How up to date is this review?
 
-address the long-term concerns in these patients, including ongoing support to maintain a healthy body weight throughout the life span. Action must be decisive, people centered, and integrated to increase our chances of successfully preventing and treating severe obesity.
+This review updates our previous review and includes evidence published up to 9 March 2021.
 
-# ACKNOWLEDGMENTS
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-This research was supported by the US Department of Agriculture's National Institute of Food and Agriculture (0153866) (to S.S., Principal Investigator).
+C
 
-# LITERATURE CITED
+Cochrane Library
 
-1. Abdeen G, le Roux CW. 2016. Mechanism underlying the weight loss and complications of Roux-en-Y gastric bypass. Rev. Obes. Surg. 26(2):410-21
-2. Adams TD, Meeks H, Fraser A, Davidson LE, Holmen J, et al. 2023. Long-term all-cause and cause-specific mortality for four bariatric surgery procedures. Obesity 31(2):574-85 [PubMed: 36695060]
-3. Ahlin S, Peltonen M, Sjöholm K, Anveden Å, Jacobson P, et al. 2020. Fracture risk after three bariatric surgery procedures in Swedish obese subjects: up to 26 years follow-up of a controlled intervention study. J. Intern. Med. 287(5):546-57 [PubMed: 32128923]
-4. Albaugh VL, Banan B, Antoun J, Xiong Y, Guo Y, et al. 2019. Role of bile acids and GLP-1 in mediating the metabolic improvements of bariatric surgery. Gastroenterology 156(4):1041-51 [PubMed: 30445014]
-5. Andreu A, Jimenez A, Vidal J, Ibarzabal A, De Hollanda A, et al. 2020. Bariatric support groups predicts long-term weight loss. Obes. Surg. 30(6):2118-23 [PubMed: 32030615]
-6. Angrisani L, Santonicola A, Iovino P, Formisano G, Buchwald H, Scopinaro N. 2015. Bariatric surgery worldwide 2013. Obes. Surg. 25(10):1822-32 [PubMed: 25835983]
-7. Apovian CM. 2016. Obesity: definition, comorbidities, causes, and burden. Am. J. Manag. Care 22(Suppl. 7):176-85
-8. Apovian CM, Garvey WT, Ryan DH. 2015. Challenging obesity: patient, provider, and expert perspectives on the roles of available and emerging nonsurgical therapies. Obesity 23(Suppl. 2):S1-26
-9. Arterburn D, Wellman R, Emiliano A, Smith SR, Odegaard AO, et al. 2018. Comparative effectiveness and safety of bariatric procedures for weight loss: a PCORnet cohort study. Ann. Intern. Med. 169(11):741-50 [PubMed: 30383139]
-10. Arterburn DE, Telem DA, Kushner RF, Courcoulas AP. 2020. Benefits and risks of bariatric surgery in adults: a review. JAMA 324(9):879-87 [PubMed: 32870301]
-11. Bal BS, Finelli FC, Shope TR, Koch TR. 2012. Nutritional deficiencies after bariatric surgery. Nat. Rev. Endocrinol. 8(9):544-56 [PubMed: 22525731]
-12. Batsis JA, Gill LE, Masutani RK, Adachi-Mejia AM, Blunt HB, et al. 2017. Weight loss interventions in older adults with obesity: a systematic review of randomized controlled trials since 2005. J. Am. Geriatr. Soc. 65(2):257-68 [PubMed: 27641543]
-13. Brethaue SA. 2013. Bariatric surgery in class I obesity (body mass index  $30 - 35\mathrm{kg} / \mathrm{m}^2$ ). Surg. Obes. Relat. Dis. 9(1):e1-10 [PubMed: 23265765]
-14. Brolin RE, Gorman RC, Milgrim LM, Kenler HA. 1991. Multivitamin prophylaxis in prevention of post-gastric bypass vitamin and mineral deficiencies. Int. J. Obes. 15(10):661-67 [PubMed: 1752727]
-15. Brolin RE, LaMarca LB, Kenler HA, Cody RP. 2002. Malabsorptive gastric bypass in patients with superobesity. J. Gastrointest. Surg. 6(2):195-205 [PubMed: 11992805]
-16. Buchwald H, Avidor Y, Braunwald E, Jensen MD, Pories W, et al. 2004. Bariatric surgery: a systematic review and meta-analysis. JAMA 292(14):1724-37 [PubMed: 15479938]
-17. Buchwald H, Estok R, Fahrbach K, Banel D, Jensen MD, et al. 2009. Weight and type 2 diabetes after bariatric surgery: systematic review and meta-analysis. Am. J. Med. 122(3):248-56 [PubMed: 19272486]
+Trusted evidence. Informed decisions. Better health.
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Cochrane Database of Systematic Reviews
 
-Moize et al.
-Page 16
+# SUMMARY OF FINDINGS
 
-18. Buchwald H, Ikramuddin S, Dorman RB, Schone JL, Dixon JB. 2011. Management of the metabolic/bariatric surgery patient. Am. J. Med. 124(12):1099–105 [PubMed: 22014789]
-19. Busetto L, Dicker D, Azran C, Batterham RL, Farpour-Lambert N, et al. 2017. Practical recommendations of the Obesity Management Task Force of the European Association for the Study of Obesity for the Post-Bariatric Surgery Medical Management. Obes. Facts 10(6):597–632 [PubMed: 29207379]
-20. Busetto L, Dixon J, De Luca M, Shikora S, Pories W, Angrisani L. 2014. Bariatric surgery in class I obesity: a position statement from the International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO). Obes. Surg. 24(4):487–519 [PubMed: 24638958]
-21. Calikoglu F, Barbaros U, Uzum AK, Tutuncu Y, Satman I. 2021. The metabolic effects of pre-probiotic supplementation after Roux-en-Y gastric bypass (RYGB) surgery: a prospective, randomized controlled study. Obes. Surg. 31(1):215–23 [PubMed: 32803709]
-22. Camhi SM, Bray GA, Bouchard C, Greenway FL, Johnson WD, et al. 2011. The relationship of waist circumference and BMI to visceral, subcutaneous, and total body fat: sex and race differences. Obesity 19(2):402–8 [PubMed: 20948514]
-23. Carrasco F, Basfi-Fer K, Rojas P, Csendes A, Papapietro K, et al. 2018. Calcium absorption may be affected after either sleeve gastrectomy or Roux-en-Y gastric bypass in premenopausal women: a 2-y prospective study. Am. J. Clin. Nutr. 108(1):24–32 [PubMed: 29878034]
-24. Chaves Pereira de Holanda N, de Lima Carlos I, Chaves de Holanda Limeira C, Cesarino de Sousa D, Serra de Lima Junior FA, et al. 2022. Fracture risk after bariatric surgery: a systematic literature review and meta-analysis. Endocr. Pract. 28(1):58–69 [PubMed: 34563701]
-25. Chikunguwo SM, Wolfe LG, Dodson P, Meador JG, Baugh N, et al. 2010. Analysis of factors associated with durable remission of diabetes after Roux-en-Y gastric bypass. Surg. Obes. Relat. Dis. 6(3):254–59 [PubMed: 20303324]
-26. Coates PS, Fernstrom JD, Fernstrom MH, Schauer PR, Greenspan SL. 2004. Gastric bypass surgery for morbid obesity leads to an increase in bone turnover and a decrease in bone mass. J. Clin. Endocrinol. Metab. 89(3):1061–65 [PubMed: 15001587]
-27. Coimbra VOR, Crovesy L, Ribeiro-Alves M, Faller ALK, Mattos F, Rosado EL. 2022. Gut microbiota profile in adults undergoing bariatric surgery: a systematic review. Nutrients 14(23):4979 [PubMed: 36501007]
-28. Coluzzi I, Raparelli L, Guarnacci L, Paone E, Del Genio G, et al. 2016. Food intake and changes in eating behavior after laparoscopic sleeve gastrectomy. Obes. Surg. 26(9):2059–67 [PubMed: 26744284]
-29. Courcoulas A, Coley RY, Clark JM, McBride CL, Cirelli E, et al. 2020. Interventions and operations 5 years after bariatric surgery in a cohort from the US National Patient-Centered Clinical Research Network Bariatric Study. JAMA Surg. 155(3):194–204 [PubMed: 31940024]
-30. Courcoulas AP, King WC, Belle SH, Berk P, Flum DR, et al. 2018. Seven-year weight trajectories and health outcomes in the Longitudinal Assessment of Bariatric Surgery (LABS) study. JAMA Surg. 153(5):427–34 [PubMed: 29214306]
-31. Cruz-Jentoft AJ, Bahat G, Bauer J, Boirie Y, Bruyère O, et al. 2019. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing 48(4):16–31 [PubMed: 30312372]
-32. Dallal RM, Bailey LA. 2006. Ulcer disease after gastric bypass surgery. Surg. Obes. Relat. Dis. 2(4):455–59 [PubMed: 16925380]
-33. Davies NK, O'Sullivan JM, Plank LD, Murphy R. 2019. Altered gut microbiome after bariatric surgery and its association with metabolic benefits: a systematic review. Surg. Obes. Relat. Dis. 15(4):656–65 [PubMed: 30824335]
-34. de Lima CVG, de Carvalho Costa MJ, da Conceicao Rodrigues Goncalves M, Soares Sousa B. 2013. Micronutrient deficiencies in the pre-bariatric surgery. Arq. Bras. Cir. Dig. 26(Suppl. 1):63–66 [PubMed: 24463902]
-35. Debédat J, Clément K, Aron-Wisnewsky J. 2019. Gut microbiota dysbiosis in human obesity: impact of bariatric surgery. Curr. Obes. Rep. 8(3):229–42 [PubMed: 31197613]
-36. Di Palma A, Liu B, Maeda A, Anvari M, Jackson T, Okrainec A. 2021. Marginal ulceration following Roux-en-Y gastric bypass: risk factors for ulcer development, recurrence and need for revisional surgery. Surg. Endosc. 35(5):2347–53 [PubMed: 32424625]
+# Summary of findings 1. Xpert Ultra for pulmonary tuberculosis in children
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Review question: what is the diagnostic accuracy of Xpert Ultra for pulmonary tuberculosis in children with signs and symptoms of pulmonary tuberculosis?
 
-Moize et al.
-Page 17
+Patients/population: children with presumed pulmonary tuberculosis
 
-37. Dijkhorst PJ, Boerboom AB, Janssen IMC, Swank DJ, Wiezer RMJ, et al. 2018. Failed sleeve gastrectomy: single anastomosis duodenoileal bypass or Roux-en-Y gastric bypass? A multicenter cohort study. Obes. Surg. 28(12):3834–42 [PubMed: 30066245]
-38. Dodell GB, Albu JB, Attia L, McGinty J, Pi-Sunyer FX, Laferrère B. 2012. The bariatric surgery patient: lost to follow-up; from morbid obesity to severe malnutrition. Endocr. Pract. 18(2):e21–25 [PubMed: 22138075]
-39. Donato KA. 1998. Executive summary of the clinical guidelines on the identification, evaluation, and treatment of overweight and obesity in adults. Arch. Intern. Med. 158(17):1855–67 [PubMed: 9759681]
-40. Elahmedi MO, Alqahtani AR. 2017. Evidence base for multidisciplinary care of pediatric/adolescent bariatric surgery patients. Curr. Obes. Rep. 6(3):266–77 [PubMed: 28755177]
-41. Elms L, Moon RC, Varnadore S, Teixeira AF, Jawad MA. 2014. Causes of small bowel obstruction after Roux-en-Y gastric bypass: a review of 2,395 cases at a single institution. Surg. Endosc. 28(5):1624–28 [PubMed: 24380988]
-42. Faria SL, Faria OP, Buffington C, de Almeida Cardeal M, Rodrigues de Gouvea H. 2012. Energy expenditure before and after Roux-en-Y gastric bypass. Obes. Surg. 22(9):1450–55 [PubMed: 22592393]
-43. Fayad L, Adam A, Schweitzer M, Cheskin LJ, Ajayi T, et al. 2019. Endoscopic sleeve gastroplasty versus laparoscopic sleeve gastrectomy: a case-matched study. Gastrointest. Endosc. 89(4):782–88 [PubMed: 30148991]
-44. Fernandes R, Beserra BTS, Mocellin MC, Kuntz MGF, Da Rosa JS, et al. 2016. Effects of prebiotic and synbiotic supplementation on inflammatory markers and anthropometric indices after Roux-en-Y gastric bypass: a randomized, triple-blind, placebo-controlled pilot study. J. Clin. Gastroenterol. 50(3):208–17 [PubMed: 25909598]
-45. Fleischer J, Stein EM, Bessler M, Della Badia M, Restuccia N, et al. 2008. The decline in hip bone density after gastric bypass surgery is associated with extent of weight loss. J. Clin. Endocrinol. Metab. 93(10):3735–40 [PubMed: 18647809]
-46. Friedman AN, Wahed AS, Wang J, Courcoulas AP, Dakin G, et al. 2018. Effect of bariatric surgery on CKD risk. J. Am. Soc. Nephrol. 29(4):1289–300 [PubMed: 29335242]
-47. Gao X, Zheng Q, Jiang X, Chen X, Liao Y, Pan Y. 2023. The effect of diet quality on the risk of developing gestational diabetes mellitus: a systematic review and meta-analysis. Front. Public Health 10:1062304 [PubMed: 36699870]
-48. Garber AJ. 2011. Incretin effects on $\beta$-cell function, replication, and mass: the human perspective. Diabetes Care 34(Suppl. 2):S258–63 [PubMed: 21525465]
-49. Gasmi A, Bjørklund G, Mujawdiya PK, Semenova Y, Peana M, et al. 2022. Micronutrients deficiencies in patients after bariatric surgery. Eur. J. Nutr. 61(1):55–67 [PubMed: 34302218]
-50. Georgiadou D, Sergentanis TN, Nixon A, Diamantis T, Tsigris C, Psaltopoulou T. 2014. Efficacy and safety of laparoscopic mini gastric bypass. A systematic review. Surg. Obes. Relat. Dis. 10(5):984–91 [PubMed: 24913595]
-51. Goode LR, Brolin RE, Chowdhury HA, Shapses SA. 2004. Bone and gastric bypass surgery: effects of dietary calcium and vitamin D. Obes. Res. 12(1):40–47 [PubMed: 14742841]
-52. Gowanlock Z, Lezhanska A, Conroy M, Crowther M, Tiboni M, et al. 2020. Iron deficiency following bariatric surgery: a retrospective cohort study. Blood Adv. 4(15):3639–47 [PubMed: 32766854]
-53. Hamdan K, Somers S, Chand M. 2011. Management of late postoperative complications of bariatric surgery. Br. J. Surg. 98(10):1345–55 [PubMed: 21887775]
-54. Hampl SE, Hassink SG, Skinner AC, Armstrong SC, Barlow SE, et al. 2023. Clinical practice guideline for the evaluation and treatment of children and adolescents with obesity. Pediatrics 151(2):e2022060640 [PubMed: 36622115]
-55. Hegarty C, Breen C, Fearon NM, Heneghan HM, Docherty NG, Gletsu Miller N. 2021. Assessment of baseline rates of functional and absolute iron deficiency in bariatric surgery candidates: a retrospective study. Surg. Obes. Relat. Dis. 17(12):2009–14 [PubMed: 34620564]
+Index tests: Xpert Ultra
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Role: an initial test
 
-Moize et al.
+Threshold for index tests: an automated result is provided
 
-56. Huber FA, Singhal V, Tuli S, Becetti I, López López AP, et al. 2023. Two-year skeletal effects of sleeve gastrectomy in adolescents with obesity assessed with quantitative CT and MR spectroscopy. Radiology 307(5):e223256 [PubMed: 37310246]
-57. Hunt SC, Davidson LE, Adams TD, Ranson L, McKinlay RD, et al. 2021. Associations of visceral, subcutaneous, epicardial, and liver fat with metabolic disorders up to 14 years after weight loss surgery. Metab. Syndr. Relat. Disord. 19(2):83-92 [PubMed: 33136533]
-58. Jamil O, Gonzalez-Heredia R, Quadri P, Hassan C, Masur M, et al. 2020. Micronutrient deficiencies in laparoscopic sleeve gastrectomy. Nutrients 12(9):2896 [PubMed: 32971950]
-59. Jaruvongvanich V, Vantanasiri K, Upala S, Ungprasert P. 2019. Changes in bone mineral density and bone metabolism after sleeve gastrectomy: a systematic review and meta-analysis. Surg. Obes. Relat. Dis. 15(8):1252-60 [PubMed: 31311755]
-60. Jastreboff AM, Aronne LJ, Ahmad NN, Wharton S, Connery L, et al. 2022. Tirzepatide once weekly for the treatment of obesity. N. Engl. J. Med. 387(3):205-16 [PubMed: 35658024]
-61. Jastreboff AM, Kaplan LM, Frías JP, Wu Q, Du Y, et al. 2023. Triple-hormone-receptor agonist retatrutide for obesity—a phase 2 trial. N. Engl. J. Med. 389(6):514-26 [PubMed: 37366315]
-62. Jegatheesan P, Seyssel K, Stefanoni N, Rey V, Schneiter P, et al. 2020. Effects of gastric bypass surgery on postprandial gut and systemic lipid handling. Clin. Nutr. ESPEN 35:95-102 [PubMed: 31987128]
-63. Jiménez A, Casamitjana R, Flores L, Viaplana J, Corcelles R, et al. 2012. Long-term effects of sleeve gastrectomy and Roux-en-Y gastric bypass surgery on type 2 diabetes mellitus in morbidly obese subjects. Ann. Surg. 256(6):1023-29 [PubMed: 22968072]
-64. Kong LC, Tap J, Aron-Wisnewsky J, Pelloux V, Basdevant A, et al. 2013. Gut microbiota after gastric bypass in human obesity: increased richness and associations of bacterial genera with adipose tissue genes. Am. J. Clin. Nutr. 98(1):16-24 [PubMed: 23719559]
-65. Kramer CK, Retnakaran M, Viana LV. 2024. Effect of glucagon-like peptide-1 receptor agonists (GLP-1RA) on weight loss following bariatric treatment. J. Clin. Endocrinol. Metab. 109:e1634-41 [PubMed: 38488042]
-66. Krzizek EC, Brix JM, Stöckl A, Parzer V, Ludvik B. 2021. Prevalence of micronutrient deficiency after bariatric surgery. Obes. Facts 14(2):197-204 [PubMed: 33794530]
-67. Laferrère B, Pattou F. 2018. Weight-independent mechanisms of glucose control after Roux-en-Y gastric bypass. Front. Endocrinol. 9:530
-68. Laurenius A, Larsson I, Bueter M, Melanson KJ, Bosaeus I, et al. 2012. Changes in eating behaviour and meal pattern following Roux-en-Y gastric bypass. Int. J. Obes. 36(3):348-55
-69. Leslie D, Wise E, Sheka A, Abdelwahab H, Irey R, et al. 2021. Gastroesophageal reflux disease outcomes after vertical sleeve gastrectomy and gastric bypass. Ann. Surg. 274(4):646-53 [PubMed: 34506320]
-70. Lewis CA, de Jersey S, Hiatt J, Osland EJ, Hickman IJ. 2023. Patient experiences with micronutrient and overall nutrition management after bariatric surgery: identifying facilitators and barriers to implementing care. Surg. Obes. Relat. Dis. 19(9):1030-40 [PubMed: 36948975]
-71. Lieske JC, Mehta RA, Milliner DS, Rule AD, Bergstralh EJ, Sarr MG. 2015. Kidney stones are common after bariatric surgery. *Kidney Int.* 87(4):839-45 [PubMed: 25354237]
-72. Lu CW, Chang YK, Chang HH, Kuo CS, Huang CT, et al. 2015. Fracture risk after bariatric surgery: a 12-year nationwide cohort study. Medicine 94(48):e2087 [PubMed: 26632892]
-73. Mahan LK, Raymond LJ. 2017. Krause's Food &amp; the Nutrition Care Process. St. Louis, MO: Elsevier. 14th ed.
-74. Martinino A, Bhandari M, Abouelazayem M, Abdellatif A, Koshy RM, Mahawar K. 2022. Perforated marginal ulcer after gastric bypass for obesity: a systematic review. Surg. Obes. Relat. Dis. 18(9):1168-75 [PubMed: 35810084]
-75. Mechanick JI, Apovian C, Brethauer S, Garvey WT, Joffe AM, et al. 2020. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures—2019 update: cosponsored by American Association of Clinical Endocrinologists/American College of Endocrinology, The Obesity Society, American Society for Metabolic &amp; Bariatric Surgery, Obesity Medicine Association, and American Society of Anesthesiologists. Surg. Obes. Relat. Dis. 16(2):175-247 [PubMed: 31917200]
+Reference standard: culture
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Types of studies: cross-sectional and cohort studies
 
-Moize et al.
+Setting: primary care facilities and local hospitals
 
-76. Mele C, Caputo M, Ferrero A, Daffara T, Cavigiolo B, et al. 2022. Bone response to weight loss following bariatric surgery. Front. Endocrinol. 13:921353
-77. Moizé V, Andreu A, Flores L, Torres F, Ibarzabal A, et al. 2013. Long-term dietary intake and nutritional deficiencies following sleeve gastrectomy or Roux-en-Y gastric bypass in a Mediterranean population. J. Acad. Nutr. Diet. 113(3):400-10 [PubMed: 23438491]
-78. Moizé V, Andreu A, Rodríguez L, Flores L, Ibarzabal A, et al. 2013. Protein intake and lean tissue mass retention following bariatric surgery. Clin. Nutr. 32(4):550-55 [PubMed: 23200926]
-79. Moizé V, Deulofeu R, Torres F, de Osaba JM, Vidal J. 2011. Nutritional intake and prevalence of nutritional deficiencies prior to surgery in a Spanish morbidly obese population. Obes. Surg. 21(9):1382-88 [PubMed: 21298509]
-80. Molero J, Moizé V, Flores L, De Hollanda A, Jiménez A, Vidal J. 2020. The impact of age on the prevalence of sarcopenic obesity in bariatric surgery candidates. Obes. Surg. 30(6):2158-64 [PubMed: 32249368]
-81. Moon RC, Teixeira AF, Goldbach M, Jawad MA. 2014. Management and treatment outcomes of marginal ulcers after Roux-en-Y gastric bypass at a single high volume bariatric center. Surg. Obes. Relat. Dis. 10(2):229-34 [PubMed: 24462313]
-82. Morales-Marroquin E, Hanson B, Greathouse L, de la Cruz-Munoz N, Messiah SE. 2020. Comparison of methodological approaches to human gut microbiota changes in response to metabolic and bariatric surgery: a systematic review. Obes. Rev. 21(8):e13025 [PubMed: 32249534]
-83. Moriconi D, Manca ML, Anselmino M, Rebelos E, Bellini R, et al. 2022. Predictors of type 2 diabetes relapse after Roux-en-Y gastric bypass: a ten-year follow-up study. Diabetes Metab. 48(1):101282 [PubMed: 34547450]
-84. Morínigo R, Moizé V, Musri M, Lacy AM, Navarro S, et al. 2006. Glucagon-like peptide-1, peptide YY, hunger, and satiety after gastric bypass surgery in morbidly obese subjects. J. Clin. Endocrinol. Metab. 91(5):1735-40 [PubMed: 16478824]
-85. Mousa A, Naqash A, Lim S. 2019. Macronutrient and micronutrient intake during pregnancy: an overview of recent evidence. Nutrients 11(2):443 [PubMed: 30791647]
-86. Mundi MS, Vallumsetla N, Davidson JB, McMahon MT, Bonnes SL, Hurt RT. 2017. Use of home parenteral nutrition in post-bariatric surgery-related malnutrition. J. Parenter. Enteral Nutr. 41(7):1119-24
-87. Nannipieri M, Mari A, Anselmino M, Baldi S, Barsotti E, et al. 2011. The role of beta-cell function and insulin sensitivity in the remission of type 2 diabetes after gastric bypass surgery. J. Clin. Endocrinol. Metab. 96(9):e1372-79 [PubMed: 21778221]
-88. Neff KJ, Olbers T, le Roux CW. 2013. Bariatric surgery: the challenges with candidate selection, individualizing treatment and clinical outcomes. BMC Med. 11:8 [PubMed: 23302153]
-89. Newgard CB. 2012. Interplay between lipids and branched-chain amino acids in development of insulin resistance. Cell Metab. 15(5):606-14 [PubMed: 22560213]
-90. Nuijten MAH, Eijsvogels TMH, Monpellier VM, Janssen IMC, Hazebroek EJ, Hopman MTE. 2022. The magnitude and progress of lean body mass, fat-free mass, and skeletal muscle mass loss following bariatric surgery: a systematic review and meta-analysis. Obes. Rev. 23(1):e13370 [PubMed: 34664391]
-91. Odstrcil EA, Martinez JG, Santa Ana CA, Xue B, Schneider RE, et al. 2010. The contribution of malabsorption to the reduction in net energy absorption after long-limb Roux-en-Y gastric bypass. Am. J. Clin. Nutr. 92(4):704-13 [PubMed: 20739420]
-92. O'Kane M 2021. Nutritional consequences of bariatric surgery—prevention, detection and management. Curr. Opin. Gastroenterol. 37(2):135-44 [PubMed: 33332915]
-93. O'Kane M, Parretti HM, Pinkney J, Welbourn R, Hughes CA, et al. 2020. British Obesity and Metabolic Surgery Society Guidelines on perioperative and postoperative biochemical monitoring and micronutrient replacement for patients undergoing bariatric surgery—2020 update. Obes. Rev. 21(11):e13087 [PubMed: 32743907]
-94. Olbers T, Beamish AJ, Gronowitz E, Flodmark CE, Dahlgren J, et al. 2017. Laparoscopic Roux-en-Y gastric bypass in adolescents with severe obesity (AMOS): a prospective, 5-year, Swedish nationwide study. Lancet Diabetes Endocrinol. 5(3):174-83 [PubMed: 28065734]
+|  Specimen | Effect (95% CI) | Number of participants (studies) | Test result | Number of results per 1000 patients tested(95% CI)b |   |   | Certainty of the evidence (GRADE)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|   |   |   |   |  Prevalence 1% | Prevalence 10% | Prevalence 20%  |   |
+|  Sputum | Summary sensitivity 75.3% (64.3 to 83.8) | 127 (5) | True positive | 8 | 75 | 151 | ⊕⊕⊕⊕  |
+|   |   |   |   |  (6 to 8) | (64 to 84) | (129 to 168) | High  |
+|   |   |   |  False negative | 2 | 25 | 49 |   |
+|   |   |   |   |  (2 to 4) | (16 to 36) | (32 to 71) |   |
+|   |  Summary specificity 97.1% (94.7 to 98.5) | 1054 (5) | True negative | 961 | 874 | 777 | ⊕⊕⊕⊕  |
+|   |   |   |   |  (938 to 975) | (852 to 887) | (758 to 788) | High  |
+|   |   |   |  False positive | 29 | 26 | 23 |   |
+|   |   |   |   |  (15 to 52) | (13 to 48) | (12 to 42) |   |
+|  Gastric aspi-rate | Summary sensitivity 70.4% (53.9 to 82.9) | 120 (7) | True positive | 7 | 70 | 141 | ⊕⊕⊕⊕  |
+|   |   |   |   |  (5 to 8) | (54 to 83) | (108) | Moderatec  |
+|   |   |   |  False negative | 3 | 30 | 59 |   |
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+9
 
-Moize et al.
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
 
-95. Ong AW, Myers SR. 2020. Early postoperative small bowel obstruction: a review. Am. J. Surg. 219(3):535-39 [PubMed: 31735260]
-96. Paccou J, Martignène N, Lespessailles E, Babykina E, Pattou F, et al. 2020. Gastric bypass but not sleeve gastrectomy increases risk of major osteoporotic fracture: French population-based cohort study. J. Bone Miner. Res. 35(8):1415-23 [PubMed: 32187759]
-97. Paganelli FL, Luyer M, Hazelbag CM, Uh HW, Rogers MRC, et al. 2019. Roux-Y gastric bypass and sleeve gastrectomy directly change gut microbiota composition independent of surgery type. Sci. Rep. 9(1):10979 [PubMed: 31358818]
-98. Pan XH, Tan B, Chin YH, Lee ECZ, Kong G, Chong B, et al. 2024. Efficacy and safety of tirzepatide, GLP-1 receptor agonists, and other weight loss drugs in overweight and obesity: a network meta-analysis. Obesity 32:840-56 [PubMed: 38413012]
-99. Parrott J, Frank L, Rabena R, Craggs-Dino L, Isom KA, Greiman L. 2017. American Society for Metabolic and Bariatric Surgery integrated health nutritional guidelines for the surgical weight loss patient 2016 update: micronutrients. Surg. Obes. Relat. Dis. 13(5):727-41 [PubMed: 28392254]
-100. Parrott JM, Craggs-Dino L, Faria SL, O'Kane M. 2020. The optimal nutritional programme for bariatric and metabolic surgery. Curr. Obes. Rep. 9(3):326-38 [PubMed: 32451780]
-101. Patience N, Sheehan A, Cummings C, Patti ME. 2022. Medical nutrition therapy and other approaches to management of post-bariatric hypoglycemia: a team-based approach. Curr. Obes. Rep. 11(4):277-86 [PubMed: 36074258]
-102. Phelps NH, Singleton RK, Zhou B, Heap RA, Mishra A, et al. (NCD Risk Factor Collab.). 2024. Worldwide trends in underweight and obesity from 1990 to 2022: a pooled analysis of 3663 population-representative studies with 222 million children, adolescents, and adults. Lancet 403:1027-50 [PubMed: 38432237]
-103. Popkin BM, Adair LS, Ng SW. 2012. Global nutrition transition and the pandemic of obesity in developing countries. Nutr. Rev. 70(1):3-21 [PubMed: 22221213]
-104. Pournaras DJ, Glicksman C, Vincent RP, Kuganolipava S, Alaghband-Zadeh J, et al. 2012. The role of bile after Roux-en-Y gastric bypass in promoting weight loss and improving glycaemic control. Endocrinology 153(8):3613-19 [PubMed: 22673227]
-105. Powanda MC. 1977. Changes in body balances of nitrogen and other key nutrients: description and underlying mechanisms. Am. J. Clin. Nutr. 30(8):1254-68 [PubMed: 70166]
-106. Pratt JSA, Browne A, Browne NT, Bruzoni M, Cohen M, et al. 2018. ASMBS pediatric metabolic and bariatric surgery guidelines, 2018. Surg. Obes. Relat. Dis. 14(7):882-901 [PubMed: 30077361]
-107. Prochaska M, Worcester E. 2020. Risk factors for kidney stone formation following bariatric surgery. Kidney360 1(12):1456-61 [PubMed: 34085046]
-108. Ramos MRZ, Felicidade I, de Oliveira Carlos L, Wagner NRF, Mantovani MS, et al. 2022. Effect of probiotic supplementation on plasma metabolite profile after Roux-Y gastric bypass: a prospective, randomized, double-blind, placebo-controlled clinical trial. Int. J. Obes. 46(11):2006-12
-109. Ravussin E, Lillioja S, Knowler WC, Christin L, Freymond D, et al. 1988. Reduced rate of energy expenditure as a risk factor for body-weight gain. N. Engl. J. Med. 318(8):467-72 [PubMed: 3340128]
-110. Reja D, Zhang C, Sarkar A. 2022. Endoscopic bariatrics: current therapies and future directions. Transl. Gastroenterol. Hepatol. 7:21 [PubMed: 35548475]
-111. Ryder JR, Gross AC, Fox CK, Kaizer AM, Rudser KD, et al. 2018. Factors associated with long-term weight-loss maintenance following bariatric surgery in adolescents with severe obesity. Int. J. Obes. 42(1):102-7
-112. Salehi M, Vella A, McLaughlin T, Patti ME. 2018. Hypoglycemia after gastric bypass surgery: current concepts and controversies. J. Clin. Endocrinol. Metab. 103(8):2815-26 [PubMed: 30101281]
-113. Salminen P, Gronroos S, Helmiö M, Hurme S, Juuti A, et al. 2022. Effect of laparoscopic sleeve gastrectomy versus Roux-en-Y gastric bypass on weight loss, comorbidities, and reflux at 10 years in adult patients with obesity: the SLEEVEPASS randomized clinical trial. JAMA Surg. 157(8):656-66 [PubMed: 35731535]
+# GRADE Working Group grades of evidence
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+High certainty: we are very confident that the true effect lies close to that of the estimate of the effect.
 
-Moize et al.
+Moderate certainty: we are moderately confident in the effect estimate; the true effect is likely to be close to the estimate of the effect, but there is a possibility that it is substantially different.
 
-114. Sánchez-Pernaute A, Rubio Herrera MA, Pérez-Aguirre ME, Talavera P, Cabrerizo L, et al. 2010. Single anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S). One to three-year follow-up. Obes. Surg. 20(12):1720–26 [PubMed: 20798995]
-115. Sánchez-Pernaute A, Rubio Herrera MA, Pérez-Aguirre E, García Pérez JC, Cabrerizo L, et al. 2007. Proximal duodenal-ileal end-to-side bypass with sleeve gastrectomy: proposed technique. Obes. Surg. 17(12):1614–18 [PubMed: 18040751]
-116. Sánchez-Pernaute A, Rubio MA, Pérez N, Marcuello C, Torres A, Pérez-Aguirre E. 2020. Single-anastomosis duodenoileal bypass as a revisional or second-step operation after sleeve gastrectomy. Surg. Obes. Relat. Dis. 16(10):1491–96 [PubMed: 32665113]
-117. Schafer AL, Weaver CM, Black DM, Wheeler AL, Chang H, et al. 2015. Intestinal calcium absorption decreases dramatically after gastric bypass surgery despite optimization of vitamin D status. J. Bone Miner. Res. 30(8):1377–85 [PubMed: 25640580]
-118. Schauer PR, Bhatt DL, Kirwan JP, Wolski K, Aminian A, et al. 2017. Bariatric surgery versus intensive medical therapy for diabetes—5-year outcomes. N. Engl. J. Med. 376(7):641–51 [PubMed: 28199805]
-119. Shapses SA, Mauro T, Brolin RE. 2015. Nutritional concerns for bariatric surgery. In Preventive Nutrition: The Comprehensive Guide for Health Professionals, ed. Bendich A, Deckelbaum RJ, pp. 439–55. New York: Humana Press/Springer. 5th ed.
-120. Shapses SA, Sukumar D. 2012. Bone metabolism in obesity and weight loss. Annu. Rev. Nutr. 32:287–309 [PubMed: 22809104]
-121. Sharma AM, Campbell-Scherer DL. 2017. Redefining obesity: beyond the numbers. Obesity 25(4):660–61 [PubMed: 28349662]
-122. Shawe J, Ceulemans D, Akhter Z, Neff K, Hart K, et al. 2019. Pregnancy after bariatric surgery: consensus recommendations for periconception, antenatal and postnatal care. Obes. Rev. 20(11):1507–22 [PubMed: 31419378]
-123. Shoar S, Poliakin L, Rubenstein R, Saber AA. 2018. Single anastomosis duodeno-ileal switch (SADIS): a systematic review of efficacy and safety. Obes. Surg. 28(1):104–13 [PubMed: 28823074]
-124. Shrewsbury VA, Baur LA, Nguyen B, Steinbeck KS. 2014. Transition to adult care in adolescent obesity: a systematic review and why it is a neglected topic. Int. J. Obes. 38(4):475–79
-125. Silecchia G, Iossa A. 2021. GERD and Barrett's esophagus as indications for revisional surgery after sleeve gastrectomy: experience of a bariatric center of excellence IFSO-EC and narrative review. Expert Rev. Endocrinol. Metab. 16(5):229–35 [PubMed: 34420434]
-126. Sinha N, Shieh A, Stein EM, Strain G, Schulman A, et al. 2011. Increased PTH and 1.25(OH)2D levels associated with increased markers of bone turnover following bariatric surgery. Obesity 19(12):2388–93 [PubMed: 21617641]
-127. Sjöström L 2013. Review of the key results from the Swedish Obese Subjects (SOS) trial—a prospective controlled intervention study of bariatric surgery. J. Intern. Med. 273(3):219–34 [PubMed: 23163728]
-128. Sjöström L, Peltonen M, Jacobson P, Ahlin S, Andersson-Assarsson J, et al. 2014. Association of bariatric surgery with long-term remission of type 2 diabetes and with microvascular and macrovascular complications. JAMA 311(22):2297–304 [PubMed: 24915261]
-129. Skelton JA, Irby MB, Grzywacz JG, Miller G. 2011. Etiologies of obesity in children: nature and nurture. Pediatr. Clin. North Am. 58(6):1333–54 [PubMed: 22093854]
-130. Slater C, Morris L, Ellison J, Syed AA. 2017. Nutrition in pregnancy following bariatric surgery. Nutrients 9(12):1338 [PubMed: 29292743]
-131. Smelt HJM, Heusschen L, Theel W, van Rutte PWJ, Nijboer T, et al. 2021. Factors affecting patient adherence to multivitamin intake after bariatric surgery: a multicentre survey study from the patient's perspective. Obes. Surg. 31(10):4316–26 [PubMed: 34304380]
-132. Smith KR, Papantoni A, Veldhuizen MG, Kamath V, Harris C, et al. 2020. Taste-related reward is associated with weight loss following bariatric surgery. J. Clin. Investig. 130(8):4370–81 [PubMed: 32427584]
-133. Snoek K, van de Woestijne N, Willemsen S, Klaassen R, Galjaard S, et al. 2022. The impact of preconception gastric bypass surgery on maternal micronutrient status before and during
+Low certainty: our confidence in the effect estimate is limited; the true effect may be substantially different from the estimate of the effect.
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+|   |  |  | (2 to 5) | (17 to 46) | (34 to 92) |   |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Summary specificity 94.1% (84.8 to 97.8) | 870 (7) | True negative | 932 | 847 | 753 | ⊕⊕⊕⊕ Moderated  |
+|   |   |   |  (840 to 968) | (763 to 880) | (678 to 782)  |   |
+|   |   |  False positive | 58 | 53 | 47 |   |
+|   |   |   |  (22 to 150) | (20 to 137) | (18 to 122) |   |
+|  Stool | Summary sensitivity 56.1% (39.1 to 71.7) | 200 (6) | True positive | 6 | 56 | 112  |
+|   |   |   |   |  (4 to 7) | (39 to 72) | (78 to 143)  |
+|   |   |  False negative | 4 | 44 | 88 |   |
+|   |   |   |  (3 to 6) | (28 to 61) | (57 to 122) |   |
+|   |  Summary specificity 98.0% (93.3 to 99.4) | 1232 (6) | True negative | 970 | 882 | 784  |
+|   |   |   |   |  (924 to 984) | (840 to 895) | (746 to 795)  |
+|   |   |  False positive | 20 | 18 | 16 |   |
+|   |   |   |  (6 to 66) | (5 to 60) | (5 to 54) |   |
+|  Nasopharyngeal aspirate | Summary sensitivity 43.7% (26.7 to 62.2) | 46 (4) | True positive | 4 | 44 | 87  |
+|   |   |   |   |  (3 to 6) | (27 to 62) | (53 to 124)  |
+|   |   |  False negative | 6 | 56 | 113 |   |
+|   |   |   |  (4 to 7) | (38 to 73) | (76 to 147) |   |
+|   |  Summary specificity 97.5 (93.6 to 99.0) | 489 (4) | True negative | 965 | 878 | 780  |
+|   |   |   |   |  (927 to 980) | (842 to 891) | (749 to 792)  |
+|   |   |  False positive | 25 | 22 | 20 |   |
+|   |   |   |  (10 to 63) | (9 to 58) | (8 to 51) |   |
 
-Moize et al.
+Very low certainty: we have very little confidence in the effect estimate; the true effect is likely to be substantially different from the estimate of effect.
 
-pregnancy: a retrospective cohort study in the Netherlands between 2009 and 2019. Nutrients 14(4):736 [PubMed: 35215386]
-134. Steenackers N, Van der Schueren B, Mertens A, Lannoo M, Grauwet T, et al. 2018. Iron deficiency after bariatric surgery: What is the real problem? Proc. Nutr. Soc. 77(4):445-55 [PubMed: 29619914]
-135. Storm AC, Abu Dayyeh BK. 2019. Endoscopic sleeve gastroplasty for obesity: defining the risk and reward after more than 1600 procedures. Gastrointest. Endosc. 89(6):1139-40 [PubMed: 31104746]
-136. Stroh C, Meyer F, Manger T. 2014. Beriberi, a severe complication after metabolic surgery—review of the literature. Obes. Facts 7(4):246-52 [PubMed: 25095897]
-137. Sukumar N, Rafnsson SB, Kandala NB, Bhopal R, Yajnik CS, Saravanan P. 2016. Prevalence of vitamin B-12 insufficiency during pregnancy and its effect on offspring birth weight: a systematic review and meta-analysis. Am. J. Clin. Nutr. 103(5):1232-51 [PubMed: 27076577]
-138. Surve A, Cottam D, Medlin W, Richards C, Belnap L, et al. 2020. Long-term outcomes of primary single-anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S). Surg. Obes. Relat. Dis. 16(11):1638-46 [PubMed: 32843266]
-139. Sverdén E, Mattsson F, Sondén A, Leinsköld T, Tao W, et al. 2016. Risk factors for marginal ulcer after gastric bypass surgery for obesity: a population-based cohort study. Ann. Surg. 263(4):733-37 [PubMed: 26106845]
-140. Syn NL, Lee PC, Kovalik JP, Tham KW, Ong HS, et al. 2020. Associations of bariatric interventions with micronutrient and endocrine disturbances. JAMA Netw. Open 3(6):e205123 [PubMed: 32515795]
-141. Tack J, Deloose E. 2014. Complications of bariatric surgery: dumping syndrome, reflux and vitamin deficiencies. Best Pract. Res. Clin. Gastroenterol. 28(4):741-49 [PubMed: 25194187]
-142. Tang TS, Funnell MM, Brown MB, Kurlander JE. 2010. Self-management support in "real-world" settings: an empowerment-based intervention. Patient Educ. Couns. 79(2):178-84 [PubMed: 19889508]
-143. Torres A, Rubio MA, Ramos-Leví AM, Sánchez-Pernaute A. 2017. Cardiovascular risk factors after single anastomosis duodeno-ileal bypass with sleeve gastrectomy (SADI-S): a new effective therapeutic approach? Curr. Atheroscler. Rep. 19(12):58 [PubMed: 29116413]
-144. Tu J, Wang Y, Jin L, Huang W. 2022. Bile acids, gut microbiota and metabolic surgery. Front. Endocrinol. 13:929530
-145. Turnbaugh PJ, Ridaura VK, Faith JJ, Rey FE, Knight R, Gordon JI. 2009. The effect of diet on the human gut microbiome: a metagenomic analysis in humanized gnotobiotic mice. Sci. Transl. Med. 1(6):6ra14
-146. van Beek AP, Emous M, Laville M, Tack J. 2017. Dumping syndrome after esophageal, gastric or bariatric surgery: pathophysiology, diagnosis, and management. Obes. Rev. 18(1):68-85 [PubMed: 27749997]
-147. Vanheule G, Ceulemans D, Vynckier A-K, De Mulder P, Van Den Driessche M, Devlieger R. 2021. Micronutrient supplementation in pregnancies following bariatric surgery: a practical review for clinicians. Obes. Surg. 31(10):4542-54 [PubMed: 34304377]
-148. Varma S, Baz W, Badine E, Nakhl F, McMullen H, et al. 2008. Need for parenteral iron therapy after bariatric surgery. Surg. Obes. Relat. Dis. 4(6):715-19 [PubMed: 18586567]
-149. Velapati SR, Schroeder SE, Schroeder DR, Buttar NS, Mohamed Elfadil O, et al. 2021. Use of home enteral nutrition in malnourished post-bariatric surgery patients. J. Parenter. Enteral Nutr. 45(5):1023-31
-150. Wang Y, Zheng Y, Kuang L, Yang K, Xie J, et al. 2023. Effects of probiotics in patients with morbid obesity undergoing bariatric surgery: a systematic review and meta-analysis. Int. J. Obes. 47(11):1029-42
-151. Weng TC, Chang CH, Dong YH, Chang YC, Chuang LM. 2015. Anaemia and related nutrient deficiencies after Roux-en-Y gastric bypass surgery: a systematic review and meta-analysis. BMJ Open 5(7):e006964
-152. WHO (World Health Organ.). 2021. Obesity and overweight. Fact Sheet, WHO, Geneva. https:// www.who.int/news-room/fact-sheets/detail/obesity-and-overweight
+CI: confidence interval.
 
-Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+The results presented in this table should not be interpreted in isolation from the results of individual included studies contributing to each summary test accuracy measure.
+bPrevalence levels were suggested by the WHO Global Tuberculosis Programme.
+cDowngraded one level for imprecision due to wide  $95\%$  CI.
+dDowngraded one level for inconsistency as specificity ranged from  $78\%$  to  $100\%$ , and several  $95\%$  CIs did not overlap.
+eDowngraded one level for indirectness as only two studies (50%) were of low concern regarding applicability (patients enrolled from outpatient or non-referral settings).
+fDowngraded two levels for imprecision due to wide  $95\%$  CI and because a small number of participants contributed to the analysis for sensitivity.
 
-Moize et al.
+# Summary of findings 2. Xpert Ultra for rifampicin resistancea
 
-153. Wilding JPH, Batterham RL, Calanna S, Davies M, Van Gaal LF, et al. 2021. Once-weekly semaglutide in adults with overweight or obesity. N. Engl. J. Med. 384(11):989-1002 [PubMed: 33567185]
-154. Woodard GA, Encarnacion B, Downey JR, Peraza J, Chong K, et al. 2009. Probiotics improve outcomes after Roux-en-Y gastric bypass surgery: a prospective randomized trial. J. Gastrointest. Surg. 13(7):1198-204 [PubMed: 19381735]
-155. World Obes. Fed. 2023. World obesity atlas 2023. Rep., World Obes. Fed., London. https://s3-eu-west-1.amazonaws.com/wof-files/World_Obesity_Atlas_2023_Report.pdf
-156. Wu KC, Cao S, Weaver CM, King NJ, Patel S, et al. 2023. Intestinal calcium absorption decreases after laparoscopic sleeve gastrectomy despite optimization of vitamin D status. J. Clin. Endocrinol. Metab. 108(2):351-60 [PubMed: 36196648]
-157. Wu KC, Cao S, Weaver CM, King NJ, Patel S, et al. 2022. Prebiotic to improve calcium absorption in postmenopausal women after gastric bypass: a randomized controlled trial. J. Clin. Endocrinol. Metab. 107(4):1053-64 [PubMed: 34888663]
-158. Yu EW. 2014. Bone metabolism after bariatric surgery. J. Bone Miner. Res. 29(7):1507-18. [PubMed: 24677277] Erratum. 2018. J. Bone Miner. Res. 33(5):959 [PubMed: 29727494]
-159. Zhang H, DiBaise JK, Zuccolo A, Kudrna D, Braidotti M, et al. 2009. Human gut microbiota in obesity and after gastric bypass. PNAS 106(7):2365-70 [PubMed: 19164560]
-160. Zibellini J, Seimon RV, Lee CM, Gibson AA, Hsu MS, et al. 2015. Does diet-induced weight loss lead to bone loss in overweight or obese adults? A systematic review and meta-analysis of clinical trials. J. Bone Miner. Res. 30(12):2168-78 [PubMed: 26012544]
-161. Ziegler O, Sirveaux MA, Brunaud L, Reibel N, Quilliot D. 2009. Medical follow up after bariatric surgery: nutritional and drug issues. General recommendations for the prevention and treatment of nutritional deficiencies. Diabetes Metab. 35(6 Pt. 2):544-57 [PubMed: 20152742]
+Review question: what is the diagnostic accuracy of Xpert Ultra for rifampicin resistance in children with signs and symptoms of pulmonary tuberculosis?
 
-Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Patients/population: children with presumed pulmonary tuberculosis
 
-Moize et al.
-Page 24
+Index tests: Xpert Ultra
 
-# SUMMARY POINTS
+Role: an initial test
 
-1. Bariatric surgery is an important weight loss tool in individuals with severe obesity and is currently the most effective long-term weight loss treatment that lowers obesity-related comorbidities.
-2. Bariatric surgery also has significant physiological and nutritional consequences that can result in gastrointestinal complications and micronutrient deficiencies.
-3. Common clinical events negatively affecting nutritional status include malabsorption, dumping syndrome, kidney stones, altered intestinal bile acid availability, bowel obstruction, ulcers, gastroesophageal reflux, and bacterial overgrowth.
-4. Reduced dietary quality and intake, altered nutrient absorption, and inadequate protein intake and vitamin/mineral supplementation are risk factors for poor nutritional status and excess loss of lean body mass and bone.
-5. There are unique concerns in adolescents, older individuals, and individuals who become pregnant postoperatively.
-6. Successful long-term weight loss will likely require a combination of weight loss techniques and will need to be individualized.
-7. With careful management, health-care professionals can minimize the risk of acute and long-term nutrition complications after bariatric surgery.
+Threshold for index tests: an automated result is provided
 
-Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Reference standard: culture-based phenotypic drug susceptibility testing and MTBDRplus
 
-Moize et al.
+Types of studies: cross-sectional and cohort studies
+
+Setting: primary care facilities and local hospitals
+
+Limitations: the findings are based on 3 studies. Each study included only 1 participant with rifampicin resistance
+
+|  Specimen | Effect (95% CI) | Number of participants (studies) | Test result | Number of results per 1000 patients tested(95% CI)b |   |   | Certainty of the evidence (GRADE)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|   |   |   |   |  Prevalence 2% | Prevalence 10% | Prevalence 15%  |   |
+|  All specimens | Sensitivity range 100% to 100% | 3 (3) | True positive | 20 to 20 | 100 to 100 | 150 to 150 | ⊕⊕⊕ Very lowc,d,e  |
+|   |   |   |  False negative | 0 to 0 | 0 to 0 | 0 to 0  |   |
+|   |  Specificity range 97% to 100% | 128 (3) | True negative | 951 to 980 | 873 to 900 | 825 to 850 | ⊕⊕⊕ Lowc,d  |
+|   |   |   |  False positive | 0 to 29 | 0 to 27 | 0 to 25  |   |
+
+# GRADE Working Group grades of evidence
+
+High certainty: we are very confident that the true effect lies close to that of the estimate of the effect.
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+Moderate certainty: we are moderately confident in the effect estimate; the true effect is likely to be close to the estimate of the effect, but there is a possibility that it is substantially different.
+
+Low certainty: our confidence in the effect estimate is limited; the true effect may be substantially different from the estimate of the effect.
+
+Very low certainty: we have very little confidence in the effect estimate; the true effect is likely to be substantially different from the estimate of effect.
+
+CI: confidence interval.
+
+${}^{a}$ The results presented in this table should not be interpreted in isolation from the results of individual included studies contributing to each summary test accuracy measure.
+
+${}^{\mathrm{b}}$ Prevalence levels were suggested by the WHO Global Tuberculosis Programme.
+
+${}^{c}$ Downgraded one level for risk of bias because in one study the manner of participant selection was unclear, and in another, not all participants were included in the analysis.
+
+${}^{d}$ Downgraded one level for indirectness because the three included studies took place in China, Italy, and South Africa, and applicability to other settings is uncertain.
+
+${}^{e}$ Downgraded two levels for imprecision because only three participants with rifampicin resistance contributed to this analysis for the observed sensitivity.
+
+Cochrane Library
+Trusted evidence.
+Informed decisions.
+Better health.
+Cochrane Database of Systematic Reviews
+8
+
+BACKGROUND
+
+Tuberculosis is the 13th leading cause of death and the second leading cause of death from a single infectious agent after COVID‐19 (WHO Global Tuberculosis Report 2021). Globally, in 2020, an estimated 10 million people developed tuberculosis disease, including around 1.1 million children younger than 15 years of age, and 226,100 children (205,000 HIV‐negative and 21,100 HIV‐positive children) died from the disease (WHO Global Tuberculosis Report 2021). Globally, in 2020, 53% of HIV‐negative people who died from tuberculosis were men, 32% were women, and 16% were children younger than 15 years of age. The higher proportion of children who die from tuberculosis compared with their estimated share of cases (11%) suggests poorer access to diagnosis and treatment (WHO Global Tuberculosis Report 2021). The toll on younger children is especially tragic. One systematic review that investigated tuberculosis mortality in children found higher case fatality ratios in children from birth to four years of age compared with children aged five to 14 years (Jenkins 2017). Recent epidemiological models that have been accepted and supported by the World Health Organization (WHO) suggest that there is substantial under‐reporting as well as underdiagnosis of tuberculosis in children (Dodd 2017).
+
+Tuberculosis treatment for children follows the same principles as for adults, and the same drugs are used in most cases. The standard treatment for drug‐susceptible tuberculosis -- both pulmonary and extrapulmonary forms -- is a four‐drug combination regimen of isoniazid, rifampicin, pyrazinamide, and ethambutol given daily for two months, followed by isoniazid and rifampicin given daily for an additional two to four months. Central nervous system and osteoarticular tuberculosis constitute an exception in that treatment with isoniazid and rifampicin is extended for a total of 12 months. The introduction of paediatric fixed‐dose combinations with optimized dosing and taste masking has improved the efficiency of treatment (Wademan 2019). Treatment of drug‐resistant tuberculosis in children generally has better outcomes than in adults (Harausz 2018). Of note, in 2020, the WHO released consolidated guidelines on the treatment of drug‐resistant tuberculosis in children and adults, containing new recommendations for the treatment of child drug‐resistant tuberculosis, including the use of all‐oral regimens (Furin 2019; WHO Consolidated Guidelines (Module 4) 2020).
+
+The diagnosis of child tuberculosis relies on a mix of clinical, epidemiological, radiological, and laboratory information. Child tuberculosis is typically paucibacillary (tuberculosis disease caused by a smaller number of bacteria), and young children cannot voluntarily produce sputum specimens (Marais 2005; Theart 2005). Hence, even under ideal clinical and laboratory conditions, only 30% to 40% of children with tuberculosis have bacteriological confirmation of disease (Dunn 2016). The probability of microbiological confirmation is increased in children with more severe or advanced disease (Marais 2006a; Marais 2006b). However, the diagnostic gap is perpetuated because conventional smear microscopy, which is of limited value in diagnosing child tuberculosis and is no longer recommended by the WHO for diagnosis, remains the most used and most widely available tuberculosis diagnostic method in low‐ and middle‐income countries. Further, the clinical skills and equipment needed for sputum induction and gastric aspiration are often not available in peripheral (subdistrict and community level) health clinics (Reid 2012). Compared with microscopy, tuberculosis culture methods have shown greater, yet highly variable, sensitivity in child tuberculosis (Chiang 2017; Frigati 2015). Unfortunately, tuberculosis culture to support diagnosis is not widely available in high‐burden settings.
+
+The development of Xpert MTB/RIF (Cepheid, Sunnyvale, CA, USA), a rapid molecular diagnostic test that simultaneously detects Mycobacterium tuberculosis (M tuberculosis) complex and rifampicin resistance), was a major step towards improving detection of tuberculosis and rifampicin resistance worldwide. However, Xpert MTB/RIF sensitivity is suboptimal in people with smear‐negative tuberculosis, and particularly in children, people living with HIV, and people with extrapulmonary tuberculosis (Horne 2019;Kay 2020; Kohli 2021; Zifodya 2021). To overcome these limitations, Cepheid developed Xpert MTB/RIF Ultra (Xpert Ultra), a re‐engineered assay using a newly developed cartridge that is run on the same device (GeneXpert) after a software upgrade (see Index test(s)).
+
+This Cochrane Review update assessed the accuracy of Xpert Ultra for detecting pulmonary tuberculosis, specific forms of extrapulmonary tuberculosis (i.e. tuberculous meningitis and lymph node tuberculosis), and rifampicin resistance in children presumed to have tuberculosis, using sputum, gastric aspirate, nasopharyngeal aspirate, or stool specimens.
+
+Current WHO recommendations on the use of Xpert Ultra related to this review update are presented in Table 1 and the WHO Consolidated Guidelines (WHO Consolidated Guidelines (Module 3) 2021; WHO Consolidated Guidelines (Module 5) 2022).
+
+### Target condition being diagnosed
+
+There are four target conditions: active pulmonary tuberculosis, tuberculous meningitis, lymph node tuberculosis, and rifampicin resistance.
+
+### Tuberculosis
+
+Tuberculosis is an infectious disease caused by bacteria within the M tuberculosis complex, most commonly M tuberculosis. Typically disseminated through the air, M tuberculosis predominantly affects the lungs, causing pulmonary tuberculosis, and less typically can cause disease in other organs of the body in extrapulmonary tuberculosis forms. For this review, we limited evaluation of extrapulmonary tuberculosis to lymph node tuberculosis and tuberculous meningitis. Lymph node tuberculosis is the most common form of extrapulmonary tuberculosis in children (Marais 2006e), and tuberculous meningitis results in the highest morbidity and mortality (Marais S 2010).
+
+The natural history of tuberculosis in children is distinct from that in adults, due to more frequent progression to primary tuberculosis disease (Marais 2004). Children younger than five years of age are at particularly high risk of progression to tuberculous disease following infection, but the risk for older children and adolescents is also higher than in adults. Overall, it is estimated that 90% of tuberculous disease in young children occurs within one year of infection (Marais 2014). In addition to age, factors such as nutritional status, immune‐compromising conditions (e.g. HIV infection), bacillus Calmette‐Guérin (BCG)‐vaccination status, and genetic susceptibility contribute to children's risk of disease progression. Immediately following infection with M tuberculosis
+
+in a child, haematogenous spread (by way of the bloodstream) can occur. The period of highest risk for presentation with tuberculous meningitis and miliary tuberculosis is one to three months following primary infection. Children between six months and two years of age are at particularly high risk of these severe forms of tuberculous disease. Approximately 50% of children in this age range progress to tuberculous disease following infection, and 20% to 40% of those children will present with disseminated disease (Marais 2004; Marais 2014). Children younger than five years of age most commonly present with hilar lymph node forms of intrathoracic tuberculous disease. Older children and adolescents more commonly manifest adult‐type disease, including pleural tuberculosis and upper lobe consolidations (Marais 2004).
+
+Laboratory confirmation of tuberculosis in children is challenging for two reasons. First, child tuberculosis most commonly represents as a primary disease process, without the formation of cavities (Marais 2006c). The number of acid‐fast bacilli (the presence of acid‐fast bacilli on a sputum smear or other specimen usually indicates tuberculous disease) present in forms of primary tuberculosis such as hilar lymph node or bronchial tuberculosis is substantially lower than the number present in a pulmonary cavity. Consequently, child tuberculosis is often referred to as ‘paucibacillary', and it is more difficult to obtain the organisms needed to confirm disease via conventional smear (no longer recommended) or culture (Dunn 2016). Second, most children younger than six years of age lack the ability to expectorate sputum and are unable to voluntarily produce good‐quality specimens. Therefore, respiratory specimens are often obtained through sputum induction. As children swallow respiratory secretions, early‐morning gastric aspiration is another well‐established (yet still invasive) approach to specimen collection. In one study, the yield of three consecutive morning gastric aspirates was similar to the yield of one induced sputum specimen (Zar 2005). Nasopharyngeal aspiration for respiratory specimens is a less invasive mode of specimen collection (Zar 2012). Stool has also been studied as a child tuberculosis diagnostic specimen; although sensitivity has been lower than with traditional specimens, this specimen has great appeal because collection is non‐invasive and requires no training (Nicol 2014). Because laboratory diagnostics for tuberculosis perform poorly in children, algorithms involving signs, symptoms, tuberculosis exposure, HIV status, laboratory tests, and radiographic findings are commonly used to make a clinical diagnosis of child tuberculosis. However, these algorithms have been shown to perform differently across settings, and their sensitivity and specificity may be site‐specific (David 2017).
+
+### Rifampicin resistance
+
+Rifampicin‐resistant tuberculosis is caused by M tuberculosis strains resistant to rifampicin, a critical first‐line tuberculosis drug (see Index test(s)). These strains may be susceptible or resistant to isoniazid (i.e. multidrug‐resistant (MDR) tuberculosis), or resistant to other first‐line or second‐line tuberculosis drugs (WHO Consolidated Guidelines (Module 4) 2020). People with drug‐resistant tuberculosis can transmit the infection to others. The drugs used to treat drug‐resistant tuberculosis are less potent and more toxic than the drugs used to treat drug‐susceptible tuberculosis. The WHO has issued recommendations that all individuals with MDR or rifampicin‐resistant tuberculosis, including those who are also resistant to fluoroquinolones, may benefit from all‐oral treatment regimens (WHO Consolidated Guidelines (Module 4) 2020).
+
+### Index test(s)
+
+The index test is Xpert Ultra (Cepheid Inc, Sunnyvale, CA, USA). Xpert Ultra is a nucleic acid amplification test (NAAT) that functions as an automated closed system that performs real‐time polymerase chain reaction (PCR). Specimens are processed using Xpert Sample Reagent and are incubated for 15 minutes, after which the processed samples are pipetted into the cartridge. These tests can be run by operators (such as laboratory technicians and nurses) with minimal technical expertise. Within two hours, the test detects both live and dead M tuberculosis complex DNA and simultaneously recognizes mutations in the M tuberculosis gene encoding the beta subunit of the ribonucleic acid (RNA) polymerase (rpoB) gene, which is the most common site of M tuberculosis mutations leading to rifampicin resistance. Xpert Ultra uses the same platform (GeneXpert) as Xpert MTB/RIF. Xpert Ultra requires an uninterrupted and stable electrical power supply, temperature control, and yearly calibration of the cartridge modules. The WHO has published extensive guidance and practical information on implementing the test (WHO Operational handbook on tuberculosis 2021).
+
+Xpert Ultra was designed to improve the sensitivity to detect M tuberculosis complex and reliability for detection of rifampicin resistance (WHO Operational handbook on tuberculosis 2021). To improve tuberculosis detection, Xpert Ultra incorporates two different multicopy amplification targets (IS6110 and IS1081) and a larger chamber for the PCR reaction. To improve rifampicin resistance detection, Xpert Ultra is based on melting temperature analysis. These revisions have resulted in an approximately 1‐log improvement in the lower limit of detection compared with Xpert MTB/RIF, as well as improved differentiation of certain silent mutations and improved detection of rifampicin resistance in mixed infections (Chakravorty 2017; WHO Operational handbook on tuberculosis 2021). At very low bacterial loads, Xpert Ultra can give a trace result (considered a positive bacteriologic result in children and people living with HIV), though trace does not provide a result for rifampicin susceptibility or resistance. Studies have found that the increase in Xpert Ultra sensitivity for tuberculosis detection has been accompanied by a decrease in specificity, and that Xpert Ultra may be more likely to identify M tuberculosis DNA from prior episodes of tuberculosis, particularly in people with a trace result (Dorman 2018; Mishra 2020). Despite clear guidance in children, Xpert Ultra trace results can complicate decision‐making, and clinical management of trace results is rarely straightforward.
+
+### Clinical pathway
+
+Figure 1 presents an example of the clinical pathway and placement of the index test. A careful clinical history of tuberculosis exposure and symptoms is the first step in the diagnostic pathway for child tuberculosis. Children with household or other close and persistent exposure to a person with tuberculosis are at increased risk of tuberculosis infection and resultant progression to tuberculosis disease. All children with recent exposure to tuberculosis must be evaluated for clinical symptoms and for examination findings consistent with tuberculous disease. Additional testing depends on the context but may include chest radiography and a test of tuberculosis infection. Symptoms of tuberculosis disease generally persist for longer than two weeks and are unremitting (Marais 2005). The most common symptoms are cough, fever, decreased appetite, weight loss or failure to thrive, and fatigue or reduced playfulness. Symptoms of extrapulmonary tuberculosis
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+are typically localized, and diagnostic findings are generally obtained from the site of disease (Figure 1). However, no symptom-based diagnostic algorithms have been validated or shown to be reliable in multiple contexts. Symptom-based diagnostic
+
+algorithms tend to perform poorly in children younger than three years of age and in HIV-positive children: two populations at high risk for disease progression (Marais 2006d).
 
 ![img-0.jpeg](img-0.jpeg)
-Figure 1. Bariatric surgical procedures (percent per year) for sleeve gastrectomy (SG), Roux-en-Y gastric bypass (RYGB), adjustable gastric band (AGB), biliopancreatic diversion (BPD), and endoscopic bariatric therapies (balloons and other procedures to reduce stomach size). Data from the American Society for Metabolic and Bariatric Surgery were used to create this figure (https://asms.org/resources/estimate-of-bariatric-surgery-numbers).
+Figure 1. Clinical pathway of Xpert Ultra in children presumed to have tuberculosis
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+Unfortunately, no clinical examination features are specific to pulmonary tuberculosis in children. However, examination findings in extrapulmonary tuberculosis can be quite specific when identified. Clinicians should consider medical comorbidities that increase the risk for tuberculous disease, and should modify diagnostic algorithms accordingly. HIV infection not only
 
-Moize et al.
+significantly increases risk of tuberculosis in children, it also raises the risk of increased disease severity. HIV-positive children, especially before effective antiretroviral therapy is established, often present with advanced tuberculosis, such as disseminated disease, and have high levels of immunosuppression, further complicating diagnosis and management.
 
-a
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+Additional diagnostic imaging studies can assist in the diagnosis of pulmonary tuberculosis and nearly all forms of extrapulmonary tuberculosis. Tests for tuberculosis infection, such as interferon gamma release assays or tuberculin skin tests, can also aid in establishing the probability of tuberculosis (disease) in a child but are not necessary to make the diagnosis. Diagnostic recommendations strongly suggest collecting appropriate specimens from suspected sites of involvement in both pulmonary and extrapulmonary tuberculosis for microbiological examination. The preferred specimen in pulmonary tuberculosis is sputum; however, in young children who cannot expectorate, the specimen is commonly obtained via a gastric aspirate or induced sputum, and stool is increasingly used. To diagnose extrapulmonary tuberculosis, sample collection targets the affected site of disease.
+
+The purpose of Xpert Ultra testing is diagnosis of pulmonary and extrapulmonary tuberculosis and detection of rifampicin resistance. Results of Xpert Ultra can be used as a decision‐making tool in the following ways. M tuberculosis detected and rifampicin resistance not detected: child would start treatment for drug‐sensitive tuberculosis. M tuberculosis detected and rifampicin resistance detected: child would need further testing for drug resistance and would start treatment for drug‐resistant tuberculosis according to country guidelines. M tuberculosis not detected: a negative Xpert Ultra result does not rule out tuberculosis disease; therefore, clinicians should still consider initiation of tuberculosis treatment in children with history and clinical or radiological features suggestive of tuberculosis disease despite a negative Xpert Ultra result. A negative Xpert Ultra result may also represent a true negative.
+
+Possible consequences of a false‐positive and a false‐negative result may include the following. False positive: children (and their families) would likely experience anxiety and morbidity caused by additional testing, unnecessary treatment, and possible adverse effects; as well as missed time from school, possible stigma associated with tuberculosis or a diagnosis of drug‐resistant tuberculosis, and the chance that a false‐positive may halt further diagnostic evaluation for other causes of illness. Families also experience unnecessary expense, as well as the risk of missing an important alternative diagnosis.False negative: would imply increased risk of morbidity and mortality and delayed start of treatment.
+
+### Role of index test(s)
+
+For tuberculosis detection, the index test would be used as an initial test, replacing standard practice (i.e. smear microscopy or culture). For detection of rifampicin resistance, the index test would replace culture‐based drug susceptibility testing as the initial test.
+
+### Alternative test(s)
+
+Here we summarize selected alternative tests.
+
+Truenat technologies (Molbio Diagnostics, Goa, India) are rapid molecular assays that can detect tuberculosis (Truenat MTB and MTB Plus assays) and rifampicin resistance (Truenat MTB‐RIF Dx assay) from sputum specimens with results reported in less than one hour (WHO Operational handbook on tuberculosis 2021). Truenat MTB and MTB Plus assays use chip‐based PCR for detection of M tuberculosis complex; if a result is positive, a sample of the already extracted DNA may be run on the chip‐based Truenat MTB‐RIF Dx assay to detect mutations associated with rifampicin resistance (WHO Operational handbook on tuberculosis 2021). The assays use portable, battery‐operated devices. The WHO includes Truenat assays in the category 'molecular WHO‐recommended rapid diagnostic tests that can detect tuberculosis (mWRD)' and recommends their use as follows (WHO Consolidated Guidelines (Module 3) 2021). In adults and children with signs and symptoms of pulmonary tuberculosis, the Truenat MTB or MTB Plus may be used as an initial diagnostic test for tuberculosis rather than smear microscopy/culture (conditional recommendation, moderate certainty of evidence for test accuracy).In adults and children with signs and symptoms of pulmonary tuberculosis and a Truenat MTB or MTB Plus positive result, Truenat MTB‐RIF Dx may be used as an initial test for rifampicin resistance rather than culture and phenotypic drug susceptibility testing (conditional recommendation, very low certainty of evidence for test accuracy).
+
+Additional alternative approaches for diagnosis of tuberculosis are still used extensively world. Main tests include examination of smear for acid‐fast bacilli (tuberculosis bacteria) under a microscope (light microscopy, using the classical Ziehl‐Neelsen staining technique), fluorescence microscopy, and light‐emitting diode (LED)‐based fluorescence microscopy (no longer recommended by the WHO for diagnosis but used for monitoring in adults). The sensitivity of smear microscopy ranges from 0% to 10% in children (Kunkel 2016). Examination of histology specimens under a microscope following a tissue biopsy targets acid‐fast bacilli and granulomatous inflammation, frequently with caseous necrosis (necrotizing granulomas); however these options are seldom pursued to diagnose child tuberculosis in low‐resource settings due to the invasive nature of the procedures and the technical expertise required.
+
+Lipoarabinomannan (LAM) antigen is a lipopolysaccharide present in the mycobacterial cell wall that can be detected in the urine of people with tuberculous disease (Bjerrum 2019). This urine test offers potential advantages over sputum‐based testing due to ease of sample collection. The accuracy of urinary LAM detection is improved among people living with HIV with advanced immunosuppression (Bjerrum 2019; Nicol 2014; Shah 2016a). One Cochrane Review found that in inpatient settings, the use of lateral flow (LF)‐LAM as part of a tuberculosis diagnostic testing strategy likely reduces mortality and probably results in a slight increase in tuberculosis treatment initiation in people living with HIV (Nathavitharana 2021). The WHO recommends that LF‐LAM (Alere Determine™ TB LAM Ag, Alere Inc, Waltham, MA, USA), the only product available at the time of this recommendation, should be used to assist in the diagnosis of tuberculosis disease in HIV‐positive adults, adolescents, and children. The full recommendations, which differ for inpatients and outpatients, are described in the WHO Consolidated guidelines for rapid diagnostics for tuberculosis detection (WHO Consolidated Guidelines (Module 3) 2021). However, the evidence for LF‐LAM in children is limited and is primarily extrapolated from adults. A new urinary, point‐of‐care LAM test, Fujifilm SILVAMP TB LAM
+
+(FujiLAM, co‐developed by FIND, Geneva, Switzerland, and Fujifilm, Tokyo, Japan), for diagnosis of tuberculosis, is currently under investigation and has the potential to increase sensitivity in children (Broger 2019).
+
+Line probe assays are a category of molecular tests for drug‐resistant tuberculosis that offer speed of diagnosis (one or two days), standardized testing, and potential for high through‐put. Drawbacks are that line probe assays require skills and infrastructure only available in intermediate and central laboratories. Line probe assays for first‐line drugs (which include rifampicin) include GenoType MTBDRplus assay (MTBDRplus, Bruker‐Hain Lifescience, Nehren, Germany), and the Nipro NTM +MDRTB detection kit 2 (Nipro, Tokyo, Japan). These assays detect the presence of mutations associated with drug resistance to isoniazid and rifampicin. MTBDRplus is the most widely studied line probe assay. The WHO recommends that for people with a sputum smear‐positive specimen or a culture isolate of M tuberculosis complex, commercial molecular line probe assays may be used as the initial test instead of phenotypic drug susceptibility testing to detect resistance to rifampicin and isoniazid (conditional recommendation, moderate certainty in the evidence for the test's accuracy; WHO Consolidated Guidelines (Module 3) 2021).
+
+The quest for novel and more efficient technologies for diagnosis of tuberculosis is a cornerstone of current efforts to reduce the burden of disease worldwide. Over the past decade, unprecedented activity has focused on the development of new tools for diagnosis of extrapulmonary tuberculosis, largely supported by the engagement of global agencies. As a result, a strong pipeline of new tools for diagnosis of tuberculosis will complement the use of existing ones and will offer improved options. 'The Tuberculosis Diagnostics Pipeline Report: Advancing the Next Generation of Tools' describes tuberculosis tests in development (Branigan 2021).
+
+### Rationale
+
+Timely and reliable diagnosis of tuberculosis in children remains challenging due to both difficulties in collecting sputum samples and the paucibacillary nature of the disease. Under‐diagnosis may lead to increased morbidity, mortality, and disease transmission in this key group.
+
+Our previously published Cochrane Review assessed the accuracy of both Xpert MTB/RIF and Xpert Ultra (Kay 2020). We limited the current review update to the diagnostic accuracy of Xpert Ultra for several reasons. Xpert Ultra has superseded Xpert MTB/RIF, and the manufacturer will be discontinuing Xpert MTB/RIF in most countries in 2023. Given the available evidence about Xpert MTB/RIF from our previous review, we therefore only updated Xpert Ultra as requested by the WHO. The Xpert MTB/RIF text and analyses are available in the last published version of the review (Kay 2020).
+
+Regarding Xpert Ultra, in the original Cochrane Review, we identified few published studies: three studies on Xpert Ultra in sputum (697 participants) and no studies in gastric aspirate and stool specimens. In addition, we had limited data in children younger than 10 years of age, an area of considerable interest for the WHO.
+
+In the current review update, we aimed to determine the diagnostic accuracy of Xpert Ultra for pulmonary tuberculosis, tuberculosis meningitis, lymph node tuberculosis, and rifampicin resistance in children. Parts of the review update, particularly the analyses of gastric aspirate and stool specimens, were used to inform the 2022 WHO updated guidance on the management of tuberculosis in children and adolescents (WHO Consolidated Guidelines (Module 5) 2022; see Table 1).
+
+## OBJECTIVES
+
+To assess the diagnostic accuracy of Xpert Ultra for detecting: pulmonary tuberculosis, tuberculous meningitis, lymph node tuberculosis, and rifampicin resistance, in children with presumed tuberculosis.
+
+### Secondary objectives
+
+To investigate potential sources of heterogeneity in accuracy estimates. For detection of tuberculosis, we considered age, comorbidity (HIV, severe pneumonia, and severe malnutrition), and specimen type as potential sources.To summarize the frequency of Xpert Ultra trace results.
+
+## METHODS
+
+### Criteria for considering studies for this review
+
+### Types of studies
+
+We included cross‐sectional studies, cohort studies, and randomized controlled trials (RCTs) from all settings. We included RCTs that evaluated use of the test for patient health outcomes but also reported sensitivity and specificity. Although we utilized RCTs for the purpose of determining the impact of the test versus a comparator (e.g. usual practice, another test) on health outcomes, the study design was interpreted as a cross‐sectional design for the purpose of determining diagnostic accuracy for the index tests in this review. We included only studies from which we could extract or derive data on the index test giving true positives, false positives, true negatives, or false negatives, as assessed against the reference standards specified below. We included abstracts with sufficient data. In addition, we included ongoing studies that helped us to address the review objectives (see Data collection and analysis). For each of the ongoing studies, we recorded the stage of the study at the time of data extraction for this review (e.g. recruitment completed, recruitment completed and data cleaned, or recruitment ongoing and number (%) of the target sample size recruited) in the Characteristics of included studies table. We excluded case‐control studies and case reports.
+
+### Participants
+
+We included studies that evaluated the index tests for pulmonary or extrapulmonary tuberculosis in HIV‐positive and HIV‐negative children and young adolescents aged 0 to 14 years (collectively referred to as children), presumed to have tuberculosis. Studies were eligible for inclusion if they described the use of Xpert Ultra on routine respiratory specimens such as expectorated or induced sputum and gastric and nasopharyngeal specimens. Gastric specimens could be obtained via gastric aspiration, lavage, or washing, as described by study authors. In addition, we included studies evaluating stool specimens, because tuberculosis bacilli are present in swallowed sputum and are recoverable from stool samples using Xpert Ultra. We also included studies that assessed several different specimen types.
+
+Index tests
+
+The index test was Xpert Ultra.
+
+Index test results are automatically generated, and the user is provided with a printable test result as follows. MTB (M tuberculosis) DETECTED HIGH; RIF (rifampicin) Resistance DETECTED.MTB DETECTED MEDIUM; RIF Resistance DETECTED.MTB DETECTED LOW; RIF Resistance DETECTED.MTB DETECTED VERY LOW; RIF Resistance DETECTED.MTB DETECTED HIGH; RIF Resistance NOT DETECTED.MTB DETECTED MEDIUM; RIF Resistance NOT DETECTED.MTB DETECTED LOW; RIF Resistance NOT DETECTED.MTB DETECTED VERY LOW; RIF Resistance NOT DETECTED.MTB DETECTED HIGH; RIF Resistance INDETERMINATE.MTB DETECTED MEDIUM; RIF Resistance INDETERMINATE.MTB DETECTED LOW; RIF Resistance INDETERMINATE.MTB DETECTED VERY LOW; RIF Resistance INDETERMINATE.MTB Trace DETECTED; RIF Resistance INDETERMINATE.INVALID (the presence or absence of MTB cannot be determined).ERROR (the presence or absence of MTB cannot be determined).NO RESULT (the presence or absence of MTB cannot be determined).
+
+Xpert Ultra incorporates a semi‐quantitative classification for results: trace, very low, low, moderate, and high. Trace corresponds to the lowest bacterial burden for detection of M tuberculosis (Chakravorty 2017). Although no rifampicin resistance results are available for people with trace results, a trace‐positive result is sufficient to initiate tuberculosis therapy in children or people living with HIV, according to the WHO (WHO Consolidated Guidelines (Module 3) 2021). Hence, we considered a trace result to mean M tuberculosis DETECTED.
+
+Target conditions
+
+The target conditions were active pulmonary tuberculosis; two forms of extrapulmonary tuberculosis, tuberculous meningitis and lymph node tuberculosis; and rifampicin resistance.
+
+Reference standards
+
+For detection of pulmonary tuberculosis, tuberculous meningitis, and lymph node tuberculosis, we included two reference standards (see below regarding stool samples). Culture: tuberculosis was defined as a positive culture on solid or liquid medium from a respiratory sample.Composite reference standard: tuberculosis was defined as a positive culture or a clinical decision, based on clinical features, to initiate treatment for tuberculosis (i.e. clinically diagnosed tuberculosis). Clinical features might include cough longer than two weeks, fever, or weight loss; pneumonia that did not improve with antibiotics; or a history of close contact with an adult who had tuberculosis.For the composite reference standard, in the absence of information on tuberculosis treatment, we accepted a study‐specific definition (i.e. a standardized definition of tuberculosis defined by the primary study authors), if available. We also accepted the uniform research definition (Graham 2012; Graham 2015). In these situations, for the older definition (Graham 2012), we defined tuberculosis as ‘confirmed, probable, and possible' and not tuberculosis as ‘unlikely and not tuberculosis'. For the newer definition (Graham 2015), we defined tuberculosis as ‘confirmed and unconfirmed' and not tuberculosis as ‘unlikely'.
+
+We included children with unconfirmed tuberculosis in the true‐negative population when evaluating results against a culture reference standard. In contrast, we included children who were not treated for tuberculosis, or who did not meet the study research definition for tuberculosis, in the true‐negative population when evaluating results against a composite reference standard.
+
+Regarding stool specimens (used for the diagnosis of pulmonary tuberculosis), we defined the reference standard similar to MacLean 2019: (1) culture, or (2) Xpert Ultra performed on a routine respiratory specimen, such as sputum or gastric aspirate specimen. We did not include stool Xpert Ultra results in the definition of the reference standard. In addition, none of the included studies used stool culture to verify pulmonary tuberculosis. For these reasons, we thought bias due to incorporation of the index test was unlikely. Hence, tuberculosis was defined as a positive culture or a positive Xpert Ultra on a routine respiratory specimen.
+
+Regarding stool specimens, we also included a composite reference standard as defined above.
+
+Culture is generally considered the best reference standard for tuberculosis diagnosis. However, particularly in children with paucibacillary disease, tuberculosis is verified by culture in only 15% to 50% of cases, depending on disease severity, challenges of obtaining specimens, and resources (Graham 2015). Evaluation of multiple specimens, of the same or different types, may increase the yield of culture for confirming tuberculosis (Cruz 2012;Zar 2012). Therefore, we considered a higher‐quality reference standard to be one in which more than one specimen was used to confirm tuberculosis. We considered a lower‐quality reference standard to be one in which only one specimen was used for tuberculosis diagnosis. We reflected these considerations in the Quality Assessment of Studies of Diagnostic Accuracy -- Revised (QUADAS‐2) reference standard domain.
+
+For rifampicin resistance, the reference standards were phenotypic drug susceptibility testing and MTBDRplus. MTBDRplus is a molecular line probe assay designed to detect the presence of multiple mutations causing resistance to isoniazid and rifampicin.
+
+Search methods for identification of studies
+
+We attempted to identify all relevant studies regardless of language or publication status (published, unpublished, in press, and in progress).
+
+Electronic searches
+
+We searched the following databases up to 9 March 2021 using the search terms and strategy described in Appendix 1. Cochrane Infectious Diseases Group Specialized Register.MEDLINE (Ovid, from 1966).Embase (Ovid, from 1974).
+
+Cumulative Index to Nursing and Allied Health Literature (CINAHL (EBSCOHost), from 1982).Science Citation Index -- Expanded (from 1900), Conference Proceedings Citation Index -- Science (CPCI‐S, from 1990), from the Web of Science (Clarivate Analytics).Scopus (Elsevier, from 1970).
+
+We also searched ClinicalTrials.gov (clinicaltrials.gov), the WHO International Clinical Trials Registry Platform (ICTRP; who.int/clinical‐trials‐registry‐platform), and the International Standard Randomized Controlled Trials Number (ISRCTN) Registry (www.isrctn.com) for trials in progress, up to 9 March 2021.
+
+Searching other resources
+
+We contacted researchers and experts in the field to identify additional eligible studies. This included sharing the list of included and excluded studies with the WHO Guideline Development Group on the management of tuberculosis in children and adolescents prior to a preparatory webinar for input and feedback. We also checked the references of relevant reviews and studies to identify additional studies.
+
+### Data collection and analysis
+
+Selection of studies
+
+We used Covidence to manage the selection of studies (Covidence). Two review authors (AWK and TN, or AWK and LFG) independently screened all titles and abstracts to identify potentially eligible studies. We then obtained the full‐text articles of potentially eligible studies, and two review authors (AWK and TN, or AWK and LFG) independently assessed whether they should be included based on predefined inclusion and exclusion criteria. We resolved disagreements by discussion or by consulting a third review author (AMM or KRS), if necessary. We contacted primary study authors for clarification of methods and other information, as needed. We recorded and summarized reasons for excluding studies in the Characteristics of excluded studies table. We illustrated the study selection process in a PRISMA diagram (Page 2021).
+
+Data extraction and management
+
+We designed a data extraction form and piloted it on two included studies (Appendix 2). We then finalized the form based on the pilot test. Two review authors (AWK and TN or AWK and LFG) independently extracted data using this data extraction form and discussed inconsistencies to achieve consensus. We consulted a third review author (AMM or KRS) to resolve discrepancies, as needed. We entered abstracted data into Google sheets on password‐protected computers. We secured the data set in a cloud storage workspace and we stored extracted data for future review updates. Selected details of data extraction are listed below.
+
+Study details
+
+Number of participants after screening for exclusion and inclusion criteriaTotal number of children included in the analysisSpecimen collection methodsUnit of sample collection: one specimen, multiple specimens, unknown, or unclearTarget condition(s)? -- pulmonary tuberculosis, tuberculous meningitis, lymph node tuberculosis, rifampicin resistanceFor ongoing studies, we recorded the stage of the study at the time of data extraction for this review (e.g. recruitment completed, recruitment completed and data cleaned, or recruitment ongoing and number (%) of the target sample size recruited) in the Characteristics of included studies table.
+
+Patient characteristics and setting
+
+Description of study populationAge: median, mean, rangeSexHIV statusPercentage and number of HIV‐positive or HIV‐negative participants, if both were included in the studyType of respiratory specimen included: sputum, gastric aspirate or lavage, stool, nasopharyngeal aspirateType of non‐respiratory specimen included: cerebrospinal fluid, fine‐needle aspirate, lymph node biopsy, multiple types, other, unknownNumber of cultures performed per child to exclude tuberculosisData on culture performance: number of contaminated cultures with respect to total cultures performedClinical setting: outpatient, inpatient, or bothDescription of radiographic findingsInformation on tuberculosis burden in the country
+
+We classified countries as being high‐burden or not high‐burden for tuberculosis, HIV‐associated tuberculosis, and MDR or rifampicin‐resistant tuberculosis based on the WHO classification for 2021 to 2025 (WHO Global Tuberculosis Report 2021). A country may be classified as high‐burden for one, two, or all three of the high‐burden categories.
+
+We contacted the authors of all included studies for data on specific age ranges and subpopulations and for clarification on study characteristics.
+
+Index test
+
+Pretreatment processing procedure for specimens used for Xpert UltraSpecimen condition: fresh, frozen, or bothNumbers of true positives, false positives, false negatives, and true negatives by age group (all ages, under one year, one to four years, five to nine years, 10 to 14 years, and birth to 9 years; (see example tables in Appendix 3)Uninterpretable results for tuberculosis detection (invalid, error, or no result)Indeterminate results for detection of rifampicin resistanceXpert Ultra trace results
+
+Reference standards Details of culture: solid or liquidComposite reference standardRifampicin resistance: phenotypic drug susceptibility testing or MTBDRplus
+
+For each target condition and specimen type, we considered one index test result per child. Hence, the primary unit of analysis was the child. If studies evaluated more than one specimen type,
+
+we extracted data for each specimen. Hence, a study may have contributed more than one 2 × 2 table (data set): one for each type of specimen evaluated.
+
+### Assessment of methodological quality
+
+We assessed the methodological quality of included studies using the QUADAS‐2 instrument, which we adapted for this review (Whiting 2011). The QUADAS‐2 tool consists of four domains: patient selection;index test(s);reference standard(s); andflow and timing.
+
+All domains are assessed for risk of bias, and the first three domains are assessed for concerns regarding applicability. We first developed guidance on how to appraise each signalling question within the domains and how to make the overall judgement for each domain. One review author piloted the tool with two of the included studies. We finalized the guidance based on experience gained from the pilot. Appendix 4 presents the QUADAS‐2 tool with signalling questions tailored to this review. Two review authors (AK and LFG or AK and TN) independently completed QUADAS‐2. We resolved disagreements through discussion or by arbitration with a third review author (KRS or AMM), when necessary. We presented results of the quality assessment in the text, in tables, and in graphs.
+
+### Statistical analysis and data synthesis
+
+We performed descriptive analyses of the included studies and presented their key characteristics in the Characteristics of included studies table. We stratified all analyses by type of specimen and type of reference standard. We presented individual study estimates of sensitivity and specificity graphically in forest plots and in receiver operating characteristics (ROC) space using Review Manager 5 (Review Manager 2020).
+
+When data were sufficient, we performed meta‐analyses to estimate average sensitivities and specificities using a bivariate model (Chu 2006; Reitsma 2015). We used the bivariate model because the index test, Xpert Ultra, applies a common positivity criterion (Macaskill 2010). When we were unable to fit a bivariate model due to sparse data, few studies, or limited variability in specificity, we simplified the model to a univariate random‐effects or fixed‐effect logistic regression model to pool sensitivity and specificity separately, as appropriate given the observed data (Takwoingi 2015). We performed meta‐analyses using the meqrlogit command for models that included random effects and the blogit command for fixed‐effect meta‐analyses in Stata version 16 (Stata 16). Meta‐analysis using univariate fixed‐effect or random‐effects logistic regression models is not possible when all studies in a meta‐analysis report 100% specificity. For such analyses, we calculated summary specificity by dividing the total number of non‐cases by the total number of true negatives, and we computed the 95% confidence interval (CI) using the Wilson method (Newcombe 1998).
+
+### Approach to non‐determinate and trace index test results
+
+Non‐determinate Xpert Ultra test results include ‘Error', ‘Invalid', and ‘No Result', and may be due to an operator error, instrument, or cartridge issue. For each included study that reported the number of non‐determinate results for tuberculosis detection, we estimated the proportion of non‐determinate Xpert Ultra results. As recommended by the WHO, trace results were included in the primary analyses as Xpert Ultra‐positive results. For each included study that provided data on trace results, we calculated the percentage of test positives that were trace results (i.e. number of trace results/number of test positives).
+
+### Investigations of heterogeneity
+
+We visually inspected forest and summary ROC (SROC) plots for heterogeneity. When data allowed, we evaluated sources of heterogeneity using subgroup analyses. We were unable to perform meta‐regression because of the number of studies available. For tuberculosis detection, we investigated key subgroups of children: aged under 1 year, aged 1 to 4 years, aged 5 to 9 years, aged 10 to 14 years, HIV‐positive, HIV‐negative, with severe pneumonia, and with severe malnutrition.
+
+### Sensitivity analyses
+
+We performed sensitivity analyses excluding data from ongoing studies in the primary analyses.
+
+### Assessment of reporting bias
+
+We did not formally assess reporting bias using funnel plots or regression tests because these have not been reported as helpful for diagnostic test accuracy studies (Macaskill 2010).
+
+### Assessment of certainty of the evidence
+
+We assessed certainty of the evidence using the GRADE approach for diagnostic studies (Balshem 2011; Schünemann 2008; Schünemann 2016). As recommended, we rated certainty of the evidence as high (not downgraded), moderate (downgraded one level), low (downgraded two levels), or very low (downgraded more than two levels) based on five domains: risk of bias, indirectness, inconsistency, imprecision, and publication bias. For each outcome, certainty of the evidence started as high when high‐quality studies (cross‐sectional or cohort studies) enrolled participants with diagnostic uncertainty. If we found a reason for downgrading, we used our judgement to classify the reason as serious (downgraded one level) or very serious (downgraded two levels).
+
+Three review authors (AWK, TN, and KRS) discussed judgements and applied GRADE (Schünemann 2020a; Schünemann 2020b).
+
+### Risk of bias
+
+We used QUADAS‐2 to assess risk of bias.
+
+### Indirectness
+
+We assessed indirectness in relation to the population (including disease spectrum), setting, interventions, and outcomes (accuracy measures). We also used prevalence (proportion) of the target condition in the included studies as a guide to whether there was indirectness in the population.
+
+### Inconsistency
+
+GRADE recommends downgrading for unexplained inconsistency in sensitivity and specificity estimates. We carried out pre‐specified analyses to investigate potential sources of heterogeneity and downgraded when we could not explain inconsistency in accuracy estimates. We looked at the individual point estimates in the forest
+
+plots and judged whether they were more or less the same, as well as the CIs to see if they overlapped.
+
+### Imprecision
+
+We considered the width of the 95% CI. In addition, we determined projected ranges for two categories of test results that have the most important consequences for patients -- the number of false negatives and the number of false positives -- and made judgements on imprecision from these calculations. Imprecision also depends on the number of participants included to determine sensitivity and specificity. We took note of the uncertainty around point estimates along with the number of participants providing those data. We acknowledge the judgement of imprecision is subjective.
+
+### Publication bias
+
+We considered the comprehensiveness of the literature search and outreach to researchers in tuberculosis, the presence of only studies that produce precise estimates of high accuracy despite small sample size, and knowledge about studies that were conducted but not published.
+
+The summary of findings tables include the following details:The review question and its components, population, setting, index test, and reference standards.Summary estimates of sensitivity and specificity with 95% CIs.The number of included studies and participants contributing to the estimates of sensitivity and specificity.Prevalences of the target condition with an explanation of why the prevalences have been chosen.An assessment of the certainty of the evidence (GRADE).Explanations for downgrading, as needed.
+
+## Results
+
+### Results of the search
+
+We identified 2174 records through database searches conducted up to 29 April 2019. An updated search to 9 March 2021 identified 115 records. We found one additional record by contacting researchers at the Foundation for Innovative New Diagnostics (FIND). After removing duplicates, we screened 51 records by title and abstract. We excluded 35 of these, leaving 16 reports, which we retrieved for full text review. We identified 14 unique studies (including one from a source outside of our database searches), integrating 11 new studies since publication of the Cochrane Review (Kay 2020). All studies were written in English. Figure 2 shows the flow of studies in the review. We recorded the excluded studies, including those listed in the previous Cochrane Review (Kay 2020), with reasons for their exclusion in the Characteristics of excluded studies table.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+aKay 2020.
+
+bStudies only evaluated Xpert MTB/RIF and other reasons: not a diagnostic study; study did not include children; case-control study; abstract; index test not studied.
+
 ![img-1.jpeg](img-1.jpeg)
-Dvides the stomach into an upper gastric pouch and a lower remnant that is connected to the jejunum
+Figure 2. Study flow diagram.
 
-b
-Figure 2.
+# Description of included studies
+
+We describe key characteristics in the Characteristics of included studies table and Table 2. All were cross-sectional or cohort studies, with the exception of one, which had an unclear study design. The studies were conducted in both inpatient and outpatient settings; seven took place in tuberculosis high-burden countries.
+
+For pulmonary tuberculosis, 108 data sets (20,407 participants) were available for analysis; for rifampicin resistance, three data sets (131 participants) were available.
+
+We did not identify any studies that evaluated Xpert Ultra accuracy for tuberculous meningitis or lymph node tuberculosis.
+
+# Methodological quality of included studies
+
+# Pulmonary tuberculosis
+
+Figure 3 and Appendix 5 show risk of bias and applicability concerns for 14 studies that evaluated Xpert Ultra for detection of pulmonary tuberculosis.
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
 ![img-2.jpeg](img-2.jpeg)
-A procedure in which surgical staplers are used to remove  $80\%$  of the stomach, making it much smaller
+Figure 3. Risk of bias and applicability concerns summary: review authors' judgements about each domain for each included study.
 
-c
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+In the patient selection domain, we considered 13 studies (93%) at low risk of bias because they enrolled a consecutive or random sample of eligible participants and avoided inappropriate exclusions. We considered one study (7%) at unclear risk of bias because the manner of patient sampling was unclear (Parigi 2021). With respect to applicability, we considered 10 studies (71%) of low concern because participants in these studies were evaluated in primary care facilities, in local hospitals, or in both settings (Barcellini 2019; Jaganath 2021; Liu 2021; NCT04121026; NCT04203628; NCT04240990; NCT04899076; Nicol 2018; Sabi 2018; Ssengooba 2020). We considered three studies (21%) of high concern because participants were evaluated exclusively as inpatients in tertiary care centres (Kabir 2020; Parigi 2021; Zar 2019). We considered one study of unclear concern because we were unsure about the clinical setting (Sun 2020).
+
+In the index test domain, we considered all studies at low risk of bias. With respect to applicability, we considered eight studies (73%) to of low concern (Barcellini 2019; Jaganath 2021; Nicol 2018; Parigi 2021; Sabi 2018; Ssengooba 2020; Sun 2020; Zar 2019). We considered all studies that evaluated stool specimens of unclear concern because of the absence of an established protocol for stool processing before Xpert Ultra testing.
+
+In the reference standard domain, we considered 13 studies (93%) at low risk of bias and one study at unclear risk of bias because the ability of the reference standard to appropriately classify child tuberculosis was uncertain (Kabir 2020). With respect to applicability, we considered nine (64%) studies of low concern because speciation was performed, confirming M tuberculosis instead of other mycobacterial species (Barcellini 2019; Jaganath 2021; NCT04121026; NCT04203628; NCT04899076; Nicol 2018; Sabi 2018; Ssengooba 2020; Zar 2019, and five studies of unclear concern because we could not tell whether speciation was performed (Kabir 2020; Liu 2021; NCT04240990; Parigi 2021; Sun 2020).
+
+In the flow and timing domain, we considered 13 studies (93%) at low risk of bias because all participants were included in the
+
+analysis. We considered one study at high risk of bias (Liu 2021) because most enrolled children were not included in the analysis.
+
+# Rifampicin resistance
+
+In the patient selection domain, we judged two studies at low risk of bias (Liu 2021; Parigi 2021), and one study at unclear risk of bias because the manner of patient selection was not reported (Parigi 2021). Regarding applicability, in the patient selection domain we had low concern for one study (Liu 2021), and high concern for two studies because all patients were recruited from an inpatient setting (Parigi 2021; Zar 2019). In the index test and reference standard domains, we judged all studies at low risk of bias and of low concern regarding applicability. In the flow and timing domain, we judged one study at high risk of bias because not all participants were included in the analysis (Liu 2021).
+
+# Findings
+
+## I. Detection of pulmonary tuberculosis
+
+Due to little observed variability in specificity and in the volume of analyses, we chose to present only forest plots, as such plots were more informative than corresponding SROC plots.
+
+## Xpert Ultra for pulmonary tuberculosis
+
+### Xpert Ultra in sputum specimens
+
+#### Culture reference standard
+
+Eight studies (1216 participants) evaluated Xpert Ultra in sputum specimens against culture (Barcellini 2019; Jaganath 2021; Kabir 2020; Liu 2021; NCT04121026; Nicol 2018; Sabi 2018; Ssengooba 2020). Xpert Ultra sensitivity ranged from 62% to 89%, and specificity from 86% to 100% (Figure 4). Three studies did not contribute data to the meta-analysis because sensitivity was not estimable (Barcellini 2019; Liu 2021; NCT04121026). In the remaining five studies (1181 participants), Xpert Ultra summary sensitivity was 75.3% (95% CI 64.3 to 83.8), and summary specificity was 97.1% (95% CI 94.7 to 98.5) (Table 3).
+
+Figure 4. Forest plots of Xpert Ultra sensitivity and specificity in sputum for pulmonary tuberculosis in children by type of specimen and reference standard. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs).
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# FN: false negative; FP: false positive; TN: true negative; TP: true positive.
+
+Xpert Ultra, sputum, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Barcellini 2019 | 0 | 0 | 0 | 3 | Not estimable | 1.00 [0.29, 1.00] |   |
+|  Jaganath 2021 | 12 | 4 | 3 | 88 | 0.80 [0.52, 0.96] | 0.96 [0.89, 0.99] |   |
+|  Kabir 2020 | 8 | 20 | 1 | 418 | 0.89 [0.52, 1.00] | 0.95 [0.93, 0.97] |   |
+|  Liu 2021 | 0 | 1 | 0 | 6 | Not estimable | 0.86 [0.42, 1.00] |   |
+|  NCT04121026 | 0 | 0 | 0 | 25 | Not estimable | 1.00 [0.86, 1.00] |   |
+|  Nicol 2018 | 55 | 9 | 18 | 285 | 0.75 [0.64, 0.85] | 0.97 [0.94, 0.99] |   |
+|  Sabi 2018 | 16 | 0 | 10 | 154 | 0.62 [0.41, 0.80] | 1.00 [0.98, 1.00] |   |
+|  Ssengooba 2020 | 3 | 3 | 1 | 73 | 0.75 [0.19, 0.99] | 0.96 [0.89, 0.99] |   |
+
+Xpert Ultra, sputum, all ages, composite reference standard
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 15 | 1 | 47 | 44 | 0.24 [0.14, 0.37] | 0.98 [0.88, 1.00] |   |
+|  Kabir 2020 | 28 | 0 | 83 | 336 | 0.25 [0.17, 0.34] | 1.00 [0.99, 1.00] |   |
+|  Liu 2021 | 1 | 0 | 1 | 5 | 0.50 [0.01, 0.99] | 1.00 [0.48, 1.00] |   |
+|  Nicol 2018 | 64 | 0 | 206 | 97 | 0.24 [0.19, 0.29] | 1.00 [0.96, 1.00] |   |
+|  Sabi 2018 | 16 | 0 | 66 | 98 | 0.20 [0.12, 0.30] | 1.00 [0.96, 1.00] |   |
+
+Xpert Ultra, gastric aspirate, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 3 | 1 | 23 | 0.00 [0.00, 0.97] | 0.88 [0.70, 0.98] |   |
+|  Liu 2021 | 18 | 9 | 7 | 46 | 0.72 [0.51, 0.88] | 0.84 [0.71, 0.92] |   |
+|  NCT04121026 | 4 | 0 | 0 | 69 | 1.00 [0.40, 1.00] | 1.00 [0.95, 1.00] |   |
+|  NCT04240990 | 2 | 1 | 3 | 215 | 0.40 [0.05, 0.85] | 1.00 [0.97, 1.00] |   |
+|  Parigi 2021 | 13 | 5 | 3 | 18 | 0.81 [0.54, 0.96] | 0.78 [0.56, 0.93] |   |
+|  Ssengooba 2020 | 11 | 12 | 10 | 215 | 0.52 [0.30, 0.74] | 0.95 [0.91, 0.97] |   |
+|  Sun 2020 | 42 | 37 | 6 | 217 | 0.88 [0.75, 0.95] | 0.85 [0.80, 0.90] |   |
+
+Xpert Ultra, gastric aspirate, all ages, composite reference standard
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 1 | 2 | 9 | 15 | 0.10 [0.00, 0.45] | 0.88 [0.64, 0.99] |   |
+|  Liu 2021 | 27 | 0 | 30 | 23 | 0.47 [0.34, 0.61] | 1.00 [0.85, 1.00] |   |
+|  Parigi 2021 | 18 | 0 | 15 | 6 | 0.55 [0.36, 0.72] | 1.00 [0.54, 1.00] |   |
+|  Sun 2020 | 78 | 1 | 51 | 172 | 0.60 [0.51, 0.69] | 0.99 [0.97, 1.00] |   |
+
+Xpert Ultra, stool, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 17 | 43 | 12 | 374 | 0.59 [0.39, 0.76] | 0.90 [0.86, 0.92] |   |
+|  Liu 2021 | 37 | 5 | 23 | 61 | 0.62 [0.48, 0.74] | 0.92 [0.83, 0.97] |   |
+|  NCT04121026 | 2 | 1 | 2 | 77 | 0.50 [0.07, 0.93] | 0.99 [0.93, 1.00] |   |
+|  NCT04203628 | 5 | 0 | 0 | 77 | 1.00 [0.48, 1.00] | 1.00 [0.95, 1.00] |   |
+|  NCT04240990 | 4 | 1 | 3 | 226 | 0.57 [0.18, 0.90] | 1.00 [0.98, 1.00] |   |
+|  NCT04899076 | 37 | 8 | 58 | 359 | 0.39 [0.29, 0.49] | 0.98 [0.96, 0.99] |   |
+
+Xpert Ultra, stool, all ages, composite reference standard
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 60 | 0 | 51 | 335 | 0.54 [0.44, 0.64] | 1.00 [0.99, 1.00] |   |
+|  Liu 2021 | 40 | 2 | 48 | 36 | 0.45 [0.35, 0.56] | 0.95 [0.82, 0.99] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 2 | 3 | 1 | 21 | 0.67 [0.09, 0.99] | 0.88 [0.68, 0.97] |   |
+|  Liu 2021 | 0 | 1 | 0 | 1 | Not estimable | 0.50 [0.01, 0.99] |   |
+|  NCT04121026 | 1 | 2 | 2 | 89 | 0.33 [0.01, 0.91] | 0.98 [0.92, 1.00] |   |
+|  NCT04240990 | 1 | 2 | 4 | 212 | 0.20 [0.01, 0.72] | 0.99 [0.97, 1.00] |   |
+|  Zar 2019 | 16 | 4 | 19 | 156 | 0.46 [0.29, 0.63] | 0.97 [0.94, 0.99] |   |
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+Figure 4. (Continued)
+
+|  NCT04240990 | 1 | 2 | 3 | 0.9 | 0.99 [0.97, 1.00]  |
+| --- | --- | --- | --- | --- | --- |
+|  Zar 2019 | 16 | 4 | 19 | 156 | 0.46 [0.29, 0.63]  |
+
+Xpert Ultra, nasopharyngeal aspirate, all ages, composite reference standard
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 3 | 2 | 10 | 12 | 0.23 [0.05, 0.54] | 0.86 [0.57, 0.98]  |
+|  Zar 2019 | 20 | 0 | 124 | 51 | 0.14 [0.09, 0.21] | 1.00 [0.93, 1.00]  |
+
 ![img-3.jpeg](img-3.jpeg)
-A device made of silicone that is placed around the top part of the stomach to limit the amount of food a person can eat
+Figure 5. Forest plots of Xpert Ultra sensitivity and specificity in sputum and gastric aspirate for pulmonary tuberculosis by age group, culture reference standard. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs).
 
-d
-![img-4.jpeg](img-4.jpeg)
-Biliopancreatic diversion with duodenal switch
-Begins with the creation of a tube-shaped stomach pouch similar to the sleeve gastrectomy, but uses less small intestine, resulting in greater malabsorption
+# Composite reference standard
 
-Bariatric surgeries: (a) Roux-en-Y gastric bypass, (b) sleeve gastrectomy, (c) adjustable gastric banding, and (d) biliopancreatic diversion with duodenal switch. Figure adapted with permission from Dr. Walter Pories.
+Five studies (1108 participants) evaluated Xpert Ultra in sputum specimens against a composite reference standard (Jaganath 2021; Kabir 2020; Liu 2021; Nicol 2018; Sabi 2018). Xpert Ultra sensitivity ranged from  $20\%$  to  $50\%$ , and specificity from  $98\%$  to  $100\%$  (Figure 4). Xpert Ultra summary sensitivity was  $23.5\%$  (95% CI 20.1 to 27.3), and summary specificity was  $99.8\%$  (95% CI 98.8 to 100.0) (Table 3).
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+# Xpert Ultra in gastric aspirate specimens
 
-Moize et al.
+# Culture reference standard
 
-![img-5.jpeg](img-5.jpeg)
-Figure 3. Fracture risk 5-15 years after bariatric procedures. Abbreviations: AGB, adjustable gastric band; RYGB, Roux-en-Y gastric bypass; SG, sleeve gastrectomy.
+Seven studies (990 participants) evaluated Xpert Ultra in gastric aspirate specimens against culture (Jaganath 2021; Liu 2021; NCT04121026; NCT04240990; Parigi 2021; Ssengooba 2020; Sun 2020). Xpert Ultra sensitivity ranged from  $0\%$  to  $100\%$ , and specificity from  $78\%$  to  $100\%$  (Figure 4). The low sensitivity in Jaganath 2021 could be due to having only one culture positive case in the study. Xpert Ultra summary sensitivity was  $70.4\%$  (95% CI 53.9 to 82.9), and summary specificity was  $94.1\%$  (95% CI 84.8 to 97.8) (Table 3).
 
-Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+# Composite reference standard
 
-Moize et al.
+Four studies (448 participants) evaluated Xpert Ultra in gastric aspirate specimens against a composite reference standard (Jaganath 2021; Liu 2021; Parigi 2021; Sun 2020). Xpert Ultra sensitivity ranged from  $10\%$  to  $60\%$ , and specificity from  $88\%$  to  $100\%$  (Figure 4). Xpert Ultra summary sensitivity was  $46.5\%$  (95% CI 29.7 to 64.1), and summary specificity was  $98.4\%$  (95% CI 91.4 to 99.7) (Table 3).
 
-Table 1 Nutritional conditions after bariatric surgery and management
+# Xpert Ultra in stool specimens
 
-|  Disease/Condition | Symptoms | Management  |
-| --- | --- | --- |
-|  Beriberi | Wet beriberi: tachycardia, shortness of breath, hypertension Dry and cerebral beriberi: mental confusion, loss of sensation in the limbs, pain or tingling | Thiamin (B1) supplementation The dietary recommended intake for thiamin in multivitamins should be adequate  |
-|  Anemia | Iron, B12, and folate deficiency | Additional supplementation may be needed above a daily multivitamin for folate and B12; take iron with vitamin C to enhance absorption  |
-|  Dumping syndrome | Early: postprandial hypoglycemia Late: nausea, diarrhea, loss of consciousness | Early: limit simple carbohydrate intake; consider acarbose or other alpha-glucosidase inhibitors Late: treat for diarrhea (e.g., increase fluids, reduce fats, avoid lactose, consider Lomotil)  |
-|  Bowel obstruction | Nausea, vomiting, abdominal pain | Surgical intervention  |
-|  Gastric ulceration | Abdominal pain, bleeding | Proton pump inhibitors, sucralfate therapy, surgical intervention  |
-|  Bone loss | Reduced bone mineral density and increased fractures | Vitamin D and calcium supplementation (plus weight-bearing physical activity) Consume dietary and supplemental calcium to a total of 1–1.5 g/day (avoid >2 g/day) Treat vitamin D deficiency with standard recommendations  |
+# Culture reference standard
 
-Conditions with the most evidence include the following: Roux-en-Y gastric bypass, adjustable gastric band, vertical sleeve gastrectomy, and biliopancreatic diversion/duodenal switch. Table adapted from Shapses et al. (119) with permission from Springer Nature.
+Six studies (1432 participants) evaluated Xpert Ultra in stool specimens against culture (Kabir 2020; Liu 2021; NCT04121026; NCT04203628; NCT04240990; NCT04899076). Xpert Ultra sensitivity ranged from  $39\%$  to  $100\%$ , and specificity from  $90\%$  to  $100\%$  (Figure 4). Xpert Ultra summary sensitivity was  $56.1\%$  (95% CI 39.1 to 71.7), and summary specificity was  $98.0\%$  (95% CI 93.3 to 99.4) (Table 3).
 
-Annu Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+# Composite reference standard
 
-Moize et al.
+Two studies (572 participants) evaluated Xpert Ultra in stool specimens against a composite reference standard (Kabir 2020; Liu
 
-Table 2
-Dietary management of gastrointestinal symptoms
+2021). In Kabir 2020, Xpert Ultra sensitivity was  $54\%$  (95% CI 44 to 64), and specificity was  $100\%$  (95% CI 99 to 100); while in Liu 2021, Xpert Ultra sensitivity was  $45\%$  (95% CI 35 to 56), and specificity was  $95\%$  (95% CI 82 to 99) (Figure 4). Xpert Ultra summary sensitivity was  $50.3\%$  (95% CI 43.3 to 57.1), and summary specificity was  $99.5\%$  (95% CI 97.9 to 99.9) (Table 3).
 
-|  Symptom | Management  |
-| --- | --- |
-|  Dysphagia causing coughing or choking | Eat slowly, avoid dry or hard foods (such as crackers or meat) Add more semisoft foods and avoid acidic or spicy foods, as needed  |
-|  Vomiting | Eat small bites and chew slowly Separate fluids when consuming a meal Eat small, regular meals (every 2–4 h) and rehydrate Monitor electrolytes  |
-|  Dehydration | Consume 1.5 L/day or more of water, especially after exercise and when exposed to hot weather or conditions Greater fluid intake can also be achieved with adding flavors (lemon, herbs) to water  |
-|  Constipation | Increase fluids and fiber; consider medications  |
+# Xpert Ultra in nasopharyngeal aspirate specimens
 
-Anna Rev Nutr. Author manuscript; available in PMC 2025 June 16.
+# Culture reference standard
+
+Five studies (537 participants) evaluated Xpert Ultra in nasopharyngeal aspirate against culture (Jaganath 2021; Liu 2021; NCT04121026; NCT04240990; Zar 2019). Xpert Ultra sensitivity ranged from  $20\%$  to  $67\%$ , and specificity from  $50\%$  to  $99\%$  (Figure 4). In Liu 2021, only one participant did not have tuberculosis, and sensitivity was not estimable. In the remaining four studies (535 participants), Xpert Ultra summary sensitivity was  $43.7\%$  (95% CI 26.7 to 62.2), and summary specificity was  $97.5\%$  (95% CI 93.6 to 99.0) (Table 3).
+
+# Composite reference standard
+
+Two studies (222 participants) evaluated Xpert Ultra in nasopharyngeal aspirate against a composite reference standard (Jaganath 2021; Zar 2019). In Jaganath 2021, Xpert Ultra sensitivity was  $23\%$  (95% CI 5 to 54), and specificity was  $86\%$  (95% CI 57 to 98); while in Zar 2019, Xpert Ultra sensitivity was  $14\%$  (95% CI 9 to 21), and specificity was  $100\%$  (95% CI 93 to 100) (Figure 4). Xpert Ultra summary sensitivity was  $50.0\%$  (95% CI 31.0 to 69.0), and summary specificity was  $98.2\%$  (95% CI 95.4 to 99.3) (Table 3).
+
+# Investigations of heterogeneity
+
+# Xpert Ultra accuracy by age group
+
+The analyses for Xpert Ultra sensitivity and specificity by specimen type and age group are based on a small number of studies. For sensitivity and specificity estimates for individual studies, refer to Figure 5 (sputum and gastric aspirate) and Figure 6 (stool and nasopharyngeal aspirate). For summary sensitivity and specificity estimates by specimen type and age group, see Table 4. We describe several key analyses below.
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# FN: false negative; FP: false positive; TN: true negative; TP: true positive.
+
+Xpert Ultra, sputum, &lt; 1 year, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 5 | Not estimable | 1.00 [0.48, 1.00] |   |
+|  Kabir 2020 | 2 | 4 | 0 | 144 | 1.00 [0.16, 1.00] | 0.97 [0.93, 0.99] |   |
+|  Liu 2021 | 0 | 1 | 0 | 4 | Not estimable | 0.80 [0.28, 0.99] |   |
+|  Nicol 2018 | 7 | 0 | 3 | 62 | 0.70 [0.35, 0.93] | 1.00 [0.94, 1.00] |   |
+|  Sabi 2018 | 2 | 0 | 1 | 25 | 0.67 [0.09, 0.99] | 1.00 [0.86, 1.00] |   |
+|  Ssengooba 2020 | 1 | 1 | 0 | 5 | 1.00 [0.03, 1.00] | 0.83 [0.36, 1.00] |   |
+
+Xpert Ultra, sputum, 1-4 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 1 | 1 | 1 | 30 | 0.50 [0.01, 0.99] | 0.97 [0.83, 1.00] |   |
+|  Kabir 2020 | 1 | 7 | 1 | 137 | 0.50 [0.01, 0.99] | 0.95 [0.90, 0.98] |   |
+|  Liu 2021 | 0 | 0 | 0 | 2 | Not estimable | 1.00 [0.16, 1.00] |   |
+|  Nicol 2018 | 21 | 6 | 7 | 149 | 0.75 [0.55, 0.89] | 0.96 [0.92, 0.99] |   |
+|  Sabi 2018 | 7 | 0 | 3 | 48 | 0.70 [0.35, 0.93] | 1.00 [0.93, 1.00] |   |
+|  Ssengooba 2020 | 0 | 2 | 1 | 45 | 0.00 [0.00, 0.97] | 0.96 [0.85, 0.99] |   |
+
+Xpert Ultra, sputum, 5-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Barcellini 2019 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+|  Jaganath 2021 | 2 | 0 | 0 | 18 | 1.00 [0.16, 1.00] | 1.00 [0.81, 1.00] |   |
+|  Kabir 2020 | 1 | 7 | 0 | 98 | 1.00 [0.03, 1.00] | 0.93 [0.87, 0.97] |   |
+|  NCT04121026 | 0 | 0 | 0 | 11 | Not estimable | 1.00 [0.72, 1.00] |   |
+|  Nicol 2018 | 19 | 3 | 8 | 50 | 0.70 [0.50, 0.86] | 0.94 [0.84, 0.99] |   |
+|  Sabi 2018 | 3 | 0 | 5 | 49 | 0.38 [0.09, 0.76] | 1.00 [0.93, 1.00] |   |
+|  Ssengooba 2020 | 1 | 0 | 0 | 18 | 1.00 [0.03, 1.00] | 1.00 [0.81, 1.00] |   |
+
+Xpert Ultra, sputum, 10-14 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Barcellini 2019 | 0 | 0 | 0 | 2 | Not estimable | 1.00 [0.16, 1.00] |   |
+|  Jaganath 2021 | 4 | 3 | 1 | 7 | 0.80 [0.28, 0.99] | 0.70 [0.35, 0.93] |   |
+|  Kabir 2020 | 4 | 2 | 0 | 39 | 1.00 [0.40, 1.00] | 0.95 [0.83, 0.99] |   |
+|  NCT04121026 | 0 | 0 | 0 | 14 | Not estimable | 1.00 [0.77, 1.00] |   |
+|  Nicol 2018 | 8 | 0 | 0 | 24 | 1.00 [0.63, 1.00] | 1.00 [0.86, 1.00] |   |
+|  Sabi 2018 | 4 | 0 | 1 | 32 | 0.80 [0.28, 0.99] | 1.00 [0.89, 1.00] |   |
+|  Ssengooba 2020 | 1 | 0 | 0 | 5 | 1.00 [0.03, 1.00] | 1.00 [0.48, 1.00] |   |
+
+Xpert Ultra, sputum, 0-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Barcellini 2019 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+|  Jaganath 2021 | 3 | 1 | 1 | 53 | 0.75 [0.19, 0.99] | 0.98 [0.90, 1.00] |   |
+|  Kabir 2020 | 4 | 18 | 1 | 379 | 0.80 [0.28, 0.99] | 0.95 [0.93, 0.97] |   |
+|  Liu 2021 | 0 | 1 | 0 | 6 | Not estimable | 0.86 [0.42, 1.00] |   |
+|  NCT04121026 | 0 | 0 | 0 | 11 | Not estimable | 1.00 [0.72, 1.00] |   |
+|  Nicol 2018 | 47 | 9 | 18 | 261 | 0.72 [0.60, 0.83] | 0.97 [0.94, 0.98] |   |
+|  Sabi 2018 | 12 | 0 | 9 | 122 | 0.57 [0.34, 0.78] | 1.00 [0.97, 1.00] |   |
+|  Ssengooba 2020 | 2 | 3 | 1 | 68 | 0.67 [0.09, 0.99] | 0.96 [0.88, 0.99] |   |
+
+Xpert Ultra, gastric aspirate, &lt; 1 year, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 3 | Not estimable | 1.00 [0.29, 1.00] |   |
+|  Liu 2021 | 10 | 4 | 5 | 24 | 0.67 [0.38, 0.88] | 0.86 [0.67, 0.96] |   |
+|  NCT04121026 | 1 | 0 | 0 | 7 | 1.00 [0.03, 1.00] | 1.00 [0.59, 1.00] |   |
+|  NCT04240990 | 0 | 1 | 1 | 79 | 0.00 [0.00, 0.97] | 0.99 [0.93, 1.00] |   |
+|  Parigi 2021 | 1 | 1 | 0 | 4 | 1.00 [0.03, 1.00] | 0.80 [0.28, 0.99] |   |
+|  Ssengooba 2020 | 6 | 3 | 2 | 33 | 0.75 [0.35, 0.97] | 0.92 [0.78, 0.98] |   |
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+Figure 5. (Continued)
+
+|  Pangi 2021 | 1 | 1 | 0 | 4 | 1.00 [0.03, 1.00] | 0.00 [0.20, 0.99]  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Ssengooba 2020 | 6 | 3 | 2 | 33 | 0.75 [0.35, 0.97] | 0.92 [0.78, 0.98]  |
+
+Xpert Ultra, gastric aspirate, 1-4 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 2 | 0 | 13 | Not estimable | 0.87 [0.60, 0.98] |   |
+|  Liu 2021 | 8 | 5 | 2 | 22 | 0.80 [0.44, 0.97] | 0.81 [0.62, 0.94] |   |
+|  NCT04121026 | 0 | 0 | 0 | 42 | Not estimable | 1.00 [0.92, 1.00] |   |
+|  NCT04240990 | 2 | 0 | 2 | 135 | 0.50 [0.07, 0.93] | 1.00 [0.97, 1.00] |   |
+|  Parigi 2021 | 8 | 3 | 0 | 9 | 1.00 [0.63, 1.00] | 0.75 [0.43, 0.95] |   |
+|  Ssengooba 2020 | 4 | 6 | 4 | 117 | 0.50 [0.16, 0.84] | 0.95 [0.90, 0.98] |   |
+
+Xpert Ultra, gastric aspirate, 5-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 1 | 1 | 5 | 0.00 [0.00, 0.97] | 0.83 [0.36, 1.00] |   |
+|  NCT04121026 | 2 | 0 | 0 | 9 | 1.00 [0.16, 1.00] | 1.00 [0.66, 1.00] |   |
+|  NCT04240990 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+|  Parigi 2021 | 4 | 1 | 3 | 3 | 0.57 [0.18, 0.90] | 0.75 [0.19, 0.99] |   |
+|  Ssengooba 2020 | 1 | 3 | 3 | 53 | 0.25 [0.01, 0.81] | 0.95 [0.85, 0.99] |   |
+
+Xpert Ultra, gastric aspirate, 10-14 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  NCT04121026 | 1 | 0 | 0 | 10 | 1.00 [0.03, 1.00] | 1.00 [0.69, 1.00] |   |
+|  Parigi 2021 | 0 | 0 | 0 | 2 | Not estimable | 1.00 [0.16, 1.00] |   |
+|  Ssengooba 2020 | 0 | 0 | 1 | 10 | 0.00 [0.00, 0.97] | 1.00 [0.69, 1.00] |   |
+
+Xpert Ultra, gastric aspirate, 0-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 3 | 1 | 21 | 0.00 [0.00, 0.97] | 0.88 [0.68, 0.97] |   |
+|  Liu 2021 | 18 | 9 | 7 | 46 | 0.72 [0.51, 0.88] | 0.84 [0.71, 0.92] |   |
+|  NCT04121026 | 3 | 0 | 0 | 58 | 1.00 [0.29, 1.00] | 1.00 [0.94, 1.00] |   |
+|  NCT04240990 | 2 | 1 | 3 | 215 | 0.40 [0.05, 0.85] | 1.00 [0.97, 1.00] |   |
+|  Parigi 2021 | 13 | 5 | 3 | 16 | 0.81 [0.54, 0.96] | 0.76 [0.53, 0.92] |   |
+|  Ssengooba 2020 | 11 | 12 | 9 | 203 | 0.55 [0.32, 0.77] | 0.94 [0.90, 0.97] |   |
+
+Figure 6. Forest plots of Xpert Ultra sensitivity and specificity in stool and nasopharyngeal specimens for pulmonary tuberculosis by age group, culture reference standard. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs).
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# FN: false negative; FP: false positive; TN: true negative; TP: true positive.
+
+Xpert Ultra, stool,  $&lt; 1$  year, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 5 | 12 | 1 | 132 | 0.83 [0.36, 1.00] | 0.92 [0.86, 0.96] |   |
+|  Liu 2021 | 15 | 1 | 7 | 26 | 0.68 [0.45, 0.86] | 0.96 [0.81, 1.00] |   |
+|  NCT04121026 | 1 | 0 | 0 | 7 | 1.00 [0.03, 1.00] | 1.00 [0.59, 1.00] |   |
+|  NCT04240990 | 0 | 1 | 2 | 85 | 0.00 [0.00, 0.84] | 0.99 [0.94, 1.00] |   |
+
+Xpert Ultra, stool, 1-4 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 2 | 17 | 7 | 120 | 0.22 [0.03, 0.60] | 0.88 [0.81, 0.93] |   |
+|  Liu 2021 | 7 | 2 | 9 | 22 | 0.44 [0.20, 0.70] | 0.92 [0.73, 0.99] |   |
+|  NCT04121026 | 0 | 0 | 0 | 41 | Not estimable | 1.00 [0.91, 1.00] |   |
+|  NCT04240990 | 4 | 0 | 1 | 140 | 0.80 [0.28, 0.99] | 1.00 [0.97, 1.00] |   |
+
+Xpert Ultra, stool, 5-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 4 | 11 | 3 | 87 | 0.57 [0.18, 0.90] | 0.89 [0.81, 0.94] |   |
+|  Liu 2021 | 6 | 1 | 4 | 9 | 0.60 [0.26, 0.88] | 0.90 [0.55, 1.00] |   |
+|  NCT04121026 | 1 | 1 | 1 | 17 | 0.50 [0.01, 0.99] | 0.94 [0.73, 1.00] |   |
+|  NCT04240990 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+
+Xpert Ultra, stool, 10-14 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 6 | 3 | 0 | 35 | 1.00 [0.54, 1.00] | 0.92 [0.79, 0.98] |   |
+|  Liu 2021 | 9 | 1 | 3 | 4 | 0.75 [0.43, 0.95] | 0.80 [0.28, 0.99] |   |
+|  NCT04121026 | 0 | 0 | 1 | 10 | 0.00 [0.00, 0.97] | 1.00 [0.69, 1.00] |   |
+
+Xpert Ultra, stool, 0-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 11 | 40 | 12 | 339 | 0.48 [0.27, 0.69] | 0.89 [0.86, 0.92] |   |
+|  Liu 2021 | 28 | 4 | 20 | 57 | 0.58 [0.43, 0.72] | 0.93 [0.84, 0.98] |   |
+|  NCT04121026 | 2 | 1 | 1 | 65 | 0.67 [0.09, 0.99] | 0.98 [0.92, 1.00] |   |
+|  NCT04203628 | 3 | 0 | 0 | 71 | 1.00 [0.29, 1.00] | 1.00 [0.95, 1.00] |   |
+|  NCT04240990 | 4 | 1 | 3 | 226 | 0.57 [0.18, 0.90] | 1.00 [0.98, 1.00] |   |
+|  NCT04899076 | 23 | 8 | 48 | 313 | 0.32 [0.22, 0.45] | 0.98 [0.95, 0.99] |   |
+
+Xpert Ultra, nasopharyngeal aspirate,  $&lt; 1$  year, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 1 | 0 | 3 | Not estimable | 0.75 [0.19, 0.99] |   |
+|  Liu 2021 | 0 | 1 | 0 | 0 | Not estimable | 0.00 [0.00, 0.97] |   |
+|  NCT04121026 | 0 | 0 | 0 | 7 | Not estimable | 1.00 [0.59, 1.00] |   |
+|  NCT04240990 | 0 | 1 | 1 | 81 | 0.00 [0.00, 0.97] | 0.99 [0.93, 1.00] |   |
+|  Zar 2019 | 2 | 1 | 5 | 36 | 0.29 [0.04, 0.71] | 0.97 [0.86, 1.00] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, 1-4 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 6 | Not estimable | 1.00 [0.54, 1.00] |   |
+|  Liu 2021 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+|  NCT04121026 | 0 | 0 | 0 | 41 | Not estimable | 1.00 [0.91, 1.00] |   |
+|  NCT04240990 | 1 | 1 | 3 | 130 | 0.25 [0.01, 0.81] | 0.99 [0.96, 1.00] |   |
+|  Zar 2019 | 11 | 3 | 9 | 93 | 0.55 [0.32, 0.77] | 0.97 [0.91, 0.99] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, 5-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 1 | 0 | 4 | Not estimable | 0.00 [0.20, 0.00] |   |
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+Figure 6. (Continued)
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 1 | 0 | 4 | Not estimable | 0.80 [0.28, 0.99] |   |
+|  NCT04121026 | 1 | 0 | 1 | 19 | 0.50 [0.01, 0.99] | 1.00 [0.82, 1.00] |   |
+|  NCT04240990 | 0 | 0 | 0 | 1 | Not estimable | 1.00 [0.03, 1.00] |   |
+|  Zar 2019 | 3 | 0 | 5 | 22 | 0.38 [0.09, 0.76] | 1.00 [0.85, 1.00] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, 10-14 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  NCT04121026 | 0 | 1 | 1 | 20 | 0.00 [0.00, 0.97] | 0.95 [0.76, 1.00] |   |
+|  Zar 2019 | 0 | 0 | 0 | 5 | Not estimable | 1.00 [0.48, 1.00] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, 0-9 years, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 2 | 0 | 13 | Not estimable | 0.87 [0.60, 0.98] |   |
+|  Liu 2021 | 0 | 1 | 0 | 1 | Not estimable | 0.50 [0.01, 0.99] |   |
+|  NCT04121026 | 1 | 0 | 1 | 67 | 0.50 [0.01, 0.99] | 1.00 [0.95, 1.00] |   |
+|  NCT04240990 | 1 | 2 | 4 | 212 | 0.20 [0.01, 0.72] | 0.99 [0.97, 1.00] |   |
+|  Zar 2019 | 16 | 4 | 19 | 151 | 0.46 [0.29, 0.63] | 0.97 [0.94, 0.99] |   |
+
+# Sputum specimens, 10 to 14 years
+
+In children aged 10 to 14 years, seven studies (151 participants) evaluated Xpert Ultra in sputum against culture (Barcellini 2019; Jaganath 2021; Kabir 2020; NCT04121026; Nicol 2018; Sabi 2018; Ssengooba 2020). Two studies did not contribute data to the meta-analysis because sensitivity was not estimable (Barcellini 2019; NCT04121026). In the remaining five studies (135 participants), Xpert Ultra summary sensitivity was  $91.9\%$  (95% CI 68.7 to 98.3), and summary specificity was  $97.7\%$  (95% CI 77.2 to 99.8).
+
+# Gastric aspirate specimens, under one year
+
+In children under one year of age, six studies (185 participants) evaluated Xpert Ultra on gastric aspirate specimens against culture (Jaganath 2021; Liu 2021; NCT04121026; NCT04240990; Parigi 2021; Ssengooba 2020). One study did not contribute data to the meta-analysis because sensitivity was not estimable (Jaganath 2021). In the remaining five studies (182 participants), Xpert Ultra summary sensitivity was  $67.3\%$  (95% CI 43.5 to 84.6), and summary specificity was  $94.0\%$  (95% CI 84.7 to 97.8).
+
+# Gastric aspirate specimens, one to four years
+
+In children aged one to four years, six studies (384 participants) evaluated Xpert Ultra on gastric aspirate specimens against culture (Jaganath 2021; Liu 2021; NCT04121026; NCT04240990; Parigi 2021; Ssengooba 2020). Two studies did not contribute data to the meta-analysis because sensitivity was not estimable (Jaganath 2021;
+
+NCT04121026). In the remaining four studies (327 participants), Xpert Ultra summary sensitivity was  $71.5\%$  (95% CI 40.0 to 90.4), and summary specificity was  $94.0\%$  (95% CI 73.8 to 98.9).
+
+# Stool specimens, under one year
+
+In children under one year of age, four studies (295 participants) evaluated Xpert Ultra in stool against culture (Kabir 2020; Liu 2021; NCT04121026; NCT04240990). Xpert Ultra summary sensitivity was  $65.2\%$  (95% CI 33.7 to 87.3), and summary specificity was  $96.2\%$  (95% CI 88.9 to 98.7).
+
+# Stool specimens, one to four years
+
+In children aged one to four years, four studies (372 participants) evaluated Xpert Ultra in stool against culture (Kabir 2020; Liu 2021; NCT04121026; NCT04240990). One study did not contribute data to the meta-analysis because sensitivity was not estimable (NCT04121026). In the remaining three studies (331 participants), Xpert Ultra summary sensitivity was  $43.3\%$  (95% CI 27.1 to 61.2), and summary specificity was  $97.1\%$  (95% CI 74.8 to 99.7).
+
+# Xpert Ultra accuracy by HIV status
+
+We identified few studies that determined Xpert Ultra accuracy for pulmonary tuberculosis by specimen type in HIV-positive and HIV-negative children. For sensitivity and specificity estimates for individual studies, refer to Figure 7 and for summary sensitivity and specificity, to Table 5. We describe two analyses below.
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+Figure 7. Forest plots of Xpert Ultra sensitivity and specificity for pulmonary tuberculosis by specimen type and HIV status, culture reference standard. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs).
+
+FN: false negative; FP: false positive; TN: true negative; TP: true positive.
+
+Xpert Ultra, sputum, HIV-positive, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 2 | 1 | 0 | 10 | 1.00 [0.16, 1.00] | 0.91 [0.59, 1.00] |   |
+|  NCT04121026 | 0 | 0 | 0 | 25 | Not estimable | 1.00 [0.86, 1.00] |   |
+|  Nicol 2018 | 12 | 1 | 5 | 53 | 0.71 [0.44, 0.90] | 0.98 [0.90, 1.00] |   |
+|  Sabi 2018 | 8 | 0 | 1 | 81 | 0.89 [0.52, 1.00] | 1.00 [0.96, 1.00] |   |
+|  Ssengooba 2020 | 1 | 0 | 0 | 6 | 1.00 [0.03, 1.00] | 1.00 [0.54, 1.00] |   |
+
+Xpert Ultra, sputum, HIV-negative, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Barcellini 2019 | 0 | 0 | 0 | 3 | Not estimable | 1.00 [0.29, 1.00] |   |
+|  Jaganath 2021 | 10 | 3 | 3 | 77 | 0.77 [0.46, 0.95] | 0.96 [0.89, 0.99] |   |
+|  Liu 2021 | 0 | 1 | 0 | 6 | Not estimable | 0.86 [0.42, 1.00] |   |
+|  Nicol 2018 | 43 | 8 | 13 | 230 | 0.77 [0.64, 0.87] | 0.97 [0.93, 0.99] |   |
+|  Sabi 2018 | 8 | 0 | 9 | 72 | 0.47 [0.23, 0.72] | 1.00 [0.95, 1.00] |   |
+|  Ssengooba 2020 | 2 | 3 | 1 | 67 | 0.67 [0.09, 0.99] | 0.96 [0.88, 0.99] |   |
+
+Xpert Ultra, gastric aspirate, HIV-positive, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 2 | Not estimable | 1.00 [0.16, 1.00] |   |
+|  NCT04121026 | 4 | 0 | 0 | 69 | 1.00 [0.40, 1.00] | 1.00 [0.95, 1.00] |   |
+|  NCT04240990 | 0 | 0 | 0 | 31 | Not estimable | 1.00 [0.89, 1.00] |   |
+|  Ssengooba 2020 | 1 | 0 | 5 | 0 | 0.17 [0.00, 0.64] | Not estimable |   |
+
+Xpert Ultra, gastric aspirate, HIV-negative, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 3 | 1 | 21 | 0.00 [0.00, 0.97] | 0.88 [0.68, 0.97] |   |
+|  Liu 2021 | 18 | 9 | 7 | 46 | 0.72 [0.51, 0.88] | 0.84 [0.71, 0.92] |   |
+|  Ssengooba 2020 | 11 | 11 | 10 | 208 | 0.52 [0.30, 0.74] | 0.95 [0.91, 0.97] |   |
+
+Xpert Ultra, stool, HIV-positive, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  NCT04121026 | 2 | 1 | 2 | 77 | 0.50 [0.07, 0.93] | 0.99 [0.93, 1.00]  |
+
+Xpert Ultra, stool, HIV-negative, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Liu 2021 | 37 | 5 | 23 | 61 | 0.62 [0.48, 0.74] | 0.92 [0.83, 0.97]  |
+
+Xpert Ultra, nasopharyngeal aspirate, HIV-positive, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 3 | Not estimable | 1.00 [0.29, 1.00]  |
+|  NCT04121026 | 1 | 2 | 2 | 89 | 0.33 [0.01, 0.91] | 0.98 [0.92, 1.00]  |
+|  NCT04240990 | 0 | 0 | 0 | 29 | Not estimable | 1.00 [0.88, 1.00]  |
+|  Zar 2019 | 3 | 0 | 3 | 26 | 0.50 [0.12, 0.88] | 1.00 [0.87, 1.00]  |
+
+Xpert Ultra, nasopharyngeal aspirate, HIV-negative, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 2 | 3 | 1 | 18 | 0.67 [0.09, 0.99] | 0.86 [0.64, 0.97]  |
+|  Liu 2021 | 0 | 1 | 0 | 1 | Not estimable | 0.50 [0.01, 0.99]  |
+|  Zar 2019 | 13 | 4 | 16 | 29 | 0.45 [0.26, 0.64] | 0.88 [0.72, 0.97]  |
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# Sputum specimens, HIV-positive
+
+Five studies (206 participants) evaluated Xpert Ultra in sputum against culture in HIV-positive children aged birth to 14 years (Jaganath 2021; Nicol 2018; NCT04121026; Sabi 2018; Ssengooba 2020). One study did not contribute data to the meta-analysis because sensitivity was not estimable (NCT04121026). In the remaining four studies (181 participants), Xpert Ultra summary sensitivity was  $79.5\%$  (95% CI 59.6 to 91.1), and summary specificity was  $98.7\%$  (95% CI 93.9 to 99.7).
+
+# Sputum specimens, HIV-negative
+
+Six studies (559 participants) evaluated Xpert Ultra in sputum against culture in HIV-negative children aged birth to 14 years
+
+(Barcellini 2019; Jaganath 2021; Liu 2021; Nicol 2018; Sabi 2018; Ssengooba 2020). Two studies did not contribute data to the meta-analysis because sensitivity was not estimable (Barcellini 2019; Liu 2021). In the remaining four studies (549 participants), Xpert Ultra summary sensitivity was  $69.6\%$  (95% CI 53.3 to 82.1), and summary specificity was  $97.3\%$  (95% CI 94.5 to 98.7).
+
+# Xpert Ultra accuracy in other comorbid conditions
+
+We identified few studies that determined Xpert Ultra accuracy for pulmonary tuberculosis by specimen type in children with severe pneumonia or severe malnutrition. For sensitivity and specificity estimates for individual studies, refer to Figure 8, and for summary sensitivity and specificity, to Table 5. We describe two analyses below.
+
+# Figure 8. Forest plots of Xpert Ultra sensitivity and specificity for pulmonary tuberculosis by specimen type and comorbidity, culture reference standard. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs).
+
+FN: false negative; FP: false positive; TN: true negative; TP: true positive.
+
+Xpert Ultra, sputum, severe pneumonia, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 1 | 0 | 0 | 1 | 1.00 [0.03, 1.00] | 1.00 [0.03, 1.00] |   |
+|  Nicol 2018 | 3 | 0 | 0 | 8 | 1.00 [0.29, 1.00] | 1.00 [0.63, 1.00] |   |
+
+Xpert Ultra, sputum, severe malnutrition, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 1 | 0 | 0 | 9 | 1.00 [0.03, 1.00] | 1.00 [0.66, 1.00] |   |
+|  Kabir 2020 | 4 | 10 | 0 | 173 | 1.00 [0.40, 1.00] | 0.95 [0.90, 0.97] |   |
+|  Nicol 2018 | 6 | 0 | 1 | 36 | 0.86 [0.42, 1.00] | 1.00 [0.90, 1.00] |   |
+|  Sabi 2018 | 3 | 0 | 1 | 19 | 0.75 [0.19, 0.99] | 1.00 [0.82, 1.00] |   |
+|  Ssengooba 2020 | 0 | 0 | 1 | 3 | 0.00 [0.00, 0.97] | 1.00 [0.29, 1.00] |   |
+
+Xpert Ultra, gastric aspirate, severe malnutrition, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 1 | 0 | 6 | Not estimable | 0.86 [0.42, 1.00] |   |
+|  NCT04121026 | 1 | 0 | 0 | 22 | 1.00 [0.03, 1.00] | 1.00 [0.85, 1.00] |   |
+|  NCT04240990 | 2 | 1 | 3 | 215 | 0.40 [0.05, 0.85] | 1.00 [0.97, 1.00] |   |
+|  Ssengooba 2020 | 1 | 0 | 0 | 7 | 1.00 [0.03, 1.00] | 1.00 [0.59, 1.00] |   |
+
+Xpert Ultra, stool, severe malnutrition, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+|  Kabir 2020 | 10 | 19 | 4 | 153 | 0.71 [0.42, 0.92] | 0.89 [0.83, 0.93] |   |
+|  NCT04121026 | 1 | 0 | 0 | 22 | 1.00 [0.03, 1.00] | 1.00 [0.85, 1.00] |   |
+|  NCT04240990 | 4 | 1 | 3 | 226 | 0.57 [0.18, 0.90] | 1.00 [0.98, 1.00] |   |
+
+Xpert Ultra, nasopharyngeal aspirate, severe pneumonia, all ages, composite reference standard
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Zar 2019 | 0 | 0 | 4 | 0 | 0.00 [0.00, 0.60] | Not estimable  |
+
+Xpert Ultra, nasopharyngeal aspirate, severe malnutrition, all ages, culture
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- |
+|  Jaganath 2021 | 0 | 0 | 0 | 2 | Not estimable | 1.00 [0.16, 1.00]  |
+|  NCT04121026 | 0 | 0 | 0 | 22 | Not estimable | 1.00 [0.85, 1.00]  |
+|  NCT04240990 | 1 | 2 | 4 | 212 | 0.20 [0.01, 0.72] | 0.99 [0.97, 1.00]  |
+|  Zar 2019 | 2 | 1 | 2 | 19 | 0.50 [0.07, 0.93] | 0.95 [0.75, 1.00]  |
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# Sputum specimens, severe malnutrition
+
+Five studies (267 participants) evaluated Xpert Ultra in sputum against culture in children with severe malnutrition (Jaganath 2021; Kabir 2020; Nicol 2018; Sabi 2018; Ssengooba 2020). Xpert Ultra summary sensitivity was  $83.2\%$  (95% CI 54.2 to 95.5), and summary specificity was  $98.5\%$  (95% CI 62.6 to 100).
+
+# Stool specimens, severe malnutrition
+
+Three studies (443 participants) evaluated Xpert Ultra in stool against culture in children with severe malnutrition (Kabir 2020; NCT04121026; NCT04240990). Xpert Ultra summary sensitivity was  $68.2\%$  (46.6 to 84.0) and summary specificity was  $98.5\%$  (95% CI 84.2 to 99.9).
+
+# Sensitivity analyses
+
+We did not perform a sensitivity analysis for sputum specimens because the only ongoing study (NCT04121026) had no tuberculosis cases and so was not included in the primary analysis. Excluding ongoing studies, meta-analyses were possible for gastric aspirate specimens (5 studies) and stool specimens (2 studies). As expected, we observed differences owing to the number of studies
+
+included in the primary analyses and the sensitivity analyses (Table 6).
+
+# Xpert Ultra trace results
+
+Of the 14 included studies, 13 (93%) reported the number of Xpert Ultra-positive results that were trace results. In these 13 studies, of the total Xpert Ultra-positive results, the proportion (expressed as a percentage) of Ultra trace results ranged from 0% to 67% in studies evaluating sputum; 25% to 67% in studies evaluating gastric aspirate; 0% to 45% in studies evaluating nasopharyngeal aspirate; and 0% to 80% in studies evaluating stool (Table 2).
+
+# Detection of rifampicin resistance
+
+We identified three studies that evaluated Xpert Ultra for rifampicin resistance (Liu 2021; Parigi 2021; Zar 2019). Each study included only one child with rifampicin resistance (true positive). In Liu 2021, Xpert Ultra sensitivity was  $100\%$  (95% CI 3 to 100), and specificity was  $97\%$  (95% CI 84 to 100); in Parigi 2021, Xpert Ultra sensitivity was  $100\%$  (95% CI 3 to 100), and specificity was  $100\%$  (95% CI 95 to 100); and in Zar 2019, Xpert Ultra sensitivity was  $100\%$  (95% CI 3 to 100), and sensitivity was  $100\%$  (95% CI 84 to 100) (Figure 9).
+
+Figure 9. Forest plots of Xpert Ultra sensitivity and specificity for rifampicin resistance. The squares represent the sensitivity and specificity of each study, the black lines their confidence intervals (CIs). TP: true positive; FP: false positive; FN: false negative; TN: true negative.
+
+|  Study | TP | FP | FN | TN | Sensitivity (95% CI) | Specificity (95% CI) | Sensitivity (95% CI) | Specificity (95% CI)  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  Liu 2021 | 1 | 1 | 0 | 32 | 1.00 [0.03, 1.00] | 0.97 [0.84, 1.00] |  |   |
+|  Parigi 2021 | 1 | 0 | 0 | 74 | 1.00 [0.03, 1.00] | 1.00 [0.95, 1.00] |  |   |
+|  Zar 2019 | 1 | 0 | 0 | 21 | 1.00 [0.03, 1.00] | 1.00 [0.84, 1.00] |  |   |
+|   |  |  |  |  |  |  | 0.2 0.4 0.6 0.8 1 | 0.2 0.4 0.6 0.8 1  |
+
+# Inconclusive index test results
+
+# Non-determinate results for detection of tuberculosis
+
+The percentage of non-determinate results ranged from  $0\%$  to  $11\%$  of Xpert Ultra tests performed in sputum and from  $1\%$  to  $10\%$  of Xpert Ultra tests performed in stool. Non-determinate results were not reported or could not be disaggregated from other specimen types for Xpert Ultra tests performed in gastric aspirate and nasopharyngeal aspirate (Table 2).
+
+# Indeterminate results for detection of rifampicin resistance
+
+Indeterminate results for detection of rifampicin resistance were common owing to lack of rifampin resistance results with trace results on Xpert Ultra. As a percentage of positive results, trace results represented  $0\%$  to  $67\%$  for sputum,  $26\%$  to  $67\%$  for gastric aspirate,  $0\%$  to  $80\%$  for stool and  $0\%$  to  $45\%$  for nasopharyngeal aspirate.
+
+# DISCUSSION
+
+# Summary of main results
+
+This systematic review update summarizes the current literature on the diagnostic accuracy of Xpert Ultra for pulmonary tuberculosis, tuberculous meningitis, lymph node tuberculosis, and rifampicin resistance. Our previously published Cochrane Review assessed the accuracy of both Xpert MTB/RIF and Xpert Ultra (Kay 2020). We
+
+limited the current review update to Xpert Ultra for several reasons. Xpert Ultra has superseded Xpert MTB/RIF and the manufacturer will be discontinuing Xpert MTB/RIF in most countries in 2023. Given the available evidence about Xpert MTB/RIF from our previous review, we therefore only updated Xpert Ultra, as requested by the WHO. The Xpert MTB/RIF text and analyses are available in the last published version of the review (Kay 2020).
+
+In this review update, we identified 14 unique studies, integrating 11 new studies since publication of the previous Cochrane Review (Kay 2020). We did not identify any studies that evaluated Xpert Ultra accuracy for tuberculous meningitis or lymph node tuberculosis. The main results from the review are summarized in Table 3, Summary of findings 1, and Summary of findings 2.
+
+# Xpert Ultra accuracy for detection of pulmonary tuberculosis (culture reference standard)
+
+See Summary of findings 1
+
+# Sputum, 5 studies
+
+Xpert Ultra summary sensitivity verified by culture was  $75.3\%$  (95% CI 64.3 to 83.8; 127 participants; high-certainty evidence), and specificity was  $97.1\%$  (95% CI 94.7 to 98.5; 1054 participants; high-certainty evidence).
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+Cochrane Library Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+# Gastric aspirate, 7 studies
+
+Xpert Ultra summary sensitivity verified by culture was 70.4% (95% CI 53.9 to 82.9; 120 participants; moderate-certainty evidence), and specificity was 94.1% (95% CI 84.8 to 97.8; 870 participants; moderate-certainty evidence).
+
+# Stool, 6 studies
+
+Xpert Ultra summary sensitivity verified by culture was 56.1% (95% CI 39.1 to 71.7; 200 participants; moderate-certainty evidence), and specificity was 98.0% (95% CI 93.3 to 99.4; 1232 participants; high certainty-evidence).
+
+# Nasopharyngeal aspirate, 4 studies
+
+Xpert Ultra summary sensitivity verified by culture was 43.7% (95% CI 26.7 to 62.2; 46 participants; very low-certainty evidence), and specificity was 97.5% (95% CI 93.6 to 99.0; 489 participants; high-certainty evidence).
+
+# Interpretation of results
+
+In theory, for a population of 1000 children:
+
+- where 100 have pulmonary tuberculosis in sputum (by culture):
+
+- 101 would be Xpert Ultra-positive, and of these, 26 (26%) would not have pulmonary tuberculosis (false positive); and
+- 899 would be Xpert Ultra-negative, and of these, 25 (3%) would have tuberculosis (false negative).
+
+- where 100 have pulmonary tuberculosis in gastric aspirate (by culture):
+
+- 123 would be Xpert Ultra-positive, and of these, 53 (43%) would not have pulmonary tuberculosis (false positive); and
+- 877 would be Xpert Ultra-negative, and of these, 30 (3%) would have tuberculosis (false negative).
+
+- where 100 have pulmonary tuberculosis in stool (by culture):
+
+- 74 would be Xpert Ultra-positive, and of these, 18 (24%) would not have pulmonary tuberculosis (false positive); and
+- 926 would be Xpert Ultra-negative, and of these, 44 (5%) would have tuberculosis (false negative).
+
+- where 100 have pulmonary tuberculosis in nasopharyngeal aspirate (by culture):
+
+- 66 would be Xpert Ultra-positive, and of these, 22 (33%) would not have pulmonary tuberculosis (false positive); and
+- 934 would be Xpert Ultra-negative, and of these, 56 (6%) would have tuberculosis (false negative).
+
+# Xpert Ultra accuracy for detection of pulmonary tuberculosis (composite reference standard)
+
+See Table 3.
+
+# Sputum, 5 studies
+
+Xpert Ultra summary sensitivity by composite reference standard was 23.5% (95% CI 20.1 to 27.3; 527 participants) and summary specificity was 99.8% (95% CI 98.8 to 100; 581 participants).
+
+# Gastric aspirate, 4 studies
+
+Xpert Ultra summary sensitivity by composite reference standard was 46.5% (95% CI 29.7 to 64.1; 229 participants) and summary specificity was 98.4% (95% CI 91.4 to 99.7; 219 participants).
+
+# Stool, 2 studies
+
+Xpert Ultra summary sensitivity by composite reference standard was 50.3% (95% CI 43.3 to 57.1; 199 participants) and summary specificity was 99.5% (95% CI 97.9 to 99.9; 373 participants).
+
+# Nasopharyngeal aspirate, 2 studies
+
+Xpert Ultra summary sensitivity by composite reference standard was 50.0% (95% CI 31.0 to 69.0; 24 participants) and summary specificity was 98.2% (95% CI 95.4 to 99.3; 198 participants).
+
+# Xpert Ultra accuracy for detection of rifampicin resistance
+
+See Summary of findings 2.
+
+Xpert Ultra sensitivity was 100% (3 studies, 3 participants; very low-certainty evidence), and specificity range was 97% to 100% (3 studies, 128 participants; low-certainty evidence).
+
+# Trace results
+
+See Table 2.
+
+Xpert Ultra trace results, regarded as positive in children by WHO standards, were common. Xpert Ultra specificity remained high in children, despite the frequency of trace results.
+
+# Xpert Ultra on different types of specimens
+
+Overall, this review adds to the existing body of evidence on the diagnostic accuracy of Xpert Ultra in children. Most notable are the new data on performance of different specimen types that are now being introduced to improve access to diagnostic testing for tuberculosis in children. These findings provide new evidence to shape the development of global practice guidelines for the diagnosis of tuberculosis in children.
+
+Specifically, our review demonstrated differing sensitivities in the different types of specimens. We think that these findings may in part be attributable to differences in the clinical setting and in the quality of the reference standard, mainly the number of cultures used. With respect to the clinical setting, it is more common to collect gastric aspirate specimens in inpatient settings; further, these settings tend to include a higher number of children with advanced disease, which often has a higher microbiological yield (Marais 2006b). Thus, the higher sensitivity against a culture and composite reference standard for gastric aspirate specimens may in part be due to the inpatient setting and higher likelihood of advanced disease. The diagnostic accuracy for Xpert Ultra in sputum and nasopharyngeal aspirate specimens was similar to that presented in the prior review, and the findings would be unlikely to change the current recommendations for these samples (WHO Consolidated Guidelines (Module 3) 2021).
+
+Against a composite reference standard, we found that Xpert Ultra had a sensitivity that ranged from 23.5% to 50.3% and a specificity of greater than 98.2%. These sensitivity estimates were higher than those reported for Xpert MTB/RIF against a composite reference standard in Kay 2020 and may reflect the increased sensitivity
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+of Xpert Ultra compared to Xpert MTB/RIF. In adults, Xpert Ultra trace results may be more likely to reflect false‐positive results, particularly in people with prior tuberculosis (Dorman 2018). Xpert Ultra trace results were common, with the proportion reported in 13 of the 14 studies and recorded in Table 2. Existing guidance in children suggests that trace results should be treated as true‐positive results (WHO Consolidated Guidelines (Module 3) 2021); the test remained highly specific despite the high proportion of trace results.
+
+We found the sensitivity of stool Xpert Ultra to be slightly lower at 56.1% (95% CI 39.1% to 71.7%) than that of sputum Xpert Ultra at 75.3% (95% CI 64.3% to 83.8%) or gastric aspirate Xpert Ultra at 70.4% (95% CI 53.9% to 82.9%). Nonetheless, stool is a promising specimen for diagnosis because, unlike sputum or gastric aspirates, it is non‐invasive. Its greatest benefit may be seen in children younger than five years of age owing to the challenges of collecting specimens through sputum induction and gastric aspiration in this population. The sensitivity of stool was 65.2% (95% CI 33.7% to 87.3%) in children younger than one year of age and 43.3% (95% CI 27.1% to 61.2%) in children aged one to four, suggesting the performance is comparable in younger children. We again noted the lack of standardized procedures for processing stool, with each study using a different approach, and could not evaluate diagnostic accuracy by stool processing procedure.
+
+### Subgroup analyses
+
+In subgroup analyses, we were limited by the paucity of data and could not compare diagnostic accuracy in HIV‐positive and HIV‐negative children. Similar to our prior findings with Xpert MTB/RIF (Kay 2020), the limited data did not suggest Xpert Ultra had lower sensitivity in HIV‐positive children. The sensitivity of Xpert Ultra in sputum in HIV‐positive children of all ages was 79.5% (59.6% to 91.1%), compared with 69.6% (53.3% to 82.1%) in HIV‐negative children.
+
+In children with severe malnutrition, the sensitivity of Xpert Ultra was 83.2% (54.2% to 95.5%) in sputum and 68.2% (46.6% to 84.0%) in stool. These estimates were higher than in all children, suggesting that children with severe malnutrition, who, in most settings, are also at high risk for tuberculosis, may represent an ideal population for Xpert Ultra testing. However, these analyses, as well as the analyses in children with severe pneumonia, are based on a small number of studies and participants, so we advise caution in interpretation of the results.
+
+Regarding age group, we found that Xpert Ultra sensitivity in sputum was higher in children aged 10 to 14 years (91.9%, 95% CI 68.7 to 98.3) compared to children of all ages, (75.3%, 95% CI 64.3 to 83.8). We did not find large decreases in the sensitivity of Xpert Ultra in children younger than five years of age in sputum, gastric aspirates or stool compared with all ages. This is an important finding and suggests that Xpert Ultra may perform more comparably in younger children than Xpert MTB/RIF, which has shown decreased sensitivity in younger children (Kay 2020).
+
+### Strengths and weaknesses of the review
+
+### Completeness of evidence
+
+The data set resulted from comprehensively searching numerous databases, including non‐English studies, handsearching references of included studies, and contacting study authors for additional evidence. We included all identified studies, as well as ongoing studies, from which we could obtain accuracy data. However, we acknowledge that we may have missed some studies despite the comprehensive search and outreach to study authors. We searched for studies for the two most common forms of extrapulmonary tuberculosis (tuberculous meningitis and lymph node tuberculosis) but did not identify studies for these conditions. The review does not include an evaluation of the accuracy of Xpert Ultra in less common forms of child tuberculosis.
+
+### Accuracy of the reference standards used
+
+In a systematic review of diagnostic test accuracy studies, the reference standard is the best available test to determine the presence or absence of the target condition. In this review, we included two reference standards: culture and a composite reference standard. Although culture is the best available microbiological reference standard, it is not a perfect reference standard for tuberculosis disease in children owing to the paucibacillary nature of the disease in this population. Some studies performed only one culture and others more than one culture to verify tuberculosis. We considered multiple cultures to be a higher‐quality reference standard. We also evaluated the accuracy of Xpert Ultra against a composite reference standard. The accuracy of composite reference standards is also variable and limited, but may reflect the paucibacillary nature of childhood tuberculosis, which is not taken into account when culture positivity is the reference standard for comparison. For all specimen types, Xpert Ultra sensitivity was lower and specificity similar against a composite reference standard compared with culture. If data on tuberculosis treatment were not provided, we accepted the uniform research definitions or the definition used by the primary study authors (study‐specific definition) for the composite reference standard. Therefore, clinical characteristics and component tests in the composite reference standard differed across studies, and these differences may have contributed to variation in accuracy estimates.
+
+### Quality assessment and quality of reporting of the included studies
+
+We considered risk of bias to be low for the patient selection, index test, and flow and timing domains, and low or unclear for the reference standard domain, because some studies collected only a single specimen for culture. In general, studies were fairly well reported. When data were unclear, or when we needed additional information, we corresponded with all primary study authors. Although the quality of the studies was good, for some analyses by age group and comorbidity, the numbers of studies and participants enrolled were small, limiting our ability to draw definitive conclusions in these circumstances.
+
+### Comparison with other systematic reviews
+
+We are aware of two previously published systematic reviews that estimated the diagnostic accuracy of Xpert Ultra for pulmonary tuberculosis and rifampicin resistance in children (Signorino 2022; Zhang 2020).
+
+In Signorino 2022, Xpert Ultra accuracy results were: summary sensitivity 74% (95% CI 66 to 81) and specificity 97% (95% CI 95 to 98) in sputum; summary sensitivity 87% (95% CI 76 to 94) and specificity 85% (95% CI 81 to 89) in gastric aspirate; summary sensitivity 73% (95% CI 59 to 85) and specificity 87% (95% CI 84
+
+to 90) in stool; and summary sensitivity 46% (95% CI 29 to 63) and specificity 97% (95% CI 94 to 99) in nasopharyngeal aspirates. These results were similar to ours with the exception of stool and gastric aspirate, which showed higher sensitivity in Signorino 2022 than in our review. For the accuracy estimates in gastric specimens, Signorino 2022 included only two studies (Parigi 2021; Sun 2020), whereas we included these two plus another five studies. The accuracy estimates for Parigi 2021 and Sun 2020 the two included studies were similar in both reviews. For stool specimens, Signorino 2022 again included only two studies (Kabir 2020; Liu 2021), whereas we included these two plus another four studies. The sensitivity estimates for Kabir 2020 and Liu 2021 were higher in Signorino 2022 than in our review; this was likely attributable to the different reference standard for stool. Signorino 2022 used culture on a respiratory specimen as the reference standard for stool, while we used either culture or Xpert Ultra on a respiratory specimen. This difference in reference standard likely also contributed to the lower specificity in Signorino 2022.
+
+Zhang 2020 included only two studies with children, both focused on sputum specimens.
+
+Another review compared the diagnostic accuracy of Xpert Ultra and Xpert MTB/RIF for detection of pulmonary tuberculosis and rifampicin resistance in adults (Zifodya 2021). For detection of rifampicin resistance, Xpert Ultra summary sensitivity was 94.9% (95% credible interval 88.9 to 97.9), and specificity was 99.1% (95% credible interval 97.7 to 99.8) (5 studies, 921 participants in total, 240 with rifampicin resistance).
+
+### Applicability of findings to the review question
+
+To assess the applicability of findings to the review question, we considered QUADAS‐2 domains for patient selection, index test, and reference standard. With respect to the patient selection domain, we considered three studies (21%) of high concern because participants were evaluated exclusively as inpatients in tertiary care centres. Studies that take place in referral settings may include patients whose condition is more advanced or more difficult to diagnose than patients seen at lower levels of the health system. With respect to the index test, we considered most studies of low concern regarding applicability. However, we considered applicability of the index test in stool to be unclear, as currently, there is not a standardized protocol for stool testing with Xpert Ultra. With respect to the reference test domain, we considered most studies of low concern regarding applicability.
+
+## Authors' conclusions
+
+### Implications for practice
+
+Xpert Ultra sensitivity (defined by culture) for pulmonary tuberculosis was variable across different specimen types, including sputum, gastric aspirate, stool, and nasopharyngeal aspirate. The highest sensitivity was seen with sputum, followed by gastric aspirate, and the lowest in nasopharyngeal aspirate. Xpert Ultra specificity was high in all specimen types. Sensitivity for Xpert Ultra in stool was lower than in sputum or gastric aspirate, but higher than in nasopharyngeal aspirate. However, the evidence base is still limited, and findings may be imprecise and vary by study setting. Additional data are needed on the differential performance of Xpert Ultra by specimen type to guide recommendations for diagnostic algorithms in children. The sensitivity of Xpert Ultra was not dramatically reduced in children aged 0 to 4 years, which differs from our prior findings (Kay 2020), and may represent an advance in the diagnosis of young children with Xpert Ultra compared with Xpert MTB/RIF. Subgroup analyses were limited, but data from sputum and stool specimens in children with severe malnutrition suggest that Xpert Ultra performs well, with a sensitivity that was markedly higher than in all children for both specimens. This high risk group would benefit from access to Xpert Ultra testing to complement treatment for severe malnutrition.
+
+Although we found Xpert Ultra to be accurate for detection of rifampicin resistance, the results were based on a very small number of studies that included only three children with rifampicin resistance. Findings should, therefore, be interpreted with caution.
+
+Evidence in this review is based mainly on culture as the reference standard, and we calculated Xpert Ultra accuracy on the assumption that the reference standard is 100% sensitive and specific. Although culture is acceptable, it is an imperfect reference standard for child tuberculosis. Without a more accurate reference standard, with a limit of detection low enough to detect paucibacillary tuberculosis, the accuracy of novel diagnostic tests for tuberculosis in children will remain difficult to estimate. Despite the presence of a negative Xpert Ultra result, clinicians will still need to consider tuberculosis treatment in children with a high suspicion of tuberculosis or at high risk of a poor outcome. The percentage of non‐determinate results ranged from 0% to 11% in the studies of Xpert Ultra, and tended to be slightly higher in stool specimens. This increased percentage of non‐determinate results should be considered when using stool as a diagnostic specimen.
+
+The evidence from Kay 2020 informed Module 3 of the WHO Consolidated Guidelines on Tuberculosis (WHO Consolidated Guidelines (Module 3) 2021), and the current review update informed module 5 (WHO Consolidated Guidelines (Module 5) 2022). Specific recommendations from those guidelines, with implications for practice, are presented in Table 1.
+
+### Implications for research
+
+There are several areas for which additional research regarding the diagnostic accuracy of molecular tests in children is necessary. There is a need for:data to evaluate how Xpert Ultra impacts patient‐important outcomes in children and how Xpert Ultra diagnostic accuracy changes when multiple specimen types are evaluated;studies that evaluate the accuracy of Xpert Ultra for detecting extrapulmonary tuberculosis in children. This is particularly relevant given the encouraging results regarding Xpert Ultra performance in cerebrospinal fluid obtained from adults (Kohli 2021);more research to identify an improved reference standard that accurately defines tuberculosis in children;accurate tests performed at the point of care;additional operational and qualitative research to determine the best approach to less invasive specimen collection;implementation studies on a method of suction for nasopharyngeal aspiration that is appropriate for low‐skill or low‐resource environments;additional operational research concerning the use of stool as a diagnostic specimen. These studies should address
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews
+
+integration into normal diagnostic clinical pathways, definition of laboratory protocols – including processing methods – that successfully balance ease of implementation and diagnostic performance, and the impact of stool testing on patient-important outcomes;
+
+- qualitative research identifying child and family preferences for and acceptability of comparative diagnostic approaches and specimen collection procedures.
+
+We underscore the continued urgent need to develop new tools that accurately diagnose tuberculosis in children. Ideally, these new tools will be rapid, affordable, feasible, and acceptable to children and their parents.
+
+# ACKNOWLEDGEMENTS
+
+# Editorial and peer-reviewer contributions
+
+The following people conducted the editorial process for this review update version.
+
+- Contact Editors: Professor Gerry Davies (CIDG); Dr Danielle van der Windt (DTA).
+- Sign-off Editor (final editorial decision): Professor Paul Garner (CIDG).
+- Managing Editor (collated Editors' comments, provided editorial guidance to authors, edited the article): Dr Deirdre Walshe (CIDG).
+- Copy Editor (copy editing and production): Julia Turner.
+
+The CIDG editorial base is funded by UK aid from the UK Government for the benefit of low- and middle-income countries
+
+(project number 300342-104). The views expressed in this review do not necessarily reflect the UK Government's official policies.
+
+We thank Vittoria Lutje (CIDG) for developing the search strategy. We also wish to acknowledge Ryan Vu (Rice University), who contributed to development of the protocol. In addition, we thank Mikashmi Kohli, who provided technical expertise, and Emily MacLean, who provided data on stool specimens; both are at McGill University. We thank Andrew DiNardo (Baylor College of Medicine) for technical assistance. We thank Gemma Villanueva and Hanna Bergman, both with Cochrane Response, who assisted with data entry. We also thank Aakshi Kalra (FIND), who provided data from a large-scale Xpert MTB/RIF demonstration project conducted in India.
+
+Development of the systematic review was in part made possible with financial support from the US Agency for International Development (USAID) administered by the World Health Organization (WHO) Global Tuberculosis Programme, Switzerland.
+
+We are grateful to Dr Sayera Banu, Programme on Emerging Infections, Infectious Diseases Division, International Centre for Diarrhoeal Disease Research, Bangladesh (icddr,b), Dhaka, Bangladesh, and her research team for providing additional data on stool specimens for Kabir 2020.
+
+We are appreciative of all study authors, who provided stratified data not available in the published works. Further, we would like to specifically thank the study teams who have shared currently unpublished data for this review: Olivier Marcy and the entire TB-Speed study team as well as Pamela Nabeta and the entire FIND SPK (Stool Processing Kit) study team.
+
+Xpert MTB/RIF Ultra assay for tuberculosis disease and rifampicin resistance in children (Review)
+
+Copyright © 2022 The Authors. Cochrane Database of Systematic Reviews published by John Wiley &amp; Sons, Ltd. on behalf of The Cochrane Collaboration.
+
+#
+
+Cochrane Library
+
+Trusted evidence. Informed decisions. Better health.
+
+Cochrane Database of Systematic Reviews

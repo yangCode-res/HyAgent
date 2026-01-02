@@ -1,18 +1,47 @@
 import os
 import pathlib
 import base64
+import re  # 引入正则模块
 from mistralai import Mistral
 
 API_KEY = os.getenv("MISTRAL_API_KEY")
-MODEL = "mistral-ocr-latest"   # 你之前用的可跑通的模型名
+MODEL = "mistral-ocr-latest"
 
 def encode_pdf_base64(path):
     with open(path, "rb") as f:
         return "data:application/pdf;base64," + base64.b64encode(f.read()).decode()
 
+def remove_references(text):
+    """
+    利用正则查找 Markdown 标题中的 References/Bibliography/参考文献，
+    并截断之后的内容。
+    """
+    if not text:
+        return text
+
+    # 正则逻辑解释：
+    # (?i)       : 开启忽略大小写模式
+    # ^          : 匹配行首 (配合 re.MULTILINE)
+    # \#+        : 匹配一个或多个 # (Markdown 标题)
+    # \s+        : 匹配标题后的空格
+    # (\d+\.?\s*)? : 可选匹配章节号 (例如 "10. References" 或 "6 References")
+    # (References|Bibliography|参考文献) : 匹配核心关键词
+    # \s*        : 匹配尾部可能存在的空格
+    # $          : 匹配行尾
+    pattern = re.compile(r'(?i)^#+\s+(\d+\.?\s*)?(References|Bibliography|参考文献)\s*$', re.MULTILINE)
+
+    # 搜索匹配项
+    match = pattern.search(text)
+    
+    if match:
+        print(f"   -> Detected References section at index {match.start()}, truncating...")
+        # 返回匹配位置之前的所有文本，并去除尾部空白
+        return text[:match.start()].strip()
+    
+    return text
 
 def ocr_from_urls(url_list):
-    """返回每个 URL 的 OCR 文本"""
+    """返回每个 URL 的 OCR 文本 (已去除参考文献)"""
     results = []
 
     with Mistral(api_key=API_KEY) as client:
@@ -45,8 +74,14 @@ def ocr_from_urls(url_list):
                         pages.append(p.markdown)
                     elif getattr(p, "text", None):
                         pages.append(p.text)
-
-                results.append("\n\n".join(pages))
+                
+                # 1. 先合并所有页面文本
+                full_text = "\n\n".join(pages)
+                
+                # 2. 执行去除参考文献的逻辑
+                cleaned_text = remove_references(full_text)
+                
+                results.append(cleaned_text)
 
             except Exception as e:
                 print("Error:", e)
@@ -56,7 +91,7 @@ def ocr_from_urls(url_list):
 
 
 # ----------------------------------------------------
-# 📌 你现在要的包装函数：输入 URL 列表 → 输出保存的 MD 文件路径列表
+# 📌 包装函数：输入 URL 列表 → 输出保存的 MD 文件路径列表
 # ----------------------------------------------------
 def ocr_to_md_files(url_list, save_dir="ocr_md_outputs"):
     """
@@ -69,7 +104,7 @@ def ocr_to_md_files(url_list, save_dir="ocr_md_outputs"):
 
     md_paths = []
 
-    # 拿到 OCR 文本
+    # 拿到 OCR 文本 (内部已去除参考文献)
     texts = ocr_from_urls(url_list)
 
     for idx, text in enumerate(texts):
@@ -89,11 +124,12 @@ def ocr_to_md_files(url_list, save_dir="ocr_md_outputs"):
 
 # ================= 示例运行 =================
 if __name__ == "__main__":
+    # 替换为你实际的 PDF 链接或路径
     urls = [
         "https://arxiv.org/pdf/2407.08940.pdf",
-        "/mnt/data/2407.08940v2.pdf"
+        # "/path/to/local/paper.pdf" 
     ]
 
     md_files = ocr_to_md_files(urls)
-    print("\n>>> 保存的 Markdown 文件列表：")
+    print("\n>>> 保存的 Markdown 文件列表（已去除 References）：")
     print(md_files)

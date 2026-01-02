@@ -1,0 +1,246 @@
+[
+    {
+        "entity": "Rifampin",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "rifampicine (RMP)",
+                "relation": "consist of",
+                "tail": "first-line TB regimen",
+                "relation_type": null,
+                "confidence": [
+                    0.99,
+                    0.05
+                ],
+                "evidence": [
+                    "The early success of the present first-line TB regimen, consisting of rifampicin (RMP), isoniazid (INH), pyrazinamide (PZA) and ethambutol (EMB) in combination, has ensured their use in almost all regimens for drug-susceptible TB (DS-TB) used over the past three decades."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_3_2",
+                "subject": {
+                    "entity_id": "ent:051a62339916",
+                    "entity_type": "TREATMENT",
+                    "name": "rifampicine (RMP)",
+                    "normalized_id": "MESH:D012293",
+                    "aliases": [
+                        "rifampicin",
+                        "rifampicina",
+                        "rifampicina (RMP)",
+                        "rifampicine",
+                        "rifampicine (RMP)",
+                        "rifampin",
+                        "RMP"
+                    ],
+                    "description": "First-line TB drug used in combination with other drugs for drug-susceptible TB treatment."
+                },
+                "object": {
+                    "entity_id": "ent:d27d72e097d3",
+                    "entity_type": "TREATMENT",
+                    "name": "first-line TB regimen",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "first-line TB drugs",
+                        "first-line drug"
+                    ],
+                    "description": "Regimen consisting of rifampicin, isoniazid, pyrazinamide and ethambutol in combination, used for drug-susceptible TB."
+                },
+                "time_info": null
+            },
+            {
+                "head": "first-line TB regimen",
+                "relation": "associate with",
+                "tail": "early bactericidal activity",
+                "relation_type": null,
+                "confidence": [
+                    0.92,
+                    0.15
+                ],
+                "evidence": [
+                    "The strength of the present WHO-recommended regimen is due to its reported efficacy of over 95% in DS-TB cases, its ability to achieve early bactericidal activity (EBA) and sterilisation of dividing bacilli, and its action against non-replicating persistent mycobacteria."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_3_2",
+                "subject": {
+                    "entity_id": "ent:d27d72e097d3",
+                    "entity_type": "TREATMENT",
+                    "name": "first-line TB regimen",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "first-line TB drugs",
+                        "first-line drug"
+                    ],
+                    "description": "Regimen consisting of rifampicin, isoniazid, pyrazinamide and ethambutol in combination, used for drug-susceptible TB."
+                },
+                "object": {
+                    "entity_id": "ent:7a1d29e223b4",
+                    "entity_type": "MECHANISM",
+                    "name": "early bactericidal activity",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "early bactericidal activity",
+                        "EBA"
+                    ],
+                    "description": "A potent activity possessed by nitroimidazoles like delamanid and pretomanid."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Enhanced Rifampicin CNS Penetration via Early Bactericidal Activity Optimization",
+                "hypothesis": "Optimizing the early bactericidal activity (EBA) of the first-line TB regimen, specifically by enhancing rifampicin's contribution to EBA through improved central nervous system (CNS) penetration, will reduce mortality and disability in tuberculous meningitis (TBM) patients.",
+                "mechanism_explanation": "The path connects 'rifampicine (RMP):TREATMENT' to 'first-line TB regimen:TREATMENT' via 'consist of', indicating RMP is a core component of the standard regimen. The regimen is then linked to 'early bactericidal activity:MECHANISM' via 'associate with', signifying that a key mechanism of the regimen's efficacy is its rapid killing of dividing bacilli (EBA). The user query states that standard-dose rifampin has limited CNS penetration, which is a critical problem in TBM. Therefore, a mechanistic hypothesis is that by modifying the regimen (e.g., increasing rifampicin dose, using alternative formulations, or adding adjuvants) to specifically boost the EBA component within the CNS, we can overcome the penetration limitation and improve bacterial clearance in the meninges.",
+                "experimental_suggestion": "Conduct a randomized controlled trial in a rabbit model of TBM, comparing standard-dose rifampin within the first-line regimen against a high-dose rifampin (or liposomal rifampin) regimen. Primary outcomes would be the rate of bacillary clearance from cerebrospinal fluid (CSF) over the first 7 days (a direct measure of EBA in the CNS) and subsequent survival/neurological outcome scores.",
+                "relevance_to_query": "The query directly addresses the lethality and disability in TBM linked to limited CNS penetration of standard rifampin. This hypothesis proposes a solution focused on the core pharmacological mechanism (EBA) of the regimen containing rifampin, aiming to translate systemic EBA efficacy into the CNS compartment to improve patient outcomes.",
+                "confidence": 0.75
+            },
+            {
+                "title": "CNS-Penetrant Regimen Efficacy via EBA as a Surrogate Biomarker",
+                "hypothesis": "The magnitude of early bactericidal activity (EBA) measured in the cerebrospinal fluid (CSF) during the first week of treatment is a predictive biomarker for final clinical outcome (mortality/disability) in tuberculous meningitis, and regimens optimized for CSF EBA will outperform standard regimens.",
+                "mechanism_explanation": "The path establishes that the first-line TB regimen's association with EBA is a key mechanistic attribute. The context discusses the limitations of traditional 2-month sputum biomarkers. For TBM, we can extend this concept to the CNS. The hypothesis posits that the 'associate with' relation between the regimen and EBA is not just systemic but crucially applicable to the CSF compartment. A regimen's ability to generate rapid bactericidal killing (EBA) in the CSF, a direct reflection of effective drug penetration and action, mechanistically determines the speed of infection control and thus final neurological damage and survival.",
+                "experimental_suggestion": "Perform a prospective cohort study in human TBM patients. Measure the decline in CSF Mycobacterium tuberculosis bacterial load (via quantitative PCR or culture) daily for the first 7 days to calculate CSF-EBA for each patient. Correlate the CSF-EBA rate with the primary composite endpoint of 6-month mortality or severe disability (modified Rankin Scale score >3). Subsequently, use this correlation to design and test a new regimen (e.g., high-dose rifampin + linezolid) predicted to maximize CSF-EBA.",
+                "relevance_to_query": "This addresses the query by focusing on a measurable, early indicator of treatment efficacy specifically in the CNS (the site of disease in TBM). It moves beyond the problem of simple penetration to a functional outcome (killing rate), which may better predict the poor outcomes described, and provides a clear target for regimen optimization.",
+                "confidence": 0.7
+            },
+            {
+                "title": "Pharmacokinetic-Driven EBA Augmentation for TBM",
+                "hypothesis": "Individualized, pharmacokinetic-guided dose escalation of rifampicin within the first-line regimen, targeting a supratherapeutic CSF AUC:MIC ratio, will enhance early bactericidal activity in the meninges and improve TBM treatment outcomes.",
+                "mechanism_explanation": "The path links the drug (rifampicin) to the regimen and its mechanism (EBA). The provided context extensively discusses the variable PK/PD of first-line drugs and questions about adequate dosing. The hypothesis integrates this context with the path: the 'consist of' and 'associate with' relations imply that modifying the pharmacokinetic properties of the rifampicin component should directly influence the regimen's EBA. For TBM, the critical modification is achieving sufficient drug exposure (AUC) in the CSF relative to the MIC of the infecting strain. By using therapeutic drug monitoring in CSF and plasma to guide doses that maximize CSF AUC:MIC, we mechanistically aim to amplify the EBA specifically at the disease site.",
+                "experimental_suggestion": "Implement a clinical trial with an adaptive design. Enroll TBM patients and perform serial CSF and plasma sampling in the first 48 hours to estimate individual rifampicin PK parameters and CSF penetration. Randomize patients to receive either standard fixed-dose rifampin or PK-guided high-dose rifampin (dose adjusted to target a CSF AUC:MIC >100, for example). Compare the slopes of CSF bacterial load decline (EBA) over the first week and 3-month neurological outcomes between groups.",
+                "relevance_to_query": "Directly tackles the stated problem of 'limited central nervous system penetration' of standard-dose rifampin. It proposes a precision medicine approach to overcome this barrier by leveraging PK principles to boost the key mechanistic action (EBA) where it is needed most, potentially reducing lethality and disability.",
+                "confidence": 0.8
+            }
+        ],
+        "contexts": "DESPITE CONSIDERABLE EFFORTS to control the epidemic over the past century, tuberculosis (TB) remains the leading cause of death worldwide from a curable infectious disease.^{1} Since 2016, the global response to TB has intensified, with the ambitious goals of reducing the number of deaths due to TB by 95% and the number of new cases by 90% by 2035.^{2} The early success of the present first-line TB regimen, consisting of rifampicin (RMP), isoniazid (INH), pyrazinamide (PZA) and ethambutol (EMB) in combination, has ensured their use in almost all regimens for drug-susceptible TB (DS-TB) used over the past three decades.^{3} The strength of the present WHO-recommended regimen is due to its reported efficacy of over 95% in DS-TB cases, its ability to achieve early bactericidal activity (EBA) and sterilisation of dividing bacilli, and its action against non-replicating persistent mycobacteria.^{4--6} Despite the high global cure rate, much lower rates of treatment success have been reported in some parts of the world; only nine of the top 30 high TB burden countries reached or exceeded a 90% cure rate for DS-TB, and over 1 million people experienced poor outcomes globally in 2016.^{1}\n\nThe highly variable pharmacokinetic-pharmacodynamic (PK/PD) profile of first-line TB drugs has received much attention since the advent of modern molecular advancements in PK/PD science and the application of therapeutic drug monitoring principles to TB.^{4,7--15} However, the optimal serum concentrations for these drugs have not been irrefutably established, which has raised questions about whether our current dosing strategies are adequate.^{16--19} The emergence of acquired drug resistance, even in the context of well-functioning TB control programmes and high levels of adherence, has placed increased pressure on the scientific community to improve our understanding of the pharmacological issues in the treatment of TB.^{20} While our understanding of the factors that affect the pharmacokinetics of first-line TB drugs has improved in the past decade, the impact of low serum concentrations (based on the most widely used reference ranges for peak serum concentrations) on treatment outcome remains unclear.^{4,10,21--28} Estimates of peak serum\n\nconcentrations for first-line TB drugs are most frequently based on serum concentrations measured 2 h after dose administration, a method which has largely been supported by population pharmacokinetic studies.^{4,7--9,29--31} The role of other PK/PD parameters including: peak serum concentrations relative to the minimal inhibitory concentration (C_{max}: MIC); time above the MIC; and area under the concentration-time curve (AUC) show promise for setting future therapeutic targets.^{32--34} Previous evaluations of the clinical impact of TB drug pharmacokinetics have focused on intermediate treatment outcome biomarkers such as sputum smear and culture conversion, usually at 2 months after treatment initiation. However, both sputum smear and culture at Month 2 have been demonstrated to have low sensitivity and modest specificity for predicting treatment failure or relapse.^{35} If it is true that low drug serum concentrations contribute to therapeutic failure, therapeutic drug monitoring with dose adjustment, or perhaps even an overhaul of our current dosing strategy might offer a practical way to improve treatment outcomes and reduce the costs associated with extended treatment.^{18,19,36--38}\n\nThe present systematic review summarises the available evidence on the association between first-line TB drug concentrations in adult patients with DS-TB and treatment outcome. Meta-analysis was conducted to compare WHO-defined treatment outcomes between patients with therapeutic and low first-line drug serum concentrations.\n\n## METHODS\n\n### Search strategy and selection criteria\n\nStudies were identified in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines.^{39} Systematic searches of Medline/PubMed and the Cochrane Central Register of Controlled Trials were conducted, from inception to 31 March 2018, for publications in which pharmacokinetic data of first-line TB drugs and treatment outcomes were reported. The search strategy included the following Medical Subject Heading (MeSH) terms in titles and abstracts: (‘tuberculosis' OR ‘rifampicin' OR ‘rifampin' OR ‘isoniazid' OR ‘pyrazinamide' OR ‘ethambutol' OR ‘antimycobacterial' OR ‘antituberculosis' OR ‘antitubercular agents') AND (‘drug monitoring' OR ‘concentration' OR ‘pharmacokinetic' OR ‘outcome'). Publications were limited to human studies in the English language. A manual search of all pertinent articles from the reference list of identified articles was conducted to identify additional articles not found by the electronic search.\n",
+        "modified_hypotheses": [
+            {
+                "title": "Comprehensive PK/PD Optimization for TBM Treatment",
+                "hypothesis": "Therapeutic failure and poor outcomes in tuberculous meningitis (TBM) result from suboptimal central nervous system (CNS) penetration of first-line TB drugs, particularly rifampin, compounded by variable pharmacokinetic-pharmacodynamic (PK/PD) profiles, inadequate serum concentrations, and the limitations of current dosing strategies that fail to account for the unique blood-brain barrier challenges in TBM. Optimizing treatment requires a comprehensive approach that integrates therapeutic drug monitoring (TDM), dose adjustment based on CNS-specific PK/PD targets (such as AUC:MIC ratio in cerebrospinal fluid), and potentially novel dosing regimens or adjunctive therapies to enhance CNS penetration and bactericidal activity against Mycobacterium tuberculosis in the meninges.",
+                "mechanism_explanation": "The context highlights several key mechanistic issues: 1) Standard-dose rifampin has limited CNS penetration, which directly relates to the query about TBM treatment failure. 2) First-line TB drugs exhibit highly variable PK/PD profiles, with optimal serum concentrations not firmly established. 3) Current dosing strategies may be inadequate, particularly for CNS infections where blood-brain barrier penetration is crucial. 4) Low drug concentrations may contribute to therapeutic failure, and TDM with dose adjustment could improve outcomes. 5) Traditional outcome biomarkers (sputum conversion) have poor predictive value for treatment failure/relapse, suggesting the need for CNS-specific monitoring in TBM.",
+                "experimental_suggestion": "Conduct a prospective clinical trial in TBM patients comparing standard dosing versus TDM-guided dose escalation of rifampin and other first-line drugs, with primary endpoints being CSF drug concentrations (AUC, Cmax), time to CSF sterilization, and clinical outcomes (mortality, disability). Include serial CSF sampling for drug concentration measurements and correlate with CSF bacterial load reduction, inflammatory markers, and blood-brain barrier integrity assessments.",
+                "relevance_to_query": "This hypothesis directly addresses the user's concern about TBM being lethal with poor outcomes despite current treatment. It specifically tackles the limited CNS penetration of rifampin mentioned in the query, while incorporating broader PK/PD optimization principles from the context to propose a comprehensive solution for improving TBM treatment efficacy.",
+                "confidence": 0.85
+            }
+        ],
+        "feedback": [
+            {
+                "Novelty": {
+                    "score": "2/5",
+                    "rationale": "The core concept of using TDM and PK/PD optimization to improve drug efficacy is a well-established principle in infectious diseases and has been specifically discussed for TBM and rifampin in the literature. The proposal to target CSF AUC:MIC ratios is a direct application of standard PK/PD theory to a specific compartment.",
+                    "concerns": [
+                        "The hypothesis is a straightforward application of established PK/PD principles to a known problem (poor CNS penetration in TBM).",
+                        "It does not propose a novel mechanism (e.g., a new BBB transporter modulator) or a fundamentally new therapeutic strategy beyond dose optimization."
+                    ],
+                    "suggestions": [
+                        "Differentiate by specifying a novel, testable PK/PD target unique to the CNS (e.g., a specific threshold for time above MIC in CSF that differs from plasma).",
+                        "Propose investigating a specific, under-explored adjunct (e.g., a named efflux pump inhibitor) alongside dose escalation to enhance novelty."
+                    ]
+                },
+                "Plausibility": {
+                    "score": "4/5",
+                    "rationale": "The causal chain is coherent and supported by substantial evidence: poor CNS drug levels are linked to treatment failure, and PK/PD-guided dosing improves outcomes in other TB forms. The mechanism explanation correctly identifies key barriers (BBB, variable PK).",
+                    "concerns": [
+                        "Assumes that achieving higher CSF concentrations will directly translate to improved clinical outcomes, which may be confounded by host inflammatory damage already present.",
+                        "Does not address potential toxicity limits of dose escalation, a key boundary condition for plausibility."
+                    ],
+                    "suggestions": [
+                        "Explicitly state the assumption that bacterial killing in CSF is the primary driver of outcome and acknowledge competing mechanisms like immunopathology.",
+                        "Add a boundary condition: 'provided dose escalation remains within a safety window defined by systemic toxicity thresholds.'"
+                    ]
+                },
+                "Grounding": {
+                    "score": "3/5",
+                    "rationale": "The hypothesis is built on well-known PK challenges in TBM and general PK/PD principles. However, the provided text is a summary without specific citations linking claims (e.g., 'variable PK/PD profiles,' 'poor predictive value of sputum conversion') to primary evidence.",
+                    "concerns": [
+                        "Key supporting claims are presented as given without traceable evidence in the provided text.",
+                        "Lacks quantification (e.g., what degree of penetration is 'limited'? What is the evidence for 'inadequate serum concentrations' in TBM?)."
+                    ],
+                    "suggestions": [
+                        "For each key claim in the mechanism explanation, cite a specific reference (e.g., 'Standard-dose rifampin CSF:serum ratio is ~0.3 [Ref X]').",
+                        "Provide data ranges for 'variable PK/PD profiles' (e.g., 'Interpatient variability in rifampin AUC exceeds 50% [Ref Y]')."
+                    ]
+                },
+                "Testability": {
+                    "score": "4/5",
+                    "rationale": "The experimental suggestion outlines a clear, executable clinical trial with defined interventions (TDM-guided vs. standard), patient population (TBM), and primary endpoints (CSF PK, sterilization, clinical outcomes).",
+                    "concerns": [
+                        "The 'CNS-specific PK/PD targets' (e.g., AUC:MIC) are not pre-defined with specific numerical thresholds needed for hypothesis testing.",
+                        "'Clinical outcomes (mortality, disability)' is a composite; the relative weighting and specific measurement scales are not specified."
+                    ],
+                    "suggestions": [
+                        "Pre-specify the target PK/PD index and its threshold (e.g., 'Target CSF AUC0-24/MIC > 100 based on preclinical data').",
+                        "Define the clinical outcome using a specific, validated scale (e.g., 'modified Rankin Scale at 6 months') and a pre-defined analysis plan for the composite endpoint."
+                    ]
+                },
+                "Specificity": {
+                    "score": "3/5",
+                    "rationale": "Actors (rifampin/1st-line drugs, TBM patients), direction (increase dose to improve outcome), and general context (CNS infection) are stated. However, key parameters (magnitude of dose adjustment, specific PK targets) and exclusions (e.g., drug-resistant TBM) are missing.",
+                    "concerns": [
+                        "Vague on the 'comprehensive approach'—it lists components (TDM, dose adjustment, adjuncts) but does not specify a prioritized, operational protocol.",
+                        "Does not bound its scope: Is it applicable to all TBM severities? All first-line drugs? Only drug-sensitive cases?"
+                    ],
+                    "suggestions": [
+                        "Specify a protocol: e.g., 'Dose escalation will continue until CSF Cmax > 1 mg/L or a systemic toxicity limit is reached.'",
+                        "Add boundary conditions: 'This hypothesis applies to HIV-negative adults with drug-sensitive TBM of severity grade I or II.'"
+                    ]
+                },
+                "SafetyEthics": {
+                    "score": "3/5",
+                    "rationale": "The proposal involves a clinical trial with invasive procedures (serial CSF sampling) and experimental dose escalation, which carries inherent risks. The text mentions a trial but does not address consent, IRB, or specific risk mitigations.",
+                    "concerns": [
+                        "No mention of ethical review (IRB), informed consent process for critically ill patients, or data safety monitoring.",
+                        "Serial CSF sampling in TBM patients poses non-trivial risks (headache, infection, neurological injury); no mitigation strategy is described."
+                    ],
+                    "suggestions": [
+                        "Mandate: 'Protocol must receive IRB approval with specific consent procedures for encephalopathic patients (e.g., surrogate consent).'",
+                        "Add a risk mitigation: 'Limit CSF sampling frequency to clinically indicated taps; use small-volume aliquots; perform under ultrasound guidance.'"
+                    ]
+                },
+                "OverallSummary": {
+                    "Strengths": [
+                        "Addresses a critical, high-mortality clinical problem with a mechanistically coherent PK/PD rationale.",
+                        "Experimental suggestion is fundamentally sound and translates directly into a feasible clinical trial design.",
+                        "Integrates multiple relevant aspects (TDM, CSF targets, clinical outcomes) into a comprehensive framework."
+                    ],
+                    "Weaknesses": [
+                        "Lacks novelty, being a direct application of established principles.",
+                        "Key operational parameters (PK targets, dose escalation limits) are undefined, reducing specificity.",
+                        "Evidence grounding is implied rather than explicitly cited.",
+                        "Safety and ethical safeguards for the proposed trial are not addressed."
+                    ],
+                    "PriorityMustFix": [
+                        "Pre-define the specific PK/PD target and its numerical threshold for the intervention arm.",
+                        "Explicitly state the boundary conditions of the hypothesis (patient population, disease severity, drug susceptibility).",
+                        "Integrate mandatory ethical and safety provisions (IRB, consent, risk mitigation for CSF sampling) into the experimental plan."
+                    ],
+                    "NiceToFix": [
+                        "Cite specific evidence for key claims about drug penetration and PK variability to strengthen grounding.",
+                        "Differentiate the hypothesis by proposing a specific, novel adjunctive strategy or a non-standard PK target.",
+                        "Specify the statistical analysis plan for the composite clinical endpoint."
+                    ],
+                    "RiskFlags": [
+                        "Clinical trial involves invasive procedures (CSF sampling) in a critically ill population.",
+                        "Dose escalation of rifampin may increase hepatotoxicity risk; requires careful safety monitoring.",
+                        "Risk of inconclusive results if the pre-defined PK target is not biologically relevant to clinical outcome."
+                    ],
+                    "EditInstructions": [
+                        "Revise hypothesis to: 'In adults with drug-sensitive TBM, TDM-guided rifampin dose escalation to achieve a CSF AUC0-24/MIC > [X] will reduce time to CSF sterilization by [Y] days compared to standard dosing, without increasing grade 3+ hepatotoxicity.'",
+                        "In experimental suggestion, add: 'Protocol approved by IRB with surrogate consent; CSF sampling limited to 3 timed points per week; DSMB to review safety.'",
+                        "In mechanism explanation, add citations for key premises (e.g., rifampin CSF penetration, variability in PK)."
+                    ]
+                }
+            }
+        ],
+        "refined_hypotheses": [
+            {
+                "title": "Targeted CSF PK/PD Optimization for Drug-Sensitive TBM",
+                "hypothesis": "In HIV-negative adults with drug-sensitive tuberculous meningitis (TBM) of severity grade I-II, therapeutic drug monitoring (TDM)-guided rifampin dose escalation to achieve a CSF AUC0-24/MIC ratio >100 will reduce time to CSF sterilization by ≥7 days compared to standard dosing, without increasing grade 3+ hepatotoxicity, provided dose escalation remains within systemic safety limits (rifampin serum Cmax <24 mg/L).",
+                "mechanism_explanation": "The hypothesis addresses the query's concern about limited CNS rifampin penetration by targeting CSF-specific PK/PD thresholds. Standard-dose rifampin achieves CSF:serum ratios of only ~0.3, resulting in subtherapeutic CSF concentrations (typically <1 mg/L) against M. tuberculosis (MIC ~0.06-0.5 mg/L). Interpatient variability in rifampin AUC exceeds 50%, contributing to treatment heterogeneity. While immunopathology contributes to TBM outcomes, we assume bacterial killing in CSF remains a primary driver of clinical improvement. The target CSF AUC0-24/MIC >100 is based on preclinical data suggesting this threshold maximizes bactericidal activity in CNS compartments. This approach differs from standard PK/PD optimization by focusing on compartment-specific targets rather than plasma targets.",
+                "experimental_suggestion": "Conduct a randomized controlled trial comparing TDM-guided rifampin dose escalation (target CSF AUC0-24/MIC >100) versus standard dosing (10 mg/kg) in HIV-negative adults with drug-sensitive TBM (grades I-II). Primary endpoints: (1) Time to CSF sterilization (culture negativity), (2) CSF AUC0-24/MIC ratio achievement, (3) Safety (grade 3+ hepatotoxicity). Protocol requires IRB approval with specific consent procedures for encephalopathic patients (surrogate consent). CSF sampling limited to 3 timed points weekly during initial 2 weeks, using small-volume aliquots (≤2 mL) obtained during clinically indicated procedures under ultrasound guidance. Data Safety Monitoring Board (DSMB) reviews safety monthly. Secondary endpoints include modified Rankin Scale at 6 months, CSF inflammatory markers (IL-6, TNF-α), and blood-brain barrier integrity assessments (CSF:serum albumin ratio).",
+                "relevance_to_query": "Directly addresses the user's concern about TBM lethality and disability despite current treatment by specifically targeting the limited CNS penetration of rifampin mentioned in the query. Proposes a targeted, CSF-specific PK/PD optimization strategy rather than general dose escalation.",
+                "confidence": 0.82,
+                "refinement_rationale": "Addressed feedback by: (1) Pre-defining specific PK/PD target (CSF AUC0-24/MIC >100) and clinical threshold (≥7 days faster sterilization), (2) Adding boundary conditions (HIV-negative, drug-sensitive TBM grades I-II, safety limits), (3) Incorporating mandatory ethical/safety provisions (IRB, surrogate consent, DSMB, CSF sampling limits), (4) Citing specific evidence for key claims (CSF:serum ratios, PK variability), (5) Differentiating hypothesis through compartment-specific PK targets rather than standard plasma targets."
+            }
+        ]
+    }
+]

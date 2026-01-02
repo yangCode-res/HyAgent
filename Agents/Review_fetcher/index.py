@@ -17,7 +17,7 @@ from utils.filter import extract_pdf_paths
 from utils.pdf2md import deepseek_pdf_to_md_batch
 from utils.process_markdown import split_md_by_mixed_count
 
-
+fetch=PubMedFetcher()
 class ReviewFetcherAgent(Agent):
     def __init__(self,client:OpenAI,model_name:str) -> None:
         self.system_prompt="""You are a specialized Review Fetcher Agent for biomedical knowledge graphs. Your task is to fetch relevant literature reviews based on the user's query.
@@ -34,7 +34,7 @@ class ReviewFetcherAgent(Agent):
     def process(self,user_query:str):
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=30)
-        selected_reviews = self.selectReviews(reviews_metadata, topk=10)
+        selected_reviews = self.selectReviews(reviews_metadata, query=user_query, topk=10)
         review_urls = []
         for pmid in selected_reviews:
             try:
@@ -102,9 +102,11 @@ Return ONLY the raw search query string. No markdown, no explanations.
         reviews_metadata = [self.fetch.article_by_pmid(pmid) for pmid in pmids]
         return reviews_metadata
     
-    def selectReviews(self,reviews_metadata, topk=1) -> List:
-        review_str='\n'.join(review.__str__() for review in reviews_metadata)
+    def selectReviews(self,reviews_metadata, query='',topk=1) -> List:
+        review_str='\n'.join(self.format_review(review) for review in reviews_metadata)
+        print("review_str=>",review_str)
         selection_prompt = f"""
+        here is the user query: {query}, and here are the reviews:
         From the following {len(reviews_metadata)} reviews, select the most relevant {topk} ones:
         {review_str}
         Selection criteria:
@@ -112,13 +114,24 @@ Return ONLY the raw search query string. No markdown, no explanations.
         2. High citation count and impact factor
         3. Recent publication date
         4. Include mechanism studies and clinical applications
+        5. Select the reviews that most caters to the user query.
+        6. You should also take the richness of the review(identified as the range of pages here however the page range is not always available) into consideration so that we could build a knowledge graph with more triples.
+        If the page range is not available, you should put other requirements first.
         Please return the selected {topk} review pmids in a comma-separated format without any additional description.
         """
         selected_str = str(self.call_llm(selection_prompt))
         selected_str = selected_str.replace("[", "").replace("]", "")
         selected_5 = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
         return selected_5
-
+    def format_review(self,article):#将标题、日期、引用量、摘要、文章id喂给模型
+        return f"""
+        title: {article.title}
+        pubdate: {article.pubdate}
+        citation_count: {fetch.related_pmids(article.pmid).__len__()}
+        abstract: {article.abstract}
+        pmid: {article.pmid}
+        page-range:{article.pages}
+        """
 if __name__ == "__main__":
     from openai import OpenAI
     try:

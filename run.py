@@ -31,6 +31,7 @@ from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from dotenv import load_dotenv
 from Agents.Hypotheses_Edit.index import HypothesisEditAgent
+from utils.visualize import visualize_global_kg
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":
@@ -40,32 +41,33 @@ if __name__ == "__main__":
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251221-184939.json')
-    
-    user_query = "Cardiovascular outcome trials of the incretin-based medicines tirzepatide and semaglutide have shown benefits in populations with varying levels of cardiovascular risk. However, without direct head-to-head comparisons, treatment decisions rely on indirect evidence from heterogeneous trial populations, leaving optimal treatment choices uncertain. We therefore conducted five cohort studies to assess the effectiveness of tirzepatide and semaglutide in patients with elevated cardiovascular risk, including obesity and type 2 diabetes, enrolled in insurance programs in United States between 2018 and 2025."
-    queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
-    response = queryclarifyagent.process(user_query)
-    clarified_query = response.get("clarified_question", user_query) # type: ignore
-    core_entities= response.get("core_entities", []) # type: ignore
-    intention= response.get("main_intention", "") # type: ignore
-    keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=['Tirzepatide', 'Semaglutide', 'Cardiovascular Risk', 'Obesity', 'Type 2 Diabetes', 'Cohort Studies'])
-    keywordAgent.process()
-    path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,k=20,memory=memory,query=clarified_query)
-    path_extraction_agent.process()
-    hypothesis_agent = HypothesisGenerationAgent(
-        client=client,
-        model_name=model_name,
-        query=user_query,
-        memory=memory,
-        max_paths=5,
-        hypotheses_per_path=3,
-    )
-    results = hypothesis_agent.process()
-    memory.dump_json("./snapshots")
-    reflection_agent = ReflectionAgent(client=client,model_name=model_name,memory=memory)
-    reflection_agent.process()
-    hypothesis_edit_agent = HypothesisEditAgent(client=client,model_name=model_name,query=user_query,memory=memory)
-    hypothesis_edit_agent.process()
+    memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251224-174934.json')
+    visualize_global_kg(memory)
+    user_query = "Tuberculous meningitis is often lethal, and many survivors have disabilities despite antimicrobial treatment and adjunctive glucocorticoid therapy. Standard-dose rifampin has limited central nervous system penetration."
+    # queryclarifyagent = QueryClarifyAgent(client, model_name=model_name) # type: ignore
+    # response = queryclarifyagent.process(user_query)
+    # clarified_query = response.get("clarified_question", user_query) # type: ignore
+    # core_entities= response.get("core_entities", []) # type: ignore
+    # intention= response.get("main_intention", "") # type: ignore
+    # keywordAgent=KeywordEntitySearchAgent(client=client, model_name=model_name,memory=memory,keywords=core_entities)
+    # print("core_entities=>",core_entities)
+    # keywordAgent.process()
+    # path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,k=20,memory=memory,query=clarified_query)
+    # path_extraction_agent.process()
+    # hypothesis_agent = HypothesisGenerationAgent(
+    #     client=client,
+    #     model_name=model_name,
+    #     query=user_query,
+    #     memory=memory,
+    #     max_paths=5,
+    #     hypotheses_per_path=3,
+    # )
+    # results = hypothesis_agent.process()
+    # memory.dump_json("./snapshots")
+    # reflection_agent = ReflectionAgent(client=client,model_name=model_name,memory=memory)
+    # reflection_agent.process()
+    # hypothesis_edit_agent = HypothesisEditAgent(client=client,model_name=model_name,query=user_query,memory=memory)
+    # hypothesis_edit_agent.process()
 
     # path_extraction_agent = PathExtractionAgent(client=client, model_name=model_name,k=20,memory=memory,query=user_query)
     # path_extraction_agent.process()

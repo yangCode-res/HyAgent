@@ -1,24 +1,19 @@
-from difflib import SequenceMatcher
-from enum import unique
 import math
 import json
 from typing import List, Dict, Tuple, Optional, Any
-import faiss
+
 import numpy as np
-from tqdm import tqdm
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 import torch
-import faiss
 from transformers import AutoModel, AutoTokenizer
 
 from Store.index import get_memory
-from Config.index import BioBertPath,pubmedbertPath
+from Config.index import BioBertPath
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
+from difflib import SequenceMatcher
 
-from tqdm import tqdm
 class KeywordEntitySearchAgent(Agent):
     """
     功能：
@@ -40,7 +35,7 @@ class KeywordEntitySearchAgent(Agent):
         keywords: List[str],            # ⭐ 多个关键词
         memory: Optional[Memory] = None,
         top_k_default: int = 3,         # ⭐ 每个 keyword 最终保留多少个实体
-        candidate_pool_size: int = 40,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
+        candidate_pool_size: int = 50,  # ⭐ 每个 keyword 先取多少个 BioBERT 候选交给 LLM
     ):
         system_prompt = (
             "You are a biomedical entity-linking agent. "
@@ -63,227 +58,52 @@ class KeywordEntitySearchAgent(Agent):
         self.keywords: List[str] = keywords
         self.top_k_default: int = top_k_default
         self.candidate_pool_size: int = candidate_pool_size
-        #faiss index 相关
-        self.index=None#faiss index
-        self.id2entity={}#faiss index 2 entity
-        self.str_2_entity={}#entity name 2 KGEntity
-        # SapBERT 相关
-        self.Sapbert_dir = pubmedbertPath
-        self.Sapbert_model = None
-        self.Sapbert_tokenizer = None
-        self.device='cpu'
+
+        self.biobert_dir = BioBertPath
+        self.biobert_model = None
+        self.biobert_tokenizer = None
 
         # 全局实体索引
         self.entities: Dict[str, KGEntity] = {}
         # 每个实体对应多个 surface：(surface_text, embedding)
-        self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray]]] = {}
-        self.index=None
-        # 标记是否已构建索引
-        self._index_built = False
+        # 每个实体对应多个 surface：(surface_text, embedding, is_unknown)
+        self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray, bool]]] = {}
 
-        self._load_Sapbert()
-        # 注意：不在 __init__ 中构建索引，延迟到 process() 时构建
-        # 因为此时 SubgraphMerger 可能还没执行，memory.rlations 可能是空的
-        print("keywords",self.keywords)
-        # 为了配合你要求的“无中间 info 日志”，这里不打印构建完成信息
+        self._load_biobert()
+        self._build_entity_index()
+        # 默认权重（两侧都不是 UNK 时）
+        self.bert_weight: float = 0.7
+        self.string_weight: float = 0.3
 
-    def build_index(self,Triples:List[KGTriple]):
-        for triple in Triples:
-            subject=triple.subject
-            object=triple.object
-            if subject is None:
-                continue
-            if object is None:
-                continue
-            if isinstance(subject,dict):
-                subject=KGEntity(**subject)
-            if isinstance(object,dict):
-                object=KGEntity(**object)
-            self.str_2_entity[subject.name]=subject
-            for alias in subject.aliases or []:
-                self.str_2_entity[alias]=subject
-            self.str_2_entity[object.name]=object
-            for alias in object.aliases or []:
-                self.str_2_entity[alias]=object
-        unique_entities=list(self.str_2_entity.keys())
-        self.id2entity={i:name for i,name in enumerate(unique_entities)}
+        # 任一侧是 all [UNK] 时使用的权重（降低 BERT 权重）
+        self.bert_weight_unknown: float = 0.5
+        self.string_weight_unknown: float = 0.5
 
-        # 使用 (name, description) 作为双序列输入，融合描述语义
-        text_pairs: List[Tuple[str, str]] = []
-        for name in unique_entities:
-            ent = self.str_2_entity.get(name)
-            desc = getattr(ent, "description", "") or ""
-            text_pairs.append((name, desc))
-
-        embeddings = self.get_vec(text_pairs)
-        # 确保数据类型正确且内存连续
-        embeddings = embeddings.astype('float32')
-        embeddings = np.ascontiguousarray(embeddings)
-        faiss.normalize_L2(embeddings)
-        self.index = faiss.IndexFlatIP(embeddings.shape[1])
-        self.index.add(embeddings)
-
-
-    def get_vec(self, text_pairs: List[Tuple[str, str]], batch_size: int = 128) -> np.ndarray:
-        """
-        统一的向量化入口。
-        无论 Index 还是 Query，都走这里，确保 Pooling 逻辑一致。
-        """
-        if not text_pairs:
-            return np.array([])
-
-        all_embs = []
-        for i in tqdm(range(0, len(text_pairs), batch_size), desc="Encoding"):
-            batch = text_pairs[i : i + batch_size]
-            texts = [t for t, _ in batch]
-            descs = [d for _, d in batch] # 如果没有描述，传空字符串
-
-            inputs = self.Sapbert_tokenizer(
-                texts,
-                text_pair=descs, # Tokenizer 会自动处理空描述的情况
-                padding=True,
-                truncation=True,
-                max_length=128, # 不需要太长，关键信息在前
-                return_tensors="pt",
-            ).to(self.device)
-
-            with torch.no_grad():
-                outputs = self.Sapbert_model(**inputs)
-                # 【关键】统一使用 [CLS] token，这是 SapBERT 的原生训练方式
-                cls_emb = outputs.last_hidden_state[:, 0, :]
-                all_embs.append(cls_emb.cpu().numpy())
-
-        if not all_embs:
-            return np.array([])
-        return np.concatenate(all_embs, axis=0)
-    
-    def link_entity(self, entity: str, entity_desc:str="", top_k: int = 5)  -> List[Tuple[KGEntity, float, str, str]]:
-        if self.index is None or not self.entities:
-            return []
-        
-        # 1. 获取向量
-        emb = self.get_vec([(entity, entity_desc)])  # 与索引构建一致：name+desc 双序列
-        if emb.size == 0:
-            return []
-            
-        # 2. 转换为 float32 并确保内存连续 (FAISS 要求)
-        emb = emb.astype('float32')
-        emb = np.ascontiguousarray(emb)
-        
-        # 3. 归一化 (使用 faiss 统一的方法)
-        faiss.normalize_L2(emb) 
-        
-        # 4. 搜索（单个 query）
-        D, I = self.index.search(emb, top_k)
-        
-        results = []
-        seen_ids = set()  # 用于去重
-        
-        for dist, idx in zip(D[0], I[0]):
-            # FAISS 有时填充 -1，需要过滤
-            if idx == -1: continue
-                
-            name = self.id2entity.get(idx)
-            if name:
-                ent = self.str_2_entity.get(name)
-                if ent:
-                    # 5. 正确的去重逻辑：基于 ID 或 对象本身
-                    if ent.entity_id not in seen_ids:
-                        seen_ids.add(ent.entity_id)
-                        # 将 dist 转为 float，防止 numpy 类型导致序列化问题
-                        sim=0.5*float(dist)+0.5*self._string_similarity(entity, name)
-                        if name!=ent.name:
-                            results.append((ent, sim, name, "aliases"))
-                        elif name==ent.name:
-                            results.append((ent, sim, name, "name"))
-                        else:
-                            results.append((ent, sim, name, "unknown"))
-                            
-        return results
-    
-    @staticmethod
-    def _string_similarity(a: str, b: str) -> float:
-        """
-        字符串相似度（多路召回里的“字符串重复率”部分）。
-        这里用 difflib.SequenceMatcher 的 ratio，主要度量字符级重叠程度。
-        """
-        a = (a or "").lower().strip()
-        b = (b or "").lower().strip()
-        if not a or not b:
-            return 0.0
-        if a == b:
-            return 1.0
-        return SequenceMatcher(None, a, b).ratio()
+        # 任一侧是 all [UNK] 时，BERT 相似度固定成一个常数
+        self.unk_fixed_sim: float = 0.5
     # ---------------- BioBERT 相关 ----------------
-    def _load_Sapbert(self) -> None:
+    def _load_biobert(self) -> None:
         try:
-            self.Sapbert_tokenizer = AutoTokenizer.from_pretrained(
-                self.Sapbert_dir,
+            self.biobert_tokenizer = AutoTokenizer.from_pretrained(
+                self.biobert_dir,
                 local_files_only=True,
             )
-            self.Sapbert_model = AutoModel.from_pretrained(
-                self.Sapbert_dir,
+            self.biobert_model = AutoModel.from_pretrained(
+                self.biobert_dir,
                 local_files_only=True,
             )
-            self.Sapbert_model.eval()
+            self.biobert_model.eval()
         except Exception as e:
             # 这是致命问题，打 error
             self.logger.error(
                 f"[KeywordSearch][BioBERT] load failed ({e}), keyword search will not work properly."
             )
-            self.Sapbert_model = None
-            self.Sapbert_tokenizer = None
+            self.biobert_model = None
+            self.biobert_tokenizer = None
 
-    def get_embeddings(self, texts, batch_size=128):
-        """
-        [修复版] 批量获取 SAPBERT 向量
-        修复了索引错位导致不同实体获得相同向量(Score=1.0)的严重Bug。
-        """
-        if not texts: return np.array([])
-        
-        # 1. 确定性去重：使用 sorted 确保每次运行顺序一致，防止 set 的随机性
-        unique_texts = sorted(list(set(texts)))
-        
-        # 2. 建立映射表
-        text_to_idx = {t: i for i, t in enumerate(unique_texts)}
-        
-        all_embs = []
-        
-        # 3. 批量推理
-        # 使用 tqdm 显示进度
-        for i in tqdm(range(0, len(unique_texts), batch_size), desc="Encoding unique entities"):
-            batch = unique_texts[i : i + batch_size]
-            
-            # Tokenizer
-            inputs = self.Sapbert_tokenizer(batch, padding=True, truncation=True, 
-                                  max_length=64, return_tensors="pt").to(self.device)
-            
-            with torch.no_grad():
-                outputs = self.Sapbert_model(**inputs)
-                # 取 [CLS] token (batch_size, hidden_size)
-                cls_emb = outputs.last_hidden_state[:, 0, :]
-                all_embs.append(cls_emb.cpu().numpy())
-        
-        if not all_embs:
-            return np.array([])
-            
-        unique_embs = np.concatenate(all_embs, axis=0)
-        
-        # 4. 安全检查 (至关重要)
-        if len(unique_embs) != len(unique_texts):
-            raise RuntimeError(f"向量生成数量不匹配! 文本数: {len(unique_texts)}, 向量数: {len(unique_embs)}")
-
-        # 5. 映射回原始列表顺序
-        try:
-            final_embs = np.array([unique_embs[text_to_idx[t]] for t in texts])
-        except KeyError as e:
-            raise RuntimeError(f"索引映射失败，找不到键: {e}")
-            
-        return final_embs
-    
     @torch.no_grad()
     def _encode_text(self, text: str) -> Optional[np.ndarray]:
-        if not self.Sapbert_model or not self.Sapbert_tokenizer:
+        if not self.biobert_model or not self.biobert_tokenizer:
             return None
 
         text = (text or "").strip()
@@ -291,14 +111,14 @@ class KeywordEntitySearchAgent(Agent):
             return None
 
         # 如果你有 self.device，就可以加上 .to(self.device)
-        inputs = self.Sapbert_tokenizer(
+        inputs = self.biobert_tokenizer(
             text,
             return_tensors="pt",
             truncation=True,
             max_length=128,
         )
 
-        outputs = self.Sapbert_model(**inputs)
+        outputs = self.biobert_model(**inputs)
         token_embeddings = outputs.last_hidden_state  # [1, seq_len, hidden]
 
         # attention_mask: [1, seq_len] -> [1, seq_len, 1]
@@ -313,13 +133,59 @@ class KeywordEntitySearchAgent(Agent):
         mean_embedding = (sum_embeddings / sum_mask).squeeze(0)  # [hidden]
         vec = mean_embedding.cpu().numpy()
         return vec
+    def _is_all_unk(self, text: str) -> bool:
+        """
+        判断一个 text 经 tokenizer 后，除去 [CLS]/[SEP]/[PAD] 等特殊 token，
+        是否全部都是 [UNK]。如果是，返回 True。
+        """
+        if not self.biobert_tokenizer:
+            return False
+
+        text = (text or "").strip()
+        if not text:
+            return False
+
+        inputs = self.biobert_tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            max_length=128,
+        )
+        input_ids = inputs["input_ids"][0]  # [seq_len]
+        tokens = self.biobert_tokenizer.convert_ids_to_tokens(input_ids)
+
+        # 收集 tokenizer 的特殊 token
+        special_tokens = set()
+        for attr in ["cls_token", "sep_token", "pad_token", "bos_token", "eos_token", "mask_token"]:
+            tok = getattr(self.biobert_tokenizer, attr, None)
+            if tok is not None:
+                special_tokens.add(tok)
+
+        # 去掉特殊 token，剩下的才算“内容 token”
+        content_tokens = [t for t in tokens if t not in special_tokens]
+
+        unk_tok = self.biobert_tokenizer.unk_token or "[UNK]"
+        # 有内容 token 且全部都是 [UNK]，才算 unknown
+        return bool(content_tokens) and all(t == unk_tok for t in content_tokens)
     @staticmethod
     def _l2_normalize(vec: np.ndarray) -> np.ndarray:
         norm = np.linalg.norm(vec)
         if norm == 0.0 or math.isnan(norm):
             return vec
         return vec / norm
-
+    @staticmethod
+    def _string_similarity(a: str, b: str) -> float:
+        """
+        字符串相似度（多路召回里的“字符串重复率”部分）。
+        这里用 difflib.SequenceMatcher 的 ratio，主要度量字符级重叠程度。
+        """
+        a = (a or "").lower().strip()
+        b = (b or "").lower().strip()
+        if not a or not b:
+            return 0.0
+        if a == b:
+            return 1.0
+        return SequenceMatcher(None, a, b).ratio()
     # ---------------- 建索引（name + aliases 多 surface） ----------------
     def _build_entity_index(self) -> None:
         """
@@ -330,12 +196,9 @@ class KeywordEntitySearchAgent(Agent):
             其中 surface_text = name 或 alias
         """
         triples = self.memory.relations.all()
-        #打印下triples的数量
-        print("triples",len(triples))
         seen_ids = set()
         for tri in triples:
             node = getattr(tri, "subject", None)
-        
             if node is None:
                 continue
             if not isinstance(node, KGEntity):
@@ -349,7 +212,9 @@ class KeywordEntitySearchAgent(Agent):
             # 收集 surfaces: name + aliases
             surfaces: List[str] = []
             name = getattr(ent, "name", None)
-
+            if(name=="ARNI"):
+                print("name",name)
+                test=self._encode_text(name)
             if isinstance(name, str) and name.strip():
                 surfaces.append(name.strip())
             aliases = getattr(ent, "aliases", None) or []
@@ -360,16 +225,15 @@ class KeywordEntitySearchAgent(Agent):
             if not surfaces:
                 continue  # 没有任何有效文本，不建索引
 
-            surface_vecs: List[Tuple[str, np.ndarray]] = []
+            surface_vecs: List[Tuple[str, np.ndarray, bool]] = []
             for s in surfaces:
-                if(s=="LGE"):
-                    print("s",s)
-                    test=self._encode_text(s)
+                # 先判断这个 surface 是否是 all [UNK]
+                is_unk = self._is_all_unk(s)
                 emb = self._encode_text(s)
                 if emb is None:
                     continue
                 emb_norm = self._l2_normalize(emb)
-                surface_vecs.append((s, emb_norm))
+                surface_vecs.append((s, emb_norm, is_unk))
 
             if not surface_vecs:
                 continue  # 所有 surface 都没成功编码
@@ -379,88 +243,6 @@ class KeywordEntitySearchAgent(Agent):
             self.entity_surfaces[eid] = surface_vecs
 
         # 不在这里打印 info，避免过程日志刷屏
-
-    # ---------------- 针对单个 keyword 的 BioBERT Top-K 检索 ----------------
-    def _search_top_k_for_keyword(
-        self,
-        keyword: str,
-        top_k: Optional[int] = None,
-    ) -> List[Tuple[KGEntity, float, str, str]]:
-        """
-        返回：
-          [(KGEntity, best_sim, best_surface_text, surface_source), ...]
-        其中 best_sim 是 keyword 与该实体 [name + aliases] 多个 surface 中最大相似度；
-        surface_source 取值：'name' / 'alias' / 'unknown'
-        """
-        if top_k is None:
-            top_k = self.candidate_pool_size
-
-        if not self.entity_surfaces:
-            self.logger.warning("[KeywordSearch] entity_surfaces is empty, return [].")
-            return []
-
-        q_vec = self._encode_text(keyword)
-        if q_vec is None:
-            self.logger.warning(f"[KeywordSearch] failed to encode keyword='{keyword}'")
-            return []
-
-        q_vec = self._l2_normalize(q_vec)
-        
-        # 调试：检查 query 向量的范数是否为 1
-        q_norm = np.linalg.norm(q_vec)
-        if abs(q_norm - 1.0) > 1e-6:
-            self.logger.warning(f"[KeywordSearch] q_vec norm is not 1.0: {q_norm}")
-
-        scored: List[Tuple[str, float, str, str]] = []
-        for eid, surfaces in self.entity_surfaces.items():
-            best_sim = -1.0
-            best_surface_text = ""
-            for surface_text, svec in surfaces:
-                if svec is None:
-                    continue
-                sim = float(np.dot(q_vec, svec))
-                # print("sim",sim)
-                # 调试：检查异常高的相似度
-                if sim > 0.999:
-                    s_norm = np.linalg.norm(svec)
-                    bzz=self._encode_text(surface_text)
-                    test=self._encode_text("Tirzepatide")
-                    print(f"[DEBUG] High similarity detected: keyword='{keyword}' surface='{surface_text}' sim={sim:.8f} q_norm={q_norm:.8f} s_norm={s_norm:.8f}")
-                
-                if sim > best_sim:
-                    best_sim = sim
-                    best_surface_text = surface_text
-
-            if best_sim < 0.0:
-                continue
-
-            ent = self.entities.get(eid)
-            if ent is None:
-                continue
-
-            # 判断这个 surface 来自 name 还是 alias
-            source = "unknown"
-            if isinstance(ent.name, str) and best_surface_text == ent.name.strip():
-                source = "name"
-            elif best_surface_text in (ent.aliases or []):
-                source = "alias"
-
-            scored.append((eid, best_sim, best_surface_text, source))
-
-        # 按相似度排序，取前 top_k
-        scored.sort(key=lambda x: x[1], reverse=True)
-        top_scored = scored[:top_k]
-
-        results: List[Tuple[KGEntity, float, str, str]] = []
-        for eid, sim, best_surface_text, source in top_scored:
-            ent = self.entities.get(eid)
-            if ent is None:
-                continue
-            results.append((ent, sim, best_surface_text, source))
-
-        return results
-
-    # ---------------- 辅助方法：提取 Markdown 代码块中的 JSON ----------------
     def _extract_json_from_markdown(self, text: str) -> str:
         """
         额外处理：如果 LLM 返回的是 Markdown 代码块格式（如 ```json\n...\n```），
@@ -481,6 +263,99 @@ class KeywordEntitySearchAgent(Agent):
         
         return text
 
+    def _search_top_k_for_keyword(
+        self,
+        keyword: str,
+        top_k: Optional[int] = None,
+    ) -> List[Tuple[KGEntity, float, str, str]]:
+        """
+        返回：
+          [(KGEntity, best_sim, best_surface_text, surface_source), ...]
+        其中 best_sim 是 “融合后的最终相似度”：
+            final_sim = w_bert * bert_sim + w_str * string_sim
+
+        - 正常情况：w_bert=0.7, w_str=0.3
+        - 若 keyword 或 surface 任一侧是 all [UNK]：
+              * bert_sim 固定为 self.unk_fixed_sim
+              * w_bert 降为 0.5，w_str 提高到 0.5
+        """
+        if top_k is None:
+            top_k = self.candidate_pool_size
+
+        if not self.entity_surfaces:
+            self.logger.warning("[KeywordSearch] entity_surfaces is empty, return [].")
+            return []
+
+        # 编码 query，并检测是否 all [UNK]
+        q_vec = self._encode_text(keyword)
+        if q_vec is None:
+            self.logger.warning(f"[KeywordSearch] failed to encode keyword='{keyword}'")
+            return []
+
+        q_vec = self._l2_normalize(q_vec)
+        q_is_unknown = self._is_all_unk(keyword)
+
+        scored: List[Tuple[str, float, str, str]] = []
+
+        for eid, surfaces in self.entity_surfaces.items():
+            best_sim = -1.0
+            best_surface_text = ""
+
+            for surface_text, svec, s_is_unknown in surfaces:
+                if svec is None:
+                    continue
+
+                # --------- 1) BERT 相似度部分 ----------
+                if q_is_unknown or s_is_unknown:
+                    # 只要 query 或 surface 有任一侧是 all [UNK]
+                    # ① BERT 相似度固定为常数（没有语义信息）
+                    # ② 同时降低 BERT 权重，提高字符串权重
+                    bert_sim = self.unk_fixed_sim
+                    w_bert = self.bert_weight_unknown       # 0.5
+                    w_str = self.string_weight_unknown      # 0.5
+                else:
+                    bert_sim = float(np.dot(q_vec, svec))
+                    w_bert = self.bert_weight               # 0.7
+                    w_str = self.string_weight              # 0.3
+
+                # --------- 2) 字符串相似度部分 ----------
+                string_sim = self._string_similarity(keyword, surface_text)
+
+                # --------- 3) 融合相似度 ----------
+                final_sim = w_bert * bert_sim + w_str * string_sim
+
+                if final_sim > best_sim:
+                    best_sim = final_sim
+                    best_surface_text = surface_text
+
+            if best_sim < 0.0:
+                continue
+
+            ent = self.entities.get(eid)
+            if ent is None:
+                continue
+
+            # 判断 best_surface_text 来自 name 还是 alias
+            source = "unknown"
+            if isinstance(ent.name, str) and best_surface_text == ent.name.strip():
+                source = "name"
+            elif best_surface_text in (ent.aliases or []):
+                source = "alias"
+
+            scored.append((eid, best_sim, best_surface_text, source))
+
+        # 按最终融合相似度排序
+        scored.sort(key=lambda x: x[1], reverse=True)
+        top_scored = scored[:top_k]
+
+        results: List[Tuple[KGEntity, float, str, str]] = []
+        for eid, sim, best_surface_text, source in top_scored:
+            ent = self.entities.get(eid)
+            if ent is None:
+                continue
+            results.append((ent, sim, best_surface_text, source))
+
+        return results
     # ---------------- LLM 在候选中选若干个实体 id ----------------
     def _llm_disambiguate(
         self,
@@ -506,13 +381,10 @@ class KeywordEntitySearchAgent(Agent):
         prompt = json.dumps(payload, ensure_ascii=False)
 
         raw = self.call_llm(prompt)
+        raw= self._extract_json_from_markdown(raw)
         print("this is raw",raw)
-        
-        # 额外处理：提取 Markdown 代码块中的 JSON
-        cleaned_raw = self._extract_json_from_markdown(raw)
-        
         try:
-            obj = json.loads(cleaned_raw)
+            obj = json.loads(raw)
         except Exception as e:
             self.logger.warning(
                 f"[KeywordSearch][LLM] parse JSON failed: raw={raw!r}, error={e}"
@@ -543,7 +415,6 @@ class KeywordEntitySearchAgent(Agent):
 
         return uniq or None
 
-
     # ---------------- 对外接口：多 keyword，每个 keyword 返回 K 个实体 ----------------
     def process(
         self,
@@ -559,11 +430,6 @@ class KeywordEntitySearchAgent(Agent):
           kw2candidates:    {keyword: [(KGEntity, score, best_surface, source), ...]}
         并在最后输出一张总表格日志（info），过程不刷 info，只在异常时打 warning/error。
         """
-        # 延迟构建索引：确保在 SubgraphMerger 执行后才构建
-        if not self._index_built:
-            self._build_entity_index()
-            self._index_built = True
-        
         kw2best_entities: Dict[str, List[KGEntity]] = {}
         kw2best_scores: Dict[str, List[float]] = {}
         kw2candidates: Dict[str, List[Tuple[KGEntity, float, str, str]]] = {}
@@ -571,16 +437,15 @@ class KeywordEntitySearchAgent(Agent):
         # 用于最后汇总日志的一行一行记录
         # 列：Keyword | Rank | EntityID | EntityName | MatchedSurface | SurfaceType | Similarity
         table_rows: List[List[Any]] = []
-        self.build_index(self.memory.relations.all())
+
         for kw in self.keywords:
             kw = (kw or "").strip()
             if not kw:
                 continue
-            
-            # 1) SapBERT 相似度检索；候选池大小 = candidate_pool_size
-            candidates = self.link_entity(
+
+            # 1) BioBERT 相似度检索；候选池大小 = candidate_pool_size
+            candidates = self._search_top_k_for_keyword(
                 kw,
-                entity_desc="Semaglutide is a GLP-1 receptor agonist that helps regulate blood sugar levels and support weight loss in people with type 2 diabetes, while also reducing the risk of cardiovascular events.",
                 top_k=self.candidate_pool_size,
             )
             kw2candidates[kw] = candidates
@@ -645,10 +510,6 @@ class KeywordEntitySearchAgent(Agent):
                     best_scores = [sim]
 
             kw2best_entities[kw] = best_entities
-            # 确保输出按相似度降序；LLM 返回的顺序可能未按分数排序
-            if best_entities:
-                paired = sorted(zip(best_entities, best_scores), key=lambda x: x[1], reverse=True)
-                best_entities, best_scores = map(list, zip(*paired))
             kw2best_scores[kw] = best_scores
 
             # 写入 memory：一个 keyword 对应 K 个 best_entities

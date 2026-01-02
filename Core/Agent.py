@@ -127,6 +127,7 @@ class Agent:
         return asdict(self)
 
     def parse_json(self,response:str)->List[Dict]: # type: ignore
+        response=self._extract_json_from_markdown(response)
         """解析 LLM 返回的 JSON 格式响应。
         Args:
             response (str): LLM 返回的字符串响应，预期为 JSON 格式。
@@ -143,7 +144,25 @@ class Agent:
             logger=get_global_logger()
             logger.info(f"Failed to parse JSON response {e}")
             return []
+    def _extract_json_from_markdown(self, text: str) -> str:
+        """
+        额外处理：如果 LLM 返回的是 Markdown 代码块格式（如 ```json\n...\n```），
+        则提取其中的 JSON 内容。
+        """
+        if not isinstance(text, str):
+            return text
         
+        text = text.strip()
+        
+        # 检测并提取 ```json ... ``` 或 ``` ... ``` 格式
+        import re
+        # 匹配 ```json 或 ``` 开头，``` 结尾的代码块
+        pattern = r'^```(?:json)?\s*\n?(.*?)\n?```$'
+        match = re.match(pattern, text, re.DOTALL | re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+        
+        return text
     # 预留的运行接口，子类按需实现
     def process(self, *args: Any, **kwargs: Any) -> Any:  # noqa: D401
         """执行 Agent 的主流程（需由具体子类实现）。"""
