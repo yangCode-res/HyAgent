@@ -1,8 +1,11 @@
 import os
 import warnings
+
 from dotenv import load_dotenv
 from openai import OpenAI
+
 from benchmark.index import Benchmark
+
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":

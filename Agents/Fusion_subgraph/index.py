@@ -1,15 +1,15 @@
-from typing import Any, Dict, Optional, Tuple, Set, List
-from pathlib import Path
-from datetime import datetime
 import pickle
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 from openai import OpenAI
 
 from Core.Agent import Agent
 from Memory.index import Memory
+from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from Store.index import get_memory
 
 
 class SubgraphMerger(Agent):

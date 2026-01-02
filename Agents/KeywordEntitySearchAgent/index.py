@@ -1,18 +1,19 @@
-import math
 import json
-from typing import List, Dict, Tuple, Optional, Any
+import math
+from difflib import SequenceMatcher
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
 from transformers import AutoModel, AutoTokenizer
 
-from Store.index import get_memory
 from Config.index import BioBertPath
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory
+from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from difflib import SequenceMatcher
+
 
 class KeywordEntitySearchAgent(Agent):
     """
@@ -255,6 +256,7 @@ class KeywordEntitySearchAgent(Agent):
         
         # 检测并提取 ```json ... ``` 或 ``` ... ``` 格式
         import re
+
         # 匹配 ```json 或 ``` 开头，``` 结尾的代码块
         pattern = r'^```(?:json)?\s*\n?(.*?)\n?```$'
         match = re.match(pattern, text, re.DOTALL | re.IGNORECASE)

@@ -1,17 +1,18 @@
 import json
 import re
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from openai import OpenAI
+from tqdm import tqdm
 
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
-from tqdm import tqdm
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
 
 class PathExtractionAgent(Agent):
     """

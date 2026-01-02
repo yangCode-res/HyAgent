@@ -1,17 +1,16 @@
+import concurrent
+import concurrent.futures
 import json
 import os
 from typing import Dict, List, Optional
 
-import concurrent
-import concurrent.futures
 from networkx import graph_atlas
 from openai import OpenAI
 from tqdm import tqdm
 
-from Memory.index import Memory, Subgraph
 from Core.Agent import Agent
 from Logger.index import get_global_logger
-from Memory.index import Memory
+from Memory.index import Memory, Subgraph
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 

@@ -15,7 +15,7 @@ from Memory.index import Memory, Subgraph
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from collections import defaultdict
+
 Embedding = List[float]
 """
 实体对齐三元组 Agent。

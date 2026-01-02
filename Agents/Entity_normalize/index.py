@@ -12,12 +12,12 @@ from openai import OpenAI
 from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer
 
+from Config.index import BioBertPath
 from Core.Agent import Agent
-from Store.index import get_memory
 from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
+from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from Config.index import BioBertPath
 
 logger = get_global_logger()
 

@@ -1,16 +1,20 @@
-from typing import Dict, List, Tuple, Callable, Any, Optional
+import json
+from pprint import pprint
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
 from numpy import tri
 from openai import OpenAI
 from sympy import false
-from pprint import pprint
+
 from Core.Agent import Agent
 from Logger.index import get_global_logger
 from Memory.index import Memory, Subgraph
 from Store.index import get_memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
 from TypeDefinitions.KnowledgeGraphDefinitions.index import KnowledgeGraph
-import json
+from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
+
 class PathExtractionAgent(Agent):
     def __init__(self, client: OpenAI, model_name: str,k=20,memory:Optional[Memory]=None,query:str=''):
         self.system_prompt = (

@@ -1,8 +1,8 @@
+import concurrent
 import concurrent.futures
 import json
 from typing import Dict, List
 
-import concurrent
 from openai import OpenAI
 from tqdm import tqdm
 

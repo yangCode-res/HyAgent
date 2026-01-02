@@ -156,6 +156,7 @@ class Agent:
         
         # 检测并提取 ```json ... ``` 或 ``` ... ``` 格式
         import re
+
         # 匹配 ```json 或 ``` 开头，``` 结尾的代码块
         pattern = r'^```(?:json)?\s*\n?(.*?)\n?```$'
         match = re.match(pattern, text, re.DOTALL | re.IGNORECASE)

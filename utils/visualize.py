@@ -1,13 +1,11 @@
 import matplotlib.pyplot as plt
 import networkx as nx
+from neo4j import GraphDatabase
 
 from Memory.index import Memory
 from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from neo4j import GraphDatabase
-from Memory.index import Memory
-from TypeDefinitions.EntityTypeDefinitions.index import KGEntity
-from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
+
 
 def visualize_global_kg(mem: Memory, max_edges: int = 5000):
     """

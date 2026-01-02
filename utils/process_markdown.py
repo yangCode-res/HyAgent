@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+
 from markdown_it import MarkdownIt
 
 REF_TITLES = {"references", "参考文献"}

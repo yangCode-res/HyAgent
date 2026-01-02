@@ -1,12 +1,15 @@
+import csv
 import json
 import re
+from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
-from collections import Counter
-from pipeline.index import Pipeline
+
 from openai import OpenAI
-from datetime import datetime
-import csv
+
+from pipeline.index import Pipeline
+
 
 class Benchmark:
     def __init__(self, client: OpenAI, model_name: str, limit: int = 5):

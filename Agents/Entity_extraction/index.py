@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Dict, List, Optional
 from unittest.case import doModuleCleanups
 
@@ -12,8 +14,7 @@ from Memory.index import Subgraph
 from TypeDefinitions.EntityTypeDefinitions.index import (
     ENTITY_DEFINITIONS, EntityDefinition, EntityType, KGEntity,
     format_all_entity_definitions, format_entity_definition)
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import os
+
 """
 实体抽取 Agent。
 基于已有的文本，抽取文本中的生物医学实体并进行本体映射。

@@ -1,37 +1,38 @@
-from asyncio import Task
-from copy import copy
 import json
 import os
+import sys
 import warnings
+from asyncio import Task
+from copy import copy
 
-from Agents.HypothesisGenerationAgent.index import HypothesisGenerationAgent
+from Agents.Task_scheduler.index import TaskSchedulerAgent
+from Agents.Temporal_extraction.index import TemporalExtractionAgent
 from dotenv import find_dotenv, load_dotenv
 from matplotlib.pyplot import cla
 from networkx import core_number
 from openai import OpenAI
-import sys
+
+from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Causal_extraction.index import CausalExtractionAgent
 from Agents.Collaborate_extraction.index import CollaborationExtractionAgent
 from Agents.Entity_extraction.index import EntityExtractionAgent
 from Agents.Entity_normalize.index import EntityNormalizationAgent
-from Agents.Relationship_extraction.index import RelationshipExtractionAgent
-from Agents.Review_fetcher.index import ReviewFetcherAgent
-from Agents.Temporal_extraction.index import TemporalExtractionAgent
-from ExampleText.index import ExampleText
-from Agents.Task_scheduler.index import TaskSchedulerAgent
-from Agents.Query_clarify.index import QueryClarifyAgent
-from Agents.Alignment_triple.index import AlignmentTripleAgent
 from Agents.Fusion_subgraph.index import SubgraphMerger
+from Agents.Hypotheses_Edit.index import HypothesisEditAgent
+from Agents.HypothesisGenerationAgent.index import HypothesisGenerationAgent
 from Agents.KeywordEntitySearchAgent.index import KeywordEntitySearchAgent
 from Agents.Path_extraction.penalty import PathExtractionAgent
+from Agents.Query_clarify.index import QueryClarifyAgent
 from Agents.ReflectionAgent.index import ReflectionAgent
+from Agents.Relationship_extraction.index import RelationshipExtractionAgent
+from Agents.Review_fetcher.index import ReviewFetcherAgent
+from ExampleText.index import ExampleText
 from Logger.index import get_global_logger
 from Memory.index import load_memory_from_json
 from Store.index import get_memory
 from TypeDefinitions.TripleDefinitions.KGTriple import KGTriple
-from dotenv import load_dotenv
-from Agents.Hypotheses_Edit.index import HypothesisEditAgent
 from utils.visualize import visualize_global_kg
+
 load_dotenv()
 warnings.filterwarnings("ignore", message="pkg_resources is deprecated as an API")
 if __name__ == "__main__":

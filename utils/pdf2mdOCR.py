@@ -1,7 +1,8 @@
+import base64
 import os
 import pathlib
-import base64
 import re  # 引入正则模块
+
 from mistralai import Mistral
 
 API_KEY = os.getenv("MISTRAL_API_KEY")

@@ -1,13 +1,15 @@
 import json
 import re
-from typing import Any, Dict, Optional, List, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from pprint import pprint
+from typing import Any, Dict, List, Optional, Tuple
+
+from openai import OpenAI
 
 from Core.Agent import Agent
-from openai import OpenAI
 from Memory.index import Memory
 from Store.index import get_memory
-from pprint import pprint
+
 
 class ReflectionAgent(Agent):
     """
