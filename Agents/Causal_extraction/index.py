@@ -4,7 +4,6 @@ import json
 import os
 from typing import Dict, List, Optional
 
-from networkx import graph_atlas
 from openai import OpenAI
 from tqdm import tqdm
 
@@ -503,7 +502,7 @@ Now, evaluate the provided relationships based on the review text using this sys
         self.memory=memory or get_memory()
         self.logger=get_global_logger()
         
-    def process(self): 
+    def process(self, max_workers: int = 4): 
         """
         process the causal evaluation for multiple paragraphs
         parameters:
@@ -511,7 +510,7 @@ Now, evaluate the provided relationships based on the review text using this sys
         And the result will be written in the memory store directly.
         """
         subgraphs=self.memory.subgraphs
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures=[]
             for subgraph_id,subgraph in tqdm(subgraphs.items()):
                 if subgraph:
@@ -532,34 +531,62 @@ Now, evaluate the provided relationships based on the review text using this sys
         output:
         the list filled with elements defined as data structure KGTriple(whose definition could be find in the file KGTriple) 
         """
-        plain_text=subgraph.meta.get("text","")
-        #subgraph=self.memory.get_subgraph(subgraph.id)
-        self.logger.info(f"CausalExtractionAgent: Processing Subgraph {subgraph.id} with {len(subgraph.relations.all())} relations.")
-        extracted_triples=subgraph.get_relations()
+        plain_text = subgraph.meta.get("text", "")
+        # Prefer subgraph.get_relations() if available; fall back to store
+        self.logger.debug(
+          f"CausalExtractionAgent: Processing Subgraph {subgraph.id} with {len(subgraph.relations.all())} relations."
+        )
+        get_rels = getattr(subgraph, "get_relations", None)
+        extracted_triples = get_rels() if callable(get_rels) else subgraph.relations.all()
         if not extracted_triples:
-            self.logger.info(f"CausalExtractionAgent: No relations found in Subgraph {subgraph.id}. Skipping...")
-            return
-        triple_str='\n'.join(triple.__str__() for triple in extracted_triples)
-        prompt=f"""Evaluate the following relationships for causal validity based on the provided text.
-        the text is: '''{plain_text}'''
-        the relationships are:'''{triple_str}'''
-        Please follow the instructions in the system prompt to assign confidence scores and provide supporting evidence.
-        """
+          self.logger.debug(f"CausalExtractionAgent: No relations found in Subgraph {subgraph.id}. Skipping...")
+          return
+        triple_str = '\n'.join(str(triple) for triple in extracted_triples)
+        prompt = (
+          f"Evaluate the following relationships for causal validity based on the provided text.\n"
+          f"the text is: '''{plain_text}'''\n"
+          f"the relationships are:'''{triple_str}'''\n"
+          f"Please follow the instructions in the system prompt to assign confidence scores and provide supporting evidence."
+        )
         response=self.call_llm(prompt=prompt)
         try:
-            causal_evaluations=self.parse_json(response)
-            triples=[]
-            for eval in causal_evaluations:
-                head=eval.get("head","unknown")
-                relation=eval.get("relation","unknown")
-                tail=eval.get("tail","unknown")
-                relation_type=eval.get("relation_type","unknown")
-                confidence=eval.get("confidence",[0.0,0.0])
-                evidence=eval.get("evidence",[])
-                triple=subgraph.relations.find_Triple_by_head_and_tail(head,tail)
-                object=triple.object if triple else None
-                subject=triple.subject if triple else None
-                triples.append(KGTriple(head=head,relation=relation, tail=tail,relation_type=relation_type,confidence=confidence,evidence=evidence,mechanism="unknown",source=subgraph.id,subject=subject,object=object))
+          causal_evaluations = self.parse_json(response)
+          # Ensure list shape
+          if isinstance(causal_evaluations, dict):
+            causal_evaluations = [causal_evaluations]
+          if not isinstance(causal_evaluations, list):
+            raise ValueError("Parsed response is not a list/dict of evaluations")
+
+          triples = []
+          for eval in causal_evaluations:
+            head = eval.get("head", "unknown")
+            relation = eval.get("relation", "unknown")
+            tail = eval.get("tail", "unknown")
+            relation_type = eval.get("relation_type", "unknown")
+            confidence = eval.get("confidence", [0.0, 0.0])
+            # Normalize confidence
+            if not isinstance(confidence, list) or len(confidence) != 2:
+              confidence = [float(confidence[0]) if isinstance(confidence, list) and confidence else 0.0,
+                      float(confidence[1]) if isinstance(confidence, list) and len(confidence) > 1 else 0.0]
+            evidence = eval.get("evidence", [])
+
+            triple = subgraph.relations.find_Triple_by_head_and_tail(head, tail)
+            obj = triple.object if triple else None
+            subj = triple.subject if triple else None
+            triples.append(
+              KGTriple(
+                head=head,
+                relation=relation,
+                tail=tail,
+                relation_type=relation_type,
+                confidence=confidence,
+                evidence=evidence,
+                mechanism="unknown",
+                source=subgraph.id,
+                subject=subj,
+                object=obj,
+              )
+            )
             subgraph.relations.reset()
             subgraph.relations.add_many(triples)
             self.memory.register_subgraph(subgraph)

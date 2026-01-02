@@ -36,7 +36,8 @@ class Pipeline:
         self.reason_model="deepseek-reasoner"
         self.clarified_query=""
         self.scores={}
-    def get_pipeline(self):
+    
+    def get_complete_pipeline(self):
         pipeline=[]
         pipeline.append(EntityExtractionAgent(self.client,self.model_name))
         pipeline.append(EntityNormalizationAgent(self.client,self.model_name))
@@ -51,6 +52,51 @@ class Pipeline:
         pipeline.append(ReflectionAgent(self.client,self.model_name))
         pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query))
         return pipeline
+    
+    def get_pipeline_wo_causal(self):
+        pipeline=[]
+        pipeline.append(EntityExtractionAgent(self.client,self.model_name))
+        pipeline.append(EntityNormalizationAgent(self.client,self.model_name))
+        pipeline.append(RelationshipExtractionAgent(self.client,self.model_name))
+        pipeline.append(CollaborationExtractionAgent(self.client,self.model_name))
+        pipeline.append(AlignmentTripleAgent(self.client,self.model_name))
+        pipeline.append(SubgraphMerger(self.client,self.model_name))
+        pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities))
+        pipeline.append(PathExtractionAgent(self.client,self.model_name,query=self.clarified_query))
+        pipeline.append(HypothesisGenerationAgent(self.client,self.model_name,query=self.clarified_query,max_paths=5,hypotheses_per_path=3))
+        pipeline.append(ReflectionAgent(self.client,self.model_name))
+        pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query))
+        return pipeline
+    
+    def get_pipeline_wo_reflection_edit(self):
+        pipeline=[]
+        pipeline.append(EntityExtractionAgent(self.client,self.model_name))
+        pipeline.append(EntityNormalizationAgent(self.client,self.model_name))
+        pipeline.append(RelationshipExtractionAgent(self.client,self.model_name))
+        pipeline.append(CollaborationExtractionAgent(self.client,self.model_name))
+        pipeline.append(AlignmentTripleAgent(self.client,self.model_name))
+        pipeline.append(SubgraphMerger(self.client,self.model_name))
+        pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities))
+        pipeline.append(PathExtractionAgent(self.client,self.model_name,query=self.clarified_query))
+        pipeline.append(HypothesisGenerationAgent(self.client,self.model_name,query=self.clarified_query,max_paths=5,hypotheses_per_path=3))
+        return pipeline
+    
+    def get_pipeline_path_random_walk(self):
+        pipeline=[]
+        pipeline.append(EntityExtractionAgent(self.client,self.model_name))
+        pipeline.append(EntityNormalizationAgent(self.client,self.model_name))
+        pipeline.append(RelationshipExtractionAgent(self.client,self.model_name))
+        pipeline.append(CollaborationExtractionAgent(self.client,self.model_name))
+        pipeline.append(CausalExtractionAgent(self.client,self.model_name))
+        pipeline.append(AlignmentTripleAgent(self.client,self.model_name))
+        pipeline.append(SubgraphMerger(self.client,self.model_name))
+        pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities))
+        pipeline.append(PathExtractionAgent(client=self.client, model_name=self.model_name,k=20,query=self.clarified_query,random_walk=True))
+        pipeline.append(HypothesisGenerationAgent(self.client,self.model_name,query=self.clarified_query,max_paths=5,hypotheses_per_path=3))
+        pipeline.append(ReflectionAgent(self.client,self.model_name))
+        pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query))
+        return pipeline
+
     def get_goOn(self,memory:Memory):
         pipeline=[]
         pipeline.append(KeywordEntitySearchAgent(self.client,self.model_name,keywords=self.core_entities,memory=memory))
@@ -59,8 +105,40 @@ class Pipeline:
         pipeline.append(ReflectionAgent(self.client,self.model_name,memory=memory))
         pipeline.append(HypothesisEditAgent(client=self.client,model_name=self.model_name,query=self.clarified_query,memory=memory))
         return pipeline
+    
+    def set_ablation_group(self, modes: Optional[list[str]] = None):
+        """
+        Configure ablation settings without instantiating every pipeline up front.
+
+        Args:
+            modes: Optional subset to run. Supported values:
+                - "full": baseline pipeline
+                - "no_causal": drop causal extraction
+                - "path_random_walk": switch path extraction to random walk
+                - "no_reflection_edit": drop reflection + edit
+
+        Returns:
+            List of (label, builder_fn) pairs. Caller can pick one builder to run,
+            so a single experiment does not need to execute all four pipelines.
+        """
+        registry = {
+            "full": ("full", self.get_complete_pipeline),
+            "no_causal": ("no_causal", self.get_pipeline_wo_causal),
+            "path_random_walk": ("path_random_walk", self.get_pipeline_path_random_walk),
+            "no_reflection_edit": ("no_reflection_edit", self.get_pipeline_wo_reflection_edit),
+        }
+
+        selected = modes or list(registry.keys())
+        pipelines = []
+        for mode in selected:
+            if mode not in registry:
+                continue  # ignore unsupported mode silently to keep run light
+            label, builder = registry[mode]
+            pipelines.append((label, builder))
+        return pipelines
+        
     def run(self):
-        memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251221-184939.json')
+        # memory=load_memory_from_json('/home/nas2/path/yangmingjian/code/hygraph/snapshots/memory-20251221-184939.json')
         user_query=self.user_query
         queryclarifyagent = QueryClarifyAgent(self.client, self.model_name) # type: ignore
         response = queryclarifyagent.process(user_query)
@@ -76,7 +154,7 @@ class Pipeline:
 
         self.core_entities=core_entities
         self.intention=intention
-        self.pipeline=self.get_pipeline()
+        self.pipeline=self.get_complete_pipeline()
         for agent in self.pipeline:
             print(f"Running agent: {agent.__class__.__name__}")
             agent.process()

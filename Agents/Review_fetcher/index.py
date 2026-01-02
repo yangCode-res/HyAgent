@@ -29,10 +29,10 @@ class ReviewFetcherAgent(Agent):
         self.memory=get_memory()
         self.logger=get_global_logger()
         self.fetch=PubMedFetcher()
-        self.k=5
+        self.k=2
         super().__init__(client,model_name,self.system_prompt)
     
-    def process(self,user_query:str):
+    def process(self, user_query: str, save_dir: str | None = None):
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=30)
         selected_reviews = self.selectReviews(reviews_metadata, query=user_query, topk=10)
@@ -42,13 +42,14 @@ class ReviewFetcherAgent(Agent):
                 review_urls.append(FindIt(pmid).url)
             except:
                 self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
-        print("review_urls=>",review_urls)
+        self.logger.debug(f"review_urls=> {review_urls}")
         review_urls=[url for url in review_urls if url is not None]
-        md_outputs=ocr_to_md_files(review_urls)
+        # 保存 OCR→MD 到指定目录，默认使用项目根下的 ocr_md_outputs
+        md_outputs = ocr_to_md_files(review_urls, save_dir=save_dir or "ocr_md_outputs")
         # md_outputs=["/home/nas3/biod/dongkun/HyAgent/ocr_md_outputs/ocr_result_1.md"]
         # 过滤掉 None 值（OCR 失败的情况）
         md_outputs = [md for md in md_outputs if md is not None]
-        print("md_outputs=>",md_outputs)
+        self.logger.debug(f"md_outputs=> {md_outputs}")
         for md_output in md_outputs[0:self.k]:
             paragraphs=split_md_by_mixed_count(md_output)
 
@@ -62,7 +63,8 @@ class ReviewFetcherAgent(Agent):
         if len(review_urls) == 0:
             self.logger.warning("No review URLs found")
             sys.exit(1)
-        return 
+        # 返回生成的 MD 文件路径，便于上层批处理逻辑组织输出
+        return md_outputs
 
 
     def generateMeSHStrategy(self,user_query:str)->str:
@@ -95,7 +97,7 @@ As an expert Biomedical Information Specialist, generate a high-recall PubMed se
 Return ONLY the raw search query string. No markdown, no explanations.
 """
         result=self.call_llm(prompt)
-        print("mesh strategy=>",result)
+        self.logger.debug(f"mesh strategy=> {result}")
         return str(result)
     
     def fetchReviews(self,search_strategy:str,maxlen=1):
@@ -105,7 +107,7 @@ Return ONLY the raw search query string. No markdown, no explanations.
     
     def selectReviews(self,reviews_metadata, query='',topk=1) -> List:
         review_str='\n'.join(self.format_review(review) for review in reviews_metadata)
-        print("review_str=>",review_str)
+        self.logger.debug(f"review_str=> {review_str}")
         selection_prompt = f"""
         here is the user query: {query}, and here are the reviews:
         From the following {len(reviews_metadata)} reviews, select the most relevant {topk} ones:
