@@ -38,12 +38,7 @@ class HypothesisEditAgent(Agent):
     
     Your task is to REVISE and IMPROVE a previously generated scientific hypothesis based on specific feedback or critique provided.
     You must address the issues raised in the feedback (e.g., lack of mechanistic detail, weak experimental design, logical gaps) while maintaining the relevance to the user's original query.
-    You must ALSO provide a final link-prediction style裁定 for the queried实体对 (three labels: positive, negative, no_relation) and a one-sentence direct answer to the user query.
-
-    Label meaning:
-    - positive: evidence suggests presence/activation/association between the queried entities.
-    - negative: evidence suggests inhibition/absence/opposite direction.
-    - no_relation: insufficient or conflicting evidence.
+    Also provide a one-sentence direct answer to the user query.
 
     The input will be a JSON payload containing:
     1. The original user query.
@@ -84,9 +79,6 @@ class HypothesisEditAgent(Agent):
         "relevance_to_query": "Reiteration of relevance, updated if necessary",
         "confidence": 0.0,
         "refinement_rationale": "Briefly explain how you addressed the feedback (e.g., 'Added details on phosphorylation pathway as requested')",
-        "link_prediction": "positive | negative | no_relation",
-        "link_confidence": 0.0,
-        "link_rationale": "brief rationale citing path/context/feedback",
         "query_answer": "one-sentence direct answer to the user query"
         }}
     ]

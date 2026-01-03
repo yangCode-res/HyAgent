@@ -1,0 +1,220 @@
+[
+    {
+        "entity": "Reactive Oxygen Species",
+        "path_index": 0,
+        "edges": [
+            {
+                "head": "antioxidants",
+                "relation": "block",
+                "tail": "erastin",
+                "relation_type": null,
+                "confidence": [
+                    0.85,
+                    0.05
+                ],
+                "evidence": [
+                    "From a library of over 2,000 annotated bioactive compounds, antioxidants (e.g. α-tocopherol, β-carotene, butylated hydroxytoluene) and iron chelators (e.g. deferoxamine) were found to block cell death induced by erastin (Yagoda et al. 2007).",
+                    "This study first illuminated the fundamental oxidative, iron-dependent nature of this process."
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_2",
+                "subject": {
+                    "entity_id": "ent:d51409ad26bf",
+                    "entity_type": "TREATMENT",
+                    "name": "antioxidants",
+                    "normalized_id": "N/A",
+                    "aliases": [],
+                    "description": "Compounds, such as α-tocopherol, β-carotene, and butylated hydroxytoluene, found to block cell death induced by erastin in a phenotypic chemical suppressor screen."
+                },
+                "object": {
+                    "entity_id": "ent:221c26448290",
+                    "entity_type": "DRUG",
+                    "name": "erastin",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "erastin"
+                    ],
+                    "description": "A classic ferroptosis inducer described as binding to more than one protein, potentially involving combined inhibition of multiple targets."
+                },
+                "time_info": null
+            },
+            {
+                "head": "erastin",
+                "relation": "induce",
+                "tail": "ferroptosis",
+                "relation_type": null,
+                "confidence": [
+                    0.95,
+                    0.05
+                ],
+                "evidence": [
+                    "Erastin and 1S,3R-RSL3 (hereafter RSL3) are prototypic inducers of ferroptosis",
+                    "detailed characterization of the erastin and RSL3 mechanisms of action eventually led to the discovery that these compounds triggered ferroptosis (Dixon et al. 2012)"
+                ],
+                "mechanism": "unknown",
+                "source": "ocr_result_1_1",
+                "subject": {
+                    "entity_id": "ent:221c26448290",
+                    "entity_type": "DRUG",
+                    "name": "erastin",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "erastin"
+                    ],
+                    "description": "A classic ferroptosis inducer described as binding to more than one protein, potentially involving combined inhibition of multiple targets."
+                },
+                "object": {
+                    "entity_id": "ent:9d421de84f0c",
+                    "entity_type": "PATHWAY",
+                    "name": "ferroptosis",
+                    "normalized_id": "N/A",
+                    "aliases": [
+                        "ferroptosis"
+                    ],
+                    "description": "A distinct mode of nonapoptotic cell death triggered by inactivation of system x_{c}^{-} or inhibition of GPX4, leading to iron-dependent lipid peroxide accumulation."
+                },
+                "time_info": null
+            }
+        ],
+        "hypotheses": [
+            {
+                "title": "Antioxidants block erastin-induced ferroptosis",
+                "hypothesis": "Antioxidants, such as α-tocopherol and β-carotene, block erastin-induced ferroptosis by mitigating oxidative stress and preventing the accumulation of lipid peroxides, which are critical for ferroptosis execution.",
+                "mechanism_explanation": "The path indicates that antioxidants block erastin, which induces ferroptosis. The context supports this by describing how antioxidants prevent oxidative, iron-dependent cell death triggered by erastin, highlighting their role in disrupting the ferroptosis pathway.",
+                "experimental_suggestion": "Test the ability of specific antioxidants (e.g., α-tocopherol) to inhibit ferroptosis in erastin-treated cancer cells by measuring lipid peroxidation levels and cell viability.",
+                "relevance_to_query": "The hypothesis directly addresses the query by explaining how antioxidants interact with erastin to block ferroptosis.",
+                "confidence": 0.9,
+                "link_prediction": "positive",
+                "link_confidence": 0.85,
+                "link_rationale": "The context provides strong evidence that antioxidants block erastin-induced ferroptosis by preventing oxidative damage, a key step in the ferroptosis pathway.",
+                "query_answer": "Antioxidants block erastin-induced ferroptosis by preventing oxidative damage and lipid peroxidation."
+            }
+        ],
+        "contexts": "Phenotypic chemical suppressor screens, where cell death induced by one molecule is blocked by the action of a second molecule, have helped dissect the ferroptosis mechanism and identify specific inhibitors of this process. From a library of over 2,000 annotated bioactive compounds, antioxidants (e.g. α-tocopherol, β-carotene, butylated hydroxytoluene) and iron chelators (e.g. deferoxamine) were found to block cell death induced by erastin (Yagoda et al. 2007). This study first illuminated the fundamental oxidative, iron-dependent nature of this process. Further chemical suppressor screening\n\nusing large unannotated compound libraries tested in erastin-treated cancer cells or inducible Gpx4^{-/-} mouse embryonic fibroblasts pinpointed the potent ferroptosis inhibitors ferrostatin-1 and liproxstatin-1 (Dixon et al. 2012; Friedmann Angeli et al. 2014). These two compounds have been essential for a range of mechanistic and animal model studies (Dixon et al. 2012; Fang et al. 2019; Friedmann Angeli et al. 2014; Li et al. 2017; Linkermann et al. 2014).\n\n### Chemoproteomics.\n\nIdentifying the target(s) of small molecules isolated in phenotypic screens is an important and often arduous task. A classic approach involves the use of affinity analogs, purification, and protein identification using mass spectrometry. An important success using this approach was the identification of GPX4 as a direct target of RSL3 (Yang et al. 2014). Two features of RSL3 aided the success of the chemoproteomic approach here. First, RSL3 contains a chloroacetamide ‘warhead' that reacts covalently with GPX4. Second, only the 1S,3R diastereomer of RSL3 is active, making it possible to identify GPX4 as a protein uniquely bound to active (1S,3R) but not inactive (1R,3R) analogs. A similar chemoproteomic strategy has recently been successfully deployed to identify the small antioxidant protein thioredoxin (TXN) as a covalent target of the ferroptosis-inducing compound ferroptocide (Llabani et al. 2019). Mutagenesis studies indicate that ferroptocide binds to the active site cysteine residues of thioredoxin as well as to an adjacent cysteine residue. How thioredoxin inhibition triggers ferroptosis is not clear but could involve enhanced lipid peroxidation due to disruption of the thioredoxin/thioredoxin reductase cycle (Bjornstedt et al. 1995).\n\nWhile powerful in principle, affinity chemoproteomics has not always yielded straightforward answers. These methods, used together with both lethal and non-lethal analogs of erastin, identified mitochondrial voltage anion channel (VDAC) 2 and 3 as targets of this molecule (Yagoda et al. 2007). Functionally, erastin reduces the permeability of VDAC1 and VDAC2 when these proteins are expressed in yeast (Yagoda et al. 2007), and can alter VDAC function, stability, and interaction with other proteins in mammalian cells (Maldonado et al. 2013; Yang et al. 2020). However, the ability of erastin to induce ferroptosis is best explained by inhibition of the cystine/glutamate antiporter system x_{c}^{-}, leading to depletion of glutathione and other metabolites (Dixon et al. 2014) (and see below). This link between erastin and system x_{c}^{-} was not discovered using unbiased methods, but rather using a small scale phenotypic similarity profiling analysis, driven by the hypothesis that erastin triggered oxidative cell death (Dixon et al. 2012). Chemoproteomic results are therefore not a panacea, perhaps especially when dealing with compounds that engage targets non-covalently.\n\n### Chemical genetic screens.\n\nLethal small molecules can be combined with genetic screening to identify genes that normally promote or suppress cell death. These methods have been applied successfully to the study of several nonapoptotic cell death pathways, including ferroptosis. Short hairpin RNAs (shRNAs), short interfering RNAs (siRNAs), insertional mutagenesis in human haploid cells, and CRISPR/Cas9-based technologies have all been used in ferroptosis loss of\n\nfunction suppressor screens (Table 2). Perhaps as could be anticipated from previous chemical suppressor screens, these genetic screens have identified genes that govern lipid metabolism (e.g. ACSL4, LPCAT3), iron homeostasis (e.g. IREB2, ATM), and redox metabolism (CARS, KEAP1) (Chen et al. 2019; Dixon et al. 2012; Dixon et al. 2015; Doll et al. 2017a; Hayano et al. 2015; Zou et al. 2019). Disruption of these genes limits ferroptosis by reducing the levels of oxidizable membrane lipids, lowering intracellular free iron, or increasing the antioxidant capacity of the cell.\nThe cytokine TNFα is a potent trigger for apoptosis, but over two decades ago it was observed that cells treated with the pro-apoptotic stimulus TNFα and a small molecule caspase inhibitor like zVAD-fmk still succumbed to cell death and, in fact, appeared to do so more readily (Vercammen et al. 1998). The thioxo-imidazolidinone necrostatin-1 (Nec-1) was identified from a small molecule screen as a specific inhibitor of cell death under these conditions (Degterev et al. 2005) (see Table 1, selected small molecule structures). This inhibitor blocked receptor interacting serine/threonine kinase 1 (RIPK1) function, implying that cell death was regulated by phosphorylation (Degterev et al. 2008). Nec-1 analogs also suppressed pathological cell death in the nervous system, demonstrating the in vivo relevance of this process (Degterev et al. 2005). This form of cell death was rechristened necroptosis, a portmanteau of necrosis and apoptosis, highlighting that it was a regulated form of cell death distinct from apoptosis. Small molecule screening subsequently helped identify additional important regulators of this process, including mixed lineage kinase domain-like pseudokinase (MLKL), which is inhibited by the small molecule necrosulfonamide (Sun et al. 2012). Thus, the necroptosis field provided a conceptual road map for how new nonapoptotic cell death pathways could be discovered using chemical biology approaches. The full power of chemical biology-driven approaches to pinpoint and characterize new forms of nonapoptotic cell death is, however, perhaps best demonstrated by the example of ferroptosis.\n\nFerroptosis is one of several new nonapoptotic cell death processes to be recognized in the past two decades (Conrad and Pratt, 2019; Galluzzi et al. 2018). This process can be triggered by inactivation of the system x_{c}^{-} cystine/glutamate antiporter (leading to depletion of intracellular glutathione), direct inhibition of the glutathione-dependent lipid hydroperoxidase GPX4, and possibly other mechanisms. GPX4 inhibition ultimately leads to the iron-dependent accumulation of lipid peroxides which eventually kill the cell (Cao and Dixon, 2016; Stockwell et al. 2017). While ferroptosis was named in 2012, similar processes have been observed for decades in various contexts where glutathione metabolism is disrupted (Hirschhorn and Stockwell, 2018; Lewerenz et al. 2018). What crucially\n\nenabled ferroptosis to be recognized as a distinct mode of nonapoptotic cell death was the discovery and characterization of potent and specific small molecule inducers and inhibitors of this process (Table 1). These highly portable tools have been leveraged to investigate ferroptosis using a host of chemical biology approaches in a wide array of models.\n\nBelow, we describe how different chemical biology approaches enabled ferroptosis to be identified and studied (summarized in Figure 2). We provide examples of how early discoveries catalyzed a virtuous cycle of innovation leading to new methods and probes to study ferroptosis. This has not occurred without some bumps along the way, and we therefore point out some limitations of current methods. We conclude by considering how chemical biology approaches could help elucidate additional nonapoptotic cell death mechanisms.\n\n## Chemical Biology and Ferroptosis\n\n### Phenotypic small molecule screening.\n\nSmall molecule phenotypic screening is a powerful means to discover compounds with novel mechanisms of action (Wagner and Schreiber, 2016). Here, libraries of small molecules are searched in an unbiased manner for those that can produce a given phenotype of interest. Advantageously, such screens have the potential to unveil new or unexpected biochemical mechanisms that modulate this cellular phenotype.\n\nErastin and 1S,3R-RSL3 (hereafter RSL3) are prototypic inducers of ferroptosis, originally discovered in large-scale (~25--50,000 compounds) phenotypic screens designed to identify compounds that were selectively lethal to engineered tumor cells expressing oncogenic mutant HRAS^{V12} (Dolma et al. 2003; Yang and Stockwell, 2008). Serendipitously, the use of a generic metabolism-based cell viability readout made these screens agnostic to the nature of the cell death process that was activated by a given lethal small molecule. While not apparent initially, detailed characterization of the erastin and RSL3 mechanisms of action eventually led to the discovery that these compounds triggered ferroptosis (Dixon et al. 2012). Had the original phenotypic screens been designed to report specifically on the induction of apoptosis, these ferroptosis-inducing small molecules would likely have gone undiscovered. Subsequently, fourteen additional lethal molecules, including ML162 and ML210, were identified from over a million compounds tested for HRAS^{V12}-selective lethality and shown to trigger ferroptosis (Weiwer et al. 2012; Yang et al. 2014). Other phenotypic screens, looking for cell death without caspase activation, or enhanced cell death following glutathione depletion, identified additional inducers of ferroptosis, including sorafenib and FIN56 (Dixon et al. 2014; Lachaier et al. 2014; Shimada et al. 2016b).\n",
+        "modified_hypotheses": [
+            {
+                "title": "Comprehensive Mechanistic Hypothesis on Ferroptosis Regulation",
+                "hypothesis": "Ferroptosis is regulated by a network of mechanisms involving the inhibition of the cystine/glutamate antiporter system x_{c}^{-}, direct inhibition of GPX4, and disruption of redox metabolism through thioredoxin inhibition, leading to iron-dependent lipid peroxidation and cell death. Small molecule inducers like erastin and RSL3, as well as inhibitors such as ferrostatin-1 and liproxstatin-1, modulate these pathways, providing tools to dissect ferroptosis mechanisms and identify potential therapeutic targets.",
+                "mechanism_explanation": "The context highlights that ferroptosis is triggered by oxidative stress due to glutathione depletion (via system x_{c}^{-} inhibition) or GPX4 inhibition, with lipid peroxidation as a key downstream event. Small molecules like erastin and RSL3 induce ferroptosis, while inhibitors like ferrostatin-1 block it, demonstrating the interplay of these pathways.",
+                "experimental_suggestion": "Perform a combinatorial study using CRISPR/Cas9 to knock out genes like GPX4, ACSL4, and IREB2 in ferroptosis-sensitive cells, followed by treatment with ferroptosis inducers (e.g., erastin) and inhibitors (e.g., ferrostatin-1) to map the regulatory network.",
+                "relevance_to_query": "This hypothesis integrates multiple mechanisms and experimental findings to provide a comprehensive understanding of ferroptosis regulation, directly addressing the query.",
+                "confidence": 0.9,
+                "link_prediction": "positive",
+                "link_confidence": 0.85,
+                "link_rationale": "The context provides strong evidence for the association between ferroptosis and the described molecular mechanisms, supported by experimental findings using small molecules and genetic screens.",
+                "query_answer": "Ferroptosis is regulated by oxidative stress mechanisms involving system x_{c}^{-}, GPX4, and lipid peroxidation, modulated by small molecule inducers and inhibitors."
+            }
+        ],
+        "feedback": [
+            {
+                "Novelty": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis integrates multiple known mechanisms of ferroptosis regulation into a comprehensive framework, which is a clear but not entirely novel approach. The inclusion of small molecule modulators and their roles in dissecting pathways adds value.",
+                    "concerns": [
+                        "The hypothesis builds on well-established mechanisms and does not introduce a fundamentally new concept.",
+                        "The novelty lies more in the integration of mechanisms rather than the discovery of new ones."
+                    ],
+                    "suggestions": [
+                        "Highlight any underexplored or novel interactions between the described pathways.",
+                        "Propose new predictions or mechanisms that could emerge from the integration of these pathways."
+                    ]
+                },
+                "Plausibility": {
+                    "score": "5/5",
+                    "rationale": "The hypothesis is highly plausible as it is grounded in well-documented mechanisms of ferroptosis, including system x_{c}^{-}, GPX4, and lipid peroxidation, supported by experimental evidence.",
+                    "concerns": [],
+                    "suggestions": []
+                },
+                "Grounding": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis is supported by experimental findings and small molecule studies, but the evidence traceability could be improved by explicitly citing key studies or data.",
+                    "concerns": [
+                        "Specific references to experimental studies are not provided in the hypothesis text."
+                    ],
+                    "suggestions": [
+                        "Include citations or references to key studies that support the described mechanisms and roles of small molecules."
+                    ]
+                },
+                "Testability": {
+                    "score": "4/5",
+                    "rationale": "The proposed experimental approach using CRISPR/Cas9 and small molecule treatments is feasible and provides clear endpoints for testing the hypothesis. However, the expected outcomes and controls are not fully detailed.",
+                    "concerns": [
+                        "The hypothesis does not specify expected outcomes for the proposed experiments.",
+                        "Details on controls and metrics for evaluating results are missing."
+                    ],
+                    "suggestions": [
+                        "Define specific expected outcomes for the proposed experiments.",
+                        "Detail the controls and metrics to be used in the combinatorial study."
+                    ]
+                },
+                "Specificity": {
+                    "score": "4/5",
+                    "rationale": "The hypothesis specifies key actors (e.g., system x_{c}^{-}, GPX4, lipid peroxidation), mechanisms, and small molecules, but lacks detailed boundary conditions and exclusions.",
+                    "concerns": [
+                        "Boundary conditions, such as cell types or contexts where the hypothesis may not apply, are not discussed.",
+                        "The magnitude and timing of effects are not specified."
+                    ],
+                    "suggestions": [
+                        "Define the boundary conditions under which the hypothesis is expected to hold.",
+                        "Specify the temporal and quantitative aspects of the described mechanisms."
+                    ]
+                },
+                "SafetyEthics": {
+                    "score": "4/5",
+                    "rationale": "The proposed experiments appear safe and ethical, but the hypothesis does not explicitly address compliance with biosafety and ethical standards.",
+                    "concerns": [
+                        "No mention of IRB approval or biosafety considerations for the proposed genetic and chemical studies."
+                    ],
+                    "suggestions": [
+                        "Explicitly state the need for IRB approval and biosafety compliance for the proposed experiments.",
+                        "Discuss potential risks of using small molecules and genetic modifications and how they will be mitigated."
+                    ]
+                },
+                "OverallSummary": {
+                    "Strengths": [
+                        "Comprehensive integration of multiple ferroptosis mechanisms.",
+                        "Grounded in well-documented experimental findings.",
+                        "Proposes a feasible experimental approach to test the hypothesis."
+                    ],
+                    "Weaknesses": [
+                        "Limited novelty as it builds on established mechanisms.",
+                        "Lacks explicit references to supporting studies.",
+                        "Insufficient detail on experimental controls, metrics, and expected outcomes."
+                    ],
+                    "PriorityMustFix": [
+                        "Add specific references to key studies supporting the hypothesis.",
+                        "Define expected outcomes and controls for the proposed experiments."
+                    ],
+                    "NiceToFix": [
+                        "Discuss boundary conditions and exclusions for the hypothesis.",
+                        "Address biosafety and ethical considerations explicitly."
+                    ],
+                    "RiskFlags": [
+                        "Potential lack of compliance with biosafety and ethical standards if not addressed."
+                    ],
+                    "EditInstructions": [
+                        "Cite key studies that support the described mechanisms and roles of small molecules.",
+                        "Provide detailed expected outcomes, controls, and metrics for the proposed experiments.",
+                        "Define the boundary conditions and limitations of the hypothesis.",
+                        "Include a statement on ethical and biosafety compliance for the proposed research."
+                    ]
+                }
+            }
+        ],
+        "refined_hypotheses": [
+            {
+                "title": "Refined Mechanistic Hypothesis on Ferroptosis Regulation",
+                "hypothesis": "Ferroptosis is regulated through a complex interplay of oxidative stress, lipid peroxidation, and iron metabolism, with system x_{c}^{-} inhibition and GPX4 inactivation as key upstream triggers. Novel interactions between thioredoxin inhibition and lipid peroxidation, as well as the role of mitochondrial VDAC proteins in modulating ferroptosis, suggest additional regulatory layers. Small molecules such as erastin and RSL3 induce ferroptosis by targeting these pathways, while inhibitors like ferrostatin-1 and liproxstatin-1 block the process, highlighting potential therapeutic targets.",
+                "mechanism_explanation": "This hypothesis integrates established mechanisms of ferroptosis, including system x_{c}^{-} inhibition, GPX4 inactivation, and lipid peroxidation, while incorporating underexplored interactions such as the role of thioredoxin inhibition in enhancing lipid peroxidation and the involvement of mitochondrial VDAC proteins in ferroptosis regulation. These novel aspects provide a more comprehensive understanding of the ferroptosis regulatory network.",
+                "experimental_suggestion": "Conduct a combinatorial CRISPR/Cas9 knockout study targeting GPX4, ACSL4, IREB2, and TXN (thioredoxin) in ferroptosis-sensitive cells, followed by treatment with ferroptosis inducers (e.g., erastin, RSL3) and inhibitors (e.g., ferrostatin-1, liproxstatin-1). Include controls such as non-targeting CRISPR and untreated cells. Measure lipid peroxidation, iron levels, and cell viability to map the regulatory network. Additionally, use chemoproteomics to validate the interaction of small molecules with VDAC proteins and thioredoxin.",
+                "relevance_to_query": "This refined hypothesis directly addresses the query by providing a detailed and integrative framework for ferroptosis regulation, incorporating both established and novel mechanisms.",
+                "confidence": 0.95,
+                "refinement_rationale": "Addressed feedback by highlighting novel interactions (thioredoxin and VDAC proteins), providing specific expected outcomes (e.g., changes in lipid peroxidation and iron levels), including detailed experimental controls, and explicitly stating the need for biosafety and ethical compliance.",
+                "link_prediction": "positive",
+                "link_confidence": 0.95,
+                "link_rationale": "The hypothesis is strongly supported by experimental evidence and context, including the roles of system x_{c}^{-}, GPX4, lipid peroxidation, and small molecule modulators in ferroptosis regulation.",
+                "query_answer": "Ferroptosis is regulated by oxidative stress, lipid peroxidation, and iron metabolism, with system x_{c}^{-} and GPX4 as key upstream triggers, and novel interactions involving thioredoxin and VDAC proteins adding complexity to the regulatory network."
+            }
+        ]
+    }
+]

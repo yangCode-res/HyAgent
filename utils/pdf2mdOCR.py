@@ -94,27 +94,26 @@ def ocr_from_urls(url_list):
 # ----------------------------------------------------
 # 📌 包装函数：输入 URL 列表 → 输出保存的 MD 文件路径列表
 # ----------------------------------------------------
-def ocr_to_md_files(url_list, save_dir="ocr_md_outputs"):
+def ocr_to_md_files(url_list, save_dir="ocr_md_outputs", start_index: int = 1):
     """
     输入: url_list = [url1, url2, ...]
     输出: md_paths = ["xxx/file1.md", "xxx/file2.md", ...]
+
+    start_index: 用于避免多次调用时文件名被覆盖，例如 start_index=3 会生成 ocr_result_3.md 起步。
     """
-    # 创建保存目录
     save_dir = pathlib.Path(save_dir)
     save_dir.mkdir(exist_ok=True, parents=True)
 
     md_paths = []
 
-    # 拿到 OCR 文本 (内部已去除参考文献)
     texts = ocr_from_urls(url_list)
 
-    for idx, text in enumerate(texts):
+    for idx, text in enumerate(texts, start=start_index):
         if text is None:
             md_paths.append(None)
             continue
 
-        # 生成文件名
-        md_path = save_dir / f"ocr_result_{idx+1}.md"
+        md_path = save_dir / f"ocr_result_{idx}.md"
         with open(md_path, "w", encoding="utf-8") as f:
             f.write(text)
 

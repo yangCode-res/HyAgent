@@ -262,6 +262,13 @@ class ReflectionAgent(Agent):
         return data
 
     def get_scores_only(self) -> Dict[str, str]:
+        # 若未运行 process，则尝试从文件加载；否则抛出明确错误
+        if self.hypotheses_data is None:
+            try:
+                self.hypotheses_data = self.load_hypotheses_from_file(self.memory)
+            except Exception as e:
+                raise ValueError(f"hypotheses_data is not initialized and failed to load: {e}")
+
         scores_dict={}
         score_keys = ["Novelty", "Plausibility", "Grounding", "Testability", "Specificity", "SafetyEthics"]
         for item_idx, item in enumerate(self.hypotheses_data):

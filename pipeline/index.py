@@ -149,13 +149,13 @@ class Pipeline:
         intention= response.get("main_intention", "") # type: ignore
         print("intention=>",intention)
         print("clarified_query=>",clarified_query)
-        # reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
-        # reviewfetcheragent.process(clarified_query)
+        reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
+        reviewfetcheragent.process(clarified_query, core_entities=core_entities)
 
         self.core_entities=core_entities
         self.intention=intention
-        self.pipeline=self.get_goOn(self.memory)
-        # self.pipeline=self.get_complete_pipeline()
+        # self.pipeline=self.get_goOn(self.memory)
+        self.pipeline=self.get_complete_pipeline()
         for agent in self.pipeline:
             print(f"Running agent: {agent.__class__.__name__}")
             agent.process()
@@ -164,3 +164,14 @@ class Pipeline:
         scores=evaluateAgent.get_scores_only()
         self.scores=scores
         open("scores.json","w").write(json.dumps(self.scores,indent=4)) 
+
+    def run_goOn(self,memory:Optional[Memory]=None):
+        self.pipeline=self.get_goOn(self.memory)
+        for agent in self.pipeline:
+            print(f"Running agent: {agent.__class__.__name__}")
+            agent.process()
+            self.memory.dump_json("./snapshots")
+        evaluateAgent=ReflectionAgent(client=self.client,model_name=self.reason_model)
+        scores=evaluateAgent.get_scores_only()
+        self.scores=scores
+        open("scores.json","w").write(json.dumps(self.scores,indent=4))

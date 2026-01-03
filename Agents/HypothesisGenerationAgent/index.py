@@ -43,14 +43,7 @@ class HypothesisGenerationAgent(Agent):
         that leverage the entities and relations along this path.
         Your another task is to according to several given generated hypotheses and their contexts,
         generate a more comprehensive hypothesis.
-        While generating hypotheses, you must also:
-        - Perform a link-prediction style triage for the queried entity pair with three labels: positive, negative, no_relation.
-        - Provide a one-sentence direct answer to the user query using the path/context.
-
-        Label meaning:
-        - positive: evidence suggests presence/activation/association between the queried entities.
-        - negative: evidence suggests inhibition/absence/opposite direction.
-        - no_relation: insufficient or conflicting evidence.
+        While generating hypotheses, also provide a one-sentence direct answer to the user query using the path/context.
 
         The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
         The input format is as follows:
@@ -84,9 +77,6 @@ class HypothesisGenerationAgent(Agent):
             "experimental_suggestion": "a concise, concrete experimental idea to test it",
             "relevance_to_query": "why this hypothesis is relevant to the user query",
             "confidence": 0.0,
-            "link_prediction": "positive | negative | no_relation",
-            "link_confidence": 0.0,
-            "link_rationale": "brief rationale citing path/context",
             "query_answer": "one-sentence direct answer to the user query"
             }
         ]
@@ -115,13 +105,7 @@ class HypothesisGenerationAgent(Agent):
     Given a user query and a mechanistic path extracted from a biomedical knowledge graph,
     your task is to propose plausible, mechanistic, and experimentally testable hypotheses
     that leverage the entities and relations along this path.
-    You must also perform a link-prediction style classification for the queried entity pair with labels: positive, negative, no_relation,
-    and provide a concise direct answer to the user query based on the path/context.
-
-    Label meaning:
-    - positive: evidence suggests presence/activation/association between the queried entities.
-    - negative: evidence suggests inhibition/absence/opposite direction.
-    - no_relation: insufficient or conflicting evidence.
+    You must also provide a concise direct answer to the user query based on the path/context.
 
     The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
     The input format is as follows:
@@ -144,9 +128,6 @@ class HypothesisGenerationAgent(Agent):
         "experimental_suggestion": "a concise, concrete experimental idea to test it",
         "relevance_to_query": "why this hypothesis is relevant to the user query",
         "confidence": 0.0,
-        "link_prediction": "positive | negative | no_relation",
-        "link_confidence": 0.0,
-        "link_rationale": "brief rationale citing path/context",
         "query_answer": "one-sentence direct answer to the user query"
         }}
     ]
@@ -159,13 +140,7 @@ class HypothesisGenerationAgent(Agent):
             system_prompt = f"""
     You are a biomedical AI4Science assistant.
     Your task is to generate a more comprehensive hypothesis based on several given hypotheses and their contexts.
-    You must also perform a link-prediction style classification for the queried entity pair with labels: positive, negative, no_relation,
-    and provide a concise direct answer to the user query based on the provided hypotheses and context.
-
-    Label meaning:
-    - positive: evidence suggests presence/activation/association between the queried entities.
-    - negative: evidence suggests inhibition/absence/opposite direction.
-    - no_relation: insufficient or conflicting evidence.
+    You must also provide a concise direct answer to the user query based on the provided hypotheses and context.
 
     The input will be a JSON payload containing the user query and a list of given hypotheses, along with their contexts.
     The input format is as follows:
@@ -187,9 +162,6 @@ class HypothesisGenerationAgent(Agent):
         "experimental_suggestion": "a concise, concrete experimental idea to test it",
         "relevance_to_query": "why this hypothesis is relevant to the user query",
         "confidence": 0.0,
-        "link_prediction": "positive | negative | no_relation",
-        "link_confidence": 0.0,
-        "link_rationale": "brief rationale citing path/context",
         "query_answer": "one-sentence direct answer to the user query"
         }}
     ]
@@ -304,9 +276,9 @@ class HypothesisGenerationAgent(Agent):
               }
           之后你可以视情况把这些结果再写回 Memory。
         """
-        all_paths:Dict[str,List[Any]] = self.memory.paths
+        all_paths: Dict[str, List[Any]] = getattr(self.memory, "paths", {}) or {}
         if not all_paths:
-            self.logger.warning("[HypothesisGeneration] no extracted paths found in memory.")
+            self.logger.warning("[HypothesisGeneration] no extracted paths found in memory (memory.paths missing or empty).")
             return []
 
         results: List[Dict[str, Any]] = []

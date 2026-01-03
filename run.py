@@ -4,6 +4,9 @@ import warnings
 from copy import copy
 
 from Agents.Hypotheses_Edit.index import HypothesisEditAgent
+from Agents.ReflectionAgent.index import ReflectionAgent
+from Agents.HypothesisGenerationAgent.index import HypothesisGenerationAgent
+from Agents.TruthHypo.index import TruthHypoAgent
 from Memory.index import load_memory_from_json
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -18,11 +21,23 @@ if __name__ == "__main__":
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     model_name=os.environ.get("OPENAI_MODEL")
-    memory=load_memory_from_json("/data/dongkun/snapshots/memory-20260103-145943.json")
+    # open_ai_api="sk-zk2a02d4993d9ed46ed0fc7905bd75ac92267b746a9f2f8c"
+    # open_ai_url="https://api.zhizengzeng.com/v1"
+    # model_name="gpt-4o"
+    # memory=load_memory_from_json("/data/dongkun/snapshots/memory-20260103-195134.json")
+    memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
-    user_query="Can we hypothesize the potential relation between Gene CLP (12950) and Gene TNF-alpha (21926)? The final hypothesis can be one of ['positive_correlate', 'negative_correlate', 'no_relation']."
+    user_query="Can we hypothesize the potential relation between Gene MAO-B (4129) and Gene STC2 (8614)? The final hypothesis can be one of ['positive_correlate', 'negative_correlate', 'no_relation']."
+    truthHypoAgent=TruthHypoAgent(client,model_name,user_query,memory=memory)
+    result=truthHypoAgent.process()
+    logger.info(f"TruthHypoAgent result: {result}")
     # pipeline=Pipeline(user_query,client,model_name,memory)
-    # pipeline.run()
-    hypothesis_edit_agent=HypothesisEditAgent(client,model_name,user_query,memory)
-    hypothesis_edit_agent.process()
+    # # # pipeline.run()
+    # pipeline.run_goOn(memory=memory)
+    # hypothesis_agent=HypothesisGenerationAgent(client,model_name,user_query,memory=memory)
+    # hypothesis_agent.process()
+    # reflection_agent=ReflectionAgent(client,model_name,memory=memory)
+    # reflection_agent.process()
+    # hypothesis_edit_agent=HypothesisEditAgent(client,model_name,user_query,memory=memory)
+    # hypothesis_edit_agent.process()

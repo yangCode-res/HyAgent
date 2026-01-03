@@ -1,7 +1,7 @@
 import os
 import sys
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from dotenv import find_dotenv, load_dotenv
 from metapub import FindIt, PubMedFetcher
@@ -32,37 +32,118 @@ class ReviewFetcherAgent(Agent):
         self.k=2
         super().__init__(client,model_name,self.system_prompt)
     
-    def process(self, user_query: str, save_dir: str | None = None):
+    def process(self, user_query: str, core_entities: Optional[List[str]] = None, save_dir: str | None = None):
+        core_entities = core_entities or []
         strategy = self.generateMeSHStrategy(user_query)
         reviews_metadata = self.fetchReviews(strategy, maxlen=30)
-        selected_reviews = self.selectReviews(reviews_metadata, query=user_query, topk=10)
-        review_urls = []
-        for pmid in selected_reviews:
-            try:
-                review_urls.append(FindIt(pmid).url)
-            except:
-                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
-        self.logger.debug(f"review_urls=> {review_urls}")
-        review_urls=[url for url in review_urls if url is not None]
-        # 保存 OCR→MD 到指定目录，默认使用项目根下的 ocr_md_outputs
-        md_outputs = ocr_to_md_files(review_urls, save_dir=save_dir or "ocr_md_outputs")
-        # md_outputs=["/home/nas3/biod/dongkun/HyAgent/ocr_md_outputs/ocr_result_1.md"]
-        # 过滤掉 None 值（OCR 失败的情况）
-        md_outputs = [md for md in md_outputs if md is not None]
-        self.logger.debug(f"md_outputs=> {md_outputs}")
-        for md_output in md_outputs[0:self.k]:
-            paragraphs=split_md_by_mixed_count(md_output)
+        # 选择更多候选以应对下载/OCR 失败，后续仅保留 self.k 篇成功的 MD
+        candidate_topk = self.k
+        selected_reviews = self.selectReviews(
+            reviews_metadata, query=user_query, core_entities=core_entities, topk=candidate_topk, require_all=True
+        )
 
-            # paragraphs=split_md_by_h2(md_output)
-            for id,content in paragraphs.items():
-                for i,content_chunk in enumerate(content):
-                    subgraph_id=f"{id}_{i}"
-                    meta={"text":content_chunk,"source":id}
-                    s = Subgraph(subgraph_id=subgraph_id,meta=meta)
+        # 如果没有共现，保留一个覆盖最多的 A''，围绕缺失实体再搜索一次，补一篇 B'
+        if not selected_reviews and core_entities:
+            # 选出覆盖最多核心实体的锚点文献 A''
+            def _matched_set(review):
+                text = f"{review.title}\n{review.abstract}".lower()
+                return {ent for ent in core_entities if ent.lower() in text}
+
+            scored = [
+                (review, len(_matched_set(review)), _matched_set(review))
+                for review in reviews_metadata
+            ]
+            scored = [s for s in scored if s[1] > 0]
+            if not scored:
+                self.logger.warning(
+                    "No reviews mention any key entity; aborting fetch."
+                )
+                sys.exit(1)
+
+            scored.sort(key=lambda x: x[1], reverse=True)
+            anchor_review, _, anchor_set = scored[0]
+            anchor_pmid = str(anchor_review.pmid)
+            missing_entities = [ent for ent in core_entities if ent not in anchor_set]
+
+            # 针对缺失实体重新拉一轮文献，带上原 query 作为背景
+            if missing_entities:
+                missing_query = user_query + " " + " ".join(missing_entities)
+                missing_strategy = self.generateMeSHStrategy(missing_query)
+                missing_meta = self.fetchReviews(missing_strategy, maxlen=20)
+
+                def _has_missing(review):
+                    text = f"{review.title}\n{review.abstract}".lower()
+                    return any(m.lower() in text for m in missing_entities)
+
+                missing_filtered = [r for r in missing_meta if _has_missing(r) and str(r.pmid) != anchor_pmid]
+                fallback_pmids = [str(r.pmid) for r in missing_filtered][: max(0, self.k - 1)]
+
+                # 如果补不到，退回原始候选里“缺失实体”单方覆盖的文献
+                if not fallback_pmids:
+                    def _covers_missing_in_original(review):
+                        text = f"{review.title}\n{review.abstract}".lower()
+                        return any(m.lower() in text for m in missing_entities)
+
+                    from_original = [r for r in reviews_metadata if _covers_missing_in_original(r) and str(r.pmid) != anchor_pmid]
+                    if from_original:
+                        fallback_pmids = [str(from_original[0].pmid)]
+            else:
+                fallback_pmids = []
+
+            selected_reviews = [anchor_pmid] + fallback_pmids
+
+            if len(selected_reviews) < self.k:
+                self.logger.warning(
+                    f"Only found anchor + {len(selected_reviews)-1} missing-entity reviews; expected {self.k}."
+                )
+
+
+        md_outputs: List[str] = []
+        idx_offset = 0
+        for pmid in selected_reviews:
+            if len(md_outputs) >= self.k:
+                break
+            try:
+                url = FindIt(pmid).url
+            except Exception:
+                self.logger.warning(f"Failed to fetch URL for PMID: {pmid}")
+                continue
+            if not url:
+                continue
+
+            # 针对单个 URL 进行 OCR→MD，避免一次失败影响全部；通过 start_index 避免文件名覆盖
+            md_list = ocr_to_md_files(
+                [url], save_dir=save_dir or "ocr_md_outputs", start_index=idx_offset + 1
+            )
+            md_list = [md for md in md_list if md]
+            if not md_list:
+                self.logger.warning(f"OCR failed for PMID: {pmid}, url: {url}")
+                continue
+
+            md_outputs.append(md_list[0])
+            idx_offset += 1
+
+        if len(md_outputs) < self.k:
+            self.logger.warning(
+                f"Only generated {len(md_outputs)} MD files (expected {self.k})."
+            )
+
+        self.logger.debug(f"md_outputs=> {md_outputs}")
+
+        for md_output in md_outputs[: self.k]:
+            paragraphs = split_md_by_mixed_count(md_output)
+
+            for id, content in paragraphs.items():
+                for i, content_chunk in enumerate(content):
+                    subgraph_id = f"{id}_{i}"
+                    meta = {"text": content_chunk, "source": id}
+                    s = Subgraph(subgraph_id=subgraph_id, meta=meta)
                     self.memory.register_subgraph(s)
-        if len(review_urls) == 0:
-            self.logger.warning("No review URLs found")
+
+        if len(md_outputs) == 0:
+            self.logger.warning("No review URLs produced valid MD files")
             sys.exit(1)
+
         # 返回生成的 MD 文件路径，便于上层批处理逻辑组织输出
         return md_outputs
 
@@ -88,16 +169,16 @@ As an expert Biomedical Information Specialist, generate a high-recall PubMed se
 **Step-by-Step Construction:**
 1. **Concept 1 (Intervention/Exposure):** Expand with MeSH + Keywords + Brand Names + CAS/Drug Codes.
 2. **Concept 2 (Outcome/Main Topic):** Expand with MeSH + Keywords (Synonyms).
-3. **Combine:** (Concept 1) AND (Concept 2).
+3. **Combine:** (Concept 1) OR (Concept 2).
 4. **Filters:**
    - Apply "Review"[Publication Type] OR "Systematic Review"[Publication Type].
-   - Apply Date Range: "2018/01/01"[Date - Publication] : "2023/12/31"[Date - Publication] (Last 5+ years).
+   - Apply Date Range: "2013/01/01"[Date - Publication] : "2023/12/31"[Date - Publication] (Last 5+ years).
 
 **Output format:**
 Return ONLY the raw search query string. No markdown, no explanations.
 """
         result=self.call_llm(prompt)
-        self.logger.debug(f"mesh strategy=> {result}")
+        self.logger.info(f"mesh strategy=> {result}")
         return str(result)
     
     def fetchReviews(self,search_strategy:str,maxlen=1):
@@ -105,7 +186,7 @@ Return ONLY the raw search query string. No markdown, no explanations.
         reviews_metadata = [self.fetch.article_by_pmid(pmid) for pmid in pmids]
         return reviews_metadata
     
-    def selectReviews(self,reviews_metadata, query='',topk=1) -> List:
+    def selectReviews(self,reviews_metadata, query='', core_entities: Optional[List[str]] = None, topk=2, require_all: bool = False) -> List:
         review_str='\n'.join(self.format_review(review) for review in reviews_metadata)
         self.logger.debug(f"review_str=> {review_str}")
         selection_prompt = f"""
@@ -120,12 +201,35 @@ Return ONLY the raw search query string. No markdown, no explanations.
         5. Select the reviews that most caters to the user query.
         6. You should also take the richness of the review(identified as the range of pages here however the page range is not always available) into consideration so that we could build a knowledge graph with more triples.
         If the page range is not available, you should put other requirements first.
+        7. Most importantly, ensure the key entities would have the potential to have connections according to the selected reviews(If there is no possibility to achieve this, return no relation).
         Please return the selected {topk} review pmids in a comma-separated format without any additional description.
+
+        NOTE: key entities: {core_entities}. All key entities MUST co-occur in the abstracts you select 
+        (e.g. You opted for two abstacts,there are two situations that meet our need:
+        1. for core entity A and B A appears in passage A',B appears in passage B',and A and B have the potential to link each other. 
+        2.Both of them appear in one abstract.) 
+        Rank among them per criteria above.
+        e.g. The query might be "What Can we hypothesize the potential relation between A and B?"
+        The priority of the reviews should be:
+        1. Both A and B are covered in the review.
+        2. Either A or B is covered in the review.
+        3. None of A and B is covered in the review.
+        However, you should ensure the selected reviews could cover both A and B as much as possible.
         """
         selected_str = str(self.call_llm(selection_prompt))
         selected_str = selected_str.replace("[", "").replace("]", "")
-        selected_5 = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
-        return selected_5
+        selected = [pid.strip() for pid in selected_str.split(",") if pid.strip()]
+
+        # 如果模型返回不足 topk，使用候选列表顺序补齐
+        pmid_order = [str(article.pmid) for article in reviews_metadata]
+        for pmid in pmid_order:
+            if len(selected) >= topk:
+                break
+            if pmid and pmid not in selected:
+                selected.append(pmid)
+
+        # 截断确保刚好 topk 条
+        return selected[:topk]
     def format_review(self,article):#将标题、日期、引用量、摘要、文章id喂给模型
         return f"""
         title: {article.title}
@@ -148,6 +252,6 @@ if __name__ == "__main__":
     model_name=os.environ.get("OPENAI_MODEL")
     client = OpenAI(api_key=open_ai_api, base_url=open_ai_url)
     agent = ReviewFetcherAgent(client, model_name=model_name)
-    user_query = "What are the latest advancements in CRISPR-Cas9 gene editing technology for treating genetic disorders?"
-    agent.process(user_query)
-    agent.memory.dump_json("./snapshots")
+    strategy="""("Monoamine Oxidase"[Mesh] OR "Monoamine Oxidase B"[Mesh] OR "MAOB"[tiab] OR "MAO-B"[tiab] OR "MAOB gene"[tiab] OR "MAO-B gene"[tiab] OR "Gene MAO-B"[tiab] OR "4129"[tiab]) OR ("Stanniocalcin-2"[Mesh] OR "STC2"[tiab] OR "STC2 gene"[tiab] OR "Gene STC2"[tiab] OR "8614"[tiab]) AND ("Review"[Publication Type] OR "Systematic Review"[Publication Type]) AND ("2013/01/01"[Date - Publication] : "2023/12/31"[Date - Publication])"""
+    review_data=agent.fetchReviews(strategy,maxlen=5)
+    print("fetched review data:",review_data)
