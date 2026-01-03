@@ -21,10 +21,8 @@ if __name__ == "__main__":
     open_ai_api=os.environ.get("OPENAI_API_KEY")
     open_ai_url=os.environ.get("OPENAI_API_BASE_URL")
     model_name=os.environ.get("OPENAI_MODEL")
-    # open_ai_api="sk-zk2a02d4993d9ed46ed0fc7905bd75ac92267b746a9f2f8c"
-    # open_ai_url="https://api.zhizengzeng.com/v1"
-    # model_name="gpt-4o"
     # memory=load_memory_from_json("/data/dongkun/snapshots/memory-20260103-195134.json")
+    
     memory=get_memory()
     logger=get_global_logger()
     client=OpenAI(api_key=open_ai_api,base_url=open_ai_url)
