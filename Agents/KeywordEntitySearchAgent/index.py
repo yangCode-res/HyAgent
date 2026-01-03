@@ -69,9 +69,9 @@ class KeywordEntitySearchAgent(Agent):
         # 每个实体对应多个 surface：(surface_text, embedding)
         # 每个实体对应多个 surface：(surface_text, embedding, is_unknown)
         self.entity_surfaces: Dict[str, List[Tuple[str, np.ndarray, bool]]] = {}
-
+        self.flag = False
         self._load_biobert()
-        self._build_entity_index()
+        # self._build_entity_index()
         # 默认权重（两侧都不是 UNK 时）
         self.bert_weight: float = 0.7
         self.string_weight: float = 0.3
@@ -425,6 +425,9 @@ class KeywordEntitySearchAgent(Agent):
         Dict[str, List[float]],
         Dict[str, List[Tuple[KGEntity, float, str, str]]],
     ]:
+        if self.flag == False:
+            self._build_entity_index()
+            self.flag = True
         """
         返回：
           kw2best_entities: {keyword: [KGEntity, ...]}
