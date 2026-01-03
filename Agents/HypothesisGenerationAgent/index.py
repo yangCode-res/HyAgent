@@ -43,6 +43,15 @@ class HypothesisGenerationAgent(Agent):
         that leverage the entities and relations along this path.
         Your another task is to according to several given generated hypotheses and their contexts,
         generate a more comprehensive hypothesis.
+        While generating hypotheses, you must also:
+        - Perform a link-prediction style triage for the queried entity pair with three labels: positive, negative, no_relation.
+        - Provide a one-sentence direct answer to the user query using the path/context.
+
+        Label meaning:
+        - positive: evidence suggests presence/activation/association between the queried entities.
+        - negative: evidence suggests inhibition/absence/opposite direction.
+        - no_relation: insufficient or conflicting evidence.
+
         The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
         The input format is as follows:
         Task 1:
@@ -74,7 +83,11 @@ class HypothesisGenerationAgent(Agent):
             "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
             "experimental_suggestion": "a concise, concrete experimental idea to test it",
             "relevance_to_query": "why this hypothesis is relevant to the user query",
-            "confidence": 0.0
+            "confidence": 0.0,
+            "link_prediction": "positive | negative | no_relation",
+            "link_confidence": 0.0,
+            "link_rationale": "brief rationale citing path/context",
+            "query_answer": "one-sentence direct answer to the user query"
             }
         ]
         }
@@ -102,6 +115,14 @@ class HypothesisGenerationAgent(Agent):
     Given a user query and a mechanistic path extracted from a biomedical knowledge graph,
     your task is to propose plausible, mechanistic, and experimentally testable hypotheses
     that leverage the entities and relations along this path.
+    You must also perform a link-prediction style classification for the queried entity pair with labels: positive, negative, no_relation,
+    and provide a concise direct answer to the user query based on the path/context.
+
+    Label meaning:
+    - positive: evidence suggests presence/activation/association between the queried entities.
+    - negative: evidence suggests inhibition/absence/opposite direction.
+    - no_relation: insufficient or conflicting evidence.
+
     The input will be a JSON payload containing the user query and a single KG path, along with the context of the path.
     The input format is as follows:
     Task 1:
@@ -122,7 +143,11 @@ class HypothesisGenerationAgent(Agent):
         "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
         "experimental_suggestion": "a concise, concrete experimental idea to test it",
         "relevance_to_query": "why this hypothesis is relevant to the user query",
-        "confidence": 0.0
+        "confidence": 0.0,
+        "link_prediction": "positive | negative | no_relation",
+        "link_confidence": 0.0,
+        "link_rationale": "brief rationale citing path/context",
+        "query_answer": "one-sentence direct answer to the user query"
         }}
     ]
     }}
@@ -134,6 +159,14 @@ class HypothesisGenerationAgent(Agent):
             system_prompt = f"""
     You are a biomedical AI4Science assistant.
     Your task is to generate a more comprehensive hypothesis based on several given hypotheses and their contexts.
+    You must also perform a link-prediction style classification for the queried entity pair with labels: positive, negative, no_relation,
+    and provide a concise direct answer to the user query based on the provided hypotheses and context.
+
+    Label meaning:
+    - positive: evidence suggests presence/activation/association between the queried entities.
+    - negative: evidence suggests inhibition/absence/opposite direction.
+    - no_relation: insufficient or conflicting evidence.
+
     The input will be a JSON payload containing the user query and a list of given hypotheses, along with their contexts.
     The input format is as follows:
     Task 2:
@@ -153,7 +186,11 @@ class HypothesisGenerationAgent(Agent):
         "mechanism_explanation": "how the entities/relations in the path support this hypothesis",
         "experimental_suggestion": "a concise, concrete experimental idea to test it",
         "relevance_to_query": "why this hypothesis is relevant to the user query",
-        "confidence": 0.0
+        "confidence": 0.0,
+        "link_prediction": "positive | negative | no_relation",
+        "link_confidence": 0.0,
+        "link_rationale": "brief rationale citing path/context",
+        "query_answer": "one-sentence direct answer to the user query"
         }}
     ]
     }}
@@ -318,17 +355,24 @@ class HypothesisGenerationAgent(Agent):
                     contexts+=self.memory.subgraphs[source].meta['text']+"\n"
                 modified_hyps = self.modify_hypothesis(given_hypotheses, contexts)
                 result["modified_hypotheses"] = modified_hyps
-        time=datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        with open(f'output/output_hypothesis{time}.json', 'w', encoding='utf-8') as f:
-                    json.dump(
-                        results, 
-                        f, 
-                        ensure_ascii=False, 
-                        indent=4, 
-                        # 只需要这一行 lambda
-                        default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
-                    )
+        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        output_dir = os.path.normpath(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "output")
+        )
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, f"output_hypothesis{timestamp}.json")
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(
+                results,
+                f,
+                ensure_ascii=False,
+                indent=4,
+                # 只需要这一行 lambda
+                default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
+            )
+
         if self.memory:
-            self.memory.add_hypothesesDir(f'output/output_hypothesis{time}.json')
+            self.memory.add_hypothesesDir(output_path)
         return results
         

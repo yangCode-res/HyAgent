@@ -149,12 +149,13 @@ class Pipeline:
         intention= response.get("main_intention", "") # type: ignore
         print("intention=>",intention)
         print("clarified_query=>",clarified_query)
-        reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
-        reviewfetcheragent.process(clarified_query)
+        # reviewfetcheragent = ReviewFetcherAgent(self.client, self.model_name) # type: ignore
+        # reviewfetcheragent.process(clarified_query)
 
         self.core_entities=core_entities
         self.intention=intention
-        self.pipeline=self.get_complete_pipeline()
+        self.pipeline=self.get_goOn(self.memory)
+        # self.pipeline=self.get_complete_pipeline()
         for agent in self.pipeline:
             print(f"Running agent: {agent.__class__.__name__}")
             agent.process()

@@ -38,6 +38,12 @@ class HypothesisEditAgent(Agent):
     
     Your task is to REVISE and IMPROVE a previously generated scientific hypothesis based on specific feedback or critique provided.
     You must address the issues raised in the feedback (e.g., lack of mechanistic detail, weak experimental design, logical gaps) while maintaining the relevance to the user's original query.
+    You must ALSO provide a final link-prediction style裁定 for the queried实体对 (three labels: positive, negative, no_relation) and a one-sentence direct answer to the user query.
+
+    Label meaning:
+    - positive: evidence suggests presence/activation/association between the queried entities.
+    - negative: evidence suggests inhibition/absence/opposite direction.
+    - no_relation: insufficient or conflicting evidence.
 
     The input will be a JSON payload containing:
     1. The original user query.
@@ -77,7 +83,11 @@ class HypothesisEditAgent(Agent):
         "experimental_suggestion": "REVISED experimental idea (concrete, including controls/methods if requested)",
         "relevance_to_query": "Reiteration of relevance, updated if necessary",
         "confidence": 0.0,
-        "refinement_rationale": "Briefly explain how you addressed the feedback (e.g., 'Added details on phosphorylation pathway as requested')"
+        "refinement_rationale": "Briefly explain how you addressed the feedback (e.g., 'Added details on phosphorylation pathway as requested')",
+        "link_prediction": "positive | negative | no_relation",
+        "link_confidence": 0.0,
+        "link_rationale": "brief rationale citing path/context/feedback",
+        "query_answer": "one-sentence direct answer to the user query"
         }}
     ]
     }}
@@ -141,8 +151,14 @@ class HypothesisEditAgent(Agent):
                 self.logger.error(
                     f"[HypothesisGeneration][LLM process] JSON parse failed for hypothesis: {hypothesis.get('title', '')}, error: {e}"
                 )
-        timestamp=datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-        with open(f'output/output_{timestamp}_modified.json', 'w', encoding='utf-8') as f:
+        timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        output_dir = os.path.normpath(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "output")
+        )
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, f"output_{timestamp}_modified.json")
+
+        with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(
                 self.original_hypotheses, 
                 f, 
@@ -152,7 +168,7 @@ class HypothesisEditAgent(Agent):
                 default=lambda o: o.to_dict() if hasattr(o, 'to_dict') else str(o)
             )
         if self.memory:
-            self.memory.add_hypothesesDir(f'output/output_{timestamp}_modified.json')
+            self.memory.add_hypothesesDir(output_path)
         return self.original_hypotheses
     @staticmethod
     def load_hypotheses_from_file(memory: Memory) -> List[Dict[str, Any]]:

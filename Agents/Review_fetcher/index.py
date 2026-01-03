@@ -91,7 +91,7 @@ As an expert Biomedical Information Specialist, generate a high-recall PubMed se
 3. **Combine:** (Concept 1) AND (Concept 2).
 4. **Filters:**
    - Apply "Review"[Publication Type] OR "Systematic Review"[Publication Type].
-   - Apply Date Range: "2020/01/01"[Date - Publication] : "3000"[Date - Publication] (Last 5+ years).
+   - Apply Date Range: "2018/01/01"[Date - Publication] : "2023/12/31"[Date - Publication] (Last 5+ years).
 
 **Output format:**
 Return ONLY the raw search query string. No markdown, no explanations.
